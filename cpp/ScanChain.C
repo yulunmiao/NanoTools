@@ -29,8 +29,6 @@ struct debugger { template<typename T> debugger& operator , (const T& v) { cerr<
     #define debug(args...)
 #endif
 
-
-
 using namespace std;
 using namespace tas;
 
@@ -64,9 +62,6 @@ int ScanChain(TChain *ch) {
         // tree->SetCacheSize(30*1024*1024);
         // tree->SetCacheLearnEntries(100);
 
-        // tree->SetCacheSize(0);
-        // tree->SetCacheLearnEntries(1);
-
         for( unsigned int event = 0; event < tree->GetEntriesFast(); ++event) {
             nt.GetEntry(event);
             nEventsTotal++;
@@ -96,9 +91,7 @@ int ScanChain(TChain *ch) {
                 njets++;
             }
 
-
             auto leps = getLeptons();
-
             auto result = getBestHyp(leps);
             int hyp_class = result.first;
             Hyp best_hyp = result.second;
@@ -111,11 +104,9 @@ int ScanChain(TChain *ch) {
 
             if (lep1.pt() < 25 || lep2.pt() < 20) continue;
 
-            // float met = MET_pt();
-            float met = GetF("MET_pt");
+            float met = MET_pt();
 
             bool passfilt = passesMETfiltersMoriond17(false);
-
 
             debug(passfilt,nbtags,met,njets,nleps);
 

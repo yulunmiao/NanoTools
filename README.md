@@ -1,10 +1,13 @@
 
 ## This is a WIP of course
 
-### Environment
+### Environment & setup
 ```bash
 cd /cvmfs/cms.cern.ch/slc6_amd64_gcc530/cms/cmssw/CMSSW_9_2_8
 cmsenv
+cd -
+cd NanoCORE
+make -j8 # takes about 90 seconds
 cd -
 ```
 
@@ -13,6 +16,7 @@ cd -
 pip install uproot --user
 pip install backports.lzma --user
 ```
+
 
 ### Test file
 ```bash

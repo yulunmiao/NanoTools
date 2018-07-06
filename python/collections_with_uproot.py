@@ -34,6 +34,7 @@ Jets = Collection(t.arrays(["Jet_pt","Jet_eta","Jet_phi","Jet_mass","Jet_cleanma
 Electrons = Collection(t.arrays(["Electron_pt","Electron_eta","Electron_phi","Electron_mass","Electron_jetIdx","Electron_cutBased","Electron_miniPFRelIso_all"]))
 Muons = Collection(t.arrays(["Muon_pt","Muon_eta","Muon_phi","Muon_mass","Muon_jetIdx","Muon_mediumId","Muon_miniPFRelIso_all"]))
 MET = Collection(t.arrays(["MET_pt"]))
+print(Jets)
 
 @jit(numba.float64(numba.float64,numba.float64))
 def dPhi(phi1,phi2):

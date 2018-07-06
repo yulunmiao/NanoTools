@@ -1,0 +1,8 @@
+*.pdf
+*.root
+*.pcm
+*.o
+*.d
+*.so
+tags
+.gitignore

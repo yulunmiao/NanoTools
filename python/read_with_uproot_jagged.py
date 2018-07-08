@@ -1,15 +1,19 @@
 import time
+import os
 
 import numpy as np
 import uproot
 
-f = uproot.open("../508B6DBB-9742-E811-BA65-A4BF0112BCB0.root")
+# f = uproot.open("../508B6DBB-9742-E811-BA65-A4BF0112BCB0.root")
+f = uproot.open("../6204E92D-C712-E811-AF42-E0071B740D80.root")
 t = f["Events"]
 
+
+# # for small files, multithreading doesn't help due to overhead
 # import concurrent.futures
 # executor = concurrent.futures.ThreadPoolExecutor(4)
 
-# Read all the branches, at ~0.25MHz
+# Read the branches -- happens at ~0.35MHz
 t0 = time.time()
 info = t.arrays(
         ["Jet_pt","Electron_pt","Electron_jetIdx","Electron_mvaTTH"],
@@ -35,7 +39,7 @@ matched_jpts = jagged_operation(
         jagged_arr=jpts,
         jagged_idxs=jidxs,
         masks=jidxs.content>=0)
-# compute pt ratio -- happens at ~6MHz
+# compute pt ratio -- happens at ~10MHz
 good = matched_jpts>0
 ptratios = epts.content/matched_jpts
 mvas = mvas.content[good]

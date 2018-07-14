@@ -4,6 +4,8 @@
 #include "TTree.h"
 #include "TChain.h"
 #include "TTreeCache.h"
+#include "TTreeCacheUnzip.h"
+#include "TTreePerfStats.h"
 
 #include "../NanoCORE/Nano.h"
 #include "../NanoCORE/SSSelections.cc"
@@ -16,6 +18,7 @@
 #define SUM(vec) std::accumulate((vec).begin(), (vec).end(), 0);
 #define SUM_GT(vec,num) std::accumulate((vec).begin(), (vec).end(), 0, [](float x,float y){return ((y > (num)) ? x+y : x); });
 #define COUNT_GT(vec,num) std::count_if((vec).begin(), (vec).end(), [](float x) { return x > (num); });
+#define COUNT_LT(vec,num) std::count_if((vec).begin(), (vec).end(), [](float x) { return x < (num); });
 
 #define H1(name,nbins,low,high) TH1F *h_##name = new TH1F(#name,#name,nbins,low,high);
 
@@ -36,6 +39,7 @@ int ScanChain(TChain *ch) {
 
     TFile* f1 = new TFile("output.root", "RECREATE");
     H1(mll,30,0,200);
+    H1(type,4,0,4);
     H1(hyp_class,6,0.5,6.5);
     H1(filt,2,0,2);
     H1(met,50,0,300);
@@ -52,20 +56,34 @@ int ScanChain(TChain *ch) {
     TIter fileIter(listOfFiles);
     tqdm bar;
 
+    // set configuration parameters
+    gconf.year = 2017;
+
+    // TTreeCacheUnzip::SetParallelUnzip(TTreeCacheUnzip::kEnable);
 
     while ( (currentFile = (TFile*)fileIter.Next()) ) {
-        TFile *file = new TFile( currentFile->GetTitle() );
+        // TFile *file = new TFile( currentFile->GetTitle() );
+        TFile *file = TFile::Open( currentFile->GetTitle() );
+        // std::cout <<  " file->GetEndpointUrl()->GetProtocol(): " << file->GetEndpointUrl()->GetProtocol() <<  std::endl;
         TTree *tree = (TTree*)file->Get("Events");
         TString filename(currentFile->GetTitle());
-        nt.Init(tree);
 
-        // tree->SetCacheSize(30*1024*1024);
+        // tree->SetCacheSize(256*1024*1024);
         // tree->SetCacheLearnEntries(100);
 
+        // tree->AddBranchToCache("nElectron");
+
+        // auto psRead = new TTreePerfStats("readPerf", tree);
+
+        nt.Init(tree);
+
         for( unsigned int event = 0; event < tree->GetEntriesFast(); ++event) {
+            // if (event > 100) break;
             nt.GetEntry(event);
             nEventsTotal++;
             bar.progress(nEventsTotal, nEventsChain);
+
+            // if (event > 100000) break;
 
             // Analysis code
 
@@ -74,22 +92,16 @@ int ScanChain(TChain *ch) {
             // int nmu20 = SUM_GT(Muon_pt(),20);
             // if (nele20+nmu20 < 2) continue;
 
+            // int nloosemu = COUNT_LT(Muon_miniPFRelIso_all(), 0.4);
+            // int nlooseel = COUNT_LT(Electron_miniPFRelIso_all(), 0.4);
+            // if (nloosemu + nlooseel < 2) continue;
 
-            auto jetpts = Jet_pt();
-            int njets = 0;
-            float ht = 0;
-            int nbtags = 0;
-            vector<float> discs = Jet_btagDeepB();
-            for (auto ijet = 0; ijet < jetpts.size(); ijet += 1) {
-                float pt = jetpts[ijet];
-                if (!(Jet_jetId()[ijet] & (1<<1))) continue;
-                if (!(Jet_cleanmask()[ijet])) continue;
-                if (fabs(Jet_eta()[ijet]) > 2.4) continue;
-                if (pt > 25. && discs[ijet] > 0.4941) nbtags += 1;
-                if (pt < 40) continue;
-                ht += pt;
-                njets++;
-            }
+            int njets, nbtags;
+            float ht;
+            std::tie(njets,nbtags,ht) = getJetInfo();
+
+    // counter_cached_CaloMET_phi_++
+    // counter_uncached_CaloMET_phi_++
 
             auto leps = getLeptons();
             auto result = getBestHyp(leps);
@@ -100,16 +112,28 @@ int ScanChain(TChain *ch) {
             Lepton lep1 = best_hyp.first;
             Lepton lep2 = best_hyp.second;
 
-            float mll = (lep1.p4()+lep2.p4()).M();
 
             if (lep1.pt() < 25 || lep2.pt() < 20) continue;
 
+            float mll = (lep1.p4()+lep2.p4()).M();
+
+            int type = lep1.is_el() + lep2.is_el(); // mm, em, ee
+
             float met = MET_pt();
 
-            bool passfilt = passesMETfiltersMoriond17(false);
+            bool passfilt = passesMETfilters(false);
 
             debug(passfilt,nbtags,met,njets,nleps);
 
+
+            if (lep1.is_el() && !isTriggerSafeIso_v1(lep1.idx())) continue;
+            if (lep2.is_el() && !isTriggerSafeIso_v1(lep2.idx())) continue;
+
+            if (hyp_class != 3 && hyp_class != 4) continue;
+
+            float weight = genWeight();
+
+            h_type->Fill(type);
             h_mll->Fill(mll);
             h_hyp_class->Fill(hyp_class);
             h_filt->Fill(passfilt);
@@ -122,9 +146,11 @@ int ScanChain(TChain *ch) {
 
         } // Event loop
 
+        // psRead->Print();
+
         // tree->PrintCacheStats("cachedbranches");
 
-        delete file;
+        // delete file;
     } // File loop
     bar.finish();
 

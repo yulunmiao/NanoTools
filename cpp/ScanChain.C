@@ -37,17 +37,20 @@ using namespace tas;
 
 int ScanChain(TChain *ch) {
 
+
     TFile* f1 = new TFile("output.root", "RECREATE");
-    H1(mll,30,0,200);
+    H1(mll,30,0,-1);
     H1(type,4,0,4);
     H1(hyp_class,6,0.5,6.5);
     H1(filt,2,0,2);
-    H1(met,50,0,300);
+    H1(met,50,0,-1);
     H1(njets,15,0,15);
     H1(nbtags,8,0,8);
-    H1(ht,50,0,1500);
-    H1(ptratio,50,-1,1.5);
+    H1(ht,50,0,-1);
+    H1(ptratio,50,0,1.5);
+    H1(ptrel,50,0,40.);
     H1(nleps,6,-0.5,5.5);
+    H1(weight,300,0,-1);
 
     int nEventsTotal = 0;
     int nEventsChain = ch->GetEntries();
@@ -59,77 +62,56 @@ int ScanChain(TChain *ch) {
     // set configuration parameters
     gconf.year = 2017;
 
-    // TTreeCacheUnzip::SetParallelUnzip(TTreeCacheUnzip::kEnable);
 
     while ( (currentFile = (TFile*)fileIter.Next()) ) {
-        // TFile *file = new TFile( currentFile->GetTitle() );
         TFile *file = TFile::Open( currentFile->GetTitle() );
-        // std::cout <<  " file->GetEndpointUrl()->GetProtocol(): " << file->GetEndpointUrl()->GetProtocol() <<  std::endl;
         TTree *tree = (TTree*)file->Get("Events");
         TString filename(currentFile->GetTitle());
 
-        // tree->SetCacheSize(256*1024*1024);
-        // tree->SetCacheLearnEntries(100);
+        // std::cout <<  " file->GetEndpointUrl()->GetProtocol(): " << file->GetEndpointUrl()->GetProtocol() <<  std::endl;
+        tree->SetCacheSize(128*1024*1024);
+        tree->SetCacheLearnEntries(100);
 
-        // tree->AddBranchToCache("nElectron");
-
-        // auto psRead = new TTreePerfStats("readPerf", tree);
+        auto psRead = new TTreePerfStats("readPerf", tree);
 
         nt.Init(tree);
 
         for( unsigned int event = 0; event < tree->GetEntriesFast(); ++event) {
-            // if (event > 100) break;
+
             nt.GetEntry(event);
+            tree->LoadTree(event);
+
+
             nEventsTotal++;
             bar.progress(nEventsTotal, nEventsChain);
 
-            // if (event > 100000) break;
-
-            // Analysis code
-
-            if (nElectron()+nMuon() < 2) continue;
-            // int nele20 = SUM_GT(Electron_pt(),20);
-            // int nmu20 = SUM_GT(Muon_pt(),20);
-            // if (nele20+nmu20 < 2) continue;
-
-            // int nloosemu = COUNT_LT(Muon_miniPFRelIso_all(), 0.4);
-            // int nlooseel = COUNT_LT(Electron_miniPFRelIso_all(), 0.4);
-            // if (nloosemu + nlooseel < 2) continue;
-
-            int njets, nbtags;
-            float ht;
-            std::tie(njets,nbtags,ht) = getJetInfo();
-
-    // counter_cached_CaloMET_phi_++
-    // counter_uncached_CaloMET_phi_++
+            // if (event > 50000) break;
 
             auto leps = getLeptons();
             auto result = getBestHyp(leps);
             int hyp_class = result.first;
-            Hyp best_hyp = result.second;
             if (hyp_class < 0) continue;
+            auto best_hyp = result.second;
 
-            Lepton lep1 = best_hyp.first;
-            Lepton lep2 = best_hyp.second;
-
-
+            Lepton lep1 = result.second.first;
+            Lepton lep2 = result.second.second;
             if (lep1.pt() < 25 || lep2.pt() < 20) continue;
 
+            int njets, nbtags;
+            float ht;
+            std::tie(njets,nbtags,ht) = getJetInfo(leps);
+
             float mll = (lep1.p4()+lep2.p4()).M();
-
             int type = lep1.is_el() + lep2.is_el(); // mm, em, ee
-
             float met = MET_pt();
-
             bool passfilt = passesMETfilters(false);
 
             debug(passfilt,nbtags,met,njets,nleps);
 
-
             if (lep1.is_el() && !isTriggerSafeIso_v1(lep1.idx())) continue;
             if (lep2.is_el() && !isTriggerSafeIso_v1(lep2.idx())) continue;
 
-            if (hyp_class != 3 && hyp_class != 4) continue;
+            // if (hyp_class != 3 && hyp_class != 4) continue;
 
             float weight = genWeight();
 
@@ -142,17 +124,26 @@ int ScanChain(TChain *ch) {
             h_njets->Fill(njets);
             h_ht->Fill(ht);
             h_nleps->Fill(leps.size());
+            h_weight->Fill(weight);
+
+            h_ptratio->Fill(getPtRatio(lep1.id(),lep1.idx()));
+            h_ptratio->Fill(getPtRatio(lep2.id(),lep2.idx()));
+            h_ptrel->Fill(getPtRel(lep1.id(),lep1.idx()));
+            h_ptrel->Fill(getPtRel(lep2.id(),lep2.idx()));
 
 
         } // Event loop
 
         // psRead->Print();
-
         // tree->PrintCacheStats("cachedbranches");
+        // nt.PrintUsage();
 
-        // delete file;
+        delete file;
+
+
     } // File loop
     bar.finish();
+
 
     std::cout <<  "Mean of h_njets: " << h_njets->GetMean() <<  std::endl;
     f1->Write();

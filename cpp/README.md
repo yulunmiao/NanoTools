@@ -13,6 +13,9 @@ Note that the `-l` will create the looper, including the class files, and a head
 progressbar. It will not include the CORE functionality, but it will be fully-functional otherwise
 (e.g., only a few keystrokes away from running it and seeing an output ROOT file).
 
+Furthermore, you can specify `--profiling` to make a beefier class file with more functions to help
+profile your code.
+
 
 ### Looper features
 

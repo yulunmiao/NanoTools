@@ -2,28 +2,22 @@
 
 using namespace tas;
 
-vector<Lepton> getLeptons() {
-    vector<Lepton> leptons;
-    for (unsigned int imu = 0; imu < Muon_pt().size(); imu++) {
-        if (Muon_pt()[imu] < 10) continue;
-        if (!isFakableMuon(imu)) continue;
-        auto lep = Lepton(Muon_pdgId()[imu],imu);
-        lep.set_idlevel(1);
-        if (isGoodMuon(imu)) lep.set_idlevel(2);
-        leptons.push_back(lep);
+Leptons getLeptons() {
+    Leptons leptons;
+    auto mupts = Muon_pt();
+    for (unsigned int imu = 0; imu < mupts.size(); imu++) {
+        if (mupts[imu] < 5) continue;
+        leptons.push_back(Lepton(Muon_pdgId()[imu],imu));
     }
-    for (unsigned int iel = 0; iel < Electron_pt().size(); iel++) {
-        if (Electron_pt()[iel] < 10) continue;
-        if (!isFakableElectron(iel)) continue;
-        auto lep = Lepton(Electron_pdgId()[iel],iel);
-        lep.set_idlevel(1);
-        if (isGoodElectron(iel)) lep.set_idlevel(2);
-        leptons.push_back(lep);
+    auto epts = Electron_pt();
+    for (unsigned int iel = 0; iel < epts.size(); iel++) {
+        if (epts[iel] < 7) continue;
+        leptons.push_back(Lepton(Electron_pdgId()[iel],iel));
     }
     return leptons;
 }
 
-std::tuple<int,int,float> getJetInfo(int variation) {
+std::tuple<int,int,float> getJetInfo(Leptons& leps, int variation) {
     int njets = 0;
     float ht = 0;
     int nbtags = 0;
@@ -32,14 +26,35 @@ std::tuple<int,int,float> getJetInfo(int variation) {
     for (unsigned int ijet = 0; ijet < jetpts.size(); ijet += 1) {
         float pt = jetpts[ijet];
         if (!(Jet_jetId()[ijet] & (1<<1))) continue;
+
+        // Clean against up to 2 fakable electrons
         if (Jet_electronIdx1()[ijet] >= 0) {
-            if (isFakableElectron(Jet_electronIdx1()[ijet])) continue;
-            if (Jet_electronIdx2()[ijet] >= 0 && isFakableElectron(Jet_electronIdx2()[ijet])) continue;
+            bool skip = false;
+            for (auto& lep : leps) {
+                if (lep.is_el() && (Jet_electronIdx1()[ijet] == (int)(lep.idx())) && lep.idlevel() >= IDfakable) { skip = true; break; }
+                if (skip) break;
+                if (Jet_electronIdx2()[ijet] >= 0) {
+                    if (lep.is_el() && (Jet_electronIdx2()[ijet] == (int)(lep.idx())) && lep.idlevel() >= IDfakable) { skip = true; break; }
+                    if (skip) break;
+                }
+            }
+            if (skip) continue;
         }
+
+        // Clean against up to 2 fakable muons
         if (Jet_muonIdx1()[ijet] >= 0) {
-            if (isFakableMuon(Jet_muonIdx1()[ijet])) continue;
-            if (Jet_muonIdx2()[ijet] >= 0 && isFakableMuon(Jet_muonIdx2()[ijet])) continue;
+            bool skip = false;
+            for (auto& lep : leps) {
+                if (lep.is_mu() && (Jet_muonIdx1()[ijet] == (int)(lep.idx())) && lep.idlevel() >= IDfakable) { skip = true; break; }
+                if (skip) break;
+                if (Jet_muonIdx2()[ijet] >= 0) {
+                    if (lep.is_mu() && (Jet_muonIdx2()[ijet] == (int)(lep.idx())) && lep.idlevel() >= IDfakable) { skip = true; break; }
+                    if (skip) break;
+                }
+            }
+            if (skip) continue;
         }
+
         if (fabs(Jet_eta()[ijet]) > 2.4) continue;
         if (pt > 25. && discs[ijet] > 0.4941) nbtags += 1;
         if (pt < 40) continue;
@@ -49,37 +64,68 @@ std::tuple<int,int,float> getJetInfo(int variation) {
     return std::make_tuple(njets,nbtags,ht);
 }
 
-std::pair<int,int> makesResonance(Lepton lep1, Lepton lep2, float mass, float window) {
+std::pair<int,int> makesResonance(Leptons& leps, Lepton lep1, Lepton lep2, float mass, float window) {
      // return {which lepton (1,2), and index of resonance partner}
-    for (unsigned int iel = 0; iel < Electron_pt().size(); iel++) {
-        if ((iel == lep1.idx() && lep1.is_el()) || (iel == lep2.idx() && lep2.is_el())) continue;
-        if (fabs(Electron_eta()[iel]) > 2.4) continue;
-        if (fabs(Electron_pt()[iel]) < 7) continue;
-        if (!isVetoElectron(iel)) continue;
-        if (lep1.is_el() && (lep1.id() * Electron_pdgId()[iel] < 0) && (fabs((lep1.p4() + Electron_p4()[iel]).M()-mass) < window)) {
-            return {1,iel};
-        }
-        if (lep2.is_el() && (lep2.id() * Electron_pdgId()[iel] < 0) && (fabs((lep2.p4() + Electron_p4()[iel]).M()-mass) < window)) {
-            return {2,iel};
+    for (auto& lep : leps) {
+        if (lep.is_el()) {
+            if (!(lep1.is_el() || lep2.is_el())) continue;
+            if ((lep.idx() == lep1.idx() && lep1.is_el()) || (lep.idx() == lep2.idx() && lep2.is_el())) continue;
+            if (fabs(lep.eta()) > 2.4) continue;
+            if (lep.pt() < 7) continue;
+            if (lep.idlevel() < IDveto) continue;
+            if (lep1.is_el() && (lep1.id() * lep.id() < 0) && (fabs((lep1.p4() + lep.p4()).M()-mass) < window)) {
+                return {1,lep.idx()};
+            }
+            if (lep2.is_el() && (lep2.id() * lep.id() < 0) && (fabs((lep2.p4() + lep.p4()).M()-mass) < window)) {
+                return {2,lep.idx()};
+            }
+        } else {
+            if (!(lep1.is_mu() || lep2.is_mu())) continue;
+            if ((lep.idx() == lep1.idx() && lep1.is_mu()) || (lep.idx() == lep2.idx() && lep2.is_mu())) continue;
+            if (fabs(lep.eta()) > 2.4) continue;
+            if (lep.pt() < 5) continue;
+            if (lep.idlevel() < IDveto) continue;
+            if (lep1.is_mu() && (lep1.id() * lep.id() < 0) && (fabs((lep1.p4() + lep.p4()).M()-mass) < window)) {
+                return {1,lep.idx()};
+            }
+            if (lep2.is_mu() && (lep2.id() * lep.id() < 0) && (fabs((lep2.p4() + lep.p4()).M()-mass) < window)) {
+                return {2,lep.idx()};
+            }
         }
     }
-    for (unsigned int imu = 0; imu < Muon_pt().size(); imu++) {
-        if ((imu == lep1.idx() && lep1.is_mu()) || (imu == lep2.idx() && lep2.is_mu())) continue;
-        if (fabs(Muon_eta()[imu]) > 2.4) continue;
-        if (fabs(Muon_pt()[imu]) < 5) continue;
-        if (!isVetoMuon(imu)) continue;
-        if (lep1.is_mu() && (lep1.id() * Muon_pdgId()[imu] < 0) && (fabs((lep1.p4() + Muon_p4()[imu]).M()-mass) < window)) {
-            return {1,imu};
-        }
-        if (lep2.is_mu() && (lep2.id() * Muon_pdgId()[imu] < 0) && (fabs((lep2.p4() + Muon_p4()[imu]).M()-mass) < window)) {
-            return {2,imu};
-        }
-    }
+
+    // for (unsigned int iel = 0; iel < Electron_pt().size(); iel++) {
+    //     if ((iel == lep1.idx() && lep1.is_el()) || (iel == lep2.idx() && lep2.is_el())) continue;
+    //     if (fabs(Electron_eta()[iel]) > 2.4) continue;
+    //     if (fabs(Electron_pt()[iel]) < 7) continue;
+    //     if (!isVetoElectron(iel)) continue;
+    //     if (lep1.is_el() && (lep1.id() * Electron_pdgId()[iel] < 0) && (fabs((lep1.p4() + Electron_p4()[iel]).M()-mass) < window)) {
+    //         return {1,iel};
+    //     }
+    //     if (lep2.is_el() && (lep2.id() * Electron_pdgId()[iel] < 0) && (fabs((lep2.p4() + Electron_p4()[iel]).M()-mass) < window)) {
+    //         return {2,iel};
+    //     }
+    // }
+    // for (unsigned int imu = 0; imu < Muon_pt().size(); imu++) {
+    //     if ((imu == lep1.idx() && lep1.is_mu()) || (imu == lep2.idx() && lep2.is_mu())) continue;
+    //     if (fabs(Muon_eta()[imu]) > 2.4) continue;
+    //     if (fabs(Muon_pt()[imu]) < 5) continue;
+    //     if (!isVetoMuon(imu)) continue;
+    //     if (lep1.is_mu() && (lep1.id() * Muon_pdgId()[imu] < 0) && (fabs((lep1.p4() + Muon_p4()[imu]).M()-mass) < window)) {
+    //         return {1,imu};
+    //     }
+    //     if (lep2.is_mu() && (lep2.id() * Muon_pdgId()[imu] < 0) && (fabs((lep2.p4() + Muon_p4()[imu]).M()-mass) < window)) {
+    //         return {2,imu};
+    //     }
+    // }
+
     return {-1,-1};
+
 }
 
 
-std::pair<int,Hyp> getBestHyp(vector<Lepton>& leptons) {
+std::pair<int,Hyp> getBestHyp(Leptons& leptons) {
+
     int hyp_class = -1;
     Hyp best_hyp;
     if (leptons.size() < 2) return {hyp_class, best_hyp};
@@ -92,6 +138,9 @@ std::pair<int,Hyp> getBestHyp(vector<Lepton>& leptons) {
         for (unsigned int j = i+1; j < leptons.size(); j++) {
             auto& lep1 = leptons[i];
             auto& lep2 = leptons[j];
+
+            if (lep1.idlevel() < IDfakable || lep2.idlevel() < IDfakable) continue;
+
             bool isss = lep1.charge() == lep2.charge();
             int ntight = (lep1.idlevel() == IDtight) + (lep2.idlevel() == IDtight);
             int nloose = (lep1.idlevel() == IDfakable) + (lep2.idlevel() == IDfakable);
@@ -112,8 +161,8 @@ std::pair<int,Hyp> getBestHyp(vector<Lepton>& leptons) {
                 if ((lep1.p4()+lep2.p4()).M() < 12.) continue;
             }
 
-            auto z_result = makesResonance(lep1,lep2,91.,15.);
-            auto gammastar_result = makesResonance(lep1,lep2,0.,12.);
+            auto z_result = makesResonance(leptons, lep1,lep2,91.,15.);
+            auto gammastar_result = makesResonance(leptons, lep1,lep2,0.,12.);
             bool extraZ = z_result.first >= 0;
             bool extraGammaStar = gammastar_result.first >= 0;
             if ((extraZ || extraGammaStar) && isss) {
@@ -224,56 +273,6 @@ bool passesElectronMVA(int idlevel, int iel) {
     return false;
 }
 
-// Tight
-
-bool isGoodMuonNoIso(int imu) {
-    if (fabs(Muon_dxy()[imu]) > 0.05) return false;
-    if (fabs(Muon_dz()[imu]) > 0.1) return false;
-    if (fabs(Muon_sip3d()[imu]) >= 4) return false;
-    if (fabs(Muon_eta()[imu]) > 2.4) return false;
-    if (!Muon_tightCharge()[imu]) return false; // pterr/pt<0.2
-    if (!Muon_mediumId()[imu]) return false;
-    return true;
-}
-
-bool isGoodMuon(int imu) {
-    if (!isGoodMuonNoIso(imu)) return false;
-    if (!passMultiIso(13, imu, 0.12, 0.80, 7.5)) return false;
-    return true;
-}
-
-bool isGoodElectronNoIso(int iel) {
-    if (Electron_miniPFRelIso_all()[iel] > 0.4) return false;
-    if (Electron_convVeto()[iel] == 0) return false;
-    if (Electron_lostHits()[iel] > 1) return false;
-    if (fabs(Electron_dxy()[iel]) > 0.05) return false;
-    if (fabs(Electron_dz()[iel]) >= 0.1) return false;
-    if (fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) > 2.5) return false;
-    if (fabs(Electron_sip3d()[iel]) >= 4) return false;
-    if (Electron_tightCharge()[iel] < 2) return false;
-    if (!passesElectronMVA(IDtight,iel)) return false;
-    if (!isTriggerSafenoIso_v1(iel)) return false;
-    return true;
-}
-
-bool isGoodElectron(int iel) {
-    if (!isGoodElectronNoIso(iel)) return false;
-    if (!passMultiIso(11, iel, 0.09, 0.85, 9.2)) return false;
-    return true;
-}
-
-// Veto
-
-bool isVetoMuon(int imu) {
-    if (Muon_pt()[imu] < 5) return false;
-    if (Muon_miniPFRelIso_all()[imu] > 0.4) return false;
-    if (fabs(Muon_dxy()[imu]) > 0.05) return false;
-    if (fabs(Muon_dz()[imu]) > 0.1) return false;
-    if (fabs(Muon_eta()[imu]) > 2.4) return false;
-    // LooseMuonPOG -- only LoosePOG muons can even get stored in nanoaod
-    return true;
-}
-
 bool isVetoElectron(int iel) {
     if (Electron_pt()[iel] < 7) return false;
     if (Electron_miniPFRelIso_all()[iel] > 0.4) return false;
@@ -287,35 +286,48 @@ bool isVetoElectron(int iel) {
     return true;
 }
 
+bool isFakableElectron(int iel) {
+    if (!isVetoElectron(iel)) return false;
+    if (Electron_pt()[iel] < 10) return false;
+    if (fabs(Electron_sip3d()[iel]) >= 4) return false;
+    if (Electron_tightCharge()[iel] < 2) return false;
+    if (!passesElectronMVA(IDfakable,iel)) return false;
+    return true;
+}
 
-// Fakable
+bool isGoodElectron(int iel) {
+    if (!isFakableElectron(iel)) return false;
+    if (!passesElectronMVA(IDtight,iel)) return false;
+    if (!passMultiIso(11, iel, 0.09, 0.85, 9.2)) return false;
+    return true;
+}
 
-bool isFakableMuon(int imu) {
-    if (Muon_pt()[imu] < 10) return false;
+bool isVetoMuon(int imu) {
+    if (Muon_pt()[imu] < 5) return false;
     if (Muon_miniPFRelIso_all()[imu] > 0.4) return false;
     if (fabs(Muon_dxy()[imu]) > 0.05) return false;
     if (fabs(Muon_dz()[imu]) > 0.1) return false;
-    if (fabs(Muon_sip3d()[imu]) >= 4) return false;
     if (fabs(Muon_eta()[imu]) > 2.4) return false;
+    // LooseMuonPOG -- only LoosePOG muons can even get stored in nanoaod
+    return true;
+}
+
+
+bool isFakableMuon(int imu) {
+    if (!isVetoMuon(imu)) return false;
+    if (Muon_pt()[imu] < 10) return false;
+    if (fabs(Muon_sip3d()[imu]) >= 4) return false;
     if (!Muon_tightCharge()[imu]) return false; // pterr/pt<0.2
     if (!Muon_mediumId()[imu]) return false;
     return true;
 }
 
-bool isFakableElectron(int iel) {
-    if (Electron_pt()[iel] < 10) return false;
-    if (Electron_miniPFRelIso_all()[iel] > 0.4) return false;
-    if (Electron_convVeto()[iel] == 0) return false;
-    if (Electron_lostHits()[iel] > 1) return false;
-    if (fabs(Electron_dxy()[iel]) > 0.05) return false;
-    if (fabs(Electron_dz()[iel]) >= 0.1) return false;
-    if (fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) > 2.5) return false;
-    if (fabs(Electron_sip3d()[iel]) >= 4) return false;
-    if (Electron_tightCharge()[iel] < 2) return false;
-    if (!passesElectronMVA(IDfakable,iel)) return false;
-    if (!isTriggerSafenoIso_v1(iel)) return false;
+bool isGoodMuon(int imu) {
+    if (!isFakableMuon(imu)) return false;
+    if (!passMultiIso(13, imu, 0.12, 0.80, 7.5)) return false;
     return true;
 }
+
 
 void dumpLeptonProperties(Lepton lep) {
     std::cout << lep << std::endl;
@@ -334,7 +346,7 @@ void dumpLeptonProperties(Lepton lep) {
     }
 }
 
-bool isLeptonLevel(int idlevel, int id, int idx) {
+bool isLeptonLevel(IDLevel idlevel, int id, int idx) {
     switch (idlevel) {
         case (IDveto):
             return (abs(id) == 11 ? isVetoElectron(idx) : isVetoMuon(idx)); 
@@ -346,4 +358,20 @@ bool isLeptonLevel(int idlevel, int id, int idx) {
             throw std::runtime_error("Invalid idlevel!");
     }
     return false;
+}
+
+IDLevel whichLeptonLevel(int id, int idx) {
+    if (isLeptonLevel(IDveto, id, idx)) {
+        if (isLeptonLevel(IDfakable, id, idx)) {
+            if (isLeptonLevel(IDtight, id, idx)) {
+                return IDtight;
+            } else {
+                return IDfakable;
+            }
+        } else {
+            return IDveto;
+        }
+    } else {
+        return IDdefault;
+    }
 }

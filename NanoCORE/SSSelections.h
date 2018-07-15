@@ -3,17 +3,26 @@
 #include "Nano.h"
 #include "IsolationTools.h"
 
-enum IDLevels {
+enum IDLevel {
     IDdefault = -1,
     IDveto = 0, // for Z-veto
-    IDfakable = 1, // for fake background + jet cleaning
-    IDtight = 2, // for analysis
-    IDfakablenoiso = 3,
-    IDtightnoiso = 4
+    IDfakablenoiso = 1,
+    IDfakable = 2, // for fake background + jet cleaning
+    IDtightnoiso = 3,
+    IDtight = 4 // for analysis
 };
 
+IDLevel whichLeptonLevel(int id, int idx);
+
 struct Lepton {
-    Lepton(int id=0, unsigned int idx=-1):id_(id),idx_(idx){}
+    Lepton(int id=0, unsigned int idx=0):id_(id),idx_(idx) {
+        if (id != 0) {
+            pt_ = (abs(id_)==11 ? nt.Electron_pt()[idx_] : nt.Muon_pt()[idx_]);
+            eta_ = (abs(id_)==11 ? nt.Electron_eta()[idx_] : nt.Muon_eta()[idx_]);
+            p4_ = (abs(id_)==11 ? nt.Electron_p4()[idx_] : nt.Muon_p4()[idx_]);
+            idlevel_ = whichLeptonLevel(id_, idx_);
+        }
+    }
     void set_idlevel(int idlevel) {idlevel_ = idlevel;}
     int id() {return id_;}
     int absid() {return abs(id_);}
@@ -22,15 +31,19 @@ struct Lepton {
     int charge() {return -1*id_/abs(id_);}
     unsigned int idx() {return idx_;}
     int idlevel() {return idlevel_;}
-    LorentzVector p4() {return abs(id_)==11 ? nt.Electron_p4()[idx_] : nt.Muon_p4()[idx_];}
-    float pt() {return abs(id_)==11 ? nt.Electron_pt()[idx_] : nt.Muon_pt()[idx_];}
-    float eta() {return abs(id_)==11 ? nt.Electron_eta()[idx_] : nt.Muon_eta()[idx_];}
+    LorentzVector p4() {return p4_;}
+    float pt() {return pt_;}
+    float eta() {return eta_;}
     private:
     int id_;
+    float pt_ = 0.;
+    float eta_ = 0.;
+    LorentzVector p4_;
     unsigned int idx_;
     int idlevel_ = IDdefault;
 };
 typedef std::pair<Lepton,Lepton> Hyp;
+typedef std::vector<Lepton> Leptons;
 
 std::ostream& operator << (std::ostream& os, Lepton& lep)
 {
@@ -46,9 +59,8 @@ std::ostream& operator << (std::ostream& os, std::pair<T1, T2>& p)
 }
 
 vector<Lepton> getLeptons();
-std::tuple<int,int,float> getJetInfo(int variation=0);
+std::tuple<int,int,float> getJetInfo(vector<Lepton>& leps, int variation=0);
 std::pair<int,Hyp> getBestHyp(vector<Lepton>& leptons);
-bool isGoodMuonNoIso(int imu);
 bool isTriggerSafenoIso_v1(int iel);
 bool isTriggerSafeIso_v1(int iel);
 bool passesElectronMVA(int idlevel, int iel);
@@ -58,6 +70,7 @@ bool isVetoMuon(int imu);
 bool isVetoElectron(int iel);
 bool isFakableMuon(int imu);
 bool isFakableElectron(int iel);
+bool isLeptonLevel(IDLevel idlevel, int id, int idx);
 void dumpLeptonProperties(Lepton lep);
 
 #endif

@@ -3294,6 +3294,7 @@ protected:
     bool loaded_run_;
 public:
     void Init(TTree *tree);
+    void PrintUsage();
     void GetEntry(unsigned int idx);
     const float &CaloMET_phi();
     const float &CaloMET_pt();

@@ -5,6 +5,7 @@ import argparse
 import sys
 import os
 import itertools
+import fnmatch
 
 
 if __name__ == "__main__":
@@ -16,7 +17,9 @@ if __name__ == "__main__":
     parser.add_argument("-o", "--objectname", help="objectname (default: nt)", default="nt")
     parser.add_argument("-c", "--classname", help="classname (default: Nano)", default="Nano")
     parser.add_argument("-l", "--looper", help="make a looper as well", default=False, action="store_true")
+    parser.add_argument("-p", "--profiling", help="make extra functions to help performance profiling", default=False, action="store_true")
     parser.add_argument("-b", "--branches", help="use only these specified (comma separated) branches", default="")
+    parser.add_argument("-e", "--exclude", help="exclude branches matching patterns separated by , (e.g., \"HLT_*,*_pt\")", default="")
     args = parser.parse_args()
 
     fname = os.path.abspath(args.filename.strip())
@@ -25,7 +28,10 @@ if __name__ == "__main__":
     objectname = args.objectname
     namespace = args.namespace
     make_looper = args.looper
+    profiling = args.profiling
+    excludes = args.exclude
     filter_branches = args.branches.strip().split(",") if args.branches.strip() else []
+    exclude_patterns = args.exclude.strip().split(",") if args.exclude.strip() else []
 
     download_cpptqdm = True
 
@@ -51,6 +57,8 @@ if __name__ == "__main__":
         name = branch.GetName()
 
         if filter_branches and name not in filter_branches: continue
+        if exclude_patterns:
+            if any(fnmatch.fnmatch(name,patt) for patt in exclude_patterns): continue
 
         leaf = branch.GetLeaf(branch.GetName())
         leaf_title = leaf.GetTitle()
@@ -107,6 +115,12 @@ if __name__ == "__main__":
             yield "    if (b_{name}_) {{ b_{name}_->SetAddress(&{name}_); }}".format(**bi)
         yield "}"
 
+    def get_cc_printusage(ginfo,binfo):
+        yield "void {classname}::PrintUsage() {{".format(**ginfo)
+        for bi in binfo:
+            yield "    std::cout << \"{name} (uncached/cached calls): \" << counter_uncached_{name}_ << \" / \" << counter_cached_{name}_ << std::endl;;".format(**bi)
+        yield "}"
+
     def get_cc_getentry(ginfo,binfo):
         yield "void {classname}::GetEntry(unsigned int idx) {{".format(**ginfo)
         yield "    index = idx;"
@@ -119,6 +133,9 @@ if __name__ == "__main__":
             p = { "name": bi["name"], "type": bi["typename"], "classname": ginfo["classname"] }
 
             yield "const {type} &{classname}::{name}() {{".format(**p)
+            if profiling:
+                yield "    if (!loaded_{name}_) counter_uncached_{name}_++;""".format(**bi)
+                yield "    else counter_cached_{name}_++;""".format(**bi)
             yield "    if (!loaded_{name}_) {{".format(**p)
             if "LorentzVector" in bi["typename"]:
                 if bi["is_array"]:
@@ -209,8 +226,12 @@ if __name__ == "__main__":
                 yield """    {typename} {name}_;""".format(**bi)
             yield """    TBranch *b_{name}_;""".format(**bi)
             yield """    bool loaded_{name}_;""".format(**bi)
+            if profiling:
+                yield """    unsigned int counter_cached_{name}_;""".format(**bi)
+                yield """    unsigned int counter_uncached_{name}_;""".format(**bi)
         yield "public:"
         yield "    void Init(TTree *tree);"
+        yield "    void PrintUsage();"
         yield "    void GetEntry(unsigned int idx);"
         for bi in binfo:
             yield "    const {typename} &{name}();".format(**bi)
@@ -255,10 +276,13 @@ int ScanChain(TChain *ch) {{
         TFile *file = new TFile( currentFile->GetTitle() );
         TTree *tree = (TTree*)file->Get("{treename}");
         TString filename(currentFile->GetTitle());
+        tree->SetCacheSize(128*1024*1024);
+        tree->SetCacheLearnEntries(10);
         {objectname}.Init(tree);
 
         for( unsigned int event = 0; event < tree->GetEntriesFast(); ++event) {{
             {objectname}.GetEntry(event);
+            tree->LoadTree(event);
             nEventsTotal++;
             bar.progress(nEventsTotal, nEventsChain);
 
@@ -331,6 +355,9 @@ int ScanChain(TChain *ch) {{
         fhout.write("\n\n")
         fhout.write("\n".join(get_cc_init(ginfo,binfo)))
         fhout.write("\n\n")
+        if profiling:
+            fhout.write("\n".join(get_cc_printusage(ginfo,binfo)))
+            fhout.write("\n\n")
         fhout.write("\n".join(get_cc_getentry(ginfo,binfo)))
         fhout.write("\n\n")
         fhout.write("\n".join(get_cc_getfunctions(ginfo,binfo)))

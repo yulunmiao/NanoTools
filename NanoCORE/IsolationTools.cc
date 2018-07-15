@@ -50,7 +50,7 @@ float getPtRatio(int id, int idx) {
     int closestJetIdx = abs(id) == 11 ? Electron_jetIdx()[idx] : Muon_jetIdx()[idx];
     if (closestJetIdx >= 0){
         float leppt = abs(id) == 11 ? Electron_pt()[idx] : Muon_pt()[idx];
-        return Jet_pt()[closestJetIdx]/leppt;
+        return leppt/Jet_pt()[closestJetIdx];
     }
     return 1.;
 }

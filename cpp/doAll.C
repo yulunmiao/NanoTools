@@ -1,25 +1,10 @@
 {
-    // ROOT::EnableImplicitMT(8);
-
-    // gEnv->SetValue("TFile.AsyncPrefetching",1);
-    // gEnv->SetValue("TTreeCache.Prefill",1);
-    // gEnv->SetValue("TFile.AsyncReading",1);
-    // gEnv->SetValue("Cache.Directory","test3");
-    // gEnv->SetValue("TTreeCache.Size",1);
-    // gEnv->Print();
 
     gROOT->ProcessLine(".L ../NanoCORE/NANO_CORE.so");
     gROOT->ProcessLine(".L ScanChain.C+");
     TChain *ch = new TChain("Events");
 
-
-    ch->Add("file:../../fourtop/1C547A30-EF42-E811-8F2D-0025905C42A8.root");
-    ch->Add("file:../../fourtop/28D1122D-EF42-E811-BD72-E0071B7A9810.root");
-    // ch->Add("../508B6DBB-9742-E811-BA65-A4BF0112BCB0.root");
-
-    // ch->Add("/hadoop/cms/store/user/namin/508B6DBB-9742-E811-BA65-A4BF0112BCB0.root");
-    // ch->Add("localhost:///hadoop/cms/store/user/namin/508B6DBB-9742-E811-BA65-A4BF0112BCB0.root");
-    // ch->Add("root://cmsxrootd.fnal.gov///store/user/namin/508B6DBB-9742-E811-BA65-A4BF0112BCB0.root");
+    ch->Add("root://redirector.t2.ucsd.edu///store/user/namin/nanoaod/TTJets_TuneCP5_13TeV-madgraphMLM-pythia8__RunIIAutumn18NanoAODv5-Nano1June2019_102X_upgrade2018_realistic_v19-v1/8E0C8306-DC0D-0548-BA7C-D0698140DF28.root");
 
     ScanChain(ch);
 

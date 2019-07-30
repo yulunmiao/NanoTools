@@ -1,5 +1,5 @@
 // -*- C++ -*-
-// Generated with args: /home/users/namin/sandbox/noroot/nano/NanoTools/508B6DBB-9742-E811-BA65-A4BF0112BCB0.root -t Events
+// Generated with args: /hadoop/cms/store/user/namin/nanoaod/TTJets_TuneCP5_13TeV-madgraphMLM-pythia8__RunIIAutumn18NanoAODv5-Nano1June2019_102X_upgrade2018_realistic_v19-v1/8E0C8306-DC0D-0548-BA7C-D0698140DF28.root
 #ifndef Nano_H
 #define Nano_H
 #include "Math/LorentzVector.h"
@@ -39,6 +39,35 @@ protected:
     float CaloMET_sumEt_;
     TBranch *b_CaloMET_sumEt_;
     bool loaded_CaloMET_sumEt_;
+    float ChsMET_phi_;
+    TBranch *b_ChsMET_phi_;
+    bool loaded_ChsMET_phi_;
+    float ChsMET_pt_;
+    TBranch *b_ChsMET_pt_;
+    bool loaded_ChsMET_pt_;
+    float ChsMET_sumEt_;
+    TBranch *b_ChsMET_sumEt_;
+    bool loaded_ChsMET_sumEt_;
+    float CorrT1METJet_area_[108];
+    vector<float> v_CorrT1METJet_area_;
+    TBranch *b_CorrT1METJet_area_;
+    bool loaded_CorrT1METJet_area_;
+    float CorrT1METJet_eta_[108];
+    vector<float> v_CorrT1METJet_eta_;
+    TBranch *b_CorrT1METJet_eta_;
+    bool loaded_CorrT1METJet_eta_;
+    float CorrT1METJet_muonSubtrFactor_[108];
+    vector<float> v_CorrT1METJet_muonSubtrFactor_;
+    TBranch *b_CorrT1METJet_muonSubtrFactor_;
+    bool loaded_CorrT1METJet_muonSubtrFactor_;
+    float CorrT1METJet_phi_[108];
+    vector<float> v_CorrT1METJet_phi_;
+    TBranch *b_CorrT1METJet_phi_;
+    bool loaded_CorrT1METJet_phi_;
+    float CorrT1METJet_rawPt_[108];
+    vector<float> v_CorrT1METJet_rawPt_;
+    TBranch *b_CorrT1METJet_rawPt_;
+    bool loaded_CorrT1METJet_rawPt_;
     int Electron_charge_[30];
     vector<int> v_Electron_charge_;
     TBranch *b_Electron_charge_;
@@ -55,6 +84,10 @@ protected:
     vector<int> v_Electron_cutBased_;
     TBranch *b_Electron_cutBased_;
     bool loaded_Electron_cutBased_;
+    int Electron_cutBased_Fall17_V1_[30];
+    vector<int> v_Electron_cutBased_Fall17_V1_;
+    TBranch *b_Electron_cutBased_Fall17_V1_;
+    bool loaded_Electron_cutBased_Fall17_V1_;
     bool Electron_cutBased_HEEP_[30];
     vector<bool> v_Electron_cutBased_HEEP_;
     TBranch *b_Electron_cutBased_HEEP_;
@@ -75,6 +108,10 @@ protected:
     vector<float> v_Electron_dr03TkSumPt_;
     TBranch *b_Electron_dr03TkSumPt_;
     bool loaded_Electron_dr03TkSumPt_;
+    float Electron_dr03TkSumPtHEEP_[30];
+    vector<float> v_Electron_dr03TkSumPtHEEP_;
+    TBranch *b_Electron_dr03TkSumPtHEEP_;
+    bool loaded_Electron_dr03TkSumPtHEEP_;
     float Electron_dxy_[30];
     vector<float> v_Electron_dxy_;
     TBranch *b_Electron_dxy_;
@@ -131,6 +168,14 @@ protected:
     vector<int> v_Electron_jetIdx_;
     TBranch *b_Electron_jetIdx_;
     bool loaded_Electron_jetIdx_;
+    float Electron_jetPtRelv2_[30];
+    vector<float> v_Electron_jetPtRelv2_;
+    TBranch *b_Electron_jetPtRelv2_;
+    bool loaded_Electron_jetPtRelv2_;
+    float Electron_jetRelIso_[30];
+    vector<float> v_Electron_jetRelIso_;
+    TBranch *b_Electron_jetRelIso_;
+    bool loaded_Electron_jetRelIso_;
     UChar_t Electron_lostHits_[30];
     vector<UChar_t> v_Electron_lostHits_;
     TBranch *b_Electron_lostHits_;
@@ -147,38 +192,70 @@ protected:
     vector<float> v_Electron_miniPFRelIso_chg_;
     TBranch *b_Electron_miniPFRelIso_chg_;
     bool loaded_Electron_miniPFRelIso_chg_;
-    float Electron_mvaFall17Iso_[30];
-    vector<float> v_Electron_mvaFall17Iso_;
-    TBranch *b_Electron_mvaFall17Iso_;
-    bool loaded_Electron_mvaFall17Iso_;
-    bool Electron_mvaFall17Iso_WP80_[30];
-    vector<bool> v_Electron_mvaFall17Iso_WP80_;
-    TBranch *b_Electron_mvaFall17Iso_WP80_;
-    bool loaded_Electron_mvaFall17Iso_WP80_;
-    bool Electron_mvaFall17Iso_WP90_[30];
-    vector<bool> v_Electron_mvaFall17Iso_WP90_;
-    TBranch *b_Electron_mvaFall17Iso_WP90_;
-    bool loaded_Electron_mvaFall17Iso_WP90_;
-    bool Electron_mvaFall17Iso_WPL_[30];
-    vector<bool> v_Electron_mvaFall17Iso_WPL_;
-    TBranch *b_Electron_mvaFall17Iso_WPL_;
-    bool loaded_Electron_mvaFall17Iso_WPL_;
-    float Electron_mvaFall17noIso_[30];
-    vector<float> v_Electron_mvaFall17noIso_;
-    TBranch *b_Electron_mvaFall17noIso_;
-    bool loaded_Electron_mvaFall17noIso_;
-    bool Electron_mvaFall17noIso_WP80_[30];
-    vector<bool> v_Electron_mvaFall17noIso_WP80_;
-    TBranch *b_Electron_mvaFall17noIso_WP80_;
-    bool loaded_Electron_mvaFall17noIso_WP80_;
-    bool Electron_mvaFall17noIso_WP90_[30];
-    vector<bool> v_Electron_mvaFall17noIso_WP90_;
-    TBranch *b_Electron_mvaFall17noIso_WP90_;
-    bool loaded_Electron_mvaFall17noIso_WP90_;
-    bool Electron_mvaFall17noIso_WPL_[30];
-    vector<bool> v_Electron_mvaFall17noIso_WPL_;
-    TBranch *b_Electron_mvaFall17noIso_WPL_;
-    bool loaded_Electron_mvaFall17noIso_WPL_;
+    float Electron_mvaFall17V1Iso_[30];
+    vector<float> v_Electron_mvaFall17V1Iso_;
+    TBranch *b_Electron_mvaFall17V1Iso_;
+    bool loaded_Electron_mvaFall17V1Iso_;
+    bool Electron_mvaFall17V1Iso_WP80_[30];
+    vector<bool> v_Electron_mvaFall17V1Iso_WP80_;
+    TBranch *b_Electron_mvaFall17V1Iso_WP80_;
+    bool loaded_Electron_mvaFall17V1Iso_WP80_;
+    bool Electron_mvaFall17V1Iso_WP90_[30];
+    vector<bool> v_Electron_mvaFall17V1Iso_WP90_;
+    TBranch *b_Electron_mvaFall17V1Iso_WP90_;
+    bool loaded_Electron_mvaFall17V1Iso_WP90_;
+    bool Electron_mvaFall17V1Iso_WPL_[30];
+    vector<bool> v_Electron_mvaFall17V1Iso_WPL_;
+    TBranch *b_Electron_mvaFall17V1Iso_WPL_;
+    bool loaded_Electron_mvaFall17V1Iso_WPL_;
+    float Electron_mvaFall17V1noIso_[30];
+    vector<float> v_Electron_mvaFall17V1noIso_;
+    TBranch *b_Electron_mvaFall17V1noIso_;
+    bool loaded_Electron_mvaFall17V1noIso_;
+    bool Electron_mvaFall17V1noIso_WP80_[30];
+    vector<bool> v_Electron_mvaFall17V1noIso_WP80_;
+    TBranch *b_Electron_mvaFall17V1noIso_WP80_;
+    bool loaded_Electron_mvaFall17V1noIso_WP80_;
+    bool Electron_mvaFall17V1noIso_WP90_[30];
+    vector<bool> v_Electron_mvaFall17V1noIso_WP90_;
+    TBranch *b_Electron_mvaFall17V1noIso_WP90_;
+    bool loaded_Electron_mvaFall17V1noIso_WP90_;
+    bool Electron_mvaFall17V1noIso_WPL_[30];
+    vector<bool> v_Electron_mvaFall17V1noIso_WPL_;
+    TBranch *b_Electron_mvaFall17V1noIso_WPL_;
+    bool loaded_Electron_mvaFall17V1noIso_WPL_;
+    float Electron_mvaFall17V2Iso_[30];
+    vector<float> v_Electron_mvaFall17V2Iso_;
+    TBranch *b_Electron_mvaFall17V2Iso_;
+    bool loaded_Electron_mvaFall17V2Iso_;
+    bool Electron_mvaFall17V2Iso_WP80_[30];
+    vector<bool> v_Electron_mvaFall17V2Iso_WP80_;
+    TBranch *b_Electron_mvaFall17V2Iso_WP80_;
+    bool loaded_Electron_mvaFall17V2Iso_WP80_;
+    bool Electron_mvaFall17V2Iso_WP90_[30];
+    vector<bool> v_Electron_mvaFall17V2Iso_WP90_;
+    TBranch *b_Electron_mvaFall17V2Iso_WP90_;
+    bool loaded_Electron_mvaFall17V2Iso_WP90_;
+    bool Electron_mvaFall17V2Iso_WPL_[30];
+    vector<bool> v_Electron_mvaFall17V2Iso_WPL_;
+    TBranch *b_Electron_mvaFall17V2Iso_WPL_;
+    bool loaded_Electron_mvaFall17V2Iso_WPL_;
+    float Electron_mvaFall17V2noIso_[30];
+    vector<float> v_Electron_mvaFall17V2noIso_;
+    TBranch *b_Electron_mvaFall17V2noIso_;
+    bool loaded_Electron_mvaFall17V2noIso_;
+    bool Electron_mvaFall17V2noIso_WP80_[30];
+    vector<bool> v_Electron_mvaFall17V2noIso_WP80_;
+    TBranch *b_Electron_mvaFall17V2noIso_WP80_;
+    bool loaded_Electron_mvaFall17V2noIso_WP80_;
+    bool Electron_mvaFall17V2noIso_WP90_[30];
+    vector<bool> v_Electron_mvaFall17V2noIso_WP90_;
+    TBranch *b_Electron_mvaFall17V2noIso_WP90_;
+    bool loaded_Electron_mvaFall17V2noIso_WP90_;
+    bool Electron_mvaFall17V2noIso_WPL_[30];
+    vector<bool> v_Electron_mvaFall17V2noIso_WPL_;
+    TBranch *b_Electron_mvaFall17V2noIso_WPL_;
+    bool loaded_Electron_mvaFall17V2noIso_WPL_;
     float Electron_mvaTTH_[30];
     vector<float> v_Electron_mvaTTH_;
     TBranch *b_Electron_mvaTTH_;
@@ -214,6 +291,10 @@ protected:
     vector<float> v_Electron_r9_;
     TBranch *b_Electron_r9_;
     bool loaded_Electron_r9_;
+    UChar_t Electron_seedGain_[30];
+    vector<UChar_t> v_Electron_seedGain_;
+    TBranch *b_Electron_seedGain_;
+    bool loaded_Electron_seedGain_;
     float Electron_sieie_[30];
     vector<float> v_Electron_sieie_;
     TBranch *b_Electron_sieie_;
@@ -242,6 +323,18 @@ protected:
     vector<float> v_FatJet_btagCSVV2_;
     TBranch *b_FatJet_btagCSVV2_;
     bool loaded_FatJet_btagCSVV2_;
+    float FatJet_btagDDBvL_[21];
+    vector<float> v_FatJet_btagDDBvL_;
+    TBranch *b_FatJet_btagDDBvL_;
+    bool loaded_FatJet_btagDDBvL_;
+    float FatJet_btagDDCvB_[21];
+    vector<float> v_FatJet_btagDDCvB_;
+    TBranch *b_FatJet_btagDDCvB_;
+    bool loaded_FatJet_btagDDCvB_;
+    float FatJet_btagDDCvL_[21];
+    vector<float> v_FatJet_btagDDCvL_;
+    TBranch *b_FatJet_btagDDCvL_;
+    bool loaded_FatJet_btagDDCvL_;
     float FatJet_btagDeepB_[21];
     vector<float> v_FatJet_btagDeepB_;
     TBranch *b_FatJet_btagDeepB_;
@@ -250,6 +343,70 @@ protected:
     vector<float> v_FatJet_btagHbb_;
     TBranch *b_FatJet_btagHbb_;
     bool loaded_FatJet_btagHbb_;
+    float FatJet_deepTagMD_H4qvsQCD_[21];
+    vector<float> v_FatJet_deepTagMD_H4qvsQCD_;
+    TBranch *b_FatJet_deepTagMD_H4qvsQCD_;
+    bool loaded_FatJet_deepTagMD_H4qvsQCD_;
+    float FatJet_deepTagMD_HbbvsQCD_[21];
+    vector<float> v_FatJet_deepTagMD_HbbvsQCD_;
+    TBranch *b_FatJet_deepTagMD_HbbvsQCD_;
+    bool loaded_FatJet_deepTagMD_HbbvsQCD_;
+    float FatJet_deepTagMD_TvsQCD_[21];
+    vector<float> v_FatJet_deepTagMD_TvsQCD_;
+    TBranch *b_FatJet_deepTagMD_TvsQCD_;
+    bool loaded_FatJet_deepTagMD_TvsQCD_;
+    float FatJet_deepTagMD_WvsQCD_[21];
+    vector<float> v_FatJet_deepTagMD_WvsQCD_;
+    TBranch *b_FatJet_deepTagMD_WvsQCD_;
+    bool loaded_FatJet_deepTagMD_WvsQCD_;
+    float FatJet_deepTagMD_ZHbbvsQCD_[21];
+    vector<float> v_FatJet_deepTagMD_ZHbbvsQCD_;
+    TBranch *b_FatJet_deepTagMD_ZHbbvsQCD_;
+    bool loaded_FatJet_deepTagMD_ZHbbvsQCD_;
+    float FatJet_deepTagMD_ZHccvsQCD_[21];
+    vector<float> v_FatJet_deepTagMD_ZHccvsQCD_;
+    TBranch *b_FatJet_deepTagMD_ZHccvsQCD_;
+    bool loaded_FatJet_deepTagMD_ZHccvsQCD_;
+    float FatJet_deepTagMD_ZbbvsQCD_[21];
+    vector<float> v_FatJet_deepTagMD_ZbbvsQCD_;
+    TBranch *b_FatJet_deepTagMD_ZbbvsQCD_;
+    bool loaded_FatJet_deepTagMD_ZbbvsQCD_;
+    float FatJet_deepTagMD_ZvsQCD_[21];
+    vector<float> v_FatJet_deepTagMD_ZvsQCD_;
+    TBranch *b_FatJet_deepTagMD_ZvsQCD_;
+    bool loaded_FatJet_deepTagMD_ZvsQCD_;
+    float FatJet_deepTagMD_bbvsLight_[21];
+    vector<float> v_FatJet_deepTagMD_bbvsLight_;
+    TBranch *b_FatJet_deepTagMD_bbvsLight_;
+    bool loaded_FatJet_deepTagMD_bbvsLight_;
+    float FatJet_deepTagMD_ccvsLight_[21];
+    vector<float> v_FatJet_deepTagMD_ccvsLight_;
+    TBranch *b_FatJet_deepTagMD_ccvsLight_;
+    bool loaded_FatJet_deepTagMD_ccvsLight_;
+    float FatJet_deepTag_H_[21];
+    vector<float> v_FatJet_deepTag_H_;
+    TBranch *b_FatJet_deepTag_H_;
+    bool loaded_FatJet_deepTag_H_;
+    float FatJet_deepTag_QCD_[21];
+    vector<float> v_FatJet_deepTag_QCD_;
+    TBranch *b_FatJet_deepTag_QCD_;
+    bool loaded_FatJet_deepTag_QCD_;
+    float FatJet_deepTag_QCDothers_[21];
+    vector<float> v_FatJet_deepTag_QCDothers_;
+    TBranch *b_FatJet_deepTag_QCDothers_;
+    bool loaded_FatJet_deepTag_QCDothers_;
+    float FatJet_deepTag_TvsQCD_[21];
+    vector<float> v_FatJet_deepTag_TvsQCD_;
+    TBranch *b_FatJet_deepTag_TvsQCD_;
+    bool loaded_FatJet_deepTag_TvsQCD_;
+    float FatJet_deepTag_WvsQCD_[21];
+    vector<float> v_FatJet_deepTag_WvsQCD_;
+    TBranch *b_FatJet_deepTag_WvsQCD_;
+    bool loaded_FatJet_deepTag_WvsQCD_;
+    float FatJet_deepTag_ZvsQCD_[21];
+    vector<float> v_FatJet_deepTag_ZvsQCD_;
+    TBranch *b_FatJet_deepTag_ZvsQCD_;
+    bool loaded_FatJet_deepTag_ZvsQCD_;
     float FatJet_eta_[21];
     vector<float> v_FatJet_eta_;
     TBranch *b_FatJet_eta_;
@@ -285,6 +442,10 @@ protected:
     vector<float> v_FatJet_pt_;
     TBranch *b_FatJet_pt_;
     bool loaded_FatJet_pt_;
+    float FatJet_rawFactor_[21];
+    vector<float> v_FatJet_rawFactor_;
+    TBranch *b_FatJet_rawFactor_;
+    bool loaded_FatJet_rawFactor_;
     int FatJet_subJetIdx1_[21];
     vector<int> v_FatJet_subJetIdx1_;
     TBranch *b_FatJet_subJetIdx1_;
@@ -354,6 +515,9 @@ protected:
     bool Flag_ecalBadCalibFilter_;
     TBranch *b_Flag_ecalBadCalibFilter_;
     bool loaded_Flag_ecalBadCalibFilter_;
+    bool Flag_ecalBadCalibFilterV2_;
+    TBranch *b_Flag_ecalBadCalibFilterV2_;
+    bool loaded_Flag_ecalBadCalibFilterV2_;
     bool Flag_ecalLaserCorrFilter_;
     TBranch *b_Flag_ecalLaserCorrFilter_;
     bool loaded_Flag_ecalLaserCorrFilter_;
@@ -391,6 +555,10 @@ protected:
     vector<float> v_GenDressedLepton_eta_;
     TBranch *b_GenDressedLepton_eta_;
     bool loaded_GenDressedLepton_eta_;
+    bool GenDressedLepton_hasTauAnc_[15];
+    vector<bool> v_GenDressedLepton_hasTauAnc_;
+    TBranch *b_GenDressedLepton_hasTauAnc_;
+    bool loaded_GenDressedLepton_hasTauAnc_;
     float GenDressedLepton_mass_[15];
     vector<float> v_GenDressedLepton_mass_;
     TBranch *b_GenDressedLepton_mass_;
@@ -410,57 +578,57 @@ protected:
     vector<float> v_GenDressedLepton_pt_;
     TBranch *b_GenDressedLepton_pt_;
     bool loaded_GenDressedLepton_pt_;
-    float GenJetAK8_eta_[27];
+    float GenJetAK8_eta_[30];
     vector<float> v_GenJetAK8_eta_;
     TBranch *b_GenJetAK8_eta_;
     bool loaded_GenJetAK8_eta_;
-    UChar_t GenJetAK8_hadronFlavour_[27];
+    UChar_t GenJetAK8_hadronFlavour_[30];
     vector<UChar_t> v_GenJetAK8_hadronFlavour_;
     TBranch *b_GenJetAK8_hadronFlavour_;
     bool loaded_GenJetAK8_hadronFlavour_;
-    float GenJetAK8_mass_[27];
+    float GenJetAK8_mass_[30];
     vector<float> v_GenJetAK8_mass_;
     TBranch *b_GenJetAK8_mass_;
     bool loaded_GenJetAK8_mass_;
     vector<LorentzVector> v_GenJetAK8_p4_;
     TBranch *b_GenJetAK8_p4_;
     bool loaded_GenJetAK8_p4_;
-    int GenJetAK8_partonFlavour_[27];
+    int GenJetAK8_partonFlavour_[30];
     vector<int> v_GenJetAK8_partonFlavour_;
     TBranch *b_GenJetAK8_partonFlavour_;
     bool loaded_GenJetAK8_partonFlavour_;
-    float GenJetAK8_phi_[27];
+    float GenJetAK8_phi_[30];
     vector<float> v_GenJetAK8_phi_;
     TBranch *b_GenJetAK8_phi_;
     bool loaded_GenJetAK8_phi_;
-    float GenJetAK8_pt_[27];
+    float GenJetAK8_pt_[30];
     vector<float> v_GenJetAK8_pt_;
     TBranch *b_GenJetAK8_pt_;
     bool loaded_GenJetAK8_pt_;
-    float GenJet_eta_[78];
+    float GenJet_eta_[99];
     vector<float> v_GenJet_eta_;
     TBranch *b_GenJet_eta_;
     bool loaded_GenJet_eta_;
-    UChar_t GenJet_hadronFlavour_[78];
+    UChar_t GenJet_hadronFlavour_[99];
     vector<UChar_t> v_GenJet_hadronFlavour_;
     TBranch *b_GenJet_hadronFlavour_;
     bool loaded_GenJet_hadronFlavour_;
-    float GenJet_mass_[78];
+    float GenJet_mass_[99];
     vector<float> v_GenJet_mass_;
     TBranch *b_GenJet_mass_;
     bool loaded_GenJet_mass_;
     vector<LorentzVector> v_GenJet_p4_;
     TBranch *b_GenJet_p4_;
     bool loaded_GenJet_p4_;
-    int GenJet_partonFlavour_[78];
+    int GenJet_partonFlavour_[99];
     vector<int> v_GenJet_partonFlavour_;
     TBranch *b_GenJet_partonFlavour_;
     bool loaded_GenJet_partonFlavour_;
-    float GenJet_phi_[78];
+    float GenJet_phi_[99];
     vector<float> v_GenJet_phi_;
     TBranch *b_GenJet_phi_;
     bool loaded_GenJet_phi_;
-    float GenJet_pt_[78];
+    float GenJet_pt_[99];
     vector<float> v_GenJet_pt_;
     TBranch *b_GenJet_pt_;
     bool loaded_GenJet_pt_;
@@ -470,38 +638,38 @@ protected:
     float GenMET_pt_;
     TBranch *b_GenMET_pt_;
     bool loaded_GenMET_pt_;
-    float GenPart_eta_[546];
+    float GenPart_eta_[564];
     vector<float> v_GenPart_eta_;
     TBranch *b_GenPart_eta_;
     bool loaded_GenPart_eta_;
-    int GenPart_genPartIdxMother_[546];
+    int GenPart_genPartIdxMother_[564];
     vector<int> v_GenPart_genPartIdxMother_;
     TBranch *b_GenPart_genPartIdxMother_;
     bool loaded_GenPart_genPartIdxMother_;
-    float GenPart_mass_[546];
+    float GenPart_mass_[564];
     vector<float> v_GenPart_mass_;
     TBranch *b_GenPart_mass_;
     bool loaded_GenPart_mass_;
     vector<LorentzVector> v_GenPart_p4_;
     TBranch *b_GenPart_p4_;
     bool loaded_GenPart_p4_;
-    int GenPart_pdgId_[546];
+    int GenPart_pdgId_[564];
     vector<int> v_GenPart_pdgId_;
     TBranch *b_GenPart_pdgId_;
     bool loaded_GenPart_pdgId_;
-    float GenPart_phi_[546];
+    float GenPart_phi_[564];
     vector<float> v_GenPart_phi_;
     TBranch *b_GenPart_phi_;
     bool loaded_GenPart_phi_;
-    float GenPart_pt_[546];
+    float GenPart_pt_[564];
     vector<float> v_GenPart_pt_;
     TBranch *b_GenPart_pt_;
     bool loaded_GenPart_pt_;
-    int GenPart_status_[546];
+    int GenPart_status_[564];
     vector<int> v_GenPart_status_;
     TBranch *b_GenPart_status_;
     bool loaded_GenPart_status_;
-    int GenPart_statusFlags_[546];
+    int GenPart_statusFlags_[564];
     vector<int> v_GenPart_statusFlags_;
     TBranch *b_GenPart_statusFlags_;
     bool loaded_GenPart_statusFlags_;
@@ -611,21 +779,36 @@ protected:
     bool HLT_AK8PFJet140_;
     TBranch *b_HLT_AK8PFJet140_;
     bool loaded_HLT_AK8PFJet140_;
+    bool HLT_AK8PFJet15_;
+    TBranch *b_HLT_AK8PFJet15_;
+    bool loaded_HLT_AK8PFJet15_;
     bool HLT_AK8PFJet200_;
     TBranch *b_HLT_AK8PFJet200_;
     bool loaded_HLT_AK8PFJet200_;
+    bool HLT_AK8PFJet25_;
+    TBranch *b_HLT_AK8PFJet25_;
+    bool loaded_HLT_AK8PFJet25_;
     bool HLT_AK8PFJet260_;
     TBranch *b_HLT_AK8PFJet260_;
     bool loaded_HLT_AK8PFJet260_;
     bool HLT_AK8PFJet320_;
     TBranch *b_HLT_AK8PFJet320_;
     bool loaded_HLT_AK8PFJet320_;
-    bool HLT_AK8PFJet330_PFAK8BTagCSV_p1_;
-    TBranch *b_HLT_AK8PFJet330_PFAK8BTagCSV_p1_;
-    bool loaded_HLT_AK8PFJet330_PFAK8BTagCSV_p1_;
-    bool HLT_AK8PFJet330_PFAK8BTagCSV_p17_;
-    TBranch *b_HLT_AK8PFJet330_PFAK8BTagCSV_p17_;
-    bool loaded_HLT_AK8PFJet330_PFAK8BTagCSV_p17_;
+    bool HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p1_;
+    TBranch *b_HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p1_;
+    bool loaded_HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p1_;
+    bool HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p17_;
+    TBranch *b_HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p17_;
+    bool loaded_HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p17_;
+    bool HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np2_;
+    TBranch *b_HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np2_;
+    bool loaded_HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np2_;
+    bool HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np4_;
+    TBranch *b_HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np4_;
+    bool loaded_HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np4_;
+    bool HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_p02_;
+    TBranch *b_HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_p02_;
+    bool loaded_HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_p02_;
     bool HLT_AK8PFJet360_TrimMass30_;
     TBranch *b_HLT_AK8PFJet360_TrimMass30_;
     bool loaded_HLT_AK8PFJet360_TrimMass30_;
@@ -662,9 +845,15 @@ protected:
     bool HLT_AK8PFJetFwd140_;
     TBranch *b_HLT_AK8PFJetFwd140_;
     bool loaded_HLT_AK8PFJetFwd140_;
+    bool HLT_AK8PFJetFwd15_;
+    TBranch *b_HLT_AK8PFJetFwd15_;
+    bool loaded_HLT_AK8PFJetFwd15_;
     bool HLT_AK8PFJetFwd200_;
     TBranch *b_HLT_AK8PFJetFwd200_;
     bool loaded_HLT_AK8PFJetFwd200_;
+    bool HLT_AK8PFJetFwd25_;
+    TBranch *b_HLT_AK8PFJetFwd25_;
+    bool loaded_HLT_AK8PFJetFwd25_;
     bool HLT_AK8PFJetFwd260_;
     TBranch *b_HLT_AK8PFJetFwd260_;
     bool loaded_HLT_AK8PFJetFwd260_;
@@ -692,27 +881,63 @@ protected:
     bool HLT_BTagMu_AK4DiJet110_Mu5_;
     TBranch *b_HLT_BTagMu_AK4DiJet110_Mu5_;
     bool loaded_HLT_BTagMu_AK4DiJet110_Mu5_;
+    bool HLT_BTagMu_AK4DiJet110_Mu5_noalgo_;
+    TBranch *b_HLT_BTagMu_AK4DiJet110_Mu5_noalgo_;
+    bool loaded_HLT_BTagMu_AK4DiJet110_Mu5_noalgo_;
     bool HLT_BTagMu_AK4DiJet170_Mu5_;
     TBranch *b_HLT_BTagMu_AK4DiJet170_Mu5_;
     bool loaded_HLT_BTagMu_AK4DiJet170_Mu5_;
+    bool HLT_BTagMu_AK4DiJet170_Mu5_noalgo_;
+    TBranch *b_HLT_BTagMu_AK4DiJet170_Mu5_noalgo_;
+    bool loaded_HLT_BTagMu_AK4DiJet170_Mu5_noalgo_;
     bool HLT_BTagMu_AK4DiJet20_Mu5_;
     TBranch *b_HLT_BTagMu_AK4DiJet20_Mu5_;
     bool loaded_HLT_BTagMu_AK4DiJet20_Mu5_;
+    bool HLT_BTagMu_AK4DiJet20_Mu5_noalgo_;
+    TBranch *b_HLT_BTagMu_AK4DiJet20_Mu5_noalgo_;
+    bool loaded_HLT_BTagMu_AK4DiJet20_Mu5_noalgo_;
     bool HLT_BTagMu_AK4DiJet40_Mu5_;
     TBranch *b_HLT_BTagMu_AK4DiJet40_Mu5_;
     bool loaded_HLT_BTagMu_AK4DiJet40_Mu5_;
+    bool HLT_BTagMu_AK4DiJet40_Mu5_noalgo_;
+    TBranch *b_HLT_BTagMu_AK4DiJet40_Mu5_noalgo_;
+    bool loaded_HLT_BTagMu_AK4DiJet40_Mu5_noalgo_;
     bool HLT_BTagMu_AK4DiJet70_Mu5_;
     TBranch *b_HLT_BTagMu_AK4DiJet70_Mu5_;
     bool loaded_HLT_BTagMu_AK4DiJet70_Mu5_;
+    bool HLT_BTagMu_AK4DiJet70_Mu5_noalgo_;
+    TBranch *b_HLT_BTagMu_AK4DiJet70_Mu5_noalgo_;
+    bool loaded_HLT_BTagMu_AK4DiJet70_Mu5_noalgo_;
     bool HLT_BTagMu_AK4Jet300_Mu5_;
     TBranch *b_HLT_BTagMu_AK4Jet300_Mu5_;
     bool loaded_HLT_BTagMu_AK4Jet300_Mu5_;
+    bool HLT_BTagMu_AK4Jet300_Mu5_noalgo_;
+    TBranch *b_HLT_BTagMu_AK4Jet300_Mu5_noalgo_;
+    bool loaded_HLT_BTagMu_AK4Jet300_Mu5_noalgo_;
     bool HLT_BTagMu_AK8DiJet170_Mu5_;
     TBranch *b_HLT_BTagMu_AK8DiJet170_Mu5_;
     bool loaded_HLT_BTagMu_AK8DiJet170_Mu5_;
+    bool HLT_BTagMu_AK8DiJet170_Mu5_noalgo_;
+    TBranch *b_HLT_BTagMu_AK8DiJet170_Mu5_noalgo_;
+    bool loaded_HLT_BTagMu_AK8DiJet170_Mu5_noalgo_;
+    bool HLT_BTagMu_AK8Jet170_DoubleMu5_;
+    TBranch *b_HLT_BTagMu_AK8Jet170_DoubleMu5_;
+    bool loaded_HLT_BTagMu_AK8Jet170_DoubleMu5_;
+    bool HLT_BTagMu_AK8Jet170_DoubleMu5_noalgo_;
+    TBranch *b_HLT_BTagMu_AK8Jet170_DoubleMu5_noalgo_;
+    bool loaded_HLT_BTagMu_AK8Jet170_DoubleMu5_noalgo_;
     bool HLT_BTagMu_AK8Jet300_Mu5_;
     TBranch *b_HLT_BTagMu_AK8Jet300_Mu5_;
     bool loaded_HLT_BTagMu_AK8Jet300_Mu5_;
+    bool HLT_BTagMu_AK8Jet300_Mu5_noalgo_;
+    TBranch *b_HLT_BTagMu_AK8Jet300_Mu5_noalgo_;
+    bool loaded_HLT_BTagMu_AK8Jet300_Mu5_noalgo_;
+    bool HLT_CDC_L2cosmic_5_er1p0_;
+    TBranch *b_HLT_CDC_L2cosmic_5_er1p0_;
+    bool loaded_HLT_CDC_L2cosmic_5_er1p0_;
+    bool HLT_CDC_L2cosmic_5p5_er1p0_;
+    TBranch *b_HLT_CDC_L2cosmic_5p5_er1p0_;
+    bool loaded_HLT_CDC_L2cosmic_5p5_er1p0_;
     bool HLT_CaloJet500_NoJetID_;
     TBranch *b_HLT_CaloJet500_NoJetID_;
     bool loaded_HLT_CaloJet500_NoJetID_;
@@ -770,33 +995,21 @@ protected:
     bool HLT_DiJet110_35_Mjj650_PFMET130_;
     TBranch *b_HLT_DiJet110_35_Mjj650_PFMET130_;
     bool loaded_HLT_DiJet110_35_Mjj650_PFMET130_;
+    bool HLT_DiMu4_Ele9_CaloIdL_TrackIdL_DZ_Mass3p8_;
+    TBranch *b_HLT_DiMu4_Ele9_CaloIdL_TrackIdL_DZ_Mass3p8_;
+    bool loaded_HLT_DiMu4_Ele9_CaloIdL_TrackIdL_DZ_Mass3p8_;
     bool HLT_DiMu9_Ele9_CaloIdL_TrackIdL_;
     TBranch *b_HLT_DiMu9_Ele9_CaloIdL_TrackIdL_;
     bool loaded_HLT_DiMu9_Ele9_CaloIdL_TrackIdL_;
     bool HLT_DiMu9_Ele9_CaloIdL_TrackIdL_DZ_;
     TBranch *b_HLT_DiMu9_Ele9_CaloIdL_TrackIdL_DZ_;
     bool loaded_HLT_DiMu9_Ele9_CaloIdL_TrackIdL_DZ_;
-    bool HLT_DiPFJet15_FBEta3_NoCaloMatched_;
-    TBranch *b_HLT_DiPFJet15_FBEta3_NoCaloMatched_;
-    bool loaded_HLT_DiPFJet15_FBEta3_NoCaloMatched_;
-    bool HLT_DiPFJet15_NoCaloMatched_;
-    TBranch *b_HLT_DiPFJet15_NoCaloMatched_;
-    bool loaded_HLT_DiPFJet15_NoCaloMatched_;
-    bool HLT_DiPFJet25_FBEta3_NoCaloMatched_;
-    TBranch *b_HLT_DiPFJet25_FBEta3_NoCaloMatched_;
-    bool loaded_HLT_DiPFJet25_FBEta3_NoCaloMatched_;
-    bool HLT_DiPFJet25_NoCaloMatched_;
-    TBranch *b_HLT_DiPFJet25_NoCaloMatched_;
-    bool loaded_HLT_DiPFJet25_NoCaloMatched_;
     bool HLT_DiPFJetAve100_HFJEC_;
     TBranch *b_HLT_DiPFJetAve100_HFJEC_;
     bool loaded_HLT_DiPFJetAve100_HFJEC_;
     bool HLT_DiPFJetAve140_;
     TBranch *b_HLT_DiPFJetAve140_;
     bool loaded_HLT_DiPFJetAve140_;
-    bool HLT_DiPFJetAve15_HFJEC_;
-    TBranch *b_HLT_DiPFJetAve15_HFJEC_;
-    bool loaded_HLT_DiPFJetAve15_HFJEC_;
     bool HLT_DiPFJetAve160_HFJEC_;
     TBranch *b_HLT_DiPFJetAve160_HFJEC_;
     bool loaded_HLT_DiPFJetAve160_HFJEC_;
@@ -806,9 +1019,6 @@ protected:
     bool HLT_DiPFJetAve220_HFJEC_;
     TBranch *b_HLT_DiPFJetAve220_HFJEC_;
     bool loaded_HLT_DiPFJetAve220_HFJEC_;
-    bool HLT_DiPFJetAve25_HFJEC_;
-    TBranch *b_HLT_DiPFJetAve25_HFJEC_;
-    bool loaded_HLT_DiPFJetAve25_HFJEC_;
     bool HLT_DiPFJetAve260_;
     TBranch *b_HLT_DiPFJetAve260_;
     bool loaded_HLT_DiPFJetAve260_;
@@ -818,9 +1028,6 @@ protected:
     bool HLT_DiPFJetAve320_;
     TBranch *b_HLT_DiPFJetAve320_;
     bool loaded_HLT_DiPFJetAve320_;
-    bool HLT_DiPFJetAve35_HFJEC_;
-    TBranch *b_HLT_DiPFJetAve35_HFJEC_;
-    bool loaded_HLT_DiPFJetAve35_HFJEC_;
     bool HLT_DiPFJetAve40_;
     TBranch *b_HLT_DiPFJetAve40_;
     bool loaded_HLT_DiPFJetAve40_;
@@ -914,12 +1121,9 @@ protected:
     bool HLT_Dimuon10_PsiPrime_Barrel_Seagulls_;
     TBranch *b_HLT_Dimuon10_PsiPrime_Barrel_Seagulls_;
     bool loaded_HLT_Dimuon10_PsiPrime_Barrel_Seagulls_;
-    bool HLT_Dimuon10_Upsilon_Barrel_Seagulls_;
-    TBranch *b_HLT_Dimuon10_Upsilon_Barrel_Seagulls_;
-    bool loaded_HLT_Dimuon10_Upsilon_Barrel_Seagulls_;
-    bool HLT_Dimuon12_Upsilon_eta1p5_;
-    TBranch *b_HLT_Dimuon12_Upsilon_eta1p5_;
-    bool loaded_HLT_Dimuon12_Upsilon_eta1p5_;
+    bool HLT_Dimuon12_Upsilon_y1p4_;
+    TBranch *b_HLT_Dimuon12_Upsilon_y1p4_;
+    bool loaded_HLT_Dimuon12_Upsilon_y1p4_;
     bool HLT_Dimuon14_Phi_Barrel_Seagulls_;
     TBranch *b_HLT_Dimuon14_Phi_Barrel_Seagulls_;
     bool loaded_HLT_Dimuon14_Phi_Barrel_Seagulls_;
@@ -944,24 +1148,18 @@ protected:
     bool HLT_Dimuon25_Jpsi_noCorrL1_;
     TBranch *b_HLT_Dimuon25_Jpsi_noCorrL1_;
     bool loaded_HLT_Dimuon25_Jpsi_noCorrL1_;
-    bool HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_;
-    TBranch *b_HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_;
-    bool loaded_HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_;
-    bool HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_;
-    TBranch *b_HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_;
-    bool loaded_HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_;
     bool HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_;
     TBranch *b_HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_;
     bool loaded_HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_;
     bool HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_;
     TBranch *b_HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_;
     bool loaded_HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_;
-    bool HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_;
-    TBranch *b_HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_;
-    bool loaded_HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_;
-    bool HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_;
-    TBranch *b_HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_;
-    bool loaded_HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_;
+    bool HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_;
+    TBranch *b_HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_;
+    bool loaded_HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_;
+    bool HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_Mass55_;
+    TBranch *b_HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_Mass55_;
+    bool loaded_HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_Mass55_;
     bool HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90_;
     TBranch *b_HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90_;
     bool loaded_HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90_;
@@ -989,36 +1187,57 @@ protected:
     bool HLT_DoubleIsoMu20_eta2p1_;
     TBranch *b_HLT_DoubleIsoMu20_eta2p1_;
     bool loaded_HLT_DoubleIsoMu20_eta2p1_;
-    bool HLT_DoubleIsoMu24_eta2p1_;
-    TBranch *b_HLT_DoubleIsoMu24_eta2p1_;
-    bool loaded_HLT_DoubleIsoMu24_eta2p1_;
+    bool HLT_DoubleL2Mu23NoVtx_2Cha_;
+    TBranch *b_HLT_DoubleL2Mu23NoVtx_2Cha_;
+    bool loaded_HLT_DoubleL2Mu23NoVtx_2Cha_;
+    bool HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_;
+    TBranch *b_HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_;
+    bool loaded_HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_;
+    bool HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_NoL2Matched_;
+    TBranch *b_HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_NoL2Matched_;
+    bool loaded_HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_NoL2Matched_;
+    bool HLT_DoubleL2Mu23NoVtx_2Cha_NoL2Matched_;
+    TBranch *b_HLT_DoubleL2Mu23NoVtx_2Cha_NoL2Matched_;
+    bool loaded_HLT_DoubleL2Mu23NoVtx_2Cha_NoL2Matched_;
+    bool HLT_DoubleL2Mu25NoVtx_2Cha_;
+    TBranch *b_HLT_DoubleL2Mu25NoVtx_2Cha_;
+    bool loaded_HLT_DoubleL2Mu25NoVtx_2Cha_;
+    bool HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_;
+    TBranch *b_HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_;
+    bool loaded_HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_;
+    bool HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_Eta2p4_;
+    TBranch *b_HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_Eta2p4_;
+    bool loaded_HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_Eta2p4_;
+    bool HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_NoL2Matched_;
+    TBranch *b_HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_NoL2Matched_;
+    bool loaded_HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_NoL2Matched_;
+    bool HLT_DoubleL2Mu25NoVtx_2Cha_Eta2p4_;
+    TBranch *b_HLT_DoubleL2Mu25NoVtx_2Cha_Eta2p4_;
+    bool loaded_HLT_DoubleL2Mu25NoVtx_2Cha_Eta2p4_;
+    bool HLT_DoubleL2Mu25NoVtx_2Cha_NoL2Matched_;
+    TBranch *b_HLT_DoubleL2Mu25NoVtx_2Cha_NoL2Matched_;
+    bool loaded_HLT_DoubleL2Mu25NoVtx_2Cha_NoL2Matched_;
+    bool HLT_DoubleL2Mu30NoVtx_2Cha_CosmicSeed_Eta2p4_;
+    TBranch *b_HLT_DoubleL2Mu30NoVtx_2Cha_CosmicSeed_Eta2p4_;
+    bool loaded_HLT_DoubleL2Mu30NoVtx_2Cha_CosmicSeed_Eta2p4_;
+    bool HLT_DoubleL2Mu30NoVtx_2Cha_Eta2p4_;
+    TBranch *b_HLT_DoubleL2Mu30NoVtx_2Cha_Eta2p4_;
+    bool loaded_HLT_DoubleL2Mu30NoVtx_2Cha_Eta2p4_;
     bool HLT_DoubleL2Mu50_;
     TBranch *b_HLT_DoubleL2Mu50_;
     bool loaded_HLT_DoubleL2Mu50_;
-    bool HLT_DoubleLooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_;
-    TBranch *b_HLT_DoubleLooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_;
-    bool loaded_HLT_DoubleLooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_;
-    bool HLT_DoubleLooseChargedIsoPFTau35_Trk1_eta2p1_Reg_;
-    TBranch *b_HLT_DoubleLooseChargedIsoPFTau35_Trk1_eta2p1_Reg_;
-    bool loaded_HLT_DoubleLooseChargedIsoPFTau35_Trk1_eta2p1_Reg_;
-    bool HLT_DoubleLooseChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_;
-    TBranch *b_HLT_DoubleLooseChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_;
-    bool loaded_HLT_DoubleLooseChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_;
-    bool HLT_DoubleLooseChargedIsoPFTau40_Trk1_eta2p1_Reg_;
-    TBranch *b_HLT_DoubleLooseChargedIsoPFTau40_Trk1_eta2p1_Reg_;
-    bool loaded_HLT_DoubleLooseChargedIsoPFTau40_Trk1_eta2p1_Reg_;
-    bool HLT_DoubleMediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_;
-    TBranch *b_HLT_DoubleMediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_;
-    bool loaded_HLT_DoubleMediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_;
-    bool HLT_DoubleMediumChargedIsoPFTau35_Trk1_eta2p1_Reg_;
-    TBranch *b_HLT_DoubleMediumChargedIsoPFTau35_Trk1_eta2p1_Reg_;
-    bool loaded_HLT_DoubleMediumChargedIsoPFTau35_Trk1_eta2p1_Reg_;
-    bool HLT_DoubleMediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_;
-    TBranch *b_HLT_DoubleMediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_;
-    bool loaded_HLT_DoubleMediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_;
-    bool HLT_DoubleMediumChargedIsoPFTau40_Trk1_eta2p1_Reg_;
-    TBranch *b_HLT_DoubleMediumChargedIsoPFTau40_Trk1_eta2p1_Reg_;
-    bool loaded_HLT_DoubleMediumChargedIsoPFTau40_Trk1_eta2p1_Reg_;
+    bool HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_;
+    TBranch *b_HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_;
+    bool loaded_HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_;
+    bool HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_;
+    TBranch *b_HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_;
+    bool loaded_HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_;
+    bool HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg_;
+    TBranch *b_HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg_;
+    bool loaded_HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg_;
+    bool HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_eta2p1_Reg_;
+    TBranch *b_HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_eta2p1_Reg_;
+    bool loaded_HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_eta2p1_Reg_;
     bool HLT_DoubleMu20_7_Mass0to30_L1_DM4_;
     TBranch *b_HLT_DoubleMu20_7_Mass0to30_L1_DM4_;
     bool loaded_HLT_DoubleMu20_7_Mass0to30_L1_DM4_;
@@ -1031,9 +1250,12 @@ protected:
     bool HLT_DoubleMu2_Jpsi_DoubleTkMu0_Phi_;
     TBranch *b_HLT_DoubleMu2_Jpsi_DoubleTkMu0_Phi_;
     bool loaded_HLT_DoubleMu2_Jpsi_DoubleTkMu0_Phi_;
-    bool HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi_;
-    TBranch *b_HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi_;
-    bool loaded_HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi_;
+    bool HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi1p05_;
+    TBranch *b_HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi1p05_;
+    bool loaded_HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi1p05_;
+    bool HLT_DoubleMu33NoFiltersNoVtxDisplaced_;
+    TBranch *b_HLT_DoubleMu33NoFiltersNoVtxDisplaced_;
+    bool loaded_HLT_DoubleMu33NoFiltersNoVtxDisplaced_;
     bool HLT_DoubleMu3_DCA_PFMET50_PFMHT60_;
     TBranch *b_HLT_DoubleMu3_DCA_PFMET50_PFMHT60_;
     bool loaded_HLT_DoubleMu3_DCA_PFMET50_PFMHT60_;
@@ -1046,12 +1268,21 @@ protected:
     bool HLT_DoubleMu3_DZ_PFMET90_PFMHT90_;
     TBranch *b_HLT_DoubleMu3_DZ_PFMET90_PFMHT90_;
     bool loaded_HLT_DoubleMu3_DZ_PFMET90_PFMHT90_;
+    bool HLT_DoubleMu3_DoubleEle7p5_CaloIdL_TrackIdL_Upsilon_;
+    TBranch *b_HLT_DoubleMu3_DoubleEle7p5_CaloIdL_TrackIdL_Upsilon_;
+    bool loaded_HLT_DoubleMu3_DoubleEle7p5_CaloIdL_TrackIdL_Upsilon_;
+    bool HLT_DoubleMu3_TkMu_DsTau3Mu_;
+    TBranch *b_HLT_DoubleMu3_TkMu_DsTau3Mu_;
+    bool loaded_HLT_DoubleMu3_TkMu_DsTau3Mu_;
     bool HLT_DoubleMu3_Trk_Tau3mu_;
     TBranch *b_HLT_DoubleMu3_Trk_Tau3mu_;
     bool loaded_HLT_DoubleMu3_Trk_Tau3mu_;
     bool HLT_DoubleMu3_Trk_Tau3mu_NoL1Mass_;
     TBranch *b_HLT_DoubleMu3_Trk_Tau3mu_NoL1Mass_;
     bool loaded_HLT_DoubleMu3_Trk_Tau3mu_NoL1Mass_;
+    bool HLT_DoubleMu40NoFiltersNoVtxDisplaced_;
+    TBranch *b_HLT_DoubleMu40NoFiltersNoVtxDisplaced_;
+    bool loaded_HLT_DoubleMu40NoFiltersNoVtxDisplaced_;
     bool HLT_DoubleMu43NoFiltersNoVtx_;
     TBranch *b_HLT_DoubleMu43NoFiltersNoVtx_;
     bool loaded_HLT_DoubleMu43NoFiltersNoVtx_;
@@ -1061,9 +1292,9 @@ protected:
     bool HLT_DoubleMu4_3_Bs_;
     TBranch *b_HLT_DoubleMu4_3_Bs_;
     bool loaded_HLT_DoubleMu4_3_Bs_;
-    bool HLT_DoubleMu4_3_Jpsi_Displaced_;
-    TBranch *b_HLT_DoubleMu4_3_Jpsi_Displaced_;
-    bool loaded_HLT_DoubleMu4_3_Jpsi_Displaced_;
+    bool HLT_DoubleMu4_3_Jpsi_;
+    TBranch *b_HLT_DoubleMu4_3_Jpsi_;
+    bool loaded_HLT_DoubleMu4_3_Jpsi_;
     bool HLT_DoubleMu4_JpsiTrkTrk_Displaced_;
     TBranch *b_HLT_DoubleMu4_JpsiTrkTrk_Displaced_;
     bool loaded_HLT_DoubleMu4_JpsiTrkTrk_Displaced_;
@@ -1079,36 +1310,33 @@ protected:
     bool HLT_DoubleMu4_LowMassNonResonantTrk_Displaced_;
     TBranch *b_HLT_DoubleMu4_LowMassNonResonantTrk_Displaced_;
     bool loaded_HLT_DoubleMu4_LowMassNonResonantTrk_Displaced_;
-    bool HLT_DoubleMu4_Mass8_DZ_PFHT350_;
-    TBranch *b_HLT_DoubleMu4_Mass8_DZ_PFHT350_;
-    bool loaded_HLT_DoubleMu4_Mass8_DZ_PFHT350_;
+    bool HLT_DoubleMu4_Mass3p8_DZ_PFHT350_;
+    TBranch *b_HLT_DoubleMu4_Mass3p8_DZ_PFHT350_;
+    bool loaded_HLT_DoubleMu4_Mass3p8_DZ_PFHT350_;
     bool HLT_DoubleMu4_PsiPrimeTrk_Displaced_;
     TBranch *b_HLT_DoubleMu4_PsiPrimeTrk_Displaced_;
     bool loaded_HLT_DoubleMu4_PsiPrimeTrk_Displaced_;
-    bool HLT_DoubleMu8_Mass8_PFHT350_;
-    TBranch *b_HLT_DoubleMu8_Mass8_PFHT350_;
-    bool loaded_HLT_DoubleMu8_Mass8_PFHT350_;
-    bool HLT_DoublePFJets100MaxDeta1p6_DoubleCaloBTagCSV_p33_;
-    TBranch *b_HLT_DoublePFJets100MaxDeta1p6_DoubleCaloBTagCSV_p33_;
-    bool loaded_HLT_DoublePFJets100MaxDeta1p6_DoubleCaloBTagCSV_p33_;
-    bool HLT_DoublePFJets100_CaloBTagCSV_p33_;
-    TBranch *b_HLT_DoublePFJets100_CaloBTagCSV_p33_;
-    bool loaded_HLT_DoublePFJets100_CaloBTagCSV_p33_;
-    bool HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagCSV_p33_;
-    TBranch *b_HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagCSV_p33_;
-    bool loaded_HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagCSV_p33_;
-    bool HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagCSV_p33_;
-    TBranch *b_HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagCSV_p33_;
-    bool loaded_HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagCSV_p33_;
-    bool HLT_DoublePFJets200_CaloBTagCSV_p33_;
-    TBranch *b_HLT_DoublePFJets200_CaloBTagCSV_p33_;
-    bool loaded_HLT_DoublePFJets200_CaloBTagCSV_p33_;
-    bool HLT_DoublePFJets350_CaloBTagCSV_p33_;
-    TBranch *b_HLT_DoublePFJets350_CaloBTagCSV_p33_;
-    bool loaded_HLT_DoublePFJets350_CaloBTagCSV_p33_;
-    bool HLT_DoublePFJets40_CaloBTagCSV_p33_;
-    TBranch *b_HLT_DoublePFJets40_CaloBTagCSV_p33_;
-    bool loaded_HLT_DoublePFJets40_CaloBTagCSV_p33_;
+    bool HLT_DoubleMu5_Upsilon_DoubleEle3_CaloIdL_TrackIdL_;
+    TBranch *b_HLT_DoubleMu5_Upsilon_DoubleEle3_CaloIdL_TrackIdL_;
+    bool loaded_HLT_DoubleMu5_Upsilon_DoubleEle3_CaloIdL_TrackIdL_;
+    bool HLT_DoublePFJets100_CaloBTagDeepCSV_p71_;
+    TBranch *b_HLT_DoublePFJets100_CaloBTagDeepCSV_p71_;
+    bool loaded_HLT_DoublePFJets100_CaloBTagDeepCSV_p71_;
+    bool HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_;
+    TBranch *b_HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_;
+    bool loaded_HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_;
+    bool HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_;
+    TBranch *b_HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_;
+    bool loaded_HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_;
+    bool HLT_DoublePFJets200_CaloBTagDeepCSV_p71_;
+    TBranch *b_HLT_DoublePFJets200_CaloBTagDeepCSV_p71_;
+    bool loaded_HLT_DoublePFJets200_CaloBTagDeepCSV_p71_;
+    bool HLT_DoublePFJets350_CaloBTagDeepCSV_p71_;
+    TBranch *b_HLT_DoublePFJets350_CaloBTagDeepCSV_p71_;
+    bool loaded_HLT_DoublePFJets350_CaloBTagDeepCSV_p71_;
+    bool HLT_DoublePFJets40_CaloBTagDeepCSV_p71_;
+    TBranch *b_HLT_DoublePFJets40_CaloBTagDeepCSV_p71_;
+    bool loaded_HLT_DoublePFJets40_CaloBTagDeepCSV_p71_;
     bool HLT_DoublePhoton33_CaloIdL_;
     TBranch *b_HLT_DoublePhoton33_CaloIdL_;
     bool loaded_HLT_DoublePhoton33_CaloIdL_;
@@ -1118,18 +1346,21 @@ protected:
     bool HLT_DoublePhoton85_;
     TBranch *b_HLT_DoublePhoton85_;
     bool loaded_HLT_DoublePhoton85_;
-    bool HLT_DoubleTightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_;
-    TBranch *b_HLT_DoubleTightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_;
-    bool loaded_HLT_DoubleTightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_;
-    bool HLT_DoubleTightChargedIsoPFTau35_Trk1_eta2p1_Reg_;
-    TBranch *b_HLT_DoubleTightChargedIsoPFTau35_Trk1_eta2p1_Reg_;
-    bool loaded_HLT_DoubleTightChargedIsoPFTau35_Trk1_eta2p1_Reg_;
-    bool HLT_DoubleTightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_;
-    TBranch *b_HLT_DoubleTightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_;
-    bool loaded_HLT_DoubleTightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_;
-    bool HLT_DoubleTightChargedIsoPFTau40_Trk1_eta2p1_Reg_;
-    TBranch *b_HLT_DoubleTightChargedIsoPFTau40_Trk1_eta2p1_Reg_;
-    bool loaded_HLT_DoubleTightChargedIsoPFTau40_Trk1_eta2p1_Reg_;
+    bool HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_;
+    TBranch *b_HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_;
+    bool loaded_HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_;
+    bool HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_;
+    TBranch *b_HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_;
+    bool loaded_HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_;
+    bool HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg_;
+    TBranch *b_HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg_;
+    bool loaded_HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg_;
+    bool HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_eta2p1_Reg_;
+    TBranch *b_HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_eta2p1_Reg_;
+    bool loaded_HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_eta2p1_Reg_;
+    bool HLT_DoubleTrkMu_16_6_NoFiltersNoVtx_;
+    TBranch *b_HLT_DoubleTrkMu_16_6_NoFiltersNoVtx_;
+    bool loaded_HLT_DoubleTrkMu_16_6_NoFiltersNoVtx_;
     bool HLT_ECALHT800_;
     TBranch *b_HLT_ECALHT800_;
     bool loaded_HLT_ECALHT800_;
@@ -1148,24 +1379,36 @@ protected:
     bool HLT_Ele145_CaloIdVT_GsfTrkIdT_;
     TBranch *b_HLT_Ele145_CaloIdVT_GsfTrkIdT_;
     bool loaded_HLT_Ele145_CaloIdVT_GsfTrkIdT_;
+    bool HLT_Ele15_CaloIdL_TrackIdL_IsoVL_PFJet30_;
+    TBranch *b_HLT_Ele15_CaloIdL_TrackIdL_IsoVL_PFJet30_;
+    bool loaded_HLT_Ele15_CaloIdL_TrackIdL_IsoVL_PFJet30_;
+    bool HLT_Ele15_Ele8_CaloIdL_TrackIdL_IsoVL_;
+    TBranch *b_HLT_Ele15_Ele8_CaloIdL_TrackIdL_IsoVL_;
+    bool loaded_HLT_Ele15_Ele8_CaloIdL_TrackIdL_IsoVL_;
     bool HLT_Ele15_IsoVVVL_PFHT450_;
     TBranch *b_HLT_Ele15_IsoVVVL_PFHT450_;
     bool loaded_HLT_Ele15_IsoVVVL_PFHT450_;
-    bool HLT_Ele15_IsoVVVL_PFHT450_CaloBTagCSV_4p5_;
-    TBranch *b_HLT_Ele15_IsoVVVL_PFHT450_CaloBTagCSV_4p5_;
-    bool loaded_HLT_Ele15_IsoVVVL_PFHT450_CaloBTagCSV_4p5_;
+    bool HLT_Ele15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5_;
+    TBranch *b_HLT_Ele15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5_;
+    bool loaded_HLT_Ele15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5_;
     bool HLT_Ele15_IsoVVVL_PFHT450_PFMET50_;
     TBranch *b_HLT_Ele15_IsoVVVL_PFHT450_PFMET50_;
     bool loaded_HLT_Ele15_IsoVVVL_PFHT450_PFMET50_;
     bool HLT_Ele15_IsoVVVL_PFHT600_;
     TBranch *b_HLT_Ele15_IsoVVVL_PFHT600_;
     bool loaded_HLT_Ele15_IsoVVVL_PFHT600_;
+    bool HLT_Ele15_WPLoose_Gsf_;
+    TBranch *b_HLT_Ele15_WPLoose_Gsf_;
+    bool loaded_HLT_Ele15_WPLoose_Gsf_;
     bool HLT_Ele16_Ele12_Ele8_CaloIdL_TrackIdL_;
     TBranch *b_HLT_Ele16_Ele12_Ele8_CaloIdL_TrackIdL_;
     bool loaded_HLT_Ele16_Ele12_Ele8_CaloIdL_TrackIdL_;
     bool HLT_Ele17_CaloIdM_TrackIdM_PFJet30_;
     TBranch *b_HLT_Ele17_CaloIdM_TrackIdM_PFJet30_;
     bool loaded_HLT_Ele17_CaloIdM_TrackIdM_PFJet30_;
+    bool HLT_Ele17_WPLoose_Gsf_;
+    TBranch *b_HLT_Ele17_WPLoose_Gsf_;
+    bool loaded_HLT_Ele17_WPLoose_Gsf_;
     bool HLT_Ele200_CaloIdVT_GsfTrkIdT_;
     TBranch *b_HLT_Ele200_CaloIdVT_GsfTrkIdT_;
     bool loaded_HLT_Ele200_CaloIdVT_GsfTrkIdT_;
@@ -1190,24 +1433,24 @@ protected:
     bool HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_DZ_;
     TBranch *b_HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_DZ_;
     bool loaded_HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_DZ_;
-    bool HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_CrossL1_;
-    TBranch *b_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_CrossL1_;
-    bool loaded_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_CrossL1_;
-    bool HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_TightID_CrossL1_;
-    TBranch *b_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_TightID_CrossL1_;
-    bool loaded_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_TightID_CrossL1_;
-    bool HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_CrossL1_;
-    TBranch *b_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_CrossL1_;
-    bool loaded_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_CrossL1_;
-    bool HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_TightID_CrossL1_;
-    TBranch *b_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_TightID_CrossL1_;
-    bool loaded_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_TightID_CrossL1_;
-    bool HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_CrossL1_;
-    TBranch *b_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_CrossL1_;
-    bool loaded_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_CrossL1_;
-    bool HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_TightID_CrossL1_;
-    TBranch *b_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_TightID_CrossL1_;
-    bool loaded_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_TightID_CrossL1_;
+    bool HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_CrossL1_;
+    TBranch *b_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_CrossL1_;
+    bool loaded_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_CrossL1_;
+    bool HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_;
+    TBranch *b_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_;
+    bool loaded_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_;
+    bool HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_CrossL1_;
+    TBranch *b_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_CrossL1_;
+    bool loaded_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_CrossL1_;
+    bool HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_;
+    TBranch *b_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_;
+    bool loaded_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_;
+    bool HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_CrossL1_;
+    TBranch *b_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_CrossL1_;
+    bool loaded_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_CrossL1_;
+    bool HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_;
+    TBranch *b_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_;
+    bool loaded_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_;
     bool HLT_Ele250_CaloIdVT_GsfTrkIdT_;
     TBranch *b_HLT_Ele250_CaloIdVT_GsfTrkIdT_;
     bool loaded_HLT_Ele250_CaloIdVT_GsfTrkIdT_;
@@ -1220,12 +1463,18 @@ protected:
     bool HLT_Ele28_HighEta_SC20_Mass55_;
     TBranch *b_HLT_Ele28_HighEta_SC20_Mass55_;
     bool loaded_HLT_Ele28_HighEta_SC20_Mass55_;
+    bool HLT_Ele28_WPTight_Gsf_;
+    TBranch *b_HLT_Ele28_WPTight_Gsf_;
+    bool loaded_HLT_Ele28_WPTight_Gsf_;
     bool HLT_Ele28_eta2p1_WPTight_Gsf_HT150_;
     TBranch *b_HLT_Ele28_eta2p1_WPTight_Gsf_HT150_;
     bool loaded_HLT_Ele28_eta2p1_WPTight_Gsf_HT150_;
     bool HLT_Ele300_CaloIdVT_GsfTrkIdT_;
     TBranch *b_HLT_Ele300_CaloIdVT_GsfTrkIdT_;
     bool loaded_HLT_Ele300_CaloIdVT_GsfTrkIdT_;
+    bool HLT_Ele30_WPTight_Gsf_;
+    TBranch *b_HLT_Ele30_WPTight_Gsf_;
+    bool loaded_HLT_Ele30_WPTight_Gsf_;
     bool HLT_Ele30_eta2p1_WPTight_Gsf_CentralPFJet35_EleCleaned_;
     TBranch *b_HLT_Ele30_eta2p1_WPTight_Gsf_CentralPFJet35_EleCleaned_;
     bool loaded_HLT_Ele30_eta2p1_WPTight_Gsf_CentralPFJet35_EleCleaned_;
@@ -1259,36 +1508,6 @@ protected:
     bool HLT_Ele8_CaloIdM_TrackIdM_PFJet30_;
     TBranch *b_HLT_Ele8_CaloIdM_TrackIdM_PFJet30_;
     bool loaded_HLT_Ele8_CaloIdM_TrackIdM_PFJet30_;
-    bool HLT_FullTrack_Multiplicity100_;
-    TBranch *b_HLT_FullTrack_Multiplicity100_;
-    bool loaded_HLT_FullTrack_Multiplicity100_;
-    bool HLT_FullTrack_Multiplicity130_;
-    TBranch *b_HLT_FullTrack_Multiplicity130_;
-    bool loaded_HLT_FullTrack_Multiplicity130_;
-    bool HLT_FullTrack_Multiplicity155_;
-    TBranch *b_HLT_FullTrack_Multiplicity155_;
-    bool loaded_HLT_FullTrack_Multiplicity155_;
-    bool HLT_FullTrack_Multiplicity85_;
-    TBranch *b_HLT_FullTrack_Multiplicity85_;
-    bool loaded_HLT_FullTrack_Multiplicity85_;
-    bool HLT_HISinglePhoton10_Eta3p1ForPPRef_;
-    TBranch *b_HLT_HISinglePhoton10_Eta3p1ForPPRef_;
-    bool loaded_HLT_HISinglePhoton10_Eta3p1ForPPRef_;
-    bool HLT_HISinglePhoton20_Eta3p1ForPPRef_;
-    TBranch *b_HLT_HISinglePhoton20_Eta3p1ForPPRef_;
-    bool loaded_HLT_HISinglePhoton20_Eta3p1ForPPRef_;
-    bool HLT_HISinglePhoton30_Eta3p1ForPPRef_;
-    TBranch *b_HLT_HISinglePhoton30_Eta3p1ForPPRef_;
-    bool loaded_HLT_HISinglePhoton30_Eta3p1ForPPRef_;
-    bool HLT_HISinglePhoton40_Eta3p1ForPPRef_;
-    TBranch *b_HLT_HISinglePhoton40_Eta3p1ForPPRef_;
-    bool loaded_HLT_HISinglePhoton40_Eta3p1ForPPRef_;
-    bool HLT_HISinglePhoton50_Eta3p1ForPPRef_;
-    TBranch *b_HLT_HISinglePhoton50_Eta3p1ForPPRef_;
-    bool loaded_HLT_HISinglePhoton50_Eta3p1ForPPRef_;
-    bool HLT_HISinglePhoton60_Eta3p1ForPPRef_;
-    TBranch *b_HLT_HISinglePhoton60_Eta3p1ForPPRef_;
-    bool loaded_HLT_HISinglePhoton60_Eta3p1ForPPRef_;
     bool HLT_HT300_Beamspot_;
     TBranch *b_HLT_HT300_Beamspot_;
     bool loaded_HLT_HT300_Beamspot_;
@@ -1304,27 +1523,18 @@ protected:
     bool HLT_HT430_DisplacedDijet60_DisplacedTrack_;
     TBranch *b_HLT_HT430_DisplacedDijet60_DisplacedTrack_;
     bool loaded_HLT_HT430_DisplacedDijet60_DisplacedTrack_;
-    bool HLT_HT430_DisplacedDijet80_DisplacedTrack_;
-    TBranch *b_HLT_HT430_DisplacedDijet80_DisplacedTrack_;
-    bool loaded_HLT_HT430_DisplacedDijet80_DisplacedTrack_;
     bool HLT_HT450_Beamspot_;
     TBranch *b_HLT_HT450_Beamspot_;
     bool loaded_HLT_HT450_Beamspot_;
+    bool HLT_HT500_DisplacedDijet40_DisplacedTrack_;
+    TBranch *b_HLT_HT500_DisplacedDijet40_DisplacedTrack_;
+    bool loaded_HLT_HT500_DisplacedDijet40_DisplacedTrack_;
     bool HLT_HT550_DisplacedDijet60_Inclusive_;
     TBranch *b_HLT_HT550_DisplacedDijet60_Inclusive_;
     bool loaded_HLT_HT550_DisplacedDijet60_Inclusive_;
-    bool HLT_HT550_DisplacedDijet80_Inclusive_;
-    TBranch *b_HLT_HT550_DisplacedDijet80_Inclusive_;
-    bool loaded_HLT_HT550_DisplacedDijet80_Inclusive_;
     bool HLT_HT650_DisplacedDijet60_Inclusive_;
     TBranch *b_HLT_HT650_DisplacedDijet60_Inclusive_;
     bool loaded_HLT_HT650_DisplacedDijet60_Inclusive_;
-    bool HLT_HT650_DisplacedDijet80_Inclusive_;
-    TBranch *b_HLT_HT650_DisplacedDijet80_Inclusive_;
-    bool loaded_HLT_HT650_DisplacedDijet80_Inclusive_;
-    bool HLT_HT750_DisplacedDijet80_Inclusive_;
-    TBranch *b_HLT_HT750_DisplacedDijet80_Inclusive_;
-    bool loaded_HLT_HT750_DisplacedDijet80_Inclusive_;
     bool HLT_HcalCalibration_;
     TBranch *b_HLT_HcalCalibration_;
     bool loaded_HLT_HcalCalibration_;
@@ -1340,93 +1550,63 @@ protected:
     bool HLT_IsoMu20_;
     TBranch *b_HLT_IsoMu20_;
     bool loaded_HLT_IsoMu20_;
-    bool HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_CrossL1_;
-    TBranch *b_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_CrossL1_;
-    bool loaded_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_CrossL1_;
-    bool HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_TightID_CrossL1_;
-    TBranch *b_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_TightID_CrossL1_;
-    bool loaded_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_TightID_CrossL1_;
-    bool HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_CrossL1_;
-    TBranch *b_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_CrossL1_;
-    bool loaded_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_CrossL1_;
-    bool HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_TightID_CrossL1_;
-    TBranch *b_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_TightID_CrossL1_;
-    bool loaded_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_TightID_CrossL1_;
-    bool HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_CrossL1_;
-    TBranch *b_HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_CrossL1_;
-    bool loaded_HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_CrossL1_;
-    bool HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_TightID_CrossL1_;
-    TBranch *b_HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_TightID_CrossL1_;
-    bool loaded_HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_TightID_CrossL1_;
+    bool HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1_;
+    TBranch *b_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1_;
+    bool loaded_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1_;
+    bool HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_;
+    TBranch *b_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_;
+    bool loaded_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_;
+    bool HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_CrossL1_;
+    TBranch *b_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_CrossL1_;
+    bool loaded_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_CrossL1_;
+    bool HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_;
+    TBranch *b_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_;
+    bool loaded_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_;
+    bool HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_CrossL1_;
+    TBranch *b_HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_CrossL1_;
+    bool loaded_HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_CrossL1_;
+    bool HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_;
+    TBranch *b_HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_;
+    bool loaded_HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_;
     bool HLT_IsoMu24_;
     TBranch *b_HLT_IsoMu24_;
     bool loaded_HLT_IsoMu24_;
+    bool HLT_IsoMu24_TwoProngs35_;
+    TBranch *b_HLT_IsoMu24_TwoProngs35_;
+    bool loaded_HLT_IsoMu24_TwoProngs35_;
     bool HLT_IsoMu24_eta2p1_;
     TBranch *b_HLT_IsoMu24_eta2p1_;
     bool loaded_HLT_IsoMu24_eta2p1_;
-    bool HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_SingleL1_;
-    TBranch *b_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_SingleL1_;
-    bool loaded_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_SingleL1_;
-    bool HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_TightID_SingleL1_;
-    TBranch *b_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_TightID_SingleL1_;
-    bool loaded_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_TightID_SingleL1_;
-    bool HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_;
-    TBranch *b_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_;
-    bool loaded_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_;
-    bool HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_;
-    TBranch *b_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_;
-    bool loaded_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_;
-    bool HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_SingleL1_;
-    TBranch *b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_SingleL1_;
-    bool loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_SingleL1_;
-    bool HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_TightID_SingleL1_;
-    TBranch *b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_TightID_SingleL1_;
-    bool loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_TightID_SingleL1_;
-    bool HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_;
-    TBranch *b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_;
-    bool loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_;
-    bool HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_;
-    TBranch *b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_;
-    bool loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_;
-    bool HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1_;
-    TBranch *b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1_;
-    bool loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1_;
-    bool HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1_;
-    TBranch *b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1_;
-    bool loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1_;
     bool HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_;
     TBranch *b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_;
     bool loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_;
-    bool HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_SingleL1_;
-    TBranch *b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_SingleL1_;
-    bool loaded_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_SingleL1_;
-    bool HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_TightID_SingleL1_;
-    TBranch *b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_TightID_SingleL1_;
-    bool loaded_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_TightID_SingleL1_;
-    bool HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_;
-    TBranch *b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_;
-    bool loaded_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_;
-    bool HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_;
-    TBranch *b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_;
-    bool loaded_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_;
-    bool HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1_;
-    TBranch *b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1_;
-    bool loaded_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1_;
-    bool HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1_;
-    TBranch *b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1_;
-    bool loaded_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1_;
+    bool HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1_;
+    TBranch *b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1_;
+    bool loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1_;
+    bool HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1_;
+    TBranch *b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1_;
+    bool loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1_;
+    bool HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1_;
+    TBranch *b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1_;
+    bool loaded_HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1_;
+    bool HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1_;
+    TBranch *b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1_;
+    bool loaded_HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1_;
     bool HLT_IsoMu27_;
     TBranch *b_HLT_IsoMu27_;
     bool loaded_HLT_IsoMu27_;
-    bool HLT_IsoMu27_LooseChargedIsoPFTau20_SingleL1_;
-    TBranch *b_HLT_IsoMu27_LooseChargedIsoPFTau20_SingleL1_;
-    bool loaded_HLT_IsoMu27_LooseChargedIsoPFTau20_SingleL1_;
-    bool HLT_IsoMu27_MediumChargedIsoPFTau20_SingleL1_;
-    TBranch *b_HLT_IsoMu27_MediumChargedIsoPFTau20_SingleL1_;
-    bool loaded_HLT_IsoMu27_MediumChargedIsoPFTau20_SingleL1_;
-    bool HLT_IsoMu27_TightChargedIsoPFTau20_SingleL1_;
-    TBranch *b_HLT_IsoMu27_TightChargedIsoPFTau20_SingleL1_;
-    bool loaded_HLT_IsoMu27_TightChargedIsoPFTau20_SingleL1_;
+    bool HLT_IsoMu27_LooseChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_;
+    TBranch *b_HLT_IsoMu27_LooseChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_;
+    bool loaded_HLT_IsoMu27_LooseChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_;
+    bool HLT_IsoMu27_MET90_;
+    TBranch *b_HLT_IsoMu27_MET90_;
+    bool loaded_HLT_IsoMu27_MET90_;
+    bool HLT_IsoMu27_MediumChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_;
+    TBranch *b_HLT_IsoMu27_MediumChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_;
+    bool loaded_HLT_IsoMu27_MediumChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_;
+    bool HLT_IsoMu27_TightChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_;
+    TBranch *b_HLT_IsoMu27_TightChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_;
+    bool loaded_HLT_IsoMu27_TightChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_;
     bool HLT_IsoMu30_;
     TBranch *b_HLT_IsoMu30_;
     bool loaded_HLT_IsoMu30_;
@@ -1439,12 +1619,6 @@ protected:
     bool HLT_L1ETMHadSeeds_;
     TBranch *b_HLT_L1ETMHadSeeds_;
     bool loaded_HLT_L1ETMHadSeeds_;
-    bool HLT_L1MinimumBiasHF0OR_;
-    TBranch *b_HLT_L1MinimumBiasHF0OR_;
-    bool loaded_HLT_L1MinimumBiasHF0OR_;
-    bool HLT_L1MinimumBiasHF_OR_;
-    TBranch *b_HLT_L1MinimumBiasHF_OR_;
-    bool loaded_HLT_L1MinimumBiasHF_OR_;
     bool HLT_L1NotBptxOR_;
     TBranch *b_HLT_L1NotBptxOR_;
     bool loaded_HLT_L1NotBptxOR_;
@@ -1463,9 +1637,6 @@ protected:
     bool HLT_L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142_;
     TBranch *b_HLT_L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142_;
     bool loaded_HLT_L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142_;
-    bool HLT_L1_DoubleJet30_Mass_Min400_Mu10_;
-    TBranch *b_HLT_L1_DoubleJet30_Mass_Min400_Mu10_;
-    bool loaded_HLT_L1_DoubleJet30_Mass_Min400_Mu10_;
     bool HLT_L2Mu10_;
     TBranch *b_HLT_L2Mu10_;
     bool loaded_HLT_L2Mu10_;
@@ -1475,6 +1646,12 @@ protected:
     bool HLT_L2Mu10_NoVertex_NoBPTX3BX_;
     TBranch *b_HLT_L2Mu10_NoVertex_NoBPTX3BX_;
     bool loaded_HLT_L2Mu10_NoVertex_NoBPTX3BX_;
+    bool HLT_L2Mu23NoVtx_2Cha_;
+    TBranch *b_HLT_L2Mu23NoVtx_2Cha_;
+    bool loaded_HLT_L2Mu23NoVtx_2Cha_;
+    bool HLT_L2Mu23NoVtx_2Cha_CosmicSeed_;
+    TBranch *b_HLT_L2Mu23NoVtx_2Cha_CosmicSeed_;
+    bool loaded_HLT_L2Mu23NoVtx_2Cha_CosmicSeed_;
     bool HLT_L2Mu40_NoVertex_3Sta_NoBPTX3BX_;
     TBranch *b_HLT_L2Mu40_NoVertex_3Sta_NoBPTX3BX_;
     bool loaded_HLT_L2Mu40_NoVertex_3Sta_NoBPTX3BX_;
@@ -1496,6 +1673,12 @@ protected:
     bool HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1_1pr_;
     TBranch *b_HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1_1pr_;
     bool loaded_HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1_1pr_;
+    bool HLT_MediumChargedIsoPFTau200HighPtRelaxedIso_Trk50_eta2p1_;
+    TBranch *b_HLT_MediumChargedIsoPFTau200HighPtRelaxedIso_Trk50_eta2p1_;
+    bool loaded_HLT_MediumChargedIsoPFTau200HighPtRelaxedIso_Trk50_eta2p1_;
+    bool HLT_MediumChargedIsoPFTau220HighPtRelaxedIso_Trk50_eta2p1_;
+    TBranch *b_HLT_MediumChargedIsoPFTau220HighPtRelaxedIso_Trk50_eta2p1_;
+    bool loaded_HLT_MediumChargedIsoPFTau220HighPtRelaxedIso_Trk50_eta2p1_;
     bool HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_;
     TBranch *b_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_;
     bool loaded_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_;
@@ -1511,6 +1694,9 @@ protected:
     bool HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET130_;
     TBranch *b_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET130_;
     bool loaded_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET130_;
+    bool HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET140_;
+    TBranch *b_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET140_;
+    bool loaded_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET140_;
     bool HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET90_;
     TBranch *b_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET90_;
     bool loaded_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET90_;
@@ -1529,42 +1715,63 @@ protected:
     bool HLT_Mu10_TrkIsoVVL_DiPFJet40_DEta3p5_MJJ750_HTT350_PFMETNoMu60_;
     TBranch *b_HLT_Mu10_TrkIsoVVL_DiPFJet40_DEta3p5_MJJ750_HTT350_PFMETNoMu60_;
     bool loaded_HLT_Mu10_TrkIsoVVL_DiPFJet40_DEta3p5_MJJ750_HTT350_PFMETNoMu60_;
-    bool HLT_Mu12_DoublePFJets100_CaloBTagCSV_p33_;
-    TBranch *b_HLT_Mu12_DoublePFJets100_CaloBTagCSV_p33_;
-    bool loaded_HLT_Mu12_DoublePFJets100_CaloBTagCSV_p33_;
-    bool HLT_Mu12_DoublePFJets200_CaloBTagCSV_p33_;
-    TBranch *b_HLT_Mu12_DoublePFJets200_CaloBTagCSV_p33_;
-    bool loaded_HLT_Mu12_DoublePFJets200_CaloBTagCSV_p33_;
-    bool HLT_Mu12_DoublePFJets350_CaloBTagCSV_p33_;
-    TBranch *b_HLT_Mu12_DoublePFJets350_CaloBTagCSV_p33_;
-    bool loaded_HLT_Mu12_DoublePFJets350_CaloBTagCSV_p33_;
-    bool HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagCSV_p33_;
-    TBranch *b_HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagCSV_p33_;
-    bool loaded_HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagCSV_p33_;
-    bool HLT_Mu12_DoublePFJets40_CaloBTagCSV_p33_;
-    TBranch *b_HLT_Mu12_DoublePFJets40_CaloBTagCSV_p33_;
-    bool loaded_HLT_Mu12_DoublePFJets40_CaloBTagCSV_p33_;
-    bool HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagCSV_p33_;
-    TBranch *b_HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagCSV_p33_;
-    bool loaded_HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagCSV_p33_;
-    bool HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagCSV_p33_;
-    TBranch *b_HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagCSV_p33_;
-    bool loaded_HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagCSV_p33_;
+    bool HLT_Mu12_;
+    TBranch *b_HLT_Mu12_;
+    bool loaded_HLT_Mu12_;
+    bool HLT_Mu12_DoublePFJets100_CaloBTagDeepCSV_p71_;
+    TBranch *b_HLT_Mu12_DoublePFJets100_CaloBTagDeepCSV_p71_;
+    bool loaded_HLT_Mu12_DoublePFJets100_CaloBTagDeepCSV_p71_;
+    bool HLT_Mu12_DoublePFJets200_CaloBTagDeepCSV_p71_;
+    TBranch *b_HLT_Mu12_DoublePFJets200_CaloBTagDeepCSV_p71_;
+    bool loaded_HLT_Mu12_DoublePFJets200_CaloBTagDeepCSV_p71_;
+    bool HLT_Mu12_DoublePFJets350_CaloBTagDeepCSV_p71_;
+    TBranch *b_HLT_Mu12_DoublePFJets350_CaloBTagDeepCSV_p71_;
+    bool loaded_HLT_Mu12_DoublePFJets350_CaloBTagDeepCSV_p71_;
+    bool HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_;
+    TBranch *b_HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_;
+    bool loaded_HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_;
+    bool HLT_Mu12_DoublePFJets40_CaloBTagDeepCSV_p71_;
+    TBranch *b_HLT_Mu12_DoublePFJets40_CaloBTagDeepCSV_p71_;
+    bool loaded_HLT_Mu12_DoublePFJets40_CaloBTagDeepCSV_p71_;
+    bool HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_;
+    TBranch *b_HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_;
+    bool loaded_HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_;
+    bool HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_;
+    TBranch *b_HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_;
+    bool loaded_HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_;
     bool HLT_Mu12_DoublePhoton20_;
     TBranch *b_HLT_Mu12_DoublePhoton20_;
     bool loaded_HLT_Mu12_DoublePhoton20_;
+    bool HLT_Mu12_IP6_part0_;
+    TBranch *b_HLT_Mu12_IP6_part0_;
+    bool loaded_HLT_Mu12_IP6_part0_;
+    bool HLT_Mu12_IP6_part1_;
+    TBranch *b_HLT_Mu12_IP6_part1_;
+    bool loaded_HLT_Mu12_IP6_part1_;
+    bool HLT_Mu12_IP6_part2_;
+    TBranch *b_HLT_Mu12_IP6_part2_;
+    bool loaded_HLT_Mu12_IP6_part2_;
+    bool HLT_Mu12_IP6_part3_;
+    TBranch *b_HLT_Mu12_IP6_part3_;
+    bool loaded_HLT_Mu12_IP6_part3_;
+    bool HLT_Mu12_IP6_part4_;
+    TBranch *b_HLT_Mu12_IP6_part4_;
+    bool loaded_HLT_Mu12_IP6_part4_;
     bool HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_;
     TBranch *b_HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_;
     bool loaded_HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_;
     bool HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_;
     TBranch *b_HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_;
     bool loaded_HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_;
+    bool HLT_Mu15_;
+    TBranch *b_HLT_Mu15_;
+    bool loaded_HLT_Mu15_;
     bool HLT_Mu15_IsoVVVL_PFHT450_;
     TBranch *b_HLT_Mu15_IsoVVVL_PFHT450_;
     bool loaded_HLT_Mu15_IsoVVVL_PFHT450_;
-    bool HLT_Mu15_IsoVVVL_PFHT450_CaloBTagCSV_4p5_;
-    TBranch *b_HLT_Mu15_IsoVVVL_PFHT450_CaloBTagCSV_4p5_;
-    bool loaded_HLT_Mu15_IsoVVVL_PFHT450_CaloBTagCSV_4p5_;
+    bool HLT_Mu15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5_;
+    TBranch *b_HLT_Mu15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5_;
+    bool loaded_HLT_Mu15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5_;
     bool HLT_Mu15_IsoVVVL_PFHT450_PFMET50_;
     TBranch *b_HLT_Mu15_IsoVVVL_PFHT450_PFMET50_;
     bool loaded_HLT_Mu15_IsoVVVL_PFHT450_PFMET50_;
@@ -1670,24 +1877,63 @@ protected:
     bool HLT_Mu27_Ele37_CaloIdL_MW_;
     TBranch *b_HLT_Mu27_Ele37_CaloIdL_MW_;
     bool loaded_HLT_Mu27_Ele37_CaloIdL_MW_;
-    bool HLT_Mu30_TkMu0_Onia_;
-    TBranch *b_HLT_Mu30_TkMu0_Onia_;
-    bool loaded_HLT_Mu30_TkMu0_Onia_;
+    bool HLT_Mu30_TkMu0_Psi_;
+    TBranch *b_HLT_Mu30_TkMu0_Psi_;
+    bool loaded_HLT_Mu30_TkMu0_Psi_;
+    bool HLT_Mu30_TkMu0_Upsilon_;
+    TBranch *b_HLT_Mu30_TkMu0_Upsilon_;
+    bool loaded_HLT_Mu30_TkMu0_Upsilon_;
     bool HLT_Mu37_Ele27_CaloIdL_MW_;
     TBranch *b_HLT_Mu37_Ele27_CaloIdL_MW_;
     bool loaded_HLT_Mu37_Ele27_CaloIdL_MW_;
     bool HLT_Mu37_TkMu27_;
     TBranch *b_HLT_Mu37_TkMu27_;
     bool loaded_HLT_Mu37_TkMu27_;
+    bool HLT_Mu38NoFiltersNoVtxDisplaced_Photon38_CaloIdL_;
+    TBranch *b_HLT_Mu38NoFiltersNoVtxDisplaced_Photon38_CaloIdL_;
+    bool loaded_HLT_Mu38NoFiltersNoVtxDisplaced_Photon38_CaloIdL_;
+    bool HLT_Mu3_L1SingleMu5orSingleMu7_;
+    TBranch *b_HLT_Mu3_L1SingleMu5orSingleMu7_;
+    bool loaded_HLT_Mu3_L1SingleMu5orSingleMu7_;
     bool HLT_Mu3_PFJet40_;
     TBranch *b_HLT_Mu3_PFJet40_;
     bool loaded_HLT_Mu3_PFJet40_;
+    bool HLT_Mu3er1p5_PFJet100er2p5_PFMET100_PFMHT100_IDTight_;
+    TBranch *b_HLT_Mu3er1p5_PFJet100er2p5_PFMET100_PFMHT100_IDTight_;
+    bool loaded_HLT_Mu3er1p5_PFJet100er2p5_PFMET100_PFMHT100_IDTight_;
+    bool HLT_Mu3er1p5_PFJet100er2p5_PFMET70_PFMHT70_IDTight_;
+    TBranch *b_HLT_Mu3er1p5_PFJet100er2p5_PFMET70_PFMHT70_IDTight_;
+    bool loaded_HLT_Mu3er1p5_PFJet100er2p5_PFMET70_PFMHT70_IDTight_;
+    bool HLT_Mu3er1p5_PFJet100er2p5_PFMET80_PFMHT80_IDTight_;
+    TBranch *b_HLT_Mu3er1p5_PFJet100er2p5_PFMET80_PFMHT80_IDTight_;
+    bool loaded_HLT_Mu3er1p5_PFJet100er2p5_PFMET80_PFMHT80_IDTight_;
+    bool HLT_Mu3er1p5_PFJet100er2p5_PFMET90_PFMHT90_IDTight_;
+    TBranch *b_HLT_Mu3er1p5_PFJet100er2p5_PFMET90_PFMHT90_IDTight_;
+    bool loaded_HLT_Mu3er1p5_PFJet100er2p5_PFMET90_PFMHT90_IDTight_;
+    bool HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu100_PFMHTNoMu100_IDTight_;
+    TBranch *b_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu100_PFMHTNoMu100_IDTight_;
+    bool loaded_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu100_PFMHTNoMu100_IDTight_;
+    bool HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu70_PFMHTNoMu70_IDTight_;
+    TBranch *b_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu70_PFMHTNoMu70_IDTight_;
+    bool loaded_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu70_PFMHTNoMu70_IDTight_;
+    bool HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu80_PFMHTNoMu80_IDTight_;
+    TBranch *b_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu80_PFMHTNoMu80_IDTight_;
+    bool loaded_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu80_PFMHTNoMu80_IDTight_;
+    bool HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu90_PFMHTNoMu90_IDTight_;
+    TBranch *b_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu90_PFMHTNoMu90_IDTight_;
+    bool loaded_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu90_PFMHTNoMu90_IDTight_;
+    bool HLT_Mu43NoFiltersNoVtxDisplaced_Photon43_CaloIdL_;
+    TBranch *b_HLT_Mu43NoFiltersNoVtxDisplaced_Photon43_CaloIdL_;
+    bool loaded_HLT_Mu43NoFiltersNoVtxDisplaced_Photon43_CaloIdL_;
     bool HLT_Mu43NoFiltersNoVtx_Photon43_CaloIdL_;
     TBranch *b_HLT_Mu43NoFiltersNoVtx_Photon43_CaloIdL_;
     bool loaded_HLT_Mu43NoFiltersNoVtx_Photon43_CaloIdL_;
     bool HLT_Mu48NoFiltersNoVtx_Photon48_CaloIdL_;
     TBranch *b_HLT_Mu48NoFiltersNoVtx_Photon48_CaloIdL_;
     bool loaded_HLT_Mu48NoFiltersNoVtx_Photon48_CaloIdL_;
+    bool HLT_Mu4_TrkIsoVVL_DiPFJet90_40_DEta3p5_MJJ750_HTT300_PFMETNoMu60_;
+    TBranch *b_HLT_Mu4_TrkIsoVVL_DiPFJet90_40_DEta3p5_MJJ750_HTT300_PFMETNoMu60_;
+    bool loaded_HLT_Mu4_TrkIsoVVL_DiPFJet90_40_DEta3p5_MJJ750_HTT300_PFMETNoMu60_;
     bool HLT_Mu50_;
     TBranch *b_HLT_Mu50_;
     bool loaded_HLT_Mu50_;
@@ -1697,6 +1943,21 @@ protected:
     bool HLT_Mu55_;
     TBranch *b_HLT_Mu55_;
     bool loaded_HLT_Mu55_;
+    bool HLT_Mu7_IP4_part0_;
+    TBranch *b_HLT_Mu7_IP4_part0_;
+    bool loaded_HLT_Mu7_IP4_part0_;
+    bool HLT_Mu7_IP4_part1_;
+    TBranch *b_HLT_Mu7_IP4_part1_;
+    bool loaded_HLT_Mu7_IP4_part1_;
+    bool HLT_Mu7_IP4_part2_;
+    TBranch *b_HLT_Mu7_IP4_part2_;
+    bool loaded_HLT_Mu7_IP4_part2_;
+    bool HLT_Mu7_IP4_part3_;
+    TBranch *b_HLT_Mu7_IP4_part3_;
+    bool loaded_HLT_Mu7_IP4_part3_;
+    bool HLT_Mu7_IP4_part4_;
+    TBranch *b_HLT_Mu7_IP4_part4_;
+    bool loaded_HLT_Mu7_IP4_part4_;
     bool HLT_Mu7p5_L2Mu2_Jpsi_;
     TBranch *b_HLT_Mu7p5_L2Mu2_Jpsi_;
     bool loaded_HLT_Mu7p5_L2Mu2_Jpsi_;
@@ -1736,6 +1997,51 @@ protected:
     bool HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT350_DZ_;
     TBranch *b_HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT350_DZ_;
     bool loaded_HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT350_DZ_;
+    bool HLT_Mu8_IP3_part0_;
+    TBranch *b_HLT_Mu8_IP3_part0_;
+    bool loaded_HLT_Mu8_IP3_part0_;
+    bool HLT_Mu8_IP3_part1_;
+    TBranch *b_HLT_Mu8_IP3_part1_;
+    bool loaded_HLT_Mu8_IP3_part1_;
+    bool HLT_Mu8_IP3_part2_;
+    TBranch *b_HLT_Mu8_IP3_part2_;
+    bool loaded_HLT_Mu8_IP3_part2_;
+    bool HLT_Mu8_IP3_part3_;
+    TBranch *b_HLT_Mu8_IP3_part3_;
+    bool loaded_HLT_Mu8_IP3_part3_;
+    bool HLT_Mu8_IP3_part4_;
+    TBranch *b_HLT_Mu8_IP3_part4_;
+    bool loaded_HLT_Mu8_IP3_part4_;
+    bool HLT_Mu8_IP5_part0_;
+    TBranch *b_HLT_Mu8_IP5_part0_;
+    bool loaded_HLT_Mu8_IP5_part0_;
+    bool HLT_Mu8_IP5_part1_;
+    TBranch *b_HLT_Mu8_IP5_part1_;
+    bool loaded_HLT_Mu8_IP5_part1_;
+    bool HLT_Mu8_IP5_part2_;
+    TBranch *b_HLT_Mu8_IP5_part2_;
+    bool loaded_HLT_Mu8_IP5_part2_;
+    bool HLT_Mu8_IP5_part3_;
+    TBranch *b_HLT_Mu8_IP5_part3_;
+    bool loaded_HLT_Mu8_IP5_part3_;
+    bool HLT_Mu8_IP5_part4_;
+    TBranch *b_HLT_Mu8_IP5_part4_;
+    bool loaded_HLT_Mu8_IP5_part4_;
+    bool HLT_Mu8_IP6_part0_;
+    TBranch *b_HLT_Mu8_IP6_part0_;
+    bool loaded_HLT_Mu8_IP6_part0_;
+    bool HLT_Mu8_IP6_part1_;
+    TBranch *b_HLT_Mu8_IP6_part1_;
+    bool loaded_HLT_Mu8_IP6_part1_;
+    bool HLT_Mu8_IP6_part2_;
+    TBranch *b_HLT_Mu8_IP6_part2_;
+    bool loaded_HLT_Mu8_IP6_part2_;
+    bool HLT_Mu8_IP6_part3_;
+    TBranch *b_HLT_Mu8_IP6_part3_;
+    bool loaded_HLT_Mu8_IP6_part3_;
+    bool HLT_Mu8_IP6_part4_;
+    TBranch *b_HLT_Mu8_IP6_part4_;
+    bool loaded_HLT_Mu8_IP6_part4_;
     bool HLT_Mu8_TrkIsoVVL_;
     TBranch *b_HLT_Mu8_TrkIsoVVL_;
     bool loaded_HLT_Mu8_TrkIsoVVL_;
@@ -1748,6 +2054,63 @@ protected:
     bool HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_;
     TBranch *b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_;
     bool loaded_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_;
+    bool HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_;
+    TBranch *b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_;
+    bool loaded_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_;
+    bool HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_CaloBtagDeepCSV_1p5_;
+    TBranch *b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_CaloBtagDeepCSV_1p5_;
+    bool loaded_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_CaloBtagDeepCSV_1p5_;
+    bool HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_;
+    TBranch *b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_;
+    bool loaded_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_;
+    bool HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_PFBtagDeepCSV_1p5_;
+    TBranch *b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_PFBtagDeepCSV_1p5_;
+    bool loaded_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_PFBtagDeepCSV_1p5_;
+    bool HLT_Mu9_IP4_part0_;
+    TBranch *b_HLT_Mu9_IP4_part0_;
+    bool loaded_HLT_Mu9_IP4_part0_;
+    bool HLT_Mu9_IP4_part1_;
+    TBranch *b_HLT_Mu9_IP4_part1_;
+    bool loaded_HLT_Mu9_IP4_part1_;
+    bool HLT_Mu9_IP4_part2_;
+    TBranch *b_HLT_Mu9_IP4_part2_;
+    bool loaded_HLT_Mu9_IP4_part2_;
+    bool HLT_Mu9_IP4_part3_;
+    TBranch *b_HLT_Mu9_IP4_part3_;
+    bool loaded_HLT_Mu9_IP4_part3_;
+    bool HLT_Mu9_IP4_part4_;
+    TBranch *b_HLT_Mu9_IP4_part4_;
+    bool loaded_HLT_Mu9_IP4_part4_;
+    bool HLT_Mu9_IP5_part0_;
+    TBranch *b_HLT_Mu9_IP5_part0_;
+    bool loaded_HLT_Mu9_IP5_part0_;
+    bool HLT_Mu9_IP5_part1_;
+    TBranch *b_HLT_Mu9_IP5_part1_;
+    bool loaded_HLT_Mu9_IP5_part1_;
+    bool HLT_Mu9_IP5_part2_;
+    TBranch *b_HLT_Mu9_IP5_part2_;
+    bool loaded_HLT_Mu9_IP5_part2_;
+    bool HLT_Mu9_IP5_part3_;
+    TBranch *b_HLT_Mu9_IP5_part3_;
+    bool loaded_HLT_Mu9_IP5_part3_;
+    bool HLT_Mu9_IP5_part4_;
+    TBranch *b_HLT_Mu9_IP5_part4_;
+    bool loaded_HLT_Mu9_IP5_part4_;
+    bool HLT_Mu9_IP6_part0_;
+    TBranch *b_HLT_Mu9_IP6_part0_;
+    bool loaded_HLT_Mu9_IP6_part0_;
+    bool HLT_Mu9_IP6_part1_;
+    TBranch *b_HLT_Mu9_IP6_part1_;
+    bool loaded_HLT_Mu9_IP6_part1_;
+    bool HLT_Mu9_IP6_part2_;
+    TBranch *b_HLT_Mu9_IP6_part2_;
+    bool loaded_HLT_Mu9_IP6_part2_;
+    bool HLT_Mu9_IP6_part3_;
+    TBranch *b_HLT_Mu9_IP6_part3_;
+    bool loaded_HLT_Mu9_IP6_part3_;
+    bool HLT_Mu9_IP6_part4_;
+    TBranch *b_HLT_Mu9_IP6_part4_;
+    bool loaded_HLT_Mu9_IP6_part4_;
     bool HLT_OldMu100_;
     TBranch *b_HLT_OldMu100_;
     bool loaded_HLT_OldMu100_;
@@ -1760,12 +2123,12 @@ protected:
     bool HLT_PFHT250_;
     TBranch *b_HLT_PFHT250_;
     bool loaded_HLT_PFHT250_;
-    bool HLT_PFHT300PT30_QuadPFJet_75_60_45_40_;
-    TBranch *b_HLT_PFHT300PT30_QuadPFJet_75_60_45_40_;
-    bool loaded_HLT_PFHT300PT30_QuadPFJet_75_60_45_40_;
-    bool HLT_PFHT300PT30_QuadPFJet_75_60_45_40_TriplePFBTagCSV_3p0_;
-    TBranch *b_HLT_PFHT300PT30_QuadPFJet_75_60_45_40_TriplePFBTagCSV_3p0_;
-    bool loaded_HLT_PFHT300PT30_QuadPFJet_75_60_45_40_TriplePFBTagCSV_3p0_;
+    bool HLT_PFHT330PT30_QuadPFJet_75_60_45_40_;
+    TBranch *b_HLT_PFHT330PT30_QuadPFJet_75_60_45_40_;
+    bool loaded_HLT_PFHT330PT30_QuadPFJet_75_60_45_40_;
+    bool HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepCSV_4p5_;
+    TBranch *b_HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepCSV_4p5_;
+    bool loaded_HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepCSV_4p5_;
     bool HLT_PFHT350_;
     TBranch *b_HLT_PFHT350_;
     bool loaded_HLT_PFHT350_;
@@ -1775,24 +2138,21 @@ protected:
     bool HLT_PFHT370_;
     TBranch *b_HLT_PFHT370_;
     bool loaded_HLT_PFHT370_;
-    bool HLT_PFHT380_SixPFJet32_;
-    TBranch *b_HLT_PFHT380_SixPFJet32_;
-    bool loaded_HLT_PFHT380_SixPFJet32_;
-    bool HLT_PFHT380_SixPFJet32_DoublePFBTagCSV_2p2_;
-    TBranch *b_HLT_PFHT380_SixPFJet32_DoublePFBTagCSV_2p2_;
-    bool loaded_HLT_PFHT380_SixPFJet32_DoublePFBTagCSV_2p2_;
-    bool HLT_PFHT380_SixPFJet32_DoublePFBTagDeepCSV_2p2_;
-    TBranch *b_HLT_PFHT380_SixPFJet32_DoublePFBTagDeepCSV_2p2_;
-    bool loaded_HLT_PFHT380_SixPFJet32_DoublePFBTagDeepCSV_2p2_;
+    bool HLT_PFHT400_SixPFJet32_;
+    TBranch *b_HLT_PFHT400_SixPFJet32_;
+    bool loaded_HLT_PFHT400_SixPFJet32_;
+    bool HLT_PFHT400_SixPFJet32_DoublePFBTagDeepCSV_2p94_;
+    TBranch *b_HLT_PFHT400_SixPFJet32_DoublePFBTagDeepCSV_2p94_;
+    bool loaded_HLT_PFHT400_SixPFJet32_DoublePFBTagDeepCSV_2p94_;
     bool HLT_PFHT430_;
     TBranch *b_HLT_PFHT430_;
     bool loaded_HLT_PFHT430_;
-    bool HLT_PFHT430_SixPFJet40_;
-    TBranch *b_HLT_PFHT430_SixPFJet40_;
-    bool loaded_HLT_PFHT430_SixPFJet40_;
-    bool HLT_PFHT430_SixPFJet40_PFBTagCSV_1p5_;
-    TBranch *b_HLT_PFHT430_SixPFJet40_PFBTagCSV_1p5_;
-    bool loaded_HLT_PFHT430_SixPFJet40_PFBTagCSV_1p5_;
+    bool HLT_PFHT450_SixPFJet36_;
+    TBranch *b_HLT_PFHT450_SixPFJet36_;
+    bool loaded_HLT_PFHT450_SixPFJet36_;
+    bool HLT_PFHT450_SixPFJet36_PFBTagDeepCSV_1p59_;
+    TBranch *b_HLT_PFHT450_SixPFJet36_PFBTagDeepCSV_1p59_;
+    bool loaded_HLT_PFHT450_SixPFJet36_PFBTagDeepCSV_1p59_;
     bool HLT_PFHT500_PFMET100_PFMHT100_IDTight_;
     TBranch *b_HLT_PFHT500_PFMET100_PFMHT100_IDTight_;
     bool loaded_HLT_PFHT500_PFMET100_PFMHT100_IDTight_;
@@ -1829,9 +2189,15 @@ protected:
     bool HLT_PFJet140_;
     TBranch *b_HLT_PFJet140_;
     bool loaded_HLT_PFJet140_;
+    bool HLT_PFJet15_;
+    TBranch *b_HLT_PFJet15_;
+    bool loaded_HLT_PFJet15_;
     bool HLT_PFJet200_;
     TBranch *b_HLT_PFJet200_;
     bool loaded_HLT_PFJet200_;
+    bool HLT_PFJet25_;
+    TBranch *b_HLT_PFJet25_;
+    bool loaded_HLT_PFJet25_;
     bool HLT_PFJet260_;
     TBranch *b_HLT_PFJet260_;
     bool loaded_HLT_PFJet260_;
@@ -1862,9 +2228,15 @@ protected:
     bool HLT_PFJetFwd140_;
     TBranch *b_HLT_PFJetFwd140_;
     bool loaded_HLT_PFJetFwd140_;
+    bool HLT_PFJetFwd15_;
+    TBranch *b_HLT_PFJetFwd15_;
+    bool loaded_HLT_PFJetFwd15_;
     bool HLT_PFJetFwd200_;
     TBranch *b_HLT_PFJetFwd200_;
     bool loaded_HLT_PFJetFwd200_;
+    bool HLT_PFJetFwd25_;
+    TBranch *b_HLT_PFJetFwd25_;
+    bool loaded_HLT_PFJetFwd25_;
     bool HLT_PFJetFwd260_;
     TBranch *b_HLT_PFJetFwd260_;
     bool loaded_HLT_PFJetFwd260_;
@@ -1889,39 +2261,39 @@ protected:
     bool HLT_PFJetFwd80_;
     TBranch *b_HLT_PFJetFwd80_;
     bool loaded_HLT_PFJetFwd80_;
-    bool HLT_PFMET100_PFMHT100_IDTight_CaloBTagCSV_3p1_;
-    TBranch *b_HLT_PFMET100_PFMHT100_IDTight_CaloBTagCSV_3p1_;
-    bool loaded_HLT_PFMET100_PFMHT100_IDTight_CaloBTagCSV_3p1_;
+    bool HLT_PFMET100_PFMHT100_IDTight_CaloBTagDeepCSV_3p1_;
+    TBranch *b_HLT_PFMET100_PFMHT100_IDTight_CaloBTagDeepCSV_3p1_;
+    bool loaded_HLT_PFMET100_PFMHT100_IDTight_CaloBTagDeepCSV_3p1_;
     bool HLT_PFMET100_PFMHT100_IDTight_PFHT60_;
     TBranch *b_HLT_PFMET100_PFMHT100_IDTight_PFHT60_;
     bool loaded_HLT_PFMET100_PFMHT100_IDTight_PFHT60_;
     bool HLT_PFMET110_PFMHT110_IDTight_;
     TBranch *b_HLT_PFMET110_PFMHT110_IDTight_;
     bool loaded_HLT_PFMET110_PFMHT110_IDTight_;
-    bool HLT_PFMET110_PFMHT110_IDTight_CaloBTagCSV_3p1_;
-    TBranch *b_HLT_PFMET110_PFMHT110_IDTight_CaloBTagCSV_3p1_;
-    bool loaded_HLT_PFMET110_PFMHT110_IDTight_CaloBTagCSV_3p1_;
+    bool HLT_PFMET110_PFMHT110_IDTight_CaloBTagDeepCSV_3p1_;
+    TBranch *b_HLT_PFMET110_PFMHT110_IDTight_CaloBTagDeepCSV_3p1_;
+    bool loaded_HLT_PFMET110_PFMHT110_IDTight_CaloBTagDeepCSV_3p1_;
     bool HLT_PFMET120_PFMHT120_IDTight_;
     TBranch *b_HLT_PFMET120_PFMHT120_IDTight_;
     bool loaded_HLT_PFMET120_PFMHT120_IDTight_;
-    bool HLT_PFMET120_PFMHT120_IDTight_CaloBTagCSV_3p1_;
-    TBranch *b_HLT_PFMET120_PFMHT120_IDTight_CaloBTagCSV_3p1_;
-    bool loaded_HLT_PFMET120_PFMHT120_IDTight_CaloBTagCSV_3p1_;
+    bool HLT_PFMET120_PFMHT120_IDTight_CaloBTagDeepCSV_3p1_;
+    TBranch *b_HLT_PFMET120_PFMHT120_IDTight_CaloBTagDeepCSV_3p1_;
+    bool loaded_HLT_PFMET120_PFMHT120_IDTight_CaloBTagDeepCSV_3p1_;
     bool HLT_PFMET120_PFMHT120_IDTight_PFHT60_;
     TBranch *b_HLT_PFMET120_PFMHT120_IDTight_PFHT60_;
     bool loaded_HLT_PFMET120_PFMHT120_IDTight_PFHT60_;
     bool HLT_PFMET130_PFMHT130_IDTight_;
     TBranch *b_HLT_PFMET130_PFMHT130_IDTight_;
     bool loaded_HLT_PFMET130_PFMHT130_IDTight_;
-    bool HLT_PFMET130_PFMHT130_IDTight_CaloBTagCSV_3p1_;
-    TBranch *b_HLT_PFMET130_PFMHT130_IDTight_CaloBTagCSV_3p1_;
-    bool loaded_HLT_PFMET130_PFMHT130_IDTight_CaloBTagCSV_3p1_;
+    bool HLT_PFMET130_PFMHT130_IDTight_CaloBTagDeepCSV_3p1_;
+    TBranch *b_HLT_PFMET130_PFMHT130_IDTight_CaloBTagDeepCSV_3p1_;
+    bool loaded_HLT_PFMET130_PFMHT130_IDTight_CaloBTagDeepCSV_3p1_;
     bool HLT_PFMET140_PFMHT140_IDTight_;
     TBranch *b_HLT_PFMET140_PFMHT140_IDTight_;
     bool loaded_HLT_PFMET140_PFMHT140_IDTight_;
-    bool HLT_PFMET140_PFMHT140_IDTight_CaloBTagCSV_3p1_;
-    TBranch *b_HLT_PFMET140_PFMHT140_IDTight_CaloBTagCSV_3p1_;
-    bool loaded_HLT_PFMET140_PFMHT140_IDTight_CaloBTagCSV_3p1_;
+    bool HLT_PFMET140_PFMHT140_IDTight_CaloBTagDeepCSV_3p1_;
+    TBranch *b_HLT_PFMET140_PFMHT140_IDTight_CaloBTagDeepCSV_3p1_;
+    bool loaded_HLT_PFMET140_PFMHT140_IDTight_CaloBTagDeepCSV_3p1_;
     bool HLT_PFMET200_HBHECleaned_;
     TBranch *b_HLT_PFMET200_HBHECleaned_;
     bool loaded_HLT_PFMET200_HBHECleaned_;
@@ -1976,9 +2348,27 @@ protected:
     bool HLT_PFMETTypeOne200_HBHE_BeamHaloCleaned_;
     TBranch *b_HLT_PFMETTypeOne200_HBHE_BeamHaloCleaned_;
     bool loaded_HLT_PFMETTypeOne200_HBHE_BeamHaloCleaned_;
+    bool HLT_Photon100EBHE10_;
+    TBranch *b_HLT_Photon100EBHE10_;
+    bool loaded_HLT_Photon100EBHE10_;
+    bool HLT_Photon100EB_TightID_TightIso_;
+    TBranch *b_HLT_Photon100EB_TightID_TightIso_;
+    bool loaded_HLT_Photon100EB_TightID_TightIso_;
+    bool HLT_Photon100EEHE10_;
+    TBranch *b_HLT_Photon100EEHE10_;
+    bool loaded_HLT_Photon100EEHE10_;
+    bool HLT_Photon100EE_TightID_TightIso_;
+    TBranch *b_HLT_Photon100EE_TightID_TightIso_;
+    bool loaded_HLT_Photon100EE_TightID_TightIso_;
+    bool HLT_Photon110EB_TightID_TightIso_;
+    TBranch *b_HLT_Photon110EB_TightID_TightIso_;
+    bool loaded_HLT_Photon110EB_TightID_TightIso_;
     bool HLT_Photon120_;
     TBranch *b_HLT_Photon120_;
     bool loaded_HLT_Photon120_;
+    bool HLT_Photon120EB_TightID_TightIso_;
+    TBranch *b_HLT_Photon120EB_TightID_TightIso_;
+    bool loaded_HLT_Photon120EB_TightID_TightIso_;
     bool HLT_Photon120_R9Id90_HE10_IsoM_;
     TBranch *b_HLT_Photon120_R9Id90_HE10_IsoM_;
     bool loaded_HLT_Photon120_R9Id90_HE10_IsoM_;
@@ -1991,15 +2381,15 @@ protected:
     bool HLT_Photon175_;
     TBranch *b_HLT_Photon175_;
     bool loaded_HLT_Photon175_;
+    bool HLT_Photon20_;
+    TBranch *b_HLT_Photon20_;
+    bool loaded_HLT_Photon20_;
     bool HLT_Photon200_;
     TBranch *b_HLT_Photon200_;
     bool loaded_HLT_Photon200_;
     bool HLT_Photon20_HoverELoose_;
     TBranch *b_HLT_Photon20_HoverELoose_;
     bool loaded_HLT_Photon20_HoverELoose_;
-    bool HLT_Photon25_;
-    TBranch *b_HLT_Photon25_;
-    bool loaded_HLT_Photon25_;
     bool HLT_Photon300_NoHE_;
     TBranch *b_HLT_Photon300_NoHE_;
     bool loaded_HLT_Photon300_NoHE_;
@@ -2009,24 +2399,18 @@ protected:
     bool HLT_Photon33_;
     TBranch *b_HLT_Photon33_;
     bool loaded_HLT_Photon33_;
-    bool HLT_Photon40_HoverELoose_;
-    TBranch *b_HLT_Photon40_HoverELoose_;
-    bool loaded_HLT_Photon40_HoverELoose_;
+    bool HLT_Photon35_TwoProngs35_;
+    TBranch *b_HLT_Photon35_TwoProngs35_;
+    bool loaded_HLT_Photon35_TwoProngs35_;
     bool HLT_Photon50_;
     TBranch *b_HLT_Photon50_;
     bool loaded_HLT_Photon50_;
-    bool HLT_Photon50_HoverELoose_;
-    TBranch *b_HLT_Photon50_HoverELoose_;
-    bool loaded_HLT_Photon50_HoverELoose_;
     bool HLT_Photon50_R9Id90_HE10_IsoM_;
     TBranch *b_HLT_Photon50_R9Id90_HE10_IsoM_;
     bool loaded_HLT_Photon50_R9Id90_HE10_IsoM_;
     bool HLT_Photon50_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3_PFMET50_;
     TBranch *b_HLT_Photon50_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3_PFMET50_;
     bool loaded_HLT_Photon50_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3_PFMET50_;
-    bool HLT_Photon60_HoverELoose_;
-    TBranch *b_HLT_Photon60_HoverELoose_;
-    bool loaded_HLT_Photon60_HoverELoose_;
     bool HLT_Photon60_R9Id90_CaloIdL_IsoL_;
     TBranch *b_HLT_Photon60_R9Id90_CaloIdL_IsoL_;
     bool loaded_HLT_Photon60_R9Id90_CaloIdL_IsoL_;
@@ -2042,6 +2426,12 @@ protected:
     bool HLT_Photon75_R9Id90_HE10_IsoM_;
     TBranch *b_HLT_Photon75_R9Id90_HE10_IsoM_;
     bool loaded_HLT_Photon75_R9Id90_HE10_IsoM_;
+    bool HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ300_PFJetsMJJ400DEta3_;
+    TBranch *b_HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ300_PFJetsMJJ400DEta3_;
+    bool loaded_HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ300_PFJetsMJJ400DEta3_;
+    bool HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ400_PFJetsMJJ600DEta3_;
+    TBranch *b_HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ400_PFJetsMJJ600DEta3_;
+    bool loaded_HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ400_PFJetsMJJ600DEta3_;
     bool HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3_;
     TBranch *b_HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3_;
     bool loaded_HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3_;
@@ -2087,39 +2477,39 @@ protected:
     bool HLT_QuadPFJet103_88_75_15_;
     TBranch *b_HLT_QuadPFJet103_88_75_15_;
     bool loaded_HLT_QuadPFJet103_88_75_15_;
-    bool HLT_QuadPFJet103_88_75_15_BTagCSV_p013_VBF2_;
-    TBranch *b_HLT_QuadPFJet103_88_75_15_BTagCSV_p013_VBF2_;
-    bool loaded_HLT_QuadPFJet103_88_75_15_BTagCSV_p013_VBF2_;
-    bool HLT_QuadPFJet103_88_75_15_DoubleBTagCSV_p013_p08_VBF1_;
-    TBranch *b_HLT_QuadPFJet103_88_75_15_DoubleBTagCSV_p013_p08_VBF1_;
-    bool loaded_HLT_QuadPFJet103_88_75_15_DoubleBTagCSV_p013_p08_VBF1_;
+    bool HLT_QuadPFJet103_88_75_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_;
+    TBranch *b_HLT_QuadPFJet103_88_75_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_;
+    bool loaded_HLT_QuadPFJet103_88_75_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_;
+    bool HLT_QuadPFJet103_88_75_15_PFBTagDeepCSV_1p3_VBF2_;
+    TBranch *b_HLT_QuadPFJet103_88_75_15_PFBTagDeepCSV_1p3_VBF2_;
+    bool loaded_HLT_QuadPFJet103_88_75_15_PFBTagDeepCSV_1p3_VBF2_;
     bool HLT_QuadPFJet105_88_76_15_;
     TBranch *b_HLT_QuadPFJet105_88_76_15_;
     bool loaded_HLT_QuadPFJet105_88_76_15_;
-    bool HLT_QuadPFJet105_88_76_15_BTagCSV_p013_VBF2_;
-    TBranch *b_HLT_QuadPFJet105_88_76_15_BTagCSV_p013_VBF2_;
-    bool loaded_HLT_QuadPFJet105_88_76_15_BTagCSV_p013_VBF2_;
-    bool HLT_QuadPFJet105_90_76_15_DoubleBTagCSV_p013_p08_VBF1_;
-    TBranch *b_HLT_QuadPFJet105_90_76_15_DoubleBTagCSV_p013_p08_VBF1_;
-    bool loaded_HLT_QuadPFJet105_90_76_15_DoubleBTagCSV_p013_p08_VBF1_;
+    bool HLT_QuadPFJet105_88_76_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_;
+    TBranch *b_HLT_QuadPFJet105_88_76_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_;
+    bool loaded_HLT_QuadPFJet105_88_76_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_;
+    bool HLT_QuadPFJet105_88_76_15_PFBTagDeepCSV_1p3_VBF2_;
+    TBranch *b_HLT_QuadPFJet105_88_76_15_PFBTagDeepCSV_1p3_VBF2_;
+    bool loaded_HLT_QuadPFJet105_88_76_15_PFBTagDeepCSV_1p3_VBF2_;
     bool HLT_QuadPFJet111_90_80_15_;
     TBranch *b_HLT_QuadPFJet111_90_80_15_;
     bool loaded_HLT_QuadPFJet111_90_80_15_;
-    bool HLT_QuadPFJet111_90_80_15_BTagCSV_p013_VBF2_;
-    TBranch *b_HLT_QuadPFJet111_90_80_15_BTagCSV_p013_VBF2_;
-    bool loaded_HLT_QuadPFJet111_90_80_15_BTagCSV_p013_VBF2_;
-    bool HLT_QuadPFJet111_90_80_15_DoubleBTagCSV_p013_p08_VBF1_;
-    TBranch *b_HLT_QuadPFJet111_90_80_15_DoubleBTagCSV_p013_p08_VBF1_;
-    bool loaded_HLT_QuadPFJet111_90_80_15_DoubleBTagCSV_p013_p08_VBF1_;
+    bool HLT_QuadPFJet111_90_80_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_;
+    TBranch *b_HLT_QuadPFJet111_90_80_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_;
+    bool loaded_HLT_QuadPFJet111_90_80_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_;
+    bool HLT_QuadPFJet111_90_80_15_PFBTagDeepCSV_1p3_VBF2_;
+    TBranch *b_HLT_QuadPFJet111_90_80_15_PFBTagDeepCSV_1p3_VBF2_;
+    bool loaded_HLT_QuadPFJet111_90_80_15_PFBTagDeepCSV_1p3_VBF2_;
     bool HLT_QuadPFJet98_83_71_15_;
     TBranch *b_HLT_QuadPFJet98_83_71_15_;
     bool loaded_HLT_QuadPFJet98_83_71_15_;
-    bool HLT_QuadPFJet98_83_71_15_BTagCSV_p013_VBF2_;
-    TBranch *b_HLT_QuadPFJet98_83_71_15_BTagCSV_p013_VBF2_;
-    bool loaded_HLT_QuadPFJet98_83_71_15_BTagCSV_p013_VBF2_;
-    bool HLT_QuadPFJet98_83_71_15_DoubleBTagCSV_p013_p08_VBF1_;
-    TBranch *b_HLT_QuadPFJet98_83_71_15_DoubleBTagCSV_p013_p08_VBF1_;
-    bool loaded_HLT_QuadPFJet98_83_71_15_DoubleBTagCSV_p013_p08_VBF1_;
+    bool HLT_QuadPFJet98_83_71_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_;
+    TBranch *b_HLT_QuadPFJet98_83_71_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_;
+    bool loaded_HLT_QuadPFJet98_83_71_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_;
+    bool HLT_QuadPFJet98_83_71_15_PFBTagDeepCSV_1p3_VBF2_;
+    TBranch *b_HLT_QuadPFJet98_83_71_15_PFBTagDeepCSV_1p3_VBF2_;
+    bool loaded_HLT_QuadPFJet98_83_71_15_PFBTagDeepCSV_1p3_VBF2_;
     bool HLT_Random_;
     TBranch *b_HLT_Random_;
     bool loaded_HLT_Random_;
@@ -2144,6 +2534,15 @@ protected:
     bool HLT_SingleJet30_Mu12_SinglePFJet40_;
     TBranch *b_HLT_SingleJet30_Mu12_SinglePFJet40_;
     bool loaded_HLT_SingleJet30_Mu12_SinglePFJet40_;
+    bool HLT_SinglePhoton10_Eta3p1ForPPRef_;
+    TBranch *b_HLT_SinglePhoton10_Eta3p1ForPPRef_;
+    bool loaded_HLT_SinglePhoton10_Eta3p1ForPPRef_;
+    bool HLT_SinglePhoton20_Eta3p1ForPPRef_;
+    TBranch *b_HLT_SinglePhoton20_Eta3p1ForPPRef_;
+    bool loaded_HLT_SinglePhoton20_Eta3p1ForPPRef_;
+    bool HLT_SinglePhoton30_Eta3p1ForPPRef_;
+    TBranch *b_HLT_SinglePhoton30_Eta3p1ForPPRef_;
+    bool loaded_HLT_SinglePhoton30_Eta3p1ForPPRef_;
     bool HLT_Tau3Mu_Mu7_Mu1_TkMu1_IsoTau15_;
     TBranch *b_HLT_Tau3Mu_Mu7_Mu1_TkMu1_IsoTau15_;
     bool loaded_HLT_Tau3Mu_Mu7_Mu1_TkMu1_IsoTau15_;
@@ -2162,6 +2561,9 @@ protected:
     bool HLT_Trimuon5_3p5_2_Upsilon_Muon_;
     TBranch *b_HLT_Trimuon5_3p5_2_Upsilon_Muon_;
     bool loaded_HLT_Trimuon5_3p5_2_Upsilon_Muon_;
+    bool HLT_TrimuonOpen_5_3p5_2_Upsilon_Muon_;
+    TBranch *b_HLT_TrimuonOpen_5_3p5_2_Upsilon_Muon_;
+    bool loaded_HLT_TrimuonOpen_5_3p5_2_Upsilon_Muon_;
     bool HLT_TripleJet110_35_35_Mjj650_PFMET110_;
     TBranch *b_HLT_TripleJet110_35_35_Mjj650_PFMET110_;
     bool loaded_HLT_TripleJet110_35_35_Mjj650_PFMET110_;
@@ -2177,12 +2579,12 @@ protected:
     bool HLT_TripleMu_12_10_5_;
     TBranch *b_HLT_TripleMu_12_10_5_;
     bool loaded_HLT_TripleMu_12_10_5_;
-    bool HLT_TripleMu_5_3_3_Mass3p8to60_DCA_;
-    TBranch *b_HLT_TripleMu_5_3_3_Mass3p8to60_DCA_;
-    bool loaded_HLT_TripleMu_5_3_3_Mass3p8to60_DCA_;
-    bool HLT_TripleMu_5_3_3_Mass3p8to60_DZ_;
-    TBranch *b_HLT_TripleMu_5_3_3_Mass3p8to60_DZ_;
-    bool loaded_HLT_TripleMu_5_3_3_Mass3p8to60_DZ_;
+    bool HLT_TripleMu_5_3_3_Mass3p8_DCA_;
+    TBranch *b_HLT_TripleMu_5_3_3_Mass3p8_DCA_;
+    bool loaded_HLT_TripleMu_5_3_3_Mass3p8_DCA_;
+    bool HLT_TripleMu_5_3_3_Mass3p8_DZ_;
+    TBranch *b_HLT_TripleMu_5_3_3_Mass3p8_DZ_;
+    bool loaded_HLT_TripleMu_5_3_3_Mass3p8_DZ_;
     bool HLT_TriplePhoton_20_20_20_CaloIdLV2_;
     TBranch *b_HLT_TriplePhoton_20_20_20_CaloIdLV2_;
     bool loaded_HLT_TriplePhoton_20_20_20_CaloIdLV2_;
@@ -2201,12 +2603,18 @@ protected:
     bool HLT_TrkMu12_DoubleTrkMu5NoFiltersNoVtx_;
     TBranch *b_HLT_TrkMu12_DoubleTrkMu5NoFiltersNoVtx_;
     bool loaded_HLT_TrkMu12_DoubleTrkMu5NoFiltersNoVtx_;
+    bool HLT_TrkMu16NoFiltersNoVtx_;
+    TBranch *b_HLT_TrkMu16NoFiltersNoVtx_;
+    bool loaded_HLT_TrkMu16NoFiltersNoVtx_;
     bool HLT_TrkMu16_DoubleTrkMu6NoFiltersNoVtx_;
     TBranch *b_HLT_TrkMu16_DoubleTrkMu6NoFiltersNoVtx_;
     bool loaded_HLT_TrkMu16_DoubleTrkMu6NoFiltersNoVtx_;
     bool HLT_TrkMu17_DoubleTrkMu8NoFiltersNoVtx_;
     TBranch *b_HLT_TrkMu17_DoubleTrkMu8NoFiltersNoVtx_;
     bool loaded_HLT_TrkMu17_DoubleTrkMu8NoFiltersNoVtx_;
+    bool HLT_TrkMu6NoFiltersNoVtx_;
+    TBranch *b_HLT_TrkMu6NoFiltersNoVtx_;
+    bool loaded_HLT_TrkMu6NoFiltersNoVtx_;
     bool HLT_UncorrectedJetE30_NoBPTX_;
     TBranch *b_HLT_UncorrectedJetE30_NoBPTX_;
     bool loaded_HLT_UncorrectedJetE30_NoBPTX_;
@@ -2219,18 +2627,24 @@ protected:
     bool HLT_UncorrectedJetE70_NoBPTX3BX_;
     TBranch *b_HLT_UncorrectedJetE70_NoBPTX3BX_;
     bool loaded_HLT_UncorrectedJetE70_NoBPTX3BX_;
-    bool HLT_VBF_DoubleLooseChargedIsoPFTau20_Trk1_eta2p1_Reg_;
-    TBranch *b_HLT_VBF_DoubleLooseChargedIsoPFTau20_Trk1_eta2p1_Reg_;
-    bool loaded_HLT_VBF_DoubleLooseChargedIsoPFTau20_Trk1_eta2p1_Reg_;
-    bool HLT_VBF_DoubleMediumChargedIsoPFTau20_Trk1_eta2p1_Reg_;
-    TBranch *b_HLT_VBF_DoubleMediumChargedIsoPFTau20_Trk1_eta2p1_Reg_;
-    bool loaded_HLT_VBF_DoubleMediumChargedIsoPFTau20_Trk1_eta2p1_Reg_;
-    bool HLT_VBF_DoubleTightChargedIsoPFTau20_Trk1_eta2p1_Reg_;
-    TBranch *b_HLT_VBF_DoubleTightChargedIsoPFTau20_Trk1_eta2p1_Reg_;
-    bool loaded_HLT_VBF_DoubleTightChargedIsoPFTau20_Trk1_eta2p1_Reg_;
+    bool HLT_VBF_DoubleLooseChargedIsoPFTauHPS20_Trk1_eta2p1_;
+    TBranch *b_HLT_VBF_DoubleLooseChargedIsoPFTauHPS20_Trk1_eta2p1_;
+    bool loaded_HLT_VBF_DoubleLooseChargedIsoPFTauHPS20_Trk1_eta2p1_;
+    bool HLT_VBF_DoubleMediumChargedIsoPFTauHPS20_Trk1_eta2p1_;
+    TBranch *b_HLT_VBF_DoubleMediumChargedIsoPFTauHPS20_Trk1_eta2p1_;
+    bool loaded_HLT_VBF_DoubleMediumChargedIsoPFTauHPS20_Trk1_eta2p1_;
+    bool HLT_VBF_DoubleTightChargedIsoPFTauHPS20_Trk1_eta2p1_;
+    TBranch *b_HLT_VBF_DoubleTightChargedIsoPFTauHPS20_Trk1_eta2p1_;
+    bool loaded_HLT_VBF_DoubleTightChargedIsoPFTauHPS20_Trk1_eta2p1_;
     bool HLT_ZeroBias_;
     TBranch *b_HLT_ZeroBias_;
     bool loaded_HLT_ZeroBias_;
+    bool HLT_ZeroBias_Alignment_;
+    TBranch *b_HLT_ZeroBias_Alignment_;
+    bool loaded_HLT_ZeroBias_Alignment_;
+    bool HLT_ZeroBias_Beamspot_;
+    TBranch *b_HLT_ZeroBias_Beamspot_;
+    bool loaded_HLT_ZeroBias_Beamspot_;
     bool HLT_ZeroBias_FirstBXAfterTrain_;
     TBranch *b_HLT_ZeroBias_FirstBXAfterTrain_;
     bool loaded_HLT_ZeroBias_FirstBXAfterTrain_;
@@ -2276,6 +2690,39 @@ protected:
     bool HLTriggerFirstPath_;
     TBranch *b_HLTriggerFirstPath_;
     bool loaded_HLTriggerFirstPath_;
+    float HTXS_Higgs_pt_;
+    TBranch *b_HTXS_Higgs_pt_;
+    bool loaded_HTXS_Higgs_pt_;
+    float HTXS_Higgs_y_;
+    TBranch *b_HTXS_Higgs_y_;
+    bool loaded_HTXS_Higgs_y_;
+    UChar_t HTXS_njets25_;
+    TBranch *b_HTXS_njets25_;
+    bool loaded_HTXS_njets25_;
+    UChar_t HTXS_njets30_;
+    TBranch *b_HTXS_njets30_;
+    bool loaded_HTXS_njets30_;
+    int HTXS_stage1_1_cat_pTjet25GeV_;
+    TBranch *b_HTXS_stage1_1_cat_pTjet25GeV_;
+    bool loaded_HTXS_stage1_1_cat_pTjet25GeV_;
+    int HTXS_stage1_1_cat_pTjet30GeV_;
+    TBranch *b_HTXS_stage1_1_cat_pTjet30GeV_;
+    bool loaded_HTXS_stage1_1_cat_pTjet30GeV_;
+    int HTXS_stage1_1_fine_cat_pTjet25GeV_;
+    TBranch *b_HTXS_stage1_1_fine_cat_pTjet25GeV_;
+    bool loaded_HTXS_stage1_1_fine_cat_pTjet25GeV_;
+    int HTXS_stage1_1_fine_cat_pTjet30GeV_;
+    TBranch *b_HTXS_stage1_1_fine_cat_pTjet30GeV_;
+    bool loaded_HTXS_stage1_1_fine_cat_pTjet30GeV_;
+    int HTXS_stage_0_;
+    TBranch *b_HTXS_stage_0_;
+    bool loaded_HTXS_stage_0_;
+    int HTXS_stage_1_pTjet25_;
+    TBranch *b_HTXS_stage_1_pTjet25_;
+    bool loaded_HTXS_stage_1_pTjet25_;
+    int HTXS_stage_1_pTjet30_;
+    TBranch *b_HTXS_stage_1_pTjet30_;
+    bool loaded_HTXS_stage_1_pTjet30_;
     float IsoTrack_dxy_[21];
     vector<float> v_IsoTrack_dxy_;
     TBranch *b_IsoTrack_dxy_;
@@ -2288,6 +2735,14 @@ protected:
     vector<float> v_IsoTrack_eta_;
     TBranch *b_IsoTrack_eta_;
     bool loaded_IsoTrack_eta_;
+    int IsoTrack_fromPV_[21];
+    vector<int> v_IsoTrack_fromPV_;
+    TBranch *b_IsoTrack_fromPV_;
+    bool loaded_IsoTrack_fromPV_;
+    bool IsoTrack_isFromLostTrack_[21];
+    vector<bool> v_IsoTrack_isFromLostTrack_;
+    TBranch *b_IsoTrack_isFromLostTrack_;
+    bool loaded_IsoTrack_isFromLostTrack_;
     bool IsoTrack_isHighPurityTrack_[21];
     vector<bool> v_IsoTrack_isHighPurityTrack_;
     TBranch *b_IsoTrack_isHighPurityTrack_;
@@ -2324,129 +2779,1119 @@ protected:
     vector<float> v_IsoTrack_pt_;
     TBranch *b_IsoTrack_pt_;
     bool loaded_IsoTrack_pt_;
-    float Jet_area_[126];
+    float Jet_area_[96];
     vector<float> v_Jet_area_;
     TBranch *b_Jet_area_;
     bool loaded_Jet_area_;
-    float Jet_bReg_[126];
-    vector<float> v_Jet_bReg_;
-    TBranch *b_Jet_bReg_;
-    bool loaded_Jet_bReg_;
-    float Jet_btagCMVA_[126];
+    float Jet_bRegCorr_[96];
+    vector<float> v_Jet_bRegCorr_;
+    TBranch *b_Jet_bRegCorr_;
+    bool loaded_Jet_bRegCorr_;
+    float Jet_bRegRes_[96];
+    vector<float> v_Jet_bRegRes_;
+    TBranch *b_Jet_bRegRes_;
+    bool loaded_Jet_bRegRes_;
+    float Jet_btagCMVA_[96];
     vector<float> v_Jet_btagCMVA_;
     TBranch *b_Jet_btagCMVA_;
     bool loaded_Jet_btagCMVA_;
-    float Jet_btagCSVV2_[126];
+    float Jet_btagCSVV2_[96];
     vector<float> v_Jet_btagCSVV2_;
     TBranch *b_Jet_btagCSVV2_;
     bool loaded_Jet_btagCSVV2_;
-    float Jet_btagDeepB_[126];
+    float Jet_btagDeepB_[96];
     vector<float> v_Jet_btagDeepB_;
     TBranch *b_Jet_btagDeepB_;
     bool loaded_Jet_btagDeepB_;
-    float Jet_btagDeepC_[126];
+    float Jet_btagDeepC_[96];
     vector<float> v_Jet_btagDeepC_;
     TBranch *b_Jet_btagDeepC_;
     bool loaded_Jet_btagDeepC_;
-    float Jet_btagDeepFlavB_[126];
+    float Jet_btagDeepFlavB_[96];
     vector<float> v_Jet_btagDeepFlavB_;
     TBranch *b_Jet_btagDeepFlavB_;
     bool loaded_Jet_btagDeepFlavB_;
-    float Jet_chEmEF_[126];
+    float Jet_btagDeepFlavC_[96];
+    vector<float> v_Jet_btagDeepFlavC_;
+    TBranch *b_Jet_btagDeepFlavC_;
+    bool loaded_Jet_btagDeepFlavC_;
+    float Jet_chEmEF_[96];
     vector<float> v_Jet_chEmEF_;
     TBranch *b_Jet_chEmEF_;
     bool loaded_Jet_chEmEF_;
-    float Jet_chHEF_[126];
+    float Jet_chHEF_[96];
     vector<float> v_Jet_chHEF_;
     TBranch *b_Jet_chHEF_;
     bool loaded_Jet_chHEF_;
-    UChar_t Jet_cleanmask_[126];
+    UChar_t Jet_cleanmask_[96];
     vector<UChar_t> v_Jet_cleanmask_;
     TBranch *b_Jet_cleanmask_;
     bool loaded_Jet_cleanmask_;
-    int Jet_electronIdx1_[126];
+    int Jet_electronIdx1_[96];
     vector<int> v_Jet_electronIdx1_;
     TBranch *b_Jet_electronIdx1_;
     bool loaded_Jet_electronIdx1_;
-    int Jet_electronIdx2_[126];
+    int Jet_electronIdx2_[96];
     vector<int> v_Jet_electronIdx2_;
     TBranch *b_Jet_electronIdx2_;
     bool loaded_Jet_electronIdx2_;
-    float Jet_eta_[126];
+    float Jet_eta_[96];
     vector<float> v_Jet_eta_;
     TBranch *b_Jet_eta_;
     bool loaded_Jet_eta_;
-    int Jet_genJetIdx_[126];
+    int Jet_genJetIdx_[96];
     vector<int> v_Jet_genJetIdx_;
     TBranch *b_Jet_genJetIdx_;
     bool loaded_Jet_genJetIdx_;
-    int Jet_hadronFlavour_[126];
+    int Jet_hadronFlavour_[96];
     vector<int> v_Jet_hadronFlavour_;
     TBranch *b_Jet_hadronFlavour_;
     bool loaded_Jet_hadronFlavour_;
-    int Jet_jetId_[126];
+    float Jet_jercCHF_[96];
+    vector<float> v_Jet_jercCHF_;
+    TBranch *b_Jet_jercCHF_;
+    bool loaded_Jet_jercCHF_;
+    float Jet_jercCHPUF_[96];
+    vector<float> v_Jet_jercCHPUF_;
+    TBranch *b_Jet_jercCHPUF_;
+    bool loaded_Jet_jercCHPUF_;
+    int Jet_jetId_[96];
     vector<int> v_Jet_jetId_;
     TBranch *b_Jet_jetId_;
     bool loaded_Jet_jetId_;
-    float Jet_mass_[126];
+    float Jet_mass_[96];
     vector<float> v_Jet_mass_;
     TBranch *b_Jet_mass_;
     bool loaded_Jet_mass_;
-    int Jet_muonIdx1_[126];
+    float Jet_muEF_[96];
+    vector<float> v_Jet_muEF_;
+    TBranch *b_Jet_muEF_;
+    bool loaded_Jet_muEF_;
+    int Jet_muonIdx1_[96];
     vector<int> v_Jet_muonIdx1_;
     TBranch *b_Jet_muonIdx1_;
     bool loaded_Jet_muonIdx1_;
-    int Jet_muonIdx2_[126];
+    int Jet_muonIdx2_[96];
     vector<int> v_Jet_muonIdx2_;
     TBranch *b_Jet_muonIdx2_;
     bool loaded_Jet_muonIdx2_;
-    int Jet_nConstituents_[126];
+    float Jet_muonSubtrFactor_[96];
+    vector<float> v_Jet_muonSubtrFactor_;
+    TBranch *b_Jet_muonSubtrFactor_;
+    bool loaded_Jet_muonSubtrFactor_;
+    int Jet_nConstituents_[96];
     vector<int> v_Jet_nConstituents_;
     TBranch *b_Jet_nConstituents_;
     bool loaded_Jet_nConstituents_;
-    int Jet_nElectrons_[126];
+    int Jet_nElectrons_[96];
     vector<int> v_Jet_nElectrons_;
     TBranch *b_Jet_nElectrons_;
     bool loaded_Jet_nElectrons_;
-    int Jet_nMuons_[126];
+    int Jet_nMuons_[96];
     vector<int> v_Jet_nMuons_;
     TBranch *b_Jet_nMuons_;
     bool loaded_Jet_nMuons_;
-    float Jet_neEmEF_[126];
+    float Jet_neEmEF_[96];
     vector<float> v_Jet_neEmEF_;
     TBranch *b_Jet_neEmEF_;
     bool loaded_Jet_neEmEF_;
-    float Jet_neHEF_[126];
+    float Jet_neHEF_[96];
     vector<float> v_Jet_neHEF_;
     TBranch *b_Jet_neHEF_;
     bool loaded_Jet_neHEF_;
     vector<LorentzVector> v_Jet_p4_;
     TBranch *b_Jet_p4_;
     bool loaded_Jet_p4_;
-    int Jet_partonFlavour_[126];
+    int Jet_partonFlavour_[96];
     vector<int> v_Jet_partonFlavour_;
     TBranch *b_Jet_partonFlavour_;
     bool loaded_Jet_partonFlavour_;
-    float Jet_phi_[126];
+    float Jet_phi_[96];
     vector<float> v_Jet_phi_;
     TBranch *b_Jet_phi_;
     bool loaded_Jet_phi_;
-    float Jet_pt_[126];
+    float Jet_pt_[96];
     vector<float> v_Jet_pt_;
     TBranch *b_Jet_pt_;
     bool loaded_Jet_pt_;
-    int Jet_puId_[126];
+    int Jet_puId_[96];
     vector<int> v_Jet_puId_;
     TBranch *b_Jet_puId_;
     bool loaded_Jet_puId_;
-    float Jet_qgl_[126];
+    float Jet_qgl_[96];
     vector<float> v_Jet_qgl_;
     TBranch *b_Jet_qgl_;
     bool loaded_Jet_qgl_;
-    float Jet_rawFactor_[126];
+    float Jet_rawFactor_[96];
     vector<float> v_Jet_rawFactor_;
     TBranch *b_Jet_rawFactor_;
     bool loaded_Jet_rawFactor_;
+    bool L1Reco_step_;
+    TBranch *b_L1Reco_step_;
+    bool loaded_L1Reco_step_;
+    bool L1_AlwaysTrue_;
+    TBranch *b_L1_AlwaysTrue_;
+    bool loaded_L1_AlwaysTrue_;
+    bool L1_BPTX_AND_Ref1_VME_;
+    TBranch *b_L1_BPTX_AND_Ref1_VME_;
+    bool loaded_L1_BPTX_AND_Ref1_VME_;
+    bool L1_BPTX_AND_Ref3_VME_;
+    TBranch *b_L1_BPTX_AND_Ref3_VME_;
+    bool loaded_L1_BPTX_AND_Ref3_VME_;
+    bool L1_BPTX_AND_Ref4_VME_;
+    TBranch *b_L1_BPTX_AND_Ref4_VME_;
+    bool loaded_L1_BPTX_AND_Ref4_VME_;
+    bool L1_BPTX_BeamGas_B1_VME_;
+    TBranch *b_L1_BPTX_BeamGas_B1_VME_;
+    bool loaded_L1_BPTX_BeamGas_B1_VME_;
+    bool L1_BPTX_BeamGas_B2_VME_;
+    TBranch *b_L1_BPTX_BeamGas_B2_VME_;
+    bool loaded_L1_BPTX_BeamGas_B2_VME_;
+    bool L1_BPTX_BeamGas_Ref1_VME_;
+    TBranch *b_L1_BPTX_BeamGas_Ref1_VME_;
+    bool loaded_L1_BPTX_BeamGas_Ref1_VME_;
+    bool L1_BPTX_BeamGas_Ref2_VME_;
+    TBranch *b_L1_BPTX_BeamGas_Ref2_VME_;
+    bool loaded_L1_BPTX_BeamGas_Ref2_VME_;
+    bool L1_BPTX_NotOR_VME_;
+    TBranch *b_L1_BPTX_NotOR_VME_;
+    bool loaded_L1_BPTX_NotOR_VME_;
+    bool L1_BPTX_OR_Ref3_VME_;
+    TBranch *b_L1_BPTX_OR_Ref3_VME_;
+    bool loaded_L1_BPTX_OR_Ref3_VME_;
+    bool L1_BPTX_OR_Ref4_VME_;
+    TBranch *b_L1_BPTX_OR_Ref4_VME_;
+    bool loaded_L1_BPTX_OR_Ref4_VME_;
+    bool L1_BPTX_RefAND_VME_;
+    TBranch *b_L1_BPTX_RefAND_VME_;
+    bool loaded_L1_BPTX_RefAND_VME_;
+    bool L1_BptxMinus_;
+    TBranch *b_L1_BptxMinus_;
+    bool loaded_L1_BptxMinus_;
+    bool L1_BptxOR_;
+    TBranch *b_L1_BptxOR_;
+    bool loaded_L1_BptxOR_;
+    bool L1_BptxPlus_;
+    TBranch *b_L1_BptxPlus_;
+    bool loaded_L1_BptxPlus_;
+    bool L1_BptxXOR_;
+    TBranch *b_L1_BptxXOR_;
+    bool loaded_L1_BptxXOR_;
+    bool L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142_;
+    TBranch *b_L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142_;
+    bool loaded_L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142_;
+    bool L1_DoubleEG8er2p5_HTT260er_;
+    TBranch *b_L1_DoubleEG8er2p5_HTT260er_;
+    bool loaded_L1_DoubleEG8er2p5_HTT260er_;
+    bool L1_DoubleEG8er2p5_HTT280er_;
+    TBranch *b_L1_DoubleEG8er2p5_HTT280er_;
+    bool loaded_L1_DoubleEG8er2p5_HTT280er_;
+    bool L1_DoubleEG8er2p5_HTT300er_;
+    TBranch *b_L1_DoubleEG8er2p5_HTT300er_;
+    bool loaded_L1_DoubleEG8er2p5_HTT300er_;
+    bool L1_DoubleEG8er2p5_HTT320er_;
+    TBranch *b_L1_DoubleEG8er2p5_HTT320er_;
+    bool loaded_L1_DoubleEG8er2p5_HTT320er_;
+    bool L1_DoubleEG8er2p5_HTT340er_;
+    TBranch *b_L1_DoubleEG8er2p5_HTT340er_;
+    bool loaded_L1_DoubleEG8er2p5_HTT340er_;
+    bool L1_DoubleEG_15_10_er2p5_;
+    TBranch *b_L1_DoubleEG_15_10_er2p5_;
+    bool loaded_L1_DoubleEG_15_10_er2p5_;
+    bool L1_DoubleEG_20_10_er2p5_;
+    TBranch *b_L1_DoubleEG_20_10_er2p5_;
+    bool loaded_L1_DoubleEG_20_10_er2p5_;
+    bool L1_DoubleEG_22_10_er2p5_;
+    TBranch *b_L1_DoubleEG_22_10_er2p5_;
+    bool loaded_L1_DoubleEG_22_10_er2p5_;
+    bool L1_DoubleEG_25_12_er2p5_;
+    TBranch *b_L1_DoubleEG_25_12_er2p5_;
+    bool loaded_L1_DoubleEG_25_12_er2p5_;
+    bool L1_DoubleEG_25_14_er2p5_;
+    TBranch *b_L1_DoubleEG_25_14_er2p5_;
+    bool loaded_L1_DoubleEG_25_14_er2p5_;
+    bool L1_DoubleEG_27_14_er2p5_;
+    TBranch *b_L1_DoubleEG_27_14_er2p5_;
+    bool loaded_L1_DoubleEG_27_14_er2p5_;
+    bool L1_DoubleEG_LooseIso20_10_er2p5_;
+    TBranch *b_L1_DoubleEG_LooseIso20_10_er2p5_;
+    bool loaded_L1_DoubleEG_LooseIso20_10_er2p5_;
+    bool L1_DoubleEG_LooseIso22_10_er2p5_;
+    TBranch *b_L1_DoubleEG_LooseIso22_10_er2p5_;
+    bool loaded_L1_DoubleEG_LooseIso22_10_er2p5_;
+    bool L1_DoubleEG_LooseIso22_12_er2p5_;
+    TBranch *b_L1_DoubleEG_LooseIso22_12_er2p5_;
+    bool loaded_L1_DoubleEG_LooseIso22_12_er2p5_;
+    bool L1_DoubleEG_LooseIso25_12_er2p5_;
+    TBranch *b_L1_DoubleEG_LooseIso25_12_er2p5_;
+    bool loaded_L1_DoubleEG_LooseIso25_12_er2p5_;
+    bool L1_DoubleIsoTau32er2p1_;
+    TBranch *b_L1_DoubleIsoTau32er2p1_;
+    bool loaded_L1_DoubleIsoTau32er2p1_;
+    bool L1_DoubleIsoTau34er2p1_;
+    TBranch *b_L1_DoubleIsoTau34er2p1_;
+    bool loaded_L1_DoubleIsoTau34er2p1_;
+    bool L1_DoubleIsoTau36er2p1_;
+    TBranch *b_L1_DoubleIsoTau36er2p1_;
+    bool loaded_L1_DoubleIsoTau36er2p1_;
+    bool L1_DoubleJet100er2p3_dEta_Max1p6_;
+    TBranch *b_L1_DoubleJet100er2p3_dEta_Max1p6_;
+    bool loaded_L1_DoubleJet100er2p3_dEta_Max1p6_;
+    bool L1_DoubleJet100er2p5_;
+    TBranch *b_L1_DoubleJet100er2p5_;
+    bool loaded_L1_DoubleJet100er2p5_;
+    bool L1_DoubleJet112er2p3_dEta_Max1p6_;
+    TBranch *b_L1_DoubleJet112er2p3_dEta_Max1p6_;
+    bool loaded_L1_DoubleJet112er2p3_dEta_Max1p6_;
+    bool L1_DoubleJet120er2p5_;
+    TBranch *b_L1_DoubleJet120er2p5_;
+    bool loaded_L1_DoubleJet120er2p5_;
+    bool L1_DoubleJet150er2p5_;
+    TBranch *b_L1_DoubleJet150er2p5_;
+    bool loaded_L1_DoubleJet150er2p5_;
+    bool L1_DoubleJet30er2p5_Mass_Min150_dEta_Max1p5_;
+    TBranch *b_L1_DoubleJet30er2p5_Mass_Min150_dEta_Max1p5_;
+    bool loaded_L1_DoubleJet30er2p5_Mass_Min150_dEta_Max1p5_;
+    bool L1_DoubleJet30er2p5_Mass_Min200_dEta_Max1p5_;
+    TBranch *b_L1_DoubleJet30er2p5_Mass_Min200_dEta_Max1p5_;
+    bool loaded_L1_DoubleJet30er2p5_Mass_Min200_dEta_Max1p5_;
+    bool L1_DoubleJet30er2p5_Mass_Min250_dEta_Max1p5_;
+    TBranch *b_L1_DoubleJet30er2p5_Mass_Min250_dEta_Max1p5_;
+    bool loaded_L1_DoubleJet30er2p5_Mass_Min250_dEta_Max1p5_;
+    bool L1_DoubleJet30er2p5_Mass_Min300_dEta_Max1p5_;
+    TBranch *b_L1_DoubleJet30er2p5_Mass_Min300_dEta_Max1p5_;
+    bool loaded_L1_DoubleJet30er2p5_Mass_Min300_dEta_Max1p5_;
+    bool L1_DoubleJet30er2p5_Mass_Min330_dEta_Max1p5_;
+    TBranch *b_L1_DoubleJet30er2p5_Mass_Min330_dEta_Max1p5_;
+    bool loaded_L1_DoubleJet30er2p5_Mass_Min330_dEta_Max1p5_;
+    bool L1_DoubleJet30er2p5_Mass_Min360_dEta_Max1p5_;
+    TBranch *b_L1_DoubleJet30er2p5_Mass_Min360_dEta_Max1p5_;
+    bool loaded_L1_DoubleJet30er2p5_Mass_Min360_dEta_Max1p5_;
+    bool L1_DoubleJet35_Mass_Min450_IsoTau45_RmOvlp_;
+    TBranch *b_L1_DoubleJet35_Mass_Min450_IsoTau45_RmOvlp_;
+    bool loaded_L1_DoubleJet35_Mass_Min450_IsoTau45_RmOvlp_;
+    bool L1_DoubleJet40er2p5_;
+    TBranch *b_L1_DoubleJet40er2p5_;
+    bool loaded_L1_DoubleJet40er2p5_;
+    bool L1_DoubleJet_100_30_DoubleJet30_Mass_Min620_;
+    TBranch *b_L1_DoubleJet_100_30_DoubleJet30_Mass_Min620_;
+    bool loaded_L1_DoubleJet_100_30_DoubleJet30_Mass_Min620_;
+    bool L1_DoubleJet_110_35_DoubleJet35_Mass_Min620_;
+    TBranch *b_L1_DoubleJet_110_35_DoubleJet35_Mass_Min620_;
+    bool loaded_L1_DoubleJet_110_35_DoubleJet35_Mass_Min620_;
+    bool L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_;
+    TBranch *b_L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_;
+    bool loaded_L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_;
+    bool L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_Jet60TT28_;
+    TBranch *b_L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_Jet60TT28_;
+    bool loaded_L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_Jet60TT28_;
+    bool L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_;
+    TBranch *b_L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_;
+    bool loaded_L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_;
+    bool L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_Jet60TT28_;
+    TBranch *b_L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_Jet60TT28_;
+    bool loaded_L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_Jet60TT28_;
+    bool L1_DoubleJet_80_30_Mass_Min420_DoubleMu0_SQ_;
+    TBranch *b_L1_DoubleJet_80_30_Mass_Min420_DoubleMu0_SQ_;
+    bool loaded_L1_DoubleJet_80_30_Mass_Min420_DoubleMu0_SQ_;
+    bool L1_DoubleJet_80_30_Mass_Min420_IsoTau40_RmOvlp_;
+    TBranch *b_L1_DoubleJet_80_30_Mass_Min420_IsoTau40_RmOvlp_;
+    bool loaded_L1_DoubleJet_80_30_Mass_Min420_IsoTau40_RmOvlp_;
+    bool L1_DoubleJet_80_30_Mass_Min420_Mu8_;
+    TBranch *b_L1_DoubleJet_80_30_Mass_Min420_Mu8_;
+    bool loaded_L1_DoubleJet_80_30_Mass_Min420_Mu8_;
+    bool L1_DoubleJet_90_30_DoubleJet30_Mass_Min620_;
+    TBranch *b_L1_DoubleJet_90_30_DoubleJet30_Mass_Min620_;
+    bool loaded_L1_DoubleJet_90_30_DoubleJet30_Mass_Min620_;
+    bool L1_DoubleLooseIsoEG22er2p1_;
+    TBranch *b_L1_DoubleLooseIsoEG22er2p1_;
+    bool loaded_L1_DoubleLooseIsoEG22er2p1_;
+    bool L1_DoubleLooseIsoEG24er2p1_;
+    TBranch *b_L1_DoubleLooseIsoEG24er2p1_;
+    bool loaded_L1_DoubleLooseIsoEG24er2p1_;
+    bool L1_DoubleMu0_;
+    TBranch *b_L1_DoubleMu0_;
+    bool loaded_L1_DoubleMu0_;
+    bool L1_DoubleMu0_Mass_Min1_;
+    TBranch *b_L1_DoubleMu0_Mass_Min1_;
+    bool loaded_L1_DoubleMu0_Mass_Min1_;
+    bool L1_DoubleMu0_OQ_;
+    TBranch *b_L1_DoubleMu0_OQ_;
+    bool loaded_L1_DoubleMu0_OQ_;
+    bool L1_DoubleMu0_SQ_;
+    TBranch *b_L1_DoubleMu0_SQ_;
+    bool loaded_L1_DoubleMu0_SQ_;
+    bool L1_DoubleMu0_SQ_OS_;
+    TBranch *b_L1_DoubleMu0_SQ_OS_;
+    bool loaded_L1_DoubleMu0_SQ_OS_;
+    bool L1_DoubleMu0_dR_Max1p6_Jet90er2p5_dR_Max0p8_;
+    TBranch *b_L1_DoubleMu0_dR_Max1p6_Jet90er2p5_dR_Max0p8_;
+    bool loaded_L1_DoubleMu0_dR_Max1p6_Jet90er2p5_dR_Max0p8_;
+    bool L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4_;
+    TBranch *b_L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4_;
+    bool loaded_L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4_;
+    bool L1_DoubleMu0er1p5_SQ_;
+    TBranch *b_L1_DoubleMu0er1p5_SQ_;
+    bool loaded_L1_DoubleMu0er1p5_SQ_;
+    bool L1_DoubleMu0er1p5_SQ_OS_;
+    TBranch *b_L1_DoubleMu0er1p5_SQ_OS_;
+    bool loaded_L1_DoubleMu0er1p5_SQ_OS_;
+    bool L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4_;
+    TBranch *b_L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4_;
+    bool loaded_L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4_;
+    bool L1_DoubleMu0er1p5_SQ_dR_Max1p4_;
+    TBranch *b_L1_DoubleMu0er1p5_SQ_dR_Max1p4_;
+    bool loaded_L1_DoubleMu0er1p5_SQ_dR_Max1p4_;
+    bool L1_DoubleMu0er2p0_SQ_OS_dR_Max1p4_;
+    TBranch *b_L1_DoubleMu0er2p0_SQ_OS_dR_Max1p4_;
+    bool loaded_L1_DoubleMu0er2p0_SQ_OS_dR_Max1p4_;
+    bool L1_DoubleMu0er2p0_SQ_dR_Max1p4_;
+    TBranch *b_L1_DoubleMu0er2p0_SQ_dR_Max1p4_;
+    bool loaded_L1_DoubleMu0er2p0_SQ_dR_Max1p4_;
+    bool L1_DoubleMu10_SQ_;
+    TBranch *b_L1_DoubleMu10_SQ_;
+    bool loaded_L1_DoubleMu10_SQ_;
+    bool L1_DoubleMu18er2p1_;
+    TBranch *b_L1_DoubleMu18er2p1_;
+    bool loaded_L1_DoubleMu18er2p1_;
+    bool L1_DoubleMu3_OS_DoubleEG7p5Upsilon_;
+    TBranch *b_L1_DoubleMu3_OS_DoubleEG7p5Upsilon_;
+    bool loaded_L1_DoubleMu3_OS_DoubleEG7p5Upsilon_;
+    bool L1_DoubleMu3_SQ_ETMHF50_HTT60er_;
+    TBranch *b_L1_DoubleMu3_SQ_ETMHF50_HTT60er_;
+    bool loaded_L1_DoubleMu3_SQ_ETMHF50_HTT60er_;
+    bool L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_;
+    TBranch *b_L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_;
+    bool loaded_L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_;
+    bool L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_OR_DoubleJet40er2p5_;
+    TBranch *b_L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_OR_DoubleJet40er2p5_;
+    bool loaded_L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_OR_DoubleJet40er2p5_;
+    bool L1_DoubleMu3_SQ_ETMHF60_Jet60er2p5_;
+    TBranch *b_L1_DoubleMu3_SQ_ETMHF60_Jet60er2p5_;
+    bool loaded_L1_DoubleMu3_SQ_ETMHF60_Jet60er2p5_;
+    bool L1_DoubleMu3_SQ_HTT220er_;
+    TBranch *b_L1_DoubleMu3_SQ_HTT220er_;
+    bool loaded_L1_DoubleMu3_SQ_HTT220er_;
+    bool L1_DoubleMu3_SQ_HTT240er_;
+    TBranch *b_L1_DoubleMu3_SQ_HTT240er_;
+    bool loaded_L1_DoubleMu3_SQ_HTT240er_;
+    bool L1_DoubleMu3_SQ_HTT260er_;
+    TBranch *b_L1_DoubleMu3_SQ_HTT260er_;
+    bool loaded_L1_DoubleMu3_SQ_HTT260er_;
+    bool L1_DoubleMu3_dR_Max1p6_Jet90er2p5_dR_Max0p8_;
+    TBranch *b_L1_DoubleMu3_dR_Max1p6_Jet90er2p5_dR_Max0p8_;
+    bool loaded_L1_DoubleMu3_dR_Max1p6_Jet90er2p5_dR_Max0p8_;
+    bool L1_DoubleMu4_SQ_EG9er2p5_;
+    TBranch *b_L1_DoubleMu4_SQ_EG9er2p5_;
+    bool loaded_L1_DoubleMu4_SQ_EG9er2p5_;
+    bool L1_DoubleMu4_SQ_OS_;
+    TBranch *b_L1_DoubleMu4_SQ_OS_;
+    bool loaded_L1_DoubleMu4_SQ_OS_;
+    bool L1_DoubleMu4_SQ_OS_dR_Max1p2_;
+    TBranch *b_L1_DoubleMu4_SQ_OS_dR_Max1p2_;
+    bool loaded_L1_DoubleMu4_SQ_OS_dR_Max1p2_;
+    bool L1_DoubleMu4p5_SQ_OS_;
+    TBranch *b_L1_DoubleMu4p5_SQ_OS_;
+    bool loaded_L1_DoubleMu4p5_SQ_OS_;
+    bool L1_DoubleMu4p5_SQ_OS_dR_Max1p2_;
+    TBranch *b_L1_DoubleMu4p5_SQ_OS_dR_Max1p2_;
+    bool loaded_L1_DoubleMu4p5_SQ_OS_dR_Max1p2_;
+    bool L1_DoubleMu4p5er2p0_SQ_OS_;
+    TBranch *b_L1_DoubleMu4p5er2p0_SQ_OS_;
+    bool loaded_L1_DoubleMu4p5er2p0_SQ_OS_;
+    bool L1_DoubleMu4p5er2p0_SQ_OS_Mass7to18_;
+    TBranch *b_L1_DoubleMu4p5er2p0_SQ_OS_Mass7to18_;
+    bool loaded_L1_DoubleMu4p5er2p0_SQ_OS_Mass7to18_;
+    bool L1_DoubleMu5Upsilon_OS_DoubleEG3_;
+    TBranch *b_L1_DoubleMu5Upsilon_OS_DoubleEG3_;
+    bool loaded_L1_DoubleMu5Upsilon_OS_DoubleEG3_;
+    bool L1_DoubleMu5_SQ_EG9er2p5_;
+    TBranch *b_L1_DoubleMu5_SQ_EG9er2p5_;
+    bool loaded_L1_DoubleMu5_SQ_EG9er2p5_;
+    bool L1_DoubleMu9_SQ_;
+    TBranch *b_L1_DoubleMu9_SQ_;
+    bool loaded_L1_DoubleMu9_SQ_;
+    bool L1_DoubleMu_12_5_;
+    TBranch *b_L1_DoubleMu_12_5_;
+    bool loaded_L1_DoubleMu_12_5_;
+    bool L1_DoubleMu_15_5_SQ_;
+    TBranch *b_L1_DoubleMu_15_5_SQ_;
+    bool loaded_L1_DoubleMu_15_5_SQ_;
+    bool L1_DoubleMu_15_7_;
+    TBranch *b_L1_DoubleMu_15_7_;
+    bool loaded_L1_DoubleMu_15_7_;
+    bool L1_DoubleMu_15_7_Mass_Min1_;
+    TBranch *b_L1_DoubleMu_15_7_Mass_Min1_;
+    bool loaded_L1_DoubleMu_15_7_Mass_Min1_;
+    bool L1_DoubleMu_15_7_SQ_;
+    TBranch *b_L1_DoubleMu_15_7_SQ_;
+    bool loaded_L1_DoubleMu_15_7_SQ_;
+    bool L1_DoubleTau70er2p1_;
+    TBranch *b_L1_DoubleTau70er2p1_;
+    bool loaded_L1_DoubleTau70er2p1_;
+    bool L1_ETM120_;
+    TBranch *b_L1_ETM120_;
+    bool loaded_L1_ETM120_;
+    bool L1_ETM150_;
+    TBranch *b_L1_ETM150_;
+    bool loaded_L1_ETM150_;
+    bool L1_ETMHF100_;
+    TBranch *b_L1_ETMHF100_;
+    bool loaded_L1_ETMHF100_;
+    bool L1_ETMHF100_HTT60er_;
+    TBranch *b_L1_ETMHF100_HTT60er_;
+    bool loaded_L1_ETMHF100_HTT60er_;
+    bool L1_ETMHF110_;
+    TBranch *b_L1_ETMHF110_;
+    bool loaded_L1_ETMHF110_;
+    bool L1_ETMHF110_HTT60er_;
+    TBranch *b_L1_ETMHF110_HTT60er_;
+    bool loaded_L1_ETMHF110_HTT60er_;
+    bool L1_ETMHF110_HTT60er_NotSecondBunchInTrain_;
+    TBranch *b_L1_ETMHF110_HTT60er_NotSecondBunchInTrain_;
+    bool loaded_L1_ETMHF110_HTT60er_NotSecondBunchInTrain_;
+    bool L1_ETMHF120_;
+    TBranch *b_L1_ETMHF120_;
+    bool loaded_L1_ETMHF120_;
+    bool L1_ETMHF120_HTT60er_;
+    TBranch *b_L1_ETMHF120_HTT60er_;
+    bool loaded_L1_ETMHF120_HTT60er_;
+    bool L1_ETMHF120_NotSecondBunchInTrain_;
+    TBranch *b_L1_ETMHF120_NotSecondBunchInTrain_;
+    bool loaded_L1_ETMHF120_NotSecondBunchInTrain_;
+    bool L1_ETMHF130_;
+    TBranch *b_L1_ETMHF130_;
+    bool loaded_L1_ETMHF130_;
+    bool L1_ETMHF130_HTT60er_;
+    TBranch *b_L1_ETMHF130_HTT60er_;
+    bool loaded_L1_ETMHF130_HTT60er_;
+    bool L1_ETMHF140_;
+    TBranch *b_L1_ETMHF140_;
+    bool loaded_L1_ETMHF140_;
+    bool L1_ETMHF150_;
+    TBranch *b_L1_ETMHF150_;
+    bool loaded_L1_ETMHF150_;
+    bool L1_ETMHF90_HTT60er_;
+    TBranch *b_L1_ETMHF90_HTT60er_;
+    bool loaded_L1_ETMHF90_HTT60er_;
+    bool L1_ETT1200_;
+    TBranch *b_L1_ETT1200_;
+    bool loaded_L1_ETT1200_;
+    bool L1_ETT1600_;
+    TBranch *b_L1_ETT1600_;
+    bool loaded_L1_ETT1600_;
+    bool L1_ETT2000_;
+    TBranch *b_L1_ETT2000_;
+    bool loaded_L1_ETT2000_;
+    bool L1_FirstBunchAfterTrain_;
+    TBranch *b_L1_FirstBunchAfterTrain_;
+    bool loaded_L1_FirstBunchAfterTrain_;
+    bool L1_FirstBunchBeforeTrain_;
+    TBranch *b_L1_FirstBunchBeforeTrain_;
+    bool loaded_L1_FirstBunchBeforeTrain_;
+    bool L1_FirstBunchInTrain_;
+    TBranch *b_L1_FirstBunchInTrain_;
+    bool loaded_L1_FirstBunchInTrain_;
+    bool L1_FirstCollisionInOrbit_;
+    TBranch *b_L1_FirstCollisionInOrbit_;
+    bool loaded_L1_FirstCollisionInOrbit_;
+    bool L1_FirstCollisionInTrain_;
+    TBranch *b_L1_FirstCollisionInTrain_;
+    bool loaded_L1_FirstCollisionInTrain_;
+    bool L1_HCAL_LaserMon_Trig_;
+    TBranch *b_L1_HCAL_LaserMon_Trig_;
+    bool loaded_L1_HCAL_LaserMon_Trig_;
+    bool L1_HCAL_LaserMon_Veto_;
+    TBranch *b_L1_HCAL_LaserMon_Veto_;
+    bool loaded_L1_HCAL_LaserMon_Veto_;
+    bool L1_HTT120er_;
+    TBranch *b_L1_HTT120er_;
+    bool loaded_L1_HTT120er_;
+    bool L1_HTT160er_;
+    TBranch *b_L1_HTT160er_;
+    bool loaded_L1_HTT160er_;
+    bool L1_HTT200er_;
+    TBranch *b_L1_HTT200er_;
+    bool loaded_L1_HTT200er_;
+    bool L1_HTT255er_;
+    TBranch *b_L1_HTT255er_;
+    bool loaded_L1_HTT255er_;
+    bool L1_HTT280er_;
+    TBranch *b_L1_HTT280er_;
+    bool loaded_L1_HTT280er_;
+    bool L1_HTT280er_QuadJet_70_55_40_35_er2p4_;
+    TBranch *b_L1_HTT280er_QuadJet_70_55_40_35_er2p4_;
+    bool loaded_L1_HTT280er_QuadJet_70_55_40_35_er2p4_;
+    bool L1_HTT320er_;
+    TBranch *b_L1_HTT320er_;
+    bool loaded_L1_HTT320er_;
+    bool L1_HTT320er_QuadJet_70_55_40_40_er2p4_;
+    TBranch *b_L1_HTT320er_QuadJet_70_55_40_40_er2p4_;
+    bool loaded_L1_HTT320er_QuadJet_70_55_40_40_er2p4_;
+    bool L1_HTT320er_QuadJet_80_60_er2p1_45_40_er2p3_;
+    TBranch *b_L1_HTT320er_QuadJet_80_60_er2p1_45_40_er2p3_;
+    bool loaded_L1_HTT320er_QuadJet_80_60_er2p1_45_40_er2p3_;
+    bool L1_HTT320er_QuadJet_80_60_er2p1_50_45_er2p3_;
+    TBranch *b_L1_HTT320er_QuadJet_80_60_er2p1_50_45_er2p3_;
+    bool loaded_L1_HTT320er_QuadJet_80_60_er2p1_50_45_er2p3_;
+    bool L1_HTT360er_;
+    TBranch *b_L1_HTT360er_;
+    bool loaded_L1_HTT360er_;
+    bool L1_HTT400er_;
+    TBranch *b_L1_HTT400er_;
+    bool loaded_L1_HTT400er_;
+    bool L1_HTT450er_;
+    TBranch *b_L1_HTT450er_;
+    bool loaded_L1_HTT450er_;
+    bool L1_IsoEG32er2p5_Mt40_;
+    TBranch *b_L1_IsoEG32er2p5_Mt40_;
+    bool loaded_L1_IsoEG32er2p5_Mt40_;
+    bool L1_IsoEG32er2p5_Mt44_;
+    TBranch *b_L1_IsoEG32er2p5_Mt44_;
+    bool loaded_L1_IsoEG32er2p5_Mt44_;
+    bool L1_IsoEG32er2p5_Mt48_;
+    TBranch *b_L1_IsoEG32er2p5_Mt48_;
+    bool loaded_L1_IsoEG32er2p5_Mt48_;
+    bool L1_IsoTau40er2p1_ETMHF100_;
+    TBranch *b_L1_IsoTau40er2p1_ETMHF100_;
+    bool loaded_L1_IsoTau40er2p1_ETMHF100_;
+    bool L1_IsoTau40er2p1_ETMHF110_;
+    TBranch *b_L1_IsoTau40er2p1_ETMHF110_;
+    bool loaded_L1_IsoTau40er2p1_ETMHF110_;
+    bool L1_IsoTau40er2p1_ETMHF120_;
+    TBranch *b_L1_IsoTau40er2p1_ETMHF120_;
+    bool loaded_L1_IsoTau40er2p1_ETMHF120_;
+    bool L1_IsoTau40er2p1_ETMHF90_;
+    TBranch *b_L1_IsoTau40er2p1_ETMHF90_;
+    bool loaded_L1_IsoTau40er2p1_ETMHF90_;
+    bool L1_IsolatedBunch_;
+    TBranch *b_L1_IsolatedBunch_;
+    bool loaded_L1_IsolatedBunch_;
+    bool L1_LastBunchInTrain_;
+    TBranch *b_L1_LastBunchInTrain_;
+    bool loaded_L1_LastBunchInTrain_;
+    bool L1_LastCollisionInTrain_;
+    TBranch *b_L1_LastCollisionInTrain_;
+    bool loaded_L1_LastCollisionInTrain_;
+    bool L1_LooseIsoEG22er2p1_IsoTau26er2p1_dR_Min0p3_;
+    TBranch *b_L1_LooseIsoEG22er2p1_IsoTau26er2p1_dR_Min0p3_;
+    bool loaded_L1_LooseIsoEG22er2p1_IsoTau26er2p1_dR_Min0p3_;
+    bool L1_LooseIsoEG22er2p1_Tau70er2p1_dR_Min0p3_;
+    TBranch *b_L1_LooseIsoEG22er2p1_Tau70er2p1_dR_Min0p3_;
+    bool loaded_L1_LooseIsoEG22er2p1_Tau70er2p1_dR_Min0p3_;
+    bool L1_LooseIsoEG24er2p1_HTT100er_;
+    TBranch *b_L1_LooseIsoEG24er2p1_HTT100er_;
+    bool loaded_L1_LooseIsoEG24er2p1_HTT100er_;
+    bool L1_LooseIsoEG24er2p1_IsoTau27er2p1_dR_Min0p3_;
+    TBranch *b_L1_LooseIsoEG24er2p1_IsoTau27er2p1_dR_Min0p3_;
+    bool loaded_L1_LooseIsoEG24er2p1_IsoTau27er2p1_dR_Min0p3_;
+    bool L1_LooseIsoEG26er2p1_HTT100er_;
+    TBranch *b_L1_LooseIsoEG26er2p1_HTT100er_;
+    bool loaded_L1_LooseIsoEG26er2p1_HTT100er_;
+    bool L1_LooseIsoEG26er2p1_Jet34er2p5_dR_Min0p3_;
+    TBranch *b_L1_LooseIsoEG26er2p1_Jet34er2p5_dR_Min0p3_;
+    bool loaded_L1_LooseIsoEG26er2p1_Jet34er2p5_dR_Min0p3_;
+    bool L1_LooseIsoEG28er2p1_HTT100er_;
+    TBranch *b_L1_LooseIsoEG28er2p1_HTT100er_;
+    bool loaded_L1_LooseIsoEG28er2p1_HTT100er_;
+    bool L1_LooseIsoEG28er2p1_Jet34er2p5_dR_Min0p3_;
+    TBranch *b_L1_LooseIsoEG28er2p1_Jet34er2p5_dR_Min0p3_;
+    bool loaded_L1_LooseIsoEG28er2p1_Jet34er2p5_dR_Min0p3_;
+    bool L1_LooseIsoEG30er2p1_HTT100er_;
+    TBranch *b_L1_LooseIsoEG30er2p1_HTT100er_;
+    bool loaded_L1_LooseIsoEG30er2p1_HTT100er_;
+    bool L1_LooseIsoEG30er2p1_Jet34er2p5_dR_Min0p3_;
+    TBranch *b_L1_LooseIsoEG30er2p1_Jet34er2p5_dR_Min0p3_;
+    bool loaded_L1_LooseIsoEG30er2p1_Jet34er2p5_dR_Min0p3_;
+    bool L1_MinimumBiasHF0_AND_BptxAND_;
+    TBranch *b_L1_MinimumBiasHF0_AND_BptxAND_;
+    bool loaded_L1_MinimumBiasHF0_AND_BptxAND_;
+    bool L1_Mu10er2p3_Jet32er2p3_dR_Max0p4_DoubleJet32er2p3_dEta_Max1p6_;
+    TBranch *b_L1_Mu10er2p3_Jet32er2p3_dR_Max0p4_DoubleJet32er2p3_dEta_Max1p6_;
+    bool loaded_L1_Mu10er2p3_Jet32er2p3_dR_Max0p4_DoubleJet32er2p3_dEta_Max1p6_;
+    bool L1_Mu12er2p3_Jet40er2p1_dR_Max0p4_DoubleJet40er2p1_dEta_Max1p6_;
+    TBranch *b_L1_Mu12er2p3_Jet40er2p1_dR_Max0p4_DoubleJet40er2p1_dEta_Max1p6_;
+    bool loaded_L1_Mu12er2p3_Jet40er2p1_dR_Max0p4_DoubleJet40er2p1_dEta_Max1p6_;
+    bool L1_Mu12er2p3_Jet40er2p3_dR_Max0p4_DoubleJet40er2p3_dEta_Max1p6_;
+    TBranch *b_L1_Mu12er2p3_Jet40er2p3_dR_Max0p4_DoubleJet40er2p3_dEta_Max1p6_;
+    bool loaded_L1_Mu12er2p3_Jet40er2p3_dR_Max0p4_DoubleJet40er2p3_dEta_Max1p6_;
+    bool L1_Mu18er2p1_Tau24er2p1_;
+    TBranch *b_L1_Mu18er2p1_Tau24er2p1_;
+    bool loaded_L1_Mu18er2p1_Tau24er2p1_;
+    bool L1_Mu18er2p1_Tau26er2p1_;
+    TBranch *b_L1_Mu18er2p1_Tau26er2p1_;
+    bool loaded_L1_Mu18er2p1_Tau26er2p1_;
+    bool L1_Mu20_EG10er2p5_;
+    TBranch *b_L1_Mu20_EG10er2p5_;
+    bool loaded_L1_Mu20_EG10er2p5_;
+    bool L1_Mu22er2p1_IsoTau32er2p1_;
+    TBranch *b_L1_Mu22er2p1_IsoTau32er2p1_;
+    bool loaded_L1_Mu22er2p1_IsoTau32er2p1_;
+    bool L1_Mu22er2p1_IsoTau34er2p1_;
+    TBranch *b_L1_Mu22er2p1_IsoTau34er2p1_;
+    bool loaded_L1_Mu22er2p1_IsoTau34er2p1_;
+    bool L1_Mu22er2p1_IsoTau36er2p1_;
+    TBranch *b_L1_Mu22er2p1_IsoTau36er2p1_;
+    bool loaded_L1_Mu22er2p1_IsoTau36er2p1_;
+    bool L1_Mu22er2p1_IsoTau40er2p1_;
+    TBranch *b_L1_Mu22er2p1_IsoTau40er2p1_;
+    bool loaded_L1_Mu22er2p1_IsoTau40er2p1_;
+    bool L1_Mu22er2p1_Tau70er2p1_;
+    TBranch *b_L1_Mu22er2p1_Tau70er2p1_;
+    bool loaded_L1_Mu22er2p1_Tau70er2p1_;
+    bool L1_Mu3_Jet120er2p5_dR_Max0p4_;
+    TBranch *b_L1_Mu3_Jet120er2p5_dR_Max0p4_;
+    bool loaded_L1_Mu3_Jet120er2p5_dR_Max0p4_;
+    bool L1_Mu3_Jet120er2p5_dR_Max0p8_;
+    TBranch *b_L1_Mu3_Jet120er2p5_dR_Max0p8_;
+    bool loaded_L1_Mu3_Jet120er2p5_dR_Max0p8_;
+    bool L1_Mu3_Jet16er2p5_dR_Max0p4_;
+    TBranch *b_L1_Mu3_Jet16er2p5_dR_Max0p4_;
+    bool loaded_L1_Mu3_Jet16er2p5_dR_Max0p4_;
+    bool L1_Mu3_Jet30er2p5_;
+    TBranch *b_L1_Mu3_Jet30er2p5_;
+    bool loaded_L1_Mu3_Jet30er2p5_;
+    bool L1_Mu3_Jet35er2p5_dR_Max0p4_;
+    TBranch *b_L1_Mu3_Jet35er2p5_dR_Max0p4_;
+    bool loaded_L1_Mu3_Jet35er2p5_dR_Max0p4_;
+    bool L1_Mu3_Jet60er2p5_dR_Max0p4_;
+    TBranch *b_L1_Mu3_Jet60er2p5_dR_Max0p4_;
+    bool loaded_L1_Mu3_Jet60er2p5_dR_Max0p4_;
+    bool L1_Mu3_Jet80er2p5_dR_Max0p4_;
+    TBranch *b_L1_Mu3_Jet80er2p5_dR_Max0p4_;
+    bool loaded_L1_Mu3_Jet80er2p5_dR_Max0p4_;
+    bool L1_Mu3er1p5_Jet100er2p5_ETMHF40_;
+    TBranch *b_L1_Mu3er1p5_Jet100er2p5_ETMHF40_;
+    bool loaded_L1_Mu3er1p5_Jet100er2p5_ETMHF40_;
+    bool L1_Mu3er1p5_Jet100er2p5_ETMHF50_;
+    TBranch *b_L1_Mu3er1p5_Jet100er2p5_ETMHF50_;
+    bool loaded_L1_Mu3er1p5_Jet100er2p5_ETMHF50_;
+    bool L1_Mu5_EG23er2p5_;
+    TBranch *b_L1_Mu5_EG23er2p5_;
+    bool loaded_L1_Mu5_EG23er2p5_;
+    bool L1_Mu5_LooseIsoEG20er2p5_;
+    TBranch *b_L1_Mu5_LooseIsoEG20er2p5_;
+    bool loaded_L1_Mu5_LooseIsoEG20er2p5_;
+    bool L1_Mu6_DoubleEG10er2p5_;
+    TBranch *b_L1_Mu6_DoubleEG10er2p5_;
+    bool loaded_L1_Mu6_DoubleEG10er2p5_;
+    bool L1_Mu6_DoubleEG12er2p5_;
+    TBranch *b_L1_Mu6_DoubleEG12er2p5_;
+    bool loaded_L1_Mu6_DoubleEG12er2p5_;
+    bool L1_Mu6_DoubleEG15er2p5_;
+    TBranch *b_L1_Mu6_DoubleEG15er2p5_;
+    bool loaded_L1_Mu6_DoubleEG15er2p5_;
+    bool L1_Mu6_DoubleEG17er2p5_;
+    TBranch *b_L1_Mu6_DoubleEG17er2p5_;
+    bool loaded_L1_Mu6_DoubleEG17er2p5_;
+    bool L1_Mu6_HTT240er_;
+    TBranch *b_L1_Mu6_HTT240er_;
+    bool loaded_L1_Mu6_HTT240er_;
+    bool L1_Mu6_HTT250er_;
+    TBranch *b_L1_Mu6_HTT250er_;
+    bool loaded_L1_Mu6_HTT250er_;
+    bool L1_Mu7_EG23er2p5_;
+    TBranch *b_L1_Mu7_EG23er2p5_;
+    bool loaded_L1_Mu7_EG23er2p5_;
+    bool L1_Mu7_LooseIsoEG20er2p5_;
+    TBranch *b_L1_Mu7_LooseIsoEG20er2p5_;
+    bool loaded_L1_Mu7_LooseIsoEG20er2p5_;
+    bool L1_Mu7_LooseIsoEG23er2p5_;
+    TBranch *b_L1_Mu7_LooseIsoEG23er2p5_;
+    bool loaded_L1_Mu7_LooseIsoEG23er2p5_;
+    bool L1_NotBptxOR_;
+    TBranch *b_L1_NotBptxOR_;
+    bool loaded_L1_NotBptxOR_;
+    bool L1_QuadJet36er2p5_IsoTau52er2p1_;
+    TBranch *b_L1_QuadJet36er2p5_IsoTau52er2p1_;
+    bool loaded_L1_QuadJet36er2p5_IsoTau52er2p1_;
+    bool L1_QuadJet60er2p5_;
+    TBranch *b_L1_QuadJet60er2p5_;
+    bool loaded_L1_QuadJet60er2p5_;
+    bool L1_QuadJet_95_75_65_20_DoubleJet_75_65_er2p5_Jet20_FWD3p0_;
+    TBranch *b_L1_QuadJet_95_75_65_20_DoubleJet_75_65_er2p5_Jet20_FWD3p0_;
+    bool loaded_L1_QuadJet_95_75_65_20_DoubleJet_75_65_er2p5_Jet20_FWD3p0_;
+    bool L1_QuadMu0_;
+    TBranch *b_L1_QuadMu0_;
+    bool loaded_L1_QuadMu0_;
+    bool L1_QuadMu0_OQ_;
+    TBranch *b_L1_QuadMu0_OQ_;
+    bool loaded_L1_QuadMu0_OQ_;
+    bool L1_QuadMu0_SQ_;
+    TBranch *b_L1_QuadMu0_SQ_;
+    bool loaded_L1_QuadMu0_SQ_;
+    bool L1_SecondBunchInTrain_;
+    TBranch *b_L1_SecondBunchInTrain_;
+    bool loaded_L1_SecondBunchInTrain_;
+    bool L1_SecondLastBunchInTrain_;
+    TBranch *b_L1_SecondLastBunchInTrain_;
+    bool loaded_L1_SecondLastBunchInTrain_;
+    bool L1_SingleEG10er2p5_;
+    TBranch *b_L1_SingleEG10er2p5_;
+    bool loaded_L1_SingleEG10er2p5_;
+    bool L1_SingleEG15er2p5_;
+    TBranch *b_L1_SingleEG15er2p5_;
+    bool loaded_L1_SingleEG15er2p5_;
+    bool L1_SingleEG26er2p5_;
+    TBranch *b_L1_SingleEG26er2p5_;
+    bool loaded_L1_SingleEG26er2p5_;
+    bool L1_SingleEG34er2p5_;
+    TBranch *b_L1_SingleEG34er2p5_;
+    bool loaded_L1_SingleEG34er2p5_;
+    bool L1_SingleEG36er2p5_;
+    TBranch *b_L1_SingleEG36er2p5_;
+    bool loaded_L1_SingleEG36er2p5_;
+    bool L1_SingleEG38er2p5_;
+    TBranch *b_L1_SingleEG38er2p5_;
+    bool loaded_L1_SingleEG38er2p5_;
+    bool L1_SingleEG40er2p5_;
+    TBranch *b_L1_SingleEG40er2p5_;
+    bool loaded_L1_SingleEG40er2p5_;
+    bool L1_SingleEG42er2p5_;
+    TBranch *b_L1_SingleEG42er2p5_;
+    bool loaded_L1_SingleEG42er2p5_;
+    bool L1_SingleEG45er2p5_;
+    TBranch *b_L1_SingleEG45er2p5_;
+    bool loaded_L1_SingleEG45er2p5_;
+    bool L1_SingleEG50_;
+    TBranch *b_L1_SingleEG50_;
+    bool loaded_L1_SingleEG50_;
+    bool L1_SingleEG60_;
+    TBranch *b_L1_SingleEG60_;
+    bool loaded_L1_SingleEG60_;
+    bool L1_SingleEG8er2p5_;
+    TBranch *b_L1_SingleEG8er2p5_;
+    bool loaded_L1_SingleEG8er2p5_;
+    bool L1_SingleIsoEG24er1p5_;
+    TBranch *b_L1_SingleIsoEG24er1p5_;
+    bool loaded_L1_SingleIsoEG24er1p5_;
+    bool L1_SingleIsoEG24er2p1_;
+    TBranch *b_L1_SingleIsoEG24er2p1_;
+    bool loaded_L1_SingleIsoEG24er2p1_;
+    bool L1_SingleIsoEG26er1p5_;
+    TBranch *b_L1_SingleIsoEG26er1p5_;
+    bool loaded_L1_SingleIsoEG26er1p5_;
+    bool L1_SingleIsoEG26er2p1_;
+    TBranch *b_L1_SingleIsoEG26er2p1_;
+    bool loaded_L1_SingleIsoEG26er2p1_;
+    bool L1_SingleIsoEG26er2p5_;
+    TBranch *b_L1_SingleIsoEG26er2p5_;
+    bool loaded_L1_SingleIsoEG26er2p5_;
+    bool L1_SingleIsoEG28er1p5_;
+    TBranch *b_L1_SingleIsoEG28er1p5_;
+    bool loaded_L1_SingleIsoEG28er1p5_;
+    bool L1_SingleIsoEG28er2p1_;
+    TBranch *b_L1_SingleIsoEG28er2p1_;
+    bool loaded_L1_SingleIsoEG28er2p1_;
+    bool L1_SingleIsoEG28er2p5_;
+    TBranch *b_L1_SingleIsoEG28er2p5_;
+    bool loaded_L1_SingleIsoEG28er2p5_;
+    bool L1_SingleIsoEG30er2p1_;
+    TBranch *b_L1_SingleIsoEG30er2p1_;
+    bool loaded_L1_SingleIsoEG30er2p1_;
+    bool L1_SingleIsoEG30er2p5_;
+    TBranch *b_L1_SingleIsoEG30er2p5_;
+    bool loaded_L1_SingleIsoEG30er2p5_;
+    bool L1_SingleIsoEG32er2p1_;
+    TBranch *b_L1_SingleIsoEG32er2p1_;
+    bool loaded_L1_SingleIsoEG32er2p1_;
+    bool L1_SingleIsoEG32er2p5_;
+    TBranch *b_L1_SingleIsoEG32er2p5_;
+    bool loaded_L1_SingleIsoEG32er2p5_;
+    bool L1_SingleIsoEG34er2p5_;
+    TBranch *b_L1_SingleIsoEG34er2p5_;
+    bool loaded_L1_SingleIsoEG34er2p5_;
+    bool L1_SingleJet10erHE_;
+    TBranch *b_L1_SingleJet10erHE_;
+    bool loaded_L1_SingleJet10erHE_;
+    bool L1_SingleJet120_;
+    TBranch *b_L1_SingleJet120_;
+    bool loaded_L1_SingleJet120_;
+    bool L1_SingleJet120_FWD3p0_;
+    TBranch *b_L1_SingleJet120_FWD3p0_;
+    bool loaded_L1_SingleJet120_FWD3p0_;
+    bool L1_SingleJet120er2p5_;
+    TBranch *b_L1_SingleJet120er2p5_;
+    bool loaded_L1_SingleJet120er2p5_;
+    bool L1_SingleJet12erHE_;
+    TBranch *b_L1_SingleJet12erHE_;
+    bool loaded_L1_SingleJet12erHE_;
+    bool L1_SingleJet140er2p5_;
+    TBranch *b_L1_SingleJet140er2p5_;
+    bool loaded_L1_SingleJet140er2p5_;
+    bool L1_SingleJet140er2p5_ETMHF80_;
+    TBranch *b_L1_SingleJet140er2p5_ETMHF80_;
+    bool loaded_L1_SingleJet140er2p5_ETMHF80_;
+    bool L1_SingleJet140er2p5_ETMHF90_;
+    TBranch *b_L1_SingleJet140er2p5_ETMHF90_;
+    bool loaded_L1_SingleJet140er2p5_ETMHF90_;
+    bool L1_SingleJet160er2p5_;
+    TBranch *b_L1_SingleJet160er2p5_;
+    bool loaded_L1_SingleJet160er2p5_;
+    bool L1_SingleJet180_;
+    TBranch *b_L1_SingleJet180_;
+    bool loaded_L1_SingleJet180_;
+    bool L1_SingleJet180er2p5_;
+    TBranch *b_L1_SingleJet180er2p5_;
+    bool loaded_L1_SingleJet180er2p5_;
+    bool L1_SingleJet200_;
+    TBranch *b_L1_SingleJet200_;
+    bool loaded_L1_SingleJet200_;
+    bool L1_SingleJet20er2p5_NotBptxOR_;
+    TBranch *b_L1_SingleJet20er2p5_NotBptxOR_;
+    bool loaded_L1_SingleJet20er2p5_NotBptxOR_;
+    bool L1_SingleJet20er2p5_NotBptxOR_3BX_;
+    TBranch *b_L1_SingleJet20er2p5_NotBptxOR_3BX_;
+    bool loaded_L1_SingleJet20er2p5_NotBptxOR_3BX_;
+    bool L1_SingleJet35_;
+    TBranch *b_L1_SingleJet35_;
+    bool loaded_L1_SingleJet35_;
+    bool L1_SingleJet35_FWD3p0_;
+    TBranch *b_L1_SingleJet35_FWD3p0_;
+    bool loaded_L1_SingleJet35_FWD3p0_;
+    bool L1_SingleJet35er2p5_;
+    TBranch *b_L1_SingleJet35er2p5_;
+    bool loaded_L1_SingleJet35er2p5_;
+    bool L1_SingleJet43er2p5_NotBptxOR_3BX_;
+    TBranch *b_L1_SingleJet43er2p5_NotBptxOR_3BX_;
+    bool loaded_L1_SingleJet43er2p5_NotBptxOR_3BX_;
+    bool L1_SingleJet46er2p5_NotBptxOR_3BX_;
+    TBranch *b_L1_SingleJet46er2p5_NotBptxOR_3BX_;
+    bool loaded_L1_SingleJet46er2p5_NotBptxOR_3BX_;
+    bool L1_SingleJet60_;
+    TBranch *b_L1_SingleJet60_;
+    bool loaded_L1_SingleJet60_;
+    bool L1_SingleJet60_FWD3p0_;
+    TBranch *b_L1_SingleJet60_FWD3p0_;
+    bool loaded_L1_SingleJet60_FWD3p0_;
+    bool L1_SingleJet60er2p5_;
+    TBranch *b_L1_SingleJet60er2p5_;
+    bool loaded_L1_SingleJet60er2p5_;
+    bool L1_SingleJet8erHE_;
+    TBranch *b_L1_SingleJet8erHE_;
+    bool loaded_L1_SingleJet8erHE_;
+    bool L1_SingleJet90_;
+    TBranch *b_L1_SingleJet90_;
+    bool loaded_L1_SingleJet90_;
+    bool L1_SingleJet90_FWD3p0_;
+    TBranch *b_L1_SingleJet90_FWD3p0_;
+    bool loaded_L1_SingleJet90_FWD3p0_;
+    bool L1_SingleJet90er2p5_;
+    TBranch *b_L1_SingleJet90er2p5_;
+    bool loaded_L1_SingleJet90er2p5_;
+    bool L1_SingleLooseIsoEG28er1p5_;
+    TBranch *b_L1_SingleLooseIsoEG28er1p5_;
+    bool loaded_L1_SingleLooseIsoEG28er1p5_;
+    bool L1_SingleLooseIsoEG30er1p5_;
+    TBranch *b_L1_SingleLooseIsoEG30er1p5_;
+    bool loaded_L1_SingleLooseIsoEG30er1p5_;
+    bool L1_SingleMu0_BMTF_;
+    TBranch *b_L1_SingleMu0_BMTF_;
+    bool loaded_L1_SingleMu0_BMTF_;
+    bool L1_SingleMu0_DQ_;
+    TBranch *b_L1_SingleMu0_DQ_;
+    bool loaded_L1_SingleMu0_DQ_;
+    bool L1_SingleMu0_EMTF_;
+    TBranch *b_L1_SingleMu0_EMTF_;
+    bool loaded_L1_SingleMu0_EMTF_;
+    bool L1_SingleMu0_OMTF_;
+    TBranch *b_L1_SingleMu0_OMTF_;
+    bool loaded_L1_SingleMu0_OMTF_;
+    bool L1_SingleMu10er1p5_;
+    TBranch *b_L1_SingleMu10er1p5_;
+    bool loaded_L1_SingleMu10er1p5_;
+    bool L1_SingleMu12_DQ_BMTF_;
+    TBranch *b_L1_SingleMu12_DQ_BMTF_;
+    bool loaded_L1_SingleMu12_DQ_BMTF_;
+    bool L1_SingleMu12_DQ_EMTF_;
+    TBranch *b_L1_SingleMu12_DQ_EMTF_;
+    bool loaded_L1_SingleMu12_DQ_EMTF_;
+    bool L1_SingleMu12_DQ_OMTF_;
+    TBranch *b_L1_SingleMu12_DQ_OMTF_;
+    bool loaded_L1_SingleMu12_DQ_OMTF_;
+    bool L1_SingleMu12er1p5_;
+    TBranch *b_L1_SingleMu12er1p5_;
+    bool loaded_L1_SingleMu12er1p5_;
+    bool L1_SingleMu14er1p5_;
+    TBranch *b_L1_SingleMu14er1p5_;
+    bool loaded_L1_SingleMu14er1p5_;
+    bool L1_SingleMu15_DQ_;
+    TBranch *b_L1_SingleMu15_DQ_;
+    bool loaded_L1_SingleMu15_DQ_;
+    bool L1_SingleMu16er1p5_;
+    TBranch *b_L1_SingleMu16er1p5_;
+    bool loaded_L1_SingleMu16er1p5_;
+    bool L1_SingleMu18_;
+    TBranch *b_L1_SingleMu18_;
+    bool loaded_L1_SingleMu18_;
+    bool L1_SingleMu18er1p5_;
+    TBranch *b_L1_SingleMu18er1p5_;
+    bool loaded_L1_SingleMu18er1p5_;
+    bool L1_SingleMu20_;
+    TBranch *b_L1_SingleMu20_;
+    bool loaded_L1_SingleMu20_;
+    bool L1_SingleMu22_;
+    TBranch *b_L1_SingleMu22_;
+    bool loaded_L1_SingleMu22_;
+    bool L1_SingleMu22_BMTF_;
+    TBranch *b_L1_SingleMu22_BMTF_;
+    bool loaded_L1_SingleMu22_BMTF_;
+    bool L1_SingleMu22_EMTF_;
+    TBranch *b_L1_SingleMu22_EMTF_;
+    bool loaded_L1_SingleMu22_EMTF_;
+    bool L1_SingleMu22_OMTF_;
+    TBranch *b_L1_SingleMu22_OMTF_;
+    bool loaded_L1_SingleMu22_OMTF_;
+    bool L1_SingleMu25_;
+    TBranch *b_L1_SingleMu25_;
+    bool loaded_L1_SingleMu25_;
+    bool L1_SingleMu3_;
+    TBranch *b_L1_SingleMu3_;
+    bool loaded_L1_SingleMu3_;
+    bool L1_SingleMu5_;
+    TBranch *b_L1_SingleMu5_;
+    bool loaded_L1_SingleMu5_;
+    bool L1_SingleMu6er1p5_;
+    TBranch *b_L1_SingleMu6er1p5_;
+    bool loaded_L1_SingleMu6er1p5_;
+    bool L1_SingleMu7_;
+    TBranch *b_L1_SingleMu7_;
+    bool loaded_L1_SingleMu7_;
+    bool L1_SingleMu7_DQ_;
+    TBranch *b_L1_SingleMu7_DQ_;
+    bool loaded_L1_SingleMu7_DQ_;
+    bool L1_SingleMu7er1p5_;
+    TBranch *b_L1_SingleMu7er1p5_;
+    bool loaded_L1_SingleMu7er1p5_;
+    bool L1_SingleMu8er1p5_;
+    TBranch *b_L1_SingleMu8er1p5_;
+    bool loaded_L1_SingleMu8er1p5_;
+    bool L1_SingleMu9er1p5_;
+    TBranch *b_L1_SingleMu9er1p5_;
+    bool loaded_L1_SingleMu9er1p5_;
+    bool L1_SingleMuCosmics_;
+    TBranch *b_L1_SingleMuCosmics_;
+    bool loaded_L1_SingleMuCosmics_;
+    bool L1_SingleMuCosmics_BMTF_;
+    TBranch *b_L1_SingleMuCosmics_BMTF_;
+    bool loaded_L1_SingleMuCosmics_BMTF_;
+    bool L1_SingleMuCosmics_EMTF_;
+    TBranch *b_L1_SingleMuCosmics_EMTF_;
+    bool loaded_L1_SingleMuCosmics_EMTF_;
+    bool L1_SingleMuCosmics_OMTF_;
+    TBranch *b_L1_SingleMuCosmics_OMTF_;
+    bool loaded_L1_SingleMuCosmics_OMTF_;
+    bool L1_SingleMuOpen_;
+    TBranch *b_L1_SingleMuOpen_;
+    bool loaded_L1_SingleMuOpen_;
+    bool L1_SingleMuOpen_NotBptxOR_;
+    TBranch *b_L1_SingleMuOpen_NotBptxOR_;
+    bool loaded_L1_SingleMuOpen_NotBptxOR_;
+    bool L1_SingleMuOpen_er1p1_NotBptxOR_3BX_;
+    TBranch *b_L1_SingleMuOpen_er1p1_NotBptxOR_3BX_;
+    bool loaded_L1_SingleMuOpen_er1p1_NotBptxOR_3BX_;
+    bool L1_SingleMuOpen_er1p4_NotBptxOR_3BX_;
+    TBranch *b_L1_SingleMuOpen_er1p4_NotBptxOR_3BX_;
+    bool loaded_L1_SingleMuOpen_er1p4_NotBptxOR_3BX_;
+    bool L1_SingleTau120er2p1_;
+    TBranch *b_L1_SingleTau120er2p1_;
+    bool loaded_L1_SingleTau120er2p1_;
+    bool L1_SingleTau130er2p1_;
+    TBranch *b_L1_SingleTau130er2p1_;
+    bool loaded_L1_SingleTau130er2p1_;
+    bool L1_TOTEM_1_;
+    TBranch *b_L1_TOTEM_1_;
+    bool loaded_L1_TOTEM_1_;
+    bool L1_TOTEM_2_;
+    TBranch *b_L1_TOTEM_2_;
+    bool loaded_L1_TOTEM_2_;
+    bool L1_TOTEM_3_;
+    TBranch *b_L1_TOTEM_3_;
+    bool loaded_L1_TOTEM_3_;
+    bool L1_TOTEM_4_;
+    TBranch *b_L1_TOTEM_4_;
+    bool loaded_L1_TOTEM_4_;
+    bool L1_TripleEG16er2p5_;
+    TBranch *b_L1_TripleEG16er2p5_;
+    bool loaded_L1_TripleEG16er2p5_;
+    bool L1_TripleEG_16_12_8_er2p5_;
+    TBranch *b_L1_TripleEG_16_12_8_er2p5_;
+    bool loaded_L1_TripleEG_16_12_8_er2p5_;
+    bool L1_TripleEG_16_15_8_er2p5_;
+    TBranch *b_L1_TripleEG_16_15_8_er2p5_;
+    bool loaded_L1_TripleEG_16_15_8_er2p5_;
+    bool L1_TripleEG_18_17_8_er2p5_;
+    TBranch *b_L1_TripleEG_18_17_8_er2p5_;
+    bool loaded_L1_TripleEG_18_17_8_er2p5_;
+    bool L1_TripleEG_18_18_12_er2p5_;
+    TBranch *b_L1_TripleEG_18_18_12_er2p5_;
+    bool loaded_L1_TripleEG_18_18_12_er2p5_;
+    bool L1_TripleJet_100_80_70_DoubleJet_80_70_er2p5_;
+    TBranch *b_L1_TripleJet_100_80_70_DoubleJet_80_70_er2p5_;
+    bool loaded_L1_TripleJet_100_80_70_DoubleJet_80_70_er2p5_;
+    bool L1_TripleJet_105_85_75_DoubleJet_85_75_er2p5_;
+    TBranch *b_L1_TripleJet_105_85_75_DoubleJet_85_75_er2p5_;
+    bool loaded_L1_TripleJet_105_85_75_DoubleJet_85_75_er2p5_;
+    bool L1_TripleJet_95_75_65_DoubleJet_75_65_er2p5_;
+    TBranch *b_L1_TripleJet_95_75_65_DoubleJet_75_65_er2p5_;
+    bool loaded_L1_TripleJet_95_75_65_DoubleJet_75_65_er2p5_;
+    bool L1_TripleMu0_;
+    TBranch *b_L1_TripleMu0_;
+    bool loaded_L1_TripleMu0_;
+    bool L1_TripleMu0_OQ_;
+    TBranch *b_L1_TripleMu0_OQ_;
+    bool loaded_L1_TripleMu0_OQ_;
+    bool L1_TripleMu0_SQ_;
+    TBranch *b_L1_TripleMu0_SQ_;
+    bool loaded_L1_TripleMu0_SQ_;
+    bool L1_TripleMu3_;
+    TBranch *b_L1_TripleMu3_;
+    bool loaded_L1_TripleMu3_;
+    bool L1_TripleMu3_SQ_;
+    TBranch *b_L1_TripleMu3_SQ_;
+    bool loaded_L1_TripleMu3_SQ_;
+    bool L1_TripleMu_5SQ_3SQ_0OQ_;
+    TBranch *b_L1_TripleMu_5SQ_3SQ_0OQ_;
+    bool loaded_L1_TripleMu_5SQ_3SQ_0OQ_;
+    bool L1_TripleMu_5SQ_3SQ_0OQ_DoubleMu_5_3_SQ_OS_Mass_Max9_;
+    TBranch *b_L1_TripleMu_5SQ_3SQ_0OQ_DoubleMu_5_3_SQ_OS_Mass_Max9_;
+    bool loaded_L1_TripleMu_5SQ_3SQ_0OQ_DoubleMu_5_3_SQ_OS_Mass_Max9_;
+    bool L1_TripleMu_5SQ_3SQ_0_DoubleMu_5_3_SQ_OS_Mass_Max9_;
+    TBranch *b_L1_TripleMu_5SQ_3SQ_0_DoubleMu_5_3_SQ_OS_Mass_Max9_;
+    bool loaded_L1_TripleMu_5SQ_3SQ_0_DoubleMu_5_3_SQ_OS_Mass_Max9_;
+    bool L1_TripleMu_5_3_3_;
+    TBranch *b_L1_TripleMu_5_3_3_;
+    bool loaded_L1_TripleMu_5_3_3_;
+    bool L1_TripleMu_5_3_3_SQ_;
+    TBranch *b_L1_TripleMu_5_3_3_SQ_;
+    bool loaded_L1_TripleMu_5_3_3_SQ_;
+    bool L1_TripleMu_5_3p5_2p5_;
+    TBranch *b_L1_TripleMu_5_3p5_2p5_;
+    bool loaded_L1_TripleMu_5_3p5_2p5_;
+    bool L1_TripleMu_5_3p5_2p5_DoubleMu_5_2p5_OS_Mass_5to17_;
+    TBranch *b_L1_TripleMu_5_3p5_2p5_DoubleMu_5_2p5_OS_Mass_5to17_;
+    bool loaded_L1_TripleMu_5_3p5_2p5_DoubleMu_5_2p5_OS_Mass_5to17_;
+    bool L1_TripleMu_5_3p5_2p5_OQ_DoubleMu_5_2p5_OQ_OS_Mass_5to17_;
+    TBranch *b_L1_TripleMu_5_3p5_2p5_OQ_DoubleMu_5_2p5_OQ_OS_Mass_5to17_;
+    bool loaded_L1_TripleMu_5_3p5_2p5_OQ_DoubleMu_5_2p5_OQ_OS_Mass_5to17_;
+    bool L1_TripleMu_5_4_2p5_DoubleMu_5_2p5_OS_Mass_5to17_;
+    TBranch *b_L1_TripleMu_5_4_2p5_DoubleMu_5_2p5_OS_Mass_5to17_;
+    bool loaded_L1_TripleMu_5_4_2p5_DoubleMu_5_2p5_OS_Mass_5to17_;
+    bool L1_TripleMu_5_5_3_;
+    TBranch *b_L1_TripleMu_5_5_3_;
+    bool loaded_L1_TripleMu_5_5_3_;
+    bool L1_UnpairedBunchBptxMinus_;
+    TBranch *b_L1_UnpairedBunchBptxMinus_;
+    bool loaded_L1_UnpairedBunchBptxMinus_;
+    bool L1_UnpairedBunchBptxPlus_;
+    TBranch *b_L1_UnpairedBunchBptxPlus_;
+    bool loaded_L1_UnpairedBunchBptxPlus_;
+    bool L1_ZeroBias_;
+    TBranch *b_L1_ZeroBias_;
+    bool loaded_L1_ZeroBias_;
+    bool L1_ZeroBias_copy_;
+    TBranch *b_L1_ZeroBias_copy_;
+    bool loaded_L1_ZeroBias_copy_;
     bool L1simulation_step_;
     TBranch *b_L1simulation_step_;
     bool loaded_L1simulation_step_;
@@ -2473,11 +3918,15 @@ protected:
     vector<float> v_LHEPart_pt_;
     TBranch *b_LHEPart_pt_;
     bool loaded_LHEPart_pt_;
-    float LHEPdfWeight_[102];
+    float LHEPdfWeight_[3];
     vector<float> v_LHEPdfWeight_;
     TBranch *b_LHEPdfWeight_;
     bool loaded_LHEPdfWeight_;
-    float LHEScaleWeight_[30];
+    float LHEReweightingWeight_[3];
+    vector<float> v_LHEReweightingWeight_;
+    TBranch *b_LHEReweightingWeight_;
+    bool loaded_LHEReweightingWeight_;
+    float LHEScaleWeight_[3];
     vector<float> v_LHEScaleWeight_;
     TBranch *b_LHEScaleWeight_;
     bool loaded_LHEScaleWeight_;
@@ -2547,141 +3996,217 @@ protected:
     float MET_sumEt_;
     TBranch *b_MET_sumEt_;
     bool loaded_MET_sumEt_;
-    int Muon_charge_[24];
+    int Muon_charge_[30];
     vector<int> v_Muon_charge_;
     TBranch *b_Muon_charge_;
     bool loaded_Muon_charge_;
-    UChar_t Muon_cleanmask_[24];
+    UChar_t Muon_cleanmask_[30];
     vector<UChar_t> v_Muon_cleanmask_;
     TBranch *b_Muon_cleanmask_;
     bool loaded_Muon_cleanmask_;
-    float Muon_dxy_[24];
+    float Muon_dxy_[30];
     vector<float> v_Muon_dxy_;
     TBranch *b_Muon_dxy_;
     bool loaded_Muon_dxy_;
-    float Muon_dxyErr_[24];
+    float Muon_dxyErr_[30];
     vector<float> v_Muon_dxyErr_;
     TBranch *b_Muon_dxyErr_;
     bool loaded_Muon_dxyErr_;
-    float Muon_dz_[24];
+    float Muon_dz_[30];
     vector<float> v_Muon_dz_;
     TBranch *b_Muon_dz_;
     bool loaded_Muon_dz_;
-    float Muon_dzErr_[24];
+    float Muon_dzErr_[30];
     vector<float> v_Muon_dzErr_;
     TBranch *b_Muon_dzErr_;
     bool loaded_Muon_dzErr_;
-    float Muon_eta_[24];
+    float Muon_eta_[30];
     vector<float> v_Muon_eta_;
     TBranch *b_Muon_eta_;
     bool loaded_Muon_eta_;
-    UChar_t Muon_genPartFlav_[24];
+    UChar_t Muon_genPartFlav_[30];
     vector<UChar_t> v_Muon_genPartFlav_;
     TBranch *b_Muon_genPartFlav_;
     bool loaded_Muon_genPartFlav_;
-    int Muon_genPartIdx_[24];
+    int Muon_genPartIdx_[30];
     vector<int> v_Muon_genPartIdx_;
     TBranch *b_Muon_genPartIdx_;
     bool loaded_Muon_genPartIdx_;
-    UChar_t Muon_highPtId_[24];
+    UChar_t Muon_highPtId_[30];
     vector<UChar_t> v_Muon_highPtId_;
     TBranch *b_Muon_highPtId_;
     bool loaded_Muon_highPtId_;
-    float Muon_ip3d_[24];
+    bool Muon_inTimeMuon_[30];
+    vector<bool> v_Muon_inTimeMuon_;
+    TBranch *b_Muon_inTimeMuon_;
+    bool loaded_Muon_inTimeMuon_;
+    float Muon_ip3d_[30];
     vector<float> v_Muon_ip3d_;
     TBranch *b_Muon_ip3d_;
     bool loaded_Muon_ip3d_;
-    bool Muon_isPFcand_[24];
+    bool Muon_isGlobal_[30];
+    vector<bool> v_Muon_isGlobal_;
+    TBranch *b_Muon_isGlobal_;
+    bool loaded_Muon_isGlobal_;
+    bool Muon_isPFcand_[30];
     vector<bool> v_Muon_isPFcand_;
     TBranch *b_Muon_isPFcand_;
     bool loaded_Muon_isPFcand_;
-    int Muon_jetIdx_[24];
+    bool Muon_isTracker_[30];
+    vector<bool> v_Muon_isTracker_;
+    TBranch *b_Muon_isTracker_;
+    bool loaded_Muon_isTracker_;
+    int Muon_jetIdx_[30];
     vector<int> v_Muon_jetIdx_;
     TBranch *b_Muon_jetIdx_;
     bool loaded_Muon_jetIdx_;
-    float Muon_mass_[24];
+    float Muon_jetPtRelv2_[30];
+    vector<float> v_Muon_jetPtRelv2_;
+    TBranch *b_Muon_jetPtRelv2_;
+    bool loaded_Muon_jetPtRelv2_;
+    float Muon_jetRelIso_[30];
+    vector<float> v_Muon_jetRelIso_;
+    TBranch *b_Muon_jetRelIso_;
+    bool loaded_Muon_jetRelIso_;
+    bool Muon_looseId_[30];
+    vector<bool> v_Muon_looseId_;
+    TBranch *b_Muon_looseId_;
+    bool loaded_Muon_looseId_;
+    float Muon_mass_[30];
     vector<float> v_Muon_mass_;
     TBranch *b_Muon_mass_;
     bool loaded_Muon_mass_;
-    bool Muon_mediumId_[24];
+    bool Muon_mediumId_[30];
     vector<bool> v_Muon_mediumId_;
     TBranch *b_Muon_mediumId_;
     bool loaded_Muon_mediumId_;
-    float Muon_miniPFRelIso_all_[24];
+    bool Muon_mediumPromptId_[30];
+    vector<bool> v_Muon_mediumPromptId_;
+    TBranch *b_Muon_mediumPromptId_;
+    bool loaded_Muon_mediumPromptId_;
+    UChar_t Muon_miniIsoId_[30];
+    vector<UChar_t> v_Muon_miniIsoId_;
+    TBranch *b_Muon_miniIsoId_;
+    bool loaded_Muon_miniIsoId_;
+    float Muon_miniPFRelIso_all_[30];
     vector<float> v_Muon_miniPFRelIso_all_;
     TBranch *b_Muon_miniPFRelIso_all_;
     bool loaded_Muon_miniPFRelIso_all_;
-    float Muon_miniPFRelIso_chg_[24];
+    float Muon_miniPFRelIso_chg_[30];
     vector<float> v_Muon_miniPFRelIso_chg_;
     TBranch *b_Muon_miniPFRelIso_chg_;
     bool loaded_Muon_miniPFRelIso_chg_;
-    float Muon_mvaTTH_[24];
+    UChar_t Muon_multiIsoId_[30];
+    vector<UChar_t> v_Muon_multiIsoId_;
+    TBranch *b_Muon_multiIsoId_;
+    bool loaded_Muon_multiIsoId_;
+    UChar_t Muon_mvaId_[30];
+    vector<UChar_t> v_Muon_mvaId_;
+    TBranch *b_Muon_mvaId_;
+    bool loaded_Muon_mvaId_;
+    float Muon_mvaLowPt_[30];
+    vector<float> v_Muon_mvaLowPt_;
+    TBranch *b_Muon_mvaLowPt_;
+    bool loaded_Muon_mvaLowPt_;
+    float Muon_mvaTTH_[30];
     vector<float> v_Muon_mvaTTH_;
     TBranch *b_Muon_mvaTTH_;
     bool loaded_Muon_mvaTTH_;
-    int Muon_nStations_[24];
+    int Muon_nStations_[30];
     vector<int> v_Muon_nStations_;
     TBranch *b_Muon_nStations_;
     bool loaded_Muon_nStations_;
-    int Muon_nTrackerLayers_[24];
+    int Muon_nTrackerLayers_[30];
     vector<int> v_Muon_nTrackerLayers_;
     TBranch *b_Muon_nTrackerLayers_;
     bool loaded_Muon_nTrackerLayers_;
     vector<LorentzVector> v_Muon_p4_;
     TBranch *b_Muon_p4_;
     bool loaded_Muon_p4_;
-    int Muon_pdgId_[24];
+    int Muon_pdgId_[30];
     vector<int> v_Muon_pdgId_;
     TBranch *b_Muon_pdgId_;
     bool loaded_Muon_pdgId_;
-    float Muon_pfRelIso03_all_[24];
+    UChar_t Muon_pfIsoId_[30];
+    vector<UChar_t> v_Muon_pfIsoId_;
+    TBranch *b_Muon_pfIsoId_;
+    bool loaded_Muon_pfIsoId_;
+    float Muon_pfRelIso03_all_[30];
     vector<float> v_Muon_pfRelIso03_all_;
     TBranch *b_Muon_pfRelIso03_all_;
     bool loaded_Muon_pfRelIso03_all_;
-    float Muon_pfRelIso03_chg_[24];
+    float Muon_pfRelIso03_chg_[30];
     vector<float> v_Muon_pfRelIso03_chg_;
     TBranch *b_Muon_pfRelIso03_chg_;
     bool loaded_Muon_pfRelIso03_chg_;
-    float Muon_pfRelIso04_all_[24];
+    float Muon_pfRelIso04_all_[30];
     vector<float> v_Muon_pfRelIso04_all_;
     TBranch *b_Muon_pfRelIso04_all_;
     bool loaded_Muon_pfRelIso04_all_;
-    float Muon_phi_[24];
+    float Muon_phi_[30];
     vector<float> v_Muon_phi_;
     TBranch *b_Muon_phi_;
     bool loaded_Muon_phi_;
-    float Muon_pt_[24];
+    float Muon_pt_[30];
     vector<float> v_Muon_pt_;
     TBranch *b_Muon_pt_;
     bool loaded_Muon_pt_;
-    float Muon_ptErr_[24];
+    float Muon_ptErr_[30];
     vector<float> v_Muon_ptErr_;
     TBranch *b_Muon_ptErr_;
     bool loaded_Muon_ptErr_;
-    float Muon_segmentComp_[24];
+    float Muon_segmentComp_[30];
     vector<float> v_Muon_segmentComp_;
     TBranch *b_Muon_segmentComp_;
     bool loaded_Muon_segmentComp_;
-    float Muon_sip3d_[24];
+    float Muon_sip3d_[30];
     vector<float> v_Muon_sip3d_;
     TBranch *b_Muon_sip3d_;
     bool loaded_Muon_sip3d_;
-    bool Muon_softId_[24];
+    bool Muon_softId_[30];
     vector<bool> v_Muon_softId_;
     TBranch *b_Muon_softId_;
     bool loaded_Muon_softId_;
-    int Muon_tightCharge_[24];
+    float Muon_softMva_[30];
+    vector<float> v_Muon_softMva_;
+    TBranch *b_Muon_softMva_;
+    bool loaded_Muon_softMva_;
+    bool Muon_softMvaId_[30];
+    vector<bool> v_Muon_softMvaId_;
+    TBranch *b_Muon_softMvaId_;
+    bool loaded_Muon_softMvaId_;
+    int Muon_tightCharge_[30];
     vector<int> v_Muon_tightCharge_;
     TBranch *b_Muon_tightCharge_;
     bool loaded_Muon_tightCharge_;
-    bool Muon_tightId_[24];
+    bool Muon_tightId_[30];
     vector<bool> v_Muon_tightId_;
     TBranch *b_Muon_tightId_;
     bool loaded_Muon_tightId_;
+    UChar_t Muon_tkIsoId_[30];
+    vector<UChar_t> v_Muon_tkIsoId_;
+    TBranch *b_Muon_tkIsoId_;
+    bool loaded_Muon_tkIsoId_;
+    float Muon_tkRelIso_[30];
+    vector<float> v_Muon_tkRelIso_;
+    TBranch *b_Muon_tkRelIso_;
+    bool loaded_Muon_tkRelIso_;
+    bool Muon_triggerIdLoose_[30];
+    vector<bool> v_Muon_triggerIdLoose_;
+    TBranch *b_Muon_triggerIdLoose_;
+    bool loaded_Muon_triggerIdLoose_;
+    float Muon_tunepRelPt_[30];
+    vector<float> v_Muon_tunepRelPt_;
+    TBranch *b_Muon_tunepRelPt_;
+    bool loaded_Muon_tunepRelPt_;
     float OtherPV_z_[12];
     vector<float> v_OtherPV_z_;
     TBranch *b_OtherPV_z_;
     bool loaded_OtherPV_z_;
+    float PSWeight_[15];
+    vector<float> v_PSWeight_;
+    TBranch *b_PSWeight_;
+    bool loaded_PSWeight_;
     float PV_chi2_;
     TBranch *b_PV_chi2_;
     bool loaded_PV_chi2_;
@@ -2706,123 +4231,141 @@ protected:
     float PV_z_;
     TBranch *b_PV_z_;
     bool loaded_PV_z_;
-    int Photon_charge_[39];
+    int Photon_charge_[36];
     vector<int> v_Photon_charge_;
     TBranch *b_Photon_charge_;
     bool loaded_Photon_charge_;
-    UChar_t Photon_cleanmask_[39];
+    UChar_t Photon_cleanmask_[36];
     vector<UChar_t> v_Photon_cleanmask_;
     TBranch *b_Photon_cleanmask_;
     bool loaded_Photon_cleanmask_;
-    int Photon_cutBasedBitmap_[39];
+    int Photon_cutBasedBitmap_[36];
     vector<int> v_Photon_cutBasedBitmap_;
     TBranch *b_Photon_cutBasedBitmap_;
     bool loaded_Photon_cutBasedBitmap_;
-    float Photon_eCorr_[39];
+    int Photon_cutBasedV1Bitmap_[36];
+    vector<int> v_Photon_cutBasedV1Bitmap_;
+    TBranch *b_Photon_cutBasedV1Bitmap_;
+    bool loaded_Photon_cutBasedV1Bitmap_;
+    float Photon_eCorr_[36];
     vector<float> v_Photon_eCorr_;
     TBranch *b_Photon_eCorr_;
     bool loaded_Photon_eCorr_;
-    int Photon_electronIdx_[39];
+    int Photon_electronIdx_[36];
     vector<int> v_Photon_electronIdx_;
     TBranch *b_Photon_electronIdx_;
     bool loaded_Photon_electronIdx_;
-    bool Photon_electronVeto_[39];
+    bool Photon_electronVeto_[36];
     vector<bool> v_Photon_electronVeto_;
     TBranch *b_Photon_electronVeto_;
     bool loaded_Photon_electronVeto_;
-    float Photon_energyErr_[39];
+    float Photon_energyErr_[36];
     vector<float> v_Photon_energyErr_;
     TBranch *b_Photon_energyErr_;
     bool loaded_Photon_energyErr_;
-    float Photon_eta_[39];
+    float Photon_eta_[36];
     vector<float> v_Photon_eta_;
     TBranch *b_Photon_eta_;
     bool loaded_Photon_eta_;
-    UChar_t Photon_genPartFlav_[39];
+    UChar_t Photon_genPartFlav_[36];
     vector<UChar_t> v_Photon_genPartFlav_;
     TBranch *b_Photon_genPartFlav_;
     bool loaded_Photon_genPartFlav_;
-    int Photon_genPartIdx_[39];
+    int Photon_genPartIdx_[36];
     vector<int> v_Photon_genPartIdx_;
     TBranch *b_Photon_genPartIdx_;
     bool loaded_Photon_genPartIdx_;
-    float Photon_hoe_[39];
+    float Photon_hoe_[36];
     vector<float> v_Photon_hoe_;
     TBranch *b_Photon_hoe_;
     bool loaded_Photon_hoe_;
-    bool Photon_isScEtaEB_[39];
+    bool Photon_isScEtaEB_[36];
     vector<bool> v_Photon_isScEtaEB_;
     TBranch *b_Photon_isScEtaEB_;
     bool loaded_Photon_isScEtaEB_;
-    bool Photon_isScEtaEE_[39];
+    bool Photon_isScEtaEE_[36];
     vector<bool> v_Photon_isScEtaEE_;
     TBranch *b_Photon_isScEtaEE_;
     bool loaded_Photon_isScEtaEE_;
-    int Photon_jetIdx_[39];
+    int Photon_jetIdx_[36];
     vector<int> v_Photon_jetIdx_;
     TBranch *b_Photon_jetIdx_;
     bool loaded_Photon_jetIdx_;
-    float Photon_mass_[39];
+    float Photon_mass_[36];
     vector<float> v_Photon_mass_;
     TBranch *b_Photon_mass_;
     bool loaded_Photon_mass_;
-    float Photon_mvaID_[39];
+    float Photon_mvaID_[36];
     vector<float> v_Photon_mvaID_;
     TBranch *b_Photon_mvaID_;
     bool loaded_Photon_mvaID_;
-    bool Photon_mvaID_WP80_[39];
+    float Photon_mvaIDV1_[36];
+    vector<float> v_Photon_mvaIDV1_;
+    TBranch *b_Photon_mvaIDV1_;
+    bool loaded_Photon_mvaIDV1_;
+    bool Photon_mvaID_WP80_[36];
     vector<bool> v_Photon_mvaID_WP80_;
     TBranch *b_Photon_mvaID_WP80_;
     bool loaded_Photon_mvaID_WP80_;
-    bool Photon_mvaID_WP90_[39];
+    bool Photon_mvaID_WP90_[36];
     vector<bool> v_Photon_mvaID_WP90_;
     TBranch *b_Photon_mvaID_WP90_;
     bool loaded_Photon_mvaID_WP90_;
     vector<LorentzVector> v_Photon_p4_;
     TBranch *b_Photon_p4_;
     bool loaded_Photon_p4_;
-    int Photon_pdgId_[39];
+    int Photon_pdgId_[36];
     vector<int> v_Photon_pdgId_;
     TBranch *b_Photon_pdgId_;
     bool loaded_Photon_pdgId_;
-    float Photon_pfRelIso03_all_[39];
+    float Photon_pfRelIso03_all_[36];
     vector<float> v_Photon_pfRelIso03_all_;
     TBranch *b_Photon_pfRelIso03_all_;
     bool loaded_Photon_pfRelIso03_all_;
-    float Photon_pfRelIso03_chg_[39];
+    float Photon_pfRelIso03_chg_[36];
     vector<float> v_Photon_pfRelIso03_chg_;
     TBranch *b_Photon_pfRelIso03_chg_;
     bool loaded_Photon_pfRelIso03_chg_;
-    float Photon_phi_[39];
+    float Photon_phi_[36];
     vector<float> v_Photon_phi_;
     TBranch *b_Photon_phi_;
     bool loaded_Photon_phi_;
-    bool Photon_pixelSeed_[39];
+    bool Photon_pixelSeed_[36];
     vector<bool> v_Photon_pixelSeed_;
     TBranch *b_Photon_pixelSeed_;
     bool loaded_Photon_pixelSeed_;
-    float Photon_pt_[39];
+    float Photon_pt_[36];
     vector<float> v_Photon_pt_;
     TBranch *b_Photon_pt_;
     bool loaded_Photon_pt_;
-    float Photon_r9_[39];
+    float Photon_r9_[36];
     vector<float> v_Photon_r9_;
     TBranch *b_Photon_r9_;
     bool loaded_Photon_r9_;
-    float Photon_sieie_[39];
+    UChar_t Photon_seedGain_[36];
+    vector<UChar_t> v_Photon_seedGain_;
+    TBranch *b_Photon_seedGain_;
+    bool loaded_Photon_seedGain_;
+    float Photon_sieie_[36];
     vector<float> v_Photon_sieie_;
     TBranch *b_Photon_sieie_;
     bool loaded_Photon_sieie_;
-    int Photon_vidNestedWPBitmap_[39];
+    int Photon_vidNestedWPBitmap_[36];
     vector<int> v_Photon_vidNestedWPBitmap_;
     TBranch *b_Photon_vidNestedWPBitmap_;
     bool loaded_Photon_vidNestedWPBitmap_;
+    float Pileup_gpudensity_;
+    TBranch *b_Pileup_gpudensity_;
+    bool loaded_Pileup_gpudensity_;
     int Pileup_nPU_;
     TBranch *b_Pileup_nPU_;
     bool loaded_Pileup_nPU_;
     float Pileup_nTrueInt_;
     TBranch *b_Pileup_nTrueInt_;
     bool loaded_Pileup_nTrueInt_;
+    float Pileup_pudensity_;
+    TBranch *b_Pileup_pudensity_;
+    bool loaded_Pileup_pudensity_;
     int Pileup_sumEOOT_;
     TBranch *b_Pileup_sumEOOT_;
     bool loaded_Pileup_sumEOOT_;
@@ -2847,54 +4390,54 @@ protected:
     float RawMET_sumEt_;
     TBranch *b_RawMET_sumEt_;
     bool loaded_RawMET_sumEt_;
-    float SV_chi2_[60];
+    float SV_chi2_[54];
     vector<float> v_SV_chi2_;
     TBranch *b_SV_chi2_;
     bool loaded_SV_chi2_;
-    float SV_dlen_[60];
+    float SV_dlen_[54];
     vector<float> v_SV_dlen_;
     TBranch *b_SV_dlen_;
     bool loaded_SV_dlen_;
-    float SV_dlenSig_[60];
+    float SV_dlenSig_[54];
     vector<float> v_SV_dlenSig_;
     TBranch *b_SV_dlenSig_;
     bool loaded_SV_dlenSig_;
-    float SV_eta_[60];
+    float SV_eta_[54];
     vector<float> v_SV_eta_;
     TBranch *b_SV_eta_;
     bool loaded_SV_eta_;
-    float SV_mass_[60];
+    float SV_mass_[54];
     vector<float> v_SV_mass_;
     TBranch *b_SV_mass_;
     bool loaded_SV_mass_;
-    float SV_ndof_[60];
+    float SV_ndof_[54];
     vector<float> v_SV_ndof_;
     TBranch *b_SV_ndof_;
     bool loaded_SV_ndof_;
     vector<LorentzVector> v_SV_p4_;
     TBranch *b_SV_p4_;
     bool loaded_SV_p4_;
-    float SV_pAngle_[60];
+    float SV_pAngle_[54];
     vector<float> v_SV_pAngle_;
     TBranch *b_SV_pAngle_;
     bool loaded_SV_pAngle_;
-    float SV_phi_[60];
+    float SV_phi_[54];
     vector<float> v_SV_phi_;
     TBranch *b_SV_phi_;
     bool loaded_SV_phi_;
-    float SV_pt_[60];
+    float SV_pt_[54];
     vector<float> v_SV_pt_;
     TBranch *b_SV_pt_;
     bool loaded_SV_pt_;
-    float SV_x_[60];
+    float SV_x_[54];
     vector<float> v_SV_x_;
     TBranch *b_SV_x_;
     bool loaded_SV_x_;
-    float SV_y_[60];
+    float SV_y_[54];
     vector<float> v_SV_y_;
     TBranch *b_SV_y_;
     bool loaded_SV_y_;
-    float SV_z_[60];
+    float SV_z_[54];
     vector<float> v_SV_z_;
     TBranch *b_SV_z_;
     bool loaded_SV_z_;
@@ -2931,22 +4474,22 @@ protected:
     vector<float> v_SoftActivityJet_pt_;
     TBranch *b_SoftActivityJet_pt_;
     bool loaded_SoftActivityJet_pt_;
-    float SubGenJetAK8_eta_[51];
+    float SubGenJetAK8_eta_[57];
     vector<float> v_SubGenJetAK8_eta_;
     TBranch *b_SubGenJetAK8_eta_;
     bool loaded_SubGenJetAK8_eta_;
-    float SubGenJetAK8_mass_[51];
+    float SubGenJetAK8_mass_[57];
     vector<float> v_SubGenJetAK8_mass_;
     TBranch *b_SubGenJetAK8_mass_;
     bool loaded_SubGenJetAK8_mass_;
     vector<LorentzVector> v_SubGenJetAK8_p4_;
     TBranch *b_SubGenJetAK8_p4_;
     bool loaded_SubGenJetAK8_p4_;
-    float SubGenJetAK8_phi_[51];
+    float SubGenJetAK8_phi_[57];
     vector<float> v_SubGenJetAK8_phi_;
     TBranch *b_SubGenJetAK8_phi_;
     bool loaded_SubGenJetAK8_phi_;
-    float SubGenJetAK8_pt_[51];
+    float SubGenJetAK8_pt_[57];
     vector<float> v_SubGenJetAK8_pt_;
     TBranch *b_SubGenJetAK8_pt_;
     bool loaded_SubGenJetAK8_pt_;
@@ -2989,6 +4532,10 @@ protected:
     vector<float> v_SubJet_pt_;
     TBranch *b_SubJet_pt_;
     bool loaded_SubJet_pt_;
+    float SubJet_rawFactor_[39];
+    vector<float> v_SubJet_rawFactor_;
+    TBranch *b_SubJet_rawFactor_;
+    bool loaded_SubJet_rawFactor_;
     float SubJet_tau1_[39];
     vector<float> v_SubJet_tau1_;
     TBranch *b_SubJet_tau1_;
@@ -3045,6 +4592,10 @@ protected:
     vector<UChar_t> v_Tau_idAntiEle_;
     TBranch *b_Tau_idAntiEle_;
     bool loaded_Tau_idAntiEle_;
+    UChar_t Tau_idAntiEle2018_[24];
+    vector<UChar_t> v_Tau_idAntiEle2018_;
+    TBranch *b_Tau_idAntiEle2018_;
+    bool loaded_Tau_idAntiEle2018_;
     UChar_t Tau_idAntiMu_[24];
     vector<UChar_t> v_Tau_idAntiMu_;
     TBranch *b_Tau_idAntiMu_;
@@ -3124,10 +4675,18 @@ protected:
     vector<float> v_Tau_rawAntiEle_;
     TBranch *b_Tau_rawAntiEle_;
     bool loaded_Tau_rawAntiEle_;
+    float Tau_rawAntiEle2018_[24];
+    vector<float> v_Tau_rawAntiEle2018_;
+    TBranch *b_Tau_rawAntiEle2018_;
+    bool loaded_Tau_rawAntiEle2018_;
     int Tau_rawAntiEleCat_[24];
     vector<int> v_Tau_rawAntiEleCat_;
     TBranch *b_Tau_rawAntiEleCat_;
     bool loaded_Tau_rawAntiEleCat_;
+    int Tau_rawAntiEleCat2018_[24];
+    vector<int> v_Tau_rawAntiEleCat2018_;
+    TBranch *b_Tau_rawAntiEleCat2018_;
+    bool loaded_Tau_rawAntiEleCat2018_;
     float Tau_rawIso_[24];
     vector<float> v_Tau_rawIso_;
     TBranch *b_Tau_rawIso_;
@@ -3165,55 +4724,67 @@ protected:
     float TkMET_sumEt_;
     TBranch *b_TkMET_sumEt_;
     bool loaded_TkMET_sumEt_;
-    float TrigObj_eta_[183];
+    float TrigObj_eta_[129];
     vector<float> v_TrigObj_eta_;
     TBranch *b_TrigObj_eta_;
     bool loaded_TrigObj_eta_;
-    int TrigObj_filterBits_[183];
+    int TrigObj_filterBits_[129];
     vector<int> v_TrigObj_filterBits_;
     TBranch *b_TrigObj_filterBits_;
     bool loaded_TrigObj_filterBits_;
-    int TrigObj_id_[183];
+    int TrigObj_id_[129];
     vector<int> v_TrigObj_id_;
     TBranch *b_TrigObj_id_;
     bool loaded_TrigObj_id_;
-    int TrigObj_l1charge_[183];
+    int TrigObj_l1charge_[129];
     vector<int> v_TrigObj_l1charge_;
     TBranch *b_TrigObj_l1charge_;
     bool loaded_TrigObj_l1charge_;
-    int TrigObj_l1iso_[183];
+    int TrigObj_l1iso_[129];
     vector<int> v_TrigObj_l1iso_;
     TBranch *b_TrigObj_l1iso_;
     bool loaded_TrigObj_l1iso_;
-    float TrigObj_l1pt_[183];
+    float TrigObj_l1pt_[129];
     vector<float> v_TrigObj_l1pt_;
     TBranch *b_TrigObj_l1pt_;
     bool loaded_TrigObj_l1pt_;
-    float TrigObj_l1pt_2_[183];
+    float TrigObj_l1pt_2_[129];
     vector<float> v_TrigObj_l1pt_2_;
     TBranch *b_TrigObj_l1pt_2_;
     bool loaded_TrigObj_l1pt_2_;
-    float TrigObj_l2pt_[183];
+    float TrigObj_l2pt_[129];
     vector<float> v_TrigObj_l2pt_;
     TBranch *b_TrigObj_l2pt_;
     bool loaded_TrigObj_l2pt_;
-    float TrigObj_phi_[183];
+    float TrigObj_phi_[129];
     vector<float> v_TrigObj_phi_;
     TBranch *b_TrigObj_phi_;
     bool loaded_TrigObj_phi_;
-    float TrigObj_pt_[183];
+    float TrigObj_pt_[129];
     vector<float> v_TrigObj_pt_;
     TBranch *b_TrigObj_pt_;
     bool loaded_TrigObj_pt_;
+    float btagWeight_CSVV2_;
+    TBranch *b_btagWeight_CSVV2_;
+    bool loaded_btagWeight_CSVV2_;
+    float btagWeight_DeepCSVB_;
+    TBranch *b_btagWeight_DeepCSVB_;
+    bool loaded_btagWeight_DeepCSVB_;
     ULong64_t event_;
     TBranch *b_event_;
     bool loaded_event_;
     float fixedGridRhoFastjetAll_;
     TBranch *b_fixedGridRhoFastjetAll_;
     bool loaded_fixedGridRhoFastjetAll_;
+    float fixedGridRhoFastjetCentral_;
+    TBranch *b_fixedGridRhoFastjetCentral_;
+    bool loaded_fixedGridRhoFastjetCentral_;
     float fixedGridRhoFastjetCentralCalo_;
     TBranch *b_fixedGridRhoFastjetCentralCalo_;
     bool loaded_fixedGridRhoFastjetCentralCalo_;
+    float fixedGridRhoFastjetCentralChargedPileUp_;
+    TBranch *b_fixedGridRhoFastjetCentralChargedPileUp_;
+    bool loaded_fixedGridRhoFastjetCentralChargedPileUp_;
     float fixedGridRhoFastjetCentralNeutral_;
     TBranch *b_fixedGridRhoFastjetCentralNeutral_;
     bool loaded_fixedGridRhoFastjetCentralNeutral_;
@@ -3226,6 +4797,9 @@ protected:
     UInt_t luminosityBlock_;
     TBranch *b_luminosityBlock_;
     bool loaded_luminosityBlock_;
+    UInt_t nCorrT1METJet_;
+    TBranch *b_nCorrT1METJet_;
+    bool loaded_nCorrT1METJet_;
     UInt_t nElectron_;
     TBranch *b_nElectron_;
     bool loaded_nElectron_;
@@ -3259,6 +4833,9 @@ protected:
     UInt_t nLHEPdfWeight_;
     TBranch *b_nLHEPdfWeight_;
     bool loaded_nLHEPdfWeight_;
+    UInt_t nLHEReweightingWeight_;
+    TBranch *b_nLHEReweightingWeight_;
+    bool loaded_nLHEReweightingWeight_;
     UInt_t nLHEScaleWeight_;
     TBranch *b_nLHEScaleWeight_;
     bool loaded_nLHEScaleWeight_;
@@ -3268,6 +4845,9 @@ protected:
     UInt_t nOtherPV_;
     TBranch *b_nOtherPV_;
     bool loaded_nOtherPV_;
+    UInt_t nPSWeight_;
+    TBranch *b_nPSWeight_;
+    bool loaded_nPSWeight_;
     UInt_t nPhoton_;
     TBranch *b_nPhoton_;
     bool loaded_nPhoton_;
@@ -3299,15 +4879,25 @@ public:
     const float &CaloMET_phi();
     const float &CaloMET_pt();
     const float &CaloMET_sumEt();
+    const float &ChsMET_phi();
+    const float &ChsMET_pt();
+    const float &ChsMET_sumEt();
+    const vector<float> &CorrT1METJet_area();
+    const vector<float> &CorrT1METJet_eta();
+    const vector<float> &CorrT1METJet_muonSubtrFactor();
+    const vector<float> &CorrT1METJet_phi();
+    const vector<float> &CorrT1METJet_rawPt();
     const vector<int> &Electron_charge();
     const vector<UChar_t> &Electron_cleanmask();
     const vector<bool> &Electron_convVeto();
     const vector<int> &Electron_cutBased();
+    const vector<int> &Electron_cutBased_Fall17_V1();
     const vector<bool> &Electron_cutBased_HEEP();
     const vector<float> &Electron_deltaEtaSC();
     const vector<float> &Electron_dr03EcalRecHitSumEt();
     const vector<float> &Electron_dr03HcalDepth1TowerSumEt();
     const vector<float> &Electron_dr03TkSumPt();
+    const vector<float> &Electron_dr03TkSumPtHEEP();
     const vector<float> &Electron_dxy();
     const vector<float> &Electron_dxyErr();
     const vector<float> &Electron_dz();
@@ -3322,18 +4912,28 @@ public:
     const vector<float> &Electron_ip3d();
     const vector<bool> &Electron_isPFcand();
     const vector<int> &Electron_jetIdx();
+    const vector<float> &Electron_jetPtRelv2();
+    const vector<float> &Electron_jetRelIso();
     const vector<UChar_t> &Electron_lostHits();
     const vector<float> &Electron_mass();
     const vector<float> &Electron_miniPFRelIso_all();
     const vector<float> &Electron_miniPFRelIso_chg();
-    const vector<float> &Electron_mvaFall17Iso();
-    const vector<bool> &Electron_mvaFall17Iso_WP80();
-    const vector<bool> &Electron_mvaFall17Iso_WP90();
-    const vector<bool> &Electron_mvaFall17Iso_WPL();
-    const vector<float> &Electron_mvaFall17noIso();
-    const vector<bool> &Electron_mvaFall17noIso_WP80();
-    const vector<bool> &Electron_mvaFall17noIso_WP90();
-    const vector<bool> &Electron_mvaFall17noIso_WPL();
+    const vector<float> &Electron_mvaFall17V1Iso();
+    const vector<bool> &Electron_mvaFall17V1Iso_WP80();
+    const vector<bool> &Electron_mvaFall17V1Iso_WP90();
+    const vector<bool> &Electron_mvaFall17V1Iso_WPL();
+    const vector<float> &Electron_mvaFall17V1noIso();
+    const vector<bool> &Electron_mvaFall17V1noIso_WP80();
+    const vector<bool> &Electron_mvaFall17V1noIso_WP90();
+    const vector<bool> &Electron_mvaFall17V1noIso_WPL();
+    const vector<float> &Electron_mvaFall17V2Iso();
+    const vector<bool> &Electron_mvaFall17V2Iso_WP80();
+    const vector<bool> &Electron_mvaFall17V2Iso_WP90();
+    const vector<bool> &Electron_mvaFall17V2Iso_WPL();
+    const vector<float> &Electron_mvaFall17V2noIso();
+    const vector<bool> &Electron_mvaFall17V2noIso_WP80();
+    const vector<bool> &Electron_mvaFall17V2noIso_WP90();
+    const vector<bool> &Electron_mvaFall17V2noIso_WPL();
     const vector<float> &Electron_mvaTTH();
     const vector<LorentzVector> &Electron_p4();
     const vector<int> &Electron_pdgId();
@@ -3343,6 +4943,7 @@ public:
     const vector<int> &Electron_photonIdx();
     const vector<float> &Electron_pt();
     const vector<float> &Electron_r9();
+    const vector<UChar_t> &Electron_seedGain();
     const vector<float> &Electron_sieie();
     const vector<float> &Electron_sip3d();
     const vector<int> &Electron_tightCharge();
@@ -3350,8 +4951,27 @@ public:
     const vector<float> &FatJet_area();
     const vector<float> &FatJet_btagCMVA();
     const vector<float> &FatJet_btagCSVV2();
+    const vector<float> &FatJet_btagDDBvL();
+    const vector<float> &FatJet_btagDDCvB();
+    const vector<float> &FatJet_btagDDCvL();
     const vector<float> &FatJet_btagDeepB();
     const vector<float> &FatJet_btagHbb();
+    const vector<float> &FatJet_deepTagMD_H4qvsQCD();
+    const vector<float> &FatJet_deepTagMD_HbbvsQCD();
+    const vector<float> &FatJet_deepTagMD_TvsQCD();
+    const vector<float> &FatJet_deepTagMD_WvsQCD();
+    const vector<float> &FatJet_deepTagMD_ZHbbvsQCD();
+    const vector<float> &FatJet_deepTagMD_ZHccvsQCD();
+    const vector<float> &FatJet_deepTagMD_ZbbvsQCD();
+    const vector<float> &FatJet_deepTagMD_ZvsQCD();
+    const vector<float> &FatJet_deepTagMD_bbvsLight();
+    const vector<float> &FatJet_deepTagMD_ccvsLight();
+    const vector<float> &FatJet_deepTag_H();
+    const vector<float> &FatJet_deepTag_QCD();
+    const vector<float> &FatJet_deepTag_QCDothers();
+    const vector<float> &FatJet_deepTag_TvsQCD();
+    const vector<float> &FatJet_deepTag_WvsQCD();
+    const vector<float> &FatJet_deepTag_ZvsQCD();
     const vector<float> &FatJet_eta();
     const vector<int> &FatJet_jetId();
     const vector<float> &FatJet_mass();
@@ -3361,6 +4981,7 @@ public:
     const vector<LorentzVector> &FatJet_p4();
     const vector<float> &FatJet_phi();
     const vector<float> &FatJet_pt();
+    const vector<float> &FatJet_rawFactor();
     const vector<int> &FatJet_subJetIdx1();
     const vector<int> &FatJet_subJetIdx2();
     const vector<float> &FatJet_tau1();
@@ -3382,6 +5003,7 @@ public:
     const bool &Flag_METFilters();
     const bool &Flag_chargedHadronTrackResolutionFilter();
     const bool &Flag_ecalBadCalibFilter();
+    const bool &Flag_ecalBadCalibFilterV2();
     const bool &Flag_ecalLaserCorrFilter();
     const bool &Flag_eeBadScFilter();
     const bool &Flag_globalSuperTightHalo2016Filter();
@@ -3394,6 +5016,7 @@ public:
     const bool &Flag_trkPOG_manystripclus53X();
     const bool &Flag_trkPOG_toomanystripclus53X();
     const vector<float> &GenDressedLepton_eta();
+    const vector<bool> &GenDressedLepton_hasTauAnc();
     const vector<float> &GenDressedLepton_mass();
     const vector<LorentzVector> &GenDressedLepton_p4();
     const vector<int> &GenDressedLepton_pdgId();
@@ -3457,11 +5080,16 @@ public:
     const bool &HLT_AK8PFHT850_TrimMass50();
     const bool &HLT_AK8PFHT900_TrimMass50();
     const bool &HLT_AK8PFJet140();
+    const bool &HLT_AK8PFJet15();
     const bool &HLT_AK8PFJet200();
+    const bool &HLT_AK8PFJet25();
     const bool &HLT_AK8PFJet260();
     const bool &HLT_AK8PFJet320();
-    const bool &HLT_AK8PFJet330_PFAK8BTagCSV_p1();
-    const bool &HLT_AK8PFJet330_PFAK8BTagCSV_p17();
+    const bool &HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p1();
+    const bool &HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p17();
+    const bool &HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np2();
+    const bool &HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np4();
+    const bool &HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_p02();
     const bool &HLT_AK8PFJet360_TrimMass30();
     const bool &HLT_AK8PFJet380_TrimMass30();
     const bool &HLT_AK8PFJet40();
@@ -3474,7 +5102,9 @@ public:
     const bool &HLT_AK8PFJet60();
     const bool &HLT_AK8PFJet80();
     const bool &HLT_AK8PFJetFwd140();
+    const bool &HLT_AK8PFJetFwd15();
     const bool &HLT_AK8PFJetFwd200();
+    const bool &HLT_AK8PFJetFwd25();
     const bool &HLT_AK8PFJetFwd260();
     const bool &HLT_AK8PFJetFwd320();
     const bool &HLT_AK8PFJetFwd40();
@@ -3484,13 +5114,25 @@ public:
     const bool &HLT_AK8PFJetFwd60();
     const bool &HLT_AK8PFJetFwd80();
     const bool &HLT_BTagMu_AK4DiJet110_Mu5();
+    const bool &HLT_BTagMu_AK4DiJet110_Mu5_noalgo();
     const bool &HLT_BTagMu_AK4DiJet170_Mu5();
+    const bool &HLT_BTagMu_AK4DiJet170_Mu5_noalgo();
     const bool &HLT_BTagMu_AK4DiJet20_Mu5();
+    const bool &HLT_BTagMu_AK4DiJet20_Mu5_noalgo();
     const bool &HLT_BTagMu_AK4DiJet40_Mu5();
+    const bool &HLT_BTagMu_AK4DiJet40_Mu5_noalgo();
     const bool &HLT_BTagMu_AK4DiJet70_Mu5();
+    const bool &HLT_BTagMu_AK4DiJet70_Mu5_noalgo();
     const bool &HLT_BTagMu_AK4Jet300_Mu5();
+    const bool &HLT_BTagMu_AK4Jet300_Mu5_noalgo();
     const bool &HLT_BTagMu_AK8DiJet170_Mu5();
+    const bool &HLT_BTagMu_AK8DiJet170_Mu5_noalgo();
+    const bool &HLT_BTagMu_AK8Jet170_DoubleMu5();
+    const bool &HLT_BTagMu_AK8Jet170_DoubleMu5_noalgo();
     const bool &HLT_BTagMu_AK8Jet300_Mu5();
+    const bool &HLT_BTagMu_AK8Jet300_Mu5_noalgo();
+    const bool &HLT_CDC_L2cosmic_5_er1p0();
+    const bool &HLT_CDC_L2cosmic_5p5_er1p0();
     const bool &HLT_CaloJet500_NoJetID();
     const bool &HLT_CaloJet550_NoJetID();
     const bool &HLT_CaloMET100_HBHECleaned();
@@ -3510,23 +5152,17 @@ public:
     const bool &HLT_DiJet110_35_Mjj650_PFMET110();
     const bool &HLT_DiJet110_35_Mjj650_PFMET120();
     const bool &HLT_DiJet110_35_Mjj650_PFMET130();
+    const bool &HLT_DiMu4_Ele9_CaloIdL_TrackIdL_DZ_Mass3p8();
     const bool &HLT_DiMu9_Ele9_CaloIdL_TrackIdL();
     const bool &HLT_DiMu9_Ele9_CaloIdL_TrackIdL_DZ();
-    const bool &HLT_DiPFJet15_FBEta3_NoCaloMatched();
-    const bool &HLT_DiPFJet15_NoCaloMatched();
-    const bool &HLT_DiPFJet25_FBEta3_NoCaloMatched();
-    const bool &HLT_DiPFJet25_NoCaloMatched();
     const bool &HLT_DiPFJetAve100_HFJEC();
     const bool &HLT_DiPFJetAve140();
-    const bool &HLT_DiPFJetAve15_HFJEC();
     const bool &HLT_DiPFJetAve160_HFJEC();
     const bool &HLT_DiPFJetAve200();
     const bool &HLT_DiPFJetAve220_HFJEC();
-    const bool &HLT_DiPFJetAve25_HFJEC();
     const bool &HLT_DiPFJetAve260();
     const bool &HLT_DiPFJetAve300_HFJEC();
     const bool &HLT_DiPFJetAve320();
-    const bool &HLT_DiPFJetAve35_HFJEC();
     const bool &HLT_DiPFJetAve40();
     const bool &HLT_DiPFJetAve400();
     const bool &HLT_DiPFJetAve500();
@@ -3558,8 +5194,7 @@ public:
     const bool &HLT_Dimuon0_Upsilon_Muon_NoL1Mass();
     const bool &HLT_Dimuon0_Upsilon_NoVertexing();
     const bool &HLT_Dimuon10_PsiPrime_Barrel_Seagulls();
-    const bool &HLT_Dimuon10_Upsilon_Barrel_Seagulls();
-    const bool &HLT_Dimuon12_Upsilon_eta1p5();
+    const bool &HLT_Dimuon12_Upsilon_y1p4();
     const bool &HLT_Dimuon14_Phi_Barrel_Seagulls();
     const bool &HLT_Dimuon18_PsiPrime();
     const bool &HLT_Dimuon18_PsiPrime_noCorrL1();
@@ -3568,12 +5203,10 @@ public:
     const bool &HLT_Dimuon24_Upsilon_noCorrL1();
     const bool &HLT_Dimuon25_Jpsi();
     const bool &HLT_Dimuon25_Jpsi_noCorrL1();
-    const bool &HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55();
-    const bool &HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55();
     const bool &HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55();
     const bool &HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55();
-    const bool &HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55();
-    const bool &HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55();
+    const bool &HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto();
+    const bool &HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_Mass55();
     const bool &HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90();
     const bool &HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass95();
     const bool &HLT_DoubleEle24_eta2p1_WPTight_Gsf();
@@ -3583,65 +5216,80 @@ public:
     const bool &HLT_DoubleEle8_CaloIdM_TrackIdM_Mass8_DZ_PFHT350();
     const bool &HLT_DoubleEle8_CaloIdM_TrackIdM_Mass8_PFHT350();
     const bool &HLT_DoubleIsoMu20_eta2p1();
-    const bool &HLT_DoubleIsoMu24_eta2p1();
+    const bool &HLT_DoubleL2Mu23NoVtx_2Cha();
+    const bool &HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed();
+    const bool &HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_NoL2Matched();
+    const bool &HLT_DoubleL2Mu23NoVtx_2Cha_NoL2Matched();
+    const bool &HLT_DoubleL2Mu25NoVtx_2Cha();
+    const bool &HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed();
+    const bool &HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_Eta2p4();
+    const bool &HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_NoL2Matched();
+    const bool &HLT_DoubleL2Mu25NoVtx_2Cha_Eta2p4();
+    const bool &HLT_DoubleL2Mu25NoVtx_2Cha_NoL2Matched();
+    const bool &HLT_DoubleL2Mu30NoVtx_2Cha_CosmicSeed_Eta2p4();
+    const bool &HLT_DoubleL2Mu30NoVtx_2Cha_Eta2p4();
     const bool &HLT_DoubleL2Mu50();
-    const bool &HLT_DoubleLooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg();
-    const bool &HLT_DoubleLooseChargedIsoPFTau35_Trk1_eta2p1_Reg();
-    const bool &HLT_DoubleLooseChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg();
-    const bool &HLT_DoubleLooseChargedIsoPFTau40_Trk1_eta2p1_Reg();
-    const bool &HLT_DoubleMediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg();
-    const bool &HLT_DoubleMediumChargedIsoPFTau35_Trk1_eta2p1_Reg();
-    const bool &HLT_DoubleMediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg();
-    const bool &HLT_DoubleMediumChargedIsoPFTau40_Trk1_eta2p1_Reg();
+    const bool &HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg();
+    const bool &HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg();
+    const bool &HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg();
+    const bool &HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_eta2p1_Reg();
     const bool &HLT_DoubleMu20_7_Mass0to30_L1_DM4();
     const bool &HLT_DoubleMu20_7_Mass0to30_L1_DM4EG();
     const bool &HLT_DoubleMu20_7_Mass0to30_Photon23();
     const bool &HLT_DoubleMu2_Jpsi_DoubleTkMu0_Phi();
-    const bool &HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi();
+    const bool &HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi1p05();
+    const bool &HLT_DoubleMu33NoFiltersNoVtxDisplaced();
     const bool &HLT_DoubleMu3_DCA_PFMET50_PFMHT60();
     const bool &HLT_DoubleMu3_DZ_PFMET50_PFMHT60();
     const bool &HLT_DoubleMu3_DZ_PFMET70_PFMHT70();
     const bool &HLT_DoubleMu3_DZ_PFMET90_PFMHT90();
+    const bool &HLT_DoubleMu3_DoubleEle7p5_CaloIdL_TrackIdL_Upsilon();
+    const bool &HLT_DoubleMu3_TkMu_DsTau3Mu();
     const bool &HLT_DoubleMu3_Trk_Tau3mu();
     const bool &HLT_DoubleMu3_Trk_Tau3mu_NoL1Mass();
+    const bool &HLT_DoubleMu40NoFiltersNoVtxDisplaced();
     const bool &HLT_DoubleMu43NoFiltersNoVtx();
     const bool &HLT_DoubleMu48NoFiltersNoVtx();
     const bool &HLT_DoubleMu4_3_Bs();
-    const bool &HLT_DoubleMu4_3_Jpsi_Displaced();
+    const bool &HLT_DoubleMu4_3_Jpsi();
     const bool &HLT_DoubleMu4_JpsiTrkTrk_Displaced();
     const bool &HLT_DoubleMu4_JpsiTrk_Displaced();
     const bool &HLT_DoubleMu4_Jpsi_Displaced();
     const bool &HLT_DoubleMu4_Jpsi_NoVertexing();
     const bool &HLT_DoubleMu4_LowMassNonResonantTrk_Displaced();
-    const bool &HLT_DoubleMu4_Mass8_DZ_PFHT350();
+    const bool &HLT_DoubleMu4_Mass3p8_DZ_PFHT350();
     const bool &HLT_DoubleMu4_PsiPrimeTrk_Displaced();
-    const bool &HLT_DoubleMu8_Mass8_PFHT350();
-    const bool &HLT_DoublePFJets100MaxDeta1p6_DoubleCaloBTagCSV_p33();
-    const bool &HLT_DoublePFJets100_CaloBTagCSV_p33();
-    const bool &HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagCSV_p33();
-    const bool &HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagCSV_p33();
-    const bool &HLT_DoublePFJets200_CaloBTagCSV_p33();
-    const bool &HLT_DoublePFJets350_CaloBTagCSV_p33();
-    const bool &HLT_DoublePFJets40_CaloBTagCSV_p33();
+    const bool &HLT_DoubleMu5_Upsilon_DoubleEle3_CaloIdL_TrackIdL();
+    const bool &HLT_DoublePFJets100_CaloBTagDeepCSV_p71();
+    const bool &HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagDeepCSV_p71();
+    const bool &HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagDeepCSV_p71();
+    const bool &HLT_DoublePFJets200_CaloBTagDeepCSV_p71();
+    const bool &HLT_DoublePFJets350_CaloBTagDeepCSV_p71();
+    const bool &HLT_DoublePFJets40_CaloBTagDeepCSV_p71();
     const bool &HLT_DoublePhoton33_CaloIdL();
     const bool &HLT_DoublePhoton70();
     const bool &HLT_DoublePhoton85();
-    const bool &HLT_DoubleTightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg();
-    const bool &HLT_DoubleTightChargedIsoPFTau35_Trk1_eta2p1_Reg();
-    const bool &HLT_DoubleTightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg();
-    const bool &HLT_DoubleTightChargedIsoPFTau40_Trk1_eta2p1_Reg();
+    const bool &HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg();
+    const bool &HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg();
+    const bool &HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg();
+    const bool &HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_eta2p1_Reg();
+    const bool &HLT_DoubleTrkMu_16_6_NoFiltersNoVtx();
     const bool &HLT_ECALHT800();
     const bool &HLT_EcalCalibration();
     const bool &HLT_Ele115_CaloIdVT_GsfTrkIdT();
     const bool &HLT_Ele12_CaloIdL_TrackIdL_IsoVL_PFJet30();
     const bool &HLT_Ele135_CaloIdVT_GsfTrkIdT();
     const bool &HLT_Ele145_CaloIdVT_GsfTrkIdT();
+    const bool &HLT_Ele15_CaloIdL_TrackIdL_IsoVL_PFJet30();
+    const bool &HLT_Ele15_Ele8_CaloIdL_TrackIdL_IsoVL();
     const bool &HLT_Ele15_IsoVVVL_PFHT450();
-    const bool &HLT_Ele15_IsoVVVL_PFHT450_CaloBTagCSV_4p5();
+    const bool &HLT_Ele15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5();
     const bool &HLT_Ele15_IsoVVVL_PFHT450_PFMET50();
     const bool &HLT_Ele15_IsoVVVL_PFHT600();
+    const bool &HLT_Ele15_WPLoose_Gsf();
     const bool &HLT_Ele16_Ele12_Ele8_CaloIdL_TrackIdL();
     const bool &HLT_Ele17_CaloIdM_TrackIdM_PFJet30();
+    const bool &HLT_Ele17_WPLoose_Gsf();
     const bool &HLT_Ele200_CaloIdVT_GsfTrkIdT();
     const bool &HLT_Ele20_WPLoose_Gsf();
     const bool &HLT_Ele20_WPTight_Gsf();
@@ -3650,18 +5298,20 @@ public:
     const bool &HLT_Ele23_CaloIdM_TrackIdM_PFJet30();
     const bool &HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL();
     const bool &HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_DZ();
-    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_CrossL1();
-    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_TightID_CrossL1();
-    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_CrossL1();
-    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_TightID_CrossL1();
-    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_CrossL1();
-    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_TightID_CrossL1();
+    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_CrossL1();
+    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1();
+    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_CrossL1();
+    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1();
+    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_CrossL1();
+    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1();
     const bool &HLT_Ele250_CaloIdVT_GsfTrkIdT();
     const bool &HLT_Ele27_Ele37_CaloIdL_MW();
     const bool &HLT_Ele27_WPTight_Gsf();
     const bool &HLT_Ele28_HighEta_SC20_Mass55();
+    const bool &HLT_Ele28_WPTight_Gsf();
     const bool &HLT_Ele28_eta2p1_WPTight_Gsf_HT150();
     const bool &HLT_Ele300_CaloIdVT_GsfTrkIdT();
+    const bool &HLT_Ele30_WPTight_Gsf();
     const bool &HLT_Ele30_eta2p1_WPTight_Gsf_CentralPFJet35_EleCleaned();
     const bool &HLT_Ele32_WPTight_Gsf();
     const bool &HLT_Ele32_WPTight_Gsf_L1DoubleEG();
@@ -3673,78 +5323,54 @@ public:
     const bool &HLT_Ele50_IsoVVVL_PFHT450();
     const bool &HLT_Ele8_CaloIdL_TrackIdL_IsoVL_PFJet30();
     const bool &HLT_Ele8_CaloIdM_TrackIdM_PFJet30();
-    const bool &HLT_FullTrack_Multiplicity100();
-    const bool &HLT_FullTrack_Multiplicity130();
-    const bool &HLT_FullTrack_Multiplicity155();
-    const bool &HLT_FullTrack_Multiplicity85();
-    const bool &HLT_HISinglePhoton10_Eta3p1ForPPRef();
-    const bool &HLT_HISinglePhoton20_Eta3p1ForPPRef();
-    const bool &HLT_HISinglePhoton30_Eta3p1ForPPRef();
-    const bool &HLT_HISinglePhoton40_Eta3p1ForPPRef();
-    const bool &HLT_HISinglePhoton50_Eta3p1ForPPRef();
-    const bool &HLT_HISinglePhoton60_Eta3p1ForPPRef();
     const bool &HLT_HT300_Beamspot();
     const bool &HLT_HT400_DisplacedDijet40_DisplacedTrack();
     const bool &HLT_HT425();
     const bool &HLT_HT430_DisplacedDijet40_DisplacedTrack();
     const bool &HLT_HT430_DisplacedDijet60_DisplacedTrack();
-    const bool &HLT_HT430_DisplacedDijet80_DisplacedTrack();
     const bool &HLT_HT450_Beamspot();
+    const bool &HLT_HT500_DisplacedDijet40_DisplacedTrack();
     const bool &HLT_HT550_DisplacedDijet60_Inclusive();
-    const bool &HLT_HT550_DisplacedDijet80_Inclusive();
     const bool &HLT_HT650_DisplacedDijet60_Inclusive();
-    const bool &HLT_HT650_DisplacedDijet80_Inclusive();
-    const bool &HLT_HT750_DisplacedDijet80_Inclusive();
     const bool &HLT_HcalCalibration();
     const bool &HLT_HcalIsolatedbunch();
     const bool &HLT_HcalNZS();
     const bool &HLT_HcalPhiSym();
     const bool &HLT_IsoMu20();
-    const bool &HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_CrossL1();
-    const bool &HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_TightID_CrossL1();
-    const bool &HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_CrossL1();
-    const bool &HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_TightID_CrossL1();
-    const bool &HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_CrossL1();
-    const bool &HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_TightID_CrossL1();
+    const bool &HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1();
+    const bool &HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1();
+    const bool &HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_CrossL1();
+    const bool &HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1();
+    const bool &HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_CrossL1();
+    const bool &HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1();
     const bool &HLT_IsoMu24();
+    const bool &HLT_IsoMu24_TwoProngs35();
     const bool &HLT_IsoMu24_eta2p1();
-    const bool &HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_SingleL1();
-    const bool &HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_TightID_SingleL1();
-    const bool &HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1();
-    const bool &HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1();
-    const bool &HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_SingleL1();
-    const bool &HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_TightID_SingleL1();
-    const bool &HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1();
-    const bool &HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1();
-    const bool &HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1();
-    const bool &HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1();
     const bool &HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr();
-    const bool &HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_SingleL1();
-    const bool &HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_TightID_SingleL1();
-    const bool &HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1();
-    const bool &HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1();
-    const bool &HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1();
-    const bool &HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1();
+    const bool &HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1();
+    const bool &HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1();
+    const bool &HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1();
+    const bool &HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1();
     const bool &HLT_IsoMu27();
-    const bool &HLT_IsoMu27_LooseChargedIsoPFTau20_SingleL1();
-    const bool &HLT_IsoMu27_MediumChargedIsoPFTau20_SingleL1();
-    const bool &HLT_IsoMu27_TightChargedIsoPFTau20_SingleL1();
+    const bool &HLT_IsoMu27_LooseChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1();
+    const bool &HLT_IsoMu27_MET90();
+    const bool &HLT_IsoMu27_MediumChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1();
+    const bool &HLT_IsoMu27_TightChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1();
     const bool &HLT_IsoMu30();
     const bool &HLT_IsoTrackHB();
     const bool &HLT_IsoTrackHE();
     const bool &HLT_L1ETMHadSeeds();
-    const bool &HLT_L1MinimumBiasHF0OR();
-    const bool &HLT_L1MinimumBiasHF_OR();
     const bool &HLT_L1NotBptxOR();
     const bool &HLT_L1SingleMu18();
     const bool &HLT_L1SingleMu25();
     const bool &HLT_L1UnpairedBunchBptxMinus();
     const bool &HLT_L1UnpairedBunchBptxPlus();
     const bool &HLT_L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142();
-    const bool &HLT_L1_DoubleJet30_Mass_Min400_Mu10();
     const bool &HLT_L2Mu10();
     const bool &HLT_L2Mu10_NoVertex_NoBPTX();
     const bool &HLT_L2Mu10_NoVertex_NoBPTX3BX();
+    const bool &HLT_L2Mu23NoVtx_2Cha();
+    const bool &HLT_L2Mu23NoVtx_2Cha_CosmicSeed();
     const bool &HLT_L2Mu40_NoVertex_3Sta_NoBPTX3BX();
     const bool &HLT_L2Mu45_NoVertex_3Sta_NoBPTX3BX();
     const bool &HLT_L2Mu50();
@@ -3752,29 +5378,39 @@ public:
     const bool &HLT_MET120_IsoTrk50();
     const bool &HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1();
     const bool &HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1_1pr();
+    const bool &HLT_MediumChargedIsoPFTau200HighPtRelaxedIso_Trk50_eta2p1();
+    const bool &HLT_MediumChargedIsoPFTau220HighPtRelaxedIso_Trk50_eta2p1();
     const bool &HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr();
     const bool &HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET100();
     const bool &HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET110();
     const bool &HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET120();
     const bool &HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET130();
+    const bool &HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET140();
     const bool &HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET90();
     const bool &HLT_MonoCentralPFJet80_PFMETNoMu110_PFMHTNoMu110_IDTight();
     const bool &HLT_MonoCentralPFJet80_PFMETNoMu120_PFMHTNoMu120_IDTight();
     const bool &HLT_MonoCentralPFJet80_PFMETNoMu130_PFMHTNoMu130_IDTight();
     const bool &HLT_MonoCentralPFJet80_PFMETNoMu140_PFMHTNoMu140_IDTight();
     const bool &HLT_Mu10_TrkIsoVVL_DiPFJet40_DEta3p5_MJJ750_HTT350_PFMETNoMu60();
-    const bool &HLT_Mu12_DoublePFJets100_CaloBTagCSV_p33();
-    const bool &HLT_Mu12_DoublePFJets200_CaloBTagCSV_p33();
-    const bool &HLT_Mu12_DoublePFJets350_CaloBTagCSV_p33();
-    const bool &HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagCSV_p33();
-    const bool &HLT_Mu12_DoublePFJets40_CaloBTagCSV_p33();
-    const bool &HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagCSV_p33();
-    const bool &HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagCSV_p33();
+    const bool &HLT_Mu12();
+    const bool &HLT_Mu12_DoublePFJets100_CaloBTagDeepCSV_p71();
+    const bool &HLT_Mu12_DoublePFJets200_CaloBTagDeepCSV_p71();
+    const bool &HLT_Mu12_DoublePFJets350_CaloBTagDeepCSV_p71();
+    const bool &HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagDeepCSV_p71();
+    const bool &HLT_Mu12_DoublePFJets40_CaloBTagDeepCSV_p71();
+    const bool &HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagDeepCSV_p71();
+    const bool &HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagDeepCSV_p71();
     const bool &HLT_Mu12_DoublePhoton20();
+    const bool &HLT_Mu12_IP6_part0();
+    const bool &HLT_Mu12_IP6_part1();
+    const bool &HLT_Mu12_IP6_part2();
+    const bool &HLT_Mu12_IP6_part3();
+    const bool &HLT_Mu12_IP6_part4();
     const bool &HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL();
     const bool &HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ();
+    const bool &HLT_Mu15();
     const bool &HLT_Mu15_IsoVVVL_PFHT450();
-    const bool &HLT_Mu15_IsoVVVL_PFHT450_CaloBTagCSV_4p5();
+    const bool &HLT_Mu15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5();
     const bool &HLT_Mu15_IsoVVVL_PFHT450_PFMET50();
     const bool &HLT_Mu15_IsoVVVL_PFHT600();
     const bool &HLT_Mu17();
@@ -3810,15 +5446,33 @@ public:
     const bool &HLT_Mu25_TkMu0_Phi();
     const bool &HLT_Mu27();
     const bool &HLT_Mu27_Ele37_CaloIdL_MW();
-    const bool &HLT_Mu30_TkMu0_Onia();
+    const bool &HLT_Mu30_TkMu0_Psi();
+    const bool &HLT_Mu30_TkMu0_Upsilon();
     const bool &HLT_Mu37_Ele27_CaloIdL_MW();
     const bool &HLT_Mu37_TkMu27();
+    const bool &HLT_Mu38NoFiltersNoVtxDisplaced_Photon38_CaloIdL();
+    const bool &HLT_Mu3_L1SingleMu5orSingleMu7();
     const bool &HLT_Mu3_PFJet40();
+    const bool &HLT_Mu3er1p5_PFJet100er2p5_PFMET100_PFMHT100_IDTight();
+    const bool &HLT_Mu3er1p5_PFJet100er2p5_PFMET70_PFMHT70_IDTight();
+    const bool &HLT_Mu3er1p5_PFJet100er2p5_PFMET80_PFMHT80_IDTight();
+    const bool &HLT_Mu3er1p5_PFJet100er2p5_PFMET90_PFMHT90_IDTight();
+    const bool &HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu100_PFMHTNoMu100_IDTight();
+    const bool &HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu70_PFMHTNoMu70_IDTight();
+    const bool &HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu80_PFMHTNoMu80_IDTight();
+    const bool &HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu90_PFMHTNoMu90_IDTight();
+    const bool &HLT_Mu43NoFiltersNoVtxDisplaced_Photon43_CaloIdL();
     const bool &HLT_Mu43NoFiltersNoVtx_Photon43_CaloIdL();
     const bool &HLT_Mu48NoFiltersNoVtx_Photon48_CaloIdL();
+    const bool &HLT_Mu4_TrkIsoVVL_DiPFJet90_40_DEta3p5_MJJ750_HTT300_PFMETNoMu60();
     const bool &HLT_Mu50();
     const bool &HLT_Mu50_IsoVVVL_PFHT450();
     const bool &HLT_Mu55();
+    const bool &HLT_Mu7_IP4_part0();
+    const bool &HLT_Mu7_IP4_part1();
+    const bool &HLT_Mu7_IP4_part2();
+    const bool &HLT_Mu7_IP4_part3();
+    const bool &HLT_Mu7_IP4_part4();
     const bool &HLT_Mu7p5_L2Mu2_Jpsi();
     const bool &HLT_Mu7p5_L2Mu2_Upsilon();
     const bool &HLT_Mu7p5_Track2_Jpsi();
@@ -3832,25 +5486,58 @@ public:
     const bool &HLT_Mu8_DiEle12_CaloIdL_TrackIdL_DZ();
     const bool &HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT350();
     const bool &HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT350_DZ();
+    const bool &HLT_Mu8_IP3_part0();
+    const bool &HLT_Mu8_IP3_part1();
+    const bool &HLT_Mu8_IP3_part2();
+    const bool &HLT_Mu8_IP3_part3();
+    const bool &HLT_Mu8_IP3_part4();
+    const bool &HLT_Mu8_IP5_part0();
+    const bool &HLT_Mu8_IP5_part1();
+    const bool &HLT_Mu8_IP5_part2();
+    const bool &HLT_Mu8_IP5_part3();
+    const bool &HLT_Mu8_IP5_part4();
+    const bool &HLT_Mu8_IP6_part0();
+    const bool &HLT_Mu8_IP6_part1();
+    const bool &HLT_Mu8_IP6_part2();
+    const bool &HLT_Mu8_IP6_part3();
+    const bool &HLT_Mu8_IP6_part4();
     const bool &HLT_Mu8_TrkIsoVVL();
     const bool &HLT_Mu8_TrkIsoVVL_DiPFJet40_DEta3p5_MJJ750_HTT300_PFMETNoMu60();
     const bool &HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL();
     const bool &HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ();
+    const bool &HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30();
+    const bool &HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_CaloBtagDeepCSV_1p5();
+    const bool &HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30();
+    const bool &HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_PFBtagDeepCSV_1p5();
+    const bool &HLT_Mu9_IP4_part0();
+    const bool &HLT_Mu9_IP4_part1();
+    const bool &HLT_Mu9_IP4_part2();
+    const bool &HLT_Mu9_IP4_part3();
+    const bool &HLT_Mu9_IP4_part4();
+    const bool &HLT_Mu9_IP5_part0();
+    const bool &HLT_Mu9_IP5_part1();
+    const bool &HLT_Mu9_IP5_part2();
+    const bool &HLT_Mu9_IP5_part3();
+    const bool &HLT_Mu9_IP5_part4();
+    const bool &HLT_Mu9_IP6_part0();
+    const bool &HLT_Mu9_IP6_part1();
+    const bool &HLT_Mu9_IP6_part2();
+    const bool &HLT_Mu9_IP6_part3();
+    const bool &HLT_Mu9_IP6_part4();
     const bool &HLT_OldMu100();
     const bool &HLT_PFHT1050();
     const bool &HLT_PFHT180();
     const bool &HLT_PFHT250();
-    const bool &HLT_PFHT300PT30_QuadPFJet_75_60_45_40();
-    const bool &HLT_PFHT300PT30_QuadPFJet_75_60_45_40_TriplePFBTagCSV_3p0();
+    const bool &HLT_PFHT330PT30_QuadPFJet_75_60_45_40();
+    const bool &HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepCSV_4p5();
     const bool &HLT_PFHT350();
     const bool &HLT_PFHT350MinPFJet15();
     const bool &HLT_PFHT370();
-    const bool &HLT_PFHT380_SixPFJet32();
-    const bool &HLT_PFHT380_SixPFJet32_DoublePFBTagCSV_2p2();
-    const bool &HLT_PFHT380_SixPFJet32_DoublePFBTagDeepCSV_2p2();
+    const bool &HLT_PFHT400_SixPFJet32();
+    const bool &HLT_PFHT400_SixPFJet32_DoublePFBTagDeepCSV_2p94();
     const bool &HLT_PFHT430();
-    const bool &HLT_PFHT430_SixPFJet40();
-    const bool &HLT_PFHT430_SixPFJet40_PFBTagCSV_1p5();
+    const bool &HLT_PFHT450_SixPFJet36();
+    const bool &HLT_PFHT450_SixPFJet36_PFBTagDeepCSV_1p59();
     const bool &HLT_PFHT500_PFMET100_PFMHT100_IDTight();
     const bool &HLT_PFHT500_PFMET110_PFMHT110_IDTight();
     const bool &HLT_PFHT510();
@@ -3863,7 +5550,9 @@ public:
     const bool &HLT_PFHT800_PFMET85_PFMHT85_IDTight();
     const bool &HLT_PFHT890();
     const bool &HLT_PFJet140();
+    const bool &HLT_PFJet15();
     const bool &HLT_PFJet200();
+    const bool &HLT_PFJet25();
     const bool &HLT_PFJet260();
     const bool &HLT_PFJet320();
     const bool &HLT_PFJet40();
@@ -3874,7 +5563,9 @@ public:
     const bool &HLT_PFJet60();
     const bool &HLT_PFJet80();
     const bool &HLT_PFJetFwd140();
+    const bool &HLT_PFJetFwd15();
     const bool &HLT_PFJetFwd200();
+    const bool &HLT_PFJetFwd25();
     const bool &HLT_PFJetFwd260();
     const bool &HLT_PFJetFwd320();
     const bool &HLT_PFJetFwd40();
@@ -3883,17 +5574,17 @@ public:
     const bool &HLT_PFJetFwd500();
     const bool &HLT_PFJetFwd60();
     const bool &HLT_PFJetFwd80();
-    const bool &HLT_PFMET100_PFMHT100_IDTight_CaloBTagCSV_3p1();
+    const bool &HLT_PFMET100_PFMHT100_IDTight_CaloBTagDeepCSV_3p1();
     const bool &HLT_PFMET100_PFMHT100_IDTight_PFHT60();
     const bool &HLT_PFMET110_PFMHT110_IDTight();
-    const bool &HLT_PFMET110_PFMHT110_IDTight_CaloBTagCSV_3p1();
+    const bool &HLT_PFMET110_PFMHT110_IDTight_CaloBTagDeepCSV_3p1();
     const bool &HLT_PFMET120_PFMHT120_IDTight();
-    const bool &HLT_PFMET120_PFMHT120_IDTight_CaloBTagCSV_3p1();
+    const bool &HLT_PFMET120_PFMHT120_IDTight_CaloBTagDeepCSV_3p1();
     const bool &HLT_PFMET120_PFMHT120_IDTight_PFHT60();
     const bool &HLT_PFMET130_PFMHT130_IDTight();
-    const bool &HLT_PFMET130_PFMHT130_IDTight_CaloBTagCSV_3p1();
+    const bool &HLT_PFMET130_PFMHT130_IDTight_CaloBTagDeepCSV_3p1();
     const bool &HLT_PFMET140_PFMHT140_IDTight();
-    const bool &HLT_PFMET140_PFMHT140_IDTight_CaloBTagCSV_3p1();
+    const bool &HLT_PFMET140_PFMHT140_IDTight_CaloBTagDeepCSV_3p1();
     const bool &HLT_PFMET200_HBHECleaned();
     const bool &HLT_PFMET200_HBHE_BeamHaloCleaned();
     const bool &HLT_PFMET200_NotCleaned();
@@ -3912,28 +5603,34 @@ public:
     const bool &HLT_PFMETTypeOne130_PFMHT130_IDTight();
     const bool &HLT_PFMETTypeOne140_PFMHT140_IDTight();
     const bool &HLT_PFMETTypeOne200_HBHE_BeamHaloCleaned();
+    const bool &HLT_Photon100EBHE10();
+    const bool &HLT_Photon100EB_TightID_TightIso();
+    const bool &HLT_Photon100EEHE10();
+    const bool &HLT_Photon100EE_TightID_TightIso();
+    const bool &HLT_Photon110EB_TightID_TightIso();
     const bool &HLT_Photon120();
+    const bool &HLT_Photon120EB_TightID_TightIso();
     const bool &HLT_Photon120_R9Id90_HE10_IsoM();
     const bool &HLT_Photon150();
     const bool &HLT_Photon165_R9Id90_HE10_IsoM();
     const bool &HLT_Photon175();
+    const bool &HLT_Photon20();
     const bool &HLT_Photon200();
     const bool &HLT_Photon20_HoverELoose();
-    const bool &HLT_Photon25();
     const bool &HLT_Photon300_NoHE();
     const bool &HLT_Photon30_HoverELoose();
     const bool &HLT_Photon33();
-    const bool &HLT_Photon40_HoverELoose();
+    const bool &HLT_Photon35_TwoProngs35();
     const bool &HLT_Photon50();
-    const bool &HLT_Photon50_HoverELoose();
     const bool &HLT_Photon50_R9Id90_HE10_IsoM();
     const bool &HLT_Photon50_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3_PFMET50();
-    const bool &HLT_Photon60_HoverELoose();
     const bool &HLT_Photon60_R9Id90_CaloIdL_IsoL();
     const bool &HLT_Photon60_R9Id90_CaloIdL_IsoL_DisplacedIdL();
     const bool &HLT_Photon60_R9Id90_CaloIdL_IsoL_DisplacedIdL_PFHT350MinPFJet15();
     const bool &HLT_Photon75();
     const bool &HLT_Photon75_R9Id90_HE10_IsoM();
+    const bool &HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ300_PFJetsMJJ400DEta3();
+    const bool &HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ400_PFJetsMJJ600DEta3();
     const bool &HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3();
     const bool &HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ600DEta3();
     const bool &HLT_Photon90();
@@ -3949,17 +5646,17 @@ public:
     const bool &HLT_Physics_part6();
     const bool &HLT_Physics_part7();
     const bool &HLT_QuadPFJet103_88_75_15();
-    const bool &HLT_QuadPFJet103_88_75_15_BTagCSV_p013_VBF2();
-    const bool &HLT_QuadPFJet103_88_75_15_DoubleBTagCSV_p013_p08_VBF1();
+    const bool &HLT_QuadPFJet103_88_75_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1();
+    const bool &HLT_QuadPFJet103_88_75_15_PFBTagDeepCSV_1p3_VBF2();
     const bool &HLT_QuadPFJet105_88_76_15();
-    const bool &HLT_QuadPFJet105_88_76_15_BTagCSV_p013_VBF2();
-    const bool &HLT_QuadPFJet105_90_76_15_DoubleBTagCSV_p013_p08_VBF1();
+    const bool &HLT_QuadPFJet105_88_76_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1();
+    const bool &HLT_QuadPFJet105_88_76_15_PFBTagDeepCSV_1p3_VBF2();
     const bool &HLT_QuadPFJet111_90_80_15();
-    const bool &HLT_QuadPFJet111_90_80_15_BTagCSV_p013_VBF2();
-    const bool &HLT_QuadPFJet111_90_80_15_DoubleBTagCSV_p013_p08_VBF1();
+    const bool &HLT_QuadPFJet111_90_80_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1();
+    const bool &HLT_QuadPFJet111_90_80_15_PFBTagDeepCSV_1p3_VBF2();
     const bool &HLT_QuadPFJet98_83_71_15();
-    const bool &HLT_QuadPFJet98_83_71_15_BTagCSV_p013_VBF2();
-    const bool &HLT_QuadPFJet98_83_71_15_DoubleBTagCSV_p013_p08_VBF1();
+    const bool &HLT_QuadPFJet98_83_71_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1();
+    const bool &HLT_QuadPFJet98_83_71_15_PFBTagDeepCSV_1p3_VBF2();
     const bool &HLT_Random();
     const bool &HLT_Rsq0p35();
     const bool &HLT_Rsq0p40();
@@ -3968,35 +5665,43 @@ public:
     const bool &HLT_RsqMR320_Rsq0p09_MR200();
     const bool &HLT_RsqMR320_Rsq0p09_MR200_4jet();
     const bool &HLT_SingleJet30_Mu12_SinglePFJet40();
+    const bool &HLT_SinglePhoton10_Eta3p1ForPPRef();
+    const bool &HLT_SinglePhoton20_Eta3p1ForPPRef();
+    const bool &HLT_SinglePhoton30_Eta3p1ForPPRef();
     const bool &HLT_Tau3Mu_Mu7_Mu1_TkMu1_IsoTau15();
     const bool &HLT_Tau3Mu_Mu7_Mu1_TkMu1_IsoTau15_Charge1();
     const bool &HLT_Tau3Mu_Mu7_Mu1_TkMu1_Tau15();
     const bool &HLT_Tau3Mu_Mu7_Mu1_TkMu1_Tau15_Charge1();
     const bool &HLT_TkMu100();
     const bool &HLT_Trimuon5_3p5_2_Upsilon_Muon();
+    const bool &HLT_TrimuonOpen_5_3p5_2_Upsilon_Muon();
     const bool &HLT_TripleJet110_35_35_Mjj650_PFMET110();
     const bool &HLT_TripleJet110_35_35_Mjj650_PFMET120();
     const bool &HLT_TripleJet110_35_35_Mjj650_PFMET130();
     const bool &HLT_TripleMu_10_5_5_DZ();
     const bool &HLT_TripleMu_12_10_5();
-    const bool &HLT_TripleMu_5_3_3_Mass3p8to60_DCA();
-    const bool &HLT_TripleMu_5_3_3_Mass3p8to60_DZ();
+    const bool &HLT_TripleMu_5_3_3_Mass3p8_DCA();
+    const bool &HLT_TripleMu_5_3_3_Mass3p8_DZ();
     const bool &HLT_TriplePhoton_20_20_20_CaloIdLV2();
     const bool &HLT_TriplePhoton_20_20_20_CaloIdLV2_R9IdVL();
     const bool &HLT_TriplePhoton_30_30_10_CaloIdLV2();
     const bool &HLT_TriplePhoton_30_30_10_CaloIdLV2_R9IdVL();
     const bool &HLT_TriplePhoton_35_35_5_CaloIdLV2_R9IdVL();
     const bool &HLT_TrkMu12_DoubleTrkMu5NoFiltersNoVtx();
+    const bool &HLT_TrkMu16NoFiltersNoVtx();
     const bool &HLT_TrkMu16_DoubleTrkMu6NoFiltersNoVtx();
     const bool &HLT_TrkMu17_DoubleTrkMu8NoFiltersNoVtx();
+    const bool &HLT_TrkMu6NoFiltersNoVtx();
     const bool &HLT_UncorrectedJetE30_NoBPTX();
     const bool &HLT_UncorrectedJetE30_NoBPTX3BX();
     const bool &HLT_UncorrectedJetE60_NoBPTX3BX();
     const bool &HLT_UncorrectedJetE70_NoBPTX3BX();
-    const bool &HLT_VBF_DoubleLooseChargedIsoPFTau20_Trk1_eta2p1_Reg();
-    const bool &HLT_VBF_DoubleMediumChargedIsoPFTau20_Trk1_eta2p1_Reg();
-    const bool &HLT_VBF_DoubleTightChargedIsoPFTau20_Trk1_eta2p1_Reg();
+    const bool &HLT_VBF_DoubleLooseChargedIsoPFTauHPS20_Trk1_eta2p1();
+    const bool &HLT_VBF_DoubleMediumChargedIsoPFTauHPS20_Trk1_eta2p1();
+    const bool &HLT_VBF_DoubleTightChargedIsoPFTauHPS20_Trk1_eta2p1();
     const bool &HLT_ZeroBias();
+    const bool &HLT_ZeroBias_Alignment();
+    const bool &HLT_ZeroBias_Beamspot();
     const bool &HLT_ZeroBias_FirstBXAfterTrain();
     const bool &HLT_ZeroBias_FirstCollisionAfterAbortGap();
     const bool &HLT_ZeroBias_FirstCollisionInTrain();
@@ -4012,9 +5717,22 @@ public:
     const bool &HLT_ZeroBias_part7();
     const bool &HLTriggerFinalPath();
     const bool &HLTriggerFirstPath();
+    const float &HTXS_Higgs_pt();
+    const float &HTXS_Higgs_y();
+    const UChar_t &HTXS_njets25();
+    const UChar_t &HTXS_njets30();
+    const int &HTXS_stage1_1_cat_pTjet25GeV();
+    const int &HTXS_stage1_1_cat_pTjet30GeV();
+    const int &HTXS_stage1_1_fine_cat_pTjet25GeV();
+    const int &HTXS_stage1_1_fine_cat_pTjet30GeV();
+    const int &HTXS_stage_0();
+    const int &HTXS_stage_1_pTjet25();
+    const int &HTXS_stage_1_pTjet30();
     const vector<float> &IsoTrack_dxy();
     const vector<float> &IsoTrack_dz();
     const vector<float> &IsoTrack_eta();
+    const vector<int> &IsoTrack_fromPV();
+    const vector<bool> &IsoTrack_isFromLostTrack();
     const vector<bool> &IsoTrack_isHighPurityTrack();
     const vector<bool> &IsoTrack_isPFcand();
     const vector<float> &IsoTrack_miniPFRelIso_all();
@@ -4025,12 +5743,14 @@ public:
     const vector<float> &IsoTrack_phi();
     const vector<float> &IsoTrack_pt();
     const vector<float> &Jet_area();
-    const vector<float> &Jet_bReg();
+    const vector<float> &Jet_bRegCorr();
+    const vector<float> &Jet_bRegRes();
     const vector<float> &Jet_btagCMVA();
     const vector<float> &Jet_btagCSVV2();
     const vector<float> &Jet_btagDeepB();
     const vector<float> &Jet_btagDeepC();
     const vector<float> &Jet_btagDeepFlavB();
+    const vector<float> &Jet_btagDeepFlavC();
     const vector<float> &Jet_chEmEF();
     const vector<float> &Jet_chHEF();
     const vector<UChar_t> &Jet_cleanmask();
@@ -4039,10 +5759,14 @@ public:
     const vector<float> &Jet_eta();
     const vector<int> &Jet_genJetIdx();
     const vector<int> &Jet_hadronFlavour();
+    const vector<float> &Jet_jercCHF();
+    const vector<float> &Jet_jercCHPUF();
     const vector<int> &Jet_jetId();
     const vector<float> &Jet_mass();
+    const vector<float> &Jet_muEF();
     const vector<int> &Jet_muonIdx1();
     const vector<int> &Jet_muonIdx2();
+    const vector<float> &Jet_muonSubtrFactor();
     const vector<int> &Jet_nConstituents();
     const vector<int> &Jet_nElectrons();
     const vector<int> &Jet_nMuons();
@@ -4055,6 +5779,328 @@ public:
     const vector<int> &Jet_puId();
     const vector<float> &Jet_qgl();
     const vector<float> &Jet_rawFactor();
+    const bool &L1Reco_step();
+    const bool &L1_AlwaysTrue();
+    const bool &L1_BPTX_AND_Ref1_VME();
+    const bool &L1_BPTX_AND_Ref3_VME();
+    const bool &L1_BPTX_AND_Ref4_VME();
+    const bool &L1_BPTX_BeamGas_B1_VME();
+    const bool &L1_BPTX_BeamGas_B2_VME();
+    const bool &L1_BPTX_BeamGas_Ref1_VME();
+    const bool &L1_BPTX_BeamGas_Ref2_VME();
+    const bool &L1_BPTX_NotOR_VME();
+    const bool &L1_BPTX_OR_Ref3_VME();
+    const bool &L1_BPTX_OR_Ref4_VME();
+    const bool &L1_BPTX_RefAND_VME();
+    const bool &L1_BptxMinus();
+    const bool &L1_BptxOR();
+    const bool &L1_BptxPlus();
+    const bool &L1_BptxXOR();
+    const bool &L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142();
+    const bool &L1_DoubleEG8er2p5_HTT260er();
+    const bool &L1_DoubleEG8er2p5_HTT280er();
+    const bool &L1_DoubleEG8er2p5_HTT300er();
+    const bool &L1_DoubleEG8er2p5_HTT320er();
+    const bool &L1_DoubleEG8er2p5_HTT340er();
+    const bool &L1_DoubleEG_15_10_er2p5();
+    const bool &L1_DoubleEG_20_10_er2p5();
+    const bool &L1_DoubleEG_22_10_er2p5();
+    const bool &L1_DoubleEG_25_12_er2p5();
+    const bool &L1_DoubleEG_25_14_er2p5();
+    const bool &L1_DoubleEG_27_14_er2p5();
+    const bool &L1_DoubleEG_LooseIso20_10_er2p5();
+    const bool &L1_DoubleEG_LooseIso22_10_er2p5();
+    const bool &L1_DoubleEG_LooseIso22_12_er2p5();
+    const bool &L1_DoubleEG_LooseIso25_12_er2p5();
+    const bool &L1_DoubleIsoTau32er2p1();
+    const bool &L1_DoubleIsoTau34er2p1();
+    const bool &L1_DoubleIsoTau36er2p1();
+    const bool &L1_DoubleJet100er2p3_dEta_Max1p6();
+    const bool &L1_DoubleJet100er2p5();
+    const bool &L1_DoubleJet112er2p3_dEta_Max1p6();
+    const bool &L1_DoubleJet120er2p5();
+    const bool &L1_DoubleJet150er2p5();
+    const bool &L1_DoubleJet30er2p5_Mass_Min150_dEta_Max1p5();
+    const bool &L1_DoubleJet30er2p5_Mass_Min200_dEta_Max1p5();
+    const bool &L1_DoubleJet30er2p5_Mass_Min250_dEta_Max1p5();
+    const bool &L1_DoubleJet30er2p5_Mass_Min300_dEta_Max1p5();
+    const bool &L1_DoubleJet30er2p5_Mass_Min330_dEta_Max1p5();
+    const bool &L1_DoubleJet30er2p5_Mass_Min360_dEta_Max1p5();
+    const bool &L1_DoubleJet35_Mass_Min450_IsoTau45_RmOvlp();
+    const bool &L1_DoubleJet40er2p5();
+    const bool &L1_DoubleJet_100_30_DoubleJet30_Mass_Min620();
+    const bool &L1_DoubleJet_110_35_DoubleJet35_Mass_Min620();
+    const bool &L1_DoubleJet_115_40_DoubleJet40_Mass_Min620();
+    const bool &L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_Jet60TT28();
+    const bool &L1_DoubleJet_120_45_DoubleJet45_Mass_Min620();
+    const bool &L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_Jet60TT28();
+    const bool &L1_DoubleJet_80_30_Mass_Min420_DoubleMu0_SQ();
+    const bool &L1_DoubleJet_80_30_Mass_Min420_IsoTau40_RmOvlp();
+    const bool &L1_DoubleJet_80_30_Mass_Min420_Mu8();
+    const bool &L1_DoubleJet_90_30_DoubleJet30_Mass_Min620();
+    const bool &L1_DoubleLooseIsoEG22er2p1();
+    const bool &L1_DoubleLooseIsoEG24er2p1();
+    const bool &L1_DoubleMu0();
+    const bool &L1_DoubleMu0_Mass_Min1();
+    const bool &L1_DoubleMu0_OQ();
+    const bool &L1_DoubleMu0_SQ();
+    const bool &L1_DoubleMu0_SQ_OS();
+    const bool &L1_DoubleMu0_dR_Max1p6_Jet90er2p5_dR_Max0p8();
+    const bool &L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4();
+    const bool &L1_DoubleMu0er1p5_SQ();
+    const bool &L1_DoubleMu0er1p5_SQ_OS();
+    const bool &L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4();
+    const bool &L1_DoubleMu0er1p5_SQ_dR_Max1p4();
+    const bool &L1_DoubleMu0er2p0_SQ_OS_dR_Max1p4();
+    const bool &L1_DoubleMu0er2p0_SQ_dR_Max1p4();
+    const bool &L1_DoubleMu10_SQ();
+    const bool &L1_DoubleMu18er2p1();
+    const bool &L1_DoubleMu3_OS_DoubleEG7p5Upsilon();
+    const bool &L1_DoubleMu3_SQ_ETMHF50_HTT60er();
+    const bool &L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5();
+    const bool &L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_OR_DoubleJet40er2p5();
+    const bool &L1_DoubleMu3_SQ_ETMHF60_Jet60er2p5();
+    const bool &L1_DoubleMu3_SQ_HTT220er();
+    const bool &L1_DoubleMu3_SQ_HTT240er();
+    const bool &L1_DoubleMu3_SQ_HTT260er();
+    const bool &L1_DoubleMu3_dR_Max1p6_Jet90er2p5_dR_Max0p8();
+    const bool &L1_DoubleMu4_SQ_EG9er2p5();
+    const bool &L1_DoubleMu4_SQ_OS();
+    const bool &L1_DoubleMu4_SQ_OS_dR_Max1p2();
+    const bool &L1_DoubleMu4p5_SQ_OS();
+    const bool &L1_DoubleMu4p5_SQ_OS_dR_Max1p2();
+    const bool &L1_DoubleMu4p5er2p0_SQ_OS();
+    const bool &L1_DoubleMu4p5er2p0_SQ_OS_Mass7to18();
+    const bool &L1_DoubleMu5Upsilon_OS_DoubleEG3();
+    const bool &L1_DoubleMu5_SQ_EG9er2p5();
+    const bool &L1_DoubleMu9_SQ();
+    const bool &L1_DoubleMu_12_5();
+    const bool &L1_DoubleMu_15_5_SQ();
+    const bool &L1_DoubleMu_15_7();
+    const bool &L1_DoubleMu_15_7_Mass_Min1();
+    const bool &L1_DoubleMu_15_7_SQ();
+    const bool &L1_DoubleTau70er2p1();
+    const bool &L1_ETM120();
+    const bool &L1_ETM150();
+    const bool &L1_ETMHF100();
+    const bool &L1_ETMHF100_HTT60er();
+    const bool &L1_ETMHF110();
+    const bool &L1_ETMHF110_HTT60er();
+    const bool &L1_ETMHF110_HTT60er_NotSecondBunchInTrain();
+    const bool &L1_ETMHF120();
+    const bool &L1_ETMHF120_HTT60er();
+    const bool &L1_ETMHF120_NotSecondBunchInTrain();
+    const bool &L1_ETMHF130();
+    const bool &L1_ETMHF130_HTT60er();
+    const bool &L1_ETMHF140();
+    const bool &L1_ETMHF150();
+    const bool &L1_ETMHF90_HTT60er();
+    const bool &L1_ETT1200();
+    const bool &L1_ETT1600();
+    const bool &L1_ETT2000();
+    const bool &L1_FirstBunchAfterTrain();
+    const bool &L1_FirstBunchBeforeTrain();
+    const bool &L1_FirstBunchInTrain();
+    const bool &L1_FirstCollisionInOrbit();
+    const bool &L1_FirstCollisionInTrain();
+    const bool &L1_HCAL_LaserMon_Trig();
+    const bool &L1_HCAL_LaserMon_Veto();
+    const bool &L1_HTT120er();
+    const bool &L1_HTT160er();
+    const bool &L1_HTT200er();
+    const bool &L1_HTT255er();
+    const bool &L1_HTT280er();
+    const bool &L1_HTT280er_QuadJet_70_55_40_35_er2p4();
+    const bool &L1_HTT320er();
+    const bool &L1_HTT320er_QuadJet_70_55_40_40_er2p4();
+    const bool &L1_HTT320er_QuadJet_80_60_er2p1_45_40_er2p3();
+    const bool &L1_HTT320er_QuadJet_80_60_er2p1_50_45_er2p3();
+    const bool &L1_HTT360er();
+    const bool &L1_HTT400er();
+    const bool &L1_HTT450er();
+    const bool &L1_IsoEG32er2p5_Mt40();
+    const bool &L1_IsoEG32er2p5_Mt44();
+    const bool &L1_IsoEG32er2p5_Mt48();
+    const bool &L1_IsoTau40er2p1_ETMHF100();
+    const bool &L1_IsoTau40er2p1_ETMHF110();
+    const bool &L1_IsoTau40er2p1_ETMHF120();
+    const bool &L1_IsoTau40er2p1_ETMHF90();
+    const bool &L1_IsolatedBunch();
+    const bool &L1_LastBunchInTrain();
+    const bool &L1_LastCollisionInTrain();
+    const bool &L1_LooseIsoEG22er2p1_IsoTau26er2p1_dR_Min0p3();
+    const bool &L1_LooseIsoEG22er2p1_Tau70er2p1_dR_Min0p3();
+    const bool &L1_LooseIsoEG24er2p1_HTT100er();
+    const bool &L1_LooseIsoEG24er2p1_IsoTau27er2p1_dR_Min0p3();
+    const bool &L1_LooseIsoEG26er2p1_HTT100er();
+    const bool &L1_LooseIsoEG26er2p1_Jet34er2p5_dR_Min0p3();
+    const bool &L1_LooseIsoEG28er2p1_HTT100er();
+    const bool &L1_LooseIsoEG28er2p1_Jet34er2p5_dR_Min0p3();
+    const bool &L1_LooseIsoEG30er2p1_HTT100er();
+    const bool &L1_LooseIsoEG30er2p1_Jet34er2p5_dR_Min0p3();
+    const bool &L1_MinimumBiasHF0_AND_BptxAND();
+    const bool &L1_Mu10er2p3_Jet32er2p3_dR_Max0p4_DoubleJet32er2p3_dEta_Max1p6();
+    const bool &L1_Mu12er2p3_Jet40er2p1_dR_Max0p4_DoubleJet40er2p1_dEta_Max1p6();
+    const bool &L1_Mu12er2p3_Jet40er2p3_dR_Max0p4_DoubleJet40er2p3_dEta_Max1p6();
+    const bool &L1_Mu18er2p1_Tau24er2p1();
+    const bool &L1_Mu18er2p1_Tau26er2p1();
+    const bool &L1_Mu20_EG10er2p5();
+    const bool &L1_Mu22er2p1_IsoTau32er2p1();
+    const bool &L1_Mu22er2p1_IsoTau34er2p1();
+    const bool &L1_Mu22er2p1_IsoTau36er2p1();
+    const bool &L1_Mu22er2p1_IsoTau40er2p1();
+    const bool &L1_Mu22er2p1_Tau70er2p1();
+    const bool &L1_Mu3_Jet120er2p5_dR_Max0p4();
+    const bool &L1_Mu3_Jet120er2p5_dR_Max0p8();
+    const bool &L1_Mu3_Jet16er2p5_dR_Max0p4();
+    const bool &L1_Mu3_Jet30er2p5();
+    const bool &L1_Mu3_Jet35er2p5_dR_Max0p4();
+    const bool &L1_Mu3_Jet60er2p5_dR_Max0p4();
+    const bool &L1_Mu3_Jet80er2p5_dR_Max0p4();
+    const bool &L1_Mu3er1p5_Jet100er2p5_ETMHF40();
+    const bool &L1_Mu3er1p5_Jet100er2p5_ETMHF50();
+    const bool &L1_Mu5_EG23er2p5();
+    const bool &L1_Mu5_LooseIsoEG20er2p5();
+    const bool &L1_Mu6_DoubleEG10er2p5();
+    const bool &L1_Mu6_DoubleEG12er2p5();
+    const bool &L1_Mu6_DoubleEG15er2p5();
+    const bool &L1_Mu6_DoubleEG17er2p5();
+    const bool &L1_Mu6_HTT240er();
+    const bool &L1_Mu6_HTT250er();
+    const bool &L1_Mu7_EG23er2p5();
+    const bool &L1_Mu7_LooseIsoEG20er2p5();
+    const bool &L1_Mu7_LooseIsoEG23er2p5();
+    const bool &L1_NotBptxOR();
+    const bool &L1_QuadJet36er2p5_IsoTau52er2p1();
+    const bool &L1_QuadJet60er2p5();
+    const bool &L1_QuadJet_95_75_65_20_DoubleJet_75_65_er2p5_Jet20_FWD3p0();
+    const bool &L1_QuadMu0();
+    const bool &L1_QuadMu0_OQ();
+    const bool &L1_QuadMu0_SQ();
+    const bool &L1_SecondBunchInTrain();
+    const bool &L1_SecondLastBunchInTrain();
+    const bool &L1_SingleEG10er2p5();
+    const bool &L1_SingleEG15er2p5();
+    const bool &L1_SingleEG26er2p5();
+    const bool &L1_SingleEG34er2p5();
+    const bool &L1_SingleEG36er2p5();
+    const bool &L1_SingleEG38er2p5();
+    const bool &L1_SingleEG40er2p5();
+    const bool &L1_SingleEG42er2p5();
+    const bool &L1_SingleEG45er2p5();
+    const bool &L1_SingleEG50();
+    const bool &L1_SingleEG60();
+    const bool &L1_SingleEG8er2p5();
+    const bool &L1_SingleIsoEG24er1p5();
+    const bool &L1_SingleIsoEG24er2p1();
+    const bool &L1_SingleIsoEG26er1p5();
+    const bool &L1_SingleIsoEG26er2p1();
+    const bool &L1_SingleIsoEG26er2p5();
+    const bool &L1_SingleIsoEG28er1p5();
+    const bool &L1_SingleIsoEG28er2p1();
+    const bool &L1_SingleIsoEG28er2p5();
+    const bool &L1_SingleIsoEG30er2p1();
+    const bool &L1_SingleIsoEG30er2p5();
+    const bool &L1_SingleIsoEG32er2p1();
+    const bool &L1_SingleIsoEG32er2p5();
+    const bool &L1_SingleIsoEG34er2p5();
+    const bool &L1_SingleJet10erHE();
+    const bool &L1_SingleJet120();
+    const bool &L1_SingleJet120_FWD3p0();
+    const bool &L1_SingleJet120er2p5();
+    const bool &L1_SingleJet12erHE();
+    const bool &L1_SingleJet140er2p5();
+    const bool &L1_SingleJet140er2p5_ETMHF80();
+    const bool &L1_SingleJet140er2p5_ETMHF90();
+    const bool &L1_SingleJet160er2p5();
+    const bool &L1_SingleJet180();
+    const bool &L1_SingleJet180er2p5();
+    const bool &L1_SingleJet200();
+    const bool &L1_SingleJet20er2p5_NotBptxOR();
+    const bool &L1_SingleJet20er2p5_NotBptxOR_3BX();
+    const bool &L1_SingleJet35();
+    const bool &L1_SingleJet35_FWD3p0();
+    const bool &L1_SingleJet35er2p5();
+    const bool &L1_SingleJet43er2p5_NotBptxOR_3BX();
+    const bool &L1_SingleJet46er2p5_NotBptxOR_3BX();
+    const bool &L1_SingleJet60();
+    const bool &L1_SingleJet60_FWD3p0();
+    const bool &L1_SingleJet60er2p5();
+    const bool &L1_SingleJet8erHE();
+    const bool &L1_SingleJet90();
+    const bool &L1_SingleJet90_FWD3p0();
+    const bool &L1_SingleJet90er2p5();
+    const bool &L1_SingleLooseIsoEG28er1p5();
+    const bool &L1_SingleLooseIsoEG30er1p5();
+    const bool &L1_SingleMu0_BMTF();
+    const bool &L1_SingleMu0_DQ();
+    const bool &L1_SingleMu0_EMTF();
+    const bool &L1_SingleMu0_OMTF();
+    const bool &L1_SingleMu10er1p5();
+    const bool &L1_SingleMu12_DQ_BMTF();
+    const bool &L1_SingleMu12_DQ_EMTF();
+    const bool &L1_SingleMu12_DQ_OMTF();
+    const bool &L1_SingleMu12er1p5();
+    const bool &L1_SingleMu14er1p5();
+    const bool &L1_SingleMu15_DQ();
+    const bool &L1_SingleMu16er1p5();
+    const bool &L1_SingleMu18();
+    const bool &L1_SingleMu18er1p5();
+    const bool &L1_SingleMu20();
+    const bool &L1_SingleMu22();
+    const bool &L1_SingleMu22_BMTF();
+    const bool &L1_SingleMu22_EMTF();
+    const bool &L1_SingleMu22_OMTF();
+    const bool &L1_SingleMu25();
+    const bool &L1_SingleMu3();
+    const bool &L1_SingleMu5();
+    const bool &L1_SingleMu6er1p5();
+    const bool &L1_SingleMu7();
+    const bool &L1_SingleMu7_DQ();
+    const bool &L1_SingleMu7er1p5();
+    const bool &L1_SingleMu8er1p5();
+    const bool &L1_SingleMu9er1p5();
+    const bool &L1_SingleMuCosmics();
+    const bool &L1_SingleMuCosmics_BMTF();
+    const bool &L1_SingleMuCosmics_EMTF();
+    const bool &L1_SingleMuCosmics_OMTF();
+    const bool &L1_SingleMuOpen();
+    const bool &L1_SingleMuOpen_NotBptxOR();
+    const bool &L1_SingleMuOpen_er1p1_NotBptxOR_3BX();
+    const bool &L1_SingleMuOpen_er1p4_NotBptxOR_3BX();
+    const bool &L1_SingleTau120er2p1();
+    const bool &L1_SingleTau130er2p1();
+    const bool &L1_TOTEM_1();
+    const bool &L1_TOTEM_2();
+    const bool &L1_TOTEM_3();
+    const bool &L1_TOTEM_4();
+    const bool &L1_TripleEG16er2p5();
+    const bool &L1_TripleEG_16_12_8_er2p5();
+    const bool &L1_TripleEG_16_15_8_er2p5();
+    const bool &L1_TripleEG_18_17_8_er2p5();
+    const bool &L1_TripleEG_18_18_12_er2p5();
+    const bool &L1_TripleJet_100_80_70_DoubleJet_80_70_er2p5();
+    const bool &L1_TripleJet_105_85_75_DoubleJet_85_75_er2p5();
+    const bool &L1_TripleJet_95_75_65_DoubleJet_75_65_er2p5();
+    const bool &L1_TripleMu0();
+    const bool &L1_TripleMu0_OQ();
+    const bool &L1_TripleMu0_SQ();
+    const bool &L1_TripleMu3();
+    const bool &L1_TripleMu3_SQ();
+    const bool &L1_TripleMu_5SQ_3SQ_0OQ();
+    const bool &L1_TripleMu_5SQ_3SQ_0OQ_DoubleMu_5_3_SQ_OS_Mass_Max9();
+    const bool &L1_TripleMu_5SQ_3SQ_0_DoubleMu_5_3_SQ_OS_Mass_Max9();
+    const bool &L1_TripleMu_5_3_3();
+    const bool &L1_TripleMu_5_3_3_SQ();
+    const bool &L1_TripleMu_5_3p5_2p5();
+    const bool &L1_TripleMu_5_3p5_2p5_DoubleMu_5_2p5_OS_Mass_5to17();
+    const bool &L1_TripleMu_5_3p5_2p5_OQ_DoubleMu_5_2p5_OQ_OS_Mass_5to17();
+    const bool &L1_TripleMu_5_4_2p5_DoubleMu_5_2p5_OS_Mass_5to17();
+    const bool &L1_TripleMu_5_5_3();
+    const bool &L1_UnpairedBunchBptxMinus();
+    const bool &L1_UnpairedBunchBptxPlus();
+    const bool &L1_ZeroBias();
+    const bool &L1_ZeroBias_copy();
     const bool &L1simulation_step();
     const vector<float> &LHEPart_eta();
     const vector<float> &LHEPart_mass();
@@ -4063,6 +6109,7 @@ public:
     const vector<float> &LHEPart_phi();
     const vector<float> &LHEPart_pt();
     const vector<float> &LHEPdfWeight();
+    const vector<float> &LHEReweightingWeight();
     const vector<float> &LHEScaleWeight();
     const float &LHEWeight_originalXWGTUP();
     const float &LHE_HT();
@@ -4096,18 +6143,30 @@ public:
     const vector<UChar_t> &Muon_genPartFlav();
     const vector<int> &Muon_genPartIdx();
     const vector<UChar_t> &Muon_highPtId();
+    const vector<bool> &Muon_inTimeMuon();
     const vector<float> &Muon_ip3d();
+    const vector<bool> &Muon_isGlobal();
     const vector<bool> &Muon_isPFcand();
+    const vector<bool> &Muon_isTracker();
     const vector<int> &Muon_jetIdx();
+    const vector<float> &Muon_jetPtRelv2();
+    const vector<float> &Muon_jetRelIso();
+    const vector<bool> &Muon_looseId();
     const vector<float> &Muon_mass();
     const vector<bool> &Muon_mediumId();
+    const vector<bool> &Muon_mediumPromptId();
+    const vector<UChar_t> &Muon_miniIsoId();
     const vector<float> &Muon_miniPFRelIso_all();
     const vector<float> &Muon_miniPFRelIso_chg();
+    const vector<UChar_t> &Muon_multiIsoId();
+    const vector<UChar_t> &Muon_mvaId();
+    const vector<float> &Muon_mvaLowPt();
     const vector<float> &Muon_mvaTTH();
     const vector<int> &Muon_nStations();
     const vector<int> &Muon_nTrackerLayers();
     const vector<LorentzVector> &Muon_p4();
     const vector<int> &Muon_pdgId();
+    const vector<UChar_t> &Muon_pfIsoId();
     const vector<float> &Muon_pfRelIso03_all();
     const vector<float> &Muon_pfRelIso03_chg();
     const vector<float> &Muon_pfRelIso04_all();
@@ -4117,9 +6176,16 @@ public:
     const vector<float> &Muon_segmentComp();
     const vector<float> &Muon_sip3d();
     const vector<bool> &Muon_softId();
+    const vector<float> &Muon_softMva();
+    const vector<bool> &Muon_softMvaId();
     const vector<int> &Muon_tightCharge();
     const vector<bool> &Muon_tightId();
+    const vector<UChar_t> &Muon_tkIsoId();
+    const vector<float> &Muon_tkRelIso();
+    const vector<bool> &Muon_triggerIdLoose();
+    const vector<float> &Muon_tunepRelPt();
     const vector<float> &OtherPV_z();
+    const vector<float> &PSWeight();
     const float &PV_chi2();
     const float &PV_ndof();
     const int &PV_npvs();
@@ -4131,6 +6197,7 @@ public:
     const vector<int> &Photon_charge();
     const vector<UChar_t> &Photon_cleanmask();
     const vector<int> &Photon_cutBasedBitmap();
+    const vector<int> &Photon_cutBasedV1Bitmap();
     const vector<float> &Photon_eCorr();
     const vector<int> &Photon_electronIdx();
     const vector<bool> &Photon_electronVeto();
@@ -4144,6 +6211,7 @@ public:
     const vector<int> &Photon_jetIdx();
     const vector<float> &Photon_mass();
     const vector<float> &Photon_mvaID();
+    const vector<float> &Photon_mvaIDV1();
     const vector<bool> &Photon_mvaID_WP80();
     const vector<bool> &Photon_mvaID_WP90();
     const vector<LorentzVector> &Photon_p4();
@@ -4154,10 +6222,13 @@ public:
     const vector<bool> &Photon_pixelSeed();
     const vector<float> &Photon_pt();
     const vector<float> &Photon_r9();
+    const vector<UChar_t> &Photon_seedGain();
     const vector<float> &Photon_sieie();
     const vector<int> &Photon_vidNestedWPBitmap();
+    const float &Pileup_gpudensity();
     const int &Pileup_nPU();
     const float &Pileup_nTrueInt();
+    const float &Pileup_pudensity();
     const int &Pileup_sumEOOT();
     const int &Pileup_sumLOOT();
     const float &PuppiMET_phi();
@@ -4204,6 +6275,7 @@ public:
     const vector<LorentzVector> &SubJet_p4();
     const vector<float> &SubJet_phi();
     const vector<float> &SubJet_pt();
+    const vector<float> &SubJet_rawFactor();
     const vector<float> &SubJet_tau1();
     const vector<float> &SubJet_tau2();
     const vector<float> &SubJet_tau3();
@@ -4218,6 +6290,7 @@ public:
     const vector<UChar_t> &Tau_genPartFlav();
     const vector<int> &Tau_genPartIdx();
     const vector<UChar_t> &Tau_idAntiEle();
+    const vector<UChar_t> &Tau_idAntiEle2018();
     const vector<UChar_t> &Tau_idAntiMu();
     const vector<bool> &Tau_idDecayMode();
     const vector<bool> &Tau_idDecayModeNewDMs();
@@ -4238,7 +6311,9 @@ public:
     const vector<float> &Tau_pt();
     const vector<float> &Tau_puCorr();
     const vector<float> &Tau_rawAntiEle();
+    const vector<float> &Tau_rawAntiEle2018();
     const vector<int> &Tau_rawAntiEleCat();
+    const vector<int> &Tau_rawAntiEleCat2018();
     const vector<float> &Tau_rawIso();
     const vector<float> &Tau_rawIsodR03();
     const vector<float> &Tau_rawMVAnewDM2017v2();
@@ -4259,13 +6334,18 @@ public:
     const vector<float> &TrigObj_l2pt();
     const vector<float> &TrigObj_phi();
     const vector<float> &TrigObj_pt();
+    const float &btagWeight_CSVV2();
+    const float &btagWeight_DeepCSVB();
     const ULong64_t &event();
     const float &fixedGridRhoFastjetAll();
+    const float &fixedGridRhoFastjetCentral();
     const float &fixedGridRhoFastjetCentralCalo();
+    const float &fixedGridRhoFastjetCentralChargedPileUp();
     const float &fixedGridRhoFastjetCentralNeutral();
     const int &genTtbarId();
     const float &genWeight();
     const UInt_t &luminosityBlock();
+    const UInt_t &nCorrT1METJet();
     const UInt_t &nElectron();
     const UInt_t &nFatJet();
     const UInt_t &nGenDressedLepton();
@@ -4277,9 +6357,11 @@ public:
     const UInt_t &nJet();
     const UInt_t &nLHEPart();
     const UInt_t &nLHEPdfWeight();
+    const UInt_t &nLHEReweightingWeight();
     const UInt_t &nLHEScaleWeight();
     const UInt_t &nMuon();
     const UInt_t &nOtherPV();
+    const UInt_t &nPSWeight();
     const UInt_t &nPhoton();
     const UInt_t &nSV();
     const UInt_t &nSoftActivityJet();
@@ -4298,15 +6380,25 @@ namespace tas {
     const float &CaloMET_phi(); // phi
     const float &CaloMET_pt(); // pt
     const float &CaloMET_sumEt(); // scalar sum of Et
+    const float &ChsMET_phi(); // raw chs PF MET phi
+    const float &ChsMET_pt(); // raw chs PF MET pt
+    const float &ChsMET_sumEt(); // raw chs PF scalar sum of Et
+    const vector<float> &CorrT1METJet_area(); // jet catchment area, for JECs
+    const vector<float> &CorrT1METJet_eta(); // eta
+    const vector<float> &CorrT1METJet_muonSubtrFactor(); // 1-(muon-subtracted raw pt)/(raw pt)
+    const vector<float> &CorrT1METJet_phi(); // phi
+    const vector<float> &CorrT1METJet_rawPt(); // pt()*jecFactor('Uncorrected')
     const vector<int> &Electron_charge(); // electric charge
     const vector<UChar_t> &Electron_cleanmask(); // simple cleaning mask with priority to leptons
     const vector<bool> &Electron_convVeto(); // pass conversion veto
-    const vector<int> &Electron_cutBased(); // cut-based ID (0:fail, 1:veto, 2:loose, 3:medium, 4:tight)
+    const vector<int> &Electron_cutBased(); // cut-based ID Fall17 V2 (0:fail, 1:veto, 2:loose, 3:medium, 4:tight)
+    const vector<int> &Electron_cutBased_Fall17_V1(); // cut-based ID Fall17 V1 (0:fail, 1:veto, 2:loose, 3:medium, 4:tight)
     const vector<bool> &Electron_cutBased_HEEP(); // cut-based HEEP ID
     const vector<float> &Electron_deltaEtaSC(); // delta eta (SC,ele) with sign
     const vector<float> &Electron_dr03EcalRecHitSumEt(); // Non-PF Ecal isolation within a delta R cone of 0.3 with electron pt > 35 GeV
     const vector<float> &Electron_dr03HcalDepth1TowerSumEt(); // Non-PF Hcal isolation within a delta R cone of 0.3 with electron pt > 35 GeV
     const vector<float> &Electron_dr03TkSumPt(); // Non-PF track isolation within a delta R cone of 0.3 with electron pt > 35 GeV
+    const vector<float> &Electron_dr03TkSumPtHEEP(); // Non-PF track isolation within a delta R cone of 0.3 with electron pt > 35 GeV used in HEEP ID
     const vector<float> &Electron_dxy(); // dxy (with sign) wrt first PV, in cm
     const vector<float> &Electron_dxyErr(); // dxy uncertainty, in cm
     const vector<float> &Electron_dz(); // dz (with sign) wrt first PV, in cm
@@ -4321,18 +6413,28 @@ namespace tas {
     const vector<float> &Electron_ip3d(); // 3D impact parameter wrt first PV, in cm
     const vector<bool> &Electron_isPFcand(); // electron is PF candidate
     const vector<int> &Electron_jetIdx(); // index of the associated jet (-1 if none)
+    const vector<float> &Electron_jetPtRelv2(); // Relative momentum of the lepton with respect to the closest jet after subtracting the lepton
+    const vector<float> &Electron_jetRelIso(); // Relative isolation in matched jet (1/ptRatio-1, pfRelIso04_all if no matched jet)
     const vector<UChar_t> &Electron_lostHits(); // number of missing inner hits
     const vector<float> &Electron_mass(); // mass
     const vector<float> &Electron_miniPFRelIso_all(); // mini PF relative isolation, total (with scaled rho*EA PU corrections)
     const vector<float> &Electron_miniPFRelIso_chg(); // mini PF relative isolation, charged component
-    const vector<float> &Electron_mvaFall17Iso(); // MVA Iso ID score
-    const vector<bool> &Electron_mvaFall17Iso_WP80(); // MVA Iso ID WP80
-    const vector<bool> &Electron_mvaFall17Iso_WP90(); // MVA Iso ID WP90
-    const vector<bool> &Electron_mvaFall17Iso_WPL(); // MVA Iso ID loose WP
-    const vector<float> &Electron_mvaFall17noIso(); // MVA noIso ID score
-    const vector<bool> &Electron_mvaFall17noIso_WP80(); // MVA noIso ID WP80
-    const vector<bool> &Electron_mvaFall17noIso_WP90(); // MVA noIso ID WP90
-    const vector<bool> &Electron_mvaFall17noIso_WPL(); // MVA noIso ID loose WP
+    const vector<float> &Electron_mvaFall17V1Iso(); // MVA Iso ID V1 score
+    const vector<bool> &Electron_mvaFall17V1Iso_WP80(); // MVA Iso ID V1 WP80
+    const vector<bool> &Electron_mvaFall17V1Iso_WP90(); // MVA Iso ID V1 WP90
+    const vector<bool> &Electron_mvaFall17V1Iso_WPL(); // MVA Iso ID V1 loose WP
+    const vector<float> &Electron_mvaFall17V1noIso(); // MVA noIso ID V1 score
+    const vector<bool> &Electron_mvaFall17V1noIso_WP80(); // MVA noIso ID V1 WP80
+    const vector<bool> &Electron_mvaFall17V1noIso_WP90(); // MVA noIso ID V1 WP90
+    const vector<bool> &Electron_mvaFall17V1noIso_WPL(); // MVA noIso ID V1 loose WP
+    const vector<float> &Electron_mvaFall17V2Iso(); // MVA Iso ID V2 score
+    const vector<bool> &Electron_mvaFall17V2Iso_WP80(); // MVA Iso ID V2 WP80
+    const vector<bool> &Electron_mvaFall17V2Iso_WP90(); // MVA Iso ID V2 WP90
+    const vector<bool> &Electron_mvaFall17V2Iso_WPL(); // MVA Iso ID V2 loose WP
+    const vector<float> &Electron_mvaFall17V2noIso(); // MVA noIso ID V2 score
+    const vector<bool> &Electron_mvaFall17V2noIso_WP80(); // MVA noIso ID V2 WP80
+    const vector<bool> &Electron_mvaFall17V2noIso_WP90(); // MVA noIso ID V2 WP90
+    const vector<bool> &Electron_mvaFall17V2noIso_WPL(); // MVA noIso ID V2 loose WP
     const vector<float> &Electron_mvaTTH(); // TTH MVA lepton ID score
     const vector<LorentzVector> &Electron_p4(); // from Electron_pt,eta,phi,mass
     const vector<int> &Electron_pdgId(); // PDG code assigned by the event reconstruction (not by MC truth)
@@ -4342,15 +6444,35 @@ namespace tas {
     const vector<int> &Electron_photonIdx(); // index of the associated photon (-1 if none)
     const vector<float> &Electron_pt(); // p_{T}
     const vector<float> &Electron_r9(); // R9 of the supercluster, calculated with full 5x5 region
+    const vector<UChar_t> &Electron_seedGain(); // Gain of the seed crystal
     const vector<float> &Electron_sieie(); // sigma_IetaIeta of the supercluster, calculated with full 5x5 region
     const vector<float> &Electron_sip3d(); // 3D impact parameter significance wrt first PV, in cm
     const vector<int> &Electron_tightCharge(); // Tight charge criteria (0:none, 1:isGsfScPixChargeConsistent, 2:isGsfCtfScPixChargeConsistent)
-    const vector<int> &Electron_vidNestedWPBitmap(); // VID compressed bitmap (MinPtCut,GsfEleSCEtaMultiRangeCut,GsfEleDEtaInSeedCut,GsfEleDPhiInCut,GsfEleFull5x5SigmaIEtaIEtaCut,GsfEleHadronicOverEMEnergyScaledCut,GsfEleEInverseMinusPInverseCut,GsfEleEffAreaPFIsoCut,GsfEleConversionVetoCut,GsfEleMissingHitsCut), 3 bits per cut
+    const vector<int> &Electron_vidNestedWPBitmap(); // VID compressed bitmap (MinPtCut,GsfEleSCEtaMultiRangeCut,GsfEleDEtaInSeedCut,GsfEleDPhiInCut,GsfEleFull5x5SigmaIEtaIEtaCut,GsfEleHadronicOverEMEnergyScaledCut,GsfEleEInverseMinusPInverseCut,GsfEleRelPFIsoScaledCut,GsfEleConversionVetoCut,GsfEleMissingHitsCut), 3 bits per cut
     const vector<float> &FatJet_area(); // jet catchment area, for JECs
     const vector<float> &FatJet_btagCMVA(); // CMVA V2 btag discriminator
     const vector<float> &FatJet_btagCSVV2(); //  pfCombinedInclusiveSecondaryVertexV2 b-tag discriminator (aka CSVV2)
+    const vector<float> &FatJet_btagDDBvL(); // DeepDoubleX (mass-decorrelated) discriminator for H(Z)->bb vs QCD
+    const vector<float> &FatJet_btagDDCvB(); // DeepDoubleX (mass-decorrelated) discriminator for H(Z)->cc vs H(Z)->bb
+    const vector<float> &FatJet_btagDDCvL(); // DeepDoubleX (mass-decorrelated) discriminator for H(Z)->cc vs QCD
     const vector<float> &FatJet_btagDeepB(); // DeepCSV b+bb tag discriminator
     const vector<float> &FatJet_btagHbb(); // Higgs to BB tagger discriminator
+    const vector<float> &FatJet_deepTagMD_H4qvsQCD(); // Mass-decorrelated DeepBoostedJet tagger H->4q vs QCD discriminator
+    const vector<float> &FatJet_deepTagMD_HbbvsQCD(); // Mass-decorrelated DeepBoostedJet tagger H->bb vs QCD discriminator
+    const vector<float> &FatJet_deepTagMD_TvsQCD(); // Mass-decorrelated DeepBoostedJet tagger top vs QCD discriminator
+    const vector<float> &FatJet_deepTagMD_WvsQCD(); // Mass-decorrelated DeepBoostedJet tagger W vs QCD discriminator
+    const vector<float> &FatJet_deepTagMD_ZHbbvsQCD(); // Mass-decorrelated DeepBoostedJet tagger Z/H->bb vs QCD discriminator
+    const vector<float> &FatJet_deepTagMD_ZHccvsQCD(); // Mass-decorrelated DeepBoostedJet tagger Z/H->cc vs QCD discriminator
+    const vector<float> &FatJet_deepTagMD_ZbbvsQCD(); // Mass-decorrelated DeepBoostedJet tagger Z->bb vs QCD discriminator
+    const vector<float> &FatJet_deepTagMD_ZvsQCD(); // Mass-decorrelated DeepBoostedJet tagger Z vs QCD discriminator
+    const vector<float> &FatJet_deepTagMD_bbvsLight(); // Mass-decorrelated DeepBoostedJet tagger Z/H/gluon->bb vs light flavour discriminator
+    const vector<float> &FatJet_deepTagMD_ccvsLight(); // Mass-decorrelated DeepBoostedJet tagger Z/H/gluon->cc vs light flavour discriminator
+    const vector<float> &FatJet_deepTag_H(); // DeepBoostedJet tagger H(bb,cc,4q) sum
+    const vector<float> &FatJet_deepTag_QCD(); // DeepBoostedJet tagger QCD(bb,cc,b,c,others) sum
+    const vector<float> &FatJet_deepTag_QCDothers(); // DeepBoostedJet tagger QCDothers value
+    const vector<float> &FatJet_deepTag_TvsQCD(); // DeepBoostedJet tagger top vs QCD discriminator
+    const vector<float> &FatJet_deepTag_WvsQCD(); // DeepBoostedJet tagger W vs QCD discriminator
+    const vector<float> &FatJet_deepTag_ZvsQCD(); // DeepBoostedJet tagger Z vs QCD discriminator
     const vector<float> &FatJet_eta(); // eta
     const vector<int> &FatJet_jetId(); // Jet ID flags bit1 is loose (always false in 2017 since it does not exist), bit2 is tight, bit3 is tightLepVeto
     const vector<float> &FatJet_mass(); // mass
@@ -4360,6 +6482,7 @@ namespace tas {
     const vector<LorentzVector> &FatJet_p4(); // from FatJet_pt,eta,phi,mass
     const vector<float> &FatJet_phi(); // phi
     const vector<float> &FatJet_pt(); // pt
+    const vector<float> &FatJet_rawFactor(); // 1 - Factor to get back to raw pT
     const vector<int> &FatJet_subJetIdx1(); // index of first subjet
     const vector<int> &FatJet_subJetIdx2(); // index of second subjet
     const vector<float> &FatJet_tau1(); // Nsubjettiness (1 axis)
@@ -4381,6 +6504,7 @@ namespace tas {
     const bool &Flag_METFilters(); // Trigger/flag bit
     const bool &Flag_chargedHadronTrackResolutionFilter(); // Trigger/flag bit
     const bool &Flag_ecalBadCalibFilter(); // Trigger/flag bit
+    const bool &Flag_ecalBadCalibFilterV2(); // Bad ECAL calib flag (updated xtal list)
     const bool &Flag_ecalLaserCorrFilter(); // Trigger/flag bit
     const bool &Flag_eeBadScFilter(); // Trigger/flag bit
     const bool &Flag_globalSuperTightHalo2016Filter(); // Trigger/flag bit
@@ -4393,6 +6517,7 @@ namespace tas {
     const bool &Flag_trkPOG_manystripclus53X(); // Trigger/flag bit
     const bool &Flag_trkPOG_toomanystripclus53X(); // Trigger/flag bit
     const vector<float> &GenDressedLepton_eta(); // eta
+    const vector<bool> &GenDressedLepton_hasTauAnc(); // true if Dressed lepton has a tau as ancestor
     const vector<float> &GenDressedLepton_mass(); // mass
     const vector<LorentzVector> &GenDressedLepton_p4(); // from GenDressedLepton_pt,eta,phi,mass
     const vector<int> &GenDressedLepton_pdgId(); // PDG id
@@ -4456,11 +6581,16 @@ namespace tas {
     const bool &HLT_AK8PFHT850_TrimMass50(); // Trigger/flag bit
     const bool &HLT_AK8PFHT900_TrimMass50(); // Trigger/flag bit
     const bool &HLT_AK8PFJet140(); // Trigger/flag bit
+    const bool &HLT_AK8PFJet15(); // Trigger/flag bit
     const bool &HLT_AK8PFJet200(); // Trigger/flag bit
+    const bool &HLT_AK8PFJet25(); // Trigger/flag bit
     const bool &HLT_AK8PFJet260(); // Trigger/flag bit
     const bool &HLT_AK8PFJet320(); // Trigger/flag bit
-    const bool &HLT_AK8PFJet330_PFAK8BTagCSV_p1(); // Trigger/flag bit
-    const bool &HLT_AK8PFJet330_PFAK8BTagCSV_p17(); // Trigger/flag bit
+    const bool &HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p1(); // Trigger/flag bit
+    const bool &HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p17(); // Trigger/flag bit
+    const bool &HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np2(); // Trigger/flag bit
+    const bool &HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np4(); // Trigger/flag bit
+    const bool &HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_p02(); // Trigger/flag bit
     const bool &HLT_AK8PFJet360_TrimMass30(); // Trigger/flag bit
     const bool &HLT_AK8PFJet380_TrimMass30(); // Trigger/flag bit
     const bool &HLT_AK8PFJet40(); // Trigger/flag bit
@@ -4473,7 +6603,9 @@ namespace tas {
     const bool &HLT_AK8PFJet60(); // Trigger/flag bit
     const bool &HLT_AK8PFJet80(); // Trigger/flag bit
     const bool &HLT_AK8PFJetFwd140(); // Trigger/flag bit
+    const bool &HLT_AK8PFJetFwd15(); // Trigger/flag bit
     const bool &HLT_AK8PFJetFwd200(); // Trigger/flag bit
+    const bool &HLT_AK8PFJetFwd25(); // Trigger/flag bit
     const bool &HLT_AK8PFJetFwd260(); // Trigger/flag bit
     const bool &HLT_AK8PFJetFwd320(); // Trigger/flag bit
     const bool &HLT_AK8PFJetFwd40(); // Trigger/flag bit
@@ -4483,13 +6615,25 @@ namespace tas {
     const bool &HLT_AK8PFJetFwd60(); // Trigger/flag bit
     const bool &HLT_AK8PFJetFwd80(); // Trigger/flag bit
     const bool &HLT_BTagMu_AK4DiJet110_Mu5(); // Trigger/flag bit
+    const bool &HLT_BTagMu_AK4DiJet110_Mu5_noalgo(); // Trigger/flag bit
     const bool &HLT_BTagMu_AK4DiJet170_Mu5(); // Trigger/flag bit
+    const bool &HLT_BTagMu_AK4DiJet170_Mu5_noalgo(); // Trigger/flag bit
     const bool &HLT_BTagMu_AK4DiJet20_Mu5(); // Trigger/flag bit
+    const bool &HLT_BTagMu_AK4DiJet20_Mu5_noalgo(); // Trigger/flag bit
     const bool &HLT_BTagMu_AK4DiJet40_Mu5(); // Trigger/flag bit
+    const bool &HLT_BTagMu_AK4DiJet40_Mu5_noalgo(); // Trigger/flag bit
     const bool &HLT_BTagMu_AK4DiJet70_Mu5(); // Trigger/flag bit
+    const bool &HLT_BTagMu_AK4DiJet70_Mu5_noalgo(); // Trigger/flag bit
     const bool &HLT_BTagMu_AK4Jet300_Mu5(); // Trigger/flag bit
+    const bool &HLT_BTagMu_AK4Jet300_Mu5_noalgo(); // Trigger/flag bit
     const bool &HLT_BTagMu_AK8DiJet170_Mu5(); // Trigger/flag bit
+    const bool &HLT_BTagMu_AK8DiJet170_Mu5_noalgo(); // Trigger/flag bit
+    const bool &HLT_BTagMu_AK8Jet170_DoubleMu5(); // Trigger/flag bit
+    const bool &HLT_BTagMu_AK8Jet170_DoubleMu5_noalgo(); // Trigger/flag bit
     const bool &HLT_BTagMu_AK8Jet300_Mu5(); // Trigger/flag bit
+    const bool &HLT_BTagMu_AK8Jet300_Mu5_noalgo(); // Trigger/flag bit
+    const bool &HLT_CDC_L2cosmic_5_er1p0(); // Trigger/flag bit
+    const bool &HLT_CDC_L2cosmic_5p5_er1p0(); // Trigger/flag bit
     const bool &HLT_CaloJet500_NoJetID(); // Trigger/flag bit
     const bool &HLT_CaloJet550_NoJetID(); // Trigger/flag bit
     const bool &HLT_CaloMET100_HBHECleaned(); // Trigger/flag bit
@@ -4509,23 +6653,17 @@ namespace tas {
     const bool &HLT_DiJet110_35_Mjj650_PFMET110(); // Trigger/flag bit
     const bool &HLT_DiJet110_35_Mjj650_PFMET120(); // Trigger/flag bit
     const bool &HLT_DiJet110_35_Mjj650_PFMET130(); // Trigger/flag bit
+    const bool &HLT_DiMu4_Ele9_CaloIdL_TrackIdL_DZ_Mass3p8(); // Trigger/flag bit
     const bool &HLT_DiMu9_Ele9_CaloIdL_TrackIdL(); // Trigger/flag bit
     const bool &HLT_DiMu9_Ele9_CaloIdL_TrackIdL_DZ(); // Trigger/flag bit
-    const bool &HLT_DiPFJet15_FBEta3_NoCaloMatched(); // Trigger/flag bit
-    const bool &HLT_DiPFJet15_NoCaloMatched(); // Trigger/flag bit
-    const bool &HLT_DiPFJet25_FBEta3_NoCaloMatched(); // Trigger/flag bit
-    const bool &HLT_DiPFJet25_NoCaloMatched(); // Trigger/flag bit
     const bool &HLT_DiPFJetAve100_HFJEC(); // Trigger/flag bit
     const bool &HLT_DiPFJetAve140(); // Trigger/flag bit
-    const bool &HLT_DiPFJetAve15_HFJEC(); // Trigger/flag bit
     const bool &HLT_DiPFJetAve160_HFJEC(); // Trigger/flag bit
     const bool &HLT_DiPFJetAve200(); // Trigger/flag bit
     const bool &HLT_DiPFJetAve220_HFJEC(); // Trigger/flag bit
-    const bool &HLT_DiPFJetAve25_HFJEC(); // Trigger/flag bit
     const bool &HLT_DiPFJetAve260(); // Trigger/flag bit
     const bool &HLT_DiPFJetAve300_HFJEC(); // Trigger/flag bit
     const bool &HLT_DiPFJetAve320(); // Trigger/flag bit
-    const bool &HLT_DiPFJetAve35_HFJEC(); // Trigger/flag bit
     const bool &HLT_DiPFJetAve40(); // Trigger/flag bit
     const bool &HLT_DiPFJetAve400(); // Trigger/flag bit
     const bool &HLT_DiPFJetAve500(); // Trigger/flag bit
@@ -4557,8 +6695,7 @@ namespace tas {
     const bool &HLT_Dimuon0_Upsilon_Muon_NoL1Mass(); // Trigger/flag bit
     const bool &HLT_Dimuon0_Upsilon_NoVertexing(); // Trigger/flag bit
     const bool &HLT_Dimuon10_PsiPrime_Barrel_Seagulls(); // Trigger/flag bit
-    const bool &HLT_Dimuon10_Upsilon_Barrel_Seagulls(); // Trigger/flag bit
-    const bool &HLT_Dimuon12_Upsilon_eta1p5(); // Trigger/flag bit
+    const bool &HLT_Dimuon12_Upsilon_y1p4(); // Trigger/flag bit
     const bool &HLT_Dimuon14_Phi_Barrel_Seagulls(); // Trigger/flag bit
     const bool &HLT_Dimuon18_PsiPrime(); // Trigger/flag bit
     const bool &HLT_Dimuon18_PsiPrime_noCorrL1(); // Trigger/flag bit
@@ -4567,12 +6704,10 @@ namespace tas {
     const bool &HLT_Dimuon24_Upsilon_noCorrL1(); // Trigger/flag bit
     const bool &HLT_Dimuon25_Jpsi(); // Trigger/flag bit
     const bool &HLT_Dimuon25_Jpsi_noCorrL1(); // Trigger/flag bit
-    const bool &HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55(); // Trigger/flag bit
-    const bool &HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55(); // Trigger/flag bit
     const bool &HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55(); // Trigger/flag bit
     const bool &HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55(); // Trigger/flag bit
-    const bool &HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55(); // Trigger/flag bit
-    const bool &HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55(); // Trigger/flag bit
+    const bool &HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto(); // Trigger/flag bit
+    const bool &HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_Mass55(); // Trigger/flag bit
     const bool &HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90(); // Trigger/flag bit
     const bool &HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass95(); // Trigger/flag bit
     const bool &HLT_DoubleEle24_eta2p1_WPTight_Gsf(); // Trigger/flag bit
@@ -4582,65 +6717,80 @@ namespace tas {
     const bool &HLT_DoubleEle8_CaloIdM_TrackIdM_Mass8_DZ_PFHT350(); // Trigger/flag bit
     const bool &HLT_DoubleEle8_CaloIdM_TrackIdM_Mass8_PFHT350(); // Trigger/flag bit
     const bool &HLT_DoubleIsoMu20_eta2p1(); // Trigger/flag bit
-    const bool &HLT_DoubleIsoMu24_eta2p1(); // Trigger/flag bit
+    const bool &HLT_DoubleL2Mu23NoVtx_2Cha(); // Trigger/flag bit
+    const bool &HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed(); // Trigger/flag bit
+    const bool &HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_NoL2Matched(); // Trigger/flag bit
+    const bool &HLT_DoubleL2Mu23NoVtx_2Cha_NoL2Matched(); // Trigger/flag bit
+    const bool &HLT_DoubleL2Mu25NoVtx_2Cha(); // Trigger/flag bit
+    const bool &HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed(); // Trigger/flag bit
+    const bool &HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_Eta2p4(); // Trigger/flag bit
+    const bool &HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_NoL2Matched(); // Trigger/flag bit
+    const bool &HLT_DoubleL2Mu25NoVtx_2Cha_Eta2p4(); // Trigger/flag bit
+    const bool &HLT_DoubleL2Mu25NoVtx_2Cha_NoL2Matched(); // Trigger/flag bit
+    const bool &HLT_DoubleL2Mu30NoVtx_2Cha_CosmicSeed_Eta2p4(); // Trigger/flag bit
+    const bool &HLT_DoubleL2Mu30NoVtx_2Cha_Eta2p4(); // Trigger/flag bit
     const bool &HLT_DoubleL2Mu50(); // Trigger/flag bit
-    const bool &HLT_DoubleLooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg(); // Trigger/flag bit
-    const bool &HLT_DoubleLooseChargedIsoPFTau35_Trk1_eta2p1_Reg(); // Trigger/flag bit
-    const bool &HLT_DoubleLooseChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg(); // Trigger/flag bit
-    const bool &HLT_DoubleLooseChargedIsoPFTau40_Trk1_eta2p1_Reg(); // Trigger/flag bit
-    const bool &HLT_DoubleMediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg(); // Trigger/flag bit
-    const bool &HLT_DoubleMediumChargedIsoPFTau35_Trk1_eta2p1_Reg(); // Trigger/flag bit
-    const bool &HLT_DoubleMediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg(); // Trigger/flag bit
-    const bool &HLT_DoubleMediumChargedIsoPFTau40_Trk1_eta2p1_Reg(); // Trigger/flag bit
+    const bool &HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg(); // Trigger/flag bit
+    const bool &HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg(); // Trigger/flag bit
+    const bool &HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg(); // Trigger/flag bit
+    const bool &HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_eta2p1_Reg(); // Trigger/flag bit
     const bool &HLT_DoubleMu20_7_Mass0to30_L1_DM4(); // Trigger/flag bit
     const bool &HLT_DoubleMu20_7_Mass0to30_L1_DM4EG(); // Trigger/flag bit
     const bool &HLT_DoubleMu20_7_Mass0to30_Photon23(); // Trigger/flag bit
     const bool &HLT_DoubleMu2_Jpsi_DoubleTkMu0_Phi(); // Trigger/flag bit
-    const bool &HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi(); // Trigger/flag bit
+    const bool &HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi1p05(); // Trigger/flag bit
+    const bool &HLT_DoubleMu33NoFiltersNoVtxDisplaced(); // Trigger/flag bit
     const bool &HLT_DoubleMu3_DCA_PFMET50_PFMHT60(); // Trigger/flag bit
     const bool &HLT_DoubleMu3_DZ_PFMET50_PFMHT60(); // Trigger/flag bit
     const bool &HLT_DoubleMu3_DZ_PFMET70_PFMHT70(); // Trigger/flag bit
     const bool &HLT_DoubleMu3_DZ_PFMET90_PFMHT90(); // Trigger/flag bit
+    const bool &HLT_DoubleMu3_DoubleEle7p5_CaloIdL_TrackIdL_Upsilon(); // Trigger/flag bit
+    const bool &HLT_DoubleMu3_TkMu_DsTau3Mu(); // Trigger/flag bit
     const bool &HLT_DoubleMu3_Trk_Tau3mu(); // Trigger/flag bit
     const bool &HLT_DoubleMu3_Trk_Tau3mu_NoL1Mass(); // Trigger/flag bit
+    const bool &HLT_DoubleMu40NoFiltersNoVtxDisplaced(); // Trigger/flag bit
     const bool &HLT_DoubleMu43NoFiltersNoVtx(); // Trigger/flag bit
     const bool &HLT_DoubleMu48NoFiltersNoVtx(); // Trigger/flag bit
     const bool &HLT_DoubleMu4_3_Bs(); // Trigger/flag bit
-    const bool &HLT_DoubleMu4_3_Jpsi_Displaced(); // Trigger/flag bit
+    const bool &HLT_DoubleMu4_3_Jpsi(); // Trigger/flag bit
     const bool &HLT_DoubleMu4_JpsiTrkTrk_Displaced(); // Trigger/flag bit
     const bool &HLT_DoubleMu4_JpsiTrk_Displaced(); // Trigger/flag bit
     const bool &HLT_DoubleMu4_Jpsi_Displaced(); // Trigger/flag bit
     const bool &HLT_DoubleMu4_Jpsi_NoVertexing(); // Trigger/flag bit
     const bool &HLT_DoubleMu4_LowMassNonResonantTrk_Displaced(); // Trigger/flag bit
-    const bool &HLT_DoubleMu4_Mass8_DZ_PFHT350(); // Trigger/flag bit
+    const bool &HLT_DoubleMu4_Mass3p8_DZ_PFHT350(); // Trigger/flag bit
     const bool &HLT_DoubleMu4_PsiPrimeTrk_Displaced(); // Trigger/flag bit
-    const bool &HLT_DoubleMu8_Mass8_PFHT350(); // Trigger/flag bit
-    const bool &HLT_DoublePFJets100MaxDeta1p6_DoubleCaloBTagCSV_p33(); // Trigger/flag bit
-    const bool &HLT_DoublePFJets100_CaloBTagCSV_p33(); // Trigger/flag bit
-    const bool &HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagCSV_p33(); // Trigger/flag bit
-    const bool &HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagCSV_p33(); // Trigger/flag bit
-    const bool &HLT_DoublePFJets200_CaloBTagCSV_p33(); // Trigger/flag bit
-    const bool &HLT_DoublePFJets350_CaloBTagCSV_p33(); // Trigger/flag bit
-    const bool &HLT_DoublePFJets40_CaloBTagCSV_p33(); // Trigger/flag bit
+    const bool &HLT_DoubleMu5_Upsilon_DoubleEle3_CaloIdL_TrackIdL(); // Trigger/flag bit
+    const bool &HLT_DoublePFJets100_CaloBTagDeepCSV_p71(); // Trigger/flag bit
+    const bool &HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagDeepCSV_p71(); // Trigger/flag bit
+    const bool &HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagDeepCSV_p71(); // Trigger/flag bit
+    const bool &HLT_DoublePFJets200_CaloBTagDeepCSV_p71(); // Trigger/flag bit
+    const bool &HLT_DoublePFJets350_CaloBTagDeepCSV_p71(); // Trigger/flag bit
+    const bool &HLT_DoublePFJets40_CaloBTagDeepCSV_p71(); // Trigger/flag bit
     const bool &HLT_DoublePhoton33_CaloIdL(); // Trigger/flag bit
     const bool &HLT_DoublePhoton70(); // Trigger/flag bit
     const bool &HLT_DoublePhoton85(); // Trigger/flag bit
-    const bool &HLT_DoubleTightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg(); // Trigger/flag bit
-    const bool &HLT_DoubleTightChargedIsoPFTau35_Trk1_eta2p1_Reg(); // Trigger/flag bit
-    const bool &HLT_DoubleTightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg(); // Trigger/flag bit
-    const bool &HLT_DoubleTightChargedIsoPFTau40_Trk1_eta2p1_Reg(); // Trigger/flag bit
+    const bool &HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg(); // Trigger/flag bit
+    const bool &HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg(); // Trigger/flag bit
+    const bool &HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg(); // Trigger/flag bit
+    const bool &HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_eta2p1_Reg(); // Trigger/flag bit
+    const bool &HLT_DoubleTrkMu_16_6_NoFiltersNoVtx(); // Trigger/flag bit
     const bool &HLT_ECALHT800(); // Trigger/flag bit
     const bool &HLT_EcalCalibration(); // Trigger/flag bit
     const bool &HLT_Ele115_CaloIdVT_GsfTrkIdT(); // Trigger/flag bit
     const bool &HLT_Ele12_CaloIdL_TrackIdL_IsoVL_PFJet30(); // Trigger/flag bit
     const bool &HLT_Ele135_CaloIdVT_GsfTrkIdT(); // Trigger/flag bit
     const bool &HLT_Ele145_CaloIdVT_GsfTrkIdT(); // Trigger/flag bit
+    const bool &HLT_Ele15_CaloIdL_TrackIdL_IsoVL_PFJet30(); // Trigger/flag bit
+    const bool &HLT_Ele15_Ele8_CaloIdL_TrackIdL_IsoVL(); // Trigger/flag bit
     const bool &HLT_Ele15_IsoVVVL_PFHT450(); // Trigger/flag bit
-    const bool &HLT_Ele15_IsoVVVL_PFHT450_CaloBTagCSV_4p5(); // Trigger/flag bit
+    const bool &HLT_Ele15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5(); // Trigger/flag bit
     const bool &HLT_Ele15_IsoVVVL_PFHT450_PFMET50(); // Trigger/flag bit
     const bool &HLT_Ele15_IsoVVVL_PFHT600(); // Trigger/flag bit
+    const bool &HLT_Ele15_WPLoose_Gsf(); // Trigger/flag bit
     const bool &HLT_Ele16_Ele12_Ele8_CaloIdL_TrackIdL(); // Trigger/flag bit
     const bool &HLT_Ele17_CaloIdM_TrackIdM_PFJet30(); // Trigger/flag bit
+    const bool &HLT_Ele17_WPLoose_Gsf(); // Trigger/flag bit
     const bool &HLT_Ele200_CaloIdVT_GsfTrkIdT(); // Trigger/flag bit
     const bool &HLT_Ele20_WPLoose_Gsf(); // Trigger/flag bit
     const bool &HLT_Ele20_WPTight_Gsf(); // Trigger/flag bit
@@ -4649,18 +6799,20 @@ namespace tas {
     const bool &HLT_Ele23_CaloIdM_TrackIdM_PFJet30(); // Trigger/flag bit
     const bool &HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL(); // Trigger/flag bit
     const bool &HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_DZ(); // Trigger/flag bit
-    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_CrossL1(); // Trigger/flag bit
-    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_TightID_CrossL1(); // Trigger/flag bit
-    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_CrossL1(); // Trigger/flag bit
-    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_TightID_CrossL1(); // Trigger/flag bit
-    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_CrossL1(); // Trigger/flag bit
-    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_TightID_CrossL1(); // Trigger/flag bit
+    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_CrossL1(); // Trigger/flag bit
+    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1(); // Trigger/flag bit
+    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_CrossL1(); // Trigger/flag bit
+    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1(); // Trigger/flag bit
+    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_CrossL1(); // Trigger/flag bit
+    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1(); // Trigger/flag bit
     const bool &HLT_Ele250_CaloIdVT_GsfTrkIdT(); // Trigger/flag bit
     const bool &HLT_Ele27_Ele37_CaloIdL_MW(); // Trigger/flag bit
     const bool &HLT_Ele27_WPTight_Gsf(); // Trigger/flag bit
     const bool &HLT_Ele28_HighEta_SC20_Mass55(); // Trigger/flag bit
+    const bool &HLT_Ele28_WPTight_Gsf(); // Trigger/flag bit
     const bool &HLT_Ele28_eta2p1_WPTight_Gsf_HT150(); // Trigger/flag bit
     const bool &HLT_Ele300_CaloIdVT_GsfTrkIdT(); // Trigger/flag bit
+    const bool &HLT_Ele30_WPTight_Gsf(); // Trigger/flag bit
     const bool &HLT_Ele30_eta2p1_WPTight_Gsf_CentralPFJet35_EleCleaned(); // Trigger/flag bit
     const bool &HLT_Ele32_WPTight_Gsf(); // Trigger/flag bit
     const bool &HLT_Ele32_WPTight_Gsf_L1DoubleEG(); // Trigger/flag bit
@@ -4672,78 +6824,54 @@ namespace tas {
     const bool &HLT_Ele50_IsoVVVL_PFHT450(); // Trigger/flag bit
     const bool &HLT_Ele8_CaloIdL_TrackIdL_IsoVL_PFJet30(); // Trigger/flag bit
     const bool &HLT_Ele8_CaloIdM_TrackIdM_PFJet30(); // Trigger/flag bit
-    const bool &HLT_FullTrack_Multiplicity100(); // Trigger/flag bit
-    const bool &HLT_FullTrack_Multiplicity130(); // Trigger/flag bit
-    const bool &HLT_FullTrack_Multiplicity155(); // Trigger/flag bit
-    const bool &HLT_FullTrack_Multiplicity85(); // Trigger/flag bit
-    const bool &HLT_HISinglePhoton10_Eta3p1ForPPRef(); // Trigger/flag bit
-    const bool &HLT_HISinglePhoton20_Eta3p1ForPPRef(); // Trigger/flag bit
-    const bool &HLT_HISinglePhoton30_Eta3p1ForPPRef(); // Trigger/flag bit
-    const bool &HLT_HISinglePhoton40_Eta3p1ForPPRef(); // Trigger/flag bit
-    const bool &HLT_HISinglePhoton50_Eta3p1ForPPRef(); // Trigger/flag bit
-    const bool &HLT_HISinglePhoton60_Eta3p1ForPPRef(); // Trigger/flag bit
     const bool &HLT_HT300_Beamspot(); // Trigger/flag bit
     const bool &HLT_HT400_DisplacedDijet40_DisplacedTrack(); // Trigger/flag bit
     const bool &HLT_HT425(); // Trigger/flag bit
     const bool &HLT_HT430_DisplacedDijet40_DisplacedTrack(); // Trigger/flag bit
     const bool &HLT_HT430_DisplacedDijet60_DisplacedTrack(); // Trigger/flag bit
-    const bool &HLT_HT430_DisplacedDijet80_DisplacedTrack(); // Trigger/flag bit
     const bool &HLT_HT450_Beamspot(); // Trigger/flag bit
+    const bool &HLT_HT500_DisplacedDijet40_DisplacedTrack(); // Trigger/flag bit
     const bool &HLT_HT550_DisplacedDijet60_Inclusive(); // Trigger/flag bit
-    const bool &HLT_HT550_DisplacedDijet80_Inclusive(); // Trigger/flag bit
     const bool &HLT_HT650_DisplacedDijet60_Inclusive(); // Trigger/flag bit
-    const bool &HLT_HT650_DisplacedDijet80_Inclusive(); // Trigger/flag bit
-    const bool &HLT_HT750_DisplacedDijet80_Inclusive(); // Trigger/flag bit
     const bool &HLT_HcalCalibration(); // Trigger/flag bit
     const bool &HLT_HcalIsolatedbunch(); // Trigger/flag bit
     const bool &HLT_HcalNZS(); // Trigger/flag bit
     const bool &HLT_HcalPhiSym(); // Trigger/flag bit
     const bool &HLT_IsoMu20(); // Trigger/flag bit
-    const bool &HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_CrossL1(); // Trigger/flag bit
-    const bool &HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_TightID_CrossL1(); // Trigger/flag bit
-    const bool &HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_CrossL1(); // Trigger/flag bit
-    const bool &HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_TightID_CrossL1(); // Trigger/flag bit
-    const bool &HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_CrossL1(); // Trigger/flag bit
-    const bool &HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_TightID_CrossL1(); // Trigger/flag bit
+    const bool &HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1(); // Trigger/flag bit
+    const bool &HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1(); // Trigger/flag bit
+    const bool &HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_CrossL1(); // Trigger/flag bit
+    const bool &HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1(); // Trigger/flag bit
+    const bool &HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_CrossL1(); // Trigger/flag bit
+    const bool &HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1(); // Trigger/flag bit
     const bool &HLT_IsoMu24(); // Trigger/flag bit
+    const bool &HLT_IsoMu24_TwoProngs35(); // Trigger/flag bit
     const bool &HLT_IsoMu24_eta2p1(); // Trigger/flag bit
-    const bool &HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_SingleL1(); // Trigger/flag bit
-    const bool &HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_TightID_SingleL1(); // Trigger/flag bit
-    const bool &HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1(); // Trigger/flag bit
-    const bool &HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1(); // Trigger/flag bit
-    const bool &HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_SingleL1(); // Trigger/flag bit
-    const bool &HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_TightID_SingleL1(); // Trigger/flag bit
-    const bool &HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1(); // Trigger/flag bit
-    const bool &HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1(); // Trigger/flag bit
-    const bool &HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1(); // Trigger/flag bit
-    const bool &HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1(); // Trigger/flag bit
     const bool &HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr(); // Trigger/flag bit
-    const bool &HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_SingleL1(); // Trigger/flag bit
-    const bool &HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_TightID_SingleL1(); // Trigger/flag bit
-    const bool &HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1(); // Trigger/flag bit
-    const bool &HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1(); // Trigger/flag bit
-    const bool &HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1(); // Trigger/flag bit
-    const bool &HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1(); // Trigger/flag bit
+    const bool &HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1(); // Trigger/flag bit
+    const bool &HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1(); // Trigger/flag bit
+    const bool &HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1(); // Trigger/flag bit
+    const bool &HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1(); // Trigger/flag bit
     const bool &HLT_IsoMu27(); // Trigger/flag bit
-    const bool &HLT_IsoMu27_LooseChargedIsoPFTau20_SingleL1(); // Trigger/flag bit
-    const bool &HLT_IsoMu27_MediumChargedIsoPFTau20_SingleL1(); // Trigger/flag bit
-    const bool &HLT_IsoMu27_TightChargedIsoPFTau20_SingleL1(); // Trigger/flag bit
+    const bool &HLT_IsoMu27_LooseChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1(); // Trigger/flag bit
+    const bool &HLT_IsoMu27_MET90(); // Trigger/flag bit
+    const bool &HLT_IsoMu27_MediumChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1(); // Trigger/flag bit
+    const bool &HLT_IsoMu27_TightChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1(); // Trigger/flag bit
     const bool &HLT_IsoMu30(); // Trigger/flag bit
     const bool &HLT_IsoTrackHB(); // Trigger/flag bit
     const bool &HLT_IsoTrackHE(); // Trigger/flag bit
     const bool &HLT_L1ETMHadSeeds(); // Trigger/flag bit
-    const bool &HLT_L1MinimumBiasHF0OR(); // Trigger/flag bit
-    const bool &HLT_L1MinimumBiasHF_OR(); // Trigger/flag bit
     const bool &HLT_L1NotBptxOR(); // Trigger/flag bit
     const bool &HLT_L1SingleMu18(); // Trigger/flag bit
     const bool &HLT_L1SingleMu25(); // Trigger/flag bit
     const bool &HLT_L1UnpairedBunchBptxMinus(); // Trigger/flag bit
     const bool &HLT_L1UnpairedBunchBptxPlus(); // Trigger/flag bit
     const bool &HLT_L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142(); // Trigger/flag bit
-    const bool &HLT_L1_DoubleJet30_Mass_Min400_Mu10(); // Trigger/flag bit
     const bool &HLT_L2Mu10(); // Trigger/flag bit
     const bool &HLT_L2Mu10_NoVertex_NoBPTX(); // Trigger/flag bit
     const bool &HLT_L2Mu10_NoVertex_NoBPTX3BX(); // Trigger/flag bit
+    const bool &HLT_L2Mu23NoVtx_2Cha(); // Trigger/flag bit
+    const bool &HLT_L2Mu23NoVtx_2Cha_CosmicSeed(); // Trigger/flag bit
     const bool &HLT_L2Mu40_NoVertex_3Sta_NoBPTX3BX(); // Trigger/flag bit
     const bool &HLT_L2Mu45_NoVertex_3Sta_NoBPTX3BX(); // Trigger/flag bit
     const bool &HLT_L2Mu50(); // Trigger/flag bit
@@ -4751,29 +6879,39 @@ namespace tas {
     const bool &HLT_MET120_IsoTrk50(); // Trigger/flag bit
     const bool &HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1(); // Trigger/flag bit
     const bool &HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1_1pr(); // Trigger/flag bit
+    const bool &HLT_MediumChargedIsoPFTau200HighPtRelaxedIso_Trk50_eta2p1(); // Trigger/flag bit
+    const bool &HLT_MediumChargedIsoPFTau220HighPtRelaxedIso_Trk50_eta2p1(); // Trigger/flag bit
     const bool &HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr(); // Trigger/flag bit
     const bool &HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET100(); // Trigger/flag bit
     const bool &HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET110(); // Trigger/flag bit
     const bool &HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET120(); // Trigger/flag bit
     const bool &HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET130(); // Trigger/flag bit
+    const bool &HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET140(); // Trigger/flag bit
     const bool &HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET90(); // Trigger/flag bit
     const bool &HLT_MonoCentralPFJet80_PFMETNoMu110_PFMHTNoMu110_IDTight(); // Trigger/flag bit
     const bool &HLT_MonoCentralPFJet80_PFMETNoMu120_PFMHTNoMu120_IDTight(); // Trigger/flag bit
     const bool &HLT_MonoCentralPFJet80_PFMETNoMu130_PFMHTNoMu130_IDTight(); // Trigger/flag bit
     const bool &HLT_MonoCentralPFJet80_PFMETNoMu140_PFMHTNoMu140_IDTight(); // Trigger/flag bit
     const bool &HLT_Mu10_TrkIsoVVL_DiPFJet40_DEta3p5_MJJ750_HTT350_PFMETNoMu60(); // Trigger/flag bit
-    const bool &HLT_Mu12_DoublePFJets100_CaloBTagCSV_p33(); // Trigger/flag bit
-    const bool &HLT_Mu12_DoublePFJets200_CaloBTagCSV_p33(); // Trigger/flag bit
-    const bool &HLT_Mu12_DoublePFJets350_CaloBTagCSV_p33(); // Trigger/flag bit
-    const bool &HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagCSV_p33(); // Trigger/flag bit
-    const bool &HLT_Mu12_DoublePFJets40_CaloBTagCSV_p33(); // Trigger/flag bit
-    const bool &HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagCSV_p33(); // Trigger/flag bit
-    const bool &HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagCSV_p33(); // Trigger/flag bit
+    const bool &HLT_Mu12(); // Trigger/flag bit
+    const bool &HLT_Mu12_DoublePFJets100_CaloBTagDeepCSV_p71(); // Trigger/flag bit
+    const bool &HLT_Mu12_DoublePFJets200_CaloBTagDeepCSV_p71(); // Trigger/flag bit
+    const bool &HLT_Mu12_DoublePFJets350_CaloBTagDeepCSV_p71(); // Trigger/flag bit
+    const bool &HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagDeepCSV_p71(); // Trigger/flag bit
+    const bool &HLT_Mu12_DoublePFJets40_CaloBTagDeepCSV_p71(); // Trigger/flag bit
+    const bool &HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagDeepCSV_p71(); // Trigger/flag bit
+    const bool &HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagDeepCSV_p71(); // Trigger/flag bit
     const bool &HLT_Mu12_DoublePhoton20(); // Trigger/flag bit
+    const bool &HLT_Mu12_IP6_part0(); // Trigger/flag bit
+    const bool &HLT_Mu12_IP6_part1(); // Trigger/flag bit
+    const bool &HLT_Mu12_IP6_part2(); // Trigger/flag bit
+    const bool &HLT_Mu12_IP6_part3(); // Trigger/flag bit
+    const bool &HLT_Mu12_IP6_part4(); // Trigger/flag bit
     const bool &HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL(); // Trigger/flag bit
     const bool &HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ(); // Trigger/flag bit
+    const bool &HLT_Mu15(); // Trigger/flag bit
     const bool &HLT_Mu15_IsoVVVL_PFHT450(); // Trigger/flag bit
-    const bool &HLT_Mu15_IsoVVVL_PFHT450_CaloBTagCSV_4p5(); // Trigger/flag bit
+    const bool &HLT_Mu15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5(); // Trigger/flag bit
     const bool &HLT_Mu15_IsoVVVL_PFHT450_PFMET50(); // Trigger/flag bit
     const bool &HLT_Mu15_IsoVVVL_PFHT600(); // Trigger/flag bit
     const bool &HLT_Mu17(); // Trigger/flag bit
@@ -4809,15 +6947,33 @@ namespace tas {
     const bool &HLT_Mu25_TkMu0_Phi(); // Trigger/flag bit
     const bool &HLT_Mu27(); // Trigger/flag bit
     const bool &HLT_Mu27_Ele37_CaloIdL_MW(); // Trigger/flag bit
-    const bool &HLT_Mu30_TkMu0_Onia(); // Trigger/flag bit
+    const bool &HLT_Mu30_TkMu0_Psi(); // Trigger/flag bit
+    const bool &HLT_Mu30_TkMu0_Upsilon(); // Trigger/flag bit
     const bool &HLT_Mu37_Ele27_CaloIdL_MW(); // Trigger/flag bit
     const bool &HLT_Mu37_TkMu27(); // Trigger/flag bit
+    const bool &HLT_Mu38NoFiltersNoVtxDisplaced_Photon38_CaloIdL(); // Trigger/flag bit
+    const bool &HLT_Mu3_L1SingleMu5orSingleMu7(); // Trigger/flag bit
     const bool &HLT_Mu3_PFJet40(); // Trigger/flag bit
+    const bool &HLT_Mu3er1p5_PFJet100er2p5_PFMET100_PFMHT100_IDTight(); // Trigger/flag bit
+    const bool &HLT_Mu3er1p5_PFJet100er2p5_PFMET70_PFMHT70_IDTight(); // Trigger/flag bit
+    const bool &HLT_Mu3er1p5_PFJet100er2p5_PFMET80_PFMHT80_IDTight(); // Trigger/flag bit
+    const bool &HLT_Mu3er1p5_PFJet100er2p5_PFMET90_PFMHT90_IDTight(); // Trigger/flag bit
+    const bool &HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu100_PFMHTNoMu100_IDTight(); // Trigger/flag bit
+    const bool &HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu70_PFMHTNoMu70_IDTight(); // Trigger/flag bit
+    const bool &HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu80_PFMHTNoMu80_IDTight(); // Trigger/flag bit
+    const bool &HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu90_PFMHTNoMu90_IDTight(); // Trigger/flag bit
+    const bool &HLT_Mu43NoFiltersNoVtxDisplaced_Photon43_CaloIdL(); // Trigger/flag bit
     const bool &HLT_Mu43NoFiltersNoVtx_Photon43_CaloIdL(); // Trigger/flag bit
     const bool &HLT_Mu48NoFiltersNoVtx_Photon48_CaloIdL(); // Trigger/flag bit
+    const bool &HLT_Mu4_TrkIsoVVL_DiPFJet90_40_DEta3p5_MJJ750_HTT300_PFMETNoMu60(); // Trigger/flag bit
     const bool &HLT_Mu50(); // Trigger/flag bit
     const bool &HLT_Mu50_IsoVVVL_PFHT450(); // Trigger/flag bit
     const bool &HLT_Mu55(); // Trigger/flag bit
+    const bool &HLT_Mu7_IP4_part0(); // Trigger/flag bit
+    const bool &HLT_Mu7_IP4_part1(); // Trigger/flag bit
+    const bool &HLT_Mu7_IP4_part2(); // Trigger/flag bit
+    const bool &HLT_Mu7_IP4_part3(); // Trigger/flag bit
+    const bool &HLT_Mu7_IP4_part4(); // Trigger/flag bit
     const bool &HLT_Mu7p5_L2Mu2_Jpsi(); // Trigger/flag bit
     const bool &HLT_Mu7p5_L2Mu2_Upsilon(); // Trigger/flag bit
     const bool &HLT_Mu7p5_Track2_Jpsi(); // Trigger/flag bit
@@ -4831,25 +6987,58 @@ namespace tas {
     const bool &HLT_Mu8_DiEle12_CaloIdL_TrackIdL_DZ(); // Trigger/flag bit
     const bool &HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT350(); // Trigger/flag bit
     const bool &HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT350_DZ(); // Trigger/flag bit
+    const bool &HLT_Mu8_IP3_part0(); // Trigger/flag bit
+    const bool &HLT_Mu8_IP3_part1(); // Trigger/flag bit
+    const bool &HLT_Mu8_IP3_part2(); // Trigger/flag bit
+    const bool &HLT_Mu8_IP3_part3(); // Trigger/flag bit
+    const bool &HLT_Mu8_IP3_part4(); // Trigger/flag bit
+    const bool &HLT_Mu8_IP5_part0(); // Trigger/flag bit
+    const bool &HLT_Mu8_IP5_part1(); // Trigger/flag bit
+    const bool &HLT_Mu8_IP5_part2(); // Trigger/flag bit
+    const bool &HLT_Mu8_IP5_part3(); // Trigger/flag bit
+    const bool &HLT_Mu8_IP5_part4(); // Trigger/flag bit
+    const bool &HLT_Mu8_IP6_part0(); // Trigger/flag bit
+    const bool &HLT_Mu8_IP6_part1(); // Trigger/flag bit
+    const bool &HLT_Mu8_IP6_part2(); // Trigger/flag bit
+    const bool &HLT_Mu8_IP6_part3(); // Trigger/flag bit
+    const bool &HLT_Mu8_IP6_part4(); // Trigger/flag bit
     const bool &HLT_Mu8_TrkIsoVVL(); // Trigger/flag bit
     const bool &HLT_Mu8_TrkIsoVVL_DiPFJet40_DEta3p5_MJJ750_HTT300_PFMETNoMu60(); // Trigger/flag bit
     const bool &HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL(); // Trigger/flag bit
     const bool &HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ(); // Trigger/flag bit
+    const bool &HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30(); // Trigger/flag bit
+    const bool &HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_CaloBtagDeepCSV_1p5(); // Trigger/flag bit
+    const bool &HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30(); // Trigger/flag bit
+    const bool &HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_PFBtagDeepCSV_1p5(); // Trigger/flag bit
+    const bool &HLT_Mu9_IP4_part0(); // Trigger/flag bit
+    const bool &HLT_Mu9_IP4_part1(); // Trigger/flag bit
+    const bool &HLT_Mu9_IP4_part2(); // Trigger/flag bit
+    const bool &HLT_Mu9_IP4_part3(); // Trigger/flag bit
+    const bool &HLT_Mu9_IP4_part4(); // Trigger/flag bit
+    const bool &HLT_Mu9_IP5_part0(); // Trigger/flag bit
+    const bool &HLT_Mu9_IP5_part1(); // Trigger/flag bit
+    const bool &HLT_Mu9_IP5_part2(); // Trigger/flag bit
+    const bool &HLT_Mu9_IP5_part3(); // Trigger/flag bit
+    const bool &HLT_Mu9_IP5_part4(); // Trigger/flag bit
+    const bool &HLT_Mu9_IP6_part0(); // Trigger/flag bit
+    const bool &HLT_Mu9_IP6_part1(); // Trigger/flag bit
+    const bool &HLT_Mu9_IP6_part2(); // Trigger/flag bit
+    const bool &HLT_Mu9_IP6_part3(); // Trigger/flag bit
+    const bool &HLT_Mu9_IP6_part4(); // Trigger/flag bit
     const bool &HLT_OldMu100(); // Trigger/flag bit
     const bool &HLT_PFHT1050(); // Trigger/flag bit
     const bool &HLT_PFHT180(); // Trigger/flag bit
     const bool &HLT_PFHT250(); // Trigger/flag bit
-    const bool &HLT_PFHT300PT30_QuadPFJet_75_60_45_40(); // Trigger/flag bit
-    const bool &HLT_PFHT300PT30_QuadPFJet_75_60_45_40_TriplePFBTagCSV_3p0(); // Trigger/flag bit
+    const bool &HLT_PFHT330PT30_QuadPFJet_75_60_45_40(); // Trigger/flag bit
+    const bool &HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepCSV_4p5(); // Trigger/flag bit
     const bool &HLT_PFHT350(); // Trigger/flag bit
     const bool &HLT_PFHT350MinPFJet15(); // Trigger/flag bit
     const bool &HLT_PFHT370(); // Trigger/flag bit
-    const bool &HLT_PFHT380_SixPFJet32(); // Trigger/flag bit
-    const bool &HLT_PFHT380_SixPFJet32_DoublePFBTagCSV_2p2(); // Trigger/flag bit
-    const bool &HLT_PFHT380_SixPFJet32_DoublePFBTagDeepCSV_2p2(); // Trigger/flag bit
+    const bool &HLT_PFHT400_SixPFJet32(); // Trigger/flag bit
+    const bool &HLT_PFHT400_SixPFJet32_DoublePFBTagDeepCSV_2p94(); // Trigger/flag bit
     const bool &HLT_PFHT430(); // Trigger/flag bit
-    const bool &HLT_PFHT430_SixPFJet40(); // Trigger/flag bit
-    const bool &HLT_PFHT430_SixPFJet40_PFBTagCSV_1p5(); // Trigger/flag bit
+    const bool &HLT_PFHT450_SixPFJet36(); // Trigger/flag bit
+    const bool &HLT_PFHT450_SixPFJet36_PFBTagDeepCSV_1p59(); // Trigger/flag bit
     const bool &HLT_PFHT500_PFMET100_PFMHT100_IDTight(); // Trigger/flag bit
     const bool &HLT_PFHT500_PFMET110_PFMHT110_IDTight(); // Trigger/flag bit
     const bool &HLT_PFHT510(); // Trigger/flag bit
@@ -4862,7 +7051,9 @@ namespace tas {
     const bool &HLT_PFHT800_PFMET85_PFMHT85_IDTight(); // Trigger/flag bit
     const bool &HLT_PFHT890(); // Trigger/flag bit
     const bool &HLT_PFJet140(); // Trigger/flag bit
+    const bool &HLT_PFJet15(); // Trigger/flag bit
     const bool &HLT_PFJet200(); // Trigger/flag bit
+    const bool &HLT_PFJet25(); // Trigger/flag bit
     const bool &HLT_PFJet260(); // Trigger/flag bit
     const bool &HLT_PFJet320(); // Trigger/flag bit
     const bool &HLT_PFJet40(); // Trigger/flag bit
@@ -4873,7 +7064,9 @@ namespace tas {
     const bool &HLT_PFJet60(); // Trigger/flag bit
     const bool &HLT_PFJet80(); // Trigger/flag bit
     const bool &HLT_PFJetFwd140(); // Trigger/flag bit
+    const bool &HLT_PFJetFwd15(); // Trigger/flag bit
     const bool &HLT_PFJetFwd200(); // Trigger/flag bit
+    const bool &HLT_PFJetFwd25(); // Trigger/flag bit
     const bool &HLT_PFJetFwd260(); // Trigger/flag bit
     const bool &HLT_PFJetFwd320(); // Trigger/flag bit
     const bool &HLT_PFJetFwd40(); // Trigger/flag bit
@@ -4882,17 +7075,17 @@ namespace tas {
     const bool &HLT_PFJetFwd500(); // Trigger/flag bit
     const bool &HLT_PFJetFwd60(); // Trigger/flag bit
     const bool &HLT_PFJetFwd80(); // Trigger/flag bit
-    const bool &HLT_PFMET100_PFMHT100_IDTight_CaloBTagCSV_3p1(); // Trigger/flag bit
+    const bool &HLT_PFMET100_PFMHT100_IDTight_CaloBTagDeepCSV_3p1(); // Trigger/flag bit
     const bool &HLT_PFMET100_PFMHT100_IDTight_PFHT60(); // Trigger/flag bit
     const bool &HLT_PFMET110_PFMHT110_IDTight(); // Trigger/flag bit
-    const bool &HLT_PFMET110_PFMHT110_IDTight_CaloBTagCSV_3p1(); // Trigger/flag bit
+    const bool &HLT_PFMET110_PFMHT110_IDTight_CaloBTagDeepCSV_3p1(); // Trigger/flag bit
     const bool &HLT_PFMET120_PFMHT120_IDTight(); // Trigger/flag bit
-    const bool &HLT_PFMET120_PFMHT120_IDTight_CaloBTagCSV_3p1(); // Trigger/flag bit
+    const bool &HLT_PFMET120_PFMHT120_IDTight_CaloBTagDeepCSV_3p1(); // Trigger/flag bit
     const bool &HLT_PFMET120_PFMHT120_IDTight_PFHT60(); // Trigger/flag bit
     const bool &HLT_PFMET130_PFMHT130_IDTight(); // Trigger/flag bit
-    const bool &HLT_PFMET130_PFMHT130_IDTight_CaloBTagCSV_3p1(); // Trigger/flag bit
+    const bool &HLT_PFMET130_PFMHT130_IDTight_CaloBTagDeepCSV_3p1(); // Trigger/flag bit
     const bool &HLT_PFMET140_PFMHT140_IDTight(); // Trigger/flag bit
-    const bool &HLT_PFMET140_PFMHT140_IDTight_CaloBTagCSV_3p1(); // Trigger/flag bit
+    const bool &HLT_PFMET140_PFMHT140_IDTight_CaloBTagDeepCSV_3p1(); // Trigger/flag bit
     const bool &HLT_PFMET200_HBHECleaned(); // Trigger/flag bit
     const bool &HLT_PFMET200_HBHE_BeamHaloCleaned(); // Trigger/flag bit
     const bool &HLT_PFMET200_NotCleaned(); // Trigger/flag bit
@@ -4911,28 +7104,34 @@ namespace tas {
     const bool &HLT_PFMETTypeOne130_PFMHT130_IDTight(); // Trigger/flag bit
     const bool &HLT_PFMETTypeOne140_PFMHT140_IDTight(); // Trigger/flag bit
     const bool &HLT_PFMETTypeOne200_HBHE_BeamHaloCleaned(); // Trigger/flag bit
+    const bool &HLT_Photon100EBHE10(); // Trigger/flag bit
+    const bool &HLT_Photon100EB_TightID_TightIso(); // Trigger/flag bit
+    const bool &HLT_Photon100EEHE10(); // Trigger/flag bit
+    const bool &HLT_Photon100EE_TightID_TightIso(); // Trigger/flag bit
+    const bool &HLT_Photon110EB_TightID_TightIso(); // Trigger/flag bit
     const bool &HLT_Photon120(); // Trigger/flag bit
+    const bool &HLT_Photon120EB_TightID_TightIso(); // Trigger/flag bit
     const bool &HLT_Photon120_R9Id90_HE10_IsoM(); // Trigger/flag bit
     const bool &HLT_Photon150(); // Trigger/flag bit
     const bool &HLT_Photon165_R9Id90_HE10_IsoM(); // Trigger/flag bit
     const bool &HLT_Photon175(); // Trigger/flag bit
+    const bool &HLT_Photon20(); // Trigger/flag bit
     const bool &HLT_Photon200(); // Trigger/flag bit
     const bool &HLT_Photon20_HoverELoose(); // Trigger/flag bit
-    const bool &HLT_Photon25(); // Trigger/flag bit
     const bool &HLT_Photon300_NoHE(); // Trigger/flag bit
     const bool &HLT_Photon30_HoverELoose(); // Trigger/flag bit
     const bool &HLT_Photon33(); // Trigger/flag bit
-    const bool &HLT_Photon40_HoverELoose(); // Trigger/flag bit
+    const bool &HLT_Photon35_TwoProngs35(); // Trigger/flag bit
     const bool &HLT_Photon50(); // Trigger/flag bit
-    const bool &HLT_Photon50_HoverELoose(); // Trigger/flag bit
     const bool &HLT_Photon50_R9Id90_HE10_IsoM(); // Trigger/flag bit
     const bool &HLT_Photon50_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3_PFMET50(); // Trigger/flag bit
-    const bool &HLT_Photon60_HoverELoose(); // Trigger/flag bit
     const bool &HLT_Photon60_R9Id90_CaloIdL_IsoL(); // Trigger/flag bit
     const bool &HLT_Photon60_R9Id90_CaloIdL_IsoL_DisplacedIdL(); // Trigger/flag bit
     const bool &HLT_Photon60_R9Id90_CaloIdL_IsoL_DisplacedIdL_PFHT350MinPFJet15(); // Trigger/flag bit
     const bool &HLT_Photon75(); // Trigger/flag bit
     const bool &HLT_Photon75_R9Id90_HE10_IsoM(); // Trigger/flag bit
+    const bool &HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ300_PFJetsMJJ400DEta3(); // Trigger/flag bit
+    const bool &HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ400_PFJetsMJJ600DEta3(); // Trigger/flag bit
     const bool &HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3(); // Trigger/flag bit
     const bool &HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ600DEta3(); // Trigger/flag bit
     const bool &HLT_Photon90(); // Trigger/flag bit
@@ -4948,17 +7147,17 @@ namespace tas {
     const bool &HLT_Physics_part6(); // Trigger/flag bit
     const bool &HLT_Physics_part7(); // Trigger/flag bit
     const bool &HLT_QuadPFJet103_88_75_15(); // Trigger/flag bit
-    const bool &HLT_QuadPFJet103_88_75_15_BTagCSV_p013_VBF2(); // Trigger/flag bit
-    const bool &HLT_QuadPFJet103_88_75_15_DoubleBTagCSV_p013_p08_VBF1(); // Trigger/flag bit
+    const bool &HLT_QuadPFJet103_88_75_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1(); // Trigger/flag bit
+    const bool &HLT_QuadPFJet103_88_75_15_PFBTagDeepCSV_1p3_VBF2(); // Trigger/flag bit
     const bool &HLT_QuadPFJet105_88_76_15(); // Trigger/flag bit
-    const bool &HLT_QuadPFJet105_88_76_15_BTagCSV_p013_VBF2(); // Trigger/flag bit
-    const bool &HLT_QuadPFJet105_90_76_15_DoubleBTagCSV_p013_p08_VBF1(); // Trigger/flag bit
+    const bool &HLT_QuadPFJet105_88_76_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1(); // Trigger/flag bit
+    const bool &HLT_QuadPFJet105_88_76_15_PFBTagDeepCSV_1p3_VBF2(); // Trigger/flag bit
     const bool &HLT_QuadPFJet111_90_80_15(); // Trigger/flag bit
-    const bool &HLT_QuadPFJet111_90_80_15_BTagCSV_p013_VBF2(); // Trigger/flag bit
-    const bool &HLT_QuadPFJet111_90_80_15_DoubleBTagCSV_p013_p08_VBF1(); // Trigger/flag bit
+    const bool &HLT_QuadPFJet111_90_80_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1(); // Trigger/flag bit
+    const bool &HLT_QuadPFJet111_90_80_15_PFBTagDeepCSV_1p3_VBF2(); // Trigger/flag bit
     const bool &HLT_QuadPFJet98_83_71_15(); // Trigger/flag bit
-    const bool &HLT_QuadPFJet98_83_71_15_BTagCSV_p013_VBF2(); // Trigger/flag bit
-    const bool &HLT_QuadPFJet98_83_71_15_DoubleBTagCSV_p013_p08_VBF1(); // Trigger/flag bit
+    const bool &HLT_QuadPFJet98_83_71_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1(); // Trigger/flag bit
+    const bool &HLT_QuadPFJet98_83_71_15_PFBTagDeepCSV_1p3_VBF2(); // Trigger/flag bit
     const bool &HLT_Random(); // Trigger/flag bit
     const bool &HLT_Rsq0p35(); // Trigger/flag bit
     const bool &HLT_Rsq0p40(); // Trigger/flag bit
@@ -4967,35 +7166,43 @@ namespace tas {
     const bool &HLT_RsqMR320_Rsq0p09_MR200(); // Trigger/flag bit
     const bool &HLT_RsqMR320_Rsq0p09_MR200_4jet(); // Trigger/flag bit
     const bool &HLT_SingleJet30_Mu12_SinglePFJet40(); // Trigger/flag bit
+    const bool &HLT_SinglePhoton10_Eta3p1ForPPRef(); // Trigger/flag bit
+    const bool &HLT_SinglePhoton20_Eta3p1ForPPRef(); // Trigger/flag bit
+    const bool &HLT_SinglePhoton30_Eta3p1ForPPRef(); // Trigger/flag bit
     const bool &HLT_Tau3Mu_Mu7_Mu1_TkMu1_IsoTau15(); // Trigger/flag bit
     const bool &HLT_Tau3Mu_Mu7_Mu1_TkMu1_IsoTau15_Charge1(); // Trigger/flag bit
     const bool &HLT_Tau3Mu_Mu7_Mu1_TkMu1_Tau15(); // Trigger/flag bit
     const bool &HLT_Tau3Mu_Mu7_Mu1_TkMu1_Tau15_Charge1(); // Trigger/flag bit
     const bool &HLT_TkMu100(); // Trigger/flag bit
     const bool &HLT_Trimuon5_3p5_2_Upsilon_Muon(); // Trigger/flag bit
+    const bool &HLT_TrimuonOpen_5_3p5_2_Upsilon_Muon(); // Trigger/flag bit
     const bool &HLT_TripleJet110_35_35_Mjj650_PFMET110(); // Trigger/flag bit
     const bool &HLT_TripleJet110_35_35_Mjj650_PFMET120(); // Trigger/flag bit
     const bool &HLT_TripleJet110_35_35_Mjj650_PFMET130(); // Trigger/flag bit
     const bool &HLT_TripleMu_10_5_5_DZ(); // Trigger/flag bit
     const bool &HLT_TripleMu_12_10_5(); // Trigger/flag bit
-    const bool &HLT_TripleMu_5_3_3_Mass3p8to60_DCA(); // Trigger/flag bit
-    const bool &HLT_TripleMu_5_3_3_Mass3p8to60_DZ(); // Trigger/flag bit
+    const bool &HLT_TripleMu_5_3_3_Mass3p8_DCA(); // Trigger/flag bit
+    const bool &HLT_TripleMu_5_3_3_Mass3p8_DZ(); // Trigger/flag bit
     const bool &HLT_TriplePhoton_20_20_20_CaloIdLV2(); // Trigger/flag bit
     const bool &HLT_TriplePhoton_20_20_20_CaloIdLV2_R9IdVL(); // Trigger/flag bit
     const bool &HLT_TriplePhoton_30_30_10_CaloIdLV2(); // Trigger/flag bit
     const bool &HLT_TriplePhoton_30_30_10_CaloIdLV2_R9IdVL(); // Trigger/flag bit
     const bool &HLT_TriplePhoton_35_35_5_CaloIdLV2_R9IdVL(); // Trigger/flag bit
     const bool &HLT_TrkMu12_DoubleTrkMu5NoFiltersNoVtx(); // Trigger/flag bit
+    const bool &HLT_TrkMu16NoFiltersNoVtx(); // Trigger/flag bit
     const bool &HLT_TrkMu16_DoubleTrkMu6NoFiltersNoVtx(); // Trigger/flag bit
     const bool &HLT_TrkMu17_DoubleTrkMu8NoFiltersNoVtx(); // Trigger/flag bit
+    const bool &HLT_TrkMu6NoFiltersNoVtx(); // Trigger/flag bit
     const bool &HLT_UncorrectedJetE30_NoBPTX(); // Trigger/flag bit
     const bool &HLT_UncorrectedJetE30_NoBPTX3BX(); // Trigger/flag bit
     const bool &HLT_UncorrectedJetE60_NoBPTX3BX(); // Trigger/flag bit
     const bool &HLT_UncorrectedJetE70_NoBPTX3BX(); // Trigger/flag bit
-    const bool &HLT_VBF_DoubleLooseChargedIsoPFTau20_Trk1_eta2p1_Reg(); // Trigger/flag bit
-    const bool &HLT_VBF_DoubleMediumChargedIsoPFTau20_Trk1_eta2p1_Reg(); // Trigger/flag bit
-    const bool &HLT_VBF_DoubleTightChargedIsoPFTau20_Trk1_eta2p1_Reg(); // Trigger/flag bit
+    const bool &HLT_VBF_DoubleLooseChargedIsoPFTauHPS20_Trk1_eta2p1(); // Trigger/flag bit
+    const bool &HLT_VBF_DoubleMediumChargedIsoPFTauHPS20_Trk1_eta2p1(); // Trigger/flag bit
+    const bool &HLT_VBF_DoubleTightChargedIsoPFTauHPS20_Trk1_eta2p1(); // Trigger/flag bit
     const bool &HLT_ZeroBias(); // Trigger/flag bit
+    const bool &HLT_ZeroBias_Alignment(); // Trigger/flag bit
+    const bool &HLT_ZeroBias_Beamspot(); // Trigger/flag bit
     const bool &HLT_ZeroBias_FirstBXAfterTrain(); // Trigger/flag bit
     const bool &HLT_ZeroBias_FirstCollisionAfterAbortGap(); // Trigger/flag bit
     const bool &HLT_ZeroBias_FirstCollisionInTrain(); // Trigger/flag bit
@@ -5011,9 +7218,22 @@ namespace tas {
     const bool &HLT_ZeroBias_part7(); // Trigger/flag bit
     const bool &HLTriggerFinalPath(); // Trigger/flag bit
     const bool &HLTriggerFirstPath(); // Trigger/flag bit
+    const float &HTXS_Higgs_pt(); // pt of the Higgs boson as identified in HTXS
+    const float &HTXS_Higgs_y(); // rapidity of the Higgs boson as identified in HTXS
+    const UChar_t &HTXS_njets25(); // number of jets with pt>25 GeV as identified in HTXS
+    const UChar_t &HTXS_njets30(); // number of jets with pt>30 GeV as identified in HTXS
+    const int &HTXS_stage1_1_cat_pTjet25GeV(); // HTXS stage-1.1 category(jet pt>25 GeV)
+    const int &HTXS_stage1_1_cat_pTjet30GeV(); // HTXS stage-1.1 category(jet pt>30 GeV)
+    const int &HTXS_stage1_1_fine_cat_pTjet25GeV(); // HTXS stage-1.1-fine category(jet pt>25 GeV)
+    const int &HTXS_stage1_1_fine_cat_pTjet30GeV(); // HTXS stage-1.1-fine category(jet pt>30 GeV)
+    const int &HTXS_stage_0(); // HTXS stage-0 category
+    const int &HTXS_stage_1_pTjet25(); // HTXS stage-1 category (jet pt>25 GeV)
+    const int &HTXS_stage_1_pTjet30(); // HTXS stage-1 category (jet pt>30 GeV)
     const vector<float> &IsoTrack_dxy(); // dxy (with sign) wrt first PV, in cm
     const vector<float> &IsoTrack_dz(); // dz (with sign) wrt first PV, in cm
     const vector<float> &IsoTrack_eta(); // eta
+    const vector<int> &IsoTrack_fromPV(); // isolated track comes from PV
+    const vector<bool> &IsoTrack_isFromLostTrack(); // if isolated track comes from a lost track
     const vector<bool> &IsoTrack_isHighPurityTrack(); // track is high purity
     const vector<bool> &IsoTrack_isPFcand(); // if isolated track is a PF candidate
     const vector<float> &IsoTrack_miniPFRelIso_all(); // mini PF relative isolation, total (with scaled rho*EA PU corrections)
@@ -5024,12 +7244,14 @@ namespace tas {
     const vector<float> &IsoTrack_phi(); // phi
     const vector<float> &IsoTrack_pt(); // pt
     const vector<float> &Jet_area(); // jet catchment area, for JECs
-    const vector<float> &Jet_bReg(); // pt corrected with b-jet regression
+    const vector<float> &Jet_bRegCorr(); // pt correction for b-jet energy regression
+    const vector<float> &Jet_bRegRes(); // res on pt corrected with b-jet regression
     const vector<float> &Jet_btagCMVA(); // CMVA V2 btag discriminator
     const vector<float> &Jet_btagCSVV2(); //  pfCombinedInclusiveSecondaryVertexV2 b-tag discriminator (aka CSVV2)
     const vector<float> &Jet_btagDeepB(); // DeepCSV b+bb tag discriminator
     const vector<float> &Jet_btagDeepC(); // DeepCSV charm btag discriminator
-    const vector<float> &Jet_btagDeepFlavB(); // DeepFlavour b+bb tag discriminator
+    const vector<float> &Jet_btagDeepFlavB(); // DeepFlavour b+bb+lepb tag discriminator
+    const vector<float> &Jet_btagDeepFlavC(); // DeepFlavour charm tag discriminator
     const vector<float> &Jet_chEmEF(); // charged Electromagnetic Energy Fraction
     const vector<float> &Jet_chHEF(); // charged Hadron Energy Fraction
     const vector<UChar_t> &Jet_cleanmask(); // simple cleaning mask with priority to leptons
@@ -5038,10 +7260,14 @@ namespace tas {
     const vector<float> &Jet_eta(); // eta
     const vector<int> &Jet_genJetIdx(); // index of matched gen jet
     const vector<int> &Jet_hadronFlavour(); // flavour from hadron ghost clustering
+    const vector<float> &Jet_jercCHF(); // Charged Hadron Energy Fraction with the JERC group definition
+    const vector<float> &Jet_jercCHPUF(); // Pileup Charged Hadron Energy Fraction with the JERC group definition
     const vector<int> &Jet_jetId(); // Jet ID flags bit1 is loose (always false in 2017 since it does not exist), bit2 is tight, bit3 is tightLepVeto
     const vector<float> &Jet_mass(); // mass
+    const vector<float> &Jet_muEF(); // muon Energy Fraction
     const vector<int> &Jet_muonIdx1(); // index of first matching muon
     const vector<int> &Jet_muonIdx2(); // index of second matching muon
+    const vector<float> &Jet_muonSubtrFactor(); // 1-(muon-subtracted raw pt)/(raw pt)
     const vector<int> &Jet_nConstituents(); // Number of particles in the jet
     const vector<int> &Jet_nElectrons(); // number of electrons in the jet
     const vector<int> &Jet_nMuons(); // number of muons in the jet
@@ -5054,6 +7280,328 @@ namespace tas {
     const vector<int> &Jet_puId(); // Pilup ID flags
     const vector<float> &Jet_qgl(); // Quark vs Gluon likelihood discriminator
     const vector<float> &Jet_rawFactor(); // 1 - Factor to get back to raw pT
+    const bool &L1Reco_step(); // Trigger/flag bit
+    const bool &L1_AlwaysTrue(); // Trigger/flag bit
+    const bool &L1_BPTX_AND_Ref1_VME(); // Trigger/flag bit
+    const bool &L1_BPTX_AND_Ref3_VME(); // Trigger/flag bit
+    const bool &L1_BPTX_AND_Ref4_VME(); // Trigger/flag bit
+    const bool &L1_BPTX_BeamGas_B1_VME(); // Trigger/flag bit
+    const bool &L1_BPTX_BeamGas_B2_VME(); // Trigger/flag bit
+    const bool &L1_BPTX_BeamGas_Ref1_VME(); // Trigger/flag bit
+    const bool &L1_BPTX_BeamGas_Ref2_VME(); // Trigger/flag bit
+    const bool &L1_BPTX_NotOR_VME(); // Trigger/flag bit
+    const bool &L1_BPTX_OR_Ref3_VME(); // Trigger/flag bit
+    const bool &L1_BPTX_OR_Ref4_VME(); // Trigger/flag bit
+    const bool &L1_BPTX_RefAND_VME(); // Trigger/flag bit
+    const bool &L1_BptxMinus(); // Trigger/flag bit
+    const bool &L1_BptxOR(); // Trigger/flag bit
+    const bool &L1_BptxPlus(); // Trigger/flag bit
+    const bool &L1_BptxXOR(); // Trigger/flag bit
+    const bool &L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142(); // Trigger/flag bit
+    const bool &L1_DoubleEG8er2p5_HTT260er(); // Trigger/flag bit
+    const bool &L1_DoubleEG8er2p5_HTT280er(); // Trigger/flag bit
+    const bool &L1_DoubleEG8er2p5_HTT300er(); // Trigger/flag bit
+    const bool &L1_DoubleEG8er2p5_HTT320er(); // Trigger/flag bit
+    const bool &L1_DoubleEG8er2p5_HTT340er(); // Trigger/flag bit
+    const bool &L1_DoubleEG_15_10_er2p5(); // Trigger/flag bit
+    const bool &L1_DoubleEG_20_10_er2p5(); // Trigger/flag bit
+    const bool &L1_DoubleEG_22_10_er2p5(); // Trigger/flag bit
+    const bool &L1_DoubleEG_25_12_er2p5(); // Trigger/flag bit
+    const bool &L1_DoubleEG_25_14_er2p5(); // Trigger/flag bit
+    const bool &L1_DoubleEG_27_14_er2p5(); // Trigger/flag bit
+    const bool &L1_DoubleEG_LooseIso20_10_er2p5(); // Trigger/flag bit
+    const bool &L1_DoubleEG_LooseIso22_10_er2p5(); // Trigger/flag bit
+    const bool &L1_DoubleEG_LooseIso22_12_er2p5(); // Trigger/flag bit
+    const bool &L1_DoubleEG_LooseIso25_12_er2p5(); // Trigger/flag bit
+    const bool &L1_DoubleIsoTau32er2p1(); // Trigger/flag bit
+    const bool &L1_DoubleIsoTau34er2p1(); // Trigger/flag bit
+    const bool &L1_DoubleIsoTau36er2p1(); // Trigger/flag bit
+    const bool &L1_DoubleJet100er2p3_dEta_Max1p6(); // Trigger/flag bit
+    const bool &L1_DoubleJet100er2p5(); // Trigger/flag bit
+    const bool &L1_DoubleJet112er2p3_dEta_Max1p6(); // Trigger/flag bit
+    const bool &L1_DoubleJet120er2p5(); // Trigger/flag bit
+    const bool &L1_DoubleJet150er2p5(); // Trigger/flag bit
+    const bool &L1_DoubleJet30er2p5_Mass_Min150_dEta_Max1p5(); // Trigger/flag bit
+    const bool &L1_DoubleJet30er2p5_Mass_Min200_dEta_Max1p5(); // Trigger/flag bit
+    const bool &L1_DoubleJet30er2p5_Mass_Min250_dEta_Max1p5(); // Trigger/flag bit
+    const bool &L1_DoubleJet30er2p5_Mass_Min300_dEta_Max1p5(); // Trigger/flag bit
+    const bool &L1_DoubleJet30er2p5_Mass_Min330_dEta_Max1p5(); // Trigger/flag bit
+    const bool &L1_DoubleJet30er2p5_Mass_Min360_dEta_Max1p5(); // Trigger/flag bit
+    const bool &L1_DoubleJet35_Mass_Min450_IsoTau45_RmOvlp(); // Trigger/flag bit
+    const bool &L1_DoubleJet40er2p5(); // Trigger/flag bit
+    const bool &L1_DoubleJet_100_30_DoubleJet30_Mass_Min620(); // Trigger/flag bit
+    const bool &L1_DoubleJet_110_35_DoubleJet35_Mass_Min620(); // Trigger/flag bit
+    const bool &L1_DoubleJet_115_40_DoubleJet40_Mass_Min620(); // Trigger/flag bit
+    const bool &L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_Jet60TT28(); // Trigger/flag bit
+    const bool &L1_DoubleJet_120_45_DoubleJet45_Mass_Min620(); // Trigger/flag bit
+    const bool &L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_Jet60TT28(); // Trigger/flag bit
+    const bool &L1_DoubleJet_80_30_Mass_Min420_DoubleMu0_SQ(); // Trigger/flag bit
+    const bool &L1_DoubleJet_80_30_Mass_Min420_IsoTau40_RmOvlp(); // Trigger/flag bit
+    const bool &L1_DoubleJet_80_30_Mass_Min420_Mu8(); // Trigger/flag bit
+    const bool &L1_DoubleJet_90_30_DoubleJet30_Mass_Min620(); // Trigger/flag bit
+    const bool &L1_DoubleLooseIsoEG22er2p1(); // Trigger/flag bit
+    const bool &L1_DoubleLooseIsoEG24er2p1(); // Trigger/flag bit
+    const bool &L1_DoubleMu0(); // Trigger/flag bit
+    const bool &L1_DoubleMu0_Mass_Min1(); // Trigger/flag bit
+    const bool &L1_DoubleMu0_OQ(); // Trigger/flag bit
+    const bool &L1_DoubleMu0_SQ(); // Trigger/flag bit
+    const bool &L1_DoubleMu0_SQ_OS(); // Trigger/flag bit
+    const bool &L1_DoubleMu0_dR_Max1p6_Jet90er2p5_dR_Max0p8(); // Trigger/flag bit
+    const bool &L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4(); // Trigger/flag bit
+    const bool &L1_DoubleMu0er1p5_SQ(); // Trigger/flag bit
+    const bool &L1_DoubleMu0er1p5_SQ_OS(); // Trigger/flag bit
+    const bool &L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4(); // Trigger/flag bit
+    const bool &L1_DoubleMu0er1p5_SQ_dR_Max1p4(); // Trigger/flag bit
+    const bool &L1_DoubleMu0er2p0_SQ_OS_dR_Max1p4(); // Trigger/flag bit
+    const bool &L1_DoubleMu0er2p0_SQ_dR_Max1p4(); // Trigger/flag bit
+    const bool &L1_DoubleMu10_SQ(); // Trigger/flag bit
+    const bool &L1_DoubleMu18er2p1(); // Trigger/flag bit
+    const bool &L1_DoubleMu3_OS_DoubleEG7p5Upsilon(); // Trigger/flag bit
+    const bool &L1_DoubleMu3_SQ_ETMHF50_HTT60er(); // Trigger/flag bit
+    const bool &L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5(); // Trigger/flag bit
+    const bool &L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_OR_DoubleJet40er2p5(); // Trigger/flag bit
+    const bool &L1_DoubleMu3_SQ_ETMHF60_Jet60er2p5(); // Trigger/flag bit
+    const bool &L1_DoubleMu3_SQ_HTT220er(); // Trigger/flag bit
+    const bool &L1_DoubleMu3_SQ_HTT240er(); // Trigger/flag bit
+    const bool &L1_DoubleMu3_SQ_HTT260er(); // Trigger/flag bit
+    const bool &L1_DoubleMu3_dR_Max1p6_Jet90er2p5_dR_Max0p8(); // Trigger/flag bit
+    const bool &L1_DoubleMu4_SQ_EG9er2p5(); // Trigger/flag bit
+    const bool &L1_DoubleMu4_SQ_OS(); // Trigger/flag bit
+    const bool &L1_DoubleMu4_SQ_OS_dR_Max1p2(); // Trigger/flag bit
+    const bool &L1_DoubleMu4p5_SQ_OS(); // Trigger/flag bit
+    const bool &L1_DoubleMu4p5_SQ_OS_dR_Max1p2(); // Trigger/flag bit
+    const bool &L1_DoubleMu4p5er2p0_SQ_OS(); // Trigger/flag bit
+    const bool &L1_DoubleMu4p5er2p0_SQ_OS_Mass7to18(); // Trigger/flag bit
+    const bool &L1_DoubleMu5Upsilon_OS_DoubleEG3(); // Trigger/flag bit
+    const bool &L1_DoubleMu5_SQ_EG9er2p5(); // Trigger/flag bit
+    const bool &L1_DoubleMu9_SQ(); // Trigger/flag bit
+    const bool &L1_DoubleMu_12_5(); // Trigger/flag bit
+    const bool &L1_DoubleMu_15_5_SQ(); // Trigger/flag bit
+    const bool &L1_DoubleMu_15_7(); // Trigger/flag bit
+    const bool &L1_DoubleMu_15_7_Mass_Min1(); // Trigger/flag bit
+    const bool &L1_DoubleMu_15_7_SQ(); // Trigger/flag bit
+    const bool &L1_DoubleTau70er2p1(); // Trigger/flag bit
+    const bool &L1_ETM120(); // Trigger/flag bit
+    const bool &L1_ETM150(); // Trigger/flag bit
+    const bool &L1_ETMHF100(); // Trigger/flag bit
+    const bool &L1_ETMHF100_HTT60er(); // Trigger/flag bit
+    const bool &L1_ETMHF110(); // Trigger/flag bit
+    const bool &L1_ETMHF110_HTT60er(); // Trigger/flag bit
+    const bool &L1_ETMHF110_HTT60er_NotSecondBunchInTrain(); // Trigger/flag bit
+    const bool &L1_ETMHF120(); // Trigger/flag bit
+    const bool &L1_ETMHF120_HTT60er(); // Trigger/flag bit
+    const bool &L1_ETMHF120_NotSecondBunchInTrain(); // Trigger/flag bit
+    const bool &L1_ETMHF130(); // Trigger/flag bit
+    const bool &L1_ETMHF130_HTT60er(); // Trigger/flag bit
+    const bool &L1_ETMHF140(); // Trigger/flag bit
+    const bool &L1_ETMHF150(); // Trigger/flag bit
+    const bool &L1_ETMHF90_HTT60er(); // Trigger/flag bit
+    const bool &L1_ETT1200(); // Trigger/flag bit
+    const bool &L1_ETT1600(); // Trigger/flag bit
+    const bool &L1_ETT2000(); // Trigger/flag bit
+    const bool &L1_FirstBunchAfterTrain(); // Trigger/flag bit
+    const bool &L1_FirstBunchBeforeTrain(); // Trigger/flag bit
+    const bool &L1_FirstBunchInTrain(); // Trigger/flag bit
+    const bool &L1_FirstCollisionInOrbit(); // Trigger/flag bit
+    const bool &L1_FirstCollisionInTrain(); // Trigger/flag bit
+    const bool &L1_HCAL_LaserMon_Trig(); // Trigger/flag bit
+    const bool &L1_HCAL_LaserMon_Veto(); // Trigger/flag bit
+    const bool &L1_HTT120er(); // Trigger/flag bit
+    const bool &L1_HTT160er(); // Trigger/flag bit
+    const bool &L1_HTT200er(); // Trigger/flag bit
+    const bool &L1_HTT255er(); // Trigger/flag bit
+    const bool &L1_HTT280er(); // Trigger/flag bit
+    const bool &L1_HTT280er_QuadJet_70_55_40_35_er2p4(); // Trigger/flag bit
+    const bool &L1_HTT320er(); // Trigger/flag bit
+    const bool &L1_HTT320er_QuadJet_70_55_40_40_er2p4(); // Trigger/flag bit
+    const bool &L1_HTT320er_QuadJet_80_60_er2p1_45_40_er2p3(); // Trigger/flag bit
+    const bool &L1_HTT320er_QuadJet_80_60_er2p1_50_45_er2p3(); // Trigger/flag bit
+    const bool &L1_HTT360er(); // Trigger/flag bit
+    const bool &L1_HTT400er(); // Trigger/flag bit
+    const bool &L1_HTT450er(); // Trigger/flag bit
+    const bool &L1_IsoEG32er2p5_Mt40(); // Trigger/flag bit
+    const bool &L1_IsoEG32er2p5_Mt44(); // Trigger/flag bit
+    const bool &L1_IsoEG32er2p5_Mt48(); // Trigger/flag bit
+    const bool &L1_IsoTau40er2p1_ETMHF100(); // Trigger/flag bit
+    const bool &L1_IsoTau40er2p1_ETMHF110(); // Trigger/flag bit
+    const bool &L1_IsoTau40er2p1_ETMHF120(); // Trigger/flag bit
+    const bool &L1_IsoTau40er2p1_ETMHF90(); // Trigger/flag bit
+    const bool &L1_IsolatedBunch(); // Trigger/flag bit
+    const bool &L1_LastBunchInTrain(); // Trigger/flag bit
+    const bool &L1_LastCollisionInTrain(); // Trigger/flag bit
+    const bool &L1_LooseIsoEG22er2p1_IsoTau26er2p1_dR_Min0p3(); // Trigger/flag bit
+    const bool &L1_LooseIsoEG22er2p1_Tau70er2p1_dR_Min0p3(); // Trigger/flag bit
+    const bool &L1_LooseIsoEG24er2p1_HTT100er(); // Trigger/flag bit
+    const bool &L1_LooseIsoEG24er2p1_IsoTau27er2p1_dR_Min0p3(); // Trigger/flag bit
+    const bool &L1_LooseIsoEG26er2p1_HTT100er(); // Trigger/flag bit
+    const bool &L1_LooseIsoEG26er2p1_Jet34er2p5_dR_Min0p3(); // Trigger/flag bit
+    const bool &L1_LooseIsoEG28er2p1_HTT100er(); // Trigger/flag bit
+    const bool &L1_LooseIsoEG28er2p1_Jet34er2p5_dR_Min0p3(); // Trigger/flag bit
+    const bool &L1_LooseIsoEG30er2p1_HTT100er(); // Trigger/flag bit
+    const bool &L1_LooseIsoEG30er2p1_Jet34er2p5_dR_Min0p3(); // Trigger/flag bit
+    const bool &L1_MinimumBiasHF0_AND_BptxAND(); // Trigger/flag bit
+    const bool &L1_Mu10er2p3_Jet32er2p3_dR_Max0p4_DoubleJet32er2p3_dEta_Max1p6(); // Trigger/flag bit
+    const bool &L1_Mu12er2p3_Jet40er2p1_dR_Max0p4_DoubleJet40er2p1_dEta_Max1p6(); // Trigger/flag bit
+    const bool &L1_Mu12er2p3_Jet40er2p3_dR_Max0p4_DoubleJet40er2p3_dEta_Max1p6(); // Trigger/flag bit
+    const bool &L1_Mu18er2p1_Tau24er2p1(); // Trigger/flag bit
+    const bool &L1_Mu18er2p1_Tau26er2p1(); // Trigger/flag bit
+    const bool &L1_Mu20_EG10er2p5(); // Trigger/flag bit
+    const bool &L1_Mu22er2p1_IsoTau32er2p1(); // Trigger/flag bit
+    const bool &L1_Mu22er2p1_IsoTau34er2p1(); // Trigger/flag bit
+    const bool &L1_Mu22er2p1_IsoTau36er2p1(); // Trigger/flag bit
+    const bool &L1_Mu22er2p1_IsoTau40er2p1(); // Trigger/flag bit
+    const bool &L1_Mu22er2p1_Tau70er2p1(); // Trigger/flag bit
+    const bool &L1_Mu3_Jet120er2p5_dR_Max0p4(); // Trigger/flag bit
+    const bool &L1_Mu3_Jet120er2p5_dR_Max0p8(); // Trigger/flag bit
+    const bool &L1_Mu3_Jet16er2p5_dR_Max0p4(); // Trigger/flag bit
+    const bool &L1_Mu3_Jet30er2p5(); // Trigger/flag bit
+    const bool &L1_Mu3_Jet35er2p5_dR_Max0p4(); // Trigger/flag bit
+    const bool &L1_Mu3_Jet60er2p5_dR_Max0p4(); // Trigger/flag bit
+    const bool &L1_Mu3_Jet80er2p5_dR_Max0p4(); // Trigger/flag bit
+    const bool &L1_Mu3er1p5_Jet100er2p5_ETMHF40(); // Trigger/flag bit
+    const bool &L1_Mu3er1p5_Jet100er2p5_ETMHF50(); // Trigger/flag bit
+    const bool &L1_Mu5_EG23er2p5(); // Trigger/flag bit
+    const bool &L1_Mu5_LooseIsoEG20er2p5(); // Trigger/flag bit
+    const bool &L1_Mu6_DoubleEG10er2p5(); // Trigger/flag bit
+    const bool &L1_Mu6_DoubleEG12er2p5(); // Trigger/flag bit
+    const bool &L1_Mu6_DoubleEG15er2p5(); // Trigger/flag bit
+    const bool &L1_Mu6_DoubleEG17er2p5(); // Trigger/flag bit
+    const bool &L1_Mu6_HTT240er(); // Trigger/flag bit
+    const bool &L1_Mu6_HTT250er(); // Trigger/flag bit
+    const bool &L1_Mu7_EG23er2p5(); // Trigger/flag bit
+    const bool &L1_Mu7_LooseIsoEG20er2p5(); // Trigger/flag bit
+    const bool &L1_Mu7_LooseIsoEG23er2p5(); // Trigger/flag bit
+    const bool &L1_NotBptxOR(); // Trigger/flag bit
+    const bool &L1_QuadJet36er2p5_IsoTau52er2p1(); // Trigger/flag bit
+    const bool &L1_QuadJet60er2p5(); // Trigger/flag bit
+    const bool &L1_QuadJet_95_75_65_20_DoubleJet_75_65_er2p5_Jet20_FWD3p0(); // Trigger/flag bit
+    const bool &L1_QuadMu0(); // Trigger/flag bit
+    const bool &L1_QuadMu0_OQ(); // Trigger/flag bit
+    const bool &L1_QuadMu0_SQ(); // Trigger/flag bit
+    const bool &L1_SecondBunchInTrain(); // Trigger/flag bit
+    const bool &L1_SecondLastBunchInTrain(); // Trigger/flag bit
+    const bool &L1_SingleEG10er2p5(); // Trigger/flag bit
+    const bool &L1_SingleEG15er2p5(); // Trigger/flag bit
+    const bool &L1_SingleEG26er2p5(); // Trigger/flag bit
+    const bool &L1_SingleEG34er2p5(); // Trigger/flag bit
+    const bool &L1_SingleEG36er2p5(); // Trigger/flag bit
+    const bool &L1_SingleEG38er2p5(); // Trigger/flag bit
+    const bool &L1_SingleEG40er2p5(); // Trigger/flag bit
+    const bool &L1_SingleEG42er2p5(); // Trigger/flag bit
+    const bool &L1_SingleEG45er2p5(); // Trigger/flag bit
+    const bool &L1_SingleEG50(); // Trigger/flag bit
+    const bool &L1_SingleEG60(); // Trigger/flag bit
+    const bool &L1_SingleEG8er2p5(); // Trigger/flag bit
+    const bool &L1_SingleIsoEG24er1p5(); // Trigger/flag bit
+    const bool &L1_SingleIsoEG24er2p1(); // Trigger/flag bit
+    const bool &L1_SingleIsoEG26er1p5(); // Trigger/flag bit
+    const bool &L1_SingleIsoEG26er2p1(); // Trigger/flag bit
+    const bool &L1_SingleIsoEG26er2p5(); // Trigger/flag bit
+    const bool &L1_SingleIsoEG28er1p5(); // Trigger/flag bit
+    const bool &L1_SingleIsoEG28er2p1(); // Trigger/flag bit
+    const bool &L1_SingleIsoEG28er2p5(); // Trigger/flag bit
+    const bool &L1_SingleIsoEG30er2p1(); // Trigger/flag bit
+    const bool &L1_SingleIsoEG30er2p5(); // Trigger/flag bit
+    const bool &L1_SingleIsoEG32er2p1(); // Trigger/flag bit
+    const bool &L1_SingleIsoEG32er2p5(); // Trigger/flag bit
+    const bool &L1_SingleIsoEG34er2p5(); // Trigger/flag bit
+    const bool &L1_SingleJet10erHE(); // Trigger/flag bit
+    const bool &L1_SingleJet120(); // Trigger/flag bit
+    const bool &L1_SingleJet120_FWD3p0(); // Trigger/flag bit
+    const bool &L1_SingleJet120er2p5(); // Trigger/flag bit
+    const bool &L1_SingleJet12erHE(); // Trigger/flag bit
+    const bool &L1_SingleJet140er2p5(); // Trigger/flag bit
+    const bool &L1_SingleJet140er2p5_ETMHF80(); // Trigger/flag bit
+    const bool &L1_SingleJet140er2p5_ETMHF90(); // Trigger/flag bit
+    const bool &L1_SingleJet160er2p5(); // Trigger/flag bit
+    const bool &L1_SingleJet180(); // Trigger/flag bit
+    const bool &L1_SingleJet180er2p5(); // Trigger/flag bit
+    const bool &L1_SingleJet200(); // Trigger/flag bit
+    const bool &L1_SingleJet20er2p5_NotBptxOR(); // Trigger/flag bit
+    const bool &L1_SingleJet20er2p5_NotBptxOR_3BX(); // Trigger/flag bit
+    const bool &L1_SingleJet35(); // Trigger/flag bit
+    const bool &L1_SingleJet35_FWD3p0(); // Trigger/flag bit
+    const bool &L1_SingleJet35er2p5(); // Trigger/flag bit
+    const bool &L1_SingleJet43er2p5_NotBptxOR_3BX(); // Trigger/flag bit
+    const bool &L1_SingleJet46er2p5_NotBptxOR_3BX(); // Trigger/flag bit
+    const bool &L1_SingleJet60(); // Trigger/flag bit
+    const bool &L1_SingleJet60_FWD3p0(); // Trigger/flag bit
+    const bool &L1_SingleJet60er2p5(); // Trigger/flag bit
+    const bool &L1_SingleJet8erHE(); // Trigger/flag bit
+    const bool &L1_SingleJet90(); // Trigger/flag bit
+    const bool &L1_SingleJet90_FWD3p0(); // Trigger/flag bit
+    const bool &L1_SingleJet90er2p5(); // Trigger/flag bit
+    const bool &L1_SingleLooseIsoEG28er1p5(); // Trigger/flag bit
+    const bool &L1_SingleLooseIsoEG30er1p5(); // Trigger/flag bit
+    const bool &L1_SingleMu0_BMTF(); // Trigger/flag bit
+    const bool &L1_SingleMu0_DQ(); // Trigger/flag bit
+    const bool &L1_SingleMu0_EMTF(); // Trigger/flag bit
+    const bool &L1_SingleMu0_OMTF(); // Trigger/flag bit
+    const bool &L1_SingleMu10er1p5(); // Trigger/flag bit
+    const bool &L1_SingleMu12_DQ_BMTF(); // Trigger/flag bit
+    const bool &L1_SingleMu12_DQ_EMTF(); // Trigger/flag bit
+    const bool &L1_SingleMu12_DQ_OMTF(); // Trigger/flag bit
+    const bool &L1_SingleMu12er1p5(); // Trigger/flag bit
+    const bool &L1_SingleMu14er1p5(); // Trigger/flag bit
+    const bool &L1_SingleMu15_DQ(); // Trigger/flag bit
+    const bool &L1_SingleMu16er1p5(); // Trigger/flag bit
+    const bool &L1_SingleMu18(); // Trigger/flag bit
+    const bool &L1_SingleMu18er1p5(); // Trigger/flag bit
+    const bool &L1_SingleMu20(); // Trigger/flag bit
+    const bool &L1_SingleMu22(); // Trigger/flag bit
+    const bool &L1_SingleMu22_BMTF(); // Trigger/flag bit
+    const bool &L1_SingleMu22_EMTF(); // Trigger/flag bit
+    const bool &L1_SingleMu22_OMTF(); // Trigger/flag bit
+    const bool &L1_SingleMu25(); // Trigger/flag bit
+    const bool &L1_SingleMu3(); // Trigger/flag bit
+    const bool &L1_SingleMu5(); // Trigger/flag bit
+    const bool &L1_SingleMu6er1p5(); // Trigger/flag bit
+    const bool &L1_SingleMu7(); // Trigger/flag bit
+    const bool &L1_SingleMu7_DQ(); // Trigger/flag bit
+    const bool &L1_SingleMu7er1p5(); // Trigger/flag bit
+    const bool &L1_SingleMu8er1p5(); // Trigger/flag bit
+    const bool &L1_SingleMu9er1p5(); // Trigger/flag bit
+    const bool &L1_SingleMuCosmics(); // Trigger/flag bit
+    const bool &L1_SingleMuCosmics_BMTF(); // Trigger/flag bit
+    const bool &L1_SingleMuCosmics_EMTF(); // Trigger/flag bit
+    const bool &L1_SingleMuCosmics_OMTF(); // Trigger/flag bit
+    const bool &L1_SingleMuOpen(); // Trigger/flag bit
+    const bool &L1_SingleMuOpen_NotBptxOR(); // Trigger/flag bit
+    const bool &L1_SingleMuOpen_er1p1_NotBptxOR_3BX(); // Trigger/flag bit
+    const bool &L1_SingleMuOpen_er1p4_NotBptxOR_3BX(); // Trigger/flag bit
+    const bool &L1_SingleTau120er2p1(); // Trigger/flag bit
+    const bool &L1_SingleTau130er2p1(); // Trigger/flag bit
+    const bool &L1_TOTEM_1(); // Trigger/flag bit
+    const bool &L1_TOTEM_2(); // Trigger/flag bit
+    const bool &L1_TOTEM_3(); // Trigger/flag bit
+    const bool &L1_TOTEM_4(); // Trigger/flag bit
+    const bool &L1_TripleEG16er2p5(); // Trigger/flag bit
+    const bool &L1_TripleEG_16_12_8_er2p5(); // Trigger/flag bit
+    const bool &L1_TripleEG_16_15_8_er2p5(); // Trigger/flag bit
+    const bool &L1_TripleEG_18_17_8_er2p5(); // Trigger/flag bit
+    const bool &L1_TripleEG_18_18_12_er2p5(); // Trigger/flag bit
+    const bool &L1_TripleJet_100_80_70_DoubleJet_80_70_er2p5(); // Trigger/flag bit
+    const bool &L1_TripleJet_105_85_75_DoubleJet_85_75_er2p5(); // Trigger/flag bit
+    const bool &L1_TripleJet_95_75_65_DoubleJet_75_65_er2p5(); // Trigger/flag bit
+    const bool &L1_TripleMu0(); // Trigger/flag bit
+    const bool &L1_TripleMu0_OQ(); // Trigger/flag bit
+    const bool &L1_TripleMu0_SQ(); // Trigger/flag bit
+    const bool &L1_TripleMu3(); // Trigger/flag bit
+    const bool &L1_TripleMu3_SQ(); // Trigger/flag bit
+    const bool &L1_TripleMu_5SQ_3SQ_0OQ(); // Trigger/flag bit
+    const bool &L1_TripleMu_5SQ_3SQ_0OQ_DoubleMu_5_3_SQ_OS_Mass_Max9(); // Trigger/flag bit
+    const bool &L1_TripleMu_5SQ_3SQ_0_DoubleMu_5_3_SQ_OS_Mass_Max9(); // Trigger/flag bit
+    const bool &L1_TripleMu_5_3_3(); // Trigger/flag bit
+    const bool &L1_TripleMu_5_3_3_SQ(); // Trigger/flag bit
+    const bool &L1_TripleMu_5_3p5_2p5(); // Trigger/flag bit
+    const bool &L1_TripleMu_5_3p5_2p5_DoubleMu_5_2p5_OS_Mass_5to17(); // Trigger/flag bit
+    const bool &L1_TripleMu_5_3p5_2p5_OQ_DoubleMu_5_2p5_OQ_OS_Mass_5to17(); // Trigger/flag bit
+    const bool &L1_TripleMu_5_4_2p5_DoubleMu_5_2p5_OS_Mass_5to17(); // Trigger/flag bit
+    const bool &L1_TripleMu_5_5_3(); // Trigger/flag bit
+    const bool &L1_UnpairedBunchBptxMinus(); // Trigger/flag bit
+    const bool &L1_UnpairedBunchBptxPlus(); // Trigger/flag bit
+    const bool &L1_ZeroBias(); // Trigger/flag bit
+    const bool &L1_ZeroBias_copy(); // Trigger/flag bit
     const bool &L1simulation_step(); // Trigger/flag bit
     const vector<float> &LHEPart_eta(); // Pseodorapidity of LHE particles
     const vector<float> &LHEPart_mass(); // Mass of LHE particles
@@ -5061,8 +7609,9 @@ namespace tas {
     const vector<int> &LHEPart_pdgId(); // PDG ID of LHE particles
     const vector<float> &LHEPart_phi(); // Phi of LHE particles
     const vector<float> &LHEPart_pt(); // Pt of LHE particles
-    const vector<float> &LHEPdfWeight(); // LHE pdf variation weights (w_var / w_nominal) for LHA IDs 91400 - 91432
-    const vector<float> &LHEScaleWeight(); // LHE scale variation weights (w_var / w_nominal); [0] is muR=0.50000E+00 muF=0.50000E+00 ; [1] is muR=0.50000E+00 muF=0.10000E+01 ; [2] is muR=0.50000E+00 muF=0.20000E+01 ; [3] is muR=0.10000E+01 muF=0.50000E+00 ; [4] is muR=0.10000E+01 muF=0.10000E+01 ; [5] is muR=0.10000E+01 muF=0.20000E+01 ; [6] is muR=0.20000E+01 muF=0.50000E+00 ; [7] is muR=0.20000E+01 muF=0.10000E+01 ; [8] is muR=0.20000E+01 muF=0.20000E+01 
+    const vector<float> &LHEPdfWeight(); // 
+    const vector<float> &LHEReweightingWeight(); // 
+    const vector<float> &LHEScaleWeight(); // 
     const float &LHEWeight_originalXWGTUP(); // Nominal event weight in the LHE file
     const float &LHE_HT(); // HT, scalar sum of parton pTs at LHE step
     const float &LHE_HTIncoming(); // HT, scalar sum of parton pTs at LHE step, restricted to partons
@@ -5095,18 +7644,30 @@ namespace tas {
     const vector<UChar_t> &Muon_genPartFlav(); // Flavour of genParticle for MC matching to status==1 muons: 1 = prompt muon (including gamma*->mu mu), 15 = muon from prompt tau, 5 = muon from b, 4 = muon from c, 3 = muon from light or unknown, 0 = unmatched
     const vector<int> &Muon_genPartIdx(); // Index into genParticle list for MC matching to status==1 muons
     const vector<UChar_t> &Muon_highPtId(); // high-pT cut-based ID (1 = tracker high pT, 2 = global high pT, which includes tracker high pT)
+    const vector<bool> &Muon_inTimeMuon(); // inTimeMuon ID
     const vector<float> &Muon_ip3d(); // 3D impact parameter wrt first PV, in cm
+    const vector<bool> &Muon_isGlobal(); // muon is global muon
     const vector<bool> &Muon_isPFcand(); // muon is PF candidate
+    const vector<bool> &Muon_isTracker(); // muon is tracker muon
     const vector<int> &Muon_jetIdx(); // index of the associated jet (-1 if none)
+    const vector<float> &Muon_jetPtRelv2(); // Relative momentum of the lepton with respect to the closest jet after subtracting the lepton
+    const vector<float> &Muon_jetRelIso(); // Relative isolation in matched jet (1/ptRatio-1, pfRelIso04_all if no matched jet)
+    const vector<bool> &Muon_looseId(); // muon is loose muon
     const vector<float> &Muon_mass(); // mass
     const vector<bool> &Muon_mediumId(); // cut-based ID, medium WP
+    const vector<bool> &Muon_mediumPromptId(); // cut-based ID, medium prompt WP
+    const vector<UChar_t> &Muon_miniIsoId(); // MiniIso ID from miniAOD selector (1=MiniIsoLoose, 2=MiniIsoMedium, 3=MiniIsoTight, 4=MiniIsoVeryTight)
     const vector<float> &Muon_miniPFRelIso_all(); // mini PF relative isolation, total (with scaled rho*EA PU corrections)
     const vector<float> &Muon_miniPFRelIso_chg(); // mini PF relative isolation, charged component
+    const vector<UChar_t> &Muon_multiIsoId(); // MultiIsoId from miniAOD selector (1=MultiIsoLoose, 2=MultiIsoMedium)
+    const vector<UChar_t> &Muon_mvaId(); // Mva ID from miniAOD selector (1=MvaLoose, 2=MvaMedium, 3=MvaTight)
+    const vector<float> &Muon_mvaLowPt(); // Low pt muon ID score
     const vector<float> &Muon_mvaTTH(); // TTH MVA lepton ID score
     const vector<int> &Muon_nStations(); // number of matched stations with default arbitration (segment & track)
     const vector<int> &Muon_nTrackerLayers(); // number of layers in the tracker
     const vector<LorentzVector> &Muon_p4(); // from Muon_pt,eta,phi,mass
     const vector<int> &Muon_pdgId(); // PDG code assigned by the event reconstruction (not by MC truth)
+    const vector<UChar_t> &Muon_pfIsoId(); // PFIso ID from miniAOD selector (1=PFIsoVeryLoose, 2=PFIsoLoose, 3=PFIsoMedium, 4=PFIsoTight, 5=PFIsoVeryTight, 6=PFIsoVeryVeryTight)
     const vector<float> &Muon_pfRelIso03_all(); // PF relative isolation dR=0.3, total (deltaBeta corrections)
     const vector<float> &Muon_pfRelIso03_chg(); // PF relative isolation dR=0.3, charged component
     const vector<float> &Muon_pfRelIso04_all(); // PF relative isolation dR=0.4, total (deltaBeta corrections)
@@ -5116,9 +7677,16 @@ namespace tas {
     const vector<float> &Muon_segmentComp(); // muon segment compatibility
     const vector<float> &Muon_sip3d(); // 3D impact parameter significance wrt first PV
     const vector<bool> &Muon_softId(); // soft cut-based ID
+    const vector<float> &Muon_softMva(); // soft MVA ID score
+    const vector<bool> &Muon_softMvaId(); // soft MVA ID
     const vector<int> &Muon_tightCharge(); // Tight charge criterion using pterr/pt of muonBestTrack (0:fail, 2:pass)
     const vector<bool> &Muon_tightId(); // cut-based ID, tight WP
+    const vector<UChar_t> &Muon_tkIsoId(); // TkIso ID (1=TkIsoLoose, 2=TkIsoTight)
+    const vector<float> &Muon_tkRelIso(); // Tracker-based relative isolation dR=0.3 for highPt, trkIso/tunePpt
+    const vector<bool> &Muon_triggerIdLoose(); // TriggerIdLoose ID
+    const vector<float> &Muon_tunepRelPt(); // TuneP relative pt, tunePpt/pt
     const vector<float> &OtherPV_z(); // Z position of other primary vertices, excluding the main PV
+    const vector<float> &PSWeight(); // PS weights (w_var / w_nominal); [0] is ISR=0.5 FSR=1; [1] is ISR=1 FSR=0.5; [2] is ISR=2 FSR=1; [3] is ISR=1 FSR=2 
     const float &PV_chi2(); // main primary vertex reduced chi2
     const float &PV_ndof(); // main primary vertex number of degree of freedom
     const int &PV_npvs(); // total number of reconstructed primary vertices
@@ -5130,6 +7698,7 @@ namespace tas {
     const vector<int> &Photon_charge(); // electric charge
     const vector<UChar_t> &Photon_cleanmask(); // simple cleaning mask with priority to leptons
     const vector<int> &Photon_cutBasedBitmap(); // cut-based ID bitmap, 2^(0:loose, 1:medium, 2:tight)
+    const vector<int> &Photon_cutBasedV1Bitmap(); // cut-based ID bitmap, Fall17 V1, 2^(0:loose, 1:medium, 2:tight)
     const vector<float> &Photon_eCorr(); // ratio of the calibrated energy/miniaod energy
     const vector<int> &Photon_electronIdx(); // index of the associated electron (-1 if none)
     const vector<bool> &Photon_electronVeto(); // pass electron veto
@@ -5143,6 +7712,7 @@ namespace tas {
     const vector<int> &Photon_jetIdx(); // index of the associated jet (-1 if none)
     const vector<float> &Photon_mass(); // mass
     const vector<float> &Photon_mvaID(); // MVA ID score
+    const vector<float> &Photon_mvaIDV1(); // MVA ID score, Fall17 V1p1
     const vector<bool> &Photon_mvaID_WP80(); // MVA ID WP80
     const vector<bool> &Photon_mvaID_WP90(); // MVA ID WP90
     const vector<LorentzVector> &Photon_p4(); // from Photon_pt,eta,phi,mass
@@ -5151,12 +7721,15 @@ namespace tas {
     const vector<float> &Photon_pfRelIso03_chg(); // PF relative isolation dR=0.3, charged component (with rho*EA PU corrections)
     const vector<float> &Photon_phi(); // phi
     const vector<bool> &Photon_pixelSeed(); // has pixel seed
-    const vector<float> &Photon_pt(); // pt*userFloat('ecalEnergyPostCorr')/userFloat('ecalEnergyPreCorr')
+    const vector<float> &Photon_pt(); // p_{T}
     const vector<float> &Photon_r9(); // R9 of the supercluster, calculated with full 5x5 region
+    const vector<UChar_t> &Photon_seedGain(); // Gain of the seed crystal
     const vector<float> &Photon_sieie(); // sigma_IetaIeta of the supercluster, calculated with full 5x5 region
-    const vector<int> &Photon_vidNestedWPBitmap(); // VID compressed bitmap (MinPtCut,PhoSCEtaMultiRangeCut,PhoSingleTowerHadOverEmCut,PhoFull5x5SigmaIEtaIEtaCut,PhoAnyPFIsoWithEACut,PhoAnyPFIsoWithEAAndQuadScalingCut,PhoAnyPFIsoWithEACut), 1 bits per cut
+    const vector<int> &Photon_vidNestedWPBitmap(); // VID compressed bitmap (MinPtCut,PhoSCEtaMultiRangeCut,PhoSingleTowerHadOverEmCut,PhoFull5x5SigmaIEtaIEtaCut,PhoAnyPFIsoWithEACut,PhoAnyPFIsoWithEAAndQuadScalingCut,PhoAnyPFIsoWithEACut), 2 bits per cut
+    const float &Pileup_gpudensity(); // Generator-level PU vertices / mm
     const int &Pileup_nPU(); // the number of pileup interactions that have been added to the event in the current bunch crossing
     const float &Pileup_nTrueInt(); // the true mean number of the poisson distribution for this event from which the number of interactions each bunch crossing has been sampled
+    const float &Pileup_pudensity(); // PU vertices / mm
     const int &Pileup_sumEOOT(); // number of early out of time pileup
     const int &Pileup_sumLOOT(); // number of late out of time pileup
     const float &PuppiMET_phi(); // phi
@@ -5203,6 +7776,7 @@ namespace tas {
     const vector<LorentzVector> &SubJet_p4(); // from SubJet_pt,eta,phi,mass
     const vector<float> &SubJet_phi(); // phi
     const vector<float> &SubJet_pt(); // pt
+    const vector<float> &SubJet_rawFactor(); // 1 - Factor to get back to raw pT
     const vector<float> &SubJet_tau1(); // Nsubjettiness (1 axis)
     const vector<float> &SubJet_tau2(); // Nsubjettiness (2 axis)
     const vector<float> &SubJet_tau3(); // Nsubjettiness (3 axis)
@@ -5217,6 +7791,7 @@ namespace tas {
     const vector<UChar_t> &Tau_genPartFlav(); // Flavour of genParticle for MC matching to status==2 taus: 1 = prompt electron, 2 = prompt muon, 3 = tau->e decay, 4 = tau->mu decay, 5 = hadronic tau decay, 0 = unknown or unmatched
     const vector<int> &Tau_genPartIdx(); // Index into genParticle list for MC matching to status==2 taus
     const vector<UChar_t> &Tau_idAntiEle(); // Anti-electron MVA discriminator V6: bitmask 1 = VLoose, 2 = Loose, 4 = Medium, 8 = Tight, 16 = VTight
+    const vector<UChar_t> &Tau_idAntiEle2018(); // Anti-electron MVA discriminator V6 (2018): bitmask 1 = VLoose, 2 = Loose, 4 = Medium, 8 = Tight, 16 = VTight
     const vector<UChar_t> &Tau_idAntiMu(); // Anti-muon discriminator V3: : bitmask 1 = Loose, 2 = Tight
     const vector<bool> &Tau_idDecayMode(); // tauID('decayModeFinding')
     const vector<bool> &Tau_idDecayModeNewDMs(); // tauID('decayModeFindingNewDMs')
@@ -5237,7 +7812,9 @@ namespace tas {
     const vector<float> &Tau_pt(); // pt
     const vector<float> &Tau_puCorr(); // pileup correction
     const vector<float> &Tau_rawAntiEle(); // Anti-electron MVA discriminator V6 raw output discriminator
+    const vector<float> &Tau_rawAntiEle2018(); // Anti-electron MVA discriminator V6 raw output discriminator (2018)
     const vector<int> &Tau_rawAntiEleCat(); // Anti-electron MVA discriminator V6 category
+    const vector<int> &Tau_rawAntiEleCat2018(); // Anti-electron MVA discriminator V6 category (2018)
     const vector<float> &Tau_rawIso(); // combined isolation (deltaBeta corrections)
     const vector<float> &Tau_rawIsodR03(); // combined isolation (deltaBeta corrections, dR=0.3)
     const vector<float> &Tau_rawMVAnewDM2017v2(); // byIsolationMVArun2v1DBnewDMwLT raw output discriminator (2017v2)
@@ -5245,12 +7822,12 @@ namespace tas {
     const vector<float> &Tau_rawMVAoldDM2017v1(); // byIsolationMVArun2v1DBoldDMwLT raw output discriminator (2017v1)
     const vector<float> &Tau_rawMVAoldDM2017v2(); // byIsolationMVArun2v1DBoldDMwLT raw output discriminator (2017v2)
     const vector<float> &Tau_rawMVAoldDMdR032017v2(); // byIsolationMVArun2v1DBdR03oldDMwLT raw output discriminator (2017v2)
-    const float &TkMET_phi(); // phi
-    const float &TkMET_pt(); // pt
-    const float &TkMET_sumEt(); // scalar sum of Et
+    const float &TkMET_phi(); // raw track MET phi
+    const float &TkMET_pt(); // raw track MET pt
+    const float &TkMET_sumEt(); // raw track scalar sum of Et
     const vector<float> &TrigObj_eta(); // eta
-    const vector<int> &TrigObj_filterBits(); // extra bits of associated information: 1 = CaloIdL_TrackIdL_IsoVL, 2 = WPLoose, 4 = WPTight, 8 = OverlapFilter PFTau for Electron (PixelMatched e/gamma); 1 = TrkIsoVVL, 2 = Iso, 4 = OverlapFilter PFTau for Muon; 1 = LooseChargedIso, 2 = MediumChargedIso, 4 = TightChargedIso, 8 = TightID OOSC photons, 16 = L2p5 pixel iso, 32 = OverlapFilter IsoMu, 64 = OverlapFilter IsoEle, 128 = L1-HLT matched, 256 = Dz for Tau; 1 = VBF cross-cleaned from loose iso PFTau for Jet; 
-    const vector<int> &TrigObj_id(); // ID of the object: 11 = Electron (PixelMatched e/gamma), 22 = Photon (PixelMatch-vetoed e/gamma), 13 = Muon, 15 = Tau, 1 = Jet, 2 = MET, 3 = HT, 4 = MHT
+    const vector<int> &TrigObj_filterBits(); // extra bits of associated information: 1 = CaloIdL_TrackIdL_IsoVL, 2 = 1e (WPTight), 4 = 1e (WPLoose), 8 = OverlapFilter PFTau, 16 = 2e, 32 = 1e-1mu, 64 = 1e-1tau, 128 = 3e, 256 = 2e-1mu, 512 = 1e-2mu, 1024 = 1e (32_L1DoubleEG_AND_L1SingleEGOr) for Electron (PixelMatched e/gamma); 1 = TrkIsoVVL, 2 = Iso, 4 = OverlapFilter PFTau, 8 = 1mu, 16 = 2mu, 32 = 1mu-1e, 64 = 1mu-1tau, 128 = 3mu, 256 = 2mu-1e, 512 =1mu-2e for Muon; 1 = LooseChargedIso, 2 = MediumChargedIso, 4 = TightChargedIso, 8 = TightID OOSC photons, 16 = HPS, 32 = single-tau + tau+MET, 64 = di-tau, 128 = e-tau, 256 = mu-tau, 512 = VBF+di-tau for Tau; 1 = VBF cross-cleaned from loose iso PFTau for Jet; 
+    const vector<int> &TrigObj_id(); // ID of the object: 11 = Electron (PixelMatched e/gamma), 22 = Photon (PixelMatch-vetoed e/gamma), 13 = Muon, 15 = Tau, 1 = Jet, 6 = FatJet, 2 = MET, 3 = HT, 4 = MHT
     const vector<int> &TrigObj_l1charge(); // charge of associated L1 seed
     const vector<int> &TrigObj_l1iso(); // iso of associated L1 seed
     const vector<float> &TrigObj_l1pt(); // pt of associated L1 seed
@@ -5258,27 +7835,34 @@ namespace tas {
     const vector<float> &TrigObj_l2pt(); // pt of associated 'L2' seed (i.e. HLT before tracking/PF)
     const vector<float> &TrigObj_phi(); // phi
     const vector<float> &TrigObj_pt(); // pt
+    const float &btagWeight_CSVV2(); // b-tag event weight for CSVV2
+    const float &btagWeight_DeepCSVB(); // b-tag event weight for DeepCSVB
     const ULong64_t &event(); // event/l
     const float &fixedGridRhoFastjetAll(); // rho from all PF Candidates, used e.g. for JECs
+    const float &fixedGridRhoFastjetCentral(); // rho from all PF Candidates for central region, used e.g. for JECs
     const float &fixedGridRhoFastjetCentralCalo(); // rho from calo towers with |eta| < 2.5, used e.g. egamma PFCluster isolation
+    const float &fixedGridRhoFastjetCentralChargedPileUp(); // rho from charged PF Candidates for central region, used e.g. for JECs
     const float &fixedGridRhoFastjetCentralNeutral(); // rho from neutral PF Candidates with |eta| < 2.5, used e.g. for rho corrections of some lepton isolations
     const int &genTtbarId(); // ttbar categorization
     const float &genWeight(); // generator weight
     const UInt_t &luminosityBlock(); // luminosityBlock/i
+    const UInt_t &nCorrT1METJet(); // Additional low-pt jets for Type-1 MET re-correction
     const UInt_t &nElectron(); // slimmedElectrons after basic selection (pt > 5 )
     const UInt_t &nFatJet(); // slimmedJetsAK8, i.e. ak8 fat jets for boosted analysis
     const UInt_t &nGenDressedLepton(); // Dressed leptons from Rivet-based ParticleLevelProducer
     const UInt_t &nGenJet(); // slimmedGenJets, i.e. ak4 Jets made with visible genparticles
-    const UInt_t &nGenJetAK8(); // slimmedGenJetsAK8SoftDropSubJets, i.e. subjets of ak8 Jets made with visible genparticles
+    const UInt_t &nGenJetAK8(); // slimmedGenJetsAK8, i.e. ak8 Jets made with visible genparticles
     const UInt_t &nGenPart(); // interesting gen particles 
     const UInt_t &nGenVisTau(); // gen hadronic taus 
     const UInt_t &nIsoTrack(); // isolated tracks after basic selection (((pt>5 && (abs(pdgId) == 11 || abs(pdgId) == 13)) || pt > 10) && (abs(pdgId) < 15 || abs(eta) < 2.5) && abs(dxy) < 0.2 && abs(dz) < 0.1 && ((pfIsolationDR03().chargedHadronIso < 5 && pt < 25) || pfIsolationDR03().chargedHadronIso/pt < 0.2)) and lepton veto
     const UInt_t &nJet(); // slimmedJets, i.e. ak4 PFJets CHS with JECs applied, after basic selection (pt > 15)
     const UInt_t &nLHEPart(); // 
     const UInt_t &nLHEPdfWeight(); // 
+    const UInt_t &nLHEReweightingWeight(); // 
     const UInt_t &nLHEScaleWeight(); // 
-    const UInt_t &nMuon(); // slimmedMuons after basic selection (pt > 3 && track.isNonnull && isLooseMuon)
+    const UInt_t &nMuon(); // slimmedMuons after basic selection (pt > 3 && (passed('CutBasedIdLoose') || passed('SoftCutBasedId') || passed('SoftMvaId') || passed('CutBasedIdGlobalHighPt') || passed('CutBasedIdTrkHighPt')))
     const UInt_t &nOtherPV(); // 
+    const UInt_t &nPSWeight(); // 
     const UInt_t &nPhoton(); // slimmedPhotons after basic selection (pt > 5 )
     const UInt_t &nSV(); // 
     const UInt_t &nSoftActivityJet(); // jets clustered from charged candidates compatible with primary vertex (charge()!=0 && pvAssociationQuality()>=5 && vertexRef().key()==0)

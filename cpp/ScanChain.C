@@ -24,7 +24,6 @@
 
 // #define DEBUG
 
-// https://github.com/vlraik/Competitive-programming-Cplusplus-Macros-and-Snippets/blob/master/MACROS.cpp
 struct debugger { template<typename T> debugger& operator , (const T& v) { cerr<<v<<" "; return *this; } } dbg;
 #ifdef DEBUG
     #define debug(args...) do {cerr << #args << ": "; dbg,args; cerr << endl;} while(0)
@@ -36,7 +35,6 @@ using namespace std;
 using namespace tas;
 
 int ScanChain(TChain *ch) {
-
 
     TFile* f1 = new TFile("output.root", "RECREATE");
     H1(mll,30,0,-1);
@@ -62,13 +60,11 @@ int ScanChain(TChain *ch) {
     // set configuration parameters
     gconf.year = 2017;
 
-
     while ( (currentFile = (TFile*)fileIter.Next()) ) {
         TFile *file = TFile::Open( currentFile->GetTitle() );
         TTree *tree = (TTree*)file->Get("Events");
         TString filename(currentFile->GetTitle());
 
-        // std::cout <<  " file->GetEndpointUrl()->GetProtocol(): " << file->GetEndpointUrl()->GetProtocol() <<  std::endl;
         tree->SetCacheSize(128*1024*1024);
         tree->SetCacheLearnEntries(100);
 
@@ -134,16 +130,11 @@ int ScanChain(TChain *ch) {
 
         } // Event loop
 
-        // psRead->Print();
-        // tree->PrintCacheStats("cachedbranches");
-        // nt.PrintUsage();
-
         delete file;
 
 
     } // File loop
     bar.finish();
-
 
     std::cout <<  "Mean of h_njets: " << h_njets->GetMean() <<  std::endl;
     f1->Write();

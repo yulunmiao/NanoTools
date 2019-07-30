@@ -254,7 +254,7 @@ bool passesElectronMVA(int idlevel, int iel) {
         else if (pt_ > 25) return B;
         else return A+(B-A)/15.0f*(pt_-10.0f);
     };
-    float mva = Electron_mvaFall17noIso()[iel];
+    float mva = Electron_mvaFall17V1noIso()[iel];
     float pt = Electron_pt()[iel];
     float aeta = fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]);
     if (idlevel == IDtight) {
@@ -334,7 +334,7 @@ void dumpLeptonProperties(Lepton lep) {
     int i = lep.idx();
     if (lep.is_el()) {
         std::cout << "  -- etaSC: " << Electron_eta()[i] + Electron_deltaEtaSC()[i] << std::endl;
-        std::cout << "  -- mva: " << Electron_mvaFall17noIso()[i] << std::endl;
+        std::cout << "  -- mva: " << Electron_mvaFall17V1noIso()[i] << std::endl;
         std::cout << "  -- lostHits: " << Electron_lostHits()[i] << std::endl;
         std::cout << "  -- miniRelIso: " << Electron_miniPFRelIso_all()[i] << std::endl;
         std::cout << "  -- ptRatio: " << getPtRatio(11,i) << std::endl;

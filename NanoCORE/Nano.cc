@@ -8,6 +8,22 @@ void Nano::Init(TTree *tree) {
     if (b_CaloMET_pt_) { b_CaloMET_pt_->SetAddress(&CaloMET_pt_); }
     b_CaloMET_sumEt_ = tree->GetBranch("CaloMET_sumEt");
     if (b_CaloMET_sumEt_) { b_CaloMET_sumEt_->SetAddress(&CaloMET_sumEt_); }
+    b_ChsMET_phi_ = tree->GetBranch("ChsMET_phi");
+    if (b_ChsMET_phi_) { b_ChsMET_phi_->SetAddress(&ChsMET_phi_); }
+    b_ChsMET_pt_ = tree->GetBranch("ChsMET_pt");
+    if (b_ChsMET_pt_) { b_ChsMET_pt_->SetAddress(&ChsMET_pt_); }
+    b_ChsMET_sumEt_ = tree->GetBranch("ChsMET_sumEt");
+    if (b_ChsMET_sumEt_) { b_ChsMET_sumEt_->SetAddress(&ChsMET_sumEt_); }
+    b_CorrT1METJet_area_ = tree->GetBranch("CorrT1METJet_area");
+    if (b_CorrT1METJet_area_) { b_CorrT1METJet_area_->SetAddress(&CorrT1METJet_area_); }
+    b_CorrT1METJet_eta_ = tree->GetBranch("CorrT1METJet_eta");
+    if (b_CorrT1METJet_eta_) { b_CorrT1METJet_eta_->SetAddress(&CorrT1METJet_eta_); }
+    b_CorrT1METJet_muonSubtrFactor_ = tree->GetBranch("CorrT1METJet_muonSubtrFactor");
+    if (b_CorrT1METJet_muonSubtrFactor_) { b_CorrT1METJet_muonSubtrFactor_->SetAddress(&CorrT1METJet_muonSubtrFactor_); }
+    b_CorrT1METJet_phi_ = tree->GetBranch("CorrT1METJet_phi");
+    if (b_CorrT1METJet_phi_) { b_CorrT1METJet_phi_->SetAddress(&CorrT1METJet_phi_); }
+    b_CorrT1METJet_rawPt_ = tree->GetBranch("CorrT1METJet_rawPt");
+    if (b_CorrT1METJet_rawPt_) { b_CorrT1METJet_rawPt_->SetAddress(&CorrT1METJet_rawPt_); }
     b_Electron_charge_ = tree->GetBranch("Electron_charge");
     if (b_Electron_charge_) { b_Electron_charge_->SetAddress(&Electron_charge_); }
     b_Electron_cleanmask_ = tree->GetBranch("Electron_cleanmask");
@@ -16,6 +32,8 @@ void Nano::Init(TTree *tree) {
     if (b_Electron_convVeto_) { b_Electron_convVeto_->SetAddress(&Electron_convVeto_); }
     b_Electron_cutBased_ = tree->GetBranch("Electron_cutBased");
     if (b_Electron_cutBased_) { b_Electron_cutBased_->SetAddress(&Electron_cutBased_); }
+    b_Electron_cutBased_Fall17_V1_ = tree->GetBranch("Electron_cutBased_Fall17_V1");
+    if (b_Electron_cutBased_Fall17_V1_) { b_Electron_cutBased_Fall17_V1_->SetAddress(&Electron_cutBased_Fall17_V1_); }
     b_Electron_cutBased_HEEP_ = tree->GetBranch("Electron_cutBased_HEEP");
     if (b_Electron_cutBased_HEEP_) { b_Electron_cutBased_HEEP_->SetAddress(&Electron_cutBased_HEEP_); }
     b_Electron_deltaEtaSC_ = tree->GetBranch("Electron_deltaEtaSC");
@@ -26,6 +44,8 @@ void Nano::Init(TTree *tree) {
     if (b_Electron_dr03HcalDepth1TowerSumEt_) { b_Electron_dr03HcalDepth1TowerSumEt_->SetAddress(&Electron_dr03HcalDepth1TowerSumEt_); }
     b_Electron_dr03TkSumPt_ = tree->GetBranch("Electron_dr03TkSumPt");
     if (b_Electron_dr03TkSumPt_) { b_Electron_dr03TkSumPt_->SetAddress(&Electron_dr03TkSumPt_); }
+    b_Electron_dr03TkSumPtHEEP_ = tree->GetBranch("Electron_dr03TkSumPtHEEP");
+    if (b_Electron_dr03TkSumPtHEEP_) { b_Electron_dr03TkSumPtHEEP_->SetAddress(&Electron_dr03TkSumPtHEEP_); }
     b_Electron_dxy_ = tree->GetBranch("Electron_dxy");
     if (b_Electron_dxy_) { b_Electron_dxy_->SetAddress(&Electron_dxy_); }
     b_Electron_dxyErr_ = tree->GetBranch("Electron_dxyErr");
@@ -54,6 +74,10 @@ void Nano::Init(TTree *tree) {
     if (b_Electron_isPFcand_) { b_Electron_isPFcand_->SetAddress(&Electron_isPFcand_); }
     b_Electron_jetIdx_ = tree->GetBranch("Electron_jetIdx");
     if (b_Electron_jetIdx_) { b_Electron_jetIdx_->SetAddress(&Electron_jetIdx_); }
+    b_Electron_jetPtRelv2_ = tree->GetBranch("Electron_jetPtRelv2");
+    if (b_Electron_jetPtRelv2_) { b_Electron_jetPtRelv2_->SetAddress(&Electron_jetPtRelv2_); }
+    b_Electron_jetRelIso_ = tree->GetBranch("Electron_jetRelIso");
+    if (b_Electron_jetRelIso_) { b_Electron_jetRelIso_->SetAddress(&Electron_jetRelIso_); }
     b_Electron_lostHits_ = tree->GetBranch("Electron_lostHits");
     if (b_Electron_lostHits_) { b_Electron_lostHits_->SetAddress(&Electron_lostHits_); }
     b_Electron_mass_ = tree->GetBranch("Electron_mass");
@@ -62,22 +86,38 @@ void Nano::Init(TTree *tree) {
     if (b_Electron_miniPFRelIso_all_) { b_Electron_miniPFRelIso_all_->SetAddress(&Electron_miniPFRelIso_all_); }
     b_Electron_miniPFRelIso_chg_ = tree->GetBranch("Electron_miniPFRelIso_chg");
     if (b_Electron_miniPFRelIso_chg_) { b_Electron_miniPFRelIso_chg_->SetAddress(&Electron_miniPFRelIso_chg_); }
-    b_Electron_mvaFall17Iso_ = tree->GetBranch("Electron_mvaFall17Iso");
-    if (b_Electron_mvaFall17Iso_) { b_Electron_mvaFall17Iso_->SetAddress(&Electron_mvaFall17Iso_); }
-    b_Electron_mvaFall17Iso_WP80_ = tree->GetBranch("Electron_mvaFall17Iso_WP80");
-    if (b_Electron_mvaFall17Iso_WP80_) { b_Electron_mvaFall17Iso_WP80_->SetAddress(&Electron_mvaFall17Iso_WP80_); }
-    b_Electron_mvaFall17Iso_WP90_ = tree->GetBranch("Electron_mvaFall17Iso_WP90");
-    if (b_Electron_mvaFall17Iso_WP90_) { b_Electron_mvaFall17Iso_WP90_->SetAddress(&Electron_mvaFall17Iso_WP90_); }
-    b_Electron_mvaFall17Iso_WPL_ = tree->GetBranch("Electron_mvaFall17Iso_WPL");
-    if (b_Electron_mvaFall17Iso_WPL_) { b_Electron_mvaFall17Iso_WPL_->SetAddress(&Electron_mvaFall17Iso_WPL_); }
-    b_Electron_mvaFall17noIso_ = tree->GetBranch("Electron_mvaFall17noIso");
-    if (b_Electron_mvaFall17noIso_) { b_Electron_mvaFall17noIso_->SetAddress(&Electron_mvaFall17noIso_); }
-    b_Electron_mvaFall17noIso_WP80_ = tree->GetBranch("Electron_mvaFall17noIso_WP80");
-    if (b_Electron_mvaFall17noIso_WP80_) { b_Electron_mvaFall17noIso_WP80_->SetAddress(&Electron_mvaFall17noIso_WP80_); }
-    b_Electron_mvaFall17noIso_WP90_ = tree->GetBranch("Electron_mvaFall17noIso_WP90");
-    if (b_Electron_mvaFall17noIso_WP90_) { b_Electron_mvaFall17noIso_WP90_->SetAddress(&Electron_mvaFall17noIso_WP90_); }
-    b_Electron_mvaFall17noIso_WPL_ = tree->GetBranch("Electron_mvaFall17noIso_WPL");
-    if (b_Electron_mvaFall17noIso_WPL_) { b_Electron_mvaFall17noIso_WPL_->SetAddress(&Electron_mvaFall17noIso_WPL_); }
+    b_Electron_mvaFall17V1Iso_ = tree->GetBranch("Electron_mvaFall17V1Iso");
+    if (b_Electron_mvaFall17V1Iso_) { b_Electron_mvaFall17V1Iso_->SetAddress(&Electron_mvaFall17V1Iso_); }
+    b_Electron_mvaFall17V1Iso_WP80_ = tree->GetBranch("Electron_mvaFall17V1Iso_WP80");
+    if (b_Electron_mvaFall17V1Iso_WP80_) { b_Electron_mvaFall17V1Iso_WP80_->SetAddress(&Electron_mvaFall17V1Iso_WP80_); }
+    b_Electron_mvaFall17V1Iso_WP90_ = tree->GetBranch("Electron_mvaFall17V1Iso_WP90");
+    if (b_Electron_mvaFall17V1Iso_WP90_) { b_Electron_mvaFall17V1Iso_WP90_->SetAddress(&Electron_mvaFall17V1Iso_WP90_); }
+    b_Electron_mvaFall17V1Iso_WPL_ = tree->GetBranch("Electron_mvaFall17V1Iso_WPL");
+    if (b_Electron_mvaFall17V1Iso_WPL_) { b_Electron_mvaFall17V1Iso_WPL_->SetAddress(&Electron_mvaFall17V1Iso_WPL_); }
+    b_Electron_mvaFall17V1noIso_ = tree->GetBranch("Electron_mvaFall17V1noIso");
+    if (b_Electron_mvaFall17V1noIso_) { b_Electron_mvaFall17V1noIso_->SetAddress(&Electron_mvaFall17V1noIso_); }
+    b_Electron_mvaFall17V1noIso_WP80_ = tree->GetBranch("Electron_mvaFall17V1noIso_WP80");
+    if (b_Electron_mvaFall17V1noIso_WP80_) { b_Electron_mvaFall17V1noIso_WP80_->SetAddress(&Electron_mvaFall17V1noIso_WP80_); }
+    b_Electron_mvaFall17V1noIso_WP90_ = tree->GetBranch("Electron_mvaFall17V1noIso_WP90");
+    if (b_Electron_mvaFall17V1noIso_WP90_) { b_Electron_mvaFall17V1noIso_WP90_->SetAddress(&Electron_mvaFall17V1noIso_WP90_); }
+    b_Electron_mvaFall17V1noIso_WPL_ = tree->GetBranch("Electron_mvaFall17V1noIso_WPL");
+    if (b_Electron_mvaFall17V1noIso_WPL_) { b_Electron_mvaFall17V1noIso_WPL_->SetAddress(&Electron_mvaFall17V1noIso_WPL_); }
+    b_Electron_mvaFall17V2Iso_ = tree->GetBranch("Electron_mvaFall17V2Iso");
+    if (b_Electron_mvaFall17V2Iso_) { b_Electron_mvaFall17V2Iso_->SetAddress(&Electron_mvaFall17V2Iso_); }
+    b_Electron_mvaFall17V2Iso_WP80_ = tree->GetBranch("Electron_mvaFall17V2Iso_WP80");
+    if (b_Electron_mvaFall17V2Iso_WP80_) { b_Electron_mvaFall17V2Iso_WP80_->SetAddress(&Electron_mvaFall17V2Iso_WP80_); }
+    b_Electron_mvaFall17V2Iso_WP90_ = tree->GetBranch("Electron_mvaFall17V2Iso_WP90");
+    if (b_Electron_mvaFall17V2Iso_WP90_) { b_Electron_mvaFall17V2Iso_WP90_->SetAddress(&Electron_mvaFall17V2Iso_WP90_); }
+    b_Electron_mvaFall17V2Iso_WPL_ = tree->GetBranch("Electron_mvaFall17V2Iso_WPL");
+    if (b_Electron_mvaFall17V2Iso_WPL_) { b_Electron_mvaFall17V2Iso_WPL_->SetAddress(&Electron_mvaFall17V2Iso_WPL_); }
+    b_Electron_mvaFall17V2noIso_ = tree->GetBranch("Electron_mvaFall17V2noIso");
+    if (b_Electron_mvaFall17V2noIso_) { b_Electron_mvaFall17V2noIso_->SetAddress(&Electron_mvaFall17V2noIso_); }
+    b_Electron_mvaFall17V2noIso_WP80_ = tree->GetBranch("Electron_mvaFall17V2noIso_WP80");
+    if (b_Electron_mvaFall17V2noIso_WP80_) { b_Electron_mvaFall17V2noIso_WP80_->SetAddress(&Electron_mvaFall17V2noIso_WP80_); }
+    b_Electron_mvaFall17V2noIso_WP90_ = tree->GetBranch("Electron_mvaFall17V2noIso_WP90");
+    if (b_Electron_mvaFall17V2noIso_WP90_) { b_Electron_mvaFall17V2noIso_WP90_->SetAddress(&Electron_mvaFall17V2noIso_WP90_); }
+    b_Electron_mvaFall17V2noIso_WPL_ = tree->GetBranch("Electron_mvaFall17V2noIso_WPL");
+    if (b_Electron_mvaFall17V2noIso_WPL_) { b_Electron_mvaFall17V2noIso_WPL_->SetAddress(&Electron_mvaFall17V2noIso_WPL_); }
     b_Electron_mvaTTH_ = tree->GetBranch("Electron_mvaTTH");
     if (b_Electron_mvaTTH_) { b_Electron_mvaTTH_->SetAddress(&Electron_mvaTTH_); }
     b_Electron_pdgId_ = tree->GetBranch("Electron_pdgId");
@@ -94,6 +134,8 @@ void Nano::Init(TTree *tree) {
     if (b_Electron_pt_) { b_Electron_pt_->SetAddress(&Electron_pt_); }
     b_Electron_r9_ = tree->GetBranch("Electron_r9");
     if (b_Electron_r9_) { b_Electron_r9_->SetAddress(&Electron_r9_); }
+    b_Electron_seedGain_ = tree->GetBranch("Electron_seedGain");
+    if (b_Electron_seedGain_) { b_Electron_seedGain_->SetAddress(&Electron_seedGain_); }
     b_Electron_sieie_ = tree->GetBranch("Electron_sieie");
     if (b_Electron_sieie_) { b_Electron_sieie_->SetAddress(&Electron_sieie_); }
     b_Electron_sip3d_ = tree->GetBranch("Electron_sip3d");
@@ -108,10 +150,48 @@ void Nano::Init(TTree *tree) {
     if (b_FatJet_btagCMVA_) { b_FatJet_btagCMVA_->SetAddress(&FatJet_btagCMVA_); }
     b_FatJet_btagCSVV2_ = tree->GetBranch("FatJet_btagCSVV2");
     if (b_FatJet_btagCSVV2_) { b_FatJet_btagCSVV2_->SetAddress(&FatJet_btagCSVV2_); }
+    b_FatJet_btagDDBvL_ = tree->GetBranch("FatJet_btagDDBvL");
+    if (b_FatJet_btagDDBvL_) { b_FatJet_btagDDBvL_->SetAddress(&FatJet_btagDDBvL_); }
+    b_FatJet_btagDDCvB_ = tree->GetBranch("FatJet_btagDDCvB");
+    if (b_FatJet_btagDDCvB_) { b_FatJet_btagDDCvB_->SetAddress(&FatJet_btagDDCvB_); }
+    b_FatJet_btagDDCvL_ = tree->GetBranch("FatJet_btagDDCvL");
+    if (b_FatJet_btagDDCvL_) { b_FatJet_btagDDCvL_->SetAddress(&FatJet_btagDDCvL_); }
     b_FatJet_btagDeepB_ = tree->GetBranch("FatJet_btagDeepB");
     if (b_FatJet_btagDeepB_) { b_FatJet_btagDeepB_->SetAddress(&FatJet_btagDeepB_); }
     b_FatJet_btagHbb_ = tree->GetBranch("FatJet_btagHbb");
     if (b_FatJet_btagHbb_) { b_FatJet_btagHbb_->SetAddress(&FatJet_btagHbb_); }
+    b_FatJet_deepTagMD_H4qvsQCD_ = tree->GetBranch("FatJet_deepTagMD_H4qvsQCD");
+    if (b_FatJet_deepTagMD_H4qvsQCD_) { b_FatJet_deepTagMD_H4qvsQCD_->SetAddress(&FatJet_deepTagMD_H4qvsQCD_); }
+    b_FatJet_deepTagMD_HbbvsQCD_ = tree->GetBranch("FatJet_deepTagMD_HbbvsQCD");
+    if (b_FatJet_deepTagMD_HbbvsQCD_) { b_FatJet_deepTagMD_HbbvsQCD_->SetAddress(&FatJet_deepTagMD_HbbvsQCD_); }
+    b_FatJet_deepTagMD_TvsQCD_ = tree->GetBranch("FatJet_deepTagMD_TvsQCD");
+    if (b_FatJet_deepTagMD_TvsQCD_) { b_FatJet_deepTagMD_TvsQCD_->SetAddress(&FatJet_deepTagMD_TvsQCD_); }
+    b_FatJet_deepTagMD_WvsQCD_ = tree->GetBranch("FatJet_deepTagMD_WvsQCD");
+    if (b_FatJet_deepTagMD_WvsQCD_) { b_FatJet_deepTagMD_WvsQCD_->SetAddress(&FatJet_deepTagMD_WvsQCD_); }
+    b_FatJet_deepTagMD_ZHbbvsQCD_ = tree->GetBranch("FatJet_deepTagMD_ZHbbvsQCD");
+    if (b_FatJet_deepTagMD_ZHbbvsQCD_) { b_FatJet_deepTagMD_ZHbbvsQCD_->SetAddress(&FatJet_deepTagMD_ZHbbvsQCD_); }
+    b_FatJet_deepTagMD_ZHccvsQCD_ = tree->GetBranch("FatJet_deepTagMD_ZHccvsQCD");
+    if (b_FatJet_deepTagMD_ZHccvsQCD_) { b_FatJet_deepTagMD_ZHccvsQCD_->SetAddress(&FatJet_deepTagMD_ZHccvsQCD_); }
+    b_FatJet_deepTagMD_ZbbvsQCD_ = tree->GetBranch("FatJet_deepTagMD_ZbbvsQCD");
+    if (b_FatJet_deepTagMD_ZbbvsQCD_) { b_FatJet_deepTagMD_ZbbvsQCD_->SetAddress(&FatJet_deepTagMD_ZbbvsQCD_); }
+    b_FatJet_deepTagMD_ZvsQCD_ = tree->GetBranch("FatJet_deepTagMD_ZvsQCD");
+    if (b_FatJet_deepTagMD_ZvsQCD_) { b_FatJet_deepTagMD_ZvsQCD_->SetAddress(&FatJet_deepTagMD_ZvsQCD_); }
+    b_FatJet_deepTagMD_bbvsLight_ = tree->GetBranch("FatJet_deepTagMD_bbvsLight");
+    if (b_FatJet_deepTagMD_bbvsLight_) { b_FatJet_deepTagMD_bbvsLight_->SetAddress(&FatJet_deepTagMD_bbvsLight_); }
+    b_FatJet_deepTagMD_ccvsLight_ = tree->GetBranch("FatJet_deepTagMD_ccvsLight");
+    if (b_FatJet_deepTagMD_ccvsLight_) { b_FatJet_deepTagMD_ccvsLight_->SetAddress(&FatJet_deepTagMD_ccvsLight_); }
+    b_FatJet_deepTag_H_ = tree->GetBranch("FatJet_deepTag_H");
+    if (b_FatJet_deepTag_H_) { b_FatJet_deepTag_H_->SetAddress(&FatJet_deepTag_H_); }
+    b_FatJet_deepTag_QCD_ = tree->GetBranch("FatJet_deepTag_QCD");
+    if (b_FatJet_deepTag_QCD_) { b_FatJet_deepTag_QCD_->SetAddress(&FatJet_deepTag_QCD_); }
+    b_FatJet_deepTag_QCDothers_ = tree->GetBranch("FatJet_deepTag_QCDothers");
+    if (b_FatJet_deepTag_QCDothers_) { b_FatJet_deepTag_QCDothers_->SetAddress(&FatJet_deepTag_QCDothers_); }
+    b_FatJet_deepTag_TvsQCD_ = tree->GetBranch("FatJet_deepTag_TvsQCD");
+    if (b_FatJet_deepTag_TvsQCD_) { b_FatJet_deepTag_TvsQCD_->SetAddress(&FatJet_deepTag_TvsQCD_); }
+    b_FatJet_deepTag_WvsQCD_ = tree->GetBranch("FatJet_deepTag_WvsQCD");
+    if (b_FatJet_deepTag_WvsQCD_) { b_FatJet_deepTag_WvsQCD_->SetAddress(&FatJet_deepTag_WvsQCD_); }
+    b_FatJet_deepTag_ZvsQCD_ = tree->GetBranch("FatJet_deepTag_ZvsQCD");
+    if (b_FatJet_deepTag_ZvsQCD_) { b_FatJet_deepTag_ZvsQCD_->SetAddress(&FatJet_deepTag_ZvsQCD_); }
     b_FatJet_eta_ = tree->GetBranch("FatJet_eta");
     if (b_FatJet_eta_) { b_FatJet_eta_->SetAddress(&FatJet_eta_); }
     b_FatJet_jetId_ = tree->GetBranch("FatJet_jetId");
@@ -128,6 +208,8 @@ void Nano::Init(TTree *tree) {
     if (b_FatJet_phi_) { b_FatJet_phi_->SetAddress(&FatJet_phi_); }
     b_FatJet_pt_ = tree->GetBranch("FatJet_pt");
     if (b_FatJet_pt_) { b_FatJet_pt_->SetAddress(&FatJet_pt_); }
+    b_FatJet_rawFactor_ = tree->GetBranch("FatJet_rawFactor");
+    if (b_FatJet_rawFactor_) { b_FatJet_rawFactor_->SetAddress(&FatJet_rawFactor_); }
     b_FatJet_subJetIdx1_ = tree->GetBranch("FatJet_subJetIdx1");
     if (b_FatJet_subJetIdx1_) { b_FatJet_subJetIdx1_->SetAddress(&FatJet_subJetIdx1_); }
     b_FatJet_subJetIdx2_ = tree->GetBranch("FatJet_subJetIdx2");
@@ -170,6 +252,8 @@ void Nano::Init(TTree *tree) {
     if (b_Flag_chargedHadronTrackResolutionFilter_) { b_Flag_chargedHadronTrackResolutionFilter_->SetAddress(&Flag_chargedHadronTrackResolutionFilter_); }
     b_Flag_ecalBadCalibFilter_ = tree->GetBranch("Flag_ecalBadCalibFilter");
     if (b_Flag_ecalBadCalibFilter_) { b_Flag_ecalBadCalibFilter_->SetAddress(&Flag_ecalBadCalibFilter_); }
+    b_Flag_ecalBadCalibFilterV2_ = tree->GetBranch("Flag_ecalBadCalibFilterV2");
+    if (b_Flag_ecalBadCalibFilterV2_) { b_Flag_ecalBadCalibFilterV2_->SetAddress(&Flag_ecalBadCalibFilterV2_); }
     b_Flag_ecalLaserCorrFilter_ = tree->GetBranch("Flag_ecalLaserCorrFilter");
     if (b_Flag_ecalLaserCorrFilter_) { b_Flag_ecalLaserCorrFilter_->SetAddress(&Flag_ecalLaserCorrFilter_); }
     b_Flag_eeBadScFilter_ = tree->GetBranch("Flag_eeBadScFilter");
@@ -194,6 +278,8 @@ void Nano::Init(TTree *tree) {
     if (b_Flag_trkPOG_toomanystripclus53X_) { b_Flag_trkPOG_toomanystripclus53X_->SetAddress(&Flag_trkPOG_toomanystripclus53X_); }
     b_GenDressedLepton_eta_ = tree->GetBranch("GenDressedLepton_eta");
     if (b_GenDressedLepton_eta_) { b_GenDressedLepton_eta_->SetAddress(&GenDressedLepton_eta_); }
+    b_GenDressedLepton_hasTauAnc_ = tree->GetBranch("GenDressedLepton_hasTauAnc");
+    if (b_GenDressedLepton_hasTauAnc_) { b_GenDressedLepton_hasTauAnc_->SetAddress(&GenDressedLepton_hasTauAnc_); }
     b_GenDressedLepton_mass_ = tree->GetBranch("GenDressedLepton_mass");
     if (b_GenDressedLepton_mass_) { b_GenDressedLepton_mass_->SetAddress(&GenDressedLepton_mass_); }
     b_GenDressedLepton_pdgId_ = tree->GetBranch("GenDressedLepton_pdgId");
@@ -310,16 +396,26 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_AK8PFHT900_TrimMass50_) { b_HLT_AK8PFHT900_TrimMass50_->SetAddress(&HLT_AK8PFHT900_TrimMass50_); }
     b_HLT_AK8PFJet140_ = tree->GetBranch("HLT_AK8PFJet140");
     if (b_HLT_AK8PFJet140_) { b_HLT_AK8PFJet140_->SetAddress(&HLT_AK8PFJet140_); }
+    b_HLT_AK8PFJet15_ = tree->GetBranch("HLT_AK8PFJet15");
+    if (b_HLT_AK8PFJet15_) { b_HLT_AK8PFJet15_->SetAddress(&HLT_AK8PFJet15_); }
     b_HLT_AK8PFJet200_ = tree->GetBranch("HLT_AK8PFJet200");
     if (b_HLT_AK8PFJet200_) { b_HLT_AK8PFJet200_->SetAddress(&HLT_AK8PFJet200_); }
+    b_HLT_AK8PFJet25_ = tree->GetBranch("HLT_AK8PFJet25");
+    if (b_HLT_AK8PFJet25_) { b_HLT_AK8PFJet25_->SetAddress(&HLT_AK8PFJet25_); }
     b_HLT_AK8PFJet260_ = tree->GetBranch("HLT_AK8PFJet260");
     if (b_HLT_AK8PFJet260_) { b_HLT_AK8PFJet260_->SetAddress(&HLT_AK8PFJet260_); }
     b_HLT_AK8PFJet320_ = tree->GetBranch("HLT_AK8PFJet320");
     if (b_HLT_AK8PFJet320_) { b_HLT_AK8PFJet320_->SetAddress(&HLT_AK8PFJet320_); }
-    b_HLT_AK8PFJet330_PFAK8BTagCSV_p1_ = tree->GetBranch("HLT_AK8PFJet330_PFAK8BTagCSV_p1");
-    if (b_HLT_AK8PFJet330_PFAK8BTagCSV_p1_) { b_HLT_AK8PFJet330_PFAK8BTagCSV_p1_->SetAddress(&HLT_AK8PFJet330_PFAK8BTagCSV_p1_); }
-    b_HLT_AK8PFJet330_PFAK8BTagCSV_p17_ = tree->GetBranch("HLT_AK8PFJet330_PFAK8BTagCSV_p17");
-    if (b_HLT_AK8PFJet330_PFAK8BTagCSV_p17_) { b_HLT_AK8PFJet330_PFAK8BTagCSV_p17_->SetAddress(&HLT_AK8PFJet330_PFAK8BTagCSV_p17_); }
+    b_HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p1_ = tree->GetBranch("HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p1");
+    if (b_HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p1_) { b_HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p1_->SetAddress(&HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p1_); }
+    b_HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p17_ = tree->GetBranch("HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p17");
+    if (b_HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p17_) { b_HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p17_->SetAddress(&HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p17_); }
+    b_HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np2_ = tree->GetBranch("HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np2");
+    if (b_HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np2_) { b_HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np2_->SetAddress(&HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np2_); }
+    b_HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np4_ = tree->GetBranch("HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np4");
+    if (b_HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np4_) { b_HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np4_->SetAddress(&HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np4_); }
+    b_HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_p02_ = tree->GetBranch("HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_p02");
+    if (b_HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_p02_) { b_HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_p02_->SetAddress(&HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_p02_); }
     b_HLT_AK8PFJet360_TrimMass30_ = tree->GetBranch("HLT_AK8PFJet360_TrimMass30");
     if (b_HLT_AK8PFJet360_TrimMass30_) { b_HLT_AK8PFJet360_TrimMass30_->SetAddress(&HLT_AK8PFJet360_TrimMass30_); }
     b_HLT_AK8PFJet380_TrimMass30_ = tree->GetBranch("HLT_AK8PFJet380_TrimMass30");
@@ -344,8 +440,12 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_AK8PFJet80_) { b_HLT_AK8PFJet80_->SetAddress(&HLT_AK8PFJet80_); }
     b_HLT_AK8PFJetFwd140_ = tree->GetBranch("HLT_AK8PFJetFwd140");
     if (b_HLT_AK8PFJetFwd140_) { b_HLT_AK8PFJetFwd140_->SetAddress(&HLT_AK8PFJetFwd140_); }
+    b_HLT_AK8PFJetFwd15_ = tree->GetBranch("HLT_AK8PFJetFwd15");
+    if (b_HLT_AK8PFJetFwd15_) { b_HLT_AK8PFJetFwd15_->SetAddress(&HLT_AK8PFJetFwd15_); }
     b_HLT_AK8PFJetFwd200_ = tree->GetBranch("HLT_AK8PFJetFwd200");
     if (b_HLT_AK8PFJetFwd200_) { b_HLT_AK8PFJetFwd200_->SetAddress(&HLT_AK8PFJetFwd200_); }
+    b_HLT_AK8PFJetFwd25_ = tree->GetBranch("HLT_AK8PFJetFwd25");
+    if (b_HLT_AK8PFJetFwd25_) { b_HLT_AK8PFJetFwd25_->SetAddress(&HLT_AK8PFJetFwd25_); }
     b_HLT_AK8PFJetFwd260_ = tree->GetBranch("HLT_AK8PFJetFwd260");
     if (b_HLT_AK8PFJetFwd260_) { b_HLT_AK8PFJetFwd260_->SetAddress(&HLT_AK8PFJetFwd260_); }
     b_HLT_AK8PFJetFwd320_ = tree->GetBranch("HLT_AK8PFJetFwd320");
@@ -364,20 +464,44 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_AK8PFJetFwd80_) { b_HLT_AK8PFJetFwd80_->SetAddress(&HLT_AK8PFJetFwd80_); }
     b_HLT_BTagMu_AK4DiJet110_Mu5_ = tree->GetBranch("HLT_BTagMu_AK4DiJet110_Mu5");
     if (b_HLT_BTagMu_AK4DiJet110_Mu5_) { b_HLT_BTagMu_AK4DiJet110_Mu5_->SetAddress(&HLT_BTagMu_AK4DiJet110_Mu5_); }
+    b_HLT_BTagMu_AK4DiJet110_Mu5_noalgo_ = tree->GetBranch("HLT_BTagMu_AK4DiJet110_Mu5_noalgo");
+    if (b_HLT_BTagMu_AK4DiJet110_Mu5_noalgo_) { b_HLT_BTagMu_AK4DiJet110_Mu5_noalgo_->SetAddress(&HLT_BTagMu_AK4DiJet110_Mu5_noalgo_); }
     b_HLT_BTagMu_AK4DiJet170_Mu5_ = tree->GetBranch("HLT_BTagMu_AK4DiJet170_Mu5");
     if (b_HLT_BTagMu_AK4DiJet170_Mu5_) { b_HLT_BTagMu_AK4DiJet170_Mu5_->SetAddress(&HLT_BTagMu_AK4DiJet170_Mu5_); }
+    b_HLT_BTagMu_AK4DiJet170_Mu5_noalgo_ = tree->GetBranch("HLT_BTagMu_AK4DiJet170_Mu5_noalgo");
+    if (b_HLT_BTagMu_AK4DiJet170_Mu5_noalgo_) { b_HLT_BTagMu_AK4DiJet170_Mu5_noalgo_->SetAddress(&HLT_BTagMu_AK4DiJet170_Mu5_noalgo_); }
     b_HLT_BTagMu_AK4DiJet20_Mu5_ = tree->GetBranch("HLT_BTagMu_AK4DiJet20_Mu5");
     if (b_HLT_BTagMu_AK4DiJet20_Mu5_) { b_HLT_BTagMu_AK4DiJet20_Mu5_->SetAddress(&HLT_BTagMu_AK4DiJet20_Mu5_); }
+    b_HLT_BTagMu_AK4DiJet20_Mu5_noalgo_ = tree->GetBranch("HLT_BTagMu_AK4DiJet20_Mu5_noalgo");
+    if (b_HLT_BTagMu_AK4DiJet20_Mu5_noalgo_) { b_HLT_BTagMu_AK4DiJet20_Mu5_noalgo_->SetAddress(&HLT_BTagMu_AK4DiJet20_Mu5_noalgo_); }
     b_HLT_BTagMu_AK4DiJet40_Mu5_ = tree->GetBranch("HLT_BTagMu_AK4DiJet40_Mu5");
     if (b_HLT_BTagMu_AK4DiJet40_Mu5_) { b_HLT_BTagMu_AK4DiJet40_Mu5_->SetAddress(&HLT_BTagMu_AK4DiJet40_Mu5_); }
+    b_HLT_BTagMu_AK4DiJet40_Mu5_noalgo_ = tree->GetBranch("HLT_BTagMu_AK4DiJet40_Mu5_noalgo");
+    if (b_HLT_BTagMu_AK4DiJet40_Mu5_noalgo_) { b_HLT_BTagMu_AK4DiJet40_Mu5_noalgo_->SetAddress(&HLT_BTagMu_AK4DiJet40_Mu5_noalgo_); }
     b_HLT_BTagMu_AK4DiJet70_Mu5_ = tree->GetBranch("HLT_BTagMu_AK4DiJet70_Mu5");
     if (b_HLT_BTagMu_AK4DiJet70_Mu5_) { b_HLT_BTagMu_AK4DiJet70_Mu5_->SetAddress(&HLT_BTagMu_AK4DiJet70_Mu5_); }
+    b_HLT_BTagMu_AK4DiJet70_Mu5_noalgo_ = tree->GetBranch("HLT_BTagMu_AK4DiJet70_Mu5_noalgo");
+    if (b_HLT_BTagMu_AK4DiJet70_Mu5_noalgo_) { b_HLT_BTagMu_AK4DiJet70_Mu5_noalgo_->SetAddress(&HLT_BTagMu_AK4DiJet70_Mu5_noalgo_); }
     b_HLT_BTagMu_AK4Jet300_Mu5_ = tree->GetBranch("HLT_BTagMu_AK4Jet300_Mu5");
     if (b_HLT_BTagMu_AK4Jet300_Mu5_) { b_HLT_BTagMu_AK4Jet300_Mu5_->SetAddress(&HLT_BTagMu_AK4Jet300_Mu5_); }
+    b_HLT_BTagMu_AK4Jet300_Mu5_noalgo_ = tree->GetBranch("HLT_BTagMu_AK4Jet300_Mu5_noalgo");
+    if (b_HLT_BTagMu_AK4Jet300_Mu5_noalgo_) { b_HLT_BTagMu_AK4Jet300_Mu5_noalgo_->SetAddress(&HLT_BTagMu_AK4Jet300_Mu5_noalgo_); }
     b_HLT_BTagMu_AK8DiJet170_Mu5_ = tree->GetBranch("HLT_BTagMu_AK8DiJet170_Mu5");
     if (b_HLT_BTagMu_AK8DiJet170_Mu5_) { b_HLT_BTagMu_AK8DiJet170_Mu5_->SetAddress(&HLT_BTagMu_AK8DiJet170_Mu5_); }
+    b_HLT_BTagMu_AK8DiJet170_Mu5_noalgo_ = tree->GetBranch("HLT_BTagMu_AK8DiJet170_Mu5_noalgo");
+    if (b_HLT_BTagMu_AK8DiJet170_Mu5_noalgo_) { b_HLT_BTagMu_AK8DiJet170_Mu5_noalgo_->SetAddress(&HLT_BTagMu_AK8DiJet170_Mu5_noalgo_); }
+    b_HLT_BTagMu_AK8Jet170_DoubleMu5_ = tree->GetBranch("HLT_BTagMu_AK8Jet170_DoubleMu5");
+    if (b_HLT_BTagMu_AK8Jet170_DoubleMu5_) { b_HLT_BTagMu_AK8Jet170_DoubleMu5_->SetAddress(&HLT_BTagMu_AK8Jet170_DoubleMu5_); }
+    b_HLT_BTagMu_AK8Jet170_DoubleMu5_noalgo_ = tree->GetBranch("HLT_BTagMu_AK8Jet170_DoubleMu5_noalgo");
+    if (b_HLT_BTagMu_AK8Jet170_DoubleMu5_noalgo_) { b_HLT_BTagMu_AK8Jet170_DoubleMu5_noalgo_->SetAddress(&HLT_BTagMu_AK8Jet170_DoubleMu5_noalgo_); }
     b_HLT_BTagMu_AK8Jet300_Mu5_ = tree->GetBranch("HLT_BTagMu_AK8Jet300_Mu5");
     if (b_HLT_BTagMu_AK8Jet300_Mu5_) { b_HLT_BTagMu_AK8Jet300_Mu5_->SetAddress(&HLT_BTagMu_AK8Jet300_Mu5_); }
+    b_HLT_BTagMu_AK8Jet300_Mu5_noalgo_ = tree->GetBranch("HLT_BTagMu_AK8Jet300_Mu5_noalgo");
+    if (b_HLT_BTagMu_AK8Jet300_Mu5_noalgo_) { b_HLT_BTagMu_AK8Jet300_Mu5_noalgo_->SetAddress(&HLT_BTagMu_AK8Jet300_Mu5_noalgo_); }
+    b_HLT_CDC_L2cosmic_5_er1p0_ = tree->GetBranch("HLT_CDC_L2cosmic_5_er1p0");
+    if (b_HLT_CDC_L2cosmic_5_er1p0_) { b_HLT_CDC_L2cosmic_5_er1p0_->SetAddress(&HLT_CDC_L2cosmic_5_er1p0_); }
+    b_HLT_CDC_L2cosmic_5p5_er1p0_ = tree->GetBranch("HLT_CDC_L2cosmic_5p5_er1p0");
+    if (b_HLT_CDC_L2cosmic_5p5_er1p0_) { b_HLT_CDC_L2cosmic_5p5_er1p0_->SetAddress(&HLT_CDC_L2cosmic_5p5_er1p0_); }
     b_HLT_CaloJet500_NoJetID_ = tree->GetBranch("HLT_CaloJet500_NoJetID");
     if (b_HLT_CaloJet500_NoJetID_) { b_HLT_CaloJet500_NoJetID_->SetAddress(&HLT_CaloJet500_NoJetID_); }
     b_HLT_CaloJet550_NoJetID_ = tree->GetBranch("HLT_CaloJet550_NoJetID");
@@ -416,40 +540,28 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_DiJet110_35_Mjj650_PFMET120_) { b_HLT_DiJet110_35_Mjj650_PFMET120_->SetAddress(&HLT_DiJet110_35_Mjj650_PFMET120_); }
     b_HLT_DiJet110_35_Mjj650_PFMET130_ = tree->GetBranch("HLT_DiJet110_35_Mjj650_PFMET130");
     if (b_HLT_DiJet110_35_Mjj650_PFMET130_) { b_HLT_DiJet110_35_Mjj650_PFMET130_->SetAddress(&HLT_DiJet110_35_Mjj650_PFMET130_); }
+    b_HLT_DiMu4_Ele9_CaloIdL_TrackIdL_DZ_Mass3p8_ = tree->GetBranch("HLT_DiMu4_Ele9_CaloIdL_TrackIdL_DZ_Mass3p8");
+    if (b_HLT_DiMu4_Ele9_CaloIdL_TrackIdL_DZ_Mass3p8_) { b_HLT_DiMu4_Ele9_CaloIdL_TrackIdL_DZ_Mass3p8_->SetAddress(&HLT_DiMu4_Ele9_CaloIdL_TrackIdL_DZ_Mass3p8_); }
     b_HLT_DiMu9_Ele9_CaloIdL_TrackIdL_ = tree->GetBranch("HLT_DiMu9_Ele9_CaloIdL_TrackIdL");
     if (b_HLT_DiMu9_Ele9_CaloIdL_TrackIdL_) { b_HLT_DiMu9_Ele9_CaloIdL_TrackIdL_->SetAddress(&HLT_DiMu9_Ele9_CaloIdL_TrackIdL_); }
     b_HLT_DiMu9_Ele9_CaloIdL_TrackIdL_DZ_ = tree->GetBranch("HLT_DiMu9_Ele9_CaloIdL_TrackIdL_DZ");
     if (b_HLT_DiMu9_Ele9_CaloIdL_TrackIdL_DZ_) { b_HLT_DiMu9_Ele9_CaloIdL_TrackIdL_DZ_->SetAddress(&HLT_DiMu9_Ele9_CaloIdL_TrackIdL_DZ_); }
-    b_HLT_DiPFJet15_FBEta3_NoCaloMatched_ = tree->GetBranch("HLT_DiPFJet15_FBEta3_NoCaloMatched");
-    if (b_HLT_DiPFJet15_FBEta3_NoCaloMatched_) { b_HLT_DiPFJet15_FBEta3_NoCaloMatched_->SetAddress(&HLT_DiPFJet15_FBEta3_NoCaloMatched_); }
-    b_HLT_DiPFJet15_NoCaloMatched_ = tree->GetBranch("HLT_DiPFJet15_NoCaloMatched");
-    if (b_HLT_DiPFJet15_NoCaloMatched_) { b_HLT_DiPFJet15_NoCaloMatched_->SetAddress(&HLT_DiPFJet15_NoCaloMatched_); }
-    b_HLT_DiPFJet25_FBEta3_NoCaloMatched_ = tree->GetBranch("HLT_DiPFJet25_FBEta3_NoCaloMatched");
-    if (b_HLT_DiPFJet25_FBEta3_NoCaloMatched_) { b_HLT_DiPFJet25_FBEta3_NoCaloMatched_->SetAddress(&HLT_DiPFJet25_FBEta3_NoCaloMatched_); }
-    b_HLT_DiPFJet25_NoCaloMatched_ = tree->GetBranch("HLT_DiPFJet25_NoCaloMatched");
-    if (b_HLT_DiPFJet25_NoCaloMatched_) { b_HLT_DiPFJet25_NoCaloMatched_->SetAddress(&HLT_DiPFJet25_NoCaloMatched_); }
     b_HLT_DiPFJetAve100_HFJEC_ = tree->GetBranch("HLT_DiPFJetAve100_HFJEC");
     if (b_HLT_DiPFJetAve100_HFJEC_) { b_HLT_DiPFJetAve100_HFJEC_->SetAddress(&HLT_DiPFJetAve100_HFJEC_); }
     b_HLT_DiPFJetAve140_ = tree->GetBranch("HLT_DiPFJetAve140");
     if (b_HLT_DiPFJetAve140_) { b_HLT_DiPFJetAve140_->SetAddress(&HLT_DiPFJetAve140_); }
-    b_HLT_DiPFJetAve15_HFJEC_ = tree->GetBranch("HLT_DiPFJetAve15_HFJEC");
-    if (b_HLT_DiPFJetAve15_HFJEC_) { b_HLT_DiPFJetAve15_HFJEC_->SetAddress(&HLT_DiPFJetAve15_HFJEC_); }
     b_HLT_DiPFJetAve160_HFJEC_ = tree->GetBranch("HLT_DiPFJetAve160_HFJEC");
     if (b_HLT_DiPFJetAve160_HFJEC_) { b_HLT_DiPFJetAve160_HFJEC_->SetAddress(&HLT_DiPFJetAve160_HFJEC_); }
     b_HLT_DiPFJetAve200_ = tree->GetBranch("HLT_DiPFJetAve200");
     if (b_HLT_DiPFJetAve200_) { b_HLT_DiPFJetAve200_->SetAddress(&HLT_DiPFJetAve200_); }
     b_HLT_DiPFJetAve220_HFJEC_ = tree->GetBranch("HLT_DiPFJetAve220_HFJEC");
     if (b_HLT_DiPFJetAve220_HFJEC_) { b_HLT_DiPFJetAve220_HFJEC_->SetAddress(&HLT_DiPFJetAve220_HFJEC_); }
-    b_HLT_DiPFJetAve25_HFJEC_ = tree->GetBranch("HLT_DiPFJetAve25_HFJEC");
-    if (b_HLT_DiPFJetAve25_HFJEC_) { b_HLT_DiPFJetAve25_HFJEC_->SetAddress(&HLT_DiPFJetAve25_HFJEC_); }
     b_HLT_DiPFJetAve260_ = tree->GetBranch("HLT_DiPFJetAve260");
     if (b_HLT_DiPFJetAve260_) { b_HLT_DiPFJetAve260_->SetAddress(&HLT_DiPFJetAve260_); }
     b_HLT_DiPFJetAve300_HFJEC_ = tree->GetBranch("HLT_DiPFJetAve300_HFJEC");
     if (b_HLT_DiPFJetAve300_HFJEC_) { b_HLT_DiPFJetAve300_HFJEC_->SetAddress(&HLT_DiPFJetAve300_HFJEC_); }
     b_HLT_DiPFJetAve320_ = tree->GetBranch("HLT_DiPFJetAve320");
     if (b_HLT_DiPFJetAve320_) { b_HLT_DiPFJetAve320_->SetAddress(&HLT_DiPFJetAve320_); }
-    b_HLT_DiPFJetAve35_HFJEC_ = tree->GetBranch("HLT_DiPFJetAve35_HFJEC");
-    if (b_HLT_DiPFJetAve35_HFJEC_) { b_HLT_DiPFJetAve35_HFJEC_->SetAddress(&HLT_DiPFJetAve35_HFJEC_); }
     b_HLT_DiPFJetAve40_ = tree->GetBranch("HLT_DiPFJetAve40");
     if (b_HLT_DiPFJetAve40_) { b_HLT_DiPFJetAve40_->SetAddress(&HLT_DiPFJetAve40_); }
     b_HLT_DiPFJetAve400_ = tree->GetBranch("HLT_DiPFJetAve400");
@@ -512,10 +624,8 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_Dimuon0_Upsilon_NoVertexing_) { b_HLT_Dimuon0_Upsilon_NoVertexing_->SetAddress(&HLT_Dimuon0_Upsilon_NoVertexing_); }
     b_HLT_Dimuon10_PsiPrime_Barrel_Seagulls_ = tree->GetBranch("HLT_Dimuon10_PsiPrime_Barrel_Seagulls");
     if (b_HLT_Dimuon10_PsiPrime_Barrel_Seagulls_) { b_HLT_Dimuon10_PsiPrime_Barrel_Seagulls_->SetAddress(&HLT_Dimuon10_PsiPrime_Barrel_Seagulls_); }
-    b_HLT_Dimuon10_Upsilon_Barrel_Seagulls_ = tree->GetBranch("HLT_Dimuon10_Upsilon_Barrel_Seagulls");
-    if (b_HLT_Dimuon10_Upsilon_Barrel_Seagulls_) { b_HLT_Dimuon10_Upsilon_Barrel_Seagulls_->SetAddress(&HLT_Dimuon10_Upsilon_Barrel_Seagulls_); }
-    b_HLT_Dimuon12_Upsilon_eta1p5_ = tree->GetBranch("HLT_Dimuon12_Upsilon_eta1p5");
-    if (b_HLT_Dimuon12_Upsilon_eta1p5_) { b_HLT_Dimuon12_Upsilon_eta1p5_->SetAddress(&HLT_Dimuon12_Upsilon_eta1p5_); }
+    b_HLT_Dimuon12_Upsilon_y1p4_ = tree->GetBranch("HLT_Dimuon12_Upsilon_y1p4");
+    if (b_HLT_Dimuon12_Upsilon_y1p4_) { b_HLT_Dimuon12_Upsilon_y1p4_->SetAddress(&HLT_Dimuon12_Upsilon_y1p4_); }
     b_HLT_Dimuon14_Phi_Barrel_Seagulls_ = tree->GetBranch("HLT_Dimuon14_Phi_Barrel_Seagulls");
     if (b_HLT_Dimuon14_Phi_Barrel_Seagulls_) { b_HLT_Dimuon14_Phi_Barrel_Seagulls_->SetAddress(&HLT_Dimuon14_Phi_Barrel_Seagulls_); }
     b_HLT_Dimuon18_PsiPrime_ = tree->GetBranch("HLT_Dimuon18_PsiPrime");
@@ -532,18 +642,14 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_Dimuon25_Jpsi_) { b_HLT_Dimuon25_Jpsi_->SetAddress(&HLT_Dimuon25_Jpsi_); }
     b_HLT_Dimuon25_Jpsi_noCorrL1_ = tree->GetBranch("HLT_Dimuon25_Jpsi_noCorrL1");
     if (b_HLT_Dimuon25_Jpsi_noCorrL1_) { b_HLT_Dimuon25_Jpsi_noCorrL1_->SetAddress(&HLT_Dimuon25_Jpsi_noCorrL1_); }
-    b_HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_ = tree->GetBranch("HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55");
-    if (b_HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_) { b_HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_->SetAddress(&HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_); }
-    b_HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_ = tree->GetBranch("HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55");
-    if (b_HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_) { b_HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_->SetAddress(&HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_); }
     b_HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_ = tree->GetBranch("HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55");
     if (b_HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_) { b_HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_->SetAddress(&HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_); }
     b_HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_ = tree->GetBranch("HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55");
     if (b_HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_) { b_HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_->SetAddress(&HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_); }
-    b_HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_ = tree->GetBranch("HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55");
-    if (b_HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_) { b_HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_->SetAddress(&HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_); }
-    b_HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_ = tree->GetBranch("HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55");
-    if (b_HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_) { b_HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_->SetAddress(&HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_); }
+    b_HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_ = tree->GetBranch("HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto");
+    if (b_HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_) { b_HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_->SetAddress(&HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_); }
+    b_HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_Mass55_ = tree->GetBranch("HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_Mass55");
+    if (b_HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_Mass55_) { b_HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_Mass55_->SetAddress(&HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_Mass55_); }
     b_HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90_ = tree->GetBranch("HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90");
     if (b_HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90_) { b_HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90_->SetAddress(&HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90_); }
     b_HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass95_ = tree->GetBranch("HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass95");
@@ -562,26 +668,40 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_DoubleEle8_CaloIdM_TrackIdM_Mass8_PFHT350_) { b_HLT_DoubleEle8_CaloIdM_TrackIdM_Mass8_PFHT350_->SetAddress(&HLT_DoubleEle8_CaloIdM_TrackIdM_Mass8_PFHT350_); }
     b_HLT_DoubleIsoMu20_eta2p1_ = tree->GetBranch("HLT_DoubleIsoMu20_eta2p1");
     if (b_HLT_DoubleIsoMu20_eta2p1_) { b_HLT_DoubleIsoMu20_eta2p1_->SetAddress(&HLT_DoubleIsoMu20_eta2p1_); }
-    b_HLT_DoubleIsoMu24_eta2p1_ = tree->GetBranch("HLT_DoubleIsoMu24_eta2p1");
-    if (b_HLT_DoubleIsoMu24_eta2p1_) { b_HLT_DoubleIsoMu24_eta2p1_->SetAddress(&HLT_DoubleIsoMu24_eta2p1_); }
+    b_HLT_DoubleL2Mu23NoVtx_2Cha_ = tree->GetBranch("HLT_DoubleL2Mu23NoVtx_2Cha");
+    if (b_HLT_DoubleL2Mu23NoVtx_2Cha_) { b_HLT_DoubleL2Mu23NoVtx_2Cha_->SetAddress(&HLT_DoubleL2Mu23NoVtx_2Cha_); }
+    b_HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_ = tree->GetBranch("HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed");
+    if (b_HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_) { b_HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_->SetAddress(&HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_); }
+    b_HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_NoL2Matched_ = tree->GetBranch("HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_NoL2Matched");
+    if (b_HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_NoL2Matched_) { b_HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_NoL2Matched_->SetAddress(&HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_NoL2Matched_); }
+    b_HLT_DoubleL2Mu23NoVtx_2Cha_NoL2Matched_ = tree->GetBranch("HLT_DoubleL2Mu23NoVtx_2Cha_NoL2Matched");
+    if (b_HLT_DoubleL2Mu23NoVtx_2Cha_NoL2Matched_) { b_HLT_DoubleL2Mu23NoVtx_2Cha_NoL2Matched_->SetAddress(&HLT_DoubleL2Mu23NoVtx_2Cha_NoL2Matched_); }
+    b_HLT_DoubleL2Mu25NoVtx_2Cha_ = tree->GetBranch("HLT_DoubleL2Mu25NoVtx_2Cha");
+    if (b_HLT_DoubleL2Mu25NoVtx_2Cha_) { b_HLT_DoubleL2Mu25NoVtx_2Cha_->SetAddress(&HLT_DoubleL2Mu25NoVtx_2Cha_); }
+    b_HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_ = tree->GetBranch("HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed");
+    if (b_HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_) { b_HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_->SetAddress(&HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_); }
+    b_HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_Eta2p4_ = tree->GetBranch("HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_Eta2p4");
+    if (b_HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_Eta2p4_) { b_HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_Eta2p4_->SetAddress(&HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_Eta2p4_); }
+    b_HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_NoL2Matched_ = tree->GetBranch("HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_NoL2Matched");
+    if (b_HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_NoL2Matched_) { b_HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_NoL2Matched_->SetAddress(&HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_NoL2Matched_); }
+    b_HLT_DoubleL2Mu25NoVtx_2Cha_Eta2p4_ = tree->GetBranch("HLT_DoubleL2Mu25NoVtx_2Cha_Eta2p4");
+    if (b_HLT_DoubleL2Mu25NoVtx_2Cha_Eta2p4_) { b_HLT_DoubleL2Mu25NoVtx_2Cha_Eta2p4_->SetAddress(&HLT_DoubleL2Mu25NoVtx_2Cha_Eta2p4_); }
+    b_HLT_DoubleL2Mu25NoVtx_2Cha_NoL2Matched_ = tree->GetBranch("HLT_DoubleL2Mu25NoVtx_2Cha_NoL2Matched");
+    if (b_HLT_DoubleL2Mu25NoVtx_2Cha_NoL2Matched_) { b_HLT_DoubleL2Mu25NoVtx_2Cha_NoL2Matched_->SetAddress(&HLT_DoubleL2Mu25NoVtx_2Cha_NoL2Matched_); }
+    b_HLT_DoubleL2Mu30NoVtx_2Cha_CosmicSeed_Eta2p4_ = tree->GetBranch("HLT_DoubleL2Mu30NoVtx_2Cha_CosmicSeed_Eta2p4");
+    if (b_HLT_DoubleL2Mu30NoVtx_2Cha_CosmicSeed_Eta2p4_) { b_HLT_DoubleL2Mu30NoVtx_2Cha_CosmicSeed_Eta2p4_->SetAddress(&HLT_DoubleL2Mu30NoVtx_2Cha_CosmicSeed_Eta2p4_); }
+    b_HLT_DoubleL2Mu30NoVtx_2Cha_Eta2p4_ = tree->GetBranch("HLT_DoubleL2Mu30NoVtx_2Cha_Eta2p4");
+    if (b_HLT_DoubleL2Mu30NoVtx_2Cha_Eta2p4_) { b_HLT_DoubleL2Mu30NoVtx_2Cha_Eta2p4_->SetAddress(&HLT_DoubleL2Mu30NoVtx_2Cha_Eta2p4_); }
     b_HLT_DoubleL2Mu50_ = tree->GetBranch("HLT_DoubleL2Mu50");
     if (b_HLT_DoubleL2Mu50_) { b_HLT_DoubleL2Mu50_->SetAddress(&HLT_DoubleL2Mu50_); }
-    b_HLT_DoubleLooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_ = tree->GetBranch("HLT_DoubleLooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg");
-    if (b_HLT_DoubleLooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_) { b_HLT_DoubleLooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_->SetAddress(&HLT_DoubleLooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_); }
-    b_HLT_DoubleLooseChargedIsoPFTau35_Trk1_eta2p1_Reg_ = tree->GetBranch("HLT_DoubleLooseChargedIsoPFTau35_Trk1_eta2p1_Reg");
-    if (b_HLT_DoubleLooseChargedIsoPFTau35_Trk1_eta2p1_Reg_) { b_HLT_DoubleLooseChargedIsoPFTau35_Trk1_eta2p1_Reg_->SetAddress(&HLT_DoubleLooseChargedIsoPFTau35_Trk1_eta2p1_Reg_); }
-    b_HLT_DoubleLooseChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_ = tree->GetBranch("HLT_DoubleLooseChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg");
-    if (b_HLT_DoubleLooseChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_) { b_HLT_DoubleLooseChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_->SetAddress(&HLT_DoubleLooseChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_); }
-    b_HLT_DoubleLooseChargedIsoPFTau40_Trk1_eta2p1_Reg_ = tree->GetBranch("HLT_DoubleLooseChargedIsoPFTau40_Trk1_eta2p1_Reg");
-    if (b_HLT_DoubleLooseChargedIsoPFTau40_Trk1_eta2p1_Reg_) { b_HLT_DoubleLooseChargedIsoPFTau40_Trk1_eta2p1_Reg_->SetAddress(&HLT_DoubleLooseChargedIsoPFTau40_Trk1_eta2p1_Reg_); }
-    b_HLT_DoubleMediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_ = tree->GetBranch("HLT_DoubleMediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg");
-    if (b_HLT_DoubleMediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_) { b_HLT_DoubleMediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_->SetAddress(&HLT_DoubleMediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_); }
-    b_HLT_DoubleMediumChargedIsoPFTau35_Trk1_eta2p1_Reg_ = tree->GetBranch("HLT_DoubleMediumChargedIsoPFTau35_Trk1_eta2p1_Reg");
-    if (b_HLT_DoubleMediumChargedIsoPFTau35_Trk1_eta2p1_Reg_) { b_HLT_DoubleMediumChargedIsoPFTau35_Trk1_eta2p1_Reg_->SetAddress(&HLT_DoubleMediumChargedIsoPFTau35_Trk1_eta2p1_Reg_); }
-    b_HLT_DoubleMediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_ = tree->GetBranch("HLT_DoubleMediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg");
-    if (b_HLT_DoubleMediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_) { b_HLT_DoubleMediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_->SetAddress(&HLT_DoubleMediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_); }
-    b_HLT_DoubleMediumChargedIsoPFTau40_Trk1_eta2p1_Reg_ = tree->GetBranch("HLT_DoubleMediumChargedIsoPFTau40_Trk1_eta2p1_Reg");
-    if (b_HLT_DoubleMediumChargedIsoPFTau40_Trk1_eta2p1_Reg_) { b_HLT_DoubleMediumChargedIsoPFTau40_Trk1_eta2p1_Reg_->SetAddress(&HLT_DoubleMediumChargedIsoPFTau40_Trk1_eta2p1_Reg_); }
+    b_HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_ = tree->GetBranch("HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg");
+    if (b_HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_) { b_HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_->SetAddress(&HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_); }
+    b_HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_ = tree->GetBranch("HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg");
+    if (b_HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_) { b_HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_->SetAddress(&HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_); }
+    b_HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg_ = tree->GetBranch("HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg");
+    if (b_HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg_) { b_HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg_->SetAddress(&HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg_); }
+    b_HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_eta2p1_Reg_ = tree->GetBranch("HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_eta2p1_Reg");
+    if (b_HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_eta2p1_Reg_) { b_HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_eta2p1_Reg_->SetAddress(&HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_eta2p1_Reg_); }
     b_HLT_DoubleMu20_7_Mass0to30_L1_DM4_ = tree->GetBranch("HLT_DoubleMu20_7_Mass0to30_L1_DM4");
     if (b_HLT_DoubleMu20_7_Mass0to30_L1_DM4_) { b_HLT_DoubleMu20_7_Mass0to30_L1_DM4_->SetAddress(&HLT_DoubleMu20_7_Mass0to30_L1_DM4_); }
     b_HLT_DoubleMu20_7_Mass0to30_L1_DM4EG_ = tree->GetBranch("HLT_DoubleMu20_7_Mass0to30_L1_DM4EG");
@@ -590,8 +710,10 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_DoubleMu20_7_Mass0to30_Photon23_) { b_HLT_DoubleMu20_7_Mass0to30_Photon23_->SetAddress(&HLT_DoubleMu20_7_Mass0to30_Photon23_); }
     b_HLT_DoubleMu2_Jpsi_DoubleTkMu0_Phi_ = tree->GetBranch("HLT_DoubleMu2_Jpsi_DoubleTkMu0_Phi");
     if (b_HLT_DoubleMu2_Jpsi_DoubleTkMu0_Phi_) { b_HLT_DoubleMu2_Jpsi_DoubleTkMu0_Phi_->SetAddress(&HLT_DoubleMu2_Jpsi_DoubleTkMu0_Phi_); }
-    b_HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi_ = tree->GetBranch("HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi");
-    if (b_HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi_) { b_HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi_->SetAddress(&HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi_); }
+    b_HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi1p05_ = tree->GetBranch("HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi1p05");
+    if (b_HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi1p05_) { b_HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi1p05_->SetAddress(&HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi1p05_); }
+    b_HLT_DoubleMu33NoFiltersNoVtxDisplaced_ = tree->GetBranch("HLT_DoubleMu33NoFiltersNoVtxDisplaced");
+    if (b_HLT_DoubleMu33NoFiltersNoVtxDisplaced_) { b_HLT_DoubleMu33NoFiltersNoVtxDisplaced_->SetAddress(&HLT_DoubleMu33NoFiltersNoVtxDisplaced_); }
     b_HLT_DoubleMu3_DCA_PFMET50_PFMHT60_ = tree->GetBranch("HLT_DoubleMu3_DCA_PFMET50_PFMHT60");
     if (b_HLT_DoubleMu3_DCA_PFMET50_PFMHT60_) { b_HLT_DoubleMu3_DCA_PFMET50_PFMHT60_->SetAddress(&HLT_DoubleMu3_DCA_PFMET50_PFMHT60_); }
     b_HLT_DoubleMu3_DZ_PFMET50_PFMHT60_ = tree->GetBranch("HLT_DoubleMu3_DZ_PFMET50_PFMHT60");
@@ -600,18 +722,24 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_DoubleMu3_DZ_PFMET70_PFMHT70_) { b_HLT_DoubleMu3_DZ_PFMET70_PFMHT70_->SetAddress(&HLT_DoubleMu3_DZ_PFMET70_PFMHT70_); }
     b_HLT_DoubleMu3_DZ_PFMET90_PFMHT90_ = tree->GetBranch("HLT_DoubleMu3_DZ_PFMET90_PFMHT90");
     if (b_HLT_DoubleMu3_DZ_PFMET90_PFMHT90_) { b_HLT_DoubleMu3_DZ_PFMET90_PFMHT90_->SetAddress(&HLT_DoubleMu3_DZ_PFMET90_PFMHT90_); }
+    b_HLT_DoubleMu3_DoubleEle7p5_CaloIdL_TrackIdL_Upsilon_ = tree->GetBranch("HLT_DoubleMu3_DoubleEle7p5_CaloIdL_TrackIdL_Upsilon");
+    if (b_HLT_DoubleMu3_DoubleEle7p5_CaloIdL_TrackIdL_Upsilon_) { b_HLT_DoubleMu3_DoubleEle7p5_CaloIdL_TrackIdL_Upsilon_->SetAddress(&HLT_DoubleMu3_DoubleEle7p5_CaloIdL_TrackIdL_Upsilon_); }
+    b_HLT_DoubleMu3_TkMu_DsTau3Mu_ = tree->GetBranch("HLT_DoubleMu3_TkMu_DsTau3Mu");
+    if (b_HLT_DoubleMu3_TkMu_DsTau3Mu_) { b_HLT_DoubleMu3_TkMu_DsTau3Mu_->SetAddress(&HLT_DoubleMu3_TkMu_DsTau3Mu_); }
     b_HLT_DoubleMu3_Trk_Tau3mu_ = tree->GetBranch("HLT_DoubleMu3_Trk_Tau3mu");
     if (b_HLT_DoubleMu3_Trk_Tau3mu_) { b_HLT_DoubleMu3_Trk_Tau3mu_->SetAddress(&HLT_DoubleMu3_Trk_Tau3mu_); }
     b_HLT_DoubleMu3_Trk_Tau3mu_NoL1Mass_ = tree->GetBranch("HLT_DoubleMu3_Trk_Tau3mu_NoL1Mass");
     if (b_HLT_DoubleMu3_Trk_Tau3mu_NoL1Mass_) { b_HLT_DoubleMu3_Trk_Tau3mu_NoL1Mass_->SetAddress(&HLT_DoubleMu3_Trk_Tau3mu_NoL1Mass_); }
+    b_HLT_DoubleMu40NoFiltersNoVtxDisplaced_ = tree->GetBranch("HLT_DoubleMu40NoFiltersNoVtxDisplaced");
+    if (b_HLT_DoubleMu40NoFiltersNoVtxDisplaced_) { b_HLT_DoubleMu40NoFiltersNoVtxDisplaced_->SetAddress(&HLT_DoubleMu40NoFiltersNoVtxDisplaced_); }
     b_HLT_DoubleMu43NoFiltersNoVtx_ = tree->GetBranch("HLT_DoubleMu43NoFiltersNoVtx");
     if (b_HLT_DoubleMu43NoFiltersNoVtx_) { b_HLT_DoubleMu43NoFiltersNoVtx_->SetAddress(&HLT_DoubleMu43NoFiltersNoVtx_); }
     b_HLT_DoubleMu48NoFiltersNoVtx_ = tree->GetBranch("HLT_DoubleMu48NoFiltersNoVtx");
     if (b_HLT_DoubleMu48NoFiltersNoVtx_) { b_HLT_DoubleMu48NoFiltersNoVtx_->SetAddress(&HLT_DoubleMu48NoFiltersNoVtx_); }
     b_HLT_DoubleMu4_3_Bs_ = tree->GetBranch("HLT_DoubleMu4_3_Bs");
     if (b_HLT_DoubleMu4_3_Bs_) { b_HLT_DoubleMu4_3_Bs_->SetAddress(&HLT_DoubleMu4_3_Bs_); }
-    b_HLT_DoubleMu4_3_Jpsi_Displaced_ = tree->GetBranch("HLT_DoubleMu4_3_Jpsi_Displaced");
-    if (b_HLT_DoubleMu4_3_Jpsi_Displaced_) { b_HLT_DoubleMu4_3_Jpsi_Displaced_->SetAddress(&HLT_DoubleMu4_3_Jpsi_Displaced_); }
+    b_HLT_DoubleMu4_3_Jpsi_ = tree->GetBranch("HLT_DoubleMu4_3_Jpsi");
+    if (b_HLT_DoubleMu4_3_Jpsi_) { b_HLT_DoubleMu4_3_Jpsi_->SetAddress(&HLT_DoubleMu4_3_Jpsi_); }
     b_HLT_DoubleMu4_JpsiTrkTrk_Displaced_ = tree->GetBranch("HLT_DoubleMu4_JpsiTrkTrk_Displaced");
     if (b_HLT_DoubleMu4_JpsiTrkTrk_Displaced_) { b_HLT_DoubleMu4_JpsiTrkTrk_Displaced_->SetAddress(&HLT_DoubleMu4_JpsiTrkTrk_Displaced_); }
     b_HLT_DoubleMu4_JpsiTrk_Displaced_ = tree->GetBranch("HLT_DoubleMu4_JpsiTrk_Displaced");
@@ -622,40 +750,40 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_DoubleMu4_Jpsi_NoVertexing_) { b_HLT_DoubleMu4_Jpsi_NoVertexing_->SetAddress(&HLT_DoubleMu4_Jpsi_NoVertexing_); }
     b_HLT_DoubleMu4_LowMassNonResonantTrk_Displaced_ = tree->GetBranch("HLT_DoubleMu4_LowMassNonResonantTrk_Displaced");
     if (b_HLT_DoubleMu4_LowMassNonResonantTrk_Displaced_) { b_HLT_DoubleMu4_LowMassNonResonantTrk_Displaced_->SetAddress(&HLT_DoubleMu4_LowMassNonResonantTrk_Displaced_); }
-    b_HLT_DoubleMu4_Mass8_DZ_PFHT350_ = tree->GetBranch("HLT_DoubleMu4_Mass8_DZ_PFHT350");
-    if (b_HLT_DoubleMu4_Mass8_DZ_PFHT350_) { b_HLT_DoubleMu4_Mass8_DZ_PFHT350_->SetAddress(&HLT_DoubleMu4_Mass8_DZ_PFHT350_); }
+    b_HLT_DoubleMu4_Mass3p8_DZ_PFHT350_ = tree->GetBranch("HLT_DoubleMu4_Mass3p8_DZ_PFHT350");
+    if (b_HLT_DoubleMu4_Mass3p8_DZ_PFHT350_) { b_HLT_DoubleMu4_Mass3p8_DZ_PFHT350_->SetAddress(&HLT_DoubleMu4_Mass3p8_DZ_PFHT350_); }
     b_HLT_DoubleMu4_PsiPrimeTrk_Displaced_ = tree->GetBranch("HLT_DoubleMu4_PsiPrimeTrk_Displaced");
     if (b_HLT_DoubleMu4_PsiPrimeTrk_Displaced_) { b_HLT_DoubleMu4_PsiPrimeTrk_Displaced_->SetAddress(&HLT_DoubleMu4_PsiPrimeTrk_Displaced_); }
-    b_HLT_DoubleMu8_Mass8_PFHT350_ = tree->GetBranch("HLT_DoubleMu8_Mass8_PFHT350");
-    if (b_HLT_DoubleMu8_Mass8_PFHT350_) { b_HLT_DoubleMu8_Mass8_PFHT350_->SetAddress(&HLT_DoubleMu8_Mass8_PFHT350_); }
-    b_HLT_DoublePFJets100MaxDeta1p6_DoubleCaloBTagCSV_p33_ = tree->GetBranch("HLT_DoublePFJets100MaxDeta1p6_DoubleCaloBTagCSV_p33");
-    if (b_HLT_DoublePFJets100MaxDeta1p6_DoubleCaloBTagCSV_p33_) { b_HLT_DoublePFJets100MaxDeta1p6_DoubleCaloBTagCSV_p33_->SetAddress(&HLT_DoublePFJets100MaxDeta1p6_DoubleCaloBTagCSV_p33_); }
-    b_HLT_DoublePFJets100_CaloBTagCSV_p33_ = tree->GetBranch("HLT_DoublePFJets100_CaloBTagCSV_p33");
-    if (b_HLT_DoublePFJets100_CaloBTagCSV_p33_) { b_HLT_DoublePFJets100_CaloBTagCSV_p33_->SetAddress(&HLT_DoublePFJets100_CaloBTagCSV_p33_); }
-    b_HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagCSV_p33_ = tree->GetBranch("HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagCSV_p33");
-    if (b_HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagCSV_p33_) { b_HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagCSV_p33_->SetAddress(&HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagCSV_p33_); }
-    b_HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagCSV_p33_ = tree->GetBranch("HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagCSV_p33");
-    if (b_HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagCSV_p33_) { b_HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagCSV_p33_->SetAddress(&HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagCSV_p33_); }
-    b_HLT_DoublePFJets200_CaloBTagCSV_p33_ = tree->GetBranch("HLT_DoublePFJets200_CaloBTagCSV_p33");
-    if (b_HLT_DoublePFJets200_CaloBTagCSV_p33_) { b_HLT_DoublePFJets200_CaloBTagCSV_p33_->SetAddress(&HLT_DoublePFJets200_CaloBTagCSV_p33_); }
-    b_HLT_DoublePFJets350_CaloBTagCSV_p33_ = tree->GetBranch("HLT_DoublePFJets350_CaloBTagCSV_p33");
-    if (b_HLT_DoublePFJets350_CaloBTagCSV_p33_) { b_HLT_DoublePFJets350_CaloBTagCSV_p33_->SetAddress(&HLT_DoublePFJets350_CaloBTagCSV_p33_); }
-    b_HLT_DoublePFJets40_CaloBTagCSV_p33_ = tree->GetBranch("HLT_DoublePFJets40_CaloBTagCSV_p33");
-    if (b_HLT_DoublePFJets40_CaloBTagCSV_p33_) { b_HLT_DoublePFJets40_CaloBTagCSV_p33_->SetAddress(&HLT_DoublePFJets40_CaloBTagCSV_p33_); }
+    b_HLT_DoubleMu5_Upsilon_DoubleEle3_CaloIdL_TrackIdL_ = tree->GetBranch("HLT_DoubleMu5_Upsilon_DoubleEle3_CaloIdL_TrackIdL");
+    if (b_HLT_DoubleMu5_Upsilon_DoubleEle3_CaloIdL_TrackIdL_) { b_HLT_DoubleMu5_Upsilon_DoubleEle3_CaloIdL_TrackIdL_->SetAddress(&HLT_DoubleMu5_Upsilon_DoubleEle3_CaloIdL_TrackIdL_); }
+    b_HLT_DoublePFJets100_CaloBTagDeepCSV_p71_ = tree->GetBranch("HLT_DoublePFJets100_CaloBTagDeepCSV_p71");
+    if (b_HLT_DoublePFJets100_CaloBTagDeepCSV_p71_) { b_HLT_DoublePFJets100_CaloBTagDeepCSV_p71_->SetAddress(&HLT_DoublePFJets100_CaloBTagDeepCSV_p71_); }
+    b_HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_ = tree->GetBranch("HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagDeepCSV_p71");
+    if (b_HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_) { b_HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_->SetAddress(&HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_); }
+    b_HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_ = tree->GetBranch("HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagDeepCSV_p71");
+    if (b_HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_) { b_HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_->SetAddress(&HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_); }
+    b_HLT_DoublePFJets200_CaloBTagDeepCSV_p71_ = tree->GetBranch("HLT_DoublePFJets200_CaloBTagDeepCSV_p71");
+    if (b_HLT_DoublePFJets200_CaloBTagDeepCSV_p71_) { b_HLT_DoublePFJets200_CaloBTagDeepCSV_p71_->SetAddress(&HLT_DoublePFJets200_CaloBTagDeepCSV_p71_); }
+    b_HLT_DoublePFJets350_CaloBTagDeepCSV_p71_ = tree->GetBranch("HLT_DoublePFJets350_CaloBTagDeepCSV_p71");
+    if (b_HLT_DoublePFJets350_CaloBTagDeepCSV_p71_) { b_HLT_DoublePFJets350_CaloBTagDeepCSV_p71_->SetAddress(&HLT_DoublePFJets350_CaloBTagDeepCSV_p71_); }
+    b_HLT_DoublePFJets40_CaloBTagDeepCSV_p71_ = tree->GetBranch("HLT_DoublePFJets40_CaloBTagDeepCSV_p71");
+    if (b_HLT_DoublePFJets40_CaloBTagDeepCSV_p71_) { b_HLT_DoublePFJets40_CaloBTagDeepCSV_p71_->SetAddress(&HLT_DoublePFJets40_CaloBTagDeepCSV_p71_); }
     b_HLT_DoublePhoton33_CaloIdL_ = tree->GetBranch("HLT_DoublePhoton33_CaloIdL");
     if (b_HLT_DoublePhoton33_CaloIdL_) { b_HLT_DoublePhoton33_CaloIdL_->SetAddress(&HLT_DoublePhoton33_CaloIdL_); }
     b_HLT_DoublePhoton70_ = tree->GetBranch("HLT_DoublePhoton70");
     if (b_HLT_DoublePhoton70_) { b_HLT_DoublePhoton70_->SetAddress(&HLT_DoublePhoton70_); }
     b_HLT_DoublePhoton85_ = tree->GetBranch("HLT_DoublePhoton85");
     if (b_HLT_DoublePhoton85_) { b_HLT_DoublePhoton85_->SetAddress(&HLT_DoublePhoton85_); }
-    b_HLT_DoubleTightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_ = tree->GetBranch("HLT_DoubleTightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg");
-    if (b_HLT_DoubleTightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_) { b_HLT_DoubleTightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_->SetAddress(&HLT_DoubleTightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_); }
-    b_HLT_DoubleTightChargedIsoPFTau35_Trk1_eta2p1_Reg_ = tree->GetBranch("HLT_DoubleTightChargedIsoPFTau35_Trk1_eta2p1_Reg");
-    if (b_HLT_DoubleTightChargedIsoPFTau35_Trk1_eta2p1_Reg_) { b_HLT_DoubleTightChargedIsoPFTau35_Trk1_eta2p1_Reg_->SetAddress(&HLT_DoubleTightChargedIsoPFTau35_Trk1_eta2p1_Reg_); }
-    b_HLT_DoubleTightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_ = tree->GetBranch("HLT_DoubleTightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg");
-    if (b_HLT_DoubleTightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_) { b_HLT_DoubleTightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_->SetAddress(&HLT_DoubleTightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_); }
-    b_HLT_DoubleTightChargedIsoPFTau40_Trk1_eta2p1_Reg_ = tree->GetBranch("HLT_DoubleTightChargedIsoPFTau40_Trk1_eta2p1_Reg");
-    if (b_HLT_DoubleTightChargedIsoPFTau40_Trk1_eta2p1_Reg_) { b_HLT_DoubleTightChargedIsoPFTau40_Trk1_eta2p1_Reg_->SetAddress(&HLT_DoubleTightChargedIsoPFTau40_Trk1_eta2p1_Reg_); }
+    b_HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_ = tree->GetBranch("HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg");
+    if (b_HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_) { b_HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_->SetAddress(&HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_); }
+    b_HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_ = tree->GetBranch("HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg");
+    if (b_HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_) { b_HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_->SetAddress(&HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_); }
+    b_HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg_ = tree->GetBranch("HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg");
+    if (b_HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg_) { b_HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg_->SetAddress(&HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg_); }
+    b_HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_eta2p1_Reg_ = tree->GetBranch("HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_eta2p1_Reg");
+    if (b_HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_eta2p1_Reg_) { b_HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_eta2p1_Reg_->SetAddress(&HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_eta2p1_Reg_); }
+    b_HLT_DoubleTrkMu_16_6_NoFiltersNoVtx_ = tree->GetBranch("HLT_DoubleTrkMu_16_6_NoFiltersNoVtx");
+    if (b_HLT_DoubleTrkMu_16_6_NoFiltersNoVtx_) { b_HLT_DoubleTrkMu_16_6_NoFiltersNoVtx_->SetAddress(&HLT_DoubleTrkMu_16_6_NoFiltersNoVtx_); }
     b_HLT_ECALHT800_ = tree->GetBranch("HLT_ECALHT800");
     if (b_HLT_ECALHT800_) { b_HLT_ECALHT800_->SetAddress(&HLT_ECALHT800_); }
     b_HLT_EcalCalibration_ = tree->GetBranch("HLT_EcalCalibration");
@@ -668,18 +796,26 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_Ele135_CaloIdVT_GsfTrkIdT_) { b_HLT_Ele135_CaloIdVT_GsfTrkIdT_->SetAddress(&HLT_Ele135_CaloIdVT_GsfTrkIdT_); }
     b_HLT_Ele145_CaloIdVT_GsfTrkIdT_ = tree->GetBranch("HLT_Ele145_CaloIdVT_GsfTrkIdT");
     if (b_HLT_Ele145_CaloIdVT_GsfTrkIdT_) { b_HLT_Ele145_CaloIdVT_GsfTrkIdT_->SetAddress(&HLT_Ele145_CaloIdVT_GsfTrkIdT_); }
+    b_HLT_Ele15_CaloIdL_TrackIdL_IsoVL_PFJet30_ = tree->GetBranch("HLT_Ele15_CaloIdL_TrackIdL_IsoVL_PFJet30");
+    if (b_HLT_Ele15_CaloIdL_TrackIdL_IsoVL_PFJet30_) { b_HLT_Ele15_CaloIdL_TrackIdL_IsoVL_PFJet30_->SetAddress(&HLT_Ele15_CaloIdL_TrackIdL_IsoVL_PFJet30_); }
+    b_HLT_Ele15_Ele8_CaloIdL_TrackIdL_IsoVL_ = tree->GetBranch("HLT_Ele15_Ele8_CaloIdL_TrackIdL_IsoVL");
+    if (b_HLT_Ele15_Ele8_CaloIdL_TrackIdL_IsoVL_) { b_HLT_Ele15_Ele8_CaloIdL_TrackIdL_IsoVL_->SetAddress(&HLT_Ele15_Ele8_CaloIdL_TrackIdL_IsoVL_); }
     b_HLT_Ele15_IsoVVVL_PFHT450_ = tree->GetBranch("HLT_Ele15_IsoVVVL_PFHT450");
     if (b_HLT_Ele15_IsoVVVL_PFHT450_) { b_HLT_Ele15_IsoVVVL_PFHT450_->SetAddress(&HLT_Ele15_IsoVVVL_PFHT450_); }
-    b_HLT_Ele15_IsoVVVL_PFHT450_CaloBTagCSV_4p5_ = tree->GetBranch("HLT_Ele15_IsoVVVL_PFHT450_CaloBTagCSV_4p5");
-    if (b_HLT_Ele15_IsoVVVL_PFHT450_CaloBTagCSV_4p5_) { b_HLT_Ele15_IsoVVVL_PFHT450_CaloBTagCSV_4p5_->SetAddress(&HLT_Ele15_IsoVVVL_PFHT450_CaloBTagCSV_4p5_); }
+    b_HLT_Ele15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5_ = tree->GetBranch("HLT_Ele15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5");
+    if (b_HLT_Ele15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5_) { b_HLT_Ele15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5_->SetAddress(&HLT_Ele15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5_); }
     b_HLT_Ele15_IsoVVVL_PFHT450_PFMET50_ = tree->GetBranch("HLT_Ele15_IsoVVVL_PFHT450_PFMET50");
     if (b_HLT_Ele15_IsoVVVL_PFHT450_PFMET50_) { b_HLT_Ele15_IsoVVVL_PFHT450_PFMET50_->SetAddress(&HLT_Ele15_IsoVVVL_PFHT450_PFMET50_); }
     b_HLT_Ele15_IsoVVVL_PFHT600_ = tree->GetBranch("HLT_Ele15_IsoVVVL_PFHT600");
     if (b_HLT_Ele15_IsoVVVL_PFHT600_) { b_HLT_Ele15_IsoVVVL_PFHT600_->SetAddress(&HLT_Ele15_IsoVVVL_PFHT600_); }
+    b_HLT_Ele15_WPLoose_Gsf_ = tree->GetBranch("HLT_Ele15_WPLoose_Gsf");
+    if (b_HLT_Ele15_WPLoose_Gsf_) { b_HLT_Ele15_WPLoose_Gsf_->SetAddress(&HLT_Ele15_WPLoose_Gsf_); }
     b_HLT_Ele16_Ele12_Ele8_CaloIdL_TrackIdL_ = tree->GetBranch("HLT_Ele16_Ele12_Ele8_CaloIdL_TrackIdL");
     if (b_HLT_Ele16_Ele12_Ele8_CaloIdL_TrackIdL_) { b_HLT_Ele16_Ele12_Ele8_CaloIdL_TrackIdL_->SetAddress(&HLT_Ele16_Ele12_Ele8_CaloIdL_TrackIdL_); }
     b_HLT_Ele17_CaloIdM_TrackIdM_PFJet30_ = tree->GetBranch("HLT_Ele17_CaloIdM_TrackIdM_PFJet30");
     if (b_HLT_Ele17_CaloIdM_TrackIdM_PFJet30_) { b_HLT_Ele17_CaloIdM_TrackIdM_PFJet30_->SetAddress(&HLT_Ele17_CaloIdM_TrackIdM_PFJet30_); }
+    b_HLT_Ele17_WPLoose_Gsf_ = tree->GetBranch("HLT_Ele17_WPLoose_Gsf");
+    if (b_HLT_Ele17_WPLoose_Gsf_) { b_HLT_Ele17_WPLoose_Gsf_->SetAddress(&HLT_Ele17_WPLoose_Gsf_); }
     b_HLT_Ele200_CaloIdVT_GsfTrkIdT_ = tree->GetBranch("HLT_Ele200_CaloIdVT_GsfTrkIdT");
     if (b_HLT_Ele200_CaloIdVT_GsfTrkIdT_) { b_HLT_Ele200_CaloIdVT_GsfTrkIdT_->SetAddress(&HLT_Ele200_CaloIdVT_GsfTrkIdT_); }
     b_HLT_Ele20_WPLoose_Gsf_ = tree->GetBranch("HLT_Ele20_WPLoose_Gsf");
@@ -696,18 +832,18 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_) { b_HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_->SetAddress(&HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_); }
     b_HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_DZ_ = tree->GetBranch("HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_DZ");
     if (b_HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_DZ_) { b_HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_DZ_->SetAddress(&HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_DZ_); }
-    b_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_CrossL1_ = tree->GetBranch("HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_CrossL1");
-    if (b_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_CrossL1_) { b_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_CrossL1_->SetAddress(&HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_CrossL1_); }
-    b_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_TightID_CrossL1_ = tree->GetBranch("HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_TightID_CrossL1");
-    if (b_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_TightID_CrossL1_) { b_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_TightID_CrossL1_->SetAddress(&HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_TightID_CrossL1_); }
-    b_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_CrossL1_ = tree->GetBranch("HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_CrossL1");
-    if (b_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_CrossL1_) { b_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_CrossL1_->SetAddress(&HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_CrossL1_); }
-    b_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_TightID_CrossL1_ = tree->GetBranch("HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_TightID_CrossL1");
-    if (b_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_TightID_CrossL1_) { b_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_TightID_CrossL1_->SetAddress(&HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_TightID_CrossL1_); }
-    b_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_CrossL1_ = tree->GetBranch("HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_CrossL1");
-    if (b_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_CrossL1_) { b_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_CrossL1_->SetAddress(&HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_CrossL1_); }
-    b_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_TightID_CrossL1_ = tree->GetBranch("HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_TightID_CrossL1");
-    if (b_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_TightID_CrossL1_) { b_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_TightID_CrossL1_->SetAddress(&HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_TightID_CrossL1_); }
+    b_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_CrossL1_ = tree->GetBranch("HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_CrossL1");
+    if (b_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_CrossL1_) { b_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_CrossL1_->SetAddress(&HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_CrossL1_); }
+    b_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_ = tree->GetBranch("HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1");
+    if (b_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_) { b_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_->SetAddress(&HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_); }
+    b_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_CrossL1_ = tree->GetBranch("HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_CrossL1");
+    if (b_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_CrossL1_) { b_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_CrossL1_->SetAddress(&HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_CrossL1_); }
+    b_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_ = tree->GetBranch("HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1");
+    if (b_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_) { b_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_->SetAddress(&HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_); }
+    b_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_CrossL1_ = tree->GetBranch("HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_CrossL1");
+    if (b_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_CrossL1_) { b_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_CrossL1_->SetAddress(&HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_CrossL1_); }
+    b_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_ = tree->GetBranch("HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1");
+    if (b_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_) { b_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_->SetAddress(&HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_); }
     b_HLT_Ele250_CaloIdVT_GsfTrkIdT_ = tree->GetBranch("HLT_Ele250_CaloIdVT_GsfTrkIdT");
     if (b_HLT_Ele250_CaloIdVT_GsfTrkIdT_) { b_HLT_Ele250_CaloIdVT_GsfTrkIdT_->SetAddress(&HLT_Ele250_CaloIdVT_GsfTrkIdT_); }
     b_HLT_Ele27_Ele37_CaloIdL_MW_ = tree->GetBranch("HLT_Ele27_Ele37_CaloIdL_MW");
@@ -716,10 +852,14 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_Ele27_WPTight_Gsf_) { b_HLT_Ele27_WPTight_Gsf_->SetAddress(&HLT_Ele27_WPTight_Gsf_); }
     b_HLT_Ele28_HighEta_SC20_Mass55_ = tree->GetBranch("HLT_Ele28_HighEta_SC20_Mass55");
     if (b_HLT_Ele28_HighEta_SC20_Mass55_) { b_HLT_Ele28_HighEta_SC20_Mass55_->SetAddress(&HLT_Ele28_HighEta_SC20_Mass55_); }
+    b_HLT_Ele28_WPTight_Gsf_ = tree->GetBranch("HLT_Ele28_WPTight_Gsf");
+    if (b_HLT_Ele28_WPTight_Gsf_) { b_HLT_Ele28_WPTight_Gsf_->SetAddress(&HLT_Ele28_WPTight_Gsf_); }
     b_HLT_Ele28_eta2p1_WPTight_Gsf_HT150_ = tree->GetBranch("HLT_Ele28_eta2p1_WPTight_Gsf_HT150");
     if (b_HLT_Ele28_eta2p1_WPTight_Gsf_HT150_) { b_HLT_Ele28_eta2p1_WPTight_Gsf_HT150_->SetAddress(&HLT_Ele28_eta2p1_WPTight_Gsf_HT150_); }
     b_HLT_Ele300_CaloIdVT_GsfTrkIdT_ = tree->GetBranch("HLT_Ele300_CaloIdVT_GsfTrkIdT");
     if (b_HLT_Ele300_CaloIdVT_GsfTrkIdT_) { b_HLT_Ele300_CaloIdVT_GsfTrkIdT_->SetAddress(&HLT_Ele300_CaloIdVT_GsfTrkIdT_); }
+    b_HLT_Ele30_WPTight_Gsf_ = tree->GetBranch("HLT_Ele30_WPTight_Gsf");
+    if (b_HLT_Ele30_WPTight_Gsf_) { b_HLT_Ele30_WPTight_Gsf_->SetAddress(&HLT_Ele30_WPTight_Gsf_); }
     b_HLT_Ele30_eta2p1_WPTight_Gsf_CentralPFJet35_EleCleaned_ = tree->GetBranch("HLT_Ele30_eta2p1_WPTight_Gsf_CentralPFJet35_EleCleaned");
     if (b_HLT_Ele30_eta2p1_WPTight_Gsf_CentralPFJet35_EleCleaned_) { b_HLT_Ele30_eta2p1_WPTight_Gsf_CentralPFJet35_EleCleaned_->SetAddress(&HLT_Ele30_eta2p1_WPTight_Gsf_CentralPFJet35_EleCleaned_); }
     b_HLT_Ele32_WPTight_Gsf_ = tree->GetBranch("HLT_Ele32_WPTight_Gsf");
@@ -742,26 +882,6 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_Ele8_CaloIdL_TrackIdL_IsoVL_PFJet30_) { b_HLT_Ele8_CaloIdL_TrackIdL_IsoVL_PFJet30_->SetAddress(&HLT_Ele8_CaloIdL_TrackIdL_IsoVL_PFJet30_); }
     b_HLT_Ele8_CaloIdM_TrackIdM_PFJet30_ = tree->GetBranch("HLT_Ele8_CaloIdM_TrackIdM_PFJet30");
     if (b_HLT_Ele8_CaloIdM_TrackIdM_PFJet30_) { b_HLT_Ele8_CaloIdM_TrackIdM_PFJet30_->SetAddress(&HLT_Ele8_CaloIdM_TrackIdM_PFJet30_); }
-    b_HLT_FullTrack_Multiplicity100_ = tree->GetBranch("HLT_FullTrack_Multiplicity100");
-    if (b_HLT_FullTrack_Multiplicity100_) { b_HLT_FullTrack_Multiplicity100_->SetAddress(&HLT_FullTrack_Multiplicity100_); }
-    b_HLT_FullTrack_Multiplicity130_ = tree->GetBranch("HLT_FullTrack_Multiplicity130");
-    if (b_HLT_FullTrack_Multiplicity130_) { b_HLT_FullTrack_Multiplicity130_->SetAddress(&HLT_FullTrack_Multiplicity130_); }
-    b_HLT_FullTrack_Multiplicity155_ = tree->GetBranch("HLT_FullTrack_Multiplicity155");
-    if (b_HLT_FullTrack_Multiplicity155_) { b_HLT_FullTrack_Multiplicity155_->SetAddress(&HLT_FullTrack_Multiplicity155_); }
-    b_HLT_FullTrack_Multiplicity85_ = tree->GetBranch("HLT_FullTrack_Multiplicity85");
-    if (b_HLT_FullTrack_Multiplicity85_) { b_HLT_FullTrack_Multiplicity85_->SetAddress(&HLT_FullTrack_Multiplicity85_); }
-    b_HLT_HISinglePhoton10_Eta3p1ForPPRef_ = tree->GetBranch("HLT_HISinglePhoton10_Eta3p1ForPPRef");
-    if (b_HLT_HISinglePhoton10_Eta3p1ForPPRef_) { b_HLT_HISinglePhoton10_Eta3p1ForPPRef_->SetAddress(&HLT_HISinglePhoton10_Eta3p1ForPPRef_); }
-    b_HLT_HISinglePhoton20_Eta3p1ForPPRef_ = tree->GetBranch("HLT_HISinglePhoton20_Eta3p1ForPPRef");
-    if (b_HLT_HISinglePhoton20_Eta3p1ForPPRef_) { b_HLT_HISinglePhoton20_Eta3p1ForPPRef_->SetAddress(&HLT_HISinglePhoton20_Eta3p1ForPPRef_); }
-    b_HLT_HISinglePhoton30_Eta3p1ForPPRef_ = tree->GetBranch("HLT_HISinglePhoton30_Eta3p1ForPPRef");
-    if (b_HLT_HISinglePhoton30_Eta3p1ForPPRef_) { b_HLT_HISinglePhoton30_Eta3p1ForPPRef_->SetAddress(&HLT_HISinglePhoton30_Eta3p1ForPPRef_); }
-    b_HLT_HISinglePhoton40_Eta3p1ForPPRef_ = tree->GetBranch("HLT_HISinglePhoton40_Eta3p1ForPPRef");
-    if (b_HLT_HISinglePhoton40_Eta3p1ForPPRef_) { b_HLT_HISinglePhoton40_Eta3p1ForPPRef_->SetAddress(&HLT_HISinglePhoton40_Eta3p1ForPPRef_); }
-    b_HLT_HISinglePhoton50_Eta3p1ForPPRef_ = tree->GetBranch("HLT_HISinglePhoton50_Eta3p1ForPPRef");
-    if (b_HLT_HISinglePhoton50_Eta3p1ForPPRef_) { b_HLT_HISinglePhoton50_Eta3p1ForPPRef_->SetAddress(&HLT_HISinglePhoton50_Eta3p1ForPPRef_); }
-    b_HLT_HISinglePhoton60_Eta3p1ForPPRef_ = tree->GetBranch("HLT_HISinglePhoton60_Eta3p1ForPPRef");
-    if (b_HLT_HISinglePhoton60_Eta3p1ForPPRef_) { b_HLT_HISinglePhoton60_Eta3p1ForPPRef_->SetAddress(&HLT_HISinglePhoton60_Eta3p1ForPPRef_); }
     b_HLT_HT300_Beamspot_ = tree->GetBranch("HLT_HT300_Beamspot");
     if (b_HLT_HT300_Beamspot_) { b_HLT_HT300_Beamspot_->SetAddress(&HLT_HT300_Beamspot_); }
     b_HLT_HT400_DisplacedDijet40_DisplacedTrack_ = tree->GetBranch("HLT_HT400_DisplacedDijet40_DisplacedTrack");
@@ -772,20 +892,14 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_HT430_DisplacedDijet40_DisplacedTrack_) { b_HLT_HT430_DisplacedDijet40_DisplacedTrack_->SetAddress(&HLT_HT430_DisplacedDijet40_DisplacedTrack_); }
     b_HLT_HT430_DisplacedDijet60_DisplacedTrack_ = tree->GetBranch("HLT_HT430_DisplacedDijet60_DisplacedTrack");
     if (b_HLT_HT430_DisplacedDijet60_DisplacedTrack_) { b_HLT_HT430_DisplacedDijet60_DisplacedTrack_->SetAddress(&HLT_HT430_DisplacedDijet60_DisplacedTrack_); }
-    b_HLT_HT430_DisplacedDijet80_DisplacedTrack_ = tree->GetBranch("HLT_HT430_DisplacedDijet80_DisplacedTrack");
-    if (b_HLT_HT430_DisplacedDijet80_DisplacedTrack_) { b_HLT_HT430_DisplacedDijet80_DisplacedTrack_->SetAddress(&HLT_HT430_DisplacedDijet80_DisplacedTrack_); }
     b_HLT_HT450_Beamspot_ = tree->GetBranch("HLT_HT450_Beamspot");
     if (b_HLT_HT450_Beamspot_) { b_HLT_HT450_Beamspot_->SetAddress(&HLT_HT450_Beamspot_); }
+    b_HLT_HT500_DisplacedDijet40_DisplacedTrack_ = tree->GetBranch("HLT_HT500_DisplacedDijet40_DisplacedTrack");
+    if (b_HLT_HT500_DisplacedDijet40_DisplacedTrack_) { b_HLT_HT500_DisplacedDijet40_DisplacedTrack_->SetAddress(&HLT_HT500_DisplacedDijet40_DisplacedTrack_); }
     b_HLT_HT550_DisplacedDijet60_Inclusive_ = tree->GetBranch("HLT_HT550_DisplacedDijet60_Inclusive");
     if (b_HLT_HT550_DisplacedDijet60_Inclusive_) { b_HLT_HT550_DisplacedDijet60_Inclusive_->SetAddress(&HLT_HT550_DisplacedDijet60_Inclusive_); }
-    b_HLT_HT550_DisplacedDijet80_Inclusive_ = tree->GetBranch("HLT_HT550_DisplacedDijet80_Inclusive");
-    if (b_HLT_HT550_DisplacedDijet80_Inclusive_) { b_HLT_HT550_DisplacedDijet80_Inclusive_->SetAddress(&HLT_HT550_DisplacedDijet80_Inclusive_); }
     b_HLT_HT650_DisplacedDijet60_Inclusive_ = tree->GetBranch("HLT_HT650_DisplacedDijet60_Inclusive");
     if (b_HLT_HT650_DisplacedDijet60_Inclusive_) { b_HLT_HT650_DisplacedDijet60_Inclusive_->SetAddress(&HLT_HT650_DisplacedDijet60_Inclusive_); }
-    b_HLT_HT650_DisplacedDijet80_Inclusive_ = tree->GetBranch("HLT_HT650_DisplacedDijet80_Inclusive");
-    if (b_HLT_HT650_DisplacedDijet80_Inclusive_) { b_HLT_HT650_DisplacedDijet80_Inclusive_->SetAddress(&HLT_HT650_DisplacedDijet80_Inclusive_); }
-    b_HLT_HT750_DisplacedDijet80_Inclusive_ = tree->GetBranch("HLT_HT750_DisplacedDijet80_Inclusive");
-    if (b_HLT_HT750_DisplacedDijet80_Inclusive_) { b_HLT_HT750_DisplacedDijet80_Inclusive_->SetAddress(&HLT_HT750_DisplacedDijet80_Inclusive_); }
     b_HLT_HcalCalibration_ = tree->GetBranch("HLT_HcalCalibration");
     if (b_HLT_HcalCalibration_) { b_HLT_HcalCalibration_->SetAddress(&HLT_HcalCalibration_); }
     b_HLT_HcalIsolatedbunch_ = tree->GetBranch("HLT_HcalIsolatedbunch");
@@ -796,64 +910,44 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_HcalPhiSym_) { b_HLT_HcalPhiSym_->SetAddress(&HLT_HcalPhiSym_); }
     b_HLT_IsoMu20_ = tree->GetBranch("HLT_IsoMu20");
     if (b_HLT_IsoMu20_) { b_HLT_IsoMu20_->SetAddress(&HLT_IsoMu20_); }
-    b_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_CrossL1_ = tree->GetBranch("HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_CrossL1");
-    if (b_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_CrossL1_) { b_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_CrossL1_->SetAddress(&HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_CrossL1_); }
-    b_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_TightID_CrossL1_ = tree->GetBranch("HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_TightID_CrossL1");
-    if (b_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_TightID_CrossL1_) { b_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_TightID_CrossL1_->SetAddress(&HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_TightID_CrossL1_); }
-    b_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_CrossL1_ = tree->GetBranch("HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_CrossL1");
-    if (b_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_CrossL1_) { b_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_CrossL1_->SetAddress(&HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_CrossL1_); }
-    b_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_TightID_CrossL1_ = tree->GetBranch("HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_TightID_CrossL1");
-    if (b_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_TightID_CrossL1_) { b_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_TightID_CrossL1_->SetAddress(&HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_TightID_CrossL1_); }
-    b_HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_CrossL1_ = tree->GetBranch("HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_CrossL1");
-    if (b_HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_CrossL1_) { b_HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_CrossL1_->SetAddress(&HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_CrossL1_); }
-    b_HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_TightID_CrossL1_ = tree->GetBranch("HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_TightID_CrossL1");
-    if (b_HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_TightID_CrossL1_) { b_HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_TightID_CrossL1_->SetAddress(&HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_TightID_CrossL1_); }
+    b_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1_ = tree->GetBranch("HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1");
+    if (b_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1_) { b_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1_->SetAddress(&HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1_); }
+    b_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_ = tree->GetBranch("HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1");
+    if (b_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_) { b_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_->SetAddress(&HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_); }
+    b_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_CrossL1_ = tree->GetBranch("HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_CrossL1");
+    if (b_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_CrossL1_) { b_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_CrossL1_->SetAddress(&HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_CrossL1_); }
+    b_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_ = tree->GetBranch("HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1");
+    if (b_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_) { b_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_->SetAddress(&HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_); }
+    b_HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_CrossL1_ = tree->GetBranch("HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_CrossL1");
+    if (b_HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_CrossL1_) { b_HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_CrossL1_->SetAddress(&HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_CrossL1_); }
+    b_HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_ = tree->GetBranch("HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1");
+    if (b_HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_) { b_HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_->SetAddress(&HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_); }
     b_HLT_IsoMu24_ = tree->GetBranch("HLT_IsoMu24");
     if (b_HLT_IsoMu24_) { b_HLT_IsoMu24_->SetAddress(&HLT_IsoMu24_); }
+    b_HLT_IsoMu24_TwoProngs35_ = tree->GetBranch("HLT_IsoMu24_TwoProngs35");
+    if (b_HLT_IsoMu24_TwoProngs35_) { b_HLT_IsoMu24_TwoProngs35_->SetAddress(&HLT_IsoMu24_TwoProngs35_); }
     b_HLT_IsoMu24_eta2p1_ = tree->GetBranch("HLT_IsoMu24_eta2p1");
     if (b_HLT_IsoMu24_eta2p1_) { b_HLT_IsoMu24_eta2p1_->SetAddress(&HLT_IsoMu24_eta2p1_); }
-    b_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_SingleL1_ = tree->GetBranch("HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_SingleL1");
-    if (b_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_SingleL1_) { b_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_SingleL1_->SetAddress(&HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_SingleL1_); }
-    b_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_TightID_SingleL1_ = tree->GetBranch("HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_TightID_SingleL1");
-    if (b_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_TightID_SingleL1_) { b_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_TightID_SingleL1_->SetAddress(&HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_TightID_SingleL1_); }
-    b_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_ = tree->GetBranch("HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1");
-    if (b_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_) { b_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_->SetAddress(&HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_); }
-    b_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_ = tree->GetBranch("HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1");
-    if (b_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_) { b_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_->SetAddress(&HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_); }
-    b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_SingleL1_ = tree->GetBranch("HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_SingleL1");
-    if (b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_SingleL1_) { b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_SingleL1_->SetAddress(&HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_SingleL1_); }
-    b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_TightID_SingleL1_ = tree->GetBranch("HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_TightID_SingleL1");
-    if (b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_TightID_SingleL1_) { b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_TightID_SingleL1_->SetAddress(&HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_TightID_SingleL1_); }
-    b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_ = tree->GetBranch("HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1");
-    if (b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_) { b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_->SetAddress(&HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_); }
-    b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_ = tree->GetBranch("HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1");
-    if (b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_) { b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_->SetAddress(&HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_); }
-    b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1_ = tree->GetBranch("HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1");
-    if (b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1_) { b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1_->SetAddress(&HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1_); }
-    b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1_ = tree->GetBranch("HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1");
-    if (b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1_) { b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1_->SetAddress(&HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1_); }
     b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_ = tree->GetBranch("HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr");
     if (b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_) { b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_->SetAddress(&HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_); }
-    b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_SingleL1_ = tree->GetBranch("HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_SingleL1");
-    if (b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_SingleL1_) { b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_SingleL1_->SetAddress(&HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_SingleL1_); }
-    b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_TightID_SingleL1_ = tree->GetBranch("HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_TightID_SingleL1");
-    if (b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_TightID_SingleL1_) { b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_TightID_SingleL1_->SetAddress(&HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_TightID_SingleL1_); }
-    b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_ = tree->GetBranch("HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1");
-    if (b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_) { b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_->SetAddress(&HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_); }
-    b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_ = tree->GetBranch("HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1");
-    if (b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_) { b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_->SetAddress(&HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_); }
-    b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1_ = tree->GetBranch("HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1");
-    if (b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1_) { b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1_->SetAddress(&HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1_); }
-    b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1_ = tree->GetBranch("HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1");
-    if (b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1_) { b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1_->SetAddress(&HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1_); }
+    b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1_ = tree->GetBranch("HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1");
+    if (b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1_) { b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1_->SetAddress(&HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1_); }
+    b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1_ = tree->GetBranch("HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1");
+    if (b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1_) { b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1_->SetAddress(&HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1_); }
+    b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1_ = tree->GetBranch("HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1");
+    if (b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1_) { b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1_->SetAddress(&HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1_); }
+    b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1_ = tree->GetBranch("HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1");
+    if (b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1_) { b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1_->SetAddress(&HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1_); }
     b_HLT_IsoMu27_ = tree->GetBranch("HLT_IsoMu27");
     if (b_HLT_IsoMu27_) { b_HLT_IsoMu27_->SetAddress(&HLT_IsoMu27_); }
-    b_HLT_IsoMu27_LooseChargedIsoPFTau20_SingleL1_ = tree->GetBranch("HLT_IsoMu27_LooseChargedIsoPFTau20_SingleL1");
-    if (b_HLT_IsoMu27_LooseChargedIsoPFTau20_SingleL1_) { b_HLT_IsoMu27_LooseChargedIsoPFTau20_SingleL1_->SetAddress(&HLT_IsoMu27_LooseChargedIsoPFTau20_SingleL1_); }
-    b_HLT_IsoMu27_MediumChargedIsoPFTau20_SingleL1_ = tree->GetBranch("HLT_IsoMu27_MediumChargedIsoPFTau20_SingleL1");
-    if (b_HLT_IsoMu27_MediumChargedIsoPFTau20_SingleL1_) { b_HLT_IsoMu27_MediumChargedIsoPFTau20_SingleL1_->SetAddress(&HLT_IsoMu27_MediumChargedIsoPFTau20_SingleL1_); }
-    b_HLT_IsoMu27_TightChargedIsoPFTau20_SingleL1_ = tree->GetBranch("HLT_IsoMu27_TightChargedIsoPFTau20_SingleL1");
-    if (b_HLT_IsoMu27_TightChargedIsoPFTau20_SingleL1_) { b_HLT_IsoMu27_TightChargedIsoPFTau20_SingleL1_->SetAddress(&HLT_IsoMu27_TightChargedIsoPFTau20_SingleL1_); }
+    b_HLT_IsoMu27_LooseChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_ = tree->GetBranch("HLT_IsoMu27_LooseChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1");
+    if (b_HLT_IsoMu27_LooseChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_) { b_HLT_IsoMu27_LooseChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_->SetAddress(&HLT_IsoMu27_LooseChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_); }
+    b_HLT_IsoMu27_MET90_ = tree->GetBranch("HLT_IsoMu27_MET90");
+    if (b_HLT_IsoMu27_MET90_) { b_HLT_IsoMu27_MET90_->SetAddress(&HLT_IsoMu27_MET90_); }
+    b_HLT_IsoMu27_MediumChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_ = tree->GetBranch("HLT_IsoMu27_MediumChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1");
+    if (b_HLT_IsoMu27_MediumChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_) { b_HLT_IsoMu27_MediumChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_->SetAddress(&HLT_IsoMu27_MediumChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_); }
+    b_HLT_IsoMu27_TightChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_ = tree->GetBranch("HLT_IsoMu27_TightChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1");
+    if (b_HLT_IsoMu27_TightChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_) { b_HLT_IsoMu27_TightChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_->SetAddress(&HLT_IsoMu27_TightChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_); }
     b_HLT_IsoMu30_ = tree->GetBranch("HLT_IsoMu30");
     if (b_HLT_IsoMu30_) { b_HLT_IsoMu30_->SetAddress(&HLT_IsoMu30_); }
     b_HLT_IsoTrackHB_ = tree->GetBranch("HLT_IsoTrackHB");
@@ -862,10 +956,6 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_IsoTrackHE_) { b_HLT_IsoTrackHE_->SetAddress(&HLT_IsoTrackHE_); }
     b_HLT_L1ETMHadSeeds_ = tree->GetBranch("HLT_L1ETMHadSeeds");
     if (b_HLT_L1ETMHadSeeds_) { b_HLT_L1ETMHadSeeds_->SetAddress(&HLT_L1ETMHadSeeds_); }
-    b_HLT_L1MinimumBiasHF0OR_ = tree->GetBranch("HLT_L1MinimumBiasHF0OR");
-    if (b_HLT_L1MinimumBiasHF0OR_) { b_HLT_L1MinimumBiasHF0OR_->SetAddress(&HLT_L1MinimumBiasHF0OR_); }
-    b_HLT_L1MinimumBiasHF_OR_ = tree->GetBranch("HLT_L1MinimumBiasHF_OR");
-    if (b_HLT_L1MinimumBiasHF_OR_) { b_HLT_L1MinimumBiasHF_OR_->SetAddress(&HLT_L1MinimumBiasHF_OR_); }
     b_HLT_L1NotBptxOR_ = tree->GetBranch("HLT_L1NotBptxOR");
     if (b_HLT_L1NotBptxOR_) { b_HLT_L1NotBptxOR_->SetAddress(&HLT_L1NotBptxOR_); }
     b_HLT_L1SingleMu18_ = tree->GetBranch("HLT_L1SingleMu18");
@@ -878,14 +968,16 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_L1UnpairedBunchBptxPlus_) { b_HLT_L1UnpairedBunchBptxPlus_->SetAddress(&HLT_L1UnpairedBunchBptxPlus_); }
     b_HLT_L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142_ = tree->GetBranch("HLT_L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142");
     if (b_HLT_L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142_) { b_HLT_L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142_->SetAddress(&HLT_L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142_); }
-    b_HLT_L1_DoubleJet30_Mass_Min400_Mu10_ = tree->GetBranch("HLT_L1_DoubleJet30_Mass_Min400_Mu10");
-    if (b_HLT_L1_DoubleJet30_Mass_Min400_Mu10_) { b_HLT_L1_DoubleJet30_Mass_Min400_Mu10_->SetAddress(&HLT_L1_DoubleJet30_Mass_Min400_Mu10_); }
     b_HLT_L2Mu10_ = tree->GetBranch("HLT_L2Mu10");
     if (b_HLT_L2Mu10_) { b_HLT_L2Mu10_->SetAddress(&HLT_L2Mu10_); }
     b_HLT_L2Mu10_NoVertex_NoBPTX_ = tree->GetBranch("HLT_L2Mu10_NoVertex_NoBPTX");
     if (b_HLT_L2Mu10_NoVertex_NoBPTX_) { b_HLT_L2Mu10_NoVertex_NoBPTX_->SetAddress(&HLT_L2Mu10_NoVertex_NoBPTX_); }
     b_HLT_L2Mu10_NoVertex_NoBPTX3BX_ = tree->GetBranch("HLT_L2Mu10_NoVertex_NoBPTX3BX");
     if (b_HLT_L2Mu10_NoVertex_NoBPTX3BX_) { b_HLT_L2Mu10_NoVertex_NoBPTX3BX_->SetAddress(&HLT_L2Mu10_NoVertex_NoBPTX3BX_); }
+    b_HLT_L2Mu23NoVtx_2Cha_ = tree->GetBranch("HLT_L2Mu23NoVtx_2Cha");
+    if (b_HLT_L2Mu23NoVtx_2Cha_) { b_HLT_L2Mu23NoVtx_2Cha_->SetAddress(&HLT_L2Mu23NoVtx_2Cha_); }
+    b_HLT_L2Mu23NoVtx_2Cha_CosmicSeed_ = tree->GetBranch("HLT_L2Mu23NoVtx_2Cha_CosmicSeed");
+    if (b_HLT_L2Mu23NoVtx_2Cha_CosmicSeed_) { b_HLT_L2Mu23NoVtx_2Cha_CosmicSeed_->SetAddress(&HLT_L2Mu23NoVtx_2Cha_CosmicSeed_); }
     b_HLT_L2Mu40_NoVertex_3Sta_NoBPTX3BX_ = tree->GetBranch("HLT_L2Mu40_NoVertex_3Sta_NoBPTX3BX");
     if (b_HLT_L2Mu40_NoVertex_3Sta_NoBPTX3BX_) { b_HLT_L2Mu40_NoVertex_3Sta_NoBPTX3BX_->SetAddress(&HLT_L2Mu40_NoVertex_3Sta_NoBPTX3BX_); }
     b_HLT_L2Mu45_NoVertex_3Sta_NoBPTX3BX_ = tree->GetBranch("HLT_L2Mu45_NoVertex_3Sta_NoBPTX3BX");
@@ -900,6 +992,10 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1_) { b_HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1_->SetAddress(&HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1_); }
     b_HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1_1pr_ = tree->GetBranch("HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1_1pr");
     if (b_HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1_1pr_) { b_HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1_1pr_->SetAddress(&HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1_1pr_); }
+    b_HLT_MediumChargedIsoPFTau200HighPtRelaxedIso_Trk50_eta2p1_ = tree->GetBranch("HLT_MediumChargedIsoPFTau200HighPtRelaxedIso_Trk50_eta2p1");
+    if (b_HLT_MediumChargedIsoPFTau200HighPtRelaxedIso_Trk50_eta2p1_) { b_HLT_MediumChargedIsoPFTau200HighPtRelaxedIso_Trk50_eta2p1_->SetAddress(&HLT_MediumChargedIsoPFTau200HighPtRelaxedIso_Trk50_eta2p1_); }
+    b_HLT_MediumChargedIsoPFTau220HighPtRelaxedIso_Trk50_eta2p1_ = tree->GetBranch("HLT_MediumChargedIsoPFTau220HighPtRelaxedIso_Trk50_eta2p1");
+    if (b_HLT_MediumChargedIsoPFTau220HighPtRelaxedIso_Trk50_eta2p1_) { b_HLT_MediumChargedIsoPFTau220HighPtRelaxedIso_Trk50_eta2p1_->SetAddress(&HLT_MediumChargedIsoPFTau220HighPtRelaxedIso_Trk50_eta2p1_); }
     b_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_ = tree->GetBranch("HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr");
     if (b_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_) { b_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_->SetAddress(&HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_); }
     b_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET100_ = tree->GetBranch("HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET100");
@@ -910,6 +1006,8 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET120_) { b_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET120_->SetAddress(&HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET120_); }
     b_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET130_ = tree->GetBranch("HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET130");
     if (b_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET130_) { b_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET130_->SetAddress(&HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET130_); }
+    b_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET140_ = tree->GetBranch("HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET140");
+    if (b_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET140_) { b_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET140_->SetAddress(&HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET140_); }
     b_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET90_ = tree->GetBranch("HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET90");
     if (b_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET90_) { b_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET90_->SetAddress(&HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET90_); }
     b_HLT_MonoCentralPFJet80_PFMETNoMu110_PFMHTNoMu110_IDTight_ = tree->GetBranch("HLT_MonoCentralPFJet80_PFMETNoMu110_PFMHTNoMu110_IDTight");
@@ -922,30 +1020,44 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_MonoCentralPFJet80_PFMETNoMu140_PFMHTNoMu140_IDTight_) { b_HLT_MonoCentralPFJet80_PFMETNoMu140_PFMHTNoMu140_IDTight_->SetAddress(&HLT_MonoCentralPFJet80_PFMETNoMu140_PFMHTNoMu140_IDTight_); }
     b_HLT_Mu10_TrkIsoVVL_DiPFJet40_DEta3p5_MJJ750_HTT350_PFMETNoMu60_ = tree->GetBranch("HLT_Mu10_TrkIsoVVL_DiPFJet40_DEta3p5_MJJ750_HTT350_PFMETNoMu60");
     if (b_HLT_Mu10_TrkIsoVVL_DiPFJet40_DEta3p5_MJJ750_HTT350_PFMETNoMu60_) { b_HLT_Mu10_TrkIsoVVL_DiPFJet40_DEta3p5_MJJ750_HTT350_PFMETNoMu60_->SetAddress(&HLT_Mu10_TrkIsoVVL_DiPFJet40_DEta3p5_MJJ750_HTT350_PFMETNoMu60_); }
-    b_HLT_Mu12_DoublePFJets100_CaloBTagCSV_p33_ = tree->GetBranch("HLT_Mu12_DoublePFJets100_CaloBTagCSV_p33");
-    if (b_HLT_Mu12_DoublePFJets100_CaloBTagCSV_p33_) { b_HLT_Mu12_DoublePFJets100_CaloBTagCSV_p33_->SetAddress(&HLT_Mu12_DoublePFJets100_CaloBTagCSV_p33_); }
-    b_HLT_Mu12_DoublePFJets200_CaloBTagCSV_p33_ = tree->GetBranch("HLT_Mu12_DoublePFJets200_CaloBTagCSV_p33");
-    if (b_HLT_Mu12_DoublePFJets200_CaloBTagCSV_p33_) { b_HLT_Mu12_DoublePFJets200_CaloBTagCSV_p33_->SetAddress(&HLT_Mu12_DoublePFJets200_CaloBTagCSV_p33_); }
-    b_HLT_Mu12_DoublePFJets350_CaloBTagCSV_p33_ = tree->GetBranch("HLT_Mu12_DoublePFJets350_CaloBTagCSV_p33");
-    if (b_HLT_Mu12_DoublePFJets350_CaloBTagCSV_p33_) { b_HLT_Mu12_DoublePFJets350_CaloBTagCSV_p33_->SetAddress(&HLT_Mu12_DoublePFJets350_CaloBTagCSV_p33_); }
-    b_HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagCSV_p33_ = tree->GetBranch("HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagCSV_p33");
-    if (b_HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagCSV_p33_) { b_HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagCSV_p33_->SetAddress(&HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagCSV_p33_); }
-    b_HLT_Mu12_DoublePFJets40_CaloBTagCSV_p33_ = tree->GetBranch("HLT_Mu12_DoublePFJets40_CaloBTagCSV_p33");
-    if (b_HLT_Mu12_DoublePFJets40_CaloBTagCSV_p33_) { b_HLT_Mu12_DoublePFJets40_CaloBTagCSV_p33_->SetAddress(&HLT_Mu12_DoublePFJets40_CaloBTagCSV_p33_); }
-    b_HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagCSV_p33_ = tree->GetBranch("HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagCSV_p33");
-    if (b_HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagCSV_p33_) { b_HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagCSV_p33_->SetAddress(&HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagCSV_p33_); }
-    b_HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagCSV_p33_ = tree->GetBranch("HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagCSV_p33");
-    if (b_HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagCSV_p33_) { b_HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagCSV_p33_->SetAddress(&HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagCSV_p33_); }
+    b_HLT_Mu12_ = tree->GetBranch("HLT_Mu12");
+    if (b_HLT_Mu12_) { b_HLT_Mu12_->SetAddress(&HLT_Mu12_); }
+    b_HLT_Mu12_DoublePFJets100_CaloBTagDeepCSV_p71_ = tree->GetBranch("HLT_Mu12_DoublePFJets100_CaloBTagDeepCSV_p71");
+    if (b_HLT_Mu12_DoublePFJets100_CaloBTagDeepCSV_p71_) { b_HLT_Mu12_DoublePFJets100_CaloBTagDeepCSV_p71_->SetAddress(&HLT_Mu12_DoublePFJets100_CaloBTagDeepCSV_p71_); }
+    b_HLT_Mu12_DoublePFJets200_CaloBTagDeepCSV_p71_ = tree->GetBranch("HLT_Mu12_DoublePFJets200_CaloBTagDeepCSV_p71");
+    if (b_HLT_Mu12_DoublePFJets200_CaloBTagDeepCSV_p71_) { b_HLT_Mu12_DoublePFJets200_CaloBTagDeepCSV_p71_->SetAddress(&HLT_Mu12_DoublePFJets200_CaloBTagDeepCSV_p71_); }
+    b_HLT_Mu12_DoublePFJets350_CaloBTagDeepCSV_p71_ = tree->GetBranch("HLT_Mu12_DoublePFJets350_CaloBTagDeepCSV_p71");
+    if (b_HLT_Mu12_DoublePFJets350_CaloBTagDeepCSV_p71_) { b_HLT_Mu12_DoublePFJets350_CaloBTagDeepCSV_p71_->SetAddress(&HLT_Mu12_DoublePFJets350_CaloBTagDeepCSV_p71_); }
+    b_HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_ = tree->GetBranch("HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagDeepCSV_p71");
+    if (b_HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_) { b_HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_->SetAddress(&HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_); }
+    b_HLT_Mu12_DoublePFJets40_CaloBTagDeepCSV_p71_ = tree->GetBranch("HLT_Mu12_DoublePFJets40_CaloBTagDeepCSV_p71");
+    if (b_HLT_Mu12_DoublePFJets40_CaloBTagDeepCSV_p71_) { b_HLT_Mu12_DoublePFJets40_CaloBTagDeepCSV_p71_->SetAddress(&HLT_Mu12_DoublePFJets40_CaloBTagDeepCSV_p71_); }
+    b_HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_ = tree->GetBranch("HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagDeepCSV_p71");
+    if (b_HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_) { b_HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_->SetAddress(&HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_); }
+    b_HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_ = tree->GetBranch("HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagDeepCSV_p71");
+    if (b_HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_) { b_HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_->SetAddress(&HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_); }
     b_HLT_Mu12_DoublePhoton20_ = tree->GetBranch("HLT_Mu12_DoublePhoton20");
     if (b_HLT_Mu12_DoublePhoton20_) { b_HLT_Mu12_DoublePhoton20_->SetAddress(&HLT_Mu12_DoublePhoton20_); }
+    b_HLT_Mu12_IP6_part0_ = tree->GetBranch("HLT_Mu12_IP6_part0");
+    if (b_HLT_Mu12_IP6_part0_) { b_HLT_Mu12_IP6_part0_->SetAddress(&HLT_Mu12_IP6_part0_); }
+    b_HLT_Mu12_IP6_part1_ = tree->GetBranch("HLT_Mu12_IP6_part1");
+    if (b_HLT_Mu12_IP6_part1_) { b_HLT_Mu12_IP6_part1_->SetAddress(&HLT_Mu12_IP6_part1_); }
+    b_HLT_Mu12_IP6_part2_ = tree->GetBranch("HLT_Mu12_IP6_part2");
+    if (b_HLT_Mu12_IP6_part2_) { b_HLT_Mu12_IP6_part2_->SetAddress(&HLT_Mu12_IP6_part2_); }
+    b_HLT_Mu12_IP6_part3_ = tree->GetBranch("HLT_Mu12_IP6_part3");
+    if (b_HLT_Mu12_IP6_part3_) { b_HLT_Mu12_IP6_part3_->SetAddress(&HLT_Mu12_IP6_part3_); }
+    b_HLT_Mu12_IP6_part4_ = tree->GetBranch("HLT_Mu12_IP6_part4");
+    if (b_HLT_Mu12_IP6_part4_) { b_HLT_Mu12_IP6_part4_->SetAddress(&HLT_Mu12_IP6_part4_); }
     b_HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_ = tree->GetBranch("HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL");
     if (b_HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_) { b_HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_->SetAddress(&HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_); }
     b_HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_ = tree->GetBranch("HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ");
     if (b_HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_) { b_HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_->SetAddress(&HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_); }
+    b_HLT_Mu15_ = tree->GetBranch("HLT_Mu15");
+    if (b_HLT_Mu15_) { b_HLT_Mu15_->SetAddress(&HLT_Mu15_); }
     b_HLT_Mu15_IsoVVVL_PFHT450_ = tree->GetBranch("HLT_Mu15_IsoVVVL_PFHT450");
     if (b_HLT_Mu15_IsoVVVL_PFHT450_) { b_HLT_Mu15_IsoVVVL_PFHT450_->SetAddress(&HLT_Mu15_IsoVVVL_PFHT450_); }
-    b_HLT_Mu15_IsoVVVL_PFHT450_CaloBTagCSV_4p5_ = tree->GetBranch("HLT_Mu15_IsoVVVL_PFHT450_CaloBTagCSV_4p5");
-    if (b_HLT_Mu15_IsoVVVL_PFHT450_CaloBTagCSV_4p5_) { b_HLT_Mu15_IsoVVVL_PFHT450_CaloBTagCSV_4p5_->SetAddress(&HLT_Mu15_IsoVVVL_PFHT450_CaloBTagCSV_4p5_); }
+    b_HLT_Mu15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5_ = tree->GetBranch("HLT_Mu15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5");
+    if (b_HLT_Mu15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5_) { b_HLT_Mu15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5_->SetAddress(&HLT_Mu15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5_); }
     b_HLT_Mu15_IsoVVVL_PFHT450_PFMET50_ = tree->GetBranch("HLT_Mu15_IsoVVVL_PFHT450_PFMET50");
     if (b_HLT_Mu15_IsoVVVL_PFHT450_PFMET50_) { b_HLT_Mu15_IsoVVVL_PFHT450_PFMET50_->SetAddress(&HLT_Mu15_IsoVVVL_PFHT450_PFMET50_); }
     b_HLT_Mu15_IsoVVVL_PFHT600_ = tree->GetBranch("HLT_Mu15_IsoVVVL_PFHT600");
@@ -1016,24 +1128,60 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_Mu27_) { b_HLT_Mu27_->SetAddress(&HLT_Mu27_); }
     b_HLT_Mu27_Ele37_CaloIdL_MW_ = tree->GetBranch("HLT_Mu27_Ele37_CaloIdL_MW");
     if (b_HLT_Mu27_Ele37_CaloIdL_MW_) { b_HLT_Mu27_Ele37_CaloIdL_MW_->SetAddress(&HLT_Mu27_Ele37_CaloIdL_MW_); }
-    b_HLT_Mu30_TkMu0_Onia_ = tree->GetBranch("HLT_Mu30_TkMu0_Onia");
-    if (b_HLT_Mu30_TkMu0_Onia_) { b_HLT_Mu30_TkMu0_Onia_->SetAddress(&HLT_Mu30_TkMu0_Onia_); }
+    b_HLT_Mu30_TkMu0_Psi_ = tree->GetBranch("HLT_Mu30_TkMu0_Psi");
+    if (b_HLT_Mu30_TkMu0_Psi_) { b_HLT_Mu30_TkMu0_Psi_->SetAddress(&HLT_Mu30_TkMu0_Psi_); }
+    b_HLT_Mu30_TkMu0_Upsilon_ = tree->GetBranch("HLT_Mu30_TkMu0_Upsilon");
+    if (b_HLT_Mu30_TkMu0_Upsilon_) { b_HLT_Mu30_TkMu0_Upsilon_->SetAddress(&HLT_Mu30_TkMu0_Upsilon_); }
     b_HLT_Mu37_Ele27_CaloIdL_MW_ = tree->GetBranch("HLT_Mu37_Ele27_CaloIdL_MW");
     if (b_HLT_Mu37_Ele27_CaloIdL_MW_) { b_HLT_Mu37_Ele27_CaloIdL_MW_->SetAddress(&HLT_Mu37_Ele27_CaloIdL_MW_); }
     b_HLT_Mu37_TkMu27_ = tree->GetBranch("HLT_Mu37_TkMu27");
     if (b_HLT_Mu37_TkMu27_) { b_HLT_Mu37_TkMu27_->SetAddress(&HLT_Mu37_TkMu27_); }
+    b_HLT_Mu38NoFiltersNoVtxDisplaced_Photon38_CaloIdL_ = tree->GetBranch("HLT_Mu38NoFiltersNoVtxDisplaced_Photon38_CaloIdL");
+    if (b_HLT_Mu38NoFiltersNoVtxDisplaced_Photon38_CaloIdL_) { b_HLT_Mu38NoFiltersNoVtxDisplaced_Photon38_CaloIdL_->SetAddress(&HLT_Mu38NoFiltersNoVtxDisplaced_Photon38_CaloIdL_); }
+    b_HLT_Mu3_L1SingleMu5orSingleMu7_ = tree->GetBranch("HLT_Mu3_L1SingleMu5orSingleMu7");
+    if (b_HLT_Mu3_L1SingleMu5orSingleMu7_) { b_HLT_Mu3_L1SingleMu5orSingleMu7_->SetAddress(&HLT_Mu3_L1SingleMu5orSingleMu7_); }
     b_HLT_Mu3_PFJet40_ = tree->GetBranch("HLT_Mu3_PFJet40");
     if (b_HLT_Mu3_PFJet40_) { b_HLT_Mu3_PFJet40_->SetAddress(&HLT_Mu3_PFJet40_); }
+    b_HLT_Mu3er1p5_PFJet100er2p5_PFMET100_PFMHT100_IDTight_ = tree->GetBranch("HLT_Mu3er1p5_PFJet100er2p5_PFMET100_PFMHT100_IDTight");
+    if (b_HLT_Mu3er1p5_PFJet100er2p5_PFMET100_PFMHT100_IDTight_) { b_HLT_Mu3er1p5_PFJet100er2p5_PFMET100_PFMHT100_IDTight_->SetAddress(&HLT_Mu3er1p5_PFJet100er2p5_PFMET100_PFMHT100_IDTight_); }
+    b_HLT_Mu3er1p5_PFJet100er2p5_PFMET70_PFMHT70_IDTight_ = tree->GetBranch("HLT_Mu3er1p5_PFJet100er2p5_PFMET70_PFMHT70_IDTight");
+    if (b_HLT_Mu3er1p5_PFJet100er2p5_PFMET70_PFMHT70_IDTight_) { b_HLT_Mu3er1p5_PFJet100er2p5_PFMET70_PFMHT70_IDTight_->SetAddress(&HLT_Mu3er1p5_PFJet100er2p5_PFMET70_PFMHT70_IDTight_); }
+    b_HLT_Mu3er1p5_PFJet100er2p5_PFMET80_PFMHT80_IDTight_ = tree->GetBranch("HLT_Mu3er1p5_PFJet100er2p5_PFMET80_PFMHT80_IDTight");
+    if (b_HLT_Mu3er1p5_PFJet100er2p5_PFMET80_PFMHT80_IDTight_) { b_HLT_Mu3er1p5_PFJet100er2p5_PFMET80_PFMHT80_IDTight_->SetAddress(&HLT_Mu3er1p5_PFJet100er2p5_PFMET80_PFMHT80_IDTight_); }
+    b_HLT_Mu3er1p5_PFJet100er2p5_PFMET90_PFMHT90_IDTight_ = tree->GetBranch("HLT_Mu3er1p5_PFJet100er2p5_PFMET90_PFMHT90_IDTight");
+    if (b_HLT_Mu3er1p5_PFJet100er2p5_PFMET90_PFMHT90_IDTight_) { b_HLT_Mu3er1p5_PFJet100er2p5_PFMET90_PFMHT90_IDTight_->SetAddress(&HLT_Mu3er1p5_PFJet100er2p5_PFMET90_PFMHT90_IDTight_); }
+    b_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu100_PFMHTNoMu100_IDTight_ = tree->GetBranch("HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu100_PFMHTNoMu100_IDTight");
+    if (b_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu100_PFMHTNoMu100_IDTight_) { b_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu100_PFMHTNoMu100_IDTight_->SetAddress(&HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu100_PFMHTNoMu100_IDTight_); }
+    b_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu70_PFMHTNoMu70_IDTight_ = tree->GetBranch("HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu70_PFMHTNoMu70_IDTight");
+    if (b_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu70_PFMHTNoMu70_IDTight_) { b_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu70_PFMHTNoMu70_IDTight_->SetAddress(&HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu70_PFMHTNoMu70_IDTight_); }
+    b_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu80_PFMHTNoMu80_IDTight_ = tree->GetBranch("HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu80_PFMHTNoMu80_IDTight");
+    if (b_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu80_PFMHTNoMu80_IDTight_) { b_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu80_PFMHTNoMu80_IDTight_->SetAddress(&HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu80_PFMHTNoMu80_IDTight_); }
+    b_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu90_PFMHTNoMu90_IDTight_ = tree->GetBranch("HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu90_PFMHTNoMu90_IDTight");
+    if (b_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu90_PFMHTNoMu90_IDTight_) { b_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu90_PFMHTNoMu90_IDTight_->SetAddress(&HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu90_PFMHTNoMu90_IDTight_); }
+    b_HLT_Mu43NoFiltersNoVtxDisplaced_Photon43_CaloIdL_ = tree->GetBranch("HLT_Mu43NoFiltersNoVtxDisplaced_Photon43_CaloIdL");
+    if (b_HLT_Mu43NoFiltersNoVtxDisplaced_Photon43_CaloIdL_) { b_HLT_Mu43NoFiltersNoVtxDisplaced_Photon43_CaloIdL_->SetAddress(&HLT_Mu43NoFiltersNoVtxDisplaced_Photon43_CaloIdL_); }
     b_HLT_Mu43NoFiltersNoVtx_Photon43_CaloIdL_ = tree->GetBranch("HLT_Mu43NoFiltersNoVtx_Photon43_CaloIdL");
     if (b_HLT_Mu43NoFiltersNoVtx_Photon43_CaloIdL_) { b_HLT_Mu43NoFiltersNoVtx_Photon43_CaloIdL_->SetAddress(&HLT_Mu43NoFiltersNoVtx_Photon43_CaloIdL_); }
     b_HLT_Mu48NoFiltersNoVtx_Photon48_CaloIdL_ = tree->GetBranch("HLT_Mu48NoFiltersNoVtx_Photon48_CaloIdL");
     if (b_HLT_Mu48NoFiltersNoVtx_Photon48_CaloIdL_) { b_HLT_Mu48NoFiltersNoVtx_Photon48_CaloIdL_->SetAddress(&HLT_Mu48NoFiltersNoVtx_Photon48_CaloIdL_); }
+    b_HLT_Mu4_TrkIsoVVL_DiPFJet90_40_DEta3p5_MJJ750_HTT300_PFMETNoMu60_ = tree->GetBranch("HLT_Mu4_TrkIsoVVL_DiPFJet90_40_DEta3p5_MJJ750_HTT300_PFMETNoMu60");
+    if (b_HLT_Mu4_TrkIsoVVL_DiPFJet90_40_DEta3p5_MJJ750_HTT300_PFMETNoMu60_) { b_HLT_Mu4_TrkIsoVVL_DiPFJet90_40_DEta3p5_MJJ750_HTT300_PFMETNoMu60_->SetAddress(&HLT_Mu4_TrkIsoVVL_DiPFJet90_40_DEta3p5_MJJ750_HTT300_PFMETNoMu60_); }
     b_HLT_Mu50_ = tree->GetBranch("HLT_Mu50");
     if (b_HLT_Mu50_) { b_HLT_Mu50_->SetAddress(&HLT_Mu50_); }
     b_HLT_Mu50_IsoVVVL_PFHT450_ = tree->GetBranch("HLT_Mu50_IsoVVVL_PFHT450");
     if (b_HLT_Mu50_IsoVVVL_PFHT450_) { b_HLT_Mu50_IsoVVVL_PFHT450_->SetAddress(&HLT_Mu50_IsoVVVL_PFHT450_); }
     b_HLT_Mu55_ = tree->GetBranch("HLT_Mu55");
     if (b_HLT_Mu55_) { b_HLT_Mu55_->SetAddress(&HLT_Mu55_); }
+    b_HLT_Mu7_IP4_part0_ = tree->GetBranch("HLT_Mu7_IP4_part0");
+    if (b_HLT_Mu7_IP4_part0_) { b_HLT_Mu7_IP4_part0_->SetAddress(&HLT_Mu7_IP4_part0_); }
+    b_HLT_Mu7_IP4_part1_ = tree->GetBranch("HLT_Mu7_IP4_part1");
+    if (b_HLT_Mu7_IP4_part1_) { b_HLT_Mu7_IP4_part1_->SetAddress(&HLT_Mu7_IP4_part1_); }
+    b_HLT_Mu7_IP4_part2_ = tree->GetBranch("HLT_Mu7_IP4_part2");
+    if (b_HLT_Mu7_IP4_part2_) { b_HLT_Mu7_IP4_part2_->SetAddress(&HLT_Mu7_IP4_part2_); }
+    b_HLT_Mu7_IP4_part3_ = tree->GetBranch("HLT_Mu7_IP4_part3");
+    if (b_HLT_Mu7_IP4_part3_) { b_HLT_Mu7_IP4_part3_->SetAddress(&HLT_Mu7_IP4_part3_); }
+    b_HLT_Mu7_IP4_part4_ = tree->GetBranch("HLT_Mu7_IP4_part4");
+    if (b_HLT_Mu7_IP4_part4_) { b_HLT_Mu7_IP4_part4_->SetAddress(&HLT_Mu7_IP4_part4_); }
     b_HLT_Mu7p5_L2Mu2_Jpsi_ = tree->GetBranch("HLT_Mu7p5_L2Mu2_Jpsi");
     if (b_HLT_Mu7p5_L2Mu2_Jpsi_) { b_HLT_Mu7p5_L2Mu2_Jpsi_->SetAddress(&HLT_Mu7p5_L2Mu2_Jpsi_); }
     b_HLT_Mu7p5_L2Mu2_Upsilon_ = tree->GetBranch("HLT_Mu7p5_L2Mu2_Upsilon");
@@ -1060,6 +1208,36 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT350_) { b_HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT350_->SetAddress(&HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT350_); }
     b_HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT350_DZ_ = tree->GetBranch("HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT350_DZ");
     if (b_HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT350_DZ_) { b_HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT350_DZ_->SetAddress(&HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT350_DZ_); }
+    b_HLT_Mu8_IP3_part0_ = tree->GetBranch("HLT_Mu8_IP3_part0");
+    if (b_HLT_Mu8_IP3_part0_) { b_HLT_Mu8_IP3_part0_->SetAddress(&HLT_Mu8_IP3_part0_); }
+    b_HLT_Mu8_IP3_part1_ = tree->GetBranch("HLT_Mu8_IP3_part1");
+    if (b_HLT_Mu8_IP3_part1_) { b_HLT_Mu8_IP3_part1_->SetAddress(&HLT_Mu8_IP3_part1_); }
+    b_HLT_Mu8_IP3_part2_ = tree->GetBranch("HLT_Mu8_IP3_part2");
+    if (b_HLT_Mu8_IP3_part2_) { b_HLT_Mu8_IP3_part2_->SetAddress(&HLT_Mu8_IP3_part2_); }
+    b_HLT_Mu8_IP3_part3_ = tree->GetBranch("HLT_Mu8_IP3_part3");
+    if (b_HLT_Mu8_IP3_part3_) { b_HLT_Mu8_IP3_part3_->SetAddress(&HLT_Mu8_IP3_part3_); }
+    b_HLT_Mu8_IP3_part4_ = tree->GetBranch("HLT_Mu8_IP3_part4");
+    if (b_HLT_Mu8_IP3_part4_) { b_HLT_Mu8_IP3_part4_->SetAddress(&HLT_Mu8_IP3_part4_); }
+    b_HLT_Mu8_IP5_part0_ = tree->GetBranch("HLT_Mu8_IP5_part0");
+    if (b_HLT_Mu8_IP5_part0_) { b_HLT_Mu8_IP5_part0_->SetAddress(&HLT_Mu8_IP5_part0_); }
+    b_HLT_Mu8_IP5_part1_ = tree->GetBranch("HLT_Mu8_IP5_part1");
+    if (b_HLT_Mu8_IP5_part1_) { b_HLT_Mu8_IP5_part1_->SetAddress(&HLT_Mu8_IP5_part1_); }
+    b_HLT_Mu8_IP5_part2_ = tree->GetBranch("HLT_Mu8_IP5_part2");
+    if (b_HLT_Mu8_IP5_part2_) { b_HLT_Mu8_IP5_part2_->SetAddress(&HLT_Mu8_IP5_part2_); }
+    b_HLT_Mu8_IP5_part3_ = tree->GetBranch("HLT_Mu8_IP5_part3");
+    if (b_HLT_Mu8_IP5_part3_) { b_HLT_Mu8_IP5_part3_->SetAddress(&HLT_Mu8_IP5_part3_); }
+    b_HLT_Mu8_IP5_part4_ = tree->GetBranch("HLT_Mu8_IP5_part4");
+    if (b_HLT_Mu8_IP5_part4_) { b_HLT_Mu8_IP5_part4_->SetAddress(&HLT_Mu8_IP5_part4_); }
+    b_HLT_Mu8_IP6_part0_ = tree->GetBranch("HLT_Mu8_IP6_part0");
+    if (b_HLT_Mu8_IP6_part0_) { b_HLT_Mu8_IP6_part0_->SetAddress(&HLT_Mu8_IP6_part0_); }
+    b_HLT_Mu8_IP6_part1_ = tree->GetBranch("HLT_Mu8_IP6_part1");
+    if (b_HLT_Mu8_IP6_part1_) { b_HLT_Mu8_IP6_part1_->SetAddress(&HLT_Mu8_IP6_part1_); }
+    b_HLT_Mu8_IP6_part2_ = tree->GetBranch("HLT_Mu8_IP6_part2");
+    if (b_HLT_Mu8_IP6_part2_) { b_HLT_Mu8_IP6_part2_->SetAddress(&HLT_Mu8_IP6_part2_); }
+    b_HLT_Mu8_IP6_part3_ = tree->GetBranch("HLT_Mu8_IP6_part3");
+    if (b_HLT_Mu8_IP6_part3_) { b_HLT_Mu8_IP6_part3_->SetAddress(&HLT_Mu8_IP6_part3_); }
+    b_HLT_Mu8_IP6_part4_ = tree->GetBranch("HLT_Mu8_IP6_part4");
+    if (b_HLT_Mu8_IP6_part4_) { b_HLT_Mu8_IP6_part4_->SetAddress(&HLT_Mu8_IP6_part4_); }
     b_HLT_Mu8_TrkIsoVVL_ = tree->GetBranch("HLT_Mu8_TrkIsoVVL");
     if (b_HLT_Mu8_TrkIsoVVL_) { b_HLT_Mu8_TrkIsoVVL_->SetAddress(&HLT_Mu8_TrkIsoVVL_); }
     b_HLT_Mu8_TrkIsoVVL_DiPFJet40_DEta3p5_MJJ750_HTT300_PFMETNoMu60_ = tree->GetBranch("HLT_Mu8_TrkIsoVVL_DiPFJet40_DEta3p5_MJJ750_HTT300_PFMETNoMu60");
@@ -1068,6 +1246,44 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_) { b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_->SetAddress(&HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_); }
     b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_ = tree->GetBranch("HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ");
     if (b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_) { b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_->SetAddress(&HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_); }
+    b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_ = tree->GetBranch("HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30");
+    if (b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_) { b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_->SetAddress(&HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_); }
+    b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_CaloBtagDeepCSV_1p5_ = tree->GetBranch("HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_CaloBtagDeepCSV_1p5");
+    if (b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_CaloBtagDeepCSV_1p5_) { b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_CaloBtagDeepCSV_1p5_->SetAddress(&HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_CaloBtagDeepCSV_1p5_); }
+    b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_ = tree->GetBranch("HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30");
+    if (b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_) { b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_->SetAddress(&HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_); }
+    b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_PFBtagDeepCSV_1p5_ = tree->GetBranch("HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_PFBtagDeepCSV_1p5");
+    if (b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_PFBtagDeepCSV_1p5_) { b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_PFBtagDeepCSV_1p5_->SetAddress(&HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_PFBtagDeepCSV_1p5_); }
+    b_HLT_Mu9_IP4_part0_ = tree->GetBranch("HLT_Mu9_IP4_part0");
+    if (b_HLT_Mu9_IP4_part0_) { b_HLT_Mu9_IP4_part0_->SetAddress(&HLT_Mu9_IP4_part0_); }
+    b_HLT_Mu9_IP4_part1_ = tree->GetBranch("HLT_Mu9_IP4_part1");
+    if (b_HLT_Mu9_IP4_part1_) { b_HLT_Mu9_IP4_part1_->SetAddress(&HLT_Mu9_IP4_part1_); }
+    b_HLT_Mu9_IP4_part2_ = tree->GetBranch("HLT_Mu9_IP4_part2");
+    if (b_HLT_Mu9_IP4_part2_) { b_HLT_Mu9_IP4_part2_->SetAddress(&HLT_Mu9_IP4_part2_); }
+    b_HLT_Mu9_IP4_part3_ = tree->GetBranch("HLT_Mu9_IP4_part3");
+    if (b_HLT_Mu9_IP4_part3_) { b_HLT_Mu9_IP4_part3_->SetAddress(&HLT_Mu9_IP4_part3_); }
+    b_HLT_Mu9_IP4_part4_ = tree->GetBranch("HLT_Mu9_IP4_part4");
+    if (b_HLT_Mu9_IP4_part4_) { b_HLT_Mu9_IP4_part4_->SetAddress(&HLT_Mu9_IP4_part4_); }
+    b_HLT_Mu9_IP5_part0_ = tree->GetBranch("HLT_Mu9_IP5_part0");
+    if (b_HLT_Mu9_IP5_part0_) { b_HLT_Mu9_IP5_part0_->SetAddress(&HLT_Mu9_IP5_part0_); }
+    b_HLT_Mu9_IP5_part1_ = tree->GetBranch("HLT_Mu9_IP5_part1");
+    if (b_HLT_Mu9_IP5_part1_) { b_HLT_Mu9_IP5_part1_->SetAddress(&HLT_Mu9_IP5_part1_); }
+    b_HLT_Mu9_IP5_part2_ = tree->GetBranch("HLT_Mu9_IP5_part2");
+    if (b_HLT_Mu9_IP5_part2_) { b_HLT_Mu9_IP5_part2_->SetAddress(&HLT_Mu9_IP5_part2_); }
+    b_HLT_Mu9_IP5_part3_ = tree->GetBranch("HLT_Mu9_IP5_part3");
+    if (b_HLT_Mu9_IP5_part3_) { b_HLT_Mu9_IP5_part3_->SetAddress(&HLT_Mu9_IP5_part3_); }
+    b_HLT_Mu9_IP5_part4_ = tree->GetBranch("HLT_Mu9_IP5_part4");
+    if (b_HLT_Mu9_IP5_part4_) { b_HLT_Mu9_IP5_part4_->SetAddress(&HLT_Mu9_IP5_part4_); }
+    b_HLT_Mu9_IP6_part0_ = tree->GetBranch("HLT_Mu9_IP6_part0");
+    if (b_HLT_Mu9_IP6_part0_) { b_HLT_Mu9_IP6_part0_->SetAddress(&HLT_Mu9_IP6_part0_); }
+    b_HLT_Mu9_IP6_part1_ = tree->GetBranch("HLT_Mu9_IP6_part1");
+    if (b_HLT_Mu9_IP6_part1_) { b_HLT_Mu9_IP6_part1_->SetAddress(&HLT_Mu9_IP6_part1_); }
+    b_HLT_Mu9_IP6_part2_ = tree->GetBranch("HLT_Mu9_IP6_part2");
+    if (b_HLT_Mu9_IP6_part2_) { b_HLT_Mu9_IP6_part2_->SetAddress(&HLT_Mu9_IP6_part2_); }
+    b_HLT_Mu9_IP6_part3_ = tree->GetBranch("HLT_Mu9_IP6_part3");
+    if (b_HLT_Mu9_IP6_part3_) { b_HLT_Mu9_IP6_part3_->SetAddress(&HLT_Mu9_IP6_part3_); }
+    b_HLT_Mu9_IP6_part4_ = tree->GetBranch("HLT_Mu9_IP6_part4");
+    if (b_HLT_Mu9_IP6_part4_) { b_HLT_Mu9_IP6_part4_->SetAddress(&HLT_Mu9_IP6_part4_); }
     b_HLT_OldMu100_ = tree->GetBranch("HLT_OldMu100");
     if (b_HLT_OldMu100_) { b_HLT_OldMu100_->SetAddress(&HLT_OldMu100_); }
     b_HLT_PFHT1050_ = tree->GetBranch("HLT_PFHT1050");
@@ -1076,28 +1292,26 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_PFHT180_) { b_HLT_PFHT180_->SetAddress(&HLT_PFHT180_); }
     b_HLT_PFHT250_ = tree->GetBranch("HLT_PFHT250");
     if (b_HLT_PFHT250_) { b_HLT_PFHT250_->SetAddress(&HLT_PFHT250_); }
-    b_HLT_PFHT300PT30_QuadPFJet_75_60_45_40_ = tree->GetBranch("HLT_PFHT300PT30_QuadPFJet_75_60_45_40");
-    if (b_HLT_PFHT300PT30_QuadPFJet_75_60_45_40_) { b_HLT_PFHT300PT30_QuadPFJet_75_60_45_40_->SetAddress(&HLT_PFHT300PT30_QuadPFJet_75_60_45_40_); }
-    b_HLT_PFHT300PT30_QuadPFJet_75_60_45_40_TriplePFBTagCSV_3p0_ = tree->GetBranch("HLT_PFHT300PT30_QuadPFJet_75_60_45_40_TriplePFBTagCSV_3p0");
-    if (b_HLT_PFHT300PT30_QuadPFJet_75_60_45_40_TriplePFBTagCSV_3p0_) { b_HLT_PFHT300PT30_QuadPFJet_75_60_45_40_TriplePFBTagCSV_3p0_->SetAddress(&HLT_PFHT300PT30_QuadPFJet_75_60_45_40_TriplePFBTagCSV_3p0_); }
+    b_HLT_PFHT330PT30_QuadPFJet_75_60_45_40_ = tree->GetBranch("HLT_PFHT330PT30_QuadPFJet_75_60_45_40");
+    if (b_HLT_PFHT330PT30_QuadPFJet_75_60_45_40_) { b_HLT_PFHT330PT30_QuadPFJet_75_60_45_40_->SetAddress(&HLT_PFHT330PT30_QuadPFJet_75_60_45_40_); }
+    b_HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepCSV_4p5_ = tree->GetBranch("HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepCSV_4p5");
+    if (b_HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepCSV_4p5_) { b_HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepCSV_4p5_->SetAddress(&HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepCSV_4p5_); }
     b_HLT_PFHT350_ = tree->GetBranch("HLT_PFHT350");
     if (b_HLT_PFHT350_) { b_HLT_PFHT350_->SetAddress(&HLT_PFHT350_); }
     b_HLT_PFHT350MinPFJet15_ = tree->GetBranch("HLT_PFHT350MinPFJet15");
     if (b_HLT_PFHT350MinPFJet15_) { b_HLT_PFHT350MinPFJet15_->SetAddress(&HLT_PFHT350MinPFJet15_); }
     b_HLT_PFHT370_ = tree->GetBranch("HLT_PFHT370");
     if (b_HLT_PFHT370_) { b_HLT_PFHT370_->SetAddress(&HLT_PFHT370_); }
-    b_HLT_PFHT380_SixPFJet32_ = tree->GetBranch("HLT_PFHT380_SixPFJet32");
-    if (b_HLT_PFHT380_SixPFJet32_) { b_HLT_PFHT380_SixPFJet32_->SetAddress(&HLT_PFHT380_SixPFJet32_); }
-    b_HLT_PFHT380_SixPFJet32_DoublePFBTagCSV_2p2_ = tree->GetBranch("HLT_PFHT380_SixPFJet32_DoublePFBTagCSV_2p2");
-    if (b_HLT_PFHT380_SixPFJet32_DoublePFBTagCSV_2p2_) { b_HLT_PFHT380_SixPFJet32_DoublePFBTagCSV_2p2_->SetAddress(&HLT_PFHT380_SixPFJet32_DoublePFBTagCSV_2p2_); }
-    b_HLT_PFHT380_SixPFJet32_DoublePFBTagDeepCSV_2p2_ = tree->GetBranch("HLT_PFHT380_SixPFJet32_DoublePFBTagDeepCSV_2p2");
-    if (b_HLT_PFHT380_SixPFJet32_DoublePFBTagDeepCSV_2p2_) { b_HLT_PFHT380_SixPFJet32_DoublePFBTagDeepCSV_2p2_->SetAddress(&HLT_PFHT380_SixPFJet32_DoublePFBTagDeepCSV_2p2_); }
+    b_HLT_PFHT400_SixPFJet32_ = tree->GetBranch("HLT_PFHT400_SixPFJet32");
+    if (b_HLT_PFHT400_SixPFJet32_) { b_HLT_PFHT400_SixPFJet32_->SetAddress(&HLT_PFHT400_SixPFJet32_); }
+    b_HLT_PFHT400_SixPFJet32_DoublePFBTagDeepCSV_2p94_ = tree->GetBranch("HLT_PFHT400_SixPFJet32_DoublePFBTagDeepCSV_2p94");
+    if (b_HLT_PFHT400_SixPFJet32_DoublePFBTagDeepCSV_2p94_) { b_HLT_PFHT400_SixPFJet32_DoublePFBTagDeepCSV_2p94_->SetAddress(&HLT_PFHT400_SixPFJet32_DoublePFBTagDeepCSV_2p94_); }
     b_HLT_PFHT430_ = tree->GetBranch("HLT_PFHT430");
     if (b_HLT_PFHT430_) { b_HLT_PFHT430_->SetAddress(&HLT_PFHT430_); }
-    b_HLT_PFHT430_SixPFJet40_ = tree->GetBranch("HLT_PFHT430_SixPFJet40");
-    if (b_HLT_PFHT430_SixPFJet40_) { b_HLT_PFHT430_SixPFJet40_->SetAddress(&HLT_PFHT430_SixPFJet40_); }
-    b_HLT_PFHT430_SixPFJet40_PFBTagCSV_1p5_ = tree->GetBranch("HLT_PFHT430_SixPFJet40_PFBTagCSV_1p5");
-    if (b_HLT_PFHT430_SixPFJet40_PFBTagCSV_1p5_) { b_HLT_PFHT430_SixPFJet40_PFBTagCSV_1p5_->SetAddress(&HLT_PFHT430_SixPFJet40_PFBTagCSV_1p5_); }
+    b_HLT_PFHT450_SixPFJet36_ = tree->GetBranch("HLT_PFHT450_SixPFJet36");
+    if (b_HLT_PFHT450_SixPFJet36_) { b_HLT_PFHT450_SixPFJet36_->SetAddress(&HLT_PFHT450_SixPFJet36_); }
+    b_HLT_PFHT450_SixPFJet36_PFBTagDeepCSV_1p59_ = tree->GetBranch("HLT_PFHT450_SixPFJet36_PFBTagDeepCSV_1p59");
+    if (b_HLT_PFHT450_SixPFJet36_PFBTagDeepCSV_1p59_) { b_HLT_PFHT450_SixPFJet36_PFBTagDeepCSV_1p59_->SetAddress(&HLT_PFHT450_SixPFJet36_PFBTagDeepCSV_1p59_); }
     b_HLT_PFHT500_PFMET100_PFMHT100_IDTight_ = tree->GetBranch("HLT_PFHT500_PFMET100_PFMHT100_IDTight");
     if (b_HLT_PFHT500_PFMET100_PFMHT100_IDTight_) { b_HLT_PFHT500_PFMET100_PFMHT100_IDTight_->SetAddress(&HLT_PFHT500_PFMET100_PFMHT100_IDTight_); }
     b_HLT_PFHT500_PFMET110_PFMHT110_IDTight_ = tree->GetBranch("HLT_PFHT500_PFMET110_PFMHT110_IDTight");
@@ -1122,8 +1336,12 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_PFHT890_) { b_HLT_PFHT890_->SetAddress(&HLT_PFHT890_); }
     b_HLT_PFJet140_ = tree->GetBranch("HLT_PFJet140");
     if (b_HLT_PFJet140_) { b_HLT_PFJet140_->SetAddress(&HLT_PFJet140_); }
+    b_HLT_PFJet15_ = tree->GetBranch("HLT_PFJet15");
+    if (b_HLT_PFJet15_) { b_HLT_PFJet15_->SetAddress(&HLT_PFJet15_); }
     b_HLT_PFJet200_ = tree->GetBranch("HLT_PFJet200");
     if (b_HLT_PFJet200_) { b_HLT_PFJet200_->SetAddress(&HLT_PFJet200_); }
+    b_HLT_PFJet25_ = tree->GetBranch("HLT_PFJet25");
+    if (b_HLT_PFJet25_) { b_HLT_PFJet25_->SetAddress(&HLT_PFJet25_); }
     b_HLT_PFJet260_ = tree->GetBranch("HLT_PFJet260");
     if (b_HLT_PFJet260_) { b_HLT_PFJet260_->SetAddress(&HLT_PFJet260_); }
     b_HLT_PFJet320_ = tree->GetBranch("HLT_PFJet320");
@@ -1144,8 +1362,12 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_PFJet80_) { b_HLT_PFJet80_->SetAddress(&HLT_PFJet80_); }
     b_HLT_PFJetFwd140_ = tree->GetBranch("HLT_PFJetFwd140");
     if (b_HLT_PFJetFwd140_) { b_HLT_PFJetFwd140_->SetAddress(&HLT_PFJetFwd140_); }
+    b_HLT_PFJetFwd15_ = tree->GetBranch("HLT_PFJetFwd15");
+    if (b_HLT_PFJetFwd15_) { b_HLT_PFJetFwd15_->SetAddress(&HLT_PFJetFwd15_); }
     b_HLT_PFJetFwd200_ = tree->GetBranch("HLT_PFJetFwd200");
     if (b_HLT_PFJetFwd200_) { b_HLT_PFJetFwd200_->SetAddress(&HLT_PFJetFwd200_); }
+    b_HLT_PFJetFwd25_ = tree->GetBranch("HLT_PFJetFwd25");
+    if (b_HLT_PFJetFwd25_) { b_HLT_PFJetFwd25_->SetAddress(&HLT_PFJetFwd25_); }
     b_HLT_PFJetFwd260_ = tree->GetBranch("HLT_PFJetFwd260");
     if (b_HLT_PFJetFwd260_) { b_HLT_PFJetFwd260_->SetAddress(&HLT_PFJetFwd260_); }
     b_HLT_PFJetFwd320_ = tree->GetBranch("HLT_PFJetFwd320");
@@ -1162,28 +1384,28 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_PFJetFwd60_) { b_HLT_PFJetFwd60_->SetAddress(&HLT_PFJetFwd60_); }
     b_HLT_PFJetFwd80_ = tree->GetBranch("HLT_PFJetFwd80");
     if (b_HLT_PFJetFwd80_) { b_HLT_PFJetFwd80_->SetAddress(&HLT_PFJetFwd80_); }
-    b_HLT_PFMET100_PFMHT100_IDTight_CaloBTagCSV_3p1_ = tree->GetBranch("HLT_PFMET100_PFMHT100_IDTight_CaloBTagCSV_3p1");
-    if (b_HLT_PFMET100_PFMHT100_IDTight_CaloBTagCSV_3p1_) { b_HLT_PFMET100_PFMHT100_IDTight_CaloBTagCSV_3p1_->SetAddress(&HLT_PFMET100_PFMHT100_IDTight_CaloBTagCSV_3p1_); }
+    b_HLT_PFMET100_PFMHT100_IDTight_CaloBTagDeepCSV_3p1_ = tree->GetBranch("HLT_PFMET100_PFMHT100_IDTight_CaloBTagDeepCSV_3p1");
+    if (b_HLT_PFMET100_PFMHT100_IDTight_CaloBTagDeepCSV_3p1_) { b_HLT_PFMET100_PFMHT100_IDTight_CaloBTagDeepCSV_3p1_->SetAddress(&HLT_PFMET100_PFMHT100_IDTight_CaloBTagDeepCSV_3p1_); }
     b_HLT_PFMET100_PFMHT100_IDTight_PFHT60_ = tree->GetBranch("HLT_PFMET100_PFMHT100_IDTight_PFHT60");
     if (b_HLT_PFMET100_PFMHT100_IDTight_PFHT60_) { b_HLT_PFMET100_PFMHT100_IDTight_PFHT60_->SetAddress(&HLT_PFMET100_PFMHT100_IDTight_PFHT60_); }
     b_HLT_PFMET110_PFMHT110_IDTight_ = tree->GetBranch("HLT_PFMET110_PFMHT110_IDTight");
     if (b_HLT_PFMET110_PFMHT110_IDTight_) { b_HLT_PFMET110_PFMHT110_IDTight_->SetAddress(&HLT_PFMET110_PFMHT110_IDTight_); }
-    b_HLT_PFMET110_PFMHT110_IDTight_CaloBTagCSV_3p1_ = tree->GetBranch("HLT_PFMET110_PFMHT110_IDTight_CaloBTagCSV_3p1");
-    if (b_HLT_PFMET110_PFMHT110_IDTight_CaloBTagCSV_3p1_) { b_HLT_PFMET110_PFMHT110_IDTight_CaloBTagCSV_3p1_->SetAddress(&HLT_PFMET110_PFMHT110_IDTight_CaloBTagCSV_3p1_); }
+    b_HLT_PFMET110_PFMHT110_IDTight_CaloBTagDeepCSV_3p1_ = tree->GetBranch("HLT_PFMET110_PFMHT110_IDTight_CaloBTagDeepCSV_3p1");
+    if (b_HLT_PFMET110_PFMHT110_IDTight_CaloBTagDeepCSV_3p1_) { b_HLT_PFMET110_PFMHT110_IDTight_CaloBTagDeepCSV_3p1_->SetAddress(&HLT_PFMET110_PFMHT110_IDTight_CaloBTagDeepCSV_3p1_); }
     b_HLT_PFMET120_PFMHT120_IDTight_ = tree->GetBranch("HLT_PFMET120_PFMHT120_IDTight");
     if (b_HLT_PFMET120_PFMHT120_IDTight_) { b_HLT_PFMET120_PFMHT120_IDTight_->SetAddress(&HLT_PFMET120_PFMHT120_IDTight_); }
-    b_HLT_PFMET120_PFMHT120_IDTight_CaloBTagCSV_3p1_ = tree->GetBranch("HLT_PFMET120_PFMHT120_IDTight_CaloBTagCSV_3p1");
-    if (b_HLT_PFMET120_PFMHT120_IDTight_CaloBTagCSV_3p1_) { b_HLT_PFMET120_PFMHT120_IDTight_CaloBTagCSV_3p1_->SetAddress(&HLT_PFMET120_PFMHT120_IDTight_CaloBTagCSV_3p1_); }
+    b_HLT_PFMET120_PFMHT120_IDTight_CaloBTagDeepCSV_3p1_ = tree->GetBranch("HLT_PFMET120_PFMHT120_IDTight_CaloBTagDeepCSV_3p1");
+    if (b_HLT_PFMET120_PFMHT120_IDTight_CaloBTagDeepCSV_3p1_) { b_HLT_PFMET120_PFMHT120_IDTight_CaloBTagDeepCSV_3p1_->SetAddress(&HLT_PFMET120_PFMHT120_IDTight_CaloBTagDeepCSV_3p1_); }
     b_HLT_PFMET120_PFMHT120_IDTight_PFHT60_ = tree->GetBranch("HLT_PFMET120_PFMHT120_IDTight_PFHT60");
     if (b_HLT_PFMET120_PFMHT120_IDTight_PFHT60_) { b_HLT_PFMET120_PFMHT120_IDTight_PFHT60_->SetAddress(&HLT_PFMET120_PFMHT120_IDTight_PFHT60_); }
     b_HLT_PFMET130_PFMHT130_IDTight_ = tree->GetBranch("HLT_PFMET130_PFMHT130_IDTight");
     if (b_HLT_PFMET130_PFMHT130_IDTight_) { b_HLT_PFMET130_PFMHT130_IDTight_->SetAddress(&HLT_PFMET130_PFMHT130_IDTight_); }
-    b_HLT_PFMET130_PFMHT130_IDTight_CaloBTagCSV_3p1_ = tree->GetBranch("HLT_PFMET130_PFMHT130_IDTight_CaloBTagCSV_3p1");
-    if (b_HLT_PFMET130_PFMHT130_IDTight_CaloBTagCSV_3p1_) { b_HLT_PFMET130_PFMHT130_IDTight_CaloBTagCSV_3p1_->SetAddress(&HLT_PFMET130_PFMHT130_IDTight_CaloBTagCSV_3p1_); }
+    b_HLT_PFMET130_PFMHT130_IDTight_CaloBTagDeepCSV_3p1_ = tree->GetBranch("HLT_PFMET130_PFMHT130_IDTight_CaloBTagDeepCSV_3p1");
+    if (b_HLT_PFMET130_PFMHT130_IDTight_CaloBTagDeepCSV_3p1_) { b_HLT_PFMET130_PFMHT130_IDTight_CaloBTagDeepCSV_3p1_->SetAddress(&HLT_PFMET130_PFMHT130_IDTight_CaloBTagDeepCSV_3p1_); }
     b_HLT_PFMET140_PFMHT140_IDTight_ = tree->GetBranch("HLT_PFMET140_PFMHT140_IDTight");
     if (b_HLT_PFMET140_PFMHT140_IDTight_) { b_HLT_PFMET140_PFMHT140_IDTight_->SetAddress(&HLT_PFMET140_PFMHT140_IDTight_); }
-    b_HLT_PFMET140_PFMHT140_IDTight_CaloBTagCSV_3p1_ = tree->GetBranch("HLT_PFMET140_PFMHT140_IDTight_CaloBTagCSV_3p1");
-    if (b_HLT_PFMET140_PFMHT140_IDTight_CaloBTagCSV_3p1_) { b_HLT_PFMET140_PFMHT140_IDTight_CaloBTagCSV_3p1_->SetAddress(&HLT_PFMET140_PFMHT140_IDTight_CaloBTagCSV_3p1_); }
+    b_HLT_PFMET140_PFMHT140_IDTight_CaloBTagDeepCSV_3p1_ = tree->GetBranch("HLT_PFMET140_PFMHT140_IDTight_CaloBTagDeepCSV_3p1");
+    if (b_HLT_PFMET140_PFMHT140_IDTight_CaloBTagDeepCSV_3p1_) { b_HLT_PFMET140_PFMHT140_IDTight_CaloBTagDeepCSV_3p1_->SetAddress(&HLT_PFMET140_PFMHT140_IDTight_CaloBTagDeepCSV_3p1_); }
     b_HLT_PFMET200_HBHECleaned_ = tree->GetBranch("HLT_PFMET200_HBHECleaned");
     if (b_HLT_PFMET200_HBHECleaned_) { b_HLT_PFMET200_HBHECleaned_->SetAddress(&HLT_PFMET200_HBHECleaned_); }
     b_HLT_PFMET200_HBHE_BeamHaloCleaned_ = tree->GetBranch("HLT_PFMET200_HBHE_BeamHaloCleaned");
@@ -1220,8 +1442,20 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_PFMETTypeOne140_PFMHT140_IDTight_) { b_HLT_PFMETTypeOne140_PFMHT140_IDTight_->SetAddress(&HLT_PFMETTypeOne140_PFMHT140_IDTight_); }
     b_HLT_PFMETTypeOne200_HBHE_BeamHaloCleaned_ = tree->GetBranch("HLT_PFMETTypeOne200_HBHE_BeamHaloCleaned");
     if (b_HLT_PFMETTypeOne200_HBHE_BeamHaloCleaned_) { b_HLT_PFMETTypeOne200_HBHE_BeamHaloCleaned_->SetAddress(&HLT_PFMETTypeOne200_HBHE_BeamHaloCleaned_); }
+    b_HLT_Photon100EBHE10_ = tree->GetBranch("HLT_Photon100EBHE10");
+    if (b_HLT_Photon100EBHE10_) { b_HLT_Photon100EBHE10_->SetAddress(&HLT_Photon100EBHE10_); }
+    b_HLT_Photon100EB_TightID_TightIso_ = tree->GetBranch("HLT_Photon100EB_TightID_TightIso");
+    if (b_HLT_Photon100EB_TightID_TightIso_) { b_HLT_Photon100EB_TightID_TightIso_->SetAddress(&HLT_Photon100EB_TightID_TightIso_); }
+    b_HLT_Photon100EEHE10_ = tree->GetBranch("HLT_Photon100EEHE10");
+    if (b_HLT_Photon100EEHE10_) { b_HLT_Photon100EEHE10_->SetAddress(&HLT_Photon100EEHE10_); }
+    b_HLT_Photon100EE_TightID_TightIso_ = tree->GetBranch("HLT_Photon100EE_TightID_TightIso");
+    if (b_HLT_Photon100EE_TightID_TightIso_) { b_HLT_Photon100EE_TightID_TightIso_->SetAddress(&HLT_Photon100EE_TightID_TightIso_); }
+    b_HLT_Photon110EB_TightID_TightIso_ = tree->GetBranch("HLT_Photon110EB_TightID_TightIso");
+    if (b_HLT_Photon110EB_TightID_TightIso_) { b_HLT_Photon110EB_TightID_TightIso_->SetAddress(&HLT_Photon110EB_TightID_TightIso_); }
     b_HLT_Photon120_ = tree->GetBranch("HLT_Photon120");
     if (b_HLT_Photon120_) { b_HLT_Photon120_->SetAddress(&HLT_Photon120_); }
+    b_HLT_Photon120EB_TightID_TightIso_ = tree->GetBranch("HLT_Photon120EB_TightID_TightIso");
+    if (b_HLT_Photon120EB_TightID_TightIso_) { b_HLT_Photon120EB_TightID_TightIso_->SetAddress(&HLT_Photon120EB_TightID_TightIso_); }
     b_HLT_Photon120_R9Id90_HE10_IsoM_ = tree->GetBranch("HLT_Photon120_R9Id90_HE10_IsoM");
     if (b_HLT_Photon120_R9Id90_HE10_IsoM_) { b_HLT_Photon120_R9Id90_HE10_IsoM_->SetAddress(&HLT_Photon120_R9Id90_HE10_IsoM_); }
     b_HLT_Photon150_ = tree->GetBranch("HLT_Photon150");
@@ -1230,30 +1464,26 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_Photon165_R9Id90_HE10_IsoM_) { b_HLT_Photon165_R9Id90_HE10_IsoM_->SetAddress(&HLT_Photon165_R9Id90_HE10_IsoM_); }
     b_HLT_Photon175_ = tree->GetBranch("HLT_Photon175");
     if (b_HLT_Photon175_) { b_HLT_Photon175_->SetAddress(&HLT_Photon175_); }
+    b_HLT_Photon20_ = tree->GetBranch("HLT_Photon20");
+    if (b_HLT_Photon20_) { b_HLT_Photon20_->SetAddress(&HLT_Photon20_); }
     b_HLT_Photon200_ = tree->GetBranch("HLT_Photon200");
     if (b_HLT_Photon200_) { b_HLT_Photon200_->SetAddress(&HLT_Photon200_); }
     b_HLT_Photon20_HoverELoose_ = tree->GetBranch("HLT_Photon20_HoverELoose");
     if (b_HLT_Photon20_HoverELoose_) { b_HLT_Photon20_HoverELoose_->SetAddress(&HLT_Photon20_HoverELoose_); }
-    b_HLT_Photon25_ = tree->GetBranch("HLT_Photon25");
-    if (b_HLT_Photon25_) { b_HLT_Photon25_->SetAddress(&HLT_Photon25_); }
     b_HLT_Photon300_NoHE_ = tree->GetBranch("HLT_Photon300_NoHE");
     if (b_HLT_Photon300_NoHE_) { b_HLT_Photon300_NoHE_->SetAddress(&HLT_Photon300_NoHE_); }
     b_HLT_Photon30_HoverELoose_ = tree->GetBranch("HLT_Photon30_HoverELoose");
     if (b_HLT_Photon30_HoverELoose_) { b_HLT_Photon30_HoverELoose_->SetAddress(&HLT_Photon30_HoverELoose_); }
     b_HLT_Photon33_ = tree->GetBranch("HLT_Photon33");
     if (b_HLT_Photon33_) { b_HLT_Photon33_->SetAddress(&HLT_Photon33_); }
-    b_HLT_Photon40_HoverELoose_ = tree->GetBranch("HLT_Photon40_HoverELoose");
-    if (b_HLT_Photon40_HoverELoose_) { b_HLT_Photon40_HoverELoose_->SetAddress(&HLT_Photon40_HoverELoose_); }
+    b_HLT_Photon35_TwoProngs35_ = tree->GetBranch("HLT_Photon35_TwoProngs35");
+    if (b_HLT_Photon35_TwoProngs35_) { b_HLT_Photon35_TwoProngs35_->SetAddress(&HLT_Photon35_TwoProngs35_); }
     b_HLT_Photon50_ = tree->GetBranch("HLT_Photon50");
     if (b_HLT_Photon50_) { b_HLT_Photon50_->SetAddress(&HLT_Photon50_); }
-    b_HLT_Photon50_HoverELoose_ = tree->GetBranch("HLT_Photon50_HoverELoose");
-    if (b_HLT_Photon50_HoverELoose_) { b_HLT_Photon50_HoverELoose_->SetAddress(&HLT_Photon50_HoverELoose_); }
     b_HLT_Photon50_R9Id90_HE10_IsoM_ = tree->GetBranch("HLT_Photon50_R9Id90_HE10_IsoM");
     if (b_HLT_Photon50_R9Id90_HE10_IsoM_) { b_HLT_Photon50_R9Id90_HE10_IsoM_->SetAddress(&HLT_Photon50_R9Id90_HE10_IsoM_); }
     b_HLT_Photon50_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3_PFMET50_ = tree->GetBranch("HLT_Photon50_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3_PFMET50");
     if (b_HLT_Photon50_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3_PFMET50_) { b_HLT_Photon50_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3_PFMET50_->SetAddress(&HLT_Photon50_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3_PFMET50_); }
-    b_HLT_Photon60_HoverELoose_ = tree->GetBranch("HLT_Photon60_HoverELoose");
-    if (b_HLT_Photon60_HoverELoose_) { b_HLT_Photon60_HoverELoose_->SetAddress(&HLT_Photon60_HoverELoose_); }
     b_HLT_Photon60_R9Id90_CaloIdL_IsoL_ = tree->GetBranch("HLT_Photon60_R9Id90_CaloIdL_IsoL");
     if (b_HLT_Photon60_R9Id90_CaloIdL_IsoL_) { b_HLT_Photon60_R9Id90_CaloIdL_IsoL_->SetAddress(&HLT_Photon60_R9Id90_CaloIdL_IsoL_); }
     b_HLT_Photon60_R9Id90_CaloIdL_IsoL_DisplacedIdL_ = tree->GetBranch("HLT_Photon60_R9Id90_CaloIdL_IsoL_DisplacedIdL");
@@ -1264,6 +1494,10 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_Photon75_) { b_HLT_Photon75_->SetAddress(&HLT_Photon75_); }
     b_HLT_Photon75_R9Id90_HE10_IsoM_ = tree->GetBranch("HLT_Photon75_R9Id90_HE10_IsoM");
     if (b_HLT_Photon75_R9Id90_HE10_IsoM_) { b_HLT_Photon75_R9Id90_HE10_IsoM_->SetAddress(&HLT_Photon75_R9Id90_HE10_IsoM_); }
+    b_HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ300_PFJetsMJJ400DEta3_ = tree->GetBranch("HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ300_PFJetsMJJ400DEta3");
+    if (b_HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ300_PFJetsMJJ400DEta3_) { b_HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ300_PFJetsMJJ400DEta3_->SetAddress(&HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ300_PFJetsMJJ400DEta3_); }
+    b_HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ400_PFJetsMJJ600DEta3_ = tree->GetBranch("HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ400_PFJetsMJJ600DEta3");
+    if (b_HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ400_PFJetsMJJ600DEta3_) { b_HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ400_PFJetsMJJ600DEta3_->SetAddress(&HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ400_PFJetsMJJ600DEta3_); }
     b_HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3_ = tree->GetBranch("HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3");
     if (b_HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3_) { b_HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3_->SetAddress(&HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3_); }
     b_HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ600DEta3_ = tree->GetBranch("HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ600DEta3");
@@ -1294,28 +1528,28 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_Physics_part7_) { b_HLT_Physics_part7_->SetAddress(&HLT_Physics_part7_); }
     b_HLT_QuadPFJet103_88_75_15_ = tree->GetBranch("HLT_QuadPFJet103_88_75_15");
     if (b_HLT_QuadPFJet103_88_75_15_) { b_HLT_QuadPFJet103_88_75_15_->SetAddress(&HLT_QuadPFJet103_88_75_15_); }
-    b_HLT_QuadPFJet103_88_75_15_BTagCSV_p013_VBF2_ = tree->GetBranch("HLT_QuadPFJet103_88_75_15_BTagCSV_p013_VBF2");
-    if (b_HLT_QuadPFJet103_88_75_15_BTagCSV_p013_VBF2_) { b_HLT_QuadPFJet103_88_75_15_BTagCSV_p013_VBF2_->SetAddress(&HLT_QuadPFJet103_88_75_15_BTagCSV_p013_VBF2_); }
-    b_HLT_QuadPFJet103_88_75_15_DoubleBTagCSV_p013_p08_VBF1_ = tree->GetBranch("HLT_QuadPFJet103_88_75_15_DoubleBTagCSV_p013_p08_VBF1");
-    if (b_HLT_QuadPFJet103_88_75_15_DoubleBTagCSV_p013_p08_VBF1_) { b_HLT_QuadPFJet103_88_75_15_DoubleBTagCSV_p013_p08_VBF1_->SetAddress(&HLT_QuadPFJet103_88_75_15_DoubleBTagCSV_p013_p08_VBF1_); }
+    b_HLT_QuadPFJet103_88_75_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_ = tree->GetBranch("HLT_QuadPFJet103_88_75_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1");
+    if (b_HLT_QuadPFJet103_88_75_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_) { b_HLT_QuadPFJet103_88_75_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_->SetAddress(&HLT_QuadPFJet103_88_75_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_); }
+    b_HLT_QuadPFJet103_88_75_15_PFBTagDeepCSV_1p3_VBF2_ = tree->GetBranch("HLT_QuadPFJet103_88_75_15_PFBTagDeepCSV_1p3_VBF2");
+    if (b_HLT_QuadPFJet103_88_75_15_PFBTagDeepCSV_1p3_VBF2_) { b_HLT_QuadPFJet103_88_75_15_PFBTagDeepCSV_1p3_VBF2_->SetAddress(&HLT_QuadPFJet103_88_75_15_PFBTagDeepCSV_1p3_VBF2_); }
     b_HLT_QuadPFJet105_88_76_15_ = tree->GetBranch("HLT_QuadPFJet105_88_76_15");
     if (b_HLT_QuadPFJet105_88_76_15_) { b_HLT_QuadPFJet105_88_76_15_->SetAddress(&HLT_QuadPFJet105_88_76_15_); }
-    b_HLT_QuadPFJet105_88_76_15_BTagCSV_p013_VBF2_ = tree->GetBranch("HLT_QuadPFJet105_88_76_15_BTagCSV_p013_VBF2");
-    if (b_HLT_QuadPFJet105_88_76_15_BTagCSV_p013_VBF2_) { b_HLT_QuadPFJet105_88_76_15_BTagCSV_p013_VBF2_->SetAddress(&HLT_QuadPFJet105_88_76_15_BTagCSV_p013_VBF2_); }
-    b_HLT_QuadPFJet105_90_76_15_DoubleBTagCSV_p013_p08_VBF1_ = tree->GetBranch("HLT_QuadPFJet105_90_76_15_DoubleBTagCSV_p013_p08_VBF1");
-    if (b_HLT_QuadPFJet105_90_76_15_DoubleBTagCSV_p013_p08_VBF1_) { b_HLT_QuadPFJet105_90_76_15_DoubleBTagCSV_p013_p08_VBF1_->SetAddress(&HLT_QuadPFJet105_90_76_15_DoubleBTagCSV_p013_p08_VBF1_); }
+    b_HLT_QuadPFJet105_88_76_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_ = tree->GetBranch("HLT_QuadPFJet105_88_76_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1");
+    if (b_HLT_QuadPFJet105_88_76_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_) { b_HLT_QuadPFJet105_88_76_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_->SetAddress(&HLT_QuadPFJet105_88_76_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_); }
+    b_HLT_QuadPFJet105_88_76_15_PFBTagDeepCSV_1p3_VBF2_ = tree->GetBranch("HLT_QuadPFJet105_88_76_15_PFBTagDeepCSV_1p3_VBF2");
+    if (b_HLT_QuadPFJet105_88_76_15_PFBTagDeepCSV_1p3_VBF2_) { b_HLT_QuadPFJet105_88_76_15_PFBTagDeepCSV_1p3_VBF2_->SetAddress(&HLT_QuadPFJet105_88_76_15_PFBTagDeepCSV_1p3_VBF2_); }
     b_HLT_QuadPFJet111_90_80_15_ = tree->GetBranch("HLT_QuadPFJet111_90_80_15");
     if (b_HLT_QuadPFJet111_90_80_15_) { b_HLT_QuadPFJet111_90_80_15_->SetAddress(&HLT_QuadPFJet111_90_80_15_); }
-    b_HLT_QuadPFJet111_90_80_15_BTagCSV_p013_VBF2_ = tree->GetBranch("HLT_QuadPFJet111_90_80_15_BTagCSV_p013_VBF2");
-    if (b_HLT_QuadPFJet111_90_80_15_BTagCSV_p013_VBF2_) { b_HLT_QuadPFJet111_90_80_15_BTagCSV_p013_VBF2_->SetAddress(&HLT_QuadPFJet111_90_80_15_BTagCSV_p013_VBF2_); }
-    b_HLT_QuadPFJet111_90_80_15_DoubleBTagCSV_p013_p08_VBF1_ = tree->GetBranch("HLT_QuadPFJet111_90_80_15_DoubleBTagCSV_p013_p08_VBF1");
-    if (b_HLT_QuadPFJet111_90_80_15_DoubleBTagCSV_p013_p08_VBF1_) { b_HLT_QuadPFJet111_90_80_15_DoubleBTagCSV_p013_p08_VBF1_->SetAddress(&HLT_QuadPFJet111_90_80_15_DoubleBTagCSV_p013_p08_VBF1_); }
+    b_HLT_QuadPFJet111_90_80_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_ = tree->GetBranch("HLT_QuadPFJet111_90_80_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1");
+    if (b_HLT_QuadPFJet111_90_80_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_) { b_HLT_QuadPFJet111_90_80_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_->SetAddress(&HLT_QuadPFJet111_90_80_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_); }
+    b_HLT_QuadPFJet111_90_80_15_PFBTagDeepCSV_1p3_VBF2_ = tree->GetBranch("HLT_QuadPFJet111_90_80_15_PFBTagDeepCSV_1p3_VBF2");
+    if (b_HLT_QuadPFJet111_90_80_15_PFBTagDeepCSV_1p3_VBF2_) { b_HLT_QuadPFJet111_90_80_15_PFBTagDeepCSV_1p3_VBF2_->SetAddress(&HLT_QuadPFJet111_90_80_15_PFBTagDeepCSV_1p3_VBF2_); }
     b_HLT_QuadPFJet98_83_71_15_ = tree->GetBranch("HLT_QuadPFJet98_83_71_15");
     if (b_HLT_QuadPFJet98_83_71_15_) { b_HLT_QuadPFJet98_83_71_15_->SetAddress(&HLT_QuadPFJet98_83_71_15_); }
-    b_HLT_QuadPFJet98_83_71_15_BTagCSV_p013_VBF2_ = tree->GetBranch("HLT_QuadPFJet98_83_71_15_BTagCSV_p013_VBF2");
-    if (b_HLT_QuadPFJet98_83_71_15_BTagCSV_p013_VBF2_) { b_HLT_QuadPFJet98_83_71_15_BTagCSV_p013_VBF2_->SetAddress(&HLT_QuadPFJet98_83_71_15_BTagCSV_p013_VBF2_); }
-    b_HLT_QuadPFJet98_83_71_15_DoubleBTagCSV_p013_p08_VBF1_ = tree->GetBranch("HLT_QuadPFJet98_83_71_15_DoubleBTagCSV_p013_p08_VBF1");
-    if (b_HLT_QuadPFJet98_83_71_15_DoubleBTagCSV_p013_p08_VBF1_) { b_HLT_QuadPFJet98_83_71_15_DoubleBTagCSV_p013_p08_VBF1_->SetAddress(&HLT_QuadPFJet98_83_71_15_DoubleBTagCSV_p013_p08_VBF1_); }
+    b_HLT_QuadPFJet98_83_71_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_ = tree->GetBranch("HLT_QuadPFJet98_83_71_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1");
+    if (b_HLT_QuadPFJet98_83_71_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_) { b_HLT_QuadPFJet98_83_71_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_->SetAddress(&HLT_QuadPFJet98_83_71_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_); }
+    b_HLT_QuadPFJet98_83_71_15_PFBTagDeepCSV_1p3_VBF2_ = tree->GetBranch("HLT_QuadPFJet98_83_71_15_PFBTagDeepCSV_1p3_VBF2");
+    if (b_HLT_QuadPFJet98_83_71_15_PFBTagDeepCSV_1p3_VBF2_) { b_HLT_QuadPFJet98_83_71_15_PFBTagDeepCSV_1p3_VBF2_->SetAddress(&HLT_QuadPFJet98_83_71_15_PFBTagDeepCSV_1p3_VBF2_); }
     b_HLT_Random_ = tree->GetBranch("HLT_Random");
     if (b_HLT_Random_) { b_HLT_Random_->SetAddress(&HLT_Random_); }
     b_HLT_Rsq0p35_ = tree->GetBranch("HLT_Rsq0p35");
@@ -1332,6 +1566,12 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_RsqMR320_Rsq0p09_MR200_4jet_) { b_HLT_RsqMR320_Rsq0p09_MR200_4jet_->SetAddress(&HLT_RsqMR320_Rsq0p09_MR200_4jet_); }
     b_HLT_SingleJet30_Mu12_SinglePFJet40_ = tree->GetBranch("HLT_SingleJet30_Mu12_SinglePFJet40");
     if (b_HLT_SingleJet30_Mu12_SinglePFJet40_) { b_HLT_SingleJet30_Mu12_SinglePFJet40_->SetAddress(&HLT_SingleJet30_Mu12_SinglePFJet40_); }
+    b_HLT_SinglePhoton10_Eta3p1ForPPRef_ = tree->GetBranch("HLT_SinglePhoton10_Eta3p1ForPPRef");
+    if (b_HLT_SinglePhoton10_Eta3p1ForPPRef_) { b_HLT_SinglePhoton10_Eta3p1ForPPRef_->SetAddress(&HLT_SinglePhoton10_Eta3p1ForPPRef_); }
+    b_HLT_SinglePhoton20_Eta3p1ForPPRef_ = tree->GetBranch("HLT_SinglePhoton20_Eta3p1ForPPRef");
+    if (b_HLT_SinglePhoton20_Eta3p1ForPPRef_) { b_HLT_SinglePhoton20_Eta3p1ForPPRef_->SetAddress(&HLT_SinglePhoton20_Eta3p1ForPPRef_); }
+    b_HLT_SinglePhoton30_Eta3p1ForPPRef_ = tree->GetBranch("HLT_SinglePhoton30_Eta3p1ForPPRef");
+    if (b_HLT_SinglePhoton30_Eta3p1ForPPRef_) { b_HLT_SinglePhoton30_Eta3p1ForPPRef_->SetAddress(&HLT_SinglePhoton30_Eta3p1ForPPRef_); }
     b_HLT_Tau3Mu_Mu7_Mu1_TkMu1_IsoTau15_ = tree->GetBranch("HLT_Tau3Mu_Mu7_Mu1_TkMu1_IsoTau15");
     if (b_HLT_Tau3Mu_Mu7_Mu1_TkMu1_IsoTau15_) { b_HLT_Tau3Mu_Mu7_Mu1_TkMu1_IsoTau15_->SetAddress(&HLT_Tau3Mu_Mu7_Mu1_TkMu1_IsoTau15_); }
     b_HLT_Tau3Mu_Mu7_Mu1_TkMu1_IsoTau15_Charge1_ = tree->GetBranch("HLT_Tau3Mu_Mu7_Mu1_TkMu1_IsoTau15_Charge1");
@@ -1344,6 +1584,8 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_TkMu100_) { b_HLT_TkMu100_->SetAddress(&HLT_TkMu100_); }
     b_HLT_Trimuon5_3p5_2_Upsilon_Muon_ = tree->GetBranch("HLT_Trimuon5_3p5_2_Upsilon_Muon");
     if (b_HLT_Trimuon5_3p5_2_Upsilon_Muon_) { b_HLT_Trimuon5_3p5_2_Upsilon_Muon_->SetAddress(&HLT_Trimuon5_3p5_2_Upsilon_Muon_); }
+    b_HLT_TrimuonOpen_5_3p5_2_Upsilon_Muon_ = tree->GetBranch("HLT_TrimuonOpen_5_3p5_2_Upsilon_Muon");
+    if (b_HLT_TrimuonOpen_5_3p5_2_Upsilon_Muon_) { b_HLT_TrimuonOpen_5_3p5_2_Upsilon_Muon_->SetAddress(&HLT_TrimuonOpen_5_3p5_2_Upsilon_Muon_); }
     b_HLT_TripleJet110_35_35_Mjj650_PFMET110_ = tree->GetBranch("HLT_TripleJet110_35_35_Mjj650_PFMET110");
     if (b_HLT_TripleJet110_35_35_Mjj650_PFMET110_) { b_HLT_TripleJet110_35_35_Mjj650_PFMET110_->SetAddress(&HLT_TripleJet110_35_35_Mjj650_PFMET110_); }
     b_HLT_TripleJet110_35_35_Mjj650_PFMET120_ = tree->GetBranch("HLT_TripleJet110_35_35_Mjj650_PFMET120");
@@ -1354,10 +1596,10 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_TripleMu_10_5_5_DZ_) { b_HLT_TripleMu_10_5_5_DZ_->SetAddress(&HLT_TripleMu_10_5_5_DZ_); }
     b_HLT_TripleMu_12_10_5_ = tree->GetBranch("HLT_TripleMu_12_10_5");
     if (b_HLT_TripleMu_12_10_5_) { b_HLT_TripleMu_12_10_5_->SetAddress(&HLT_TripleMu_12_10_5_); }
-    b_HLT_TripleMu_5_3_3_Mass3p8to60_DCA_ = tree->GetBranch("HLT_TripleMu_5_3_3_Mass3p8to60_DCA");
-    if (b_HLT_TripleMu_5_3_3_Mass3p8to60_DCA_) { b_HLT_TripleMu_5_3_3_Mass3p8to60_DCA_->SetAddress(&HLT_TripleMu_5_3_3_Mass3p8to60_DCA_); }
-    b_HLT_TripleMu_5_3_3_Mass3p8to60_DZ_ = tree->GetBranch("HLT_TripleMu_5_3_3_Mass3p8to60_DZ");
-    if (b_HLT_TripleMu_5_3_3_Mass3p8to60_DZ_) { b_HLT_TripleMu_5_3_3_Mass3p8to60_DZ_->SetAddress(&HLT_TripleMu_5_3_3_Mass3p8to60_DZ_); }
+    b_HLT_TripleMu_5_3_3_Mass3p8_DCA_ = tree->GetBranch("HLT_TripleMu_5_3_3_Mass3p8_DCA");
+    if (b_HLT_TripleMu_5_3_3_Mass3p8_DCA_) { b_HLT_TripleMu_5_3_3_Mass3p8_DCA_->SetAddress(&HLT_TripleMu_5_3_3_Mass3p8_DCA_); }
+    b_HLT_TripleMu_5_3_3_Mass3p8_DZ_ = tree->GetBranch("HLT_TripleMu_5_3_3_Mass3p8_DZ");
+    if (b_HLT_TripleMu_5_3_3_Mass3p8_DZ_) { b_HLT_TripleMu_5_3_3_Mass3p8_DZ_->SetAddress(&HLT_TripleMu_5_3_3_Mass3p8_DZ_); }
     b_HLT_TriplePhoton_20_20_20_CaloIdLV2_ = tree->GetBranch("HLT_TriplePhoton_20_20_20_CaloIdLV2");
     if (b_HLT_TriplePhoton_20_20_20_CaloIdLV2_) { b_HLT_TriplePhoton_20_20_20_CaloIdLV2_->SetAddress(&HLT_TriplePhoton_20_20_20_CaloIdLV2_); }
     b_HLT_TriplePhoton_20_20_20_CaloIdLV2_R9IdVL_ = tree->GetBranch("HLT_TriplePhoton_20_20_20_CaloIdLV2_R9IdVL");
@@ -1370,10 +1612,14 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_TriplePhoton_35_35_5_CaloIdLV2_R9IdVL_) { b_HLT_TriplePhoton_35_35_5_CaloIdLV2_R9IdVL_->SetAddress(&HLT_TriplePhoton_35_35_5_CaloIdLV2_R9IdVL_); }
     b_HLT_TrkMu12_DoubleTrkMu5NoFiltersNoVtx_ = tree->GetBranch("HLT_TrkMu12_DoubleTrkMu5NoFiltersNoVtx");
     if (b_HLT_TrkMu12_DoubleTrkMu5NoFiltersNoVtx_) { b_HLT_TrkMu12_DoubleTrkMu5NoFiltersNoVtx_->SetAddress(&HLT_TrkMu12_DoubleTrkMu5NoFiltersNoVtx_); }
+    b_HLT_TrkMu16NoFiltersNoVtx_ = tree->GetBranch("HLT_TrkMu16NoFiltersNoVtx");
+    if (b_HLT_TrkMu16NoFiltersNoVtx_) { b_HLT_TrkMu16NoFiltersNoVtx_->SetAddress(&HLT_TrkMu16NoFiltersNoVtx_); }
     b_HLT_TrkMu16_DoubleTrkMu6NoFiltersNoVtx_ = tree->GetBranch("HLT_TrkMu16_DoubleTrkMu6NoFiltersNoVtx");
     if (b_HLT_TrkMu16_DoubleTrkMu6NoFiltersNoVtx_) { b_HLT_TrkMu16_DoubleTrkMu6NoFiltersNoVtx_->SetAddress(&HLT_TrkMu16_DoubleTrkMu6NoFiltersNoVtx_); }
     b_HLT_TrkMu17_DoubleTrkMu8NoFiltersNoVtx_ = tree->GetBranch("HLT_TrkMu17_DoubleTrkMu8NoFiltersNoVtx");
     if (b_HLT_TrkMu17_DoubleTrkMu8NoFiltersNoVtx_) { b_HLT_TrkMu17_DoubleTrkMu8NoFiltersNoVtx_->SetAddress(&HLT_TrkMu17_DoubleTrkMu8NoFiltersNoVtx_); }
+    b_HLT_TrkMu6NoFiltersNoVtx_ = tree->GetBranch("HLT_TrkMu6NoFiltersNoVtx");
+    if (b_HLT_TrkMu6NoFiltersNoVtx_) { b_HLT_TrkMu6NoFiltersNoVtx_->SetAddress(&HLT_TrkMu6NoFiltersNoVtx_); }
     b_HLT_UncorrectedJetE30_NoBPTX_ = tree->GetBranch("HLT_UncorrectedJetE30_NoBPTX");
     if (b_HLT_UncorrectedJetE30_NoBPTX_) { b_HLT_UncorrectedJetE30_NoBPTX_->SetAddress(&HLT_UncorrectedJetE30_NoBPTX_); }
     b_HLT_UncorrectedJetE30_NoBPTX3BX_ = tree->GetBranch("HLT_UncorrectedJetE30_NoBPTX3BX");
@@ -1382,14 +1628,18 @@ void Nano::Init(TTree *tree) {
     if (b_HLT_UncorrectedJetE60_NoBPTX3BX_) { b_HLT_UncorrectedJetE60_NoBPTX3BX_->SetAddress(&HLT_UncorrectedJetE60_NoBPTX3BX_); }
     b_HLT_UncorrectedJetE70_NoBPTX3BX_ = tree->GetBranch("HLT_UncorrectedJetE70_NoBPTX3BX");
     if (b_HLT_UncorrectedJetE70_NoBPTX3BX_) { b_HLT_UncorrectedJetE70_NoBPTX3BX_->SetAddress(&HLT_UncorrectedJetE70_NoBPTX3BX_); }
-    b_HLT_VBF_DoubleLooseChargedIsoPFTau20_Trk1_eta2p1_Reg_ = tree->GetBranch("HLT_VBF_DoubleLooseChargedIsoPFTau20_Trk1_eta2p1_Reg");
-    if (b_HLT_VBF_DoubleLooseChargedIsoPFTau20_Trk1_eta2p1_Reg_) { b_HLT_VBF_DoubleLooseChargedIsoPFTau20_Trk1_eta2p1_Reg_->SetAddress(&HLT_VBF_DoubleLooseChargedIsoPFTau20_Trk1_eta2p1_Reg_); }
-    b_HLT_VBF_DoubleMediumChargedIsoPFTau20_Trk1_eta2p1_Reg_ = tree->GetBranch("HLT_VBF_DoubleMediumChargedIsoPFTau20_Trk1_eta2p1_Reg");
-    if (b_HLT_VBF_DoubleMediumChargedIsoPFTau20_Trk1_eta2p1_Reg_) { b_HLT_VBF_DoubleMediumChargedIsoPFTau20_Trk1_eta2p1_Reg_->SetAddress(&HLT_VBF_DoubleMediumChargedIsoPFTau20_Trk1_eta2p1_Reg_); }
-    b_HLT_VBF_DoubleTightChargedIsoPFTau20_Trk1_eta2p1_Reg_ = tree->GetBranch("HLT_VBF_DoubleTightChargedIsoPFTau20_Trk1_eta2p1_Reg");
-    if (b_HLT_VBF_DoubleTightChargedIsoPFTau20_Trk1_eta2p1_Reg_) { b_HLT_VBF_DoubleTightChargedIsoPFTau20_Trk1_eta2p1_Reg_->SetAddress(&HLT_VBF_DoubleTightChargedIsoPFTau20_Trk1_eta2p1_Reg_); }
+    b_HLT_VBF_DoubleLooseChargedIsoPFTauHPS20_Trk1_eta2p1_ = tree->GetBranch("HLT_VBF_DoubleLooseChargedIsoPFTauHPS20_Trk1_eta2p1");
+    if (b_HLT_VBF_DoubleLooseChargedIsoPFTauHPS20_Trk1_eta2p1_) { b_HLT_VBF_DoubleLooseChargedIsoPFTauHPS20_Trk1_eta2p1_->SetAddress(&HLT_VBF_DoubleLooseChargedIsoPFTauHPS20_Trk1_eta2p1_); }
+    b_HLT_VBF_DoubleMediumChargedIsoPFTauHPS20_Trk1_eta2p1_ = tree->GetBranch("HLT_VBF_DoubleMediumChargedIsoPFTauHPS20_Trk1_eta2p1");
+    if (b_HLT_VBF_DoubleMediumChargedIsoPFTauHPS20_Trk1_eta2p1_) { b_HLT_VBF_DoubleMediumChargedIsoPFTauHPS20_Trk1_eta2p1_->SetAddress(&HLT_VBF_DoubleMediumChargedIsoPFTauHPS20_Trk1_eta2p1_); }
+    b_HLT_VBF_DoubleTightChargedIsoPFTauHPS20_Trk1_eta2p1_ = tree->GetBranch("HLT_VBF_DoubleTightChargedIsoPFTauHPS20_Trk1_eta2p1");
+    if (b_HLT_VBF_DoubleTightChargedIsoPFTauHPS20_Trk1_eta2p1_) { b_HLT_VBF_DoubleTightChargedIsoPFTauHPS20_Trk1_eta2p1_->SetAddress(&HLT_VBF_DoubleTightChargedIsoPFTauHPS20_Trk1_eta2p1_); }
     b_HLT_ZeroBias_ = tree->GetBranch("HLT_ZeroBias");
     if (b_HLT_ZeroBias_) { b_HLT_ZeroBias_->SetAddress(&HLT_ZeroBias_); }
+    b_HLT_ZeroBias_Alignment_ = tree->GetBranch("HLT_ZeroBias_Alignment");
+    if (b_HLT_ZeroBias_Alignment_) { b_HLT_ZeroBias_Alignment_->SetAddress(&HLT_ZeroBias_Alignment_); }
+    b_HLT_ZeroBias_Beamspot_ = tree->GetBranch("HLT_ZeroBias_Beamspot");
+    if (b_HLT_ZeroBias_Beamspot_) { b_HLT_ZeroBias_Beamspot_->SetAddress(&HLT_ZeroBias_Beamspot_); }
     b_HLT_ZeroBias_FirstBXAfterTrain_ = tree->GetBranch("HLT_ZeroBias_FirstBXAfterTrain");
     if (b_HLT_ZeroBias_FirstBXAfterTrain_) { b_HLT_ZeroBias_FirstBXAfterTrain_->SetAddress(&HLT_ZeroBias_FirstBXAfterTrain_); }
     b_HLT_ZeroBias_FirstCollisionAfterAbortGap_ = tree->GetBranch("HLT_ZeroBias_FirstCollisionAfterAbortGap");
@@ -1420,12 +1670,38 @@ void Nano::Init(TTree *tree) {
     if (b_HLTriggerFinalPath_) { b_HLTriggerFinalPath_->SetAddress(&HLTriggerFinalPath_); }
     b_HLTriggerFirstPath_ = tree->GetBranch("HLTriggerFirstPath");
     if (b_HLTriggerFirstPath_) { b_HLTriggerFirstPath_->SetAddress(&HLTriggerFirstPath_); }
+    b_HTXS_Higgs_pt_ = tree->GetBranch("HTXS_Higgs_pt");
+    if (b_HTXS_Higgs_pt_) { b_HTXS_Higgs_pt_->SetAddress(&HTXS_Higgs_pt_); }
+    b_HTXS_Higgs_y_ = tree->GetBranch("HTXS_Higgs_y");
+    if (b_HTXS_Higgs_y_) { b_HTXS_Higgs_y_->SetAddress(&HTXS_Higgs_y_); }
+    b_HTXS_njets25_ = tree->GetBranch("HTXS_njets25");
+    if (b_HTXS_njets25_) { b_HTXS_njets25_->SetAddress(&HTXS_njets25_); }
+    b_HTXS_njets30_ = tree->GetBranch("HTXS_njets30");
+    if (b_HTXS_njets30_) { b_HTXS_njets30_->SetAddress(&HTXS_njets30_); }
+    b_HTXS_stage1_1_cat_pTjet25GeV_ = tree->GetBranch("HTXS_stage1_1_cat_pTjet25GeV");
+    if (b_HTXS_stage1_1_cat_pTjet25GeV_) { b_HTXS_stage1_1_cat_pTjet25GeV_->SetAddress(&HTXS_stage1_1_cat_pTjet25GeV_); }
+    b_HTXS_stage1_1_cat_pTjet30GeV_ = tree->GetBranch("HTXS_stage1_1_cat_pTjet30GeV");
+    if (b_HTXS_stage1_1_cat_pTjet30GeV_) { b_HTXS_stage1_1_cat_pTjet30GeV_->SetAddress(&HTXS_stage1_1_cat_pTjet30GeV_); }
+    b_HTXS_stage1_1_fine_cat_pTjet25GeV_ = tree->GetBranch("HTXS_stage1_1_fine_cat_pTjet25GeV");
+    if (b_HTXS_stage1_1_fine_cat_pTjet25GeV_) { b_HTXS_stage1_1_fine_cat_pTjet25GeV_->SetAddress(&HTXS_stage1_1_fine_cat_pTjet25GeV_); }
+    b_HTXS_stage1_1_fine_cat_pTjet30GeV_ = tree->GetBranch("HTXS_stage1_1_fine_cat_pTjet30GeV");
+    if (b_HTXS_stage1_1_fine_cat_pTjet30GeV_) { b_HTXS_stage1_1_fine_cat_pTjet30GeV_->SetAddress(&HTXS_stage1_1_fine_cat_pTjet30GeV_); }
+    b_HTXS_stage_0_ = tree->GetBranch("HTXS_stage_0");
+    if (b_HTXS_stage_0_) { b_HTXS_stage_0_->SetAddress(&HTXS_stage_0_); }
+    b_HTXS_stage_1_pTjet25_ = tree->GetBranch("HTXS_stage_1_pTjet25");
+    if (b_HTXS_stage_1_pTjet25_) { b_HTXS_stage_1_pTjet25_->SetAddress(&HTXS_stage_1_pTjet25_); }
+    b_HTXS_stage_1_pTjet30_ = tree->GetBranch("HTXS_stage_1_pTjet30");
+    if (b_HTXS_stage_1_pTjet30_) { b_HTXS_stage_1_pTjet30_->SetAddress(&HTXS_stage_1_pTjet30_); }
     b_IsoTrack_dxy_ = tree->GetBranch("IsoTrack_dxy");
     if (b_IsoTrack_dxy_) { b_IsoTrack_dxy_->SetAddress(&IsoTrack_dxy_); }
     b_IsoTrack_dz_ = tree->GetBranch("IsoTrack_dz");
     if (b_IsoTrack_dz_) { b_IsoTrack_dz_->SetAddress(&IsoTrack_dz_); }
     b_IsoTrack_eta_ = tree->GetBranch("IsoTrack_eta");
     if (b_IsoTrack_eta_) { b_IsoTrack_eta_->SetAddress(&IsoTrack_eta_); }
+    b_IsoTrack_fromPV_ = tree->GetBranch("IsoTrack_fromPV");
+    if (b_IsoTrack_fromPV_) { b_IsoTrack_fromPV_->SetAddress(&IsoTrack_fromPV_); }
+    b_IsoTrack_isFromLostTrack_ = tree->GetBranch("IsoTrack_isFromLostTrack");
+    if (b_IsoTrack_isFromLostTrack_) { b_IsoTrack_isFromLostTrack_->SetAddress(&IsoTrack_isFromLostTrack_); }
     b_IsoTrack_isHighPurityTrack_ = tree->GetBranch("IsoTrack_isHighPurityTrack");
     if (b_IsoTrack_isHighPurityTrack_) { b_IsoTrack_isHighPurityTrack_->SetAddress(&IsoTrack_isHighPurityTrack_); }
     b_IsoTrack_isPFcand_ = tree->GetBranch("IsoTrack_isPFcand");
@@ -1446,8 +1722,10 @@ void Nano::Init(TTree *tree) {
     if (b_IsoTrack_pt_) { b_IsoTrack_pt_->SetAddress(&IsoTrack_pt_); }
     b_Jet_area_ = tree->GetBranch("Jet_area");
     if (b_Jet_area_) { b_Jet_area_->SetAddress(&Jet_area_); }
-    b_Jet_bReg_ = tree->GetBranch("Jet_bReg");
-    if (b_Jet_bReg_) { b_Jet_bReg_->SetAddress(&Jet_bReg_); }
+    b_Jet_bRegCorr_ = tree->GetBranch("Jet_bRegCorr");
+    if (b_Jet_bRegCorr_) { b_Jet_bRegCorr_->SetAddress(&Jet_bRegCorr_); }
+    b_Jet_bRegRes_ = tree->GetBranch("Jet_bRegRes");
+    if (b_Jet_bRegRes_) { b_Jet_bRegRes_->SetAddress(&Jet_bRegRes_); }
     b_Jet_btagCMVA_ = tree->GetBranch("Jet_btagCMVA");
     if (b_Jet_btagCMVA_) { b_Jet_btagCMVA_->SetAddress(&Jet_btagCMVA_); }
     b_Jet_btagCSVV2_ = tree->GetBranch("Jet_btagCSVV2");
@@ -1458,6 +1736,8 @@ void Nano::Init(TTree *tree) {
     if (b_Jet_btagDeepC_) { b_Jet_btagDeepC_->SetAddress(&Jet_btagDeepC_); }
     b_Jet_btagDeepFlavB_ = tree->GetBranch("Jet_btagDeepFlavB");
     if (b_Jet_btagDeepFlavB_) { b_Jet_btagDeepFlavB_->SetAddress(&Jet_btagDeepFlavB_); }
+    b_Jet_btagDeepFlavC_ = tree->GetBranch("Jet_btagDeepFlavC");
+    if (b_Jet_btagDeepFlavC_) { b_Jet_btagDeepFlavC_->SetAddress(&Jet_btagDeepFlavC_); }
     b_Jet_chEmEF_ = tree->GetBranch("Jet_chEmEF");
     if (b_Jet_chEmEF_) { b_Jet_chEmEF_->SetAddress(&Jet_chEmEF_); }
     b_Jet_chHEF_ = tree->GetBranch("Jet_chHEF");
@@ -1474,14 +1754,22 @@ void Nano::Init(TTree *tree) {
     if (b_Jet_genJetIdx_) { b_Jet_genJetIdx_->SetAddress(&Jet_genJetIdx_); }
     b_Jet_hadronFlavour_ = tree->GetBranch("Jet_hadronFlavour");
     if (b_Jet_hadronFlavour_) { b_Jet_hadronFlavour_->SetAddress(&Jet_hadronFlavour_); }
+    b_Jet_jercCHF_ = tree->GetBranch("Jet_jercCHF");
+    if (b_Jet_jercCHF_) { b_Jet_jercCHF_->SetAddress(&Jet_jercCHF_); }
+    b_Jet_jercCHPUF_ = tree->GetBranch("Jet_jercCHPUF");
+    if (b_Jet_jercCHPUF_) { b_Jet_jercCHPUF_->SetAddress(&Jet_jercCHPUF_); }
     b_Jet_jetId_ = tree->GetBranch("Jet_jetId");
     if (b_Jet_jetId_) { b_Jet_jetId_->SetAddress(&Jet_jetId_); }
     b_Jet_mass_ = tree->GetBranch("Jet_mass");
     if (b_Jet_mass_) { b_Jet_mass_->SetAddress(&Jet_mass_); }
+    b_Jet_muEF_ = tree->GetBranch("Jet_muEF");
+    if (b_Jet_muEF_) { b_Jet_muEF_->SetAddress(&Jet_muEF_); }
     b_Jet_muonIdx1_ = tree->GetBranch("Jet_muonIdx1");
     if (b_Jet_muonIdx1_) { b_Jet_muonIdx1_->SetAddress(&Jet_muonIdx1_); }
     b_Jet_muonIdx2_ = tree->GetBranch("Jet_muonIdx2");
     if (b_Jet_muonIdx2_) { b_Jet_muonIdx2_->SetAddress(&Jet_muonIdx2_); }
+    b_Jet_muonSubtrFactor_ = tree->GetBranch("Jet_muonSubtrFactor");
+    if (b_Jet_muonSubtrFactor_) { b_Jet_muonSubtrFactor_->SetAddress(&Jet_muonSubtrFactor_); }
     b_Jet_nConstituents_ = tree->GetBranch("Jet_nConstituents");
     if (b_Jet_nConstituents_) { b_Jet_nConstituents_->SetAddress(&Jet_nConstituents_); }
     b_Jet_nElectrons_ = tree->GetBranch("Jet_nElectrons");
@@ -1504,6 +1792,650 @@ void Nano::Init(TTree *tree) {
     if (b_Jet_qgl_) { b_Jet_qgl_->SetAddress(&Jet_qgl_); }
     b_Jet_rawFactor_ = tree->GetBranch("Jet_rawFactor");
     if (b_Jet_rawFactor_) { b_Jet_rawFactor_->SetAddress(&Jet_rawFactor_); }
+    b_L1Reco_step_ = tree->GetBranch("L1Reco_step");
+    if (b_L1Reco_step_) { b_L1Reco_step_->SetAddress(&L1Reco_step_); }
+    b_L1_AlwaysTrue_ = tree->GetBranch("L1_AlwaysTrue");
+    if (b_L1_AlwaysTrue_) { b_L1_AlwaysTrue_->SetAddress(&L1_AlwaysTrue_); }
+    b_L1_BPTX_AND_Ref1_VME_ = tree->GetBranch("L1_BPTX_AND_Ref1_VME");
+    if (b_L1_BPTX_AND_Ref1_VME_) { b_L1_BPTX_AND_Ref1_VME_->SetAddress(&L1_BPTX_AND_Ref1_VME_); }
+    b_L1_BPTX_AND_Ref3_VME_ = tree->GetBranch("L1_BPTX_AND_Ref3_VME");
+    if (b_L1_BPTX_AND_Ref3_VME_) { b_L1_BPTX_AND_Ref3_VME_->SetAddress(&L1_BPTX_AND_Ref3_VME_); }
+    b_L1_BPTX_AND_Ref4_VME_ = tree->GetBranch("L1_BPTX_AND_Ref4_VME");
+    if (b_L1_BPTX_AND_Ref4_VME_) { b_L1_BPTX_AND_Ref4_VME_->SetAddress(&L1_BPTX_AND_Ref4_VME_); }
+    b_L1_BPTX_BeamGas_B1_VME_ = tree->GetBranch("L1_BPTX_BeamGas_B1_VME");
+    if (b_L1_BPTX_BeamGas_B1_VME_) { b_L1_BPTX_BeamGas_B1_VME_->SetAddress(&L1_BPTX_BeamGas_B1_VME_); }
+    b_L1_BPTX_BeamGas_B2_VME_ = tree->GetBranch("L1_BPTX_BeamGas_B2_VME");
+    if (b_L1_BPTX_BeamGas_B2_VME_) { b_L1_BPTX_BeamGas_B2_VME_->SetAddress(&L1_BPTX_BeamGas_B2_VME_); }
+    b_L1_BPTX_BeamGas_Ref1_VME_ = tree->GetBranch("L1_BPTX_BeamGas_Ref1_VME");
+    if (b_L1_BPTX_BeamGas_Ref1_VME_) { b_L1_BPTX_BeamGas_Ref1_VME_->SetAddress(&L1_BPTX_BeamGas_Ref1_VME_); }
+    b_L1_BPTX_BeamGas_Ref2_VME_ = tree->GetBranch("L1_BPTX_BeamGas_Ref2_VME");
+    if (b_L1_BPTX_BeamGas_Ref2_VME_) { b_L1_BPTX_BeamGas_Ref2_VME_->SetAddress(&L1_BPTX_BeamGas_Ref2_VME_); }
+    b_L1_BPTX_NotOR_VME_ = tree->GetBranch("L1_BPTX_NotOR_VME");
+    if (b_L1_BPTX_NotOR_VME_) { b_L1_BPTX_NotOR_VME_->SetAddress(&L1_BPTX_NotOR_VME_); }
+    b_L1_BPTX_OR_Ref3_VME_ = tree->GetBranch("L1_BPTX_OR_Ref3_VME");
+    if (b_L1_BPTX_OR_Ref3_VME_) { b_L1_BPTX_OR_Ref3_VME_->SetAddress(&L1_BPTX_OR_Ref3_VME_); }
+    b_L1_BPTX_OR_Ref4_VME_ = tree->GetBranch("L1_BPTX_OR_Ref4_VME");
+    if (b_L1_BPTX_OR_Ref4_VME_) { b_L1_BPTX_OR_Ref4_VME_->SetAddress(&L1_BPTX_OR_Ref4_VME_); }
+    b_L1_BPTX_RefAND_VME_ = tree->GetBranch("L1_BPTX_RefAND_VME");
+    if (b_L1_BPTX_RefAND_VME_) { b_L1_BPTX_RefAND_VME_->SetAddress(&L1_BPTX_RefAND_VME_); }
+    b_L1_BptxMinus_ = tree->GetBranch("L1_BptxMinus");
+    if (b_L1_BptxMinus_) { b_L1_BptxMinus_->SetAddress(&L1_BptxMinus_); }
+    b_L1_BptxOR_ = tree->GetBranch("L1_BptxOR");
+    if (b_L1_BptxOR_) { b_L1_BptxOR_->SetAddress(&L1_BptxOR_); }
+    b_L1_BptxPlus_ = tree->GetBranch("L1_BptxPlus");
+    if (b_L1_BptxPlus_) { b_L1_BptxPlus_->SetAddress(&L1_BptxPlus_); }
+    b_L1_BptxXOR_ = tree->GetBranch("L1_BptxXOR");
+    if (b_L1_BptxXOR_) { b_L1_BptxXOR_->SetAddress(&L1_BptxXOR_); }
+    b_L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142_ = tree->GetBranch("L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142");
+    if (b_L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142_) { b_L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142_->SetAddress(&L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142_); }
+    b_L1_DoubleEG8er2p5_HTT260er_ = tree->GetBranch("L1_DoubleEG8er2p5_HTT260er");
+    if (b_L1_DoubleEG8er2p5_HTT260er_) { b_L1_DoubleEG8er2p5_HTT260er_->SetAddress(&L1_DoubleEG8er2p5_HTT260er_); }
+    b_L1_DoubleEG8er2p5_HTT280er_ = tree->GetBranch("L1_DoubleEG8er2p5_HTT280er");
+    if (b_L1_DoubleEG8er2p5_HTT280er_) { b_L1_DoubleEG8er2p5_HTT280er_->SetAddress(&L1_DoubleEG8er2p5_HTT280er_); }
+    b_L1_DoubleEG8er2p5_HTT300er_ = tree->GetBranch("L1_DoubleEG8er2p5_HTT300er");
+    if (b_L1_DoubleEG8er2p5_HTT300er_) { b_L1_DoubleEG8er2p5_HTT300er_->SetAddress(&L1_DoubleEG8er2p5_HTT300er_); }
+    b_L1_DoubleEG8er2p5_HTT320er_ = tree->GetBranch("L1_DoubleEG8er2p5_HTT320er");
+    if (b_L1_DoubleEG8er2p5_HTT320er_) { b_L1_DoubleEG8er2p5_HTT320er_->SetAddress(&L1_DoubleEG8er2p5_HTT320er_); }
+    b_L1_DoubleEG8er2p5_HTT340er_ = tree->GetBranch("L1_DoubleEG8er2p5_HTT340er");
+    if (b_L1_DoubleEG8er2p5_HTT340er_) { b_L1_DoubleEG8er2p5_HTT340er_->SetAddress(&L1_DoubleEG8er2p5_HTT340er_); }
+    b_L1_DoubleEG_15_10_er2p5_ = tree->GetBranch("L1_DoubleEG_15_10_er2p5");
+    if (b_L1_DoubleEG_15_10_er2p5_) { b_L1_DoubleEG_15_10_er2p5_->SetAddress(&L1_DoubleEG_15_10_er2p5_); }
+    b_L1_DoubleEG_20_10_er2p5_ = tree->GetBranch("L1_DoubleEG_20_10_er2p5");
+    if (b_L1_DoubleEG_20_10_er2p5_) { b_L1_DoubleEG_20_10_er2p5_->SetAddress(&L1_DoubleEG_20_10_er2p5_); }
+    b_L1_DoubleEG_22_10_er2p5_ = tree->GetBranch("L1_DoubleEG_22_10_er2p5");
+    if (b_L1_DoubleEG_22_10_er2p5_) { b_L1_DoubleEG_22_10_er2p5_->SetAddress(&L1_DoubleEG_22_10_er2p5_); }
+    b_L1_DoubleEG_25_12_er2p5_ = tree->GetBranch("L1_DoubleEG_25_12_er2p5");
+    if (b_L1_DoubleEG_25_12_er2p5_) { b_L1_DoubleEG_25_12_er2p5_->SetAddress(&L1_DoubleEG_25_12_er2p5_); }
+    b_L1_DoubleEG_25_14_er2p5_ = tree->GetBranch("L1_DoubleEG_25_14_er2p5");
+    if (b_L1_DoubleEG_25_14_er2p5_) { b_L1_DoubleEG_25_14_er2p5_->SetAddress(&L1_DoubleEG_25_14_er2p5_); }
+    b_L1_DoubleEG_27_14_er2p5_ = tree->GetBranch("L1_DoubleEG_27_14_er2p5");
+    if (b_L1_DoubleEG_27_14_er2p5_) { b_L1_DoubleEG_27_14_er2p5_->SetAddress(&L1_DoubleEG_27_14_er2p5_); }
+    b_L1_DoubleEG_LooseIso20_10_er2p5_ = tree->GetBranch("L1_DoubleEG_LooseIso20_10_er2p5");
+    if (b_L1_DoubleEG_LooseIso20_10_er2p5_) { b_L1_DoubleEG_LooseIso20_10_er2p5_->SetAddress(&L1_DoubleEG_LooseIso20_10_er2p5_); }
+    b_L1_DoubleEG_LooseIso22_10_er2p5_ = tree->GetBranch("L1_DoubleEG_LooseIso22_10_er2p5");
+    if (b_L1_DoubleEG_LooseIso22_10_er2p5_) { b_L1_DoubleEG_LooseIso22_10_er2p5_->SetAddress(&L1_DoubleEG_LooseIso22_10_er2p5_); }
+    b_L1_DoubleEG_LooseIso22_12_er2p5_ = tree->GetBranch("L1_DoubleEG_LooseIso22_12_er2p5");
+    if (b_L1_DoubleEG_LooseIso22_12_er2p5_) { b_L1_DoubleEG_LooseIso22_12_er2p5_->SetAddress(&L1_DoubleEG_LooseIso22_12_er2p5_); }
+    b_L1_DoubleEG_LooseIso25_12_er2p5_ = tree->GetBranch("L1_DoubleEG_LooseIso25_12_er2p5");
+    if (b_L1_DoubleEG_LooseIso25_12_er2p5_) { b_L1_DoubleEG_LooseIso25_12_er2p5_->SetAddress(&L1_DoubleEG_LooseIso25_12_er2p5_); }
+    b_L1_DoubleIsoTau32er2p1_ = tree->GetBranch("L1_DoubleIsoTau32er2p1");
+    if (b_L1_DoubleIsoTau32er2p1_) { b_L1_DoubleIsoTau32er2p1_->SetAddress(&L1_DoubleIsoTau32er2p1_); }
+    b_L1_DoubleIsoTau34er2p1_ = tree->GetBranch("L1_DoubleIsoTau34er2p1");
+    if (b_L1_DoubleIsoTau34er2p1_) { b_L1_DoubleIsoTau34er2p1_->SetAddress(&L1_DoubleIsoTau34er2p1_); }
+    b_L1_DoubleIsoTau36er2p1_ = tree->GetBranch("L1_DoubleIsoTau36er2p1");
+    if (b_L1_DoubleIsoTau36er2p1_) { b_L1_DoubleIsoTau36er2p1_->SetAddress(&L1_DoubleIsoTau36er2p1_); }
+    b_L1_DoubleJet100er2p3_dEta_Max1p6_ = tree->GetBranch("L1_DoubleJet100er2p3_dEta_Max1p6");
+    if (b_L1_DoubleJet100er2p3_dEta_Max1p6_) { b_L1_DoubleJet100er2p3_dEta_Max1p6_->SetAddress(&L1_DoubleJet100er2p3_dEta_Max1p6_); }
+    b_L1_DoubleJet100er2p5_ = tree->GetBranch("L1_DoubleJet100er2p5");
+    if (b_L1_DoubleJet100er2p5_) { b_L1_DoubleJet100er2p5_->SetAddress(&L1_DoubleJet100er2p5_); }
+    b_L1_DoubleJet112er2p3_dEta_Max1p6_ = tree->GetBranch("L1_DoubleJet112er2p3_dEta_Max1p6");
+    if (b_L1_DoubleJet112er2p3_dEta_Max1p6_) { b_L1_DoubleJet112er2p3_dEta_Max1p6_->SetAddress(&L1_DoubleJet112er2p3_dEta_Max1p6_); }
+    b_L1_DoubleJet120er2p5_ = tree->GetBranch("L1_DoubleJet120er2p5");
+    if (b_L1_DoubleJet120er2p5_) { b_L1_DoubleJet120er2p5_->SetAddress(&L1_DoubleJet120er2p5_); }
+    b_L1_DoubleJet150er2p5_ = tree->GetBranch("L1_DoubleJet150er2p5");
+    if (b_L1_DoubleJet150er2p5_) { b_L1_DoubleJet150er2p5_->SetAddress(&L1_DoubleJet150er2p5_); }
+    b_L1_DoubleJet30er2p5_Mass_Min150_dEta_Max1p5_ = tree->GetBranch("L1_DoubleJet30er2p5_Mass_Min150_dEta_Max1p5");
+    if (b_L1_DoubleJet30er2p5_Mass_Min150_dEta_Max1p5_) { b_L1_DoubleJet30er2p5_Mass_Min150_dEta_Max1p5_->SetAddress(&L1_DoubleJet30er2p5_Mass_Min150_dEta_Max1p5_); }
+    b_L1_DoubleJet30er2p5_Mass_Min200_dEta_Max1p5_ = tree->GetBranch("L1_DoubleJet30er2p5_Mass_Min200_dEta_Max1p5");
+    if (b_L1_DoubleJet30er2p5_Mass_Min200_dEta_Max1p5_) { b_L1_DoubleJet30er2p5_Mass_Min200_dEta_Max1p5_->SetAddress(&L1_DoubleJet30er2p5_Mass_Min200_dEta_Max1p5_); }
+    b_L1_DoubleJet30er2p5_Mass_Min250_dEta_Max1p5_ = tree->GetBranch("L1_DoubleJet30er2p5_Mass_Min250_dEta_Max1p5");
+    if (b_L1_DoubleJet30er2p5_Mass_Min250_dEta_Max1p5_) { b_L1_DoubleJet30er2p5_Mass_Min250_dEta_Max1p5_->SetAddress(&L1_DoubleJet30er2p5_Mass_Min250_dEta_Max1p5_); }
+    b_L1_DoubleJet30er2p5_Mass_Min300_dEta_Max1p5_ = tree->GetBranch("L1_DoubleJet30er2p5_Mass_Min300_dEta_Max1p5");
+    if (b_L1_DoubleJet30er2p5_Mass_Min300_dEta_Max1p5_) { b_L1_DoubleJet30er2p5_Mass_Min300_dEta_Max1p5_->SetAddress(&L1_DoubleJet30er2p5_Mass_Min300_dEta_Max1p5_); }
+    b_L1_DoubleJet30er2p5_Mass_Min330_dEta_Max1p5_ = tree->GetBranch("L1_DoubleJet30er2p5_Mass_Min330_dEta_Max1p5");
+    if (b_L1_DoubleJet30er2p5_Mass_Min330_dEta_Max1p5_) { b_L1_DoubleJet30er2p5_Mass_Min330_dEta_Max1p5_->SetAddress(&L1_DoubleJet30er2p5_Mass_Min330_dEta_Max1p5_); }
+    b_L1_DoubleJet30er2p5_Mass_Min360_dEta_Max1p5_ = tree->GetBranch("L1_DoubleJet30er2p5_Mass_Min360_dEta_Max1p5");
+    if (b_L1_DoubleJet30er2p5_Mass_Min360_dEta_Max1p5_) { b_L1_DoubleJet30er2p5_Mass_Min360_dEta_Max1p5_->SetAddress(&L1_DoubleJet30er2p5_Mass_Min360_dEta_Max1p5_); }
+    b_L1_DoubleJet35_Mass_Min450_IsoTau45_RmOvlp_ = tree->GetBranch("L1_DoubleJet35_Mass_Min450_IsoTau45_RmOvlp");
+    if (b_L1_DoubleJet35_Mass_Min450_IsoTau45_RmOvlp_) { b_L1_DoubleJet35_Mass_Min450_IsoTau45_RmOvlp_->SetAddress(&L1_DoubleJet35_Mass_Min450_IsoTau45_RmOvlp_); }
+    b_L1_DoubleJet40er2p5_ = tree->GetBranch("L1_DoubleJet40er2p5");
+    if (b_L1_DoubleJet40er2p5_) { b_L1_DoubleJet40er2p5_->SetAddress(&L1_DoubleJet40er2p5_); }
+    b_L1_DoubleJet_100_30_DoubleJet30_Mass_Min620_ = tree->GetBranch("L1_DoubleJet_100_30_DoubleJet30_Mass_Min620");
+    if (b_L1_DoubleJet_100_30_DoubleJet30_Mass_Min620_) { b_L1_DoubleJet_100_30_DoubleJet30_Mass_Min620_->SetAddress(&L1_DoubleJet_100_30_DoubleJet30_Mass_Min620_); }
+    b_L1_DoubleJet_110_35_DoubleJet35_Mass_Min620_ = tree->GetBranch("L1_DoubleJet_110_35_DoubleJet35_Mass_Min620");
+    if (b_L1_DoubleJet_110_35_DoubleJet35_Mass_Min620_) { b_L1_DoubleJet_110_35_DoubleJet35_Mass_Min620_->SetAddress(&L1_DoubleJet_110_35_DoubleJet35_Mass_Min620_); }
+    b_L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_ = tree->GetBranch("L1_DoubleJet_115_40_DoubleJet40_Mass_Min620");
+    if (b_L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_) { b_L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_->SetAddress(&L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_); }
+    b_L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_Jet60TT28_ = tree->GetBranch("L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_Jet60TT28");
+    if (b_L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_Jet60TT28_) { b_L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_Jet60TT28_->SetAddress(&L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_Jet60TT28_); }
+    b_L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_ = tree->GetBranch("L1_DoubleJet_120_45_DoubleJet45_Mass_Min620");
+    if (b_L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_) { b_L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_->SetAddress(&L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_); }
+    b_L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_Jet60TT28_ = tree->GetBranch("L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_Jet60TT28");
+    if (b_L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_Jet60TT28_) { b_L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_Jet60TT28_->SetAddress(&L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_Jet60TT28_); }
+    b_L1_DoubleJet_80_30_Mass_Min420_DoubleMu0_SQ_ = tree->GetBranch("L1_DoubleJet_80_30_Mass_Min420_DoubleMu0_SQ");
+    if (b_L1_DoubleJet_80_30_Mass_Min420_DoubleMu0_SQ_) { b_L1_DoubleJet_80_30_Mass_Min420_DoubleMu0_SQ_->SetAddress(&L1_DoubleJet_80_30_Mass_Min420_DoubleMu0_SQ_); }
+    b_L1_DoubleJet_80_30_Mass_Min420_IsoTau40_RmOvlp_ = tree->GetBranch("L1_DoubleJet_80_30_Mass_Min420_IsoTau40_RmOvlp");
+    if (b_L1_DoubleJet_80_30_Mass_Min420_IsoTau40_RmOvlp_) { b_L1_DoubleJet_80_30_Mass_Min420_IsoTau40_RmOvlp_->SetAddress(&L1_DoubleJet_80_30_Mass_Min420_IsoTau40_RmOvlp_); }
+    b_L1_DoubleJet_80_30_Mass_Min420_Mu8_ = tree->GetBranch("L1_DoubleJet_80_30_Mass_Min420_Mu8");
+    if (b_L1_DoubleJet_80_30_Mass_Min420_Mu8_) { b_L1_DoubleJet_80_30_Mass_Min420_Mu8_->SetAddress(&L1_DoubleJet_80_30_Mass_Min420_Mu8_); }
+    b_L1_DoubleJet_90_30_DoubleJet30_Mass_Min620_ = tree->GetBranch("L1_DoubleJet_90_30_DoubleJet30_Mass_Min620");
+    if (b_L1_DoubleJet_90_30_DoubleJet30_Mass_Min620_) { b_L1_DoubleJet_90_30_DoubleJet30_Mass_Min620_->SetAddress(&L1_DoubleJet_90_30_DoubleJet30_Mass_Min620_); }
+    b_L1_DoubleLooseIsoEG22er2p1_ = tree->GetBranch("L1_DoubleLooseIsoEG22er2p1");
+    if (b_L1_DoubleLooseIsoEG22er2p1_) { b_L1_DoubleLooseIsoEG22er2p1_->SetAddress(&L1_DoubleLooseIsoEG22er2p1_); }
+    b_L1_DoubleLooseIsoEG24er2p1_ = tree->GetBranch("L1_DoubleLooseIsoEG24er2p1");
+    if (b_L1_DoubleLooseIsoEG24er2p1_) { b_L1_DoubleLooseIsoEG24er2p1_->SetAddress(&L1_DoubleLooseIsoEG24er2p1_); }
+    b_L1_DoubleMu0_ = tree->GetBranch("L1_DoubleMu0");
+    if (b_L1_DoubleMu0_) { b_L1_DoubleMu0_->SetAddress(&L1_DoubleMu0_); }
+    b_L1_DoubleMu0_Mass_Min1_ = tree->GetBranch("L1_DoubleMu0_Mass_Min1");
+    if (b_L1_DoubleMu0_Mass_Min1_) { b_L1_DoubleMu0_Mass_Min1_->SetAddress(&L1_DoubleMu0_Mass_Min1_); }
+    b_L1_DoubleMu0_OQ_ = tree->GetBranch("L1_DoubleMu0_OQ");
+    if (b_L1_DoubleMu0_OQ_) { b_L1_DoubleMu0_OQ_->SetAddress(&L1_DoubleMu0_OQ_); }
+    b_L1_DoubleMu0_SQ_ = tree->GetBranch("L1_DoubleMu0_SQ");
+    if (b_L1_DoubleMu0_SQ_) { b_L1_DoubleMu0_SQ_->SetAddress(&L1_DoubleMu0_SQ_); }
+    b_L1_DoubleMu0_SQ_OS_ = tree->GetBranch("L1_DoubleMu0_SQ_OS");
+    if (b_L1_DoubleMu0_SQ_OS_) { b_L1_DoubleMu0_SQ_OS_->SetAddress(&L1_DoubleMu0_SQ_OS_); }
+    b_L1_DoubleMu0_dR_Max1p6_Jet90er2p5_dR_Max0p8_ = tree->GetBranch("L1_DoubleMu0_dR_Max1p6_Jet90er2p5_dR_Max0p8");
+    if (b_L1_DoubleMu0_dR_Max1p6_Jet90er2p5_dR_Max0p8_) { b_L1_DoubleMu0_dR_Max1p6_Jet90er2p5_dR_Max0p8_->SetAddress(&L1_DoubleMu0_dR_Max1p6_Jet90er2p5_dR_Max0p8_); }
+    b_L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4_ = tree->GetBranch("L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4");
+    if (b_L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4_) { b_L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4_->SetAddress(&L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4_); }
+    b_L1_DoubleMu0er1p5_SQ_ = tree->GetBranch("L1_DoubleMu0er1p5_SQ");
+    if (b_L1_DoubleMu0er1p5_SQ_) { b_L1_DoubleMu0er1p5_SQ_->SetAddress(&L1_DoubleMu0er1p5_SQ_); }
+    b_L1_DoubleMu0er1p5_SQ_OS_ = tree->GetBranch("L1_DoubleMu0er1p5_SQ_OS");
+    if (b_L1_DoubleMu0er1p5_SQ_OS_) { b_L1_DoubleMu0er1p5_SQ_OS_->SetAddress(&L1_DoubleMu0er1p5_SQ_OS_); }
+    b_L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4_ = tree->GetBranch("L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4");
+    if (b_L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4_) { b_L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4_->SetAddress(&L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4_); }
+    b_L1_DoubleMu0er1p5_SQ_dR_Max1p4_ = tree->GetBranch("L1_DoubleMu0er1p5_SQ_dR_Max1p4");
+    if (b_L1_DoubleMu0er1p5_SQ_dR_Max1p4_) { b_L1_DoubleMu0er1p5_SQ_dR_Max1p4_->SetAddress(&L1_DoubleMu0er1p5_SQ_dR_Max1p4_); }
+    b_L1_DoubleMu0er2p0_SQ_OS_dR_Max1p4_ = tree->GetBranch("L1_DoubleMu0er2p0_SQ_OS_dR_Max1p4");
+    if (b_L1_DoubleMu0er2p0_SQ_OS_dR_Max1p4_) { b_L1_DoubleMu0er2p0_SQ_OS_dR_Max1p4_->SetAddress(&L1_DoubleMu0er2p0_SQ_OS_dR_Max1p4_); }
+    b_L1_DoubleMu0er2p0_SQ_dR_Max1p4_ = tree->GetBranch("L1_DoubleMu0er2p0_SQ_dR_Max1p4");
+    if (b_L1_DoubleMu0er2p0_SQ_dR_Max1p4_) { b_L1_DoubleMu0er2p0_SQ_dR_Max1p4_->SetAddress(&L1_DoubleMu0er2p0_SQ_dR_Max1p4_); }
+    b_L1_DoubleMu10_SQ_ = tree->GetBranch("L1_DoubleMu10_SQ");
+    if (b_L1_DoubleMu10_SQ_) { b_L1_DoubleMu10_SQ_->SetAddress(&L1_DoubleMu10_SQ_); }
+    b_L1_DoubleMu18er2p1_ = tree->GetBranch("L1_DoubleMu18er2p1");
+    if (b_L1_DoubleMu18er2p1_) { b_L1_DoubleMu18er2p1_->SetAddress(&L1_DoubleMu18er2p1_); }
+    b_L1_DoubleMu3_OS_DoubleEG7p5Upsilon_ = tree->GetBranch("L1_DoubleMu3_OS_DoubleEG7p5Upsilon");
+    if (b_L1_DoubleMu3_OS_DoubleEG7p5Upsilon_) { b_L1_DoubleMu3_OS_DoubleEG7p5Upsilon_->SetAddress(&L1_DoubleMu3_OS_DoubleEG7p5Upsilon_); }
+    b_L1_DoubleMu3_SQ_ETMHF50_HTT60er_ = tree->GetBranch("L1_DoubleMu3_SQ_ETMHF50_HTT60er");
+    if (b_L1_DoubleMu3_SQ_ETMHF50_HTT60er_) { b_L1_DoubleMu3_SQ_ETMHF50_HTT60er_->SetAddress(&L1_DoubleMu3_SQ_ETMHF50_HTT60er_); }
+    b_L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_ = tree->GetBranch("L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5");
+    if (b_L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_) { b_L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_->SetAddress(&L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_); }
+    b_L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_OR_DoubleJet40er2p5_ = tree->GetBranch("L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_OR_DoubleJet40er2p5");
+    if (b_L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_OR_DoubleJet40er2p5_) { b_L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_OR_DoubleJet40er2p5_->SetAddress(&L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_OR_DoubleJet40er2p5_); }
+    b_L1_DoubleMu3_SQ_ETMHF60_Jet60er2p5_ = tree->GetBranch("L1_DoubleMu3_SQ_ETMHF60_Jet60er2p5");
+    if (b_L1_DoubleMu3_SQ_ETMHF60_Jet60er2p5_) { b_L1_DoubleMu3_SQ_ETMHF60_Jet60er2p5_->SetAddress(&L1_DoubleMu3_SQ_ETMHF60_Jet60er2p5_); }
+    b_L1_DoubleMu3_SQ_HTT220er_ = tree->GetBranch("L1_DoubleMu3_SQ_HTT220er");
+    if (b_L1_DoubleMu3_SQ_HTT220er_) { b_L1_DoubleMu3_SQ_HTT220er_->SetAddress(&L1_DoubleMu3_SQ_HTT220er_); }
+    b_L1_DoubleMu3_SQ_HTT240er_ = tree->GetBranch("L1_DoubleMu3_SQ_HTT240er");
+    if (b_L1_DoubleMu3_SQ_HTT240er_) { b_L1_DoubleMu3_SQ_HTT240er_->SetAddress(&L1_DoubleMu3_SQ_HTT240er_); }
+    b_L1_DoubleMu3_SQ_HTT260er_ = tree->GetBranch("L1_DoubleMu3_SQ_HTT260er");
+    if (b_L1_DoubleMu3_SQ_HTT260er_) { b_L1_DoubleMu3_SQ_HTT260er_->SetAddress(&L1_DoubleMu3_SQ_HTT260er_); }
+    b_L1_DoubleMu3_dR_Max1p6_Jet90er2p5_dR_Max0p8_ = tree->GetBranch("L1_DoubleMu3_dR_Max1p6_Jet90er2p5_dR_Max0p8");
+    if (b_L1_DoubleMu3_dR_Max1p6_Jet90er2p5_dR_Max0p8_) { b_L1_DoubleMu3_dR_Max1p6_Jet90er2p5_dR_Max0p8_->SetAddress(&L1_DoubleMu3_dR_Max1p6_Jet90er2p5_dR_Max0p8_); }
+    b_L1_DoubleMu4_SQ_EG9er2p5_ = tree->GetBranch("L1_DoubleMu4_SQ_EG9er2p5");
+    if (b_L1_DoubleMu4_SQ_EG9er2p5_) { b_L1_DoubleMu4_SQ_EG9er2p5_->SetAddress(&L1_DoubleMu4_SQ_EG9er2p5_); }
+    b_L1_DoubleMu4_SQ_OS_ = tree->GetBranch("L1_DoubleMu4_SQ_OS");
+    if (b_L1_DoubleMu4_SQ_OS_) { b_L1_DoubleMu4_SQ_OS_->SetAddress(&L1_DoubleMu4_SQ_OS_); }
+    b_L1_DoubleMu4_SQ_OS_dR_Max1p2_ = tree->GetBranch("L1_DoubleMu4_SQ_OS_dR_Max1p2");
+    if (b_L1_DoubleMu4_SQ_OS_dR_Max1p2_) { b_L1_DoubleMu4_SQ_OS_dR_Max1p2_->SetAddress(&L1_DoubleMu4_SQ_OS_dR_Max1p2_); }
+    b_L1_DoubleMu4p5_SQ_OS_ = tree->GetBranch("L1_DoubleMu4p5_SQ_OS");
+    if (b_L1_DoubleMu4p5_SQ_OS_) { b_L1_DoubleMu4p5_SQ_OS_->SetAddress(&L1_DoubleMu4p5_SQ_OS_); }
+    b_L1_DoubleMu4p5_SQ_OS_dR_Max1p2_ = tree->GetBranch("L1_DoubleMu4p5_SQ_OS_dR_Max1p2");
+    if (b_L1_DoubleMu4p5_SQ_OS_dR_Max1p2_) { b_L1_DoubleMu4p5_SQ_OS_dR_Max1p2_->SetAddress(&L1_DoubleMu4p5_SQ_OS_dR_Max1p2_); }
+    b_L1_DoubleMu4p5er2p0_SQ_OS_ = tree->GetBranch("L1_DoubleMu4p5er2p0_SQ_OS");
+    if (b_L1_DoubleMu4p5er2p0_SQ_OS_) { b_L1_DoubleMu4p5er2p0_SQ_OS_->SetAddress(&L1_DoubleMu4p5er2p0_SQ_OS_); }
+    b_L1_DoubleMu4p5er2p0_SQ_OS_Mass7to18_ = tree->GetBranch("L1_DoubleMu4p5er2p0_SQ_OS_Mass7to18");
+    if (b_L1_DoubleMu4p5er2p0_SQ_OS_Mass7to18_) { b_L1_DoubleMu4p5er2p0_SQ_OS_Mass7to18_->SetAddress(&L1_DoubleMu4p5er2p0_SQ_OS_Mass7to18_); }
+    b_L1_DoubleMu5Upsilon_OS_DoubleEG3_ = tree->GetBranch("L1_DoubleMu5Upsilon_OS_DoubleEG3");
+    if (b_L1_DoubleMu5Upsilon_OS_DoubleEG3_) { b_L1_DoubleMu5Upsilon_OS_DoubleEG3_->SetAddress(&L1_DoubleMu5Upsilon_OS_DoubleEG3_); }
+    b_L1_DoubleMu5_SQ_EG9er2p5_ = tree->GetBranch("L1_DoubleMu5_SQ_EG9er2p5");
+    if (b_L1_DoubleMu5_SQ_EG9er2p5_) { b_L1_DoubleMu5_SQ_EG9er2p5_->SetAddress(&L1_DoubleMu5_SQ_EG9er2p5_); }
+    b_L1_DoubleMu9_SQ_ = tree->GetBranch("L1_DoubleMu9_SQ");
+    if (b_L1_DoubleMu9_SQ_) { b_L1_DoubleMu9_SQ_->SetAddress(&L1_DoubleMu9_SQ_); }
+    b_L1_DoubleMu_12_5_ = tree->GetBranch("L1_DoubleMu_12_5");
+    if (b_L1_DoubleMu_12_5_) { b_L1_DoubleMu_12_5_->SetAddress(&L1_DoubleMu_12_5_); }
+    b_L1_DoubleMu_15_5_SQ_ = tree->GetBranch("L1_DoubleMu_15_5_SQ");
+    if (b_L1_DoubleMu_15_5_SQ_) { b_L1_DoubleMu_15_5_SQ_->SetAddress(&L1_DoubleMu_15_5_SQ_); }
+    b_L1_DoubleMu_15_7_ = tree->GetBranch("L1_DoubleMu_15_7");
+    if (b_L1_DoubleMu_15_7_) { b_L1_DoubleMu_15_7_->SetAddress(&L1_DoubleMu_15_7_); }
+    b_L1_DoubleMu_15_7_Mass_Min1_ = tree->GetBranch("L1_DoubleMu_15_7_Mass_Min1");
+    if (b_L1_DoubleMu_15_7_Mass_Min1_) { b_L1_DoubleMu_15_7_Mass_Min1_->SetAddress(&L1_DoubleMu_15_7_Mass_Min1_); }
+    b_L1_DoubleMu_15_7_SQ_ = tree->GetBranch("L1_DoubleMu_15_7_SQ");
+    if (b_L1_DoubleMu_15_7_SQ_) { b_L1_DoubleMu_15_7_SQ_->SetAddress(&L1_DoubleMu_15_7_SQ_); }
+    b_L1_DoubleTau70er2p1_ = tree->GetBranch("L1_DoubleTau70er2p1");
+    if (b_L1_DoubleTau70er2p1_) { b_L1_DoubleTau70er2p1_->SetAddress(&L1_DoubleTau70er2p1_); }
+    b_L1_ETM120_ = tree->GetBranch("L1_ETM120");
+    if (b_L1_ETM120_) { b_L1_ETM120_->SetAddress(&L1_ETM120_); }
+    b_L1_ETM150_ = tree->GetBranch("L1_ETM150");
+    if (b_L1_ETM150_) { b_L1_ETM150_->SetAddress(&L1_ETM150_); }
+    b_L1_ETMHF100_ = tree->GetBranch("L1_ETMHF100");
+    if (b_L1_ETMHF100_) { b_L1_ETMHF100_->SetAddress(&L1_ETMHF100_); }
+    b_L1_ETMHF100_HTT60er_ = tree->GetBranch("L1_ETMHF100_HTT60er");
+    if (b_L1_ETMHF100_HTT60er_) { b_L1_ETMHF100_HTT60er_->SetAddress(&L1_ETMHF100_HTT60er_); }
+    b_L1_ETMHF110_ = tree->GetBranch("L1_ETMHF110");
+    if (b_L1_ETMHF110_) { b_L1_ETMHF110_->SetAddress(&L1_ETMHF110_); }
+    b_L1_ETMHF110_HTT60er_ = tree->GetBranch("L1_ETMHF110_HTT60er");
+    if (b_L1_ETMHF110_HTT60er_) { b_L1_ETMHF110_HTT60er_->SetAddress(&L1_ETMHF110_HTT60er_); }
+    b_L1_ETMHF110_HTT60er_NotSecondBunchInTrain_ = tree->GetBranch("L1_ETMHF110_HTT60er_NotSecondBunchInTrain");
+    if (b_L1_ETMHF110_HTT60er_NotSecondBunchInTrain_) { b_L1_ETMHF110_HTT60er_NotSecondBunchInTrain_->SetAddress(&L1_ETMHF110_HTT60er_NotSecondBunchInTrain_); }
+    b_L1_ETMHF120_ = tree->GetBranch("L1_ETMHF120");
+    if (b_L1_ETMHF120_) { b_L1_ETMHF120_->SetAddress(&L1_ETMHF120_); }
+    b_L1_ETMHF120_HTT60er_ = tree->GetBranch("L1_ETMHF120_HTT60er");
+    if (b_L1_ETMHF120_HTT60er_) { b_L1_ETMHF120_HTT60er_->SetAddress(&L1_ETMHF120_HTT60er_); }
+    b_L1_ETMHF120_NotSecondBunchInTrain_ = tree->GetBranch("L1_ETMHF120_NotSecondBunchInTrain");
+    if (b_L1_ETMHF120_NotSecondBunchInTrain_) { b_L1_ETMHF120_NotSecondBunchInTrain_->SetAddress(&L1_ETMHF120_NotSecondBunchInTrain_); }
+    b_L1_ETMHF130_ = tree->GetBranch("L1_ETMHF130");
+    if (b_L1_ETMHF130_) { b_L1_ETMHF130_->SetAddress(&L1_ETMHF130_); }
+    b_L1_ETMHF130_HTT60er_ = tree->GetBranch("L1_ETMHF130_HTT60er");
+    if (b_L1_ETMHF130_HTT60er_) { b_L1_ETMHF130_HTT60er_->SetAddress(&L1_ETMHF130_HTT60er_); }
+    b_L1_ETMHF140_ = tree->GetBranch("L1_ETMHF140");
+    if (b_L1_ETMHF140_) { b_L1_ETMHF140_->SetAddress(&L1_ETMHF140_); }
+    b_L1_ETMHF150_ = tree->GetBranch("L1_ETMHF150");
+    if (b_L1_ETMHF150_) { b_L1_ETMHF150_->SetAddress(&L1_ETMHF150_); }
+    b_L1_ETMHF90_HTT60er_ = tree->GetBranch("L1_ETMHF90_HTT60er");
+    if (b_L1_ETMHF90_HTT60er_) { b_L1_ETMHF90_HTT60er_->SetAddress(&L1_ETMHF90_HTT60er_); }
+    b_L1_ETT1200_ = tree->GetBranch("L1_ETT1200");
+    if (b_L1_ETT1200_) { b_L1_ETT1200_->SetAddress(&L1_ETT1200_); }
+    b_L1_ETT1600_ = tree->GetBranch("L1_ETT1600");
+    if (b_L1_ETT1600_) { b_L1_ETT1600_->SetAddress(&L1_ETT1600_); }
+    b_L1_ETT2000_ = tree->GetBranch("L1_ETT2000");
+    if (b_L1_ETT2000_) { b_L1_ETT2000_->SetAddress(&L1_ETT2000_); }
+    b_L1_FirstBunchAfterTrain_ = tree->GetBranch("L1_FirstBunchAfterTrain");
+    if (b_L1_FirstBunchAfterTrain_) { b_L1_FirstBunchAfterTrain_->SetAddress(&L1_FirstBunchAfterTrain_); }
+    b_L1_FirstBunchBeforeTrain_ = tree->GetBranch("L1_FirstBunchBeforeTrain");
+    if (b_L1_FirstBunchBeforeTrain_) { b_L1_FirstBunchBeforeTrain_->SetAddress(&L1_FirstBunchBeforeTrain_); }
+    b_L1_FirstBunchInTrain_ = tree->GetBranch("L1_FirstBunchInTrain");
+    if (b_L1_FirstBunchInTrain_) { b_L1_FirstBunchInTrain_->SetAddress(&L1_FirstBunchInTrain_); }
+    b_L1_FirstCollisionInOrbit_ = tree->GetBranch("L1_FirstCollisionInOrbit");
+    if (b_L1_FirstCollisionInOrbit_) { b_L1_FirstCollisionInOrbit_->SetAddress(&L1_FirstCollisionInOrbit_); }
+    b_L1_FirstCollisionInTrain_ = tree->GetBranch("L1_FirstCollisionInTrain");
+    if (b_L1_FirstCollisionInTrain_) { b_L1_FirstCollisionInTrain_->SetAddress(&L1_FirstCollisionInTrain_); }
+    b_L1_HCAL_LaserMon_Trig_ = tree->GetBranch("L1_HCAL_LaserMon_Trig");
+    if (b_L1_HCAL_LaserMon_Trig_) { b_L1_HCAL_LaserMon_Trig_->SetAddress(&L1_HCAL_LaserMon_Trig_); }
+    b_L1_HCAL_LaserMon_Veto_ = tree->GetBranch("L1_HCAL_LaserMon_Veto");
+    if (b_L1_HCAL_LaserMon_Veto_) { b_L1_HCAL_LaserMon_Veto_->SetAddress(&L1_HCAL_LaserMon_Veto_); }
+    b_L1_HTT120er_ = tree->GetBranch("L1_HTT120er");
+    if (b_L1_HTT120er_) { b_L1_HTT120er_->SetAddress(&L1_HTT120er_); }
+    b_L1_HTT160er_ = tree->GetBranch("L1_HTT160er");
+    if (b_L1_HTT160er_) { b_L1_HTT160er_->SetAddress(&L1_HTT160er_); }
+    b_L1_HTT200er_ = tree->GetBranch("L1_HTT200er");
+    if (b_L1_HTT200er_) { b_L1_HTT200er_->SetAddress(&L1_HTT200er_); }
+    b_L1_HTT255er_ = tree->GetBranch("L1_HTT255er");
+    if (b_L1_HTT255er_) { b_L1_HTT255er_->SetAddress(&L1_HTT255er_); }
+    b_L1_HTT280er_ = tree->GetBranch("L1_HTT280er");
+    if (b_L1_HTT280er_) { b_L1_HTT280er_->SetAddress(&L1_HTT280er_); }
+    b_L1_HTT280er_QuadJet_70_55_40_35_er2p4_ = tree->GetBranch("L1_HTT280er_QuadJet_70_55_40_35_er2p4");
+    if (b_L1_HTT280er_QuadJet_70_55_40_35_er2p4_) { b_L1_HTT280er_QuadJet_70_55_40_35_er2p4_->SetAddress(&L1_HTT280er_QuadJet_70_55_40_35_er2p4_); }
+    b_L1_HTT320er_ = tree->GetBranch("L1_HTT320er");
+    if (b_L1_HTT320er_) { b_L1_HTT320er_->SetAddress(&L1_HTT320er_); }
+    b_L1_HTT320er_QuadJet_70_55_40_40_er2p4_ = tree->GetBranch("L1_HTT320er_QuadJet_70_55_40_40_er2p4");
+    if (b_L1_HTT320er_QuadJet_70_55_40_40_er2p4_) { b_L1_HTT320er_QuadJet_70_55_40_40_er2p4_->SetAddress(&L1_HTT320er_QuadJet_70_55_40_40_er2p4_); }
+    b_L1_HTT320er_QuadJet_80_60_er2p1_45_40_er2p3_ = tree->GetBranch("L1_HTT320er_QuadJet_80_60_er2p1_45_40_er2p3");
+    if (b_L1_HTT320er_QuadJet_80_60_er2p1_45_40_er2p3_) { b_L1_HTT320er_QuadJet_80_60_er2p1_45_40_er2p3_->SetAddress(&L1_HTT320er_QuadJet_80_60_er2p1_45_40_er2p3_); }
+    b_L1_HTT320er_QuadJet_80_60_er2p1_50_45_er2p3_ = tree->GetBranch("L1_HTT320er_QuadJet_80_60_er2p1_50_45_er2p3");
+    if (b_L1_HTT320er_QuadJet_80_60_er2p1_50_45_er2p3_) { b_L1_HTT320er_QuadJet_80_60_er2p1_50_45_er2p3_->SetAddress(&L1_HTT320er_QuadJet_80_60_er2p1_50_45_er2p3_); }
+    b_L1_HTT360er_ = tree->GetBranch("L1_HTT360er");
+    if (b_L1_HTT360er_) { b_L1_HTT360er_->SetAddress(&L1_HTT360er_); }
+    b_L1_HTT400er_ = tree->GetBranch("L1_HTT400er");
+    if (b_L1_HTT400er_) { b_L1_HTT400er_->SetAddress(&L1_HTT400er_); }
+    b_L1_HTT450er_ = tree->GetBranch("L1_HTT450er");
+    if (b_L1_HTT450er_) { b_L1_HTT450er_->SetAddress(&L1_HTT450er_); }
+    b_L1_IsoEG32er2p5_Mt40_ = tree->GetBranch("L1_IsoEG32er2p5_Mt40");
+    if (b_L1_IsoEG32er2p5_Mt40_) { b_L1_IsoEG32er2p5_Mt40_->SetAddress(&L1_IsoEG32er2p5_Mt40_); }
+    b_L1_IsoEG32er2p5_Mt44_ = tree->GetBranch("L1_IsoEG32er2p5_Mt44");
+    if (b_L1_IsoEG32er2p5_Mt44_) { b_L1_IsoEG32er2p5_Mt44_->SetAddress(&L1_IsoEG32er2p5_Mt44_); }
+    b_L1_IsoEG32er2p5_Mt48_ = tree->GetBranch("L1_IsoEG32er2p5_Mt48");
+    if (b_L1_IsoEG32er2p5_Mt48_) { b_L1_IsoEG32er2p5_Mt48_->SetAddress(&L1_IsoEG32er2p5_Mt48_); }
+    b_L1_IsoTau40er2p1_ETMHF100_ = tree->GetBranch("L1_IsoTau40er2p1_ETMHF100");
+    if (b_L1_IsoTau40er2p1_ETMHF100_) { b_L1_IsoTau40er2p1_ETMHF100_->SetAddress(&L1_IsoTau40er2p1_ETMHF100_); }
+    b_L1_IsoTau40er2p1_ETMHF110_ = tree->GetBranch("L1_IsoTau40er2p1_ETMHF110");
+    if (b_L1_IsoTau40er2p1_ETMHF110_) { b_L1_IsoTau40er2p1_ETMHF110_->SetAddress(&L1_IsoTau40er2p1_ETMHF110_); }
+    b_L1_IsoTau40er2p1_ETMHF120_ = tree->GetBranch("L1_IsoTau40er2p1_ETMHF120");
+    if (b_L1_IsoTau40er2p1_ETMHF120_) { b_L1_IsoTau40er2p1_ETMHF120_->SetAddress(&L1_IsoTau40er2p1_ETMHF120_); }
+    b_L1_IsoTau40er2p1_ETMHF90_ = tree->GetBranch("L1_IsoTau40er2p1_ETMHF90");
+    if (b_L1_IsoTau40er2p1_ETMHF90_) { b_L1_IsoTau40er2p1_ETMHF90_->SetAddress(&L1_IsoTau40er2p1_ETMHF90_); }
+    b_L1_IsolatedBunch_ = tree->GetBranch("L1_IsolatedBunch");
+    if (b_L1_IsolatedBunch_) { b_L1_IsolatedBunch_->SetAddress(&L1_IsolatedBunch_); }
+    b_L1_LastBunchInTrain_ = tree->GetBranch("L1_LastBunchInTrain");
+    if (b_L1_LastBunchInTrain_) { b_L1_LastBunchInTrain_->SetAddress(&L1_LastBunchInTrain_); }
+    b_L1_LastCollisionInTrain_ = tree->GetBranch("L1_LastCollisionInTrain");
+    if (b_L1_LastCollisionInTrain_) { b_L1_LastCollisionInTrain_->SetAddress(&L1_LastCollisionInTrain_); }
+    b_L1_LooseIsoEG22er2p1_IsoTau26er2p1_dR_Min0p3_ = tree->GetBranch("L1_LooseIsoEG22er2p1_IsoTau26er2p1_dR_Min0p3");
+    if (b_L1_LooseIsoEG22er2p1_IsoTau26er2p1_dR_Min0p3_) { b_L1_LooseIsoEG22er2p1_IsoTau26er2p1_dR_Min0p3_->SetAddress(&L1_LooseIsoEG22er2p1_IsoTau26er2p1_dR_Min0p3_); }
+    b_L1_LooseIsoEG22er2p1_Tau70er2p1_dR_Min0p3_ = tree->GetBranch("L1_LooseIsoEG22er2p1_Tau70er2p1_dR_Min0p3");
+    if (b_L1_LooseIsoEG22er2p1_Tau70er2p1_dR_Min0p3_) { b_L1_LooseIsoEG22er2p1_Tau70er2p1_dR_Min0p3_->SetAddress(&L1_LooseIsoEG22er2p1_Tau70er2p1_dR_Min0p3_); }
+    b_L1_LooseIsoEG24er2p1_HTT100er_ = tree->GetBranch("L1_LooseIsoEG24er2p1_HTT100er");
+    if (b_L1_LooseIsoEG24er2p1_HTT100er_) { b_L1_LooseIsoEG24er2p1_HTT100er_->SetAddress(&L1_LooseIsoEG24er2p1_HTT100er_); }
+    b_L1_LooseIsoEG24er2p1_IsoTau27er2p1_dR_Min0p3_ = tree->GetBranch("L1_LooseIsoEG24er2p1_IsoTau27er2p1_dR_Min0p3");
+    if (b_L1_LooseIsoEG24er2p1_IsoTau27er2p1_dR_Min0p3_) { b_L1_LooseIsoEG24er2p1_IsoTau27er2p1_dR_Min0p3_->SetAddress(&L1_LooseIsoEG24er2p1_IsoTau27er2p1_dR_Min0p3_); }
+    b_L1_LooseIsoEG26er2p1_HTT100er_ = tree->GetBranch("L1_LooseIsoEG26er2p1_HTT100er");
+    if (b_L1_LooseIsoEG26er2p1_HTT100er_) { b_L1_LooseIsoEG26er2p1_HTT100er_->SetAddress(&L1_LooseIsoEG26er2p1_HTT100er_); }
+    b_L1_LooseIsoEG26er2p1_Jet34er2p5_dR_Min0p3_ = tree->GetBranch("L1_LooseIsoEG26er2p1_Jet34er2p5_dR_Min0p3");
+    if (b_L1_LooseIsoEG26er2p1_Jet34er2p5_dR_Min0p3_) { b_L1_LooseIsoEG26er2p1_Jet34er2p5_dR_Min0p3_->SetAddress(&L1_LooseIsoEG26er2p1_Jet34er2p5_dR_Min0p3_); }
+    b_L1_LooseIsoEG28er2p1_HTT100er_ = tree->GetBranch("L1_LooseIsoEG28er2p1_HTT100er");
+    if (b_L1_LooseIsoEG28er2p1_HTT100er_) { b_L1_LooseIsoEG28er2p1_HTT100er_->SetAddress(&L1_LooseIsoEG28er2p1_HTT100er_); }
+    b_L1_LooseIsoEG28er2p1_Jet34er2p5_dR_Min0p3_ = tree->GetBranch("L1_LooseIsoEG28er2p1_Jet34er2p5_dR_Min0p3");
+    if (b_L1_LooseIsoEG28er2p1_Jet34er2p5_dR_Min0p3_) { b_L1_LooseIsoEG28er2p1_Jet34er2p5_dR_Min0p3_->SetAddress(&L1_LooseIsoEG28er2p1_Jet34er2p5_dR_Min0p3_); }
+    b_L1_LooseIsoEG30er2p1_HTT100er_ = tree->GetBranch("L1_LooseIsoEG30er2p1_HTT100er");
+    if (b_L1_LooseIsoEG30er2p1_HTT100er_) { b_L1_LooseIsoEG30er2p1_HTT100er_->SetAddress(&L1_LooseIsoEG30er2p1_HTT100er_); }
+    b_L1_LooseIsoEG30er2p1_Jet34er2p5_dR_Min0p3_ = tree->GetBranch("L1_LooseIsoEG30er2p1_Jet34er2p5_dR_Min0p3");
+    if (b_L1_LooseIsoEG30er2p1_Jet34er2p5_dR_Min0p3_) { b_L1_LooseIsoEG30er2p1_Jet34er2p5_dR_Min0p3_->SetAddress(&L1_LooseIsoEG30er2p1_Jet34er2p5_dR_Min0p3_); }
+    b_L1_MinimumBiasHF0_AND_BptxAND_ = tree->GetBranch("L1_MinimumBiasHF0_AND_BptxAND");
+    if (b_L1_MinimumBiasHF0_AND_BptxAND_) { b_L1_MinimumBiasHF0_AND_BptxAND_->SetAddress(&L1_MinimumBiasHF0_AND_BptxAND_); }
+    b_L1_Mu10er2p3_Jet32er2p3_dR_Max0p4_DoubleJet32er2p3_dEta_Max1p6_ = tree->GetBranch("L1_Mu10er2p3_Jet32er2p3_dR_Max0p4_DoubleJet32er2p3_dEta_Max1p6");
+    if (b_L1_Mu10er2p3_Jet32er2p3_dR_Max0p4_DoubleJet32er2p3_dEta_Max1p6_) { b_L1_Mu10er2p3_Jet32er2p3_dR_Max0p4_DoubleJet32er2p3_dEta_Max1p6_->SetAddress(&L1_Mu10er2p3_Jet32er2p3_dR_Max0p4_DoubleJet32er2p3_dEta_Max1p6_); }
+    b_L1_Mu12er2p3_Jet40er2p1_dR_Max0p4_DoubleJet40er2p1_dEta_Max1p6_ = tree->GetBranch("L1_Mu12er2p3_Jet40er2p1_dR_Max0p4_DoubleJet40er2p1_dEta_Max1p6");
+    if (b_L1_Mu12er2p3_Jet40er2p1_dR_Max0p4_DoubleJet40er2p1_dEta_Max1p6_) { b_L1_Mu12er2p3_Jet40er2p1_dR_Max0p4_DoubleJet40er2p1_dEta_Max1p6_->SetAddress(&L1_Mu12er2p3_Jet40er2p1_dR_Max0p4_DoubleJet40er2p1_dEta_Max1p6_); }
+    b_L1_Mu12er2p3_Jet40er2p3_dR_Max0p4_DoubleJet40er2p3_dEta_Max1p6_ = tree->GetBranch("L1_Mu12er2p3_Jet40er2p3_dR_Max0p4_DoubleJet40er2p3_dEta_Max1p6");
+    if (b_L1_Mu12er2p3_Jet40er2p3_dR_Max0p4_DoubleJet40er2p3_dEta_Max1p6_) { b_L1_Mu12er2p3_Jet40er2p3_dR_Max0p4_DoubleJet40er2p3_dEta_Max1p6_->SetAddress(&L1_Mu12er2p3_Jet40er2p3_dR_Max0p4_DoubleJet40er2p3_dEta_Max1p6_); }
+    b_L1_Mu18er2p1_Tau24er2p1_ = tree->GetBranch("L1_Mu18er2p1_Tau24er2p1");
+    if (b_L1_Mu18er2p1_Tau24er2p1_) { b_L1_Mu18er2p1_Tau24er2p1_->SetAddress(&L1_Mu18er2p1_Tau24er2p1_); }
+    b_L1_Mu18er2p1_Tau26er2p1_ = tree->GetBranch("L1_Mu18er2p1_Tau26er2p1");
+    if (b_L1_Mu18er2p1_Tau26er2p1_) { b_L1_Mu18er2p1_Tau26er2p1_->SetAddress(&L1_Mu18er2p1_Tau26er2p1_); }
+    b_L1_Mu20_EG10er2p5_ = tree->GetBranch("L1_Mu20_EG10er2p5");
+    if (b_L1_Mu20_EG10er2p5_) { b_L1_Mu20_EG10er2p5_->SetAddress(&L1_Mu20_EG10er2p5_); }
+    b_L1_Mu22er2p1_IsoTau32er2p1_ = tree->GetBranch("L1_Mu22er2p1_IsoTau32er2p1");
+    if (b_L1_Mu22er2p1_IsoTau32er2p1_) { b_L1_Mu22er2p1_IsoTau32er2p1_->SetAddress(&L1_Mu22er2p1_IsoTau32er2p1_); }
+    b_L1_Mu22er2p1_IsoTau34er2p1_ = tree->GetBranch("L1_Mu22er2p1_IsoTau34er2p1");
+    if (b_L1_Mu22er2p1_IsoTau34er2p1_) { b_L1_Mu22er2p1_IsoTau34er2p1_->SetAddress(&L1_Mu22er2p1_IsoTau34er2p1_); }
+    b_L1_Mu22er2p1_IsoTau36er2p1_ = tree->GetBranch("L1_Mu22er2p1_IsoTau36er2p1");
+    if (b_L1_Mu22er2p1_IsoTau36er2p1_) { b_L1_Mu22er2p1_IsoTau36er2p1_->SetAddress(&L1_Mu22er2p1_IsoTau36er2p1_); }
+    b_L1_Mu22er2p1_IsoTau40er2p1_ = tree->GetBranch("L1_Mu22er2p1_IsoTau40er2p1");
+    if (b_L1_Mu22er2p1_IsoTau40er2p1_) { b_L1_Mu22er2p1_IsoTau40er2p1_->SetAddress(&L1_Mu22er2p1_IsoTau40er2p1_); }
+    b_L1_Mu22er2p1_Tau70er2p1_ = tree->GetBranch("L1_Mu22er2p1_Tau70er2p1");
+    if (b_L1_Mu22er2p1_Tau70er2p1_) { b_L1_Mu22er2p1_Tau70er2p1_->SetAddress(&L1_Mu22er2p1_Tau70er2p1_); }
+    b_L1_Mu3_Jet120er2p5_dR_Max0p4_ = tree->GetBranch("L1_Mu3_Jet120er2p5_dR_Max0p4");
+    if (b_L1_Mu3_Jet120er2p5_dR_Max0p4_) { b_L1_Mu3_Jet120er2p5_dR_Max0p4_->SetAddress(&L1_Mu3_Jet120er2p5_dR_Max0p4_); }
+    b_L1_Mu3_Jet120er2p5_dR_Max0p8_ = tree->GetBranch("L1_Mu3_Jet120er2p5_dR_Max0p8");
+    if (b_L1_Mu3_Jet120er2p5_dR_Max0p8_) { b_L1_Mu3_Jet120er2p5_dR_Max0p8_->SetAddress(&L1_Mu3_Jet120er2p5_dR_Max0p8_); }
+    b_L1_Mu3_Jet16er2p5_dR_Max0p4_ = tree->GetBranch("L1_Mu3_Jet16er2p5_dR_Max0p4");
+    if (b_L1_Mu3_Jet16er2p5_dR_Max0p4_) { b_L1_Mu3_Jet16er2p5_dR_Max0p4_->SetAddress(&L1_Mu3_Jet16er2p5_dR_Max0p4_); }
+    b_L1_Mu3_Jet30er2p5_ = tree->GetBranch("L1_Mu3_Jet30er2p5");
+    if (b_L1_Mu3_Jet30er2p5_) { b_L1_Mu3_Jet30er2p5_->SetAddress(&L1_Mu3_Jet30er2p5_); }
+    b_L1_Mu3_Jet35er2p5_dR_Max0p4_ = tree->GetBranch("L1_Mu3_Jet35er2p5_dR_Max0p4");
+    if (b_L1_Mu3_Jet35er2p5_dR_Max0p4_) { b_L1_Mu3_Jet35er2p5_dR_Max0p4_->SetAddress(&L1_Mu3_Jet35er2p5_dR_Max0p4_); }
+    b_L1_Mu3_Jet60er2p5_dR_Max0p4_ = tree->GetBranch("L1_Mu3_Jet60er2p5_dR_Max0p4");
+    if (b_L1_Mu3_Jet60er2p5_dR_Max0p4_) { b_L1_Mu3_Jet60er2p5_dR_Max0p4_->SetAddress(&L1_Mu3_Jet60er2p5_dR_Max0p4_); }
+    b_L1_Mu3_Jet80er2p5_dR_Max0p4_ = tree->GetBranch("L1_Mu3_Jet80er2p5_dR_Max0p4");
+    if (b_L1_Mu3_Jet80er2p5_dR_Max0p4_) { b_L1_Mu3_Jet80er2p5_dR_Max0p4_->SetAddress(&L1_Mu3_Jet80er2p5_dR_Max0p4_); }
+    b_L1_Mu3er1p5_Jet100er2p5_ETMHF40_ = tree->GetBranch("L1_Mu3er1p5_Jet100er2p5_ETMHF40");
+    if (b_L1_Mu3er1p5_Jet100er2p5_ETMHF40_) { b_L1_Mu3er1p5_Jet100er2p5_ETMHF40_->SetAddress(&L1_Mu3er1p5_Jet100er2p5_ETMHF40_); }
+    b_L1_Mu3er1p5_Jet100er2p5_ETMHF50_ = tree->GetBranch("L1_Mu3er1p5_Jet100er2p5_ETMHF50");
+    if (b_L1_Mu3er1p5_Jet100er2p5_ETMHF50_) { b_L1_Mu3er1p5_Jet100er2p5_ETMHF50_->SetAddress(&L1_Mu3er1p5_Jet100er2p5_ETMHF50_); }
+    b_L1_Mu5_EG23er2p5_ = tree->GetBranch("L1_Mu5_EG23er2p5");
+    if (b_L1_Mu5_EG23er2p5_) { b_L1_Mu5_EG23er2p5_->SetAddress(&L1_Mu5_EG23er2p5_); }
+    b_L1_Mu5_LooseIsoEG20er2p5_ = tree->GetBranch("L1_Mu5_LooseIsoEG20er2p5");
+    if (b_L1_Mu5_LooseIsoEG20er2p5_) { b_L1_Mu5_LooseIsoEG20er2p5_->SetAddress(&L1_Mu5_LooseIsoEG20er2p5_); }
+    b_L1_Mu6_DoubleEG10er2p5_ = tree->GetBranch("L1_Mu6_DoubleEG10er2p5");
+    if (b_L1_Mu6_DoubleEG10er2p5_) { b_L1_Mu6_DoubleEG10er2p5_->SetAddress(&L1_Mu6_DoubleEG10er2p5_); }
+    b_L1_Mu6_DoubleEG12er2p5_ = tree->GetBranch("L1_Mu6_DoubleEG12er2p5");
+    if (b_L1_Mu6_DoubleEG12er2p5_) { b_L1_Mu6_DoubleEG12er2p5_->SetAddress(&L1_Mu6_DoubleEG12er2p5_); }
+    b_L1_Mu6_DoubleEG15er2p5_ = tree->GetBranch("L1_Mu6_DoubleEG15er2p5");
+    if (b_L1_Mu6_DoubleEG15er2p5_) { b_L1_Mu6_DoubleEG15er2p5_->SetAddress(&L1_Mu6_DoubleEG15er2p5_); }
+    b_L1_Mu6_DoubleEG17er2p5_ = tree->GetBranch("L1_Mu6_DoubleEG17er2p5");
+    if (b_L1_Mu6_DoubleEG17er2p5_) { b_L1_Mu6_DoubleEG17er2p5_->SetAddress(&L1_Mu6_DoubleEG17er2p5_); }
+    b_L1_Mu6_HTT240er_ = tree->GetBranch("L1_Mu6_HTT240er");
+    if (b_L1_Mu6_HTT240er_) { b_L1_Mu6_HTT240er_->SetAddress(&L1_Mu6_HTT240er_); }
+    b_L1_Mu6_HTT250er_ = tree->GetBranch("L1_Mu6_HTT250er");
+    if (b_L1_Mu6_HTT250er_) { b_L1_Mu6_HTT250er_->SetAddress(&L1_Mu6_HTT250er_); }
+    b_L1_Mu7_EG23er2p5_ = tree->GetBranch("L1_Mu7_EG23er2p5");
+    if (b_L1_Mu7_EG23er2p5_) { b_L1_Mu7_EG23er2p5_->SetAddress(&L1_Mu7_EG23er2p5_); }
+    b_L1_Mu7_LooseIsoEG20er2p5_ = tree->GetBranch("L1_Mu7_LooseIsoEG20er2p5");
+    if (b_L1_Mu7_LooseIsoEG20er2p5_) { b_L1_Mu7_LooseIsoEG20er2p5_->SetAddress(&L1_Mu7_LooseIsoEG20er2p5_); }
+    b_L1_Mu7_LooseIsoEG23er2p5_ = tree->GetBranch("L1_Mu7_LooseIsoEG23er2p5");
+    if (b_L1_Mu7_LooseIsoEG23er2p5_) { b_L1_Mu7_LooseIsoEG23er2p5_->SetAddress(&L1_Mu7_LooseIsoEG23er2p5_); }
+    b_L1_NotBptxOR_ = tree->GetBranch("L1_NotBptxOR");
+    if (b_L1_NotBptxOR_) { b_L1_NotBptxOR_->SetAddress(&L1_NotBptxOR_); }
+    b_L1_QuadJet36er2p5_IsoTau52er2p1_ = tree->GetBranch("L1_QuadJet36er2p5_IsoTau52er2p1");
+    if (b_L1_QuadJet36er2p5_IsoTau52er2p1_) { b_L1_QuadJet36er2p5_IsoTau52er2p1_->SetAddress(&L1_QuadJet36er2p5_IsoTau52er2p1_); }
+    b_L1_QuadJet60er2p5_ = tree->GetBranch("L1_QuadJet60er2p5");
+    if (b_L1_QuadJet60er2p5_) { b_L1_QuadJet60er2p5_->SetAddress(&L1_QuadJet60er2p5_); }
+    b_L1_QuadJet_95_75_65_20_DoubleJet_75_65_er2p5_Jet20_FWD3p0_ = tree->GetBranch("L1_QuadJet_95_75_65_20_DoubleJet_75_65_er2p5_Jet20_FWD3p0");
+    if (b_L1_QuadJet_95_75_65_20_DoubleJet_75_65_er2p5_Jet20_FWD3p0_) { b_L1_QuadJet_95_75_65_20_DoubleJet_75_65_er2p5_Jet20_FWD3p0_->SetAddress(&L1_QuadJet_95_75_65_20_DoubleJet_75_65_er2p5_Jet20_FWD3p0_); }
+    b_L1_QuadMu0_ = tree->GetBranch("L1_QuadMu0");
+    if (b_L1_QuadMu0_) { b_L1_QuadMu0_->SetAddress(&L1_QuadMu0_); }
+    b_L1_QuadMu0_OQ_ = tree->GetBranch("L1_QuadMu0_OQ");
+    if (b_L1_QuadMu0_OQ_) { b_L1_QuadMu0_OQ_->SetAddress(&L1_QuadMu0_OQ_); }
+    b_L1_QuadMu0_SQ_ = tree->GetBranch("L1_QuadMu0_SQ");
+    if (b_L1_QuadMu0_SQ_) { b_L1_QuadMu0_SQ_->SetAddress(&L1_QuadMu0_SQ_); }
+    b_L1_SecondBunchInTrain_ = tree->GetBranch("L1_SecondBunchInTrain");
+    if (b_L1_SecondBunchInTrain_) { b_L1_SecondBunchInTrain_->SetAddress(&L1_SecondBunchInTrain_); }
+    b_L1_SecondLastBunchInTrain_ = tree->GetBranch("L1_SecondLastBunchInTrain");
+    if (b_L1_SecondLastBunchInTrain_) { b_L1_SecondLastBunchInTrain_->SetAddress(&L1_SecondLastBunchInTrain_); }
+    b_L1_SingleEG10er2p5_ = tree->GetBranch("L1_SingleEG10er2p5");
+    if (b_L1_SingleEG10er2p5_) { b_L1_SingleEG10er2p5_->SetAddress(&L1_SingleEG10er2p5_); }
+    b_L1_SingleEG15er2p5_ = tree->GetBranch("L1_SingleEG15er2p5");
+    if (b_L1_SingleEG15er2p5_) { b_L1_SingleEG15er2p5_->SetAddress(&L1_SingleEG15er2p5_); }
+    b_L1_SingleEG26er2p5_ = tree->GetBranch("L1_SingleEG26er2p5");
+    if (b_L1_SingleEG26er2p5_) { b_L1_SingleEG26er2p5_->SetAddress(&L1_SingleEG26er2p5_); }
+    b_L1_SingleEG34er2p5_ = tree->GetBranch("L1_SingleEG34er2p5");
+    if (b_L1_SingleEG34er2p5_) { b_L1_SingleEG34er2p5_->SetAddress(&L1_SingleEG34er2p5_); }
+    b_L1_SingleEG36er2p5_ = tree->GetBranch("L1_SingleEG36er2p5");
+    if (b_L1_SingleEG36er2p5_) { b_L1_SingleEG36er2p5_->SetAddress(&L1_SingleEG36er2p5_); }
+    b_L1_SingleEG38er2p5_ = tree->GetBranch("L1_SingleEG38er2p5");
+    if (b_L1_SingleEG38er2p5_) { b_L1_SingleEG38er2p5_->SetAddress(&L1_SingleEG38er2p5_); }
+    b_L1_SingleEG40er2p5_ = tree->GetBranch("L1_SingleEG40er2p5");
+    if (b_L1_SingleEG40er2p5_) { b_L1_SingleEG40er2p5_->SetAddress(&L1_SingleEG40er2p5_); }
+    b_L1_SingleEG42er2p5_ = tree->GetBranch("L1_SingleEG42er2p5");
+    if (b_L1_SingleEG42er2p5_) { b_L1_SingleEG42er2p5_->SetAddress(&L1_SingleEG42er2p5_); }
+    b_L1_SingleEG45er2p5_ = tree->GetBranch("L1_SingleEG45er2p5");
+    if (b_L1_SingleEG45er2p5_) { b_L1_SingleEG45er2p5_->SetAddress(&L1_SingleEG45er2p5_); }
+    b_L1_SingleEG50_ = tree->GetBranch("L1_SingleEG50");
+    if (b_L1_SingleEG50_) { b_L1_SingleEG50_->SetAddress(&L1_SingleEG50_); }
+    b_L1_SingleEG60_ = tree->GetBranch("L1_SingleEG60");
+    if (b_L1_SingleEG60_) { b_L1_SingleEG60_->SetAddress(&L1_SingleEG60_); }
+    b_L1_SingleEG8er2p5_ = tree->GetBranch("L1_SingleEG8er2p5");
+    if (b_L1_SingleEG8er2p5_) { b_L1_SingleEG8er2p5_->SetAddress(&L1_SingleEG8er2p5_); }
+    b_L1_SingleIsoEG24er1p5_ = tree->GetBranch("L1_SingleIsoEG24er1p5");
+    if (b_L1_SingleIsoEG24er1p5_) { b_L1_SingleIsoEG24er1p5_->SetAddress(&L1_SingleIsoEG24er1p5_); }
+    b_L1_SingleIsoEG24er2p1_ = tree->GetBranch("L1_SingleIsoEG24er2p1");
+    if (b_L1_SingleIsoEG24er2p1_) { b_L1_SingleIsoEG24er2p1_->SetAddress(&L1_SingleIsoEG24er2p1_); }
+    b_L1_SingleIsoEG26er1p5_ = tree->GetBranch("L1_SingleIsoEG26er1p5");
+    if (b_L1_SingleIsoEG26er1p5_) { b_L1_SingleIsoEG26er1p5_->SetAddress(&L1_SingleIsoEG26er1p5_); }
+    b_L1_SingleIsoEG26er2p1_ = tree->GetBranch("L1_SingleIsoEG26er2p1");
+    if (b_L1_SingleIsoEG26er2p1_) { b_L1_SingleIsoEG26er2p1_->SetAddress(&L1_SingleIsoEG26er2p1_); }
+    b_L1_SingleIsoEG26er2p5_ = tree->GetBranch("L1_SingleIsoEG26er2p5");
+    if (b_L1_SingleIsoEG26er2p5_) { b_L1_SingleIsoEG26er2p5_->SetAddress(&L1_SingleIsoEG26er2p5_); }
+    b_L1_SingleIsoEG28er1p5_ = tree->GetBranch("L1_SingleIsoEG28er1p5");
+    if (b_L1_SingleIsoEG28er1p5_) { b_L1_SingleIsoEG28er1p5_->SetAddress(&L1_SingleIsoEG28er1p5_); }
+    b_L1_SingleIsoEG28er2p1_ = tree->GetBranch("L1_SingleIsoEG28er2p1");
+    if (b_L1_SingleIsoEG28er2p1_) { b_L1_SingleIsoEG28er2p1_->SetAddress(&L1_SingleIsoEG28er2p1_); }
+    b_L1_SingleIsoEG28er2p5_ = tree->GetBranch("L1_SingleIsoEG28er2p5");
+    if (b_L1_SingleIsoEG28er2p5_) { b_L1_SingleIsoEG28er2p5_->SetAddress(&L1_SingleIsoEG28er2p5_); }
+    b_L1_SingleIsoEG30er2p1_ = tree->GetBranch("L1_SingleIsoEG30er2p1");
+    if (b_L1_SingleIsoEG30er2p1_) { b_L1_SingleIsoEG30er2p1_->SetAddress(&L1_SingleIsoEG30er2p1_); }
+    b_L1_SingleIsoEG30er2p5_ = tree->GetBranch("L1_SingleIsoEG30er2p5");
+    if (b_L1_SingleIsoEG30er2p5_) { b_L1_SingleIsoEG30er2p5_->SetAddress(&L1_SingleIsoEG30er2p5_); }
+    b_L1_SingleIsoEG32er2p1_ = tree->GetBranch("L1_SingleIsoEG32er2p1");
+    if (b_L1_SingleIsoEG32er2p1_) { b_L1_SingleIsoEG32er2p1_->SetAddress(&L1_SingleIsoEG32er2p1_); }
+    b_L1_SingleIsoEG32er2p5_ = tree->GetBranch("L1_SingleIsoEG32er2p5");
+    if (b_L1_SingleIsoEG32er2p5_) { b_L1_SingleIsoEG32er2p5_->SetAddress(&L1_SingleIsoEG32er2p5_); }
+    b_L1_SingleIsoEG34er2p5_ = tree->GetBranch("L1_SingleIsoEG34er2p5");
+    if (b_L1_SingleIsoEG34er2p5_) { b_L1_SingleIsoEG34er2p5_->SetAddress(&L1_SingleIsoEG34er2p5_); }
+    b_L1_SingleJet10erHE_ = tree->GetBranch("L1_SingleJet10erHE");
+    if (b_L1_SingleJet10erHE_) { b_L1_SingleJet10erHE_->SetAddress(&L1_SingleJet10erHE_); }
+    b_L1_SingleJet120_ = tree->GetBranch("L1_SingleJet120");
+    if (b_L1_SingleJet120_) { b_L1_SingleJet120_->SetAddress(&L1_SingleJet120_); }
+    b_L1_SingleJet120_FWD3p0_ = tree->GetBranch("L1_SingleJet120_FWD3p0");
+    if (b_L1_SingleJet120_FWD3p0_) { b_L1_SingleJet120_FWD3p0_->SetAddress(&L1_SingleJet120_FWD3p0_); }
+    b_L1_SingleJet120er2p5_ = tree->GetBranch("L1_SingleJet120er2p5");
+    if (b_L1_SingleJet120er2p5_) { b_L1_SingleJet120er2p5_->SetAddress(&L1_SingleJet120er2p5_); }
+    b_L1_SingleJet12erHE_ = tree->GetBranch("L1_SingleJet12erHE");
+    if (b_L1_SingleJet12erHE_) { b_L1_SingleJet12erHE_->SetAddress(&L1_SingleJet12erHE_); }
+    b_L1_SingleJet140er2p5_ = tree->GetBranch("L1_SingleJet140er2p5");
+    if (b_L1_SingleJet140er2p5_) { b_L1_SingleJet140er2p5_->SetAddress(&L1_SingleJet140er2p5_); }
+    b_L1_SingleJet140er2p5_ETMHF80_ = tree->GetBranch("L1_SingleJet140er2p5_ETMHF80");
+    if (b_L1_SingleJet140er2p5_ETMHF80_) { b_L1_SingleJet140er2p5_ETMHF80_->SetAddress(&L1_SingleJet140er2p5_ETMHF80_); }
+    b_L1_SingleJet140er2p5_ETMHF90_ = tree->GetBranch("L1_SingleJet140er2p5_ETMHF90");
+    if (b_L1_SingleJet140er2p5_ETMHF90_) { b_L1_SingleJet140er2p5_ETMHF90_->SetAddress(&L1_SingleJet140er2p5_ETMHF90_); }
+    b_L1_SingleJet160er2p5_ = tree->GetBranch("L1_SingleJet160er2p5");
+    if (b_L1_SingleJet160er2p5_) { b_L1_SingleJet160er2p5_->SetAddress(&L1_SingleJet160er2p5_); }
+    b_L1_SingleJet180_ = tree->GetBranch("L1_SingleJet180");
+    if (b_L1_SingleJet180_) { b_L1_SingleJet180_->SetAddress(&L1_SingleJet180_); }
+    b_L1_SingleJet180er2p5_ = tree->GetBranch("L1_SingleJet180er2p5");
+    if (b_L1_SingleJet180er2p5_) { b_L1_SingleJet180er2p5_->SetAddress(&L1_SingleJet180er2p5_); }
+    b_L1_SingleJet200_ = tree->GetBranch("L1_SingleJet200");
+    if (b_L1_SingleJet200_) { b_L1_SingleJet200_->SetAddress(&L1_SingleJet200_); }
+    b_L1_SingleJet20er2p5_NotBptxOR_ = tree->GetBranch("L1_SingleJet20er2p5_NotBptxOR");
+    if (b_L1_SingleJet20er2p5_NotBptxOR_) { b_L1_SingleJet20er2p5_NotBptxOR_->SetAddress(&L1_SingleJet20er2p5_NotBptxOR_); }
+    b_L1_SingleJet20er2p5_NotBptxOR_3BX_ = tree->GetBranch("L1_SingleJet20er2p5_NotBptxOR_3BX");
+    if (b_L1_SingleJet20er2p5_NotBptxOR_3BX_) { b_L1_SingleJet20er2p5_NotBptxOR_3BX_->SetAddress(&L1_SingleJet20er2p5_NotBptxOR_3BX_); }
+    b_L1_SingleJet35_ = tree->GetBranch("L1_SingleJet35");
+    if (b_L1_SingleJet35_) { b_L1_SingleJet35_->SetAddress(&L1_SingleJet35_); }
+    b_L1_SingleJet35_FWD3p0_ = tree->GetBranch("L1_SingleJet35_FWD3p0");
+    if (b_L1_SingleJet35_FWD3p0_) { b_L1_SingleJet35_FWD3p0_->SetAddress(&L1_SingleJet35_FWD3p0_); }
+    b_L1_SingleJet35er2p5_ = tree->GetBranch("L1_SingleJet35er2p5");
+    if (b_L1_SingleJet35er2p5_) { b_L1_SingleJet35er2p5_->SetAddress(&L1_SingleJet35er2p5_); }
+    b_L1_SingleJet43er2p5_NotBptxOR_3BX_ = tree->GetBranch("L1_SingleJet43er2p5_NotBptxOR_3BX");
+    if (b_L1_SingleJet43er2p5_NotBptxOR_3BX_) { b_L1_SingleJet43er2p5_NotBptxOR_3BX_->SetAddress(&L1_SingleJet43er2p5_NotBptxOR_3BX_); }
+    b_L1_SingleJet46er2p5_NotBptxOR_3BX_ = tree->GetBranch("L1_SingleJet46er2p5_NotBptxOR_3BX");
+    if (b_L1_SingleJet46er2p5_NotBptxOR_3BX_) { b_L1_SingleJet46er2p5_NotBptxOR_3BX_->SetAddress(&L1_SingleJet46er2p5_NotBptxOR_3BX_); }
+    b_L1_SingleJet60_ = tree->GetBranch("L1_SingleJet60");
+    if (b_L1_SingleJet60_) { b_L1_SingleJet60_->SetAddress(&L1_SingleJet60_); }
+    b_L1_SingleJet60_FWD3p0_ = tree->GetBranch("L1_SingleJet60_FWD3p0");
+    if (b_L1_SingleJet60_FWD3p0_) { b_L1_SingleJet60_FWD3p0_->SetAddress(&L1_SingleJet60_FWD3p0_); }
+    b_L1_SingleJet60er2p5_ = tree->GetBranch("L1_SingleJet60er2p5");
+    if (b_L1_SingleJet60er2p5_) { b_L1_SingleJet60er2p5_->SetAddress(&L1_SingleJet60er2p5_); }
+    b_L1_SingleJet8erHE_ = tree->GetBranch("L1_SingleJet8erHE");
+    if (b_L1_SingleJet8erHE_) { b_L1_SingleJet8erHE_->SetAddress(&L1_SingleJet8erHE_); }
+    b_L1_SingleJet90_ = tree->GetBranch("L1_SingleJet90");
+    if (b_L1_SingleJet90_) { b_L1_SingleJet90_->SetAddress(&L1_SingleJet90_); }
+    b_L1_SingleJet90_FWD3p0_ = tree->GetBranch("L1_SingleJet90_FWD3p0");
+    if (b_L1_SingleJet90_FWD3p0_) { b_L1_SingleJet90_FWD3p0_->SetAddress(&L1_SingleJet90_FWD3p0_); }
+    b_L1_SingleJet90er2p5_ = tree->GetBranch("L1_SingleJet90er2p5");
+    if (b_L1_SingleJet90er2p5_) { b_L1_SingleJet90er2p5_->SetAddress(&L1_SingleJet90er2p5_); }
+    b_L1_SingleLooseIsoEG28er1p5_ = tree->GetBranch("L1_SingleLooseIsoEG28er1p5");
+    if (b_L1_SingleLooseIsoEG28er1p5_) { b_L1_SingleLooseIsoEG28er1p5_->SetAddress(&L1_SingleLooseIsoEG28er1p5_); }
+    b_L1_SingleLooseIsoEG30er1p5_ = tree->GetBranch("L1_SingleLooseIsoEG30er1p5");
+    if (b_L1_SingleLooseIsoEG30er1p5_) { b_L1_SingleLooseIsoEG30er1p5_->SetAddress(&L1_SingleLooseIsoEG30er1p5_); }
+    b_L1_SingleMu0_BMTF_ = tree->GetBranch("L1_SingleMu0_BMTF");
+    if (b_L1_SingleMu0_BMTF_) { b_L1_SingleMu0_BMTF_->SetAddress(&L1_SingleMu0_BMTF_); }
+    b_L1_SingleMu0_DQ_ = tree->GetBranch("L1_SingleMu0_DQ");
+    if (b_L1_SingleMu0_DQ_) { b_L1_SingleMu0_DQ_->SetAddress(&L1_SingleMu0_DQ_); }
+    b_L1_SingleMu0_EMTF_ = tree->GetBranch("L1_SingleMu0_EMTF");
+    if (b_L1_SingleMu0_EMTF_) { b_L1_SingleMu0_EMTF_->SetAddress(&L1_SingleMu0_EMTF_); }
+    b_L1_SingleMu0_OMTF_ = tree->GetBranch("L1_SingleMu0_OMTF");
+    if (b_L1_SingleMu0_OMTF_) { b_L1_SingleMu0_OMTF_->SetAddress(&L1_SingleMu0_OMTF_); }
+    b_L1_SingleMu10er1p5_ = tree->GetBranch("L1_SingleMu10er1p5");
+    if (b_L1_SingleMu10er1p5_) { b_L1_SingleMu10er1p5_->SetAddress(&L1_SingleMu10er1p5_); }
+    b_L1_SingleMu12_DQ_BMTF_ = tree->GetBranch("L1_SingleMu12_DQ_BMTF");
+    if (b_L1_SingleMu12_DQ_BMTF_) { b_L1_SingleMu12_DQ_BMTF_->SetAddress(&L1_SingleMu12_DQ_BMTF_); }
+    b_L1_SingleMu12_DQ_EMTF_ = tree->GetBranch("L1_SingleMu12_DQ_EMTF");
+    if (b_L1_SingleMu12_DQ_EMTF_) { b_L1_SingleMu12_DQ_EMTF_->SetAddress(&L1_SingleMu12_DQ_EMTF_); }
+    b_L1_SingleMu12_DQ_OMTF_ = tree->GetBranch("L1_SingleMu12_DQ_OMTF");
+    if (b_L1_SingleMu12_DQ_OMTF_) { b_L1_SingleMu12_DQ_OMTF_->SetAddress(&L1_SingleMu12_DQ_OMTF_); }
+    b_L1_SingleMu12er1p5_ = tree->GetBranch("L1_SingleMu12er1p5");
+    if (b_L1_SingleMu12er1p5_) { b_L1_SingleMu12er1p5_->SetAddress(&L1_SingleMu12er1p5_); }
+    b_L1_SingleMu14er1p5_ = tree->GetBranch("L1_SingleMu14er1p5");
+    if (b_L1_SingleMu14er1p5_) { b_L1_SingleMu14er1p5_->SetAddress(&L1_SingleMu14er1p5_); }
+    b_L1_SingleMu15_DQ_ = tree->GetBranch("L1_SingleMu15_DQ");
+    if (b_L1_SingleMu15_DQ_) { b_L1_SingleMu15_DQ_->SetAddress(&L1_SingleMu15_DQ_); }
+    b_L1_SingleMu16er1p5_ = tree->GetBranch("L1_SingleMu16er1p5");
+    if (b_L1_SingleMu16er1p5_) { b_L1_SingleMu16er1p5_->SetAddress(&L1_SingleMu16er1p5_); }
+    b_L1_SingleMu18_ = tree->GetBranch("L1_SingleMu18");
+    if (b_L1_SingleMu18_) { b_L1_SingleMu18_->SetAddress(&L1_SingleMu18_); }
+    b_L1_SingleMu18er1p5_ = tree->GetBranch("L1_SingleMu18er1p5");
+    if (b_L1_SingleMu18er1p5_) { b_L1_SingleMu18er1p5_->SetAddress(&L1_SingleMu18er1p5_); }
+    b_L1_SingleMu20_ = tree->GetBranch("L1_SingleMu20");
+    if (b_L1_SingleMu20_) { b_L1_SingleMu20_->SetAddress(&L1_SingleMu20_); }
+    b_L1_SingleMu22_ = tree->GetBranch("L1_SingleMu22");
+    if (b_L1_SingleMu22_) { b_L1_SingleMu22_->SetAddress(&L1_SingleMu22_); }
+    b_L1_SingleMu22_BMTF_ = tree->GetBranch("L1_SingleMu22_BMTF");
+    if (b_L1_SingleMu22_BMTF_) { b_L1_SingleMu22_BMTF_->SetAddress(&L1_SingleMu22_BMTF_); }
+    b_L1_SingleMu22_EMTF_ = tree->GetBranch("L1_SingleMu22_EMTF");
+    if (b_L1_SingleMu22_EMTF_) { b_L1_SingleMu22_EMTF_->SetAddress(&L1_SingleMu22_EMTF_); }
+    b_L1_SingleMu22_OMTF_ = tree->GetBranch("L1_SingleMu22_OMTF");
+    if (b_L1_SingleMu22_OMTF_) { b_L1_SingleMu22_OMTF_->SetAddress(&L1_SingleMu22_OMTF_); }
+    b_L1_SingleMu25_ = tree->GetBranch("L1_SingleMu25");
+    if (b_L1_SingleMu25_) { b_L1_SingleMu25_->SetAddress(&L1_SingleMu25_); }
+    b_L1_SingleMu3_ = tree->GetBranch("L1_SingleMu3");
+    if (b_L1_SingleMu3_) { b_L1_SingleMu3_->SetAddress(&L1_SingleMu3_); }
+    b_L1_SingleMu5_ = tree->GetBranch("L1_SingleMu5");
+    if (b_L1_SingleMu5_) { b_L1_SingleMu5_->SetAddress(&L1_SingleMu5_); }
+    b_L1_SingleMu6er1p5_ = tree->GetBranch("L1_SingleMu6er1p5");
+    if (b_L1_SingleMu6er1p5_) { b_L1_SingleMu6er1p5_->SetAddress(&L1_SingleMu6er1p5_); }
+    b_L1_SingleMu7_ = tree->GetBranch("L1_SingleMu7");
+    if (b_L1_SingleMu7_) { b_L1_SingleMu7_->SetAddress(&L1_SingleMu7_); }
+    b_L1_SingleMu7_DQ_ = tree->GetBranch("L1_SingleMu7_DQ");
+    if (b_L1_SingleMu7_DQ_) { b_L1_SingleMu7_DQ_->SetAddress(&L1_SingleMu7_DQ_); }
+    b_L1_SingleMu7er1p5_ = tree->GetBranch("L1_SingleMu7er1p5");
+    if (b_L1_SingleMu7er1p5_) { b_L1_SingleMu7er1p5_->SetAddress(&L1_SingleMu7er1p5_); }
+    b_L1_SingleMu8er1p5_ = tree->GetBranch("L1_SingleMu8er1p5");
+    if (b_L1_SingleMu8er1p5_) { b_L1_SingleMu8er1p5_->SetAddress(&L1_SingleMu8er1p5_); }
+    b_L1_SingleMu9er1p5_ = tree->GetBranch("L1_SingleMu9er1p5");
+    if (b_L1_SingleMu9er1p5_) { b_L1_SingleMu9er1p5_->SetAddress(&L1_SingleMu9er1p5_); }
+    b_L1_SingleMuCosmics_ = tree->GetBranch("L1_SingleMuCosmics");
+    if (b_L1_SingleMuCosmics_) { b_L1_SingleMuCosmics_->SetAddress(&L1_SingleMuCosmics_); }
+    b_L1_SingleMuCosmics_BMTF_ = tree->GetBranch("L1_SingleMuCosmics_BMTF");
+    if (b_L1_SingleMuCosmics_BMTF_) { b_L1_SingleMuCosmics_BMTF_->SetAddress(&L1_SingleMuCosmics_BMTF_); }
+    b_L1_SingleMuCosmics_EMTF_ = tree->GetBranch("L1_SingleMuCosmics_EMTF");
+    if (b_L1_SingleMuCosmics_EMTF_) { b_L1_SingleMuCosmics_EMTF_->SetAddress(&L1_SingleMuCosmics_EMTF_); }
+    b_L1_SingleMuCosmics_OMTF_ = tree->GetBranch("L1_SingleMuCosmics_OMTF");
+    if (b_L1_SingleMuCosmics_OMTF_) { b_L1_SingleMuCosmics_OMTF_->SetAddress(&L1_SingleMuCosmics_OMTF_); }
+    b_L1_SingleMuOpen_ = tree->GetBranch("L1_SingleMuOpen");
+    if (b_L1_SingleMuOpen_) { b_L1_SingleMuOpen_->SetAddress(&L1_SingleMuOpen_); }
+    b_L1_SingleMuOpen_NotBptxOR_ = tree->GetBranch("L1_SingleMuOpen_NotBptxOR");
+    if (b_L1_SingleMuOpen_NotBptxOR_) { b_L1_SingleMuOpen_NotBptxOR_->SetAddress(&L1_SingleMuOpen_NotBptxOR_); }
+    b_L1_SingleMuOpen_er1p1_NotBptxOR_3BX_ = tree->GetBranch("L1_SingleMuOpen_er1p1_NotBptxOR_3BX");
+    if (b_L1_SingleMuOpen_er1p1_NotBptxOR_3BX_) { b_L1_SingleMuOpen_er1p1_NotBptxOR_3BX_->SetAddress(&L1_SingleMuOpen_er1p1_NotBptxOR_3BX_); }
+    b_L1_SingleMuOpen_er1p4_NotBptxOR_3BX_ = tree->GetBranch("L1_SingleMuOpen_er1p4_NotBptxOR_3BX");
+    if (b_L1_SingleMuOpen_er1p4_NotBptxOR_3BX_) { b_L1_SingleMuOpen_er1p4_NotBptxOR_3BX_->SetAddress(&L1_SingleMuOpen_er1p4_NotBptxOR_3BX_); }
+    b_L1_SingleTau120er2p1_ = tree->GetBranch("L1_SingleTau120er2p1");
+    if (b_L1_SingleTau120er2p1_) { b_L1_SingleTau120er2p1_->SetAddress(&L1_SingleTau120er2p1_); }
+    b_L1_SingleTau130er2p1_ = tree->GetBranch("L1_SingleTau130er2p1");
+    if (b_L1_SingleTau130er2p1_) { b_L1_SingleTau130er2p1_->SetAddress(&L1_SingleTau130er2p1_); }
+    b_L1_TOTEM_1_ = tree->GetBranch("L1_TOTEM_1");
+    if (b_L1_TOTEM_1_) { b_L1_TOTEM_1_->SetAddress(&L1_TOTEM_1_); }
+    b_L1_TOTEM_2_ = tree->GetBranch("L1_TOTEM_2");
+    if (b_L1_TOTEM_2_) { b_L1_TOTEM_2_->SetAddress(&L1_TOTEM_2_); }
+    b_L1_TOTEM_3_ = tree->GetBranch("L1_TOTEM_3");
+    if (b_L1_TOTEM_3_) { b_L1_TOTEM_3_->SetAddress(&L1_TOTEM_3_); }
+    b_L1_TOTEM_4_ = tree->GetBranch("L1_TOTEM_4");
+    if (b_L1_TOTEM_4_) { b_L1_TOTEM_4_->SetAddress(&L1_TOTEM_4_); }
+    b_L1_TripleEG16er2p5_ = tree->GetBranch("L1_TripleEG16er2p5");
+    if (b_L1_TripleEG16er2p5_) { b_L1_TripleEG16er2p5_->SetAddress(&L1_TripleEG16er2p5_); }
+    b_L1_TripleEG_16_12_8_er2p5_ = tree->GetBranch("L1_TripleEG_16_12_8_er2p5");
+    if (b_L1_TripleEG_16_12_8_er2p5_) { b_L1_TripleEG_16_12_8_er2p5_->SetAddress(&L1_TripleEG_16_12_8_er2p5_); }
+    b_L1_TripleEG_16_15_8_er2p5_ = tree->GetBranch("L1_TripleEG_16_15_8_er2p5");
+    if (b_L1_TripleEG_16_15_8_er2p5_) { b_L1_TripleEG_16_15_8_er2p5_->SetAddress(&L1_TripleEG_16_15_8_er2p5_); }
+    b_L1_TripleEG_18_17_8_er2p5_ = tree->GetBranch("L1_TripleEG_18_17_8_er2p5");
+    if (b_L1_TripleEG_18_17_8_er2p5_) { b_L1_TripleEG_18_17_8_er2p5_->SetAddress(&L1_TripleEG_18_17_8_er2p5_); }
+    b_L1_TripleEG_18_18_12_er2p5_ = tree->GetBranch("L1_TripleEG_18_18_12_er2p5");
+    if (b_L1_TripleEG_18_18_12_er2p5_) { b_L1_TripleEG_18_18_12_er2p5_->SetAddress(&L1_TripleEG_18_18_12_er2p5_); }
+    b_L1_TripleJet_100_80_70_DoubleJet_80_70_er2p5_ = tree->GetBranch("L1_TripleJet_100_80_70_DoubleJet_80_70_er2p5");
+    if (b_L1_TripleJet_100_80_70_DoubleJet_80_70_er2p5_) { b_L1_TripleJet_100_80_70_DoubleJet_80_70_er2p5_->SetAddress(&L1_TripleJet_100_80_70_DoubleJet_80_70_er2p5_); }
+    b_L1_TripleJet_105_85_75_DoubleJet_85_75_er2p5_ = tree->GetBranch("L1_TripleJet_105_85_75_DoubleJet_85_75_er2p5");
+    if (b_L1_TripleJet_105_85_75_DoubleJet_85_75_er2p5_) { b_L1_TripleJet_105_85_75_DoubleJet_85_75_er2p5_->SetAddress(&L1_TripleJet_105_85_75_DoubleJet_85_75_er2p5_); }
+    b_L1_TripleJet_95_75_65_DoubleJet_75_65_er2p5_ = tree->GetBranch("L1_TripleJet_95_75_65_DoubleJet_75_65_er2p5");
+    if (b_L1_TripleJet_95_75_65_DoubleJet_75_65_er2p5_) { b_L1_TripleJet_95_75_65_DoubleJet_75_65_er2p5_->SetAddress(&L1_TripleJet_95_75_65_DoubleJet_75_65_er2p5_); }
+    b_L1_TripleMu0_ = tree->GetBranch("L1_TripleMu0");
+    if (b_L1_TripleMu0_) { b_L1_TripleMu0_->SetAddress(&L1_TripleMu0_); }
+    b_L1_TripleMu0_OQ_ = tree->GetBranch("L1_TripleMu0_OQ");
+    if (b_L1_TripleMu0_OQ_) { b_L1_TripleMu0_OQ_->SetAddress(&L1_TripleMu0_OQ_); }
+    b_L1_TripleMu0_SQ_ = tree->GetBranch("L1_TripleMu0_SQ");
+    if (b_L1_TripleMu0_SQ_) { b_L1_TripleMu0_SQ_->SetAddress(&L1_TripleMu0_SQ_); }
+    b_L1_TripleMu3_ = tree->GetBranch("L1_TripleMu3");
+    if (b_L1_TripleMu3_) { b_L1_TripleMu3_->SetAddress(&L1_TripleMu3_); }
+    b_L1_TripleMu3_SQ_ = tree->GetBranch("L1_TripleMu3_SQ");
+    if (b_L1_TripleMu3_SQ_) { b_L1_TripleMu3_SQ_->SetAddress(&L1_TripleMu3_SQ_); }
+    b_L1_TripleMu_5SQ_3SQ_0OQ_ = tree->GetBranch("L1_TripleMu_5SQ_3SQ_0OQ");
+    if (b_L1_TripleMu_5SQ_3SQ_0OQ_) { b_L1_TripleMu_5SQ_3SQ_0OQ_->SetAddress(&L1_TripleMu_5SQ_3SQ_0OQ_); }
+    b_L1_TripleMu_5SQ_3SQ_0OQ_DoubleMu_5_3_SQ_OS_Mass_Max9_ = tree->GetBranch("L1_TripleMu_5SQ_3SQ_0OQ_DoubleMu_5_3_SQ_OS_Mass_Max9");
+    if (b_L1_TripleMu_5SQ_3SQ_0OQ_DoubleMu_5_3_SQ_OS_Mass_Max9_) { b_L1_TripleMu_5SQ_3SQ_0OQ_DoubleMu_5_3_SQ_OS_Mass_Max9_->SetAddress(&L1_TripleMu_5SQ_3SQ_0OQ_DoubleMu_5_3_SQ_OS_Mass_Max9_); }
+    b_L1_TripleMu_5SQ_3SQ_0_DoubleMu_5_3_SQ_OS_Mass_Max9_ = tree->GetBranch("L1_TripleMu_5SQ_3SQ_0_DoubleMu_5_3_SQ_OS_Mass_Max9");
+    if (b_L1_TripleMu_5SQ_3SQ_0_DoubleMu_5_3_SQ_OS_Mass_Max9_) { b_L1_TripleMu_5SQ_3SQ_0_DoubleMu_5_3_SQ_OS_Mass_Max9_->SetAddress(&L1_TripleMu_5SQ_3SQ_0_DoubleMu_5_3_SQ_OS_Mass_Max9_); }
+    b_L1_TripleMu_5_3_3_ = tree->GetBranch("L1_TripleMu_5_3_3");
+    if (b_L1_TripleMu_5_3_3_) { b_L1_TripleMu_5_3_3_->SetAddress(&L1_TripleMu_5_3_3_); }
+    b_L1_TripleMu_5_3_3_SQ_ = tree->GetBranch("L1_TripleMu_5_3_3_SQ");
+    if (b_L1_TripleMu_5_3_3_SQ_) { b_L1_TripleMu_5_3_3_SQ_->SetAddress(&L1_TripleMu_5_3_3_SQ_); }
+    b_L1_TripleMu_5_3p5_2p5_ = tree->GetBranch("L1_TripleMu_5_3p5_2p5");
+    if (b_L1_TripleMu_5_3p5_2p5_) { b_L1_TripleMu_5_3p5_2p5_->SetAddress(&L1_TripleMu_5_3p5_2p5_); }
+    b_L1_TripleMu_5_3p5_2p5_DoubleMu_5_2p5_OS_Mass_5to17_ = tree->GetBranch("L1_TripleMu_5_3p5_2p5_DoubleMu_5_2p5_OS_Mass_5to17");
+    if (b_L1_TripleMu_5_3p5_2p5_DoubleMu_5_2p5_OS_Mass_5to17_) { b_L1_TripleMu_5_3p5_2p5_DoubleMu_5_2p5_OS_Mass_5to17_->SetAddress(&L1_TripleMu_5_3p5_2p5_DoubleMu_5_2p5_OS_Mass_5to17_); }
+    b_L1_TripleMu_5_3p5_2p5_OQ_DoubleMu_5_2p5_OQ_OS_Mass_5to17_ = tree->GetBranch("L1_TripleMu_5_3p5_2p5_OQ_DoubleMu_5_2p5_OQ_OS_Mass_5to17");
+    if (b_L1_TripleMu_5_3p5_2p5_OQ_DoubleMu_5_2p5_OQ_OS_Mass_5to17_) { b_L1_TripleMu_5_3p5_2p5_OQ_DoubleMu_5_2p5_OQ_OS_Mass_5to17_->SetAddress(&L1_TripleMu_5_3p5_2p5_OQ_DoubleMu_5_2p5_OQ_OS_Mass_5to17_); }
+    b_L1_TripleMu_5_4_2p5_DoubleMu_5_2p5_OS_Mass_5to17_ = tree->GetBranch("L1_TripleMu_5_4_2p5_DoubleMu_5_2p5_OS_Mass_5to17");
+    if (b_L1_TripleMu_5_4_2p5_DoubleMu_5_2p5_OS_Mass_5to17_) { b_L1_TripleMu_5_4_2p5_DoubleMu_5_2p5_OS_Mass_5to17_->SetAddress(&L1_TripleMu_5_4_2p5_DoubleMu_5_2p5_OS_Mass_5to17_); }
+    b_L1_TripleMu_5_5_3_ = tree->GetBranch("L1_TripleMu_5_5_3");
+    if (b_L1_TripleMu_5_5_3_) { b_L1_TripleMu_5_5_3_->SetAddress(&L1_TripleMu_5_5_3_); }
+    b_L1_UnpairedBunchBptxMinus_ = tree->GetBranch("L1_UnpairedBunchBptxMinus");
+    if (b_L1_UnpairedBunchBptxMinus_) { b_L1_UnpairedBunchBptxMinus_->SetAddress(&L1_UnpairedBunchBptxMinus_); }
+    b_L1_UnpairedBunchBptxPlus_ = tree->GetBranch("L1_UnpairedBunchBptxPlus");
+    if (b_L1_UnpairedBunchBptxPlus_) { b_L1_UnpairedBunchBptxPlus_->SetAddress(&L1_UnpairedBunchBptxPlus_); }
+    b_L1_ZeroBias_ = tree->GetBranch("L1_ZeroBias");
+    if (b_L1_ZeroBias_) { b_L1_ZeroBias_->SetAddress(&L1_ZeroBias_); }
+    b_L1_ZeroBias_copy_ = tree->GetBranch("L1_ZeroBias_copy");
+    if (b_L1_ZeroBias_copy_) { b_L1_ZeroBias_copy_->SetAddress(&L1_ZeroBias_copy_); }
     b_L1simulation_step_ = tree->GetBranch("L1simulation_step");
     if (b_L1simulation_step_) { b_L1simulation_step_->SetAddress(&L1simulation_step_); }
     b_LHEPart_eta_ = tree->GetBranch("LHEPart_eta");
@@ -1518,6 +2450,8 @@ void Nano::Init(TTree *tree) {
     if (b_LHEPart_pt_) { b_LHEPart_pt_->SetAddress(&LHEPart_pt_); }
     b_LHEPdfWeight_ = tree->GetBranch("LHEPdfWeight");
     if (b_LHEPdfWeight_) { b_LHEPdfWeight_->SetAddress(&LHEPdfWeight_); }
+    b_LHEReweightingWeight_ = tree->GetBranch("LHEReweightingWeight");
+    if (b_LHEReweightingWeight_) { b_LHEReweightingWeight_->SetAddress(&LHEReweightingWeight_); }
     b_LHEScaleWeight_ = tree->GetBranch("LHEScaleWeight");
     if (b_LHEScaleWeight_) { b_LHEScaleWeight_->SetAddress(&LHEScaleWeight_); }
     b_LHEWeight_originalXWGTUP_ = tree->GetBranch("LHEWeight_originalXWGTUP");
@@ -1584,20 +2518,42 @@ void Nano::Init(TTree *tree) {
     if (b_Muon_genPartIdx_) { b_Muon_genPartIdx_->SetAddress(&Muon_genPartIdx_); }
     b_Muon_highPtId_ = tree->GetBranch("Muon_highPtId");
     if (b_Muon_highPtId_) { b_Muon_highPtId_->SetAddress(&Muon_highPtId_); }
+    b_Muon_inTimeMuon_ = tree->GetBranch("Muon_inTimeMuon");
+    if (b_Muon_inTimeMuon_) { b_Muon_inTimeMuon_->SetAddress(&Muon_inTimeMuon_); }
     b_Muon_ip3d_ = tree->GetBranch("Muon_ip3d");
     if (b_Muon_ip3d_) { b_Muon_ip3d_->SetAddress(&Muon_ip3d_); }
+    b_Muon_isGlobal_ = tree->GetBranch("Muon_isGlobal");
+    if (b_Muon_isGlobal_) { b_Muon_isGlobal_->SetAddress(&Muon_isGlobal_); }
     b_Muon_isPFcand_ = tree->GetBranch("Muon_isPFcand");
     if (b_Muon_isPFcand_) { b_Muon_isPFcand_->SetAddress(&Muon_isPFcand_); }
+    b_Muon_isTracker_ = tree->GetBranch("Muon_isTracker");
+    if (b_Muon_isTracker_) { b_Muon_isTracker_->SetAddress(&Muon_isTracker_); }
     b_Muon_jetIdx_ = tree->GetBranch("Muon_jetIdx");
     if (b_Muon_jetIdx_) { b_Muon_jetIdx_->SetAddress(&Muon_jetIdx_); }
+    b_Muon_jetPtRelv2_ = tree->GetBranch("Muon_jetPtRelv2");
+    if (b_Muon_jetPtRelv2_) { b_Muon_jetPtRelv2_->SetAddress(&Muon_jetPtRelv2_); }
+    b_Muon_jetRelIso_ = tree->GetBranch("Muon_jetRelIso");
+    if (b_Muon_jetRelIso_) { b_Muon_jetRelIso_->SetAddress(&Muon_jetRelIso_); }
+    b_Muon_looseId_ = tree->GetBranch("Muon_looseId");
+    if (b_Muon_looseId_) { b_Muon_looseId_->SetAddress(&Muon_looseId_); }
     b_Muon_mass_ = tree->GetBranch("Muon_mass");
     if (b_Muon_mass_) { b_Muon_mass_->SetAddress(&Muon_mass_); }
     b_Muon_mediumId_ = tree->GetBranch("Muon_mediumId");
     if (b_Muon_mediumId_) { b_Muon_mediumId_->SetAddress(&Muon_mediumId_); }
+    b_Muon_mediumPromptId_ = tree->GetBranch("Muon_mediumPromptId");
+    if (b_Muon_mediumPromptId_) { b_Muon_mediumPromptId_->SetAddress(&Muon_mediumPromptId_); }
+    b_Muon_miniIsoId_ = tree->GetBranch("Muon_miniIsoId");
+    if (b_Muon_miniIsoId_) { b_Muon_miniIsoId_->SetAddress(&Muon_miniIsoId_); }
     b_Muon_miniPFRelIso_all_ = tree->GetBranch("Muon_miniPFRelIso_all");
     if (b_Muon_miniPFRelIso_all_) { b_Muon_miniPFRelIso_all_->SetAddress(&Muon_miniPFRelIso_all_); }
     b_Muon_miniPFRelIso_chg_ = tree->GetBranch("Muon_miniPFRelIso_chg");
     if (b_Muon_miniPFRelIso_chg_) { b_Muon_miniPFRelIso_chg_->SetAddress(&Muon_miniPFRelIso_chg_); }
+    b_Muon_multiIsoId_ = tree->GetBranch("Muon_multiIsoId");
+    if (b_Muon_multiIsoId_) { b_Muon_multiIsoId_->SetAddress(&Muon_multiIsoId_); }
+    b_Muon_mvaId_ = tree->GetBranch("Muon_mvaId");
+    if (b_Muon_mvaId_) { b_Muon_mvaId_->SetAddress(&Muon_mvaId_); }
+    b_Muon_mvaLowPt_ = tree->GetBranch("Muon_mvaLowPt");
+    if (b_Muon_mvaLowPt_) { b_Muon_mvaLowPt_->SetAddress(&Muon_mvaLowPt_); }
     b_Muon_mvaTTH_ = tree->GetBranch("Muon_mvaTTH");
     if (b_Muon_mvaTTH_) { b_Muon_mvaTTH_->SetAddress(&Muon_mvaTTH_); }
     b_Muon_nStations_ = tree->GetBranch("Muon_nStations");
@@ -1606,6 +2562,8 @@ void Nano::Init(TTree *tree) {
     if (b_Muon_nTrackerLayers_) { b_Muon_nTrackerLayers_->SetAddress(&Muon_nTrackerLayers_); }
     b_Muon_pdgId_ = tree->GetBranch("Muon_pdgId");
     if (b_Muon_pdgId_) { b_Muon_pdgId_->SetAddress(&Muon_pdgId_); }
+    b_Muon_pfIsoId_ = tree->GetBranch("Muon_pfIsoId");
+    if (b_Muon_pfIsoId_) { b_Muon_pfIsoId_->SetAddress(&Muon_pfIsoId_); }
     b_Muon_pfRelIso03_all_ = tree->GetBranch("Muon_pfRelIso03_all");
     if (b_Muon_pfRelIso03_all_) { b_Muon_pfRelIso03_all_->SetAddress(&Muon_pfRelIso03_all_); }
     b_Muon_pfRelIso03_chg_ = tree->GetBranch("Muon_pfRelIso03_chg");
@@ -1624,12 +2582,26 @@ void Nano::Init(TTree *tree) {
     if (b_Muon_sip3d_) { b_Muon_sip3d_->SetAddress(&Muon_sip3d_); }
     b_Muon_softId_ = tree->GetBranch("Muon_softId");
     if (b_Muon_softId_) { b_Muon_softId_->SetAddress(&Muon_softId_); }
+    b_Muon_softMva_ = tree->GetBranch("Muon_softMva");
+    if (b_Muon_softMva_) { b_Muon_softMva_->SetAddress(&Muon_softMva_); }
+    b_Muon_softMvaId_ = tree->GetBranch("Muon_softMvaId");
+    if (b_Muon_softMvaId_) { b_Muon_softMvaId_->SetAddress(&Muon_softMvaId_); }
     b_Muon_tightCharge_ = tree->GetBranch("Muon_tightCharge");
     if (b_Muon_tightCharge_) { b_Muon_tightCharge_->SetAddress(&Muon_tightCharge_); }
     b_Muon_tightId_ = tree->GetBranch("Muon_tightId");
     if (b_Muon_tightId_) { b_Muon_tightId_->SetAddress(&Muon_tightId_); }
+    b_Muon_tkIsoId_ = tree->GetBranch("Muon_tkIsoId");
+    if (b_Muon_tkIsoId_) { b_Muon_tkIsoId_->SetAddress(&Muon_tkIsoId_); }
+    b_Muon_tkRelIso_ = tree->GetBranch("Muon_tkRelIso");
+    if (b_Muon_tkRelIso_) { b_Muon_tkRelIso_->SetAddress(&Muon_tkRelIso_); }
+    b_Muon_triggerIdLoose_ = tree->GetBranch("Muon_triggerIdLoose");
+    if (b_Muon_triggerIdLoose_) { b_Muon_triggerIdLoose_->SetAddress(&Muon_triggerIdLoose_); }
+    b_Muon_tunepRelPt_ = tree->GetBranch("Muon_tunepRelPt");
+    if (b_Muon_tunepRelPt_) { b_Muon_tunepRelPt_->SetAddress(&Muon_tunepRelPt_); }
     b_OtherPV_z_ = tree->GetBranch("OtherPV_z");
     if (b_OtherPV_z_) { b_OtherPV_z_->SetAddress(&OtherPV_z_); }
+    b_PSWeight_ = tree->GetBranch("PSWeight");
+    if (b_PSWeight_) { b_PSWeight_->SetAddress(&PSWeight_); }
     b_PV_chi2_ = tree->GetBranch("PV_chi2");
     if (b_PV_chi2_) { b_PV_chi2_->SetAddress(&PV_chi2_); }
     b_PV_ndof_ = tree->GetBranch("PV_ndof");
@@ -1652,6 +2624,8 @@ void Nano::Init(TTree *tree) {
     if (b_Photon_cleanmask_) { b_Photon_cleanmask_->SetAddress(&Photon_cleanmask_); }
     b_Photon_cutBasedBitmap_ = tree->GetBranch("Photon_cutBasedBitmap");
     if (b_Photon_cutBasedBitmap_) { b_Photon_cutBasedBitmap_->SetAddress(&Photon_cutBasedBitmap_); }
+    b_Photon_cutBasedV1Bitmap_ = tree->GetBranch("Photon_cutBasedV1Bitmap");
+    if (b_Photon_cutBasedV1Bitmap_) { b_Photon_cutBasedV1Bitmap_->SetAddress(&Photon_cutBasedV1Bitmap_); }
     b_Photon_eCorr_ = tree->GetBranch("Photon_eCorr");
     if (b_Photon_eCorr_) { b_Photon_eCorr_->SetAddress(&Photon_eCorr_); }
     b_Photon_electronIdx_ = tree->GetBranch("Photon_electronIdx");
@@ -1678,6 +2652,8 @@ void Nano::Init(TTree *tree) {
     if (b_Photon_mass_) { b_Photon_mass_->SetAddress(&Photon_mass_); }
     b_Photon_mvaID_ = tree->GetBranch("Photon_mvaID");
     if (b_Photon_mvaID_) { b_Photon_mvaID_->SetAddress(&Photon_mvaID_); }
+    b_Photon_mvaIDV1_ = tree->GetBranch("Photon_mvaIDV1");
+    if (b_Photon_mvaIDV1_) { b_Photon_mvaIDV1_->SetAddress(&Photon_mvaIDV1_); }
     b_Photon_mvaID_WP80_ = tree->GetBranch("Photon_mvaID_WP80");
     if (b_Photon_mvaID_WP80_) { b_Photon_mvaID_WP80_->SetAddress(&Photon_mvaID_WP80_); }
     b_Photon_mvaID_WP90_ = tree->GetBranch("Photon_mvaID_WP90");
@@ -1696,14 +2672,20 @@ void Nano::Init(TTree *tree) {
     if (b_Photon_pt_) { b_Photon_pt_->SetAddress(&Photon_pt_); }
     b_Photon_r9_ = tree->GetBranch("Photon_r9");
     if (b_Photon_r9_) { b_Photon_r9_->SetAddress(&Photon_r9_); }
+    b_Photon_seedGain_ = tree->GetBranch("Photon_seedGain");
+    if (b_Photon_seedGain_) { b_Photon_seedGain_->SetAddress(&Photon_seedGain_); }
     b_Photon_sieie_ = tree->GetBranch("Photon_sieie");
     if (b_Photon_sieie_) { b_Photon_sieie_->SetAddress(&Photon_sieie_); }
     b_Photon_vidNestedWPBitmap_ = tree->GetBranch("Photon_vidNestedWPBitmap");
     if (b_Photon_vidNestedWPBitmap_) { b_Photon_vidNestedWPBitmap_->SetAddress(&Photon_vidNestedWPBitmap_); }
+    b_Pileup_gpudensity_ = tree->GetBranch("Pileup_gpudensity");
+    if (b_Pileup_gpudensity_) { b_Pileup_gpudensity_->SetAddress(&Pileup_gpudensity_); }
     b_Pileup_nPU_ = tree->GetBranch("Pileup_nPU");
     if (b_Pileup_nPU_) { b_Pileup_nPU_->SetAddress(&Pileup_nPU_); }
     b_Pileup_nTrueInt_ = tree->GetBranch("Pileup_nTrueInt");
     if (b_Pileup_nTrueInt_) { b_Pileup_nTrueInt_->SetAddress(&Pileup_nTrueInt_); }
+    b_Pileup_pudensity_ = tree->GetBranch("Pileup_pudensity");
+    if (b_Pileup_pudensity_) { b_Pileup_pudensity_->SetAddress(&Pileup_pudensity_); }
     b_Pileup_sumEOOT_ = tree->GetBranch("Pileup_sumEOOT");
     if (b_Pileup_sumEOOT_) { b_Pileup_sumEOOT_->SetAddress(&Pileup_sumEOOT_); }
     b_Pileup_sumLOOT_ = tree->GetBranch("Pileup_sumLOOT");
@@ -1790,6 +2772,8 @@ void Nano::Init(TTree *tree) {
     if (b_SubJet_phi_) { b_SubJet_phi_->SetAddress(&SubJet_phi_); }
     b_SubJet_pt_ = tree->GetBranch("SubJet_pt");
     if (b_SubJet_pt_) { b_SubJet_pt_->SetAddress(&SubJet_pt_); }
+    b_SubJet_rawFactor_ = tree->GetBranch("SubJet_rawFactor");
+    if (b_SubJet_rawFactor_) { b_SubJet_rawFactor_->SetAddress(&SubJet_rawFactor_); }
     b_SubJet_tau1_ = tree->GetBranch("SubJet_tau1");
     if (b_SubJet_tau1_) { b_SubJet_tau1_->SetAddress(&SubJet_tau1_); }
     b_SubJet_tau2_ = tree->GetBranch("SubJet_tau2");
@@ -1818,6 +2802,8 @@ void Nano::Init(TTree *tree) {
     if (b_Tau_genPartIdx_) { b_Tau_genPartIdx_->SetAddress(&Tau_genPartIdx_); }
     b_Tau_idAntiEle_ = tree->GetBranch("Tau_idAntiEle");
     if (b_Tau_idAntiEle_) { b_Tau_idAntiEle_->SetAddress(&Tau_idAntiEle_); }
+    b_Tau_idAntiEle2018_ = tree->GetBranch("Tau_idAntiEle2018");
+    if (b_Tau_idAntiEle2018_) { b_Tau_idAntiEle2018_->SetAddress(&Tau_idAntiEle2018_); }
     b_Tau_idAntiMu_ = tree->GetBranch("Tau_idAntiMu");
     if (b_Tau_idAntiMu_) { b_Tau_idAntiMu_->SetAddress(&Tau_idAntiMu_); }
     b_Tau_idDecayMode_ = tree->GetBranch("Tau_idDecayMode");
@@ -1856,8 +2842,12 @@ void Nano::Init(TTree *tree) {
     if (b_Tau_puCorr_) { b_Tau_puCorr_->SetAddress(&Tau_puCorr_); }
     b_Tau_rawAntiEle_ = tree->GetBranch("Tau_rawAntiEle");
     if (b_Tau_rawAntiEle_) { b_Tau_rawAntiEle_->SetAddress(&Tau_rawAntiEle_); }
+    b_Tau_rawAntiEle2018_ = tree->GetBranch("Tau_rawAntiEle2018");
+    if (b_Tau_rawAntiEle2018_) { b_Tau_rawAntiEle2018_->SetAddress(&Tau_rawAntiEle2018_); }
     b_Tau_rawAntiEleCat_ = tree->GetBranch("Tau_rawAntiEleCat");
     if (b_Tau_rawAntiEleCat_) { b_Tau_rawAntiEleCat_->SetAddress(&Tau_rawAntiEleCat_); }
+    b_Tau_rawAntiEleCat2018_ = tree->GetBranch("Tau_rawAntiEleCat2018");
+    if (b_Tau_rawAntiEleCat2018_) { b_Tau_rawAntiEleCat2018_->SetAddress(&Tau_rawAntiEleCat2018_); }
     b_Tau_rawIso_ = tree->GetBranch("Tau_rawIso");
     if (b_Tau_rawIso_) { b_Tau_rawIso_->SetAddress(&Tau_rawIso_); }
     b_Tau_rawIsodR03_ = tree->GetBranch("Tau_rawIsodR03");
@@ -1898,12 +2888,20 @@ void Nano::Init(TTree *tree) {
     if (b_TrigObj_phi_) { b_TrigObj_phi_->SetAddress(&TrigObj_phi_); }
     b_TrigObj_pt_ = tree->GetBranch("TrigObj_pt");
     if (b_TrigObj_pt_) { b_TrigObj_pt_->SetAddress(&TrigObj_pt_); }
+    b_btagWeight_CSVV2_ = tree->GetBranch("btagWeight_CSVV2");
+    if (b_btagWeight_CSVV2_) { b_btagWeight_CSVV2_->SetAddress(&btagWeight_CSVV2_); }
+    b_btagWeight_DeepCSVB_ = tree->GetBranch("btagWeight_DeepCSVB");
+    if (b_btagWeight_DeepCSVB_) { b_btagWeight_DeepCSVB_->SetAddress(&btagWeight_DeepCSVB_); }
     b_event_ = tree->GetBranch("event");
     if (b_event_) { b_event_->SetAddress(&event_); }
     b_fixedGridRhoFastjetAll_ = tree->GetBranch("fixedGridRhoFastjetAll");
     if (b_fixedGridRhoFastjetAll_) { b_fixedGridRhoFastjetAll_->SetAddress(&fixedGridRhoFastjetAll_); }
+    b_fixedGridRhoFastjetCentral_ = tree->GetBranch("fixedGridRhoFastjetCentral");
+    if (b_fixedGridRhoFastjetCentral_) { b_fixedGridRhoFastjetCentral_->SetAddress(&fixedGridRhoFastjetCentral_); }
     b_fixedGridRhoFastjetCentralCalo_ = tree->GetBranch("fixedGridRhoFastjetCentralCalo");
     if (b_fixedGridRhoFastjetCentralCalo_) { b_fixedGridRhoFastjetCentralCalo_->SetAddress(&fixedGridRhoFastjetCentralCalo_); }
+    b_fixedGridRhoFastjetCentralChargedPileUp_ = tree->GetBranch("fixedGridRhoFastjetCentralChargedPileUp");
+    if (b_fixedGridRhoFastjetCentralChargedPileUp_) { b_fixedGridRhoFastjetCentralChargedPileUp_->SetAddress(&fixedGridRhoFastjetCentralChargedPileUp_); }
     b_fixedGridRhoFastjetCentralNeutral_ = tree->GetBranch("fixedGridRhoFastjetCentralNeutral");
     if (b_fixedGridRhoFastjetCentralNeutral_) { b_fixedGridRhoFastjetCentralNeutral_->SetAddress(&fixedGridRhoFastjetCentralNeutral_); }
     b_genTtbarId_ = tree->GetBranch("genTtbarId");
@@ -1912,6 +2910,8 @@ void Nano::Init(TTree *tree) {
     if (b_genWeight_) { b_genWeight_->SetAddress(&genWeight_); }
     b_luminosityBlock_ = tree->GetBranch("luminosityBlock");
     if (b_luminosityBlock_) { b_luminosityBlock_->SetAddress(&luminosityBlock_); }
+    b_nCorrT1METJet_ = tree->GetBranch("nCorrT1METJet");
+    if (b_nCorrT1METJet_) { b_nCorrT1METJet_->SetAddress(&nCorrT1METJet_); }
     b_nElectron_ = tree->GetBranch("nElectron");
     if (b_nElectron_) { b_nElectron_->SetAddress(&nElectron_); }
     b_nFatJet_ = tree->GetBranch("nFatJet");
@@ -1934,12 +2934,16 @@ void Nano::Init(TTree *tree) {
     if (b_nLHEPart_) { b_nLHEPart_->SetAddress(&nLHEPart_); }
     b_nLHEPdfWeight_ = tree->GetBranch("nLHEPdfWeight");
     if (b_nLHEPdfWeight_) { b_nLHEPdfWeight_->SetAddress(&nLHEPdfWeight_); }
+    b_nLHEReweightingWeight_ = tree->GetBranch("nLHEReweightingWeight");
+    if (b_nLHEReweightingWeight_) { b_nLHEReweightingWeight_->SetAddress(&nLHEReweightingWeight_); }
     b_nLHEScaleWeight_ = tree->GetBranch("nLHEScaleWeight");
     if (b_nLHEScaleWeight_) { b_nLHEScaleWeight_->SetAddress(&nLHEScaleWeight_); }
     b_nMuon_ = tree->GetBranch("nMuon");
     if (b_nMuon_) { b_nMuon_->SetAddress(&nMuon_); }
     b_nOtherPV_ = tree->GetBranch("nOtherPV");
     if (b_nOtherPV_) { b_nOtherPV_->SetAddress(&nOtherPV_); }
+    b_nPSWeight_ = tree->GetBranch("nPSWeight");
+    if (b_nPSWeight_) { b_nPSWeight_->SetAddress(&nPSWeight_); }
     b_nPhoton_ = tree->GetBranch("nPhoton");
     if (b_nPhoton_) { b_nPhoton_->SetAddress(&nPhoton_); }
     b_nSV_ = tree->GetBranch("nSV");
@@ -1963,15 +2967,25 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_CaloMET_phi_ = false;
     loaded_CaloMET_pt_ = false;
     loaded_CaloMET_sumEt_ = false;
+    loaded_ChsMET_phi_ = false;
+    loaded_ChsMET_pt_ = false;
+    loaded_ChsMET_sumEt_ = false;
+    loaded_CorrT1METJet_area_ = false;
+    loaded_CorrT1METJet_eta_ = false;
+    loaded_CorrT1METJet_muonSubtrFactor_ = false;
+    loaded_CorrT1METJet_phi_ = false;
+    loaded_CorrT1METJet_rawPt_ = false;
     loaded_Electron_charge_ = false;
     loaded_Electron_cleanmask_ = false;
     loaded_Electron_convVeto_ = false;
     loaded_Electron_cutBased_ = false;
+    loaded_Electron_cutBased_Fall17_V1_ = false;
     loaded_Electron_cutBased_HEEP_ = false;
     loaded_Electron_deltaEtaSC_ = false;
     loaded_Electron_dr03EcalRecHitSumEt_ = false;
     loaded_Electron_dr03HcalDepth1TowerSumEt_ = false;
     loaded_Electron_dr03TkSumPt_ = false;
+    loaded_Electron_dr03TkSumPtHEEP_ = false;
     loaded_Electron_dxy_ = false;
     loaded_Electron_dxyErr_ = false;
     loaded_Electron_dz_ = false;
@@ -1986,18 +3000,28 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_Electron_ip3d_ = false;
     loaded_Electron_isPFcand_ = false;
     loaded_Electron_jetIdx_ = false;
+    loaded_Electron_jetPtRelv2_ = false;
+    loaded_Electron_jetRelIso_ = false;
     loaded_Electron_lostHits_ = false;
     loaded_Electron_mass_ = false;
     loaded_Electron_miniPFRelIso_all_ = false;
     loaded_Electron_miniPFRelIso_chg_ = false;
-    loaded_Electron_mvaFall17Iso_ = false;
-    loaded_Electron_mvaFall17Iso_WP80_ = false;
-    loaded_Electron_mvaFall17Iso_WP90_ = false;
-    loaded_Electron_mvaFall17Iso_WPL_ = false;
-    loaded_Electron_mvaFall17noIso_ = false;
-    loaded_Electron_mvaFall17noIso_WP80_ = false;
-    loaded_Electron_mvaFall17noIso_WP90_ = false;
-    loaded_Electron_mvaFall17noIso_WPL_ = false;
+    loaded_Electron_mvaFall17V1Iso_ = false;
+    loaded_Electron_mvaFall17V1Iso_WP80_ = false;
+    loaded_Electron_mvaFall17V1Iso_WP90_ = false;
+    loaded_Electron_mvaFall17V1Iso_WPL_ = false;
+    loaded_Electron_mvaFall17V1noIso_ = false;
+    loaded_Electron_mvaFall17V1noIso_WP80_ = false;
+    loaded_Electron_mvaFall17V1noIso_WP90_ = false;
+    loaded_Electron_mvaFall17V1noIso_WPL_ = false;
+    loaded_Electron_mvaFall17V2Iso_ = false;
+    loaded_Electron_mvaFall17V2Iso_WP80_ = false;
+    loaded_Electron_mvaFall17V2Iso_WP90_ = false;
+    loaded_Electron_mvaFall17V2Iso_WPL_ = false;
+    loaded_Electron_mvaFall17V2noIso_ = false;
+    loaded_Electron_mvaFall17V2noIso_WP80_ = false;
+    loaded_Electron_mvaFall17V2noIso_WP90_ = false;
+    loaded_Electron_mvaFall17V2noIso_WPL_ = false;
     loaded_Electron_mvaTTH_ = false;
     loaded_Electron_p4_ = false;
     loaded_Electron_pdgId_ = false;
@@ -2007,6 +3031,7 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_Electron_photonIdx_ = false;
     loaded_Electron_pt_ = false;
     loaded_Electron_r9_ = false;
+    loaded_Electron_seedGain_ = false;
     loaded_Electron_sieie_ = false;
     loaded_Electron_sip3d_ = false;
     loaded_Electron_tightCharge_ = false;
@@ -2014,8 +3039,27 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_FatJet_area_ = false;
     loaded_FatJet_btagCMVA_ = false;
     loaded_FatJet_btagCSVV2_ = false;
+    loaded_FatJet_btagDDBvL_ = false;
+    loaded_FatJet_btagDDCvB_ = false;
+    loaded_FatJet_btagDDCvL_ = false;
     loaded_FatJet_btagDeepB_ = false;
     loaded_FatJet_btagHbb_ = false;
+    loaded_FatJet_deepTagMD_H4qvsQCD_ = false;
+    loaded_FatJet_deepTagMD_HbbvsQCD_ = false;
+    loaded_FatJet_deepTagMD_TvsQCD_ = false;
+    loaded_FatJet_deepTagMD_WvsQCD_ = false;
+    loaded_FatJet_deepTagMD_ZHbbvsQCD_ = false;
+    loaded_FatJet_deepTagMD_ZHccvsQCD_ = false;
+    loaded_FatJet_deepTagMD_ZbbvsQCD_ = false;
+    loaded_FatJet_deepTagMD_ZvsQCD_ = false;
+    loaded_FatJet_deepTagMD_bbvsLight_ = false;
+    loaded_FatJet_deepTagMD_ccvsLight_ = false;
+    loaded_FatJet_deepTag_H_ = false;
+    loaded_FatJet_deepTag_QCD_ = false;
+    loaded_FatJet_deepTag_QCDothers_ = false;
+    loaded_FatJet_deepTag_TvsQCD_ = false;
+    loaded_FatJet_deepTag_WvsQCD_ = false;
+    loaded_FatJet_deepTag_ZvsQCD_ = false;
     loaded_FatJet_eta_ = false;
     loaded_FatJet_jetId_ = false;
     loaded_FatJet_mass_ = false;
@@ -2025,6 +3069,7 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_FatJet_p4_ = false;
     loaded_FatJet_phi_ = false;
     loaded_FatJet_pt_ = false;
+    loaded_FatJet_rawFactor_ = false;
     loaded_FatJet_subJetIdx1_ = false;
     loaded_FatJet_subJetIdx2_ = false;
     loaded_FatJet_tau1_ = false;
@@ -2046,6 +3091,7 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_Flag_METFilters_ = false;
     loaded_Flag_chargedHadronTrackResolutionFilter_ = false;
     loaded_Flag_ecalBadCalibFilter_ = false;
+    loaded_Flag_ecalBadCalibFilterV2_ = false;
     loaded_Flag_ecalLaserCorrFilter_ = false;
     loaded_Flag_eeBadScFilter_ = false;
     loaded_Flag_globalSuperTightHalo2016Filter_ = false;
@@ -2058,6 +3104,7 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_Flag_trkPOG_manystripclus53X_ = false;
     loaded_Flag_trkPOG_toomanystripclus53X_ = false;
     loaded_GenDressedLepton_eta_ = false;
+    loaded_GenDressedLepton_hasTauAnc_ = false;
     loaded_GenDressedLepton_mass_ = false;
     loaded_GenDressedLepton_p4_ = false;
     loaded_GenDressedLepton_pdgId_ = false;
@@ -2121,11 +3168,16 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_HLT_AK8PFHT850_TrimMass50_ = false;
     loaded_HLT_AK8PFHT900_TrimMass50_ = false;
     loaded_HLT_AK8PFJet140_ = false;
+    loaded_HLT_AK8PFJet15_ = false;
     loaded_HLT_AK8PFJet200_ = false;
+    loaded_HLT_AK8PFJet25_ = false;
     loaded_HLT_AK8PFJet260_ = false;
     loaded_HLT_AK8PFJet320_ = false;
-    loaded_HLT_AK8PFJet330_PFAK8BTagCSV_p1_ = false;
-    loaded_HLT_AK8PFJet330_PFAK8BTagCSV_p17_ = false;
+    loaded_HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p1_ = false;
+    loaded_HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p17_ = false;
+    loaded_HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np2_ = false;
+    loaded_HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np4_ = false;
+    loaded_HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_p02_ = false;
     loaded_HLT_AK8PFJet360_TrimMass30_ = false;
     loaded_HLT_AK8PFJet380_TrimMass30_ = false;
     loaded_HLT_AK8PFJet40_ = false;
@@ -2138,7 +3190,9 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_HLT_AK8PFJet60_ = false;
     loaded_HLT_AK8PFJet80_ = false;
     loaded_HLT_AK8PFJetFwd140_ = false;
+    loaded_HLT_AK8PFJetFwd15_ = false;
     loaded_HLT_AK8PFJetFwd200_ = false;
+    loaded_HLT_AK8PFJetFwd25_ = false;
     loaded_HLT_AK8PFJetFwd260_ = false;
     loaded_HLT_AK8PFJetFwd320_ = false;
     loaded_HLT_AK8PFJetFwd40_ = false;
@@ -2148,13 +3202,25 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_HLT_AK8PFJetFwd60_ = false;
     loaded_HLT_AK8PFJetFwd80_ = false;
     loaded_HLT_BTagMu_AK4DiJet110_Mu5_ = false;
+    loaded_HLT_BTagMu_AK4DiJet110_Mu5_noalgo_ = false;
     loaded_HLT_BTagMu_AK4DiJet170_Mu5_ = false;
+    loaded_HLT_BTagMu_AK4DiJet170_Mu5_noalgo_ = false;
     loaded_HLT_BTagMu_AK4DiJet20_Mu5_ = false;
+    loaded_HLT_BTagMu_AK4DiJet20_Mu5_noalgo_ = false;
     loaded_HLT_BTagMu_AK4DiJet40_Mu5_ = false;
+    loaded_HLT_BTagMu_AK4DiJet40_Mu5_noalgo_ = false;
     loaded_HLT_BTagMu_AK4DiJet70_Mu5_ = false;
+    loaded_HLT_BTagMu_AK4DiJet70_Mu5_noalgo_ = false;
     loaded_HLT_BTagMu_AK4Jet300_Mu5_ = false;
+    loaded_HLT_BTagMu_AK4Jet300_Mu5_noalgo_ = false;
     loaded_HLT_BTagMu_AK8DiJet170_Mu5_ = false;
+    loaded_HLT_BTagMu_AK8DiJet170_Mu5_noalgo_ = false;
+    loaded_HLT_BTagMu_AK8Jet170_DoubleMu5_ = false;
+    loaded_HLT_BTagMu_AK8Jet170_DoubleMu5_noalgo_ = false;
     loaded_HLT_BTagMu_AK8Jet300_Mu5_ = false;
+    loaded_HLT_BTagMu_AK8Jet300_Mu5_noalgo_ = false;
+    loaded_HLT_CDC_L2cosmic_5_er1p0_ = false;
+    loaded_HLT_CDC_L2cosmic_5p5_er1p0_ = false;
     loaded_HLT_CaloJet500_NoJetID_ = false;
     loaded_HLT_CaloJet550_NoJetID_ = false;
     loaded_HLT_CaloMET100_HBHECleaned_ = false;
@@ -2174,23 +3240,17 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_HLT_DiJet110_35_Mjj650_PFMET110_ = false;
     loaded_HLT_DiJet110_35_Mjj650_PFMET120_ = false;
     loaded_HLT_DiJet110_35_Mjj650_PFMET130_ = false;
+    loaded_HLT_DiMu4_Ele9_CaloIdL_TrackIdL_DZ_Mass3p8_ = false;
     loaded_HLT_DiMu9_Ele9_CaloIdL_TrackIdL_ = false;
     loaded_HLT_DiMu9_Ele9_CaloIdL_TrackIdL_DZ_ = false;
-    loaded_HLT_DiPFJet15_FBEta3_NoCaloMatched_ = false;
-    loaded_HLT_DiPFJet15_NoCaloMatched_ = false;
-    loaded_HLT_DiPFJet25_FBEta3_NoCaloMatched_ = false;
-    loaded_HLT_DiPFJet25_NoCaloMatched_ = false;
     loaded_HLT_DiPFJetAve100_HFJEC_ = false;
     loaded_HLT_DiPFJetAve140_ = false;
-    loaded_HLT_DiPFJetAve15_HFJEC_ = false;
     loaded_HLT_DiPFJetAve160_HFJEC_ = false;
     loaded_HLT_DiPFJetAve200_ = false;
     loaded_HLT_DiPFJetAve220_HFJEC_ = false;
-    loaded_HLT_DiPFJetAve25_HFJEC_ = false;
     loaded_HLT_DiPFJetAve260_ = false;
     loaded_HLT_DiPFJetAve300_HFJEC_ = false;
     loaded_HLT_DiPFJetAve320_ = false;
-    loaded_HLT_DiPFJetAve35_HFJEC_ = false;
     loaded_HLT_DiPFJetAve40_ = false;
     loaded_HLT_DiPFJetAve400_ = false;
     loaded_HLT_DiPFJetAve500_ = false;
@@ -2222,8 +3282,7 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_HLT_Dimuon0_Upsilon_Muon_NoL1Mass_ = false;
     loaded_HLT_Dimuon0_Upsilon_NoVertexing_ = false;
     loaded_HLT_Dimuon10_PsiPrime_Barrel_Seagulls_ = false;
-    loaded_HLT_Dimuon10_Upsilon_Barrel_Seagulls_ = false;
-    loaded_HLT_Dimuon12_Upsilon_eta1p5_ = false;
+    loaded_HLT_Dimuon12_Upsilon_y1p4_ = false;
     loaded_HLT_Dimuon14_Phi_Barrel_Seagulls_ = false;
     loaded_HLT_Dimuon18_PsiPrime_ = false;
     loaded_HLT_Dimuon18_PsiPrime_noCorrL1_ = false;
@@ -2232,12 +3291,10 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_HLT_Dimuon24_Upsilon_noCorrL1_ = false;
     loaded_HLT_Dimuon25_Jpsi_ = false;
     loaded_HLT_Dimuon25_Jpsi_noCorrL1_ = false;
-    loaded_HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_ = false;
-    loaded_HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_ = false;
     loaded_HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_ = false;
     loaded_HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_ = false;
-    loaded_HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_ = false;
-    loaded_HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_ = false;
+    loaded_HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_ = false;
+    loaded_HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_Mass55_ = false;
     loaded_HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90_ = false;
     loaded_HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass95_ = false;
     loaded_HLT_DoubleEle24_eta2p1_WPTight_Gsf_ = false;
@@ -2247,65 +3304,80 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_HLT_DoubleEle8_CaloIdM_TrackIdM_Mass8_DZ_PFHT350_ = false;
     loaded_HLT_DoubleEle8_CaloIdM_TrackIdM_Mass8_PFHT350_ = false;
     loaded_HLT_DoubleIsoMu20_eta2p1_ = false;
-    loaded_HLT_DoubleIsoMu24_eta2p1_ = false;
+    loaded_HLT_DoubleL2Mu23NoVtx_2Cha_ = false;
+    loaded_HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_ = false;
+    loaded_HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_NoL2Matched_ = false;
+    loaded_HLT_DoubleL2Mu23NoVtx_2Cha_NoL2Matched_ = false;
+    loaded_HLT_DoubleL2Mu25NoVtx_2Cha_ = false;
+    loaded_HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_ = false;
+    loaded_HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_Eta2p4_ = false;
+    loaded_HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_NoL2Matched_ = false;
+    loaded_HLT_DoubleL2Mu25NoVtx_2Cha_Eta2p4_ = false;
+    loaded_HLT_DoubleL2Mu25NoVtx_2Cha_NoL2Matched_ = false;
+    loaded_HLT_DoubleL2Mu30NoVtx_2Cha_CosmicSeed_Eta2p4_ = false;
+    loaded_HLT_DoubleL2Mu30NoVtx_2Cha_Eta2p4_ = false;
     loaded_HLT_DoubleL2Mu50_ = false;
-    loaded_HLT_DoubleLooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_ = false;
-    loaded_HLT_DoubleLooseChargedIsoPFTau35_Trk1_eta2p1_Reg_ = false;
-    loaded_HLT_DoubleLooseChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_ = false;
-    loaded_HLT_DoubleLooseChargedIsoPFTau40_Trk1_eta2p1_Reg_ = false;
-    loaded_HLT_DoubleMediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_ = false;
-    loaded_HLT_DoubleMediumChargedIsoPFTau35_Trk1_eta2p1_Reg_ = false;
-    loaded_HLT_DoubleMediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_ = false;
-    loaded_HLT_DoubleMediumChargedIsoPFTau40_Trk1_eta2p1_Reg_ = false;
+    loaded_HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_ = false;
+    loaded_HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_ = false;
+    loaded_HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg_ = false;
+    loaded_HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_eta2p1_Reg_ = false;
     loaded_HLT_DoubleMu20_7_Mass0to30_L1_DM4_ = false;
     loaded_HLT_DoubleMu20_7_Mass0to30_L1_DM4EG_ = false;
     loaded_HLT_DoubleMu20_7_Mass0to30_Photon23_ = false;
     loaded_HLT_DoubleMu2_Jpsi_DoubleTkMu0_Phi_ = false;
-    loaded_HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi_ = false;
+    loaded_HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi1p05_ = false;
+    loaded_HLT_DoubleMu33NoFiltersNoVtxDisplaced_ = false;
     loaded_HLT_DoubleMu3_DCA_PFMET50_PFMHT60_ = false;
     loaded_HLT_DoubleMu3_DZ_PFMET50_PFMHT60_ = false;
     loaded_HLT_DoubleMu3_DZ_PFMET70_PFMHT70_ = false;
     loaded_HLT_DoubleMu3_DZ_PFMET90_PFMHT90_ = false;
+    loaded_HLT_DoubleMu3_DoubleEle7p5_CaloIdL_TrackIdL_Upsilon_ = false;
+    loaded_HLT_DoubleMu3_TkMu_DsTau3Mu_ = false;
     loaded_HLT_DoubleMu3_Trk_Tau3mu_ = false;
     loaded_HLT_DoubleMu3_Trk_Tau3mu_NoL1Mass_ = false;
+    loaded_HLT_DoubleMu40NoFiltersNoVtxDisplaced_ = false;
     loaded_HLT_DoubleMu43NoFiltersNoVtx_ = false;
     loaded_HLT_DoubleMu48NoFiltersNoVtx_ = false;
     loaded_HLT_DoubleMu4_3_Bs_ = false;
-    loaded_HLT_DoubleMu4_3_Jpsi_Displaced_ = false;
+    loaded_HLT_DoubleMu4_3_Jpsi_ = false;
     loaded_HLT_DoubleMu4_JpsiTrkTrk_Displaced_ = false;
     loaded_HLT_DoubleMu4_JpsiTrk_Displaced_ = false;
     loaded_HLT_DoubleMu4_Jpsi_Displaced_ = false;
     loaded_HLT_DoubleMu4_Jpsi_NoVertexing_ = false;
     loaded_HLT_DoubleMu4_LowMassNonResonantTrk_Displaced_ = false;
-    loaded_HLT_DoubleMu4_Mass8_DZ_PFHT350_ = false;
+    loaded_HLT_DoubleMu4_Mass3p8_DZ_PFHT350_ = false;
     loaded_HLT_DoubleMu4_PsiPrimeTrk_Displaced_ = false;
-    loaded_HLT_DoubleMu8_Mass8_PFHT350_ = false;
-    loaded_HLT_DoublePFJets100MaxDeta1p6_DoubleCaloBTagCSV_p33_ = false;
-    loaded_HLT_DoublePFJets100_CaloBTagCSV_p33_ = false;
-    loaded_HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagCSV_p33_ = false;
-    loaded_HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagCSV_p33_ = false;
-    loaded_HLT_DoublePFJets200_CaloBTagCSV_p33_ = false;
-    loaded_HLT_DoublePFJets350_CaloBTagCSV_p33_ = false;
-    loaded_HLT_DoublePFJets40_CaloBTagCSV_p33_ = false;
+    loaded_HLT_DoubleMu5_Upsilon_DoubleEle3_CaloIdL_TrackIdL_ = false;
+    loaded_HLT_DoublePFJets100_CaloBTagDeepCSV_p71_ = false;
+    loaded_HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_ = false;
+    loaded_HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_ = false;
+    loaded_HLT_DoublePFJets200_CaloBTagDeepCSV_p71_ = false;
+    loaded_HLT_DoublePFJets350_CaloBTagDeepCSV_p71_ = false;
+    loaded_HLT_DoublePFJets40_CaloBTagDeepCSV_p71_ = false;
     loaded_HLT_DoublePhoton33_CaloIdL_ = false;
     loaded_HLT_DoublePhoton70_ = false;
     loaded_HLT_DoublePhoton85_ = false;
-    loaded_HLT_DoubleTightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_ = false;
-    loaded_HLT_DoubleTightChargedIsoPFTau35_Trk1_eta2p1_Reg_ = false;
-    loaded_HLT_DoubleTightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_ = false;
-    loaded_HLT_DoubleTightChargedIsoPFTau40_Trk1_eta2p1_Reg_ = false;
+    loaded_HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_ = false;
+    loaded_HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_ = false;
+    loaded_HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg_ = false;
+    loaded_HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_eta2p1_Reg_ = false;
+    loaded_HLT_DoubleTrkMu_16_6_NoFiltersNoVtx_ = false;
     loaded_HLT_ECALHT800_ = false;
     loaded_HLT_EcalCalibration_ = false;
     loaded_HLT_Ele115_CaloIdVT_GsfTrkIdT_ = false;
     loaded_HLT_Ele12_CaloIdL_TrackIdL_IsoVL_PFJet30_ = false;
     loaded_HLT_Ele135_CaloIdVT_GsfTrkIdT_ = false;
     loaded_HLT_Ele145_CaloIdVT_GsfTrkIdT_ = false;
+    loaded_HLT_Ele15_CaloIdL_TrackIdL_IsoVL_PFJet30_ = false;
+    loaded_HLT_Ele15_Ele8_CaloIdL_TrackIdL_IsoVL_ = false;
     loaded_HLT_Ele15_IsoVVVL_PFHT450_ = false;
-    loaded_HLT_Ele15_IsoVVVL_PFHT450_CaloBTagCSV_4p5_ = false;
+    loaded_HLT_Ele15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5_ = false;
     loaded_HLT_Ele15_IsoVVVL_PFHT450_PFMET50_ = false;
     loaded_HLT_Ele15_IsoVVVL_PFHT600_ = false;
+    loaded_HLT_Ele15_WPLoose_Gsf_ = false;
     loaded_HLT_Ele16_Ele12_Ele8_CaloIdL_TrackIdL_ = false;
     loaded_HLT_Ele17_CaloIdM_TrackIdM_PFJet30_ = false;
+    loaded_HLT_Ele17_WPLoose_Gsf_ = false;
     loaded_HLT_Ele200_CaloIdVT_GsfTrkIdT_ = false;
     loaded_HLT_Ele20_WPLoose_Gsf_ = false;
     loaded_HLT_Ele20_WPTight_Gsf_ = false;
@@ -2314,18 +3386,20 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_HLT_Ele23_CaloIdM_TrackIdM_PFJet30_ = false;
     loaded_HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_ = false;
     loaded_HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_DZ_ = false;
-    loaded_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_CrossL1_ = false;
-    loaded_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_TightID_CrossL1_ = false;
-    loaded_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_CrossL1_ = false;
-    loaded_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_TightID_CrossL1_ = false;
-    loaded_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_CrossL1_ = false;
-    loaded_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_TightID_CrossL1_ = false;
+    loaded_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_CrossL1_ = false;
+    loaded_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_ = false;
+    loaded_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_CrossL1_ = false;
+    loaded_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_ = false;
+    loaded_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_CrossL1_ = false;
+    loaded_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_ = false;
     loaded_HLT_Ele250_CaloIdVT_GsfTrkIdT_ = false;
     loaded_HLT_Ele27_Ele37_CaloIdL_MW_ = false;
     loaded_HLT_Ele27_WPTight_Gsf_ = false;
     loaded_HLT_Ele28_HighEta_SC20_Mass55_ = false;
+    loaded_HLT_Ele28_WPTight_Gsf_ = false;
     loaded_HLT_Ele28_eta2p1_WPTight_Gsf_HT150_ = false;
     loaded_HLT_Ele300_CaloIdVT_GsfTrkIdT_ = false;
+    loaded_HLT_Ele30_WPTight_Gsf_ = false;
     loaded_HLT_Ele30_eta2p1_WPTight_Gsf_CentralPFJet35_EleCleaned_ = false;
     loaded_HLT_Ele32_WPTight_Gsf_ = false;
     loaded_HLT_Ele32_WPTight_Gsf_L1DoubleEG_ = false;
@@ -2337,78 +3411,54 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_HLT_Ele50_IsoVVVL_PFHT450_ = false;
     loaded_HLT_Ele8_CaloIdL_TrackIdL_IsoVL_PFJet30_ = false;
     loaded_HLT_Ele8_CaloIdM_TrackIdM_PFJet30_ = false;
-    loaded_HLT_FullTrack_Multiplicity100_ = false;
-    loaded_HLT_FullTrack_Multiplicity130_ = false;
-    loaded_HLT_FullTrack_Multiplicity155_ = false;
-    loaded_HLT_FullTrack_Multiplicity85_ = false;
-    loaded_HLT_HISinglePhoton10_Eta3p1ForPPRef_ = false;
-    loaded_HLT_HISinglePhoton20_Eta3p1ForPPRef_ = false;
-    loaded_HLT_HISinglePhoton30_Eta3p1ForPPRef_ = false;
-    loaded_HLT_HISinglePhoton40_Eta3p1ForPPRef_ = false;
-    loaded_HLT_HISinglePhoton50_Eta3p1ForPPRef_ = false;
-    loaded_HLT_HISinglePhoton60_Eta3p1ForPPRef_ = false;
     loaded_HLT_HT300_Beamspot_ = false;
     loaded_HLT_HT400_DisplacedDijet40_DisplacedTrack_ = false;
     loaded_HLT_HT425_ = false;
     loaded_HLT_HT430_DisplacedDijet40_DisplacedTrack_ = false;
     loaded_HLT_HT430_DisplacedDijet60_DisplacedTrack_ = false;
-    loaded_HLT_HT430_DisplacedDijet80_DisplacedTrack_ = false;
     loaded_HLT_HT450_Beamspot_ = false;
+    loaded_HLT_HT500_DisplacedDijet40_DisplacedTrack_ = false;
     loaded_HLT_HT550_DisplacedDijet60_Inclusive_ = false;
-    loaded_HLT_HT550_DisplacedDijet80_Inclusive_ = false;
     loaded_HLT_HT650_DisplacedDijet60_Inclusive_ = false;
-    loaded_HLT_HT650_DisplacedDijet80_Inclusive_ = false;
-    loaded_HLT_HT750_DisplacedDijet80_Inclusive_ = false;
     loaded_HLT_HcalCalibration_ = false;
     loaded_HLT_HcalIsolatedbunch_ = false;
     loaded_HLT_HcalNZS_ = false;
     loaded_HLT_HcalPhiSym_ = false;
     loaded_HLT_IsoMu20_ = false;
-    loaded_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_CrossL1_ = false;
-    loaded_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_TightID_CrossL1_ = false;
-    loaded_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_CrossL1_ = false;
-    loaded_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_TightID_CrossL1_ = false;
-    loaded_HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_CrossL1_ = false;
-    loaded_HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_TightID_CrossL1_ = false;
+    loaded_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1_ = false;
+    loaded_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_ = false;
+    loaded_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_CrossL1_ = false;
+    loaded_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_ = false;
+    loaded_HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_CrossL1_ = false;
+    loaded_HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_ = false;
     loaded_HLT_IsoMu24_ = false;
+    loaded_HLT_IsoMu24_TwoProngs35_ = false;
     loaded_HLT_IsoMu24_eta2p1_ = false;
-    loaded_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_SingleL1_ = false;
-    loaded_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_TightID_SingleL1_ = false;
-    loaded_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_ = false;
-    loaded_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_ = false;
-    loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_SingleL1_ = false;
-    loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_TightID_SingleL1_ = false;
-    loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_ = false;
-    loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_ = false;
-    loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1_ = false;
-    loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1_ = false;
     loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_ = false;
-    loaded_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_SingleL1_ = false;
-    loaded_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_TightID_SingleL1_ = false;
-    loaded_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_ = false;
-    loaded_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_ = false;
-    loaded_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1_ = false;
-    loaded_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1_ = false;
+    loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1_ = false;
+    loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1_ = false;
+    loaded_HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1_ = false;
+    loaded_HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1_ = false;
     loaded_HLT_IsoMu27_ = false;
-    loaded_HLT_IsoMu27_LooseChargedIsoPFTau20_SingleL1_ = false;
-    loaded_HLT_IsoMu27_MediumChargedIsoPFTau20_SingleL1_ = false;
-    loaded_HLT_IsoMu27_TightChargedIsoPFTau20_SingleL1_ = false;
+    loaded_HLT_IsoMu27_LooseChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_ = false;
+    loaded_HLT_IsoMu27_MET90_ = false;
+    loaded_HLT_IsoMu27_MediumChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_ = false;
+    loaded_HLT_IsoMu27_TightChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_ = false;
     loaded_HLT_IsoMu30_ = false;
     loaded_HLT_IsoTrackHB_ = false;
     loaded_HLT_IsoTrackHE_ = false;
     loaded_HLT_L1ETMHadSeeds_ = false;
-    loaded_HLT_L1MinimumBiasHF0OR_ = false;
-    loaded_HLT_L1MinimumBiasHF_OR_ = false;
     loaded_HLT_L1NotBptxOR_ = false;
     loaded_HLT_L1SingleMu18_ = false;
     loaded_HLT_L1SingleMu25_ = false;
     loaded_HLT_L1UnpairedBunchBptxMinus_ = false;
     loaded_HLT_L1UnpairedBunchBptxPlus_ = false;
     loaded_HLT_L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142_ = false;
-    loaded_HLT_L1_DoubleJet30_Mass_Min400_Mu10_ = false;
     loaded_HLT_L2Mu10_ = false;
     loaded_HLT_L2Mu10_NoVertex_NoBPTX_ = false;
     loaded_HLT_L2Mu10_NoVertex_NoBPTX3BX_ = false;
+    loaded_HLT_L2Mu23NoVtx_2Cha_ = false;
+    loaded_HLT_L2Mu23NoVtx_2Cha_CosmicSeed_ = false;
     loaded_HLT_L2Mu40_NoVertex_3Sta_NoBPTX3BX_ = false;
     loaded_HLT_L2Mu45_NoVertex_3Sta_NoBPTX3BX_ = false;
     loaded_HLT_L2Mu50_ = false;
@@ -2416,29 +3466,39 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_HLT_MET120_IsoTrk50_ = false;
     loaded_HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1_ = false;
     loaded_HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1_1pr_ = false;
+    loaded_HLT_MediumChargedIsoPFTau200HighPtRelaxedIso_Trk50_eta2p1_ = false;
+    loaded_HLT_MediumChargedIsoPFTau220HighPtRelaxedIso_Trk50_eta2p1_ = false;
     loaded_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_ = false;
     loaded_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET100_ = false;
     loaded_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET110_ = false;
     loaded_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET120_ = false;
     loaded_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET130_ = false;
+    loaded_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET140_ = false;
     loaded_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET90_ = false;
     loaded_HLT_MonoCentralPFJet80_PFMETNoMu110_PFMHTNoMu110_IDTight_ = false;
     loaded_HLT_MonoCentralPFJet80_PFMETNoMu120_PFMHTNoMu120_IDTight_ = false;
     loaded_HLT_MonoCentralPFJet80_PFMETNoMu130_PFMHTNoMu130_IDTight_ = false;
     loaded_HLT_MonoCentralPFJet80_PFMETNoMu140_PFMHTNoMu140_IDTight_ = false;
     loaded_HLT_Mu10_TrkIsoVVL_DiPFJet40_DEta3p5_MJJ750_HTT350_PFMETNoMu60_ = false;
-    loaded_HLT_Mu12_DoublePFJets100_CaloBTagCSV_p33_ = false;
-    loaded_HLT_Mu12_DoublePFJets200_CaloBTagCSV_p33_ = false;
-    loaded_HLT_Mu12_DoublePFJets350_CaloBTagCSV_p33_ = false;
-    loaded_HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagCSV_p33_ = false;
-    loaded_HLT_Mu12_DoublePFJets40_CaloBTagCSV_p33_ = false;
-    loaded_HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagCSV_p33_ = false;
-    loaded_HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagCSV_p33_ = false;
+    loaded_HLT_Mu12_ = false;
+    loaded_HLT_Mu12_DoublePFJets100_CaloBTagDeepCSV_p71_ = false;
+    loaded_HLT_Mu12_DoublePFJets200_CaloBTagDeepCSV_p71_ = false;
+    loaded_HLT_Mu12_DoublePFJets350_CaloBTagDeepCSV_p71_ = false;
+    loaded_HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_ = false;
+    loaded_HLT_Mu12_DoublePFJets40_CaloBTagDeepCSV_p71_ = false;
+    loaded_HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_ = false;
+    loaded_HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_ = false;
     loaded_HLT_Mu12_DoublePhoton20_ = false;
+    loaded_HLT_Mu12_IP6_part0_ = false;
+    loaded_HLT_Mu12_IP6_part1_ = false;
+    loaded_HLT_Mu12_IP6_part2_ = false;
+    loaded_HLT_Mu12_IP6_part3_ = false;
+    loaded_HLT_Mu12_IP6_part4_ = false;
     loaded_HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_ = false;
     loaded_HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_ = false;
+    loaded_HLT_Mu15_ = false;
     loaded_HLT_Mu15_IsoVVVL_PFHT450_ = false;
-    loaded_HLT_Mu15_IsoVVVL_PFHT450_CaloBTagCSV_4p5_ = false;
+    loaded_HLT_Mu15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5_ = false;
     loaded_HLT_Mu15_IsoVVVL_PFHT450_PFMET50_ = false;
     loaded_HLT_Mu15_IsoVVVL_PFHT600_ = false;
     loaded_HLT_Mu17_ = false;
@@ -2474,15 +3534,33 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_HLT_Mu25_TkMu0_Phi_ = false;
     loaded_HLT_Mu27_ = false;
     loaded_HLT_Mu27_Ele37_CaloIdL_MW_ = false;
-    loaded_HLT_Mu30_TkMu0_Onia_ = false;
+    loaded_HLT_Mu30_TkMu0_Psi_ = false;
+    loaded_HLT_Mu30_TkMu0_Upsilon_ = false;
     loaded_HLT_Mu37_Ele27_CaloIdL_MW_ = false;
     loaded_HLT_Mu37_TkMu27_ = false;
+    loaded_HLT_Mu38NoFiltersNoVtxDisplaced_Photon38_CaloIdL_ = false;
+    loaded_HLT_Mu3_L1SingleMu5orSingleMu7_ = false;
     loaded_HLT_Mu3_PFJet40_ = false;
+    loaded_HLT_Mu3er1p5_PFJet100er2p5_PFMET100_PFMHT100_IDTight_ = false;
+    loaded_HLT_Mu3er1p5_PFJet100er2p5_PFMET70_PFMHT70_IDTight_ = false;
+    loaded_HLT_Mu3er1p5_PFJet100er2p5_PFMET80_PFMHT80_IDTight_ = false;
+    loaded_HLT_Mu3er1p5_PFJet100er2p5_PFMET90_PFMHT90_IDTight_ = false;
+    loaded_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu100_PFMHTNoMu100_IDTight_ = false;
+    loaded_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu70_PFMHTNoMu70_IDTight_ = false;
+    loaded_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu80_PFMHTNoMu80_IDTight_ = false;
+    loaded_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu90_PFMHTNoMu90_IDTight_ = false;
+    loaded_HLT_Mu43NoFiltersNoVtxDisplaced_Photon43_CaloIdL_ = false;
     loaded_HLT_Mu43NoFiltersNoVtx_Photon43_CaloIdL_ = false;
     loaded_HLT_Mu48NoFiltersNoVtx_Photon48_CaloIdL_ = false;
+    loaded_HLT_Mu4_TrkIsoVVL_DiPFJet90_40_DEta3p5_MJJ750_HTT300_PFMETNoMu60_ = false;
     loaded_HLT_Mu50_ = false;
     loaded_HLT_Mu50_IsoVVVL_PFHT450_ = false;
     loaded_HLT_Mu55_ = false;
+    loaded_HLT_Mu7_IP4_part0_ = false;
+    loaded_HLT_Mu7_IP4_part1_ = false;
+    loaded_HLT_Mu7_IP4_part2_ = false;
+    loaded_HLT_Mu7_IP4_part3_ = false;
+    loaded_HLT_Mu7_IP4_part4_ = false;
     loaded_HLT_Mu7p5_L2Mu2_Jpsi_ = false;
     loaded_HLT_Mu7p5_L2Mu2_Upsilon_ = false;
     loaded_HLT_Mu7p5_Track2_Jpsi_ = false;
@@ -2496,25 +3574,58 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_HLT_Mu8_DiEle12_CaloIdL_TrackIdL_DZ_ = false;
     loaded_HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT350_ = false;
     loaded_HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT350_DZ_ = false;
+    loaded_HLT_Mu8_IP3_part0_ = false;
+    loaded_HLT_Mu8_IP3_part1_ = false;
+    loaded_HLT_Mu8_IP3_part2_ = false;
+    loaded_HLT_Mu8_IP3_part3_ = false;
+    loaded_HLT_Mu8_IP3_part4_ = false;
+    loaded_HLT_Mu8_IP5_part0_ = false;
+    loaded_HLT_Mu8_IP5_part1_ = false;
+    loaded_HLT_Mu8_IP5_part2_ = false;
+    loaded_HLT_Mu8_IP5_part3_ = false;
+    loaded_HLT_Mu8_IP5_part4_ = false;
+    loaded_HLT_Mu8_IP6_part0_ = false;
+    loaded_HLT_Mu8_IP6_part1_ = false;
+    loaded_HLT_Mu8_IP6_part2_ = false;
+    loaded_HLT_Mu8_IP6_part3_ = false;
+    loaded_HLT_Mu8_IP6_part4_ = false;
     loaded_HLT_Mu8_TrkIsoVVL_ = false;
     loaded_HLT_Mu8_TrkIsoVVL_DiPFJet40_DEta3p5_MJJ750_HTT300_PFMETNoMu60_ = false;
     loaded_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_ = false;
     loaded_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_ = false;
+    loaded_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_ = false;
+    loaded_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_CaloBtagDeepCSV_1p5_ = false;
+    loaded_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_ = false;
+    loaded_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_PFBtagDeepCSV_1p5_ = false;
+    loaded_HLT_Mu9_IP4_part0_ = false;
+    loaded_HLT_Mu9_IP4_part1_ = false;
+    loaded_HLT_Mu9_IP4_part2_ = false;
+    loaded_HLT_Mu9_IP4_part3_ = false;
+    loaded_HLT_Mu9_IP4_part4_ = false;
+    loaded_HLT_Mu9_IP5_part0_ = false;
+    loaded_HLT_Mu9_IP5_part1_ = false;
+    loaded_HLT_Mu9_IP5_part2_ = false;
+    loaded_HLT_Mu9_IP5_part3_ = false;
+    loaded_HLT_Mu9_IP5_part4_ = false;
+    loaded_HLT_Mu9_IP6_part0_ = false;
+    loaded_HLT_Mu9_IP6_part1_ = false;
+    loaded_HLT_Mu9_IP6_part2_ = false;
+    loaded_HLT_Mu9_IP6_part3_ = false;
+    loaded_HLT_Mu9_IP6_part4_ = false;
     loaded_HLT_OldMu100_ = false;
     loaded_HLT_PFHT1050_ = false;
     loaded_HLT_PFHT180_ = false;
     loaded_HLT_PFHT250_ = false;
-    loaded_HLT_PFHT300PT30_QuadPFJet_75_60_45_40_ = false;
-    loaded_HLT_PFHT300PT30_QuadPFJet_75_60_45_40_TriplePFBTagCSV_3p0_ = false;
+    loaded_HLT_PFHT330PT30_QuadPFJet_75_60_45_40_ = false;
+    loaded_HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepCSV_4p5_ = false;
     loaded_HLT_PFHT350_ = false;
     loaded_HLT_PFHT350MinPFJet15_ = false;
     loaded_HLT_PFHT370_ = false;
-    loaded_HLT_PFHT380_SixPFJet32_ = false;
-    loaded_HLT_PFHT380_SixPFJet32_DoublePFBTagCSV_2p2_ = false;
-    loaded_HLT_PFHT380_SixPFJet32_DoublePFBTagDeepCSV_2p2_ = false;
+    loaded_HLT_PFHT400_SixPFJet32_ = false;
+    loaded_HLT_PFHT400_SixPFJet32_DoublePFBTagDeepCSV_2p94_ = false;
     loaded_HLT_PFHT430_ = false;
-    loaded_HLT_PFHT430_SixPFJet40_ = false;
-    loaded_HLT_PFHT430_SixPFJet40_PFBTagCSV_1p5_ = false;
+    loaded_HLT_PFHT450_SixPFJet36_ = false;
+    loaded_HLT_PFHT450_SixPFJet36_PFBTagDeepCSV_1p59_ = false;
     loaded_HLT_PFHT500_PFMET100_PFMHT100_IDTight_ = false;
     loaded_HLT_PFHT500_PFMET110_PFMHT110_IDTight_ = false;
     loaded_HLT_PFHT510_ = false;
@@ -2527,7 +3638,9 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_HLT_PFHT800_PFMET85_PFMHT85_IDTight_ = false;
     loaded_HLT_PFHT890_ = false;
     loaded_HLT_PFJet140_ = false;
+    loaded_HLT_PFJet15_ = false;
     loaded_HLT_PFJet200_ = false;
+    loaded_HLT_PFJet25_ = false;
     loaded_HLT_PFJet260_ = false;
     loaded_HLT_PFJet320_ = false;
     loaded_HLT_PFJet40_ = false;
@@ -2538,7 +3651,9 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_HLT_PFJet60_ = false;
     loaded_HLT_PFJet80_ = false;
     loaded_HLT_PFJetFwd140_ = false;
+    loaded_HLT_PFJetFwd15_ = false;
     loaded_HLT_PFJetFwd200_ = false;
+    loaded_HLT_PFJetFwd25_ = false;
     loaded_HLT_PFJetFwd260_ = false;
     loaded_HLT_PFJetFwd320_ = false;
     loaded_HLT_PFJetFwd40_ = false;
@@ -2547,17 +3662,17 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_HLT_PFJetFwd500_ = false;
     loaded_HLT_PFJetFwd60_ = false;
     loaded_HLT_PFJetFwd80_ = false;
-    loaded_HLT_PFMET100_PFMHT100_IDTight_CaloBTagCSV_3p1_ = false;
+    loaded_HLT_PFMET100_PFMHT100_IDTight_CaloBTagDeepCSV_3p1_ = false;
     loaded_HLT_PFMET100_PFMHT100_IDTight_PFHT60_ = false;
     loaded_HLT_PFMET110_PFMHT110_IDTight_ = false;
-    loaded_HLT_PFMET110_PFMHT110_IDTight_CaloBTagCSV_3p1_ = false;
+    loaded_HLT_PFMET110_PFMHT110_IDTight_CaloBTagDeepCSV_3p1_ = false;
     loaded_HLT_PFMET120_PFMHT120_IDTight_ = false;
-    loaded_HLT_PFMET120_PFMHT120_IDTight_CaloBTagCSV_3p1_ = false;
+    loaded_HLT_PFMET120_PFMHT120_IDTight_CaloBTagDeepCSV_3p1_ = false;
     loaded_HLT_PFMET120_PFMHT120_IDTight_PFHT60_ = false;
     loaded_HLT_PFMET130_PFMHT130_IDTight_ = false;
-    loaded_HLT_PFMET130_PFMHT130_IDTight_CaloBTagCSV_3p1_ = false;
+    loaded_HLT_PFMET130_PFMHT130_IDTight_CaloBTagDeepCSV_3p1_ = false;
     loaded_HLT_PFMET140_PFMHT140_IDTight_ = false;
-    loaded_HLT_PFMET140_PFMHT140_IDTight_CaloBTagCSV_3p1_ = false;
+    loaded_HLT_PFMET140_PFMHT140_IDTight_CaloBTagDeepCSV_3p1_ = false;
     loaded_HLT_PFMET200_HBHECleaned_ = false;
     loaded_HLT_PFMET200_HBHE_BeamHaloCleaned_ = false;
     loaded_HLT_PFMET200_NotCleaned_ = false;
@@ -2576,28 +3691,34 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_HLT_PFMETTypeOne130_PFMHT130_IDTight_ = false;
     loaded_HLT_PFMETTypeOne140_PFMHT140_IDTight_ = false;
     loaded_HLT_PFMETTypeOne200_HBHE_BeamHaloCleaned_ = false;
+    loaded_HLT_Photon100EBHE10_ = false;
+    loaded_HLT_Photon100EB_TightID_TightIso_ = false;
+    loaded_HLT_Photon100EEHE10_ = false;
+    loaded_HLT_Photon100EE_TightID_TightIso_ = false;
+    loaded_HLT_Photon110EB_TightID_TightIso_ = false;
     loaded_HLT_Photon120_ = false;
+    loaded_HLT_Photon120EB_TightID_TightIso_ = false;
     loaded_HLT_Photon120_R9Id90_HE10_IsoM_ = false;
     loaded_HLT_Photon150_ = false;
     loaded_HLT_Photon165_R9Id90_HE10_IsoM_ = false;
     loaded_HLT_Photon175_ = false;
+    loaded_HLT_Photon20_ = false;
     loaded_HLT_Photon200_ = false;
     loaded_HLT_Photon20_HoverELoose_ = false;
-    loaded_HLT_Photon25_ = false;
     loaded_HLT_Photon300_NoHE_ = false;
     loaded_HLT_Photon30_HoverELoose_ = false;
     loaded_HLT_Photon33_ = false;
-    loaded_HLT_Photon40_HoverELoose_ = false;
+    loaded_HLT_Photon35_TwoProngs35_ = false;
     loaded_HLT_Photon50_ = false;
-    loaded_HLT_Photon50_HoverELoose_ = false;
     loaded_HLT_Photon50_R9Id90_HE10_IsoM_ = false;
     loaded_HLT_Photon50_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3_PFMET50_ = false;
-    loaded_HLT_Photon60_HoverELoose_ = false;
     loaded_HLT_Photon60_R9Id90_CaloIdL_IsoL_ = false;
     loaded_HLT_Photon60_R9Id90_CaloIdL_IsoL_DisplacedIdL_ = false;
     loaded_HLT_Photon60_R9Id90_CaloIdL_IsoL_DisplacedIdL_PFHT350MinPFJet15_ = false;
     loaded_HLT_Photon75_ = false;
     loaded_HLT_Photon75_R9Id90_HE10_IsoM_ = false;
+    loaded_HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ300_PFJetsMJJ400DEta3_ = false;
+    loaded_HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ400_PFJetsMJJ600DEta3_ = false;
     loaded_HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3_ = false;
     loaded_HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ600DEta3_ = false;
     loaded_HLT_Photon90_ = false;
@@ -2613,17 +3734,17 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_HLT_Physics_part6_ = false;
     loaded_HLT_Physics_part7_ = false;
     loaded_HLT_QuadPFJet103_88_75_15_ = false;
-    loaded_HLT_QuadPFJet103_88_75_15_BTagCSV_p013_VBF2_ = false;
-    loaded_HLT_QuadPFJet103_88_75_15_DoubleBTagCSV_p013_p08_VBF1_ = false;
+    loaded_HLT_QuadPFJet103_88_75_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_ = false;
+    loaded_HLT_QuadPFJet103_88_75_15_PFBTagDeepCSV_1p3_VBF2_ = false;
     loaded_HLT_QuadPFJet105_88_76_15_ = false;
-    loaded_HLT_QuadPFJet105_88_76_15_BTagCSV_p013_VBF2_ = false;
-    loaded_HLT_QuadPFJet105_90_76_15_DoubleBTagCSV_p013_p08_VBF1_ = false;
+    loaded_HLT_QuadPFJet105_88_76_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_ = false;
+    loaded_HLT_QuadPFJet105_88_76_15_PFBTagDeepCSV_1p3_VBF2_ = false;
     loaded_HLT_QuadPFJet111_90_80_15_ = false;
-    loaded_HLT_QuadPFJet111_90_80_15_BTagCSV_p013_VBF2_ = false;
-    loaded_HLT_QuadPFJet111_90_80_15_DoubleBTagCSV_p013_p08_VBF1_ = false;
+    loaded_HLT_QuadPFJet111_90_80_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_ = false;
+    loaded_HLT_QuadPFJet111_90_80_15_PFBTagDeepCSV_1p3_VBF2_ = false;
     loaded_HLT_QuadPFJet98_83_71_15_ = false;
-    loaded_HLT_QuadPFJet98_83_71_15_BTagCSV_p013_VBF2_ = false;
-    loaded_HLT_QuadPFJet98_83_71_15_DoubleBTagCSV_p013_p08_VBF1_ = false;
+    loaded_HLT_QuadPFJet98_83_71_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_ = false;
+    loaded_HLT_QuadPFJet98_83_71_15_PFBTagDeepCSV_1p3_VBF2_ = false;
     loaded_HLT_Random_ = false;
     loaded_HLT_Rsq0p35_ = false;
     loaded_HLT_Rsq0p40_ = false;
@@ -2632,35 +3753,43 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_HLT_RsqMR320_Rsq0p09_MR200_ = false;
     loaded_HLT_RsqMR320_Rsq0p09_MR200_4jet_ = false;
     loaded_HLT_SingleJet30_Mu12_SinglePFJet40_ = false;
+    loaded_HLT_SinglePhoton10_Eta3p1ForPPRef_ = false;
+    loaded_HLT_SinglePhoton20_Eta3p1ForPPRef_ = false;
+    loaded_HLT_SinglePhoton30_Eta3p1ForPPRef_ = false;
     loaded_HLT_Tau3Mu_Mu7_Mu1_TkMu1_IsoTau15_ = false;
     loaded_HLT_Tau3Mu_Mu7_Mu1_TkMu1_IsoTau15_Charge1_ = false;
     loaded_HLT_Tau3Mu_Mu7_Mu1_TkMu1_Tau15_ = false;
     loaded_HLT_Tau3Mu_Mu7_Mu1_TkMu1_Tau15_Charge1_ = false;
     loaded_HLT_TkMu100_ = false;
     loaded_HLT_Trimuon5_3p5_2_Upsilon_Muon_ = false;
+    loaded_HLT_TrimuonOpen_5_3p5_2_Upsilon_Muon_ = false;
     loaded_HLT_TripleJet110_35_35_Mjj650_PFMET110_ = false;
     loaded_HLT_TripleJet110_35_35_Mjj650_PFMET120_ = false;
     loaded_HLT_TripleJet110_35_35_Mjj650_PFMET130_ = false;
     loaded_HLT_TripleMu_10_5_5_DZ_ = false;
     loaded_HLT_TripleMu_12_10_5_ = false;
-    loaded_HLT_TripleMu_5_3_3_Mass3p8to60_DCA_ = false;
-    loaded_HLT_TripleMu_5_3_3_Mass3p8to60_DZ_ = false;
+    loaded_HLT_TripleMu_5_3_3_Mass3p8_DCA_ = false;
+    loaded_HLT_TripleMu_5_3_3_Mass3p8_DZ_ = false;
     loaded_HLT_TriplePhoton_20_20_20_CaloIdLV2_ = false;
     loaded_HLT_TriplePhoton_20_20_20_CaloIdLV2_R9IdVL_ = false;
     loaded_HLT_TriplePhoton_30_30_10_CaloIdLV2_ = false;
     loaded_HLT_TriplePhoton_30_30_10_CaloIdLV2_R9IdVL_ = false;
     loaded_HLT_TriplePhoton_35_35_5_CaloIdLV2_R9IdVL_ = false;
     loaded_HLT_TrkMu12_DoubleTrkMu5NoFiltersNoVtx_ = false;
+    loaded_HLT_TrkMu16NoFiltersNoVtx_ = false;
     loaded_HLT_TrkMu16_DoubleTrkMu6NoFiltersNoVtx_ = false;
     loaded_HLT_TrkMu17_DoubleTrkMu8NoFiltersNoVtx_ = false;
+    loaded_HLT_TrkMu6NoFiltersNoVtx_ = false;
     loaded_HLT_UncorrectedJetE30_NoBPTX_ = false;
     loaded_HLT_UncorrectedJetE30_NoBPTX3BX_ = false;
     loaded_HLT_UncorrectedJetE60_NoBPTX3BX_ = false;
     loaded_HLT_UncorrectedJetE70_NoBPTX3BX_ = false;
-    loaded_HLT_VBF_DoubleLooseChargedIsoPFTau20_Trk1_eta2p1_Reg_ = false;
-    loaded_HLT_VBF_DoubleMediumChargedIsoPFTau20_Trk1_eta2p1_Reg_ = false;
-    loaded_HLT_VBF_DoubleTightChargedIsoPFTau20_Trk1_eta2p1_Reg_ = false;
+    loaded_HLT_VBF_DoubleLooseChargedIsoPFTauHPS20_Trk1_eta2p1_ = false;
+    loaded_HLT_VBF_DoubleMediumChargedIsoPFTauHPS20_Trk1_eta2p1_ = false;
+    loaded_HLT_VBF_DoubleTightChargedIsoPFTauHPS20_Trk1_eta2p1_ = false;
     loaded_HLT_ZeroBias_ = false;
+    loaded_HLT_ZeroBias_Alignment_ = false;
+    loaded_HLT_ZeroBias_Beamspot_ = false;
     loaded_HLT_ZeroBias_FirstBXAfterTrain_ = false;
     loaded_HLT_ZeroBias_FirstCollisionAfterAbortGap_ = false;
     loaded_HLT_ZeroBias_FirstCollisionInTrain_ = false;
@@ -2676,9 +3805,22 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_HLT_ZeroBias_part7_ = false;
     loaded_HLTriggerFinalPath_ = false;
     loaded_HLTriggerFirstPath_ = false;
+    loaded_HTXS_Higgs_pt_ = false;
+    loaded_HTXS_Higgs_y_ = false;
+    loaded_HTXS_njets25_ = false;
+    loaded_HTXS_njets30_ = false;
+    loaded_HTXS_stage1_1_cat_pTjet25GeV_ = false;
+    loaded_HTXS_stage1_1_cat_pTjet30GeV_ = false;
+    loaded_HTXS_stage1_1_fine_cat_pTjet25GeV_ = false;
+    loaded_HTXS_stage1_1_fine_cat_pTjet30GeV_ = false;
+    loaded_HTXS_stage_0_ = false;
+    loaded_HTXS_stage_1_pTjet25_ = false;
+    loaded_HTXS_stage_1_pTjet30_ = false;
     loaded_IsoTrack_dxy_ = false;
     loaded_IsoTrack_dz_ = false;
     loaded_IsoTrack_eta_ = false;
+    loaded_IsoTrack_fromPV_ = false;
+    loaded_IsoTrack_isFromLostTrack_ = false;
     loaded_IsoTrack_isHighPurityTrack_ = false;
     loaded_IsoTrack_isPFcand_ = false;
     loaded_IsoTrack_miniPFRelIso_all_ = false;
@@ -2689,12 +3831,14 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_IsoTrack_phi_ = false;
     loaded_IsoTrack_pt_ = false;
     loaded_Jet_area_ = false;
-    loaded_Jet_bReg_ = false;
+    loaded_Jet_bRegCorr_ = false;
+    loaded_Jet_bRegRes_ = false;
     loaded_Jet_btagCMVA_ = false;
     loaded_Jet_btagCSVV2_ = false;
     loaded_Jet_btagDeepB_ = false;
     loaded_Jet_btagDeepC_ = false;
     loaded_Jet_btagDeepFlavB_ = false;
+    loaded_Jet_btagDeepFlavC_ = false;
     loaded_Jet_chEmEF_ = false;
     loaded_Jet_chHEF_ = false;
     loaded_Jet_cleanmask_ = false;
@@ -2703,10 +3847,14 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_Jet_eta_ = false;
     loaded_Jet_genJetIdx_ = false;
     loaded_Jet_hadronFlavour_ = false;
+    loaded_Jet_jercCHF_ = false;
+    loaded_Jet_jercCHPUF_ = false;
     loaded_Jet_jetId_ = false;
     loaded_Jet_mass_ = false;
+    loaded_Jet_muEF_ = false;
     loaded_Jet_muonIdx1_ = false;
     loaded_Jet_muonIdx2_ = false;
+    loaded_Jet_muonSubtrFactor_ = false;
     loaded_Jet_nConstituents_ = false;
     loaded_Jet_nElectrons_ = false;
     loaded_Jet_nMuons_ = false;
@@ -2719,6 +3867,328 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_Jet_puId_ = false;
     loaded_Jet_qgl_ = false;
     loaded_Jet_rawFactor_ = false;
+    loaded_L1Reco_step_ = false;
+    loaded_L1_AlwaysTrue_ = false;
+    loaded_L1_BPTX_AND_Ref1_VME_ = false;
+    loaded_L1_BPTX_AND_Ref3_VME_ = false;
+    loaded_L1_BPTX_AND_Ref4_VME_ = false;
+    loaded_L1_BPTX_BeamGas_B1_VME_ = false;
+    loaded_L1_BPTX_BeamGas_B2_VME_ = false;
+    loaded_L1_BPTX_BeamGas_Ref1_VME_ = false;
+    loaded_L1_BPTX_BeamGas_Ref2_VME_ = false;
+    loaded_L1_BPTX_NotOR_VME_ = false;
+    loaded_L1_BPTX_OR_Ref3_VME_ = false;
+    loaded_L1_BPTX_OR_Ref4_VME_ = false;
+    loaded_L1_BPTX_RefAND_VME_ = false;
+    loaded_L1_BptxMinus_ = false;
+    loaded_L1_BptxOR_ = false;
+    loaded_L1_BptxPlus_ = false;
+    loaded_L1_BptxXOR_ = false;
+    loaded_L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142_ = false;
+    loaded_L1_DoubleEG8er2p5_HTT260er_ = false;
+    loaded_L1_DoubleEG8er2p5_HTT280er_ = false;
+    loaded_L1_DoubleEG8er2p5_HTT300er_ = false;
+    loaded_L1_DoubleEG8er2p5_HTT320er_ = false;
+    loaded_L1_DoubleEG8er2p5_HTT340er_ = false;
+    loaded_L1_DoubleEG_15_10_er2p5_ = false;
+    loaded_L1_DoubleEG_20_10_er2p5_ = false;
+    loaded_L1_DoubleEG_22_10_er2p5_ = false;
+    loaded_L1_DoubleEG_25_12_er2p5_ = false;
+    loaded_L1_DoubleEG_25_14_er2p5_ = false;
+    loaded_L1_DoubleEG_27_14_er2p5_ = false;
+    loaded_L1_DoubleEG_LooseIso20_10_er2p5_ = false;
+    loaded_L1_DoubleEG_LooseIso22_10_er2p5_ = false;
+    loaded_L1_DoubleEG_LooseIso22_12_er2p5_ = false;
+    loaded_L1_DoubleEG_LooseIso25_12_er2p5_ = false;
+    loaded_L1_DoubleIsoTau32er2p1_ = false;
+    loaded_L1_DoubleIsoTau34er2p1_ = false;
+    loaded_L1_DoubleIsoTau36er2p1_ = false;
+    loaded_L1_DoubleJet100er2p3_dEta_Max1p6_ = false;
+    loaded_L1_DoubleJet100er2p5_ = false;
+    loaded_L1_DoubleJet112er2p3_dEta_Max1p6_ = false;
+    loaded_L1_DoubleJet120er2p5_ = false;
+    loaded_L1_DoubleJet150er2p5_ = false;
+    loaded_L1_DoubleJet30er2p5_Mass_Min150_dEta_Max1p5_ = false;
+    loaded_L1_DoubleJet30er2p5_Mass_Min200_dEta_Max1p5_ = false;
+    loaded_L1_DoubleJet30er2p5_Mass_Min250_dEta_Max1p5_ = false;
+    loaded_L1_DoubleJet30er2p5_Mass_Min300_dEta_Max1p5_ = false;
+    loaded_L1_DoubleJet30er2p5_Mass_Min330_dEta_Max1p5_ = false;
+    loaded_L1_DoubleJet30er2p5_Mass_Min360_dEta_Max1p5_ = false;
+    loaded_L1_DoubleJet35_Mass_Min450_IsoTau45_RmOvlp_ = false;
+    loaded_L1_DoubleJet40er2p5_ = false;
+    loaded_L1_DoubleJet_100_30_DoubleJet30_Mass_Min620_ = false;
+    loaded_L1_DoubleJet_110_35_DoubleJet35_Mass_Min620_ = false;
+    loaded_L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_ = false;
+    loaded_L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_Jet60TT28_ = false;
+    loaded_L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_ = false;
+    loaded_L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_Jet60TT28_ = false;
+    loaded_L1_DoubleJet_80_30_Mass_Min420_DoubleMu0_SQ_ = false;
+    loaded_L1_DoubleJet_80_30_Mass_Min420_IsoTau40_RmOvlp_ = false;
+    loaded_L1_DoubleJet_80_30_Mass_Min420_Mu8_ = false;
+    loaded_L1_DoubleJet_90_30_DoubleJet30_Mass_Min620_ = false;
+    loaded_L1_DoubleLooseIsoEG22er2p1_ = false;
+    loaded_L1_DoubleLooseIsoEG24er2p1_ = false;
+    loaded_L1_DoubleMu0_ = false;
+    loaded_L1_DoubleMu0_Mass_Min1_ = false;
+    loaded_L1_DoubleMu0_OQ_ = false;
+    loaded_L1_DoubleMu0_SQ_ = false;
+    loaded_L1_DoubleMu0_SQ_OS_ = false;
+    loaded_L1_DoubleMu0_dR_Max1p6_Jet90er2p5_dR_Max0p8_ = false;
+    loaded_L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4_ = false;
+    loaded_L1_DoubleMu0er1p5_SQ_ = false;
+    loaded_L1_DoubleMu0er1p5_SQ_OS_ = false;
+    loaded_L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4_ = false;
+    loaded_L1_DoubleMu0er1p5_SQ_dR_Max1p4_ = false;
+    loaded_L1_DoubleMu0er2p0_SQ_OS_dR_Max1p4_ = false;
+    loaded_L1_DoubleMu0er2p0_SQ_dR_Max1p4_ = false;
+    loaded_L1_DoubleMu10_SQ_ = false;
+    loaded_L1_DoubleMu18er2p1_ = false;
+    loaded_L1_DoubleMu3_OS_DoubleEG7p5Upsilon_ = false;
+    loaded_L1_DoubleMu3_SQ_ETMHF50_HTT60er_ = false;
+    loaded_L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_ = false;
+    loaded_L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_OR_DoubleJet40er2p5_ = false;
+    loaded_L1_DoubleMu3_SQ_ETMHF60_Jet60er2p5_ = false;
+    loaded_L1_DoubleMu3_SQ_HTT220er_ = false;
+    loaded_L1_DoubleMu3_SQ_HTT240er_ = false;
+    loaded_L1_DoubleMu3_SQ_HTT260er_ = false;
+    loaded_L1_DoubleMu3_dR_Max1p6_Jet90er2p5_dR_Max0p8_ = false;
+    loaded_L1_DoubleMu4_SQ_EG9er2p5_ = false;
+    loaded_L1_DoubleMu4_SQ_OS_ = false;
+    loaded_L1_DoubleMu4_SQ_OS_dR_Max1p2_ = false;
+    loaded_L1_DoubleMu4p5_SQ_OS_ = false;
+    loaded_L1_DoubleMu4p5_SQ_OS_dR_Max1p2_ = false;
+    loaded_L1_DoubleMu4p5er2p0_SQ_OS_ = false;
+    loaded_L1_DoubleMu4p5er2p0_SQ_OS_Mass7to18_ = false;
+    loaded_L1_DoubleMu5Upsilon_OS_DoubleEG3_ = false;
+    loaded_L1_DoubleMu5_SQ_EG9er2p5_ = false;
+    loaded_L1_DoubleMu9_SQ_ = false;
+    loaded_L1_DoubleMu_12_5_ = false;
+    loaded_L1_DoubleMu_15_5_SQ_ = false;
+    loaded_L1_DoubleMu_15_7_ = false;
+    loaded_L1_DoubleMu_15_7_Mass_Min1_ = false;
+    loaded_L1_DoubleMu_15_7_SQ_ = false;
+    loaded_L1_DoubleTau70er2p1_ = false;
+    loaded_L1_ETM120_ = false;
+    loaded_L1_ETM150_ = false;
+    loaded_L1_ETMHF100_ = false;
+    loaded_L1_ETMHF100_HTT60er_ = false;
+    loaded_L1_ETMHF110_ = false;
+    loaded_L1_ETMHF110_HTT60er_ = false;
+    loaded_L1_ETMHF110_HTT60er_NotSecondBunchInTrain_ = false;
+    loaded_L1_ETMHF120_ = false;
+    loaded_L1_ETMHF120_HTT60er_ = false;
+    loaded_L1_ETMHF120_NotSecondBunchInTrain_ = false;
+    loaded_L1_ETMHF130_ = false;
+    loaded_L1_ETMHF130_HTT60er_ = false;
+    loaded_L1_ETMHF140_ = false;
+    loaded_L1_ETMHF150_ = false;
+    loaded_L1_ETMHF90_HTT60er_ = false;
+    loaded_L1_ETT1200_ = false;
+    loaded_L1_ETT1600_ = false;
+    loaded_L1_ETT2000_ = false;
+    loaded_L1_FirstBunchAfterTrain_ = false;
+    loaded_L1_FirstBunchBeforeTrain_ = false;
+    loaded_L1_FirstBunchInTrain_ = false;
+    loaded_L1_FirstCollisionInOrbit_ = false;
+    loaded_L1_FirstCollisionInTrain_ = false;
+    loaded_L1_HCAL_LaserMon_Trig_ = false;
+    loaded_L1_HCAL_LaserMon_Veto_ = false;
+    loaded_L1_HTT120er_ = false;
+    loaded_L1_HTT160er_ = false;
+    loaded_L1_HTT200er_ = false;
+    loaded_L1_HTT255er_ = false;
+    loaded_L1_HTT280er_ = false;
+    loaded_L1_HTT280er_QuadJet_70_55_40_35_er2p4_ = false;
+    loaded_L1_HTT320er_ = false;
+    loaded_L1_HTT320er_QuadJet_70_55_40_40_er2p4_ = false;
+    loaded_L1_HTT320er_QuadJet_80_60_er2p1_45_40_er2p3_ = false;
+    loaded_L1_HTT320er_QuadJet_80_60_er2p1_50_45_er2p3_ = false;
+    loaded_L1_HTT360er_ = false;
+    loaded_L1_HTT400er_ = false;
+    loaded_L1_HTT450er_ = false;
+    loaded_L1_IsoEG32er2p5_Mt40_ = false;
+    loaded_L1_IsoEG32er2p5_Mt44_ = false;
+    loaded_L1_IsoEG32er2p5_Mt48_ = false;
+    loaded_L1_IsoTau40er2p1_ETMHF100_ = false;
+    loaded_L1_IsoTau40er2p1_ETMHF110_ = false;
+    loaded_L1_IsoTau40er2p1_ETMHF120_ = false;
+    loaded_L1_IsoTau40er2p1_ETMHF90_ = false;
+    loaded_L1_IsolatedBunch_ = false;
+    loaded_L1_LastBunchInTrain_ = false;
+    loaded_L1_LastCollisionInTrain_ = false;
+    loaded_L1_LooseIsoEG22er2p1_IsoTau26er2p1_dR_Min0p3_ = false;
+    loaded_L1_LooseIsoEG22er2p1_Tau70er2p1_dR_Min0p3_ = false;
+    loaded_L1_LooseIsoEG24er2p1_HTT100er_ = false;
+    loaded_L1_LooseIsoEG24er2p1_IsoTau27er2p1_dR_Min0p3_ = false;
+    loaded_L1_LooseIsoEG26er2p1_HTT100er_ = false;
+    loaded_L1_LooseIsoEG26er2p1_Jet34er2p5_dR_Min0p3_ = false;
+    loaded_L1_LooseIsoEG28er2p1_HTT100er_ = false;
+    loaded_L1_LooseIsoEG28er2p1_Jet34er2p5_dR_Min0p3_ = false;
+    loaded_L1_LooseIsoEG30er2p1_HTT100er_ = false;
+    loaded_L1_LooseIsoEG30er2p1_Jet34er2p5_dR_Min0p3_ = false;
+    loaded_L1_MinimumBiasHF0_AND_BptxAND_ = false;
+    loaded_L1_Mu10er2p3_Jet32er2p3_dR_Max0p4_DoubleJet32er2p3_dEta_Max1p6_ = false;
+    loaded_L1_Mu12er2p3_Jet40er2p1_dR_Max0p4_DoubleJet40er2p1_dEta_Max1p6_ = false;
+    loaded_L1_Mu12er2p3_Jet40er2p3_dR_Max0p4_DoubleJet40er2p3_dEta_Max1p6_ = false;
+    loaded_L1_Mu18er2p1_Tau24er2p1_ = false;
+    loaded_L1_Mu18er2p1_Tau26er2p1_ = false;
+    loaded_L1_Mu20_EG10er2p5_ = false;
+    loaded_L1_Mu22er2p1_IsoTau32er2p1_ = false;
+    loaded_L1_Mu22er2p1_IsoTau34er2p1_ = false;
+    loaded_L1_Mu22er2p1_IsoTau36er2p1_ = false;
+    loaded_L1_Mu22er2p1_IsoTau40er2p1_ = false;
+    loaded_L1_Mu22er2p1_Tau70er2p1_ = false;
+    loaded_L1_Mu3_Jet120er2p5_dR_Max0p4_ = false;
+    loaded_L1_Mu3_Jet120er2p5_dR_Max0p8_ = false;
+    loaded_L1_Mu3_Jet16er2p5_dR_Max0p4_ = false;
+    loaded_L1_Mu3_Jet30er2p5_ = false;
+    loaded_L1_Mu3_Jet35er2p5_dR_Max0p4_ = false;
+    loaded_L1_Mu3_Jet60er2p5_dR_Max0p4_ = false;
+    loaded_L1_Mu3_Jet80er2p5_dR_Max0p4_ = false;
+    loaded_L1_Mu3er1p5_Jet100er2p5_ETMHF40_ = false;
+    loaded_L1_Mu3er1p5_Jet100er2p5_ETMHF50_ = false;
+    loaded_L1_Mu5_EG23er2p5_ = false;
+    loaded_L1_Mu5_LooseIsoEG20er2p5_ = false;
+    loaded_L1_Mu6_DoubleEG10er2p5_ = false;
+    loaded_L1_Mu6_DoubleEG12er2p5_ = false;
+    loaded_L1_Mu6_DoubleEG15er2p5_ = false;
+    loaded_L1_Mu6_DoubleEG17er2p5_ = false;
+    loaded_L1_Mu6_HTT240er_ = false;
+    loaded_L1_Mu6_HTT250er_ = false;
+    loaded_L1_Mu7_EG23er2p5_ = false;
+    loaded_L1_Mu7_LooseIsoEG20er2p5_ = false;
+    loaded_L1_Mu7_LooseIsoEG23er2p5_ = false;
+    loaded_L1_NotBptxOR_ = false;
+    loaded_L1_QuadJet36er2p5_IsoTau52er2p1_ = false;
+    loaded_L1_QuadJet60er2p5_ = false;
+    loaded_L1_QuadJet_95_75_65_20_DoubleJet_75_65_er2p5_Jet20_FWD3p0_ = false;
+    loaded_L1_QuadMu0_ = false;
+    loaded_L1_QuadMu0_OQ_ = false;
+    loaded_L1_QuadMu0_SQ_ = false;
+    loaded_L1_SecondBunchInTrain_ = false;
+    loaded_L1_SecondLastBunchInTrain_ = false;
+    loaded_L1_SingleEG10er2p5_ = false;
+    loaded_L1_SingleEG15er2p5_ = false;
+    loaded_L1_SingleEG26er2p5_ = false;
+    loaded_L1_SingleEG34er2p5_ = false;
+    loaded_L1_SingleEG36er2p5_ = false;
+    loaded_L1_SingleEG38er2p5_ = false;
+    loaded_L1_SingleEG40er2p5_ = false;
+    loaded_L1_SingleEG42er2p5_ = false;
+    loaded_L1_SingleEG45er2p5_ = false;
+    loaded_L1_SingleEG50_ = false;
+    loaded_L1_SingleEG60_ = false;
+    loaded_L1_SingleEG8er2p5_ = false;
+    loaded_L1_SingleIsoEG24er1p5_ = false;
+    loaded_L1_SingleIsoEG24er2p1_ = false;
+    loaded_L1_SingleIsoEG26er1p5_ = false;
+    loaded_L1_SingleIsoEG26er2p1_ = false;
+    loaded_L1_SingleIsoEG26er2p5_ = false;
+    loaded_L1_SingleIsoEG28er1p5_ = false;
+    loaded_L1_SingleIsoEG28er2p1_ = false;
+    loaded_L1_SingleIsoEG28er2p5_ = false;
+    loaded_L1_SingleIsoEG30er2p1_ = false;
+    loaded_L1_SingleIsoEG30er2p5_ = false;
+    loaded_L1_SingleIsoEG32er2p1_ = false;
+    loaded_L1_SingleIsoEG32er2p5_ = false;
+    loaded_L1_SingleIsoEG34er2p5_ = false;
+    loaded_L1_SingleJet10erHE_ = false;
+    loaded_L1_SingleJet120_ = false;
+    loaded_L1_SingleJet120_FWD3p0_ = false;
+    loaded_L1_SingleJet120er2p5_ = false;
+    loaded_L1_SingleJet12erHE_ = false;
+    loaded_L1_SingleJet140er2p5_ = false;
+    loaded_L1_SingleJet140er2p5_ETMHF80_ = false;
+    loaded_L1_SingleJet140er2p5_ETMHF90_ = false;
+    loaded_L1_SingleJet160er2p5_ = false;
+    loaded_L1_SingleJet180_ = false;
+    loaded_L1_SingleJet180er2p5_ = false;
+    loaded_L1_SingleJet200_ = false;
+    loaded_L1_SingleJet20er2p5_NotBptxOR_ = false;
+    loaded_L1_SingleJet20er2p5_NotBptxOR_3BX_ = false;
+    loaded_L1_SingleJet35_ = false;
+    loaded_L1_SingleJet35_FWD3p0_ = false;
+    loaded_L1_SingleJet35er2p5_ = false;
+    loaded_L1_SingleJet43er2p5_NotBptxOR_3BX_ = false;
+    loaded_L1_SingleJet46er2p5_NotBptxOR_3BX_ = false;
+    loaded_L1_SingleJet60_ = false;
+    loaded_L1_SingleJet60_FWD3p0_ = false;
+    loaded_L1_SingleJet60er2p5_ = false;
+    loaded_L1_SingleJet8erHE_ = false;
+    loaded_L1_SingleJet90_ = false;
+    loaded_L1_SingleJet90_FWD3p0_ = false;
+    loaded_L1_SingleJet90er2p5_ = false;
+    loaded_L1_SingleLooseIsoEG28er1p5_ = false;
+    loaded_L1_SingleLooseIsoEG30er1p5_ = false;
+    loaded_L1_SingleMu0_BMTF_ = false;
+    loaded_L1_SingleMu0_DQ_ = false;
+    loaded_L1_SingleMu0_EMTF_ = false;
+    loaded_L1_SingleMu0_OMTF_ = false;
+    loaded_L1_SingleMu10er1p5_ = false;
+    loaded_L1_SingleMu12_DQ_BMTF_ = false;
+    loaded_L1_SingleMu12_DQ_EMTF_ = false;
+    loaded_L1_SingleMu12_DQ_OMTF_ = false;
+    loaded_L1_SingleMu12er1p5_ = false;
+    loaded_L1_SingleMu14er1p5_ = false;
+    loaded_L1_SingleMu15_DQ_ = false;
+    loaded_L1_SingleMu16er1p5_ = false;
+    loaded_L1_SingleMu18_ = false;
+    loaded_L1_SingleMu18er1p5_ = false;
+    loaded_L1_SingleMu20_ = false;
+    loaded_L1_SingleMu22_ = false;
+    loaded_L1_SingleMu22_BMTF_ = false;
+    loaded_L1_SingleMu22_EMTF_ = false;
+    loaded_L1_SingleMu22_OMTF_ = false;
+    loaded_L1_SingleMu25_ = false;
+    loaded_L1_SingleMu3_ = false;
+    loaded_L1_SingleMu5_ = false;
+    loaded_L1_SingleMu6er1p5_ = false;
+    loaded_L1_SingleMu7_ = false;
+    loaded_L1_SingleMu7_DQ_ = false;
+    loaded_L1_SingleMu7er1p5_ = false;
+    loaded_L1_SingleMu8er1p5_ = false;
+    loaded_L1_SingleMu9er1p5_ = false;
+    loaded_L1_SingleMuCosmics_ = false;
+    loaded_L1_SingleMuCosmics_BMTF_ = false;
+    loaded_L1_SingleMuCosmics_EMTF_ = false;
+    loaded_L1_SingleMuCosmics_OMTF_ = false;
+    loaded_L1_SingleMuOpen_ = false;
+    loaded_L1_SingleMuOpen_NotBptxOR_ = false;
+    loaded_L1_SingleMuOpen_er1p1_NotBptxOR_3BX_ = false;
+    loaded_L1_SingleMuOpen_er1p4_NotBptxOR_3BX_ = false;
+    loaded_L1_SingleTau120er2p1_ = false;
+    loaded_L1_SingleTau130er2p1_ = false;
+    loaded_L1_TOTEM_1_ = false;
+    loaded_L1_TOTEM_2_ = false;
+    loaded_L1_TOTEM_3_ = false;
+    loaded_L1_TOTEM_4_ = false;
+    loaded_L1_TripleEG16er2p5_ = false;
+    loaded_L1_TripleEG_16_12_8_er2p5_ = false;
+    loaded_L1_TripleEG_16_15_8_er2p5_ = false;
+    loaded_L1_TripleEG_18_17_8_er2p5_ = false;
+    loaded_L1_TripleEG_18_18_12_er2p5_ = false;
+    loaded_L1_TripleJet_100_80_70_DoubleJet_80_70_er2p5_ = false;
+    loaded_L1_TripleJet_105_85_75_DoubleJet_85_75_er2p5_ = false;
+    loaded_L1_TripleJet_95_75_65_DoubleJet_75_65_er2p5_ = false;
+    loaded_L1_TripleMu0_ = false;
+    loaded_L1_TripleMu0_OQ_ = false;
+    loaded_L1_TripleMu0_SQ_ = false;
+    loaded_L1_TripleMu3_ = false;
+    loaded_L1_TripleMu3_SQ_ = false;
+    loaded_L1_TripleMu_5SQ_3SQ_0OQ_ = false;
+    loaded_L1_TripleMu_5SQ_3SQ_0OQ_DoubleMu_5_3_SQ_OS_Mass_Max9_ = false;
+    loaded_L1_TripleMu_5SQ_3SQ_0_DoubleMu_5_3_SQ_OS_Mass_Max9_ = false;
+    loaded_L1_TripleMu_5_3_3_ = false;
+    loaded_L1_TripleMu_5_3_3_SQ_ = false;
+    loaded_L1_TripleMu_5_3p5_2p5_ = false;
+    loaded_L1_TripleMu_5_3p5_2p5_DoubleMu_5_2p5_OS_Mass_5to17_ = false;
+    loaded_L1_TripleMu_5_3p5_2p5_OQ_DoubleMu_5_2p5_OQ_OS_Mass_5to17_ = false;
+    loaded_L1_TripleMu_5_4_2p5_DoubleMu_5_2p5_OS_Mass_5to17_ = false;
+    loaded_L1_TripleMu_5_5_3_ = false;
+    loaded_L1_UnpairedBunchBptxMinus_ = false;
+    loaded_L1_UnpairedBunchBptxPlus_ = false;
+    loaded_L1_ZeroBias_ = false;
+    loaded_L1_ZeroBias_copy_ = false;
     loaded_L1simulation_step_ = false;
     loaded_LHEPart_eta_ = false;
     loaded_LHEPart_mass_ = false;
@@ -2727,6 +4197,7 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_LHEPart_phi_ = false;
     loaded_LHEPart_pt_ = false;
     loaded_LHEPdfWeight_ = false;
+    loaded_LHEReweightingWeight_ = false;
     loaded_LHEScaleWeight_ = false;
     loaded_LHEWeight_originalXWGTUP_ = false;
     loaded_LHE_HT_ = false;
@@ -2760,18 +4231,30 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_Muon_genPartFlav_ = false;
     loaded_Muon_genPartIdx_ = false;
     loaded_Muon_highPtId_ = false;
+    loaded_Muon_inTimeMuon_ = false;
     loaded_Muon_ip3d_ = false;
+    loaded_Muon_isGlobal_ = false;
     loaded_Muon_isPFcand_ = false;
+    loaded_Muon_isTracker_ = false;
     loaded_Muon_jetIdx_ = false;
+    loaded_Muon_jetPtRelv2_ = false;
+    loaded_Muon_jetRelIso_ = false;
+    loaded_Muon_looseId_ = false;
     loaded_Muon_mass_ = false;
     loaded_Muon_mediumId_ = false;
+    loaded_Muon_mediumPromptId_ = false;
+    loaded_Muon_miniIsoId_ = false;
     loaded_Muon_miniPFRelIso_all_ = false;
     loaded_Muon_miniPFRelIso_chg_ = false;
+    loaded_Muon_multiIsoId_ = false;
+    loaded_Muon_mvaId_ = false;
+    loaded_Muon_mvaLowPt_ = false;
     loaded_Muon_mvaTTH_ = false;
     loaded_Muon_nStations_ = false;
     loaded_Muon_nTrackerLayers_ = false;
     loaded_Muon_p4_ = false;
     loaded_Muon_pdgId_ = false;
+    loaded_Muon_pfIsoId_ = false;
     loaded_Muon_pfRelIso03_all_ = false;
     loaded_Muon_pfRelIso03_chg_ = false;
     loaded_Muon_pfRelIso04_all_ = false;
@@ -2781,9 +4264,16 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_Muon_segmentComp_ = false;
     loaded_Muon_sip3d_ = false;
     loaded_Muon_softId_ = false;
+    loaded_Muon_softMva_ = false;
+    loaded_Muon_softMvaId_ = false;
     loaded_Muon_tightCharge_ = false;
     loaded_Muon_tightId_ = false;
+    loaded_Muon_tkIsoId_ = false;
+    loaded_Muon_tkRelIso_ = false;
+    loaded_Muon_triggerIdLoose_ = false;
+    loaded_Muon_tunepRelPt_ = false;
     loaded_OtherPV_z_ = false;
+    loaded_PSWeight_ = false;
     loaded_PV_chi2_ = false;
     loaded_PV_ndof_ = false;
     loaded_PV_npvs_ = false;
@@ -2795,6 +4285,7 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_Photon_charge_ = false;
     loaded_Photon_cleanmask_ = false;
     loaded_Photon_cutBasedBitmap_ = false;
+    loaded_Photon_cutBasedV1Bitmap_ = false;
     loaded_Photon_eCorr_ = false;
     loaded_Photon_electronIdx_ = false;
     loaded_Photon_electronVeto_ = false;
@@ -2808,6 +4299,7 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_Photon_jetIdx_ = false;
     loaded_Photon_mass_ = false;
     loaded_Photon_mvaID_ = false;
+    loaded_Photon_mvaIDV1_ = false;
     loaded_Photon_mvaID_WP80_ = false;
     loaded_Photon_mvaID_WP90_ = false;
     loaded_Photon_p4_ = false;
@@ -2818,10 +4310,13 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_Photon_pixelSeed_ = false;
     loaded_Photon_pt_ = false;
     loaded_Photon_r9_ = false;
+    loaded_Photon_seedGain_ = false;
     loaded_Photon_sieie_ = false;
     loaded_Photon_vidNestedWPBitmap_ = false;
+    loaded_Pileup_gpudensity_ = false;
     loaded_Pileup_nPU_ = false;
     loaded_Pileup_nTrueInt_ = false;
+    loaded_Pileup_pudensity_ = false;
     loaded_Pileup_sumEOOT_ = false;
     loaded_Pileup_sumLOOT_ = false;
     loaded_PuppiMET_phi_ = false;
@@ -2868,6 +4363,7 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_SubJet_p4_ = false;
     loaded_SubJet_phi_ = false;
     loaded_SubJet_pt_ = false;
+    loaded_SubJet_rawFactor_ = false;
     loaded_SubJet_tau1_ = false;
     loaded_SubJet_tau2_ = false;
     loaded_SubJet_tau3_ = false;
@@ -2882,6 +4378,7 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_Tau_genPartFlav_ = false;
     loaded_Tau_genPartIdx_ = false;
     loaded_Tau_idAntiEle_ = false;
+    loaded_Tau_idAntiEle2018_ = false;
     loaded_Tau_idAntiMu_ = false;
     loaded_Tau_idDecayMode_ = false;
     loaded_Tau_idDecayModeNewDMs_ = false;
@@ -2902,7 +4399,9 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_Tau_pt_ = false;
     loaded_Tau_puCorr_ = false;
     loaded_Tau_rawAntiEle_ = false;
+    loaded_Tau_rawAntiEle2018_ = false;
     loaded_Tau_rawAntiEleCat_ = false;
+    loaded_Tau_rawAntiEleCat2018_ = false;
     loaded_Tau_rawIso_ = false;
     loaded_Tau_rawIsodR03_ = false;
     loaded_Tau_rawMVAnewDM2017v2_ = false;
@@ -2923,13 +4422,18 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_TrigObj_l2pt_ = false;
     loaded_TrigObj_phi_ = false;
     loaded_TrigObj_pt_ = false;
+    loaded_btagWeight_CSVV2_ = false;
+    loaded_btagWeight_DeepCSVB_ = false;
     loaded_event_ = false;
     loaded_fixedGridRhoFastjetAll_ = false;
+    loaded_fixedGridRhoFastjetCentral_ = false;
     loaded_fixedGridRhoFastjetCentralCalo_ = false;
+    loaded_fixedGridRhoFastjetCentralChargedPileUp_ = false;
     loaded_fixedGridRhoFastjetCentralNeutral_ = false;
     loaded_genTtbarId_ = false;
     loaded_genWeight_ = false;
     loaded_luminosityBlock_ = false;
+    loaded_nCorrT1METJet_ = false;
     loaded_nElectron_ = false;
     loaded_nFatJet_ = false;
     loaded_nGenDressedLepton_ = false;
@@ -2941,9 +4445,11 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_nJet_ = false;
     loaded_nLHEPart_ = false;
     loaded_nLHEPdfWeight_ = false;
+    loaded_nLHEReweightingWeight_ = false;
     loaded_nLHEScaleWeight_ = false;
     loaded_nMuon_ = false;
     loaded_nOtherPV_ = false;
+    loaded_nPSWeight_ = false;
     loaded_nPhoton_ = false;
     loaded_nSV_ = false;
     loaded_nSoftActivityJet_ = false;
@@ -2977,6 +4483,75 @@ const float &Nano::CaloMET_sumEt() {
         loaded_CaloMET_sumEt_ = true;
     }
     return CaloMET_sumEt_;
+}
+const float &Nano::ChsMET_phi() {
+    if (!loaded_ChsMET_phi_) {
+        if (!b_ChsMET_phi_) throw std::runtime_error("ChsMET_phi branch doesn't exist");
+        b_ChsMET_phi_->GetEntry(index);
+        loaded_ChsMET_phi_ = true;
+    }
+    return ChsMET_phi_;
+}
+const float &Nano::ChsMET_pt() {
+    if (!loaded_ChsMET_pt_) {
+        if (!b_ChsMET_pt_) throw std::runtime_error("ChsMET_pt branch doesn't exist");
+        b_ChsMET_pt_->GetEntry(index);
+        loaded_ChsMET_pt_ = true;
+    }
+    return ChsMET_pt_;
+}
+const float &Nano::ChsMET_sumEt() {
+    if (!loaded_ChsMET_sumEt_) {
+        if (!b_ChsMET_sumEt_) throw std::runtime_error("ChsMET_sumEt branch doesn't exist");
+        b_ChsMET_sumEt_->GetEntry(index);
+        loaded_ChsMET_sumEt_ = true;
+    }
+    return ChsMET_sumEt_;
+}
+const vector<float> &Nano::CorrT1METJet_area() {
+    if (!loaded_CorrT1METJet_area_) {
+        if (!b_CorrT1METJet_area_) throw std::runtime_error("CorrT1METJet_area branch doesn't exist");
+        int bytes = b_CorrT1METJet_area_->GetEntry(index);
+        v_CorrT1METJet_area_ = vector<float>(CorrT1METJet_area_,CorrT1METJet_area_+bytes/sizeof(CorrT1METJet_area_[0]));
+        loaded_CorrT1METJet_area_ = true;
+    }
+    return v_CorrT1METJet_area_;
+}
+const vector<float> &Nano::CorrT1METJet_eta() {
+    if (!loaded_CorrT1METJet_eta_) {
+        if (!b_CorrT1METJet_eta_) throw std::runtime_error("CorrT1METJet_eta branch doesn't exist");
+        int bytes = b_CorrT1METJet_eta_->GetEntry(index);
+        v_CorrT1METJet_eta_ = vector<float>(CorrT1METJet_eta_,CorrT1METJet_eta_+bytes/sizeof(CorrT1METJet_eta_[0]));
+        loaded_CorrT1METJet_eta_ = true;
+    }
+    return v_CorrT1METJet_eta_;
+}
+const vector<float> &Nano::CorrT1METJet_muonSubtrFactor() {
+    if (!loaded_CorrT1METJet_muonSubtrFactor_) {
+        if (!b_CorrT1METJet_muonSubtrFactor_) throw std::runtime_error("CorrT1METJet_muonSubtrFactor branch doesn't exist");
+        int bytes = b_CorrT1METJet_muonSubtrFactor_->GetEntry(index);
+        v_CorrT1METJet_muonSubtrFactor_ = vector<float>(CorrT1METJet_muonSubtrFactor_,CorrT1METJet_muonSubtrFactor_+bytes/sizeof(CorrT1METJet_muonSubtrFactor_[0]));
+        loaded_CorrT1METJet_muonSubtrFactor_ = true;
+    }
+    return v_CorrT1METJet_muonSubtrFactor_;
+}
+const vector<float> &Nano::CorrT1METJet_phi() {
+    if (!loaded_CorrT1METJet_phi_) {
+        if (!b_CorrT1METJet_phi_) throw std::runtime_error("CorrT1METJet_phi branch doesn't exist");
+        int bytes = b_CorrT1METJet_phi_->GetEntry(index);
+        v_CorrT1METJet_phi_ = vector<float>(CorrT1METJet_phi_,CorrT1METJet_phi_+bytes/sizeof(CorrT1METJet_phi_[0]));
+        loaded_CorrT1METJet_phi_ = true;
+    }
+    return v_CorrT1METJet_phi_;
+}
+const vector<float> &Nano::CorrT1METJet_rawPt() {
+    if (!loaded_CorrT1METJet_rawPt_) {
+        if (!b_CorrT1METJet_rawPt_) throw std::runtime_error("CorrT1METJet_rawPt branch doesn't exist");
+        int bytes = b_CorrT1METJet_rawPt_->GetEntry(index);
+        v_CorrT1METJet_rawPt_ = vector<float>(CorrT1METJet_rawPt_,CorrT1METJet_rawPt_+bytes/sizeof(CorrT1METJet_rawPt_[0]));
+        loaded_CorrT1METJet_rawPt_ = true;
+    }
+    return v_CorrT1METJet_rawPt_;
 }
 const vector<int> &Nano::Electron_charge() {
     if (!loaded_Electron_charge_) {
@@ -3013,6 +4588,15 @@ const vector<int> &Nano::Electron_cutBased() {
         loaded_Electron_cutBased_ = true;
     }
     return v_Electron_cutBased_;
+}
+const vector<int> &Nano::Electron_cutBased_Fall17_V1() {
+    if (!loaded_Electron_cutBased_Fall17_V1_) {
+        if (!b_Electron_cutBased_Fall17_V1_) throw std::runtime_error("Electron_cutBased_Fall17_V1 branch doesn't exist");
+        int bytes = b_Electron_cutBased_Fall17_V1_->GetEntry(index);
+        v_Electron_cutBased_Fall17_V1_ = vector<int>(Electron_cutBased_Fall17_V1_,Electron_cutBased_Fall17_V1_+bytes/sizeof(Electron_cutBased_Fall17_V1_[0]));
+        loaded_Electron_cutBased_Fall17_V1_ = true;
+    }
+    return v_Electron_cutBased_Fall17_V1_;
 }
 const vector<bool> &Nano::Electron_cutBased_HEEP() {
     if (!loaded_Electron_cutBased_HEEP_) {
@@ -3058,6 +4642,15 @@ const vector<float> &Nano::Electron_dr03TkSumPt() {
         loaded_Electron_dr03TkSumPt_ = true;
     }
     return v_Electron_dr03TkSumPt_;
+}
+const vector<float> &Nano::Electron_dr03TkSumPtHEEP() {
+    if (!loaded_Electron_dr03TkSumPtHEEP_) {
+        if (!b_Electron_dr03TkSumPtHEEP_) throw std::runtime_error("Electron_dr03TkSumPtHEEP branch doesn't exist");
+        int bytes = b_Electron_dr03TkSumPtHEEP_->GetEntry(index);
+        v_Electron_dr03TkSumPtHEEP_ = vector<float>(Electron_dr03TkSumPtHEEP_,Electron_dr03TkSumPtHEEP_+bytes/sizeof(Electron_dr03TkSumPtHEEP_[0]));
+        loaded_Electron_dr03TkSumPtHEEP_ = true;
+    }
+    return v_Electron_dr03TkSumPtHEEP_;
 }
 const vector<float> &Nano::Electron_dxy() {
     if (!loaded_Electron_dxy_) {
@@ -3185,6 +4778,24 @@ const vector<int> &Nano::Electron_jetIdx() {
     }
     return v_Electron_jetIdx_;
 }
+const vector<float> &Nano::Electron_jetPtRelv2() {
+    if (!loaded_Electron_jetPtRelv2_) {
+        if (!b_Electron_jetPtRelv2_) throw std::runtime_error("Electron_jetPtRelv2 branch doesn't exist");
+        int bytes = b_Electron_jetPtRelv2_->GetEntry(index);
+        v_Electron_jetPtRelv2_ = vector<float>(Electron_jetPtRelv2_,Electron_jetPtRelv2_+bytes/sizeof(Electron_jetPtRelv2_[0]));
+        loaded_Electron_jetPtRelv2_ = true;
+    }
+    return v_Electron_jetPtRelv2_;
+}
+const vector<float> &Nano::Electron_jetRelIso() {
+    if (!loaded_Electron_jetRelIso_) {
+        if (!b_Electron_jetRelIso_) throw std::runtime_error("Electron_jetRelIso branch doesn't exist");
+        int bytes = b_Electron_jetRelIso_->GetEntry(index);
+        v_Electron_jetRelIso_ = vector<float>(Electron_jetRelIso_,Electron_jetRelIso_+bytes/sizeof(Electron_jetRelIso_[0]));
+        loaded_Electron_jetRelIso_ = true;
+    }
+    return v_Electron_jetRelIso_;
+}
 const vector<UChar_t> &Nano::Electron_lostHits() {
     if (!loaded_Electron_lostHits_) {
         if (!b_Electron_lostHits_) throw std::runtime_error("Electron_lostHits branch doesn't exist");
@@ -3221,77 +4832,149 @@ const vector<float> &Nano::Electron_miniPFRelIso_chg() {
     }
     return v_Electron_miniPFRelIso_chg_;
 }
-const vector<float> &Nano::Electron_mvaFall17Iso() {
-    if (!loaded_Electron_mvaFall17Iso_) {
-        if (!b_Electron_mvaFall17Iso_) throw std::runtime_error("Electron_mvaFall17Iso branch doesn't exist");
-        int bytes = b_Electron_mvaFall17Iso_->GetEntry(index);
-        v_Electron_mvaFall17Iso_ = vector<float>(Electron_mvaFall17Iso_,Electron_mvaFall17Iso_+bytes/sizeof(Electron_mvaFall17Iso_[0]));
-        loaded_Electron_mvaFall17Iso_ = true;
+const vector<float> &Nano::Electron_mvaFall17V1Iso() {
+    if (!loaded_Electron_mvaFall17V1Iso_) {
+        if (!b_Electron_mvaFall17V1Iso_) throw std::runtime_error("Electron_mvaFall17V1Iso branch doesn't exist");
+        int bytes = b_Electron_mvaFall17V1Iso_->GetEntry(index);
+        v_Electron_mvaFall17V1Iso_ = vector<float>(Electron_mvaFall17V1Iso_,Electron_mvaFall17V1Iso_+bytes/sizeof(Electron_mvaFall17V1Iso_[0]));
+        loaded_Electron_mvaFall17V1Iso_ = true;
     }
-    return v_Electron_mvaFall17Iso_;
+    return v_Electron_mvaFall17V1Iso_;
 }
-const vector<bool> &Nano::Electron_mvaFall17Iso_WP80() {
-    if (!loaded_Electron_mvaFall17Iso_WP80_) {
-        if (!b_Electron_mvaFall17Iso_WP80_) throw std::runtime_error("Electron_mvaFall17Iso_WP80 branch doesn't exist");
-        int bytes = b_Electron_mvaFall17Iso_WP80_->GetEntry(index);
-        v_Electron_mvaFall17Iso_WP80_ = vector<bool>(Electron_mvaFall17Iso_WP80_,Electron_mvaFall17Iso_WP80_+bytes/sizeof(Electron_mvaFall17Iso_WP80_[0]));
-        loaded_Electron_mvaFall17Iso_WP80_ = true;
+const vector<bool> &Nano::Electron_mvaFall17V1Iso_WP80() {
+    if (!loaded_Electron_mvaFall17V1Iso_WP80_) {
+        if (!b_Electron_mvaFall17V1Iso_WP80_) throw std::runtime_error("Electron_mvaFall17V1Iso_WP80 branch doesn't exist");
+        int bytes = b_Electron_mvaFall17V1Iso_WP80_->GetEntry(index);
+        v_Electron_mvaFall17V1Iso_WP80_ = vector<bool>(Electron_mvaFall17V1Iso_WP80_,Electron_mvaFall17V1Iso_WP80_+bytes/sizeof(Electron_mvaFall17V1Iso_WP80_[0]));
+        loaded_Electron_mvaFall17V1Iso_WP80_ = true;
     }
-    return v_Electron_mvaFall17Iso_WP80_;
+    return v_Electron_mvaFall17V1Iso_WP80_;
 }
-const vector<bool> &Nano::Electron_mvaFall17Iso_WP90() {
-    if (!loaded_Electron_mvaFall17Iso_WP90_) {
-        if (!b_Electron_mvaFall17Iso_WP90_) throw std::runtime_error("Electron_mvaFall17Iso_WP90 branch doesn't exist");
-        int bytes = b_Electron_mvaFall17Iso_WP90_->GetEntry(index);
-        v_Electron_mvaFall17Iso_WP90_ = vector<bool>(Electron_mvaFall17Iso_WP90_,Electron_mvaFall17Iso_WP90_+bytes/sizeof(Electron_mvaFall17Iso_WP90_[0]));
-        loaded_Electron_mvaFall17Iso_WP90_ = true;
+const vector<bool> &Nano::Electron_mvaFall17V1Iso_WP90() {
+    if (!loaded_Electron_mvaFall17V1Iso_WP90_) {
+        if (!b_Electron_mvaFall17V1Iso_WP90_) throw std::runtime_error("Electron_mvaFall17V1Iso_WP90 branch doesn't exist");
+        int bytes = b_Electron_mvaFall17V1Iso_WP90_->GetEntry(index);
+        v_Electron_mvaFall17V1Iso_WP90_ = vector<bool>(Electron_mvaFall17V1Iso_WP90_,Electron_mvaFall17V1Iso_WP90_+bytes/sizeof(Electron_mvaFall17V1Iso_WP90_[0]));
+        loaded_Electron_mvaFall17V1Iso_WP90_ = true;
     }
-    return v_Electron_mvaFall17Iso_WP90_;
+    return v_Electron_mvaFall17V1Iso_WP90_;
 }
-const vector<bool> &Nano::Electron_mvaFall17Iso_WPL() {
-    if (!loaded_Electron_mvaFall17Iso_WPL_) {
-        if (!b_Electron_mvaFall17Iso_WPL_) throw std::runtime_error("Electron_mvaFall17Iso_WPL branch doesn't exist");
-        int bytes = b_Electron_mvaFall17Iso_WPL_->GetEntry(index);
-        v_Electron_mvaFall17Iso_WPL_ = vector<bool>(Electron_mvaFall17Iso_WPL_,Electron_mvaFall17Iso_WPL_+bytes/sizeof(Electron_mvaFall17Iso_WPL_[0]));
-        loaded_Electron_mvaFall17Iso_WPL_ = true;
+const vector<bool> &Nano::Electron_mvaFall17V1Iso_WPL() {
+    if (!loaded_Electron_mvaFall17V1Iso_WPL_) {
+        if (!b_Electron_mvaFall17V1Iso_WPL_) throw std::runtime_error("Electron_mvaFall17V1Iso_WPL branch doesn't exist");
+        int bytes = b_Electron_mvaFall17V1Iso_WPL_->GetEntry(index);
+        v_Electron_mvaFall17V1Iso_WPL_ = vector<bool>(Electron_mvaFall17V1Iso_WPL_,Electron_mvaFall17V1Iso_WPL_+bytes/sizeof(Electron_mvaFall17V1Iso_WPL_[0]));
+        loaded_Electron_mvaFall17V1Iso_WPL_ = true;
     }
-    return v_Electron_mvaFall17Iso_WPL_;
+    return v_Electron_mvaFall17V1Iso_WPL_;
 }
-const vector<float> &Nano::Electron_mvaFall17noIso() {
-    if (!loaded_Electron_mvaFall17noIso_) {
-        if (!b_Electron_mvaFall17noIso_) throw std::runtime_error("Electron_mvaFall17noIso branch doesn't exist");
-        int bytes = b_Electron_mvaFall17noIso_->GetEntry(index);
-        v_Electron_mvaFall17noIso_ = vector<float>(Electron_mvaFall17noIso_,Electron_mvaFall17noIso_+bytes/sizeof(Electron_mvaFall17noIso_[0]));
-        loaded_Electron_mvaFall17noIso_ = true;
+const vector<float> &Nano::Electron_mvaFall17V1noIso() {
+    if (!loaded_Electron_mvaFall17V1noIso_) {
+        if (!b_Electron_mvaFall17V1noIso_) throw std::runtime_error("Electron_mvaFall17V1noIso branch doesn't exist");
+        int bytes = b_Electron_mvaFall17V1noIso_->GetEntry(index);
+        v_Electron_mvaFall17V1noIso_ = vector<float>(Electron_mvaFall17V1noIso_,Electron_mvaFall17V1noIso_+bytes/sizeof(Electron_mvaFall17V1noIso_[0]));
+        loaded_Electron_mvaFall17V1noIso_ = true;
     }
-    return v_Electron_mvaFall17noIso_;
+    return v_Electron_mvaFall17V1noIso_;
 }
-const vector<bool> &Nano::Electron_mvaFall17noIso_WP80() {
-    if (!loaded_Electron_mvaFall17noIso_WP80_) {
-        if (!b_Electron_mvaFall17noIso_WP80_) throw std::runtime_error("Electron_mvaFall17noIso_WP80 branch doesn't exist");
-        int bytes = b_Electron_mvaFall17noIso_WP80_->GetEntry(index);
-        v_Electron_mvaFall17noIso_WP80_ = vector<bool>(Electron_mvaFall17noIso_WP80_,Electron_mvaFall17noIso_WP80_+bytes/sizeof(Electron_mvaFall17noIso_WP80_[0]));
-        loaded_Electron_mvaFall17noIso_WP80_ = true;
+const vector<bool> &Nano::Electron_mvaFall17V1noIso_WP80() {
+    if (!loaded_Electron_mvaFall17V1noIso_WP80_) {
+        if (!b_Electron_mvaFall17V1noIso_WP80_) throw std::runtime_error("Electron_mvaFall17V1noIso_WP80 branch doesn't exist");
+        int bytes = b_Electron_mvaFall17V1noIso_WP80_->GetEntry(index);
+        v_Electron_mvaFall17V1noIso_WP80_ = vector<bool>(Electron_mvaFall17V1noIso_WP80_,Electron_mvaFall17V1noIso_WP80_+bytes/sizeof(Electron_mvaFall17V1noIso_WP80_[0]));
+        loaded_Electron_mvaFall17V1noIso_WP80_ = true;
     }
-    return v_Electron_mvaFall17noIso_WP80_;
+    return v_Electron_mvaFall17V1noIso_WP80_;
 }
-const vector<bool> &Nano::Electron_mvaFall17noIso_WP90() {
-    if (!loaded_Electron_mvaFall17noIso_WP90_) {
-        if (!b_Electron_mvaFall17noIso_WP90_) throw std::runtime_error("Electron_mvaFall17noIso_WP90 branch doesn't exist");
-        int bytes = b_Electron_mvaFall17noIso_WP90_->GetEntry(index);
-        v_Electron_mvaFall17noIso_WP90_ = vector<bool>(Electron_mvaFall17noIso_WP90_,Electron_mvaFall17noIso_WP90_+bytes/sizeof(Electron_mvaFall17noIso_WP90_[0]));
-        loaded_Electron_mvaFall17noIso_WP90_ = true;
+const vector<bool> &Nano::Electron_mvaFall17V1noIso_WP90() {
+    if (!loaded_Electron_mvaFall17V1noIso_WP90_) {
+        if (!b_Electron_mvaFall17V1noIso_WP90_) throw std::runtime_error("Electron_mvaFall17V1noIso_WP90 branch doesn't exist");
+        int bytes = b_Electron_mvaFall17V1noIso_WP90_->GetEntry(index);
+        v_Electron_mvaFall17V1noIso_WP90_ = vector<bool>(Electron_mvaFall17V1noIso_WP90_,Electron_mvaFall17V1noIso_WP90_+bytes/sizeof(Electron_mvaFall17V1noIso_WP90_[0]));
+        loaded_Electron_mvaFall17V1noIso_WP90_ = true;
     }
-    return v_Electron_mvaFall17noIso_WP90_;
+    return v_Electron_mvaFall17V1noIso_WP90_;
 }
-const vector<bool> &Nano::Electron_mvaFall17noIso_WPL() {
-    if (!loaded_Electron_mvaFall17noIso_WPL_) {
-        if (!b_Electron_mvaFall17noIso_WPL_) throw std::runtime_error("Electron_mvaFall17noIso_WPL branch doesn't exist");
-        int bytes = b_Electron_mvaFall17noIso_WPL_->GetEntry(index);
-        v_Electron_mvaFall17noIso_WPL_ = vector<bool>(Electron_mvaFall17noIso_WPL_,Electron_mvaFall17noIso_WPL_+bytes/sizeof(Electron_mvaFall17noIso_WPL_[0]));
-        loaded_Electron_mvaFall17noIso_WPL_ = true;
+const vector<bool> &Nano::Electron_mvaFall17V1noIso_WPL() {
+    if (!loaded_Electron_mvaFall17V1noIso_WPL_) {
+        if (!b_Electron_mvaFall17V1noIso_WPL_) throw std::runtime_error("Electron_mvaFall17V1noIso_WPL branch doesn't exist");
+        int bytes = b_Electron_mvaFall17V1noIso_WPL_->GetEntry(index);
+        v_Electron_mvaFall17V1noIso_WPL_ = vector<bool>(Electron_mvaFall17V1noIso_WPL_,Electron_mvaFall17V1noIso_WPL_+bytes/sizeof(Electron_mvaFall17V1noIso_WPL_[0]));
+        loaded_Electron_mvaFall17V1noIso_WPL_ = true;
     }
-    return v_Electron_mvaFall17noIso_WPL_;
+    return v_Electron_mvaFall17V1noIso_WPL_;
+}
+const vector<float> &Nano::Electron_mvaFall17V2Iso() {
+    if (!loaded_Electron_mvaFall17V2Iso_) {
+        if (!b_Electron_mvaFall17V2Iso_) throw std::runtime_error("Electron_mvaFall17V2Iso branch doesn't exist");
+        int bytes = b_Electron_mvaFall17V2Iso_->GetEntry(index);
+        v_Electron_mvaFall17V2Iso_ = vector<float>(Electron_mvaFall17V2Iso_,Electron_mvaFall17V2Iso_+bytes/sizeof(Electron_mvaFall17V2Iso_[0]));
+        loaded_Electron_mvaFall17V2Iso_ = true;
+    }
+    return v_Electron_mvaFall17V2Iso_;
+}
+const vector<bool> &Nano::Electron_mvaFall17V2Iso_WP80() {
+    if (!loaded_Electron_mvaFall17V2Iso_WP80_) {
+        if (!b_Electron_mvaFall17V2Iso_WP80_) throw std::runtime_error("Electron_mvaFall17V2Iso_WP80 branch doesn't exist");
+        int bytes = b_Electron_mvaFall17V2Iso_WP80_->GetEntry(index);
+        v_Electron_mvaFall17V2Iso_WP80_ = vector<bool>(Electron_mvaFall17V2Iso_WP80_,Electron_mvaFall17V2Iso_WP80_+bytes/sizeof(Electron_mvaFall17V2Iso_WP80_[0]));
+        loaded_Electron_mvaFall17V2Iso_WP80_ = true;
+    }
+    return v_Electron_mvaFall17V2Iso_WP80_;
+}
+const vector<bool> &Nano::Electron_mvaFall17V2Iso_WP90() {
+    if (!loaded_Electron_mvaFall17V2Iso_WP90_) {
+        if (!b_Electron_mvaFall17V2Iso_WP90_) throw std::runtime_error("Electron_mvaFall17V2Iso_WP90 branch doesn't exist");
+        int bytes = b_Electron_mvaFall17V2Iso_WP90_->GetEntry(index);
+        v_Electron_mvaFall17V2Iso_WP90_ = vector<bool>(Electron_mvaFall17V2Iso_WP90_,Electron_mvaFall17V2Iso_WP90_+bytes/sizeof(Electron_mvaFall17V2Iso_WP90_[0]));
+        loaded_Electron_mvaFall17V2Iso_WP90_ = true;
+    }
+    return v_Electron_mvaFall17V2Iso_WP90_;
+}
+const vector<bool> &Nano::Electron_mvaFall17V2Iso_WPL() {
+    if (!loaded_Electron_mvaFall17V2Iso_WPL_) {
+        if (!b_Electron_mvaFall17V2Iso_WPL_) throw std::runtime_error("Electron_mvaFall17V2Iso_WPL branch doesn't exist");
+        int bytes = b_Electron_mvaFall17V2Iso_WPL_->GetEntry(index);
+        v_Electron_mvaFall17V2Iso_WPL_ = vector<bool>(Electron_mvaFall17V2Iso_WPL_,Electron_mvaFall17V2Iso_WPL_+bytes/sizeof(Electron_mvaFall17V2Iso_WPL_[0]));
+        loaded_Electron_mvaFall17V2Iso_WPL_ = true;
+    }
+    return v_Electron_mvaFall17V2Iso_WPL_;
+}
+const vector<float> &Nano::Electron_mvaFall17V2noIso() {
+    if (!loaded_Electron_mvaFall17V2noIso_) {
+        if (!b_Electron_mvaFall17V2noIso_) throw std::runtime_error("Electron_mvaFall17V2noIso branch doesn't exist");
+        int bytes = b_Electron_mvaFall17V2noIso_->GetEntry(index);
+        v_Electron_mvaFall17V2noIso_ = vector<float>(Electron_mvaFall17V2noIso_,Electron_mvaFall17V2noIso_+bytes/sizeof(Electron_mvaFall17V2noIso_[0]));
+        loaded_Electron_mvaFall17V2noIso_ = true;
+    }
+    return v_Electron_mvaFall17V2noIso_;
+}
+const vector<bool> &Nano::Electron_mvaFall17V2noIso_WP80() {
+    if (!loaded_Electron_mvaFall17V2noIso_WP80_) {
+        if (!b_Electron_mvaFall17V2noIso_WP80_) throw std::runtime_error("Electron_mvaFall17V2noIso_WP80 branch doesn't exist");
+        int bytes = b_Electron_mvaFall17V2noIso_WP80_->GetEntry(index);
+        v_Electron_mvaFall17V2noIso_WP80_ = vector<bool>(Electron_mvaFall17V2noIso_WP80_,Electron_mvaFall17V2noIso_WP80_+bytes/sizeof(Electron_mvaFall17V2noIso_WP80_[0]));
+        loaded_Electron_mvaFall17V2noIso_WP80_ = true;
+    }
+    return v_Electron_mvaFall17V2noIso_WP80_;
+}
+const vector<bool> &Nano::Electron_mvaFall17V2noIso_WP90() {
+    if (!loaded_Electron_mvaFall17V2noIso_WP90_) {
+        if (!b_Electron_mvaFall17V2noIso_WP90_) throw std::runtime_error("Electron_mvaFall17V2noIso_WP90 branch doesn't exist");
+        int bytes = b_Electron_mvaFall17V2noIso_WP90_->GetEntry(index);
+        v_Electron_mvaFall17V2noIso_WP90_ = vector<bool>(Electron_mvaFall17V2noIso_WP90_,Electron_mvaFall17V2noIso_WP90_+bytes/sizeof(Electron_mvaFall17V2noIso_WP90_[0]));
+        loaded_Electron_mvaFall17V2noIso_WP90_ = true;
+    }
+    return v_Electron_mvaFall17V2noIso_WP90_;
+}
+const vector<bool> &Nano::Electron_mvaFall17V2noIso_WPL() {
+    if (!loaded_Electron_mvaFall17V2noIso_WPL_) {
+        if (!b_Electron_mvaFall17V2noIso_WPL_) throw std::runtime_error("Electron_mvaFall17V2noIso_WPL branch doesn't exist");
+        int bytes = b_Electron_mvaFall17V2noIso_WPL_->GetEntry(index);
+        v_Electron_mvaFall17V2noIso_WPL_ = vector<bool>(Electron_mvaFall17V2noIso_WPL_,Electron_mvaFall17V2noIso_WPL_+bytes/sizeof(Electron_mvaFall17V2noIso_WPL_[0]));
+        loaded_Electron_mvaFall17V2noIso_WPL_ = true;
+    }
+    return v_Electron_mvaFall17V2noIso_WPL_;
 }
 const vector<float> &Nano::Electron_mvaTTH() {
     if (!loaded_Electron_mvaTTH_) {
@@ -3379,6 +5062,15 @@ const vector<float> &Nano::Electron_r9() {
     }
     return v_Electron_r9_;
 }
+const vector<UChar_t> &Nano::Electron_seedGain() {
+    if (!loaded_Electron_seedGain_) {
+        if (!b_Electron_seedGain_) throw std::runtime_error("Electron_seedGain branch doesn't exist");
+        int bytes = b_Electron_seedGain_->GetEntry(index);
+        v_Electron_seedGain_ = vector<UChar_t>(Electron_seedGain_,Electron_seedGain_+bytes/sizeof(Electron_seedGain_[0]));
+        loaded_Electron_seedGain_ = true;
+    }
+    return v_Electron_seedGain_;
+}
 const vector<float> &Nano::Electron_sieie() {
     if (!loaded_Electron_sieie_) {
         if (!b_Electron_sieie_) throw std::runtime_error("Electron_sieie branch doesn't exist");
@@ -3442,6 +5134,33 @@ const vector<float> &Nano::FatJet_btagCSVV2() {
     }
     return v_FatJet_btagCSVV2_;
 }
+const vector<float> &Nano::FatJet_btagDDBvL() {
+    if (!loaded_FatJet_btagDDBvL_) {
+        if (!b_FatJet_btagDDBvL_) throw std::runtime_error("FatJet_btagDDBvL branch doesn't exist");
+        int bytes = b_FatJet_btagDDBvL_->GetEntry(index);
+        v_FatJet_btagDDBvL_ = vector<float>(FatJet_btagDDBvL_,FatJet_btagDDBvL_+bytes/sizeof(FatJet_btagDDBvL_[0]));
+        loaded_FatJet_btagDDBvL_ = true;
+    }
+    return v_FatJet_btagDDBvL_;
+}
+const vector<float> &Nano::FatJet_btagDDCvB() {
+    if (!loaded_FatJet_btagDDCvB_) {
+        if (!b_FatJet_btagDDCvB_) throw std::runtime_error("FatJet_btagDDCvB branch doesn't exist");
+        int bytes = b_FatJet_btagDDCvB_->GetEntry(index);
+        v_FatJet_btagDDCvB_ = vector<float>(FatJet_btagDDCvB_,FatJet_btagDDCvB_+bytes/sizeof(FatJet_btagDDCvB_[0]));
+        loaded_FatJet_btagDDCvB_ = true;
+    }
+    return v_FatJet_btagDDCvB_;
+}
+const vector<float> &Nano::FatJet_btagDDCvL() {
+    if (!loaded_FatJet_btagDDCvL_) {
+        if (!b_FatJet_btagDDCvL_) throw std::runtime_error("FatJet_btagDDCvL branch doesn't exist");
+        int bytes = b_FatJet_btagDDCvL_->GetEntry(index);
+        v_FatJet_btagDDCvL_ = vector<float>(FatJet_btagDDCvL_,FatJet_btagDDCvL_+bytes/sizeof(FatJet_btagDDCvL_[0]));
+        loaded_FatJet_btagDDCvL_ = true;
+    }
+    return v_FatJet_btagDDCvL_;
+}
 const vector<float> &Nano::FatJet_btagDeepB() {
     if (!loaded_FatJet_btagDeepB_) {
         if (!b_FatJet_btagDeepB_) throw std::runtime_error("FatJet_btagDeepB branch doesn't exist");
@@ -3459,6 +5178,150 @@ const vector<float> &Nano::FatJet_btagHbb() {
         loaded_FatJet_btagHbb_ = true;
     }
     return v_FatJet_btagHbb_;
+}
+const vector<float> &Nano::FatJet_deepTagMD_H4qvsQCD() {
+    if (!loaded_FatJet_deepTagMD_H4qvsQCD_) {
+        if (!b_FatJet_deepTagMD_H4qvsQCD_) throw std::runtime_error("FatJet_deepTagMD_H4qvsQCD branch doesn't exist");
+        int bytes = b_FatJet_deepTagMD_H4qvsQCD_->GetEntry(index);
+        v_FatJet_deepTagMD_H4qvsQCD_ = vector<float>(FatJet_deepTagMD_H4qvsQCD_,FatJet_deepTagMD_H4qvsQCD_+bytes/sizeof(FatJet_deepTagMD_H4qvsQCD_[0]));
+        loaded_FatJet_deepTagMD_H4qvsQCD_ = true;
+    }
+    return v_FatJet_deepTagMD_H4qvsQCD_;
+}
+const vector<float> &Nano::FatJet_deepTagMD_HbbvsQCD() {
+    if (!loaded_FatJet_deepTagMD_HbbvsQCD_) {
+        if (!b_FatJet_deepTagMD_HbbvsQCD_) throw std::runtime_error("FatJet_deepTagMD_HbbvsQCD branch doesn't exist");
+        int bytes = b_FatJet_deepTagMD_HbbvsQCD_->GetEntry(index);
+        v_FatJet_deepTagMD_HbbvsQCD_ = vector<float>(FatJet_deepTagMD_HbbvsQCD_,FatJet_deepTagMD_HbbvsQCD_+bytes/sizeof(FatJet_deepTagMD_HbbvsQCD_[0]));
+        loaded_FatJet_deepTagMD_HbbvsQCD_ = true;
+    }
+    return v_FatJet_deepTagMD_HbbvsQCD_;
+}
+const vector<float> &Nano::FatJet_deepTagMD_TvsQCD() {
+    if (!loaded_FatJet_deepTagMD_TvsQCD_) {
+        if (!b_FatJet_deepTagMD_TvsQCD_) throw std::runtime_error("FatJet_deepTagMD_TvsQCD branch doesn't exist");
+        int bytes = b_FatJet_deepTagMD_TvsQCD_->GetEntry(index);
+        v_FatJet_deepTagMD_TvsQCD_ = vector<float>(FatJet_deepTagMD_TvsQCD_,FatJet_deepTagMD_TvsQCD_+bytes/sizeof(FatJet_deepTagMD_TvsQCD_[0]));
+        loaded_FatJet_deepTagMD_TvsQCD_ = true;
+    }
+    return v_FatJet_deepTagMD_TvsQCD_;
+}
+const vector<float> &Nano::FatJet_deepTagMD_WvsQCD() {
+    if (!loaded_FatJet_deepTagMD_WvsQCD_) {
+        if (!b_FatJet_deepTagMD_WvsQCD_) throw std::runtime_error("FatJet_deepTagMD_WvsQCD branch doesn't exist");
+        int bytes = b_FatJet_deepTagMD_WvsQCD_->GetEntry(index);
+        v_FatJet_deepTagMD_WvsQCD_ = vector<float>(FatJet_deepTagMD_WvsQCD_,FatJet_deepTagMD_WvsQCD_+bytes/sizeof(FatJet_deepTagMD_WvsQCD_[0]));
+        loaded_FatJet_deepTagMD_WvsQCD_ = true;
+    }
+    return v_FatJet_deepTagMD_WvsQCD_;
+}
+const vector<float> &Nano::FatJet_deepTagMD_ZHbbvsQCD() {
+    if (!loaded_FatJet_deepTagMD_ZHbbvsQCD_) {
+        if (!b_FatJet_deepTagMD_ZHbbvsQCD_) throw std::runtime_error("FatJet_deepTagMD_ZHbbvsQCD branch doesn't exist");
+        int bytes = b_FatJet_deepTagMD_ZHbbvsQCD_->GetEntry(index);
+        v_FatJet_deepTagMD_ZHbbvsQCD_ = vector<float>(FatJet_deepTagMD_ZHbbvsQCD_,FatJet_deepTagMD_ZHbbvsQCD_+bytes/sizeof(FatJet_deepTagMD_ZHbbvsQCD_[0]));
+        loaded_FatJet_deepTagMD_ZHbbvsQCD_ = true;
+    }
+    return v_FatJet_deepTagMD_ZHbbvsQCD_;
+}
+const vector<float> &Nano::FatJet_deepTagMD_ZHccvsQCD() {
+    if (!loaded_FatJet_deepTagMD_ZHccvsQCD_) {
+        if (!b_FatJet_deepTagMD_ZHccvsQCD_) throw std::runtime_error("FatJet_deepTagMD_ZHccvsQCD branch doesn't exist");
+        int bytes = b_FatJet_deepTagMD_ZHccvsQCD_->GetEntry(index);
+        v_FatJet_deepTagMD_ZHccvsQCD_ = vector<float>(FatJet_deepTagMD_ZHccvsQCD_,FatJet_deepTagMD_ZHccvsQCD_+bytes/sizeof(FatJet_deepTagMD_ZHccvsQCD_[0]));
+        loaded_FatJet_deepTagMD_ZHccvsQCD_ = true;
+    }
+    return v_FatJet_deepTagMD_ZHccvsQCD_;
+}
+const vector<float> &Nano::FatJet_deepTagMD_ZbbvsQCD() {
+    if (!loaded_FatJet_deepTagMD_ZbbvsQCD_) {
+        if (!b_FatJet_deepTagMD_ZbbvsQCD_) throw std::runtime_error("FatJet_deepTagMD_ZbbvsQCD branch doesn't exist");
+        int bytes = b_FatJet_deepTagMD_ZbbvsQCD_->GetEntry(index);
+        v_FatJet_deepTagMD_ZbbvsQCD_ = vector<float>(FatJet_deepTagMD_ZbbvsQCD_,FatJet_deepTagMD_ZbbvsQCD_+bytes/sizeof(FatJet_deepTagMD_ZbbvsQCD_[0]));
+        loaded_FatJet_deepTagMD_ZbbvsQCD_ = true;
+    }
+    return v_FatJet_deepTagMD_ZbbvsQCD_;
+}
+const vector<float> &Nano::FatJet_deepTagMD_ZvsQCD() {
+    if (!loaded_FatJet_deepTagMD_ZvsQCD_) {
+        if (!b_FatJet_deepTagMD_ZvsQCD_) throw std::runtime_error("FatJet_deepTagMD_ZvsQCD branch doesn't exist");
+        int bytes = b_FatJet_deepTagMD_ZvsQCD_->GetEntry(index);
+        v_FatJet_deepTagMD_ZvsQCD_ = vector<float>(FatJet_deepTagMD_ZvsQCD_,FatJet_deepTagMD_ZvsQCD_+bytes/sizeof(FatJet_deepTagMD_ZvsQCD_[0]));
+        loaded_FatJet_deepTagMD_ZvsQCD_ = true;
+    }
+    return v_FatJet_deepTagMD_ZvsQCD_;
+}
+const vector<float> &Nano::FatJet_deepTagMD_bbvsLight() {
+    if (!loaded_FatJet_deepTagMD_bbvsLight_) {
+        if (!b_FatJet_deepTagMD_bbvsLight_) throw std::runtime_error("FatJet_deepTagMD_bbvsLight branch doesn't exist");
+        int bytes = b_FatJet_deepTagMD_bbvsLight_->GetEntry(index);
+        v_FatJet_deepTagMD_bbvsLight_ = vector<float>(FatJet_deepTagMD_bbvsLight_,FatJet_deepTagMD_bbvsLight_+bytes/sizeof(FatJet_deepTagMD_bbvsLight_[0]));
+        loaded_FatJet_deepTagMD_bbvsLight_ = true;
+    }
+    return v_FatJet_deepTagMD_bbvsLight_;
+}
+const vector<float> &Nano::FatJet_deepTagMD_ccvsLight() {
+    if (!loaded_FatJet_deepTagMD_ccvsLight_) {
+        if (!b_FatJet_deepTagMD_ccvsLight_) throw std::runtime_error("FatJet_deepTagMD_ccvsLight branch doesn't exist");
+        int bytes = b_FatJet_deepTagMD_ccvsLight_->GetEntry(index);
+        v_FatJet_deepTagMD_ccvsLight_ = vector<float>(FatJet_deepTagMD_ccvsLight_,FatJet_deepTagMD_ccvsLight_+bytes/sizeof(FatJet_deepTagMD_ccvsLight_[0]));
+        loaded_FatJet_deepTagMD_ccvsLight_ = true;
+    }
+    return v_FatJet_deepTagMD_ccvsLight_;
+}
+const vector<float> &Nano::FatJet_deepTag_H() {
+    if (!loaded_FatJet_deepTag_H_) {
+        if (!b_FatJet_deepTag_H_) throw std::runtime_error("FatJet_deepTag_H branch doesn't exist");
+        int bytes = b_FatJet_deepTag_H_->GetEntry(index);
+        v_FatJet_deepTag_H_ = vector<float>(FatJet_deepTag_H_,FatJet_deepTag_H_+bytes/sizeof(FatJet_deepTag_H_[0]));
+        loaded_FatJet_deepTag_H_ = true;
+    }
+    return v_FatJet_deepTag_H_;
+}
+const vector<float> &Nano::FatJet_deepTag_QCD() {
+    if (!loaded_FatJet_deepTag_QCD_) {
+        if (!b_FatJet_deepTag_QCD_) throw std::runtime_error("FatJet_deepTag_QCD branch doesn't exist");
+        int bytes = b_FatJet_deepTag_QCD_->GetEntry(index);
+        v_FatJet_deepTag_QCD_ = vector<float>(FatJet_deepTag_QCD_,FatJet_deepTag_QCD_+bytes/sizeof(FatJet_deepTag_QCD_[0]));
+        loaded_FatJet_deepTag_QCD_ = true;
+    }
+    return v_FatJet_deepTag_QCD_;
+}
+const vector<float> &Nano::FatJet_deepTag_QCDothers() {
+    if (!loaded_FatJet_deepTag_QCDothers_) {
+        if (!b_FatJet_deepTag_QCDothers_) throw std::runtime_error("FatJet_deepTag_QCDothers branch doesn't exist");
+        int bytes = b_FatJet_deepTag_QCDothers_->GetEntry(index);
+        v_FatJet_deepTag_QCDothers_ = vector<float>(FatJet_deepTag_QCDothers_,FatJet_deepTag_QCDothers_+bytes/sizeof(FatJet_deepTag_QCDothers_[0]));
+        loaded_FatJet_deepTag_QCDothers_ = true;
+    }
+    return v_FatJet_deepTag_QCDothers_;
+}
+const vector<float> &Nano::FatJet_deepTag_TvsQCD() {
+    if (!loaded_FatJet_deepTag_TvsQCD_) {
+        if (!b_FatJet_deepTag_TvsQCD_) throw std::runtime_error("FatJet_deepTag_TvsQCD branch doesn't exist");
+        int bytes = b_FatJet_deepTag_TvsQCD_->GetEntry(index);
+        v_FatJet_deepTag_TvsQCD_ = vector<float>(FatJet_deepTag_TvsQCD_,FatJet_deepTag_TvsQCD_+bytes/sizeof(FatJet_deepTag_TvsQCD_[0]));
+        loaded_FatJet_deepTag_TvsQCD_ = true;
+    }
+    return v_FatJet_deepTag_TvsQCD_;
+}
+const vector<float> &Nano::FatJet_deepTag_WvsQCD() {
+    if (!loaded_FatJet_deepTag_WvsQCD_) {
+        if (!b_FatJet_deepTag_WvsQCD_) throw std::runtime_error("FatJet_deepTag_WvsQCD branch doesn't exist");
+        int bytes = b_FatJet_deepTag_WvsQCD_->GetEntry(index);
+        v_FatJet_deepTag_WvsQCD_ = vector<float>(FatJet_deepTag_WvsQCD_,FatJet_deepTag_WvsQCD_+bytes/sizeof(FatJet_deepTag_WvsQCD_[0]));
+        loaded_FatJet_deepTag_WvsQCD_ = true;
+    }
+    return v_FatJet_deepTag_WvsQCD_;
+}
+const vector<float> &Nano::FatJet_deepTag_ZvsQCD() {
+    if (!loaded_FatJet_deepTag_ZvsQCD_) {
+        if (!b_FatJet_deepTag_ZvsQCD_) throw std::runtime_error("FatJet_deepTag_ZvsQCD branch doesn't exist");
+        int bytes = b_FatJet_deepTag_ZvsQCD_->GetEntry(index);
+        v_FatJet_deepTag_ZvsQCD_ = vector<float>(FatJet_deepTag_ZvsQCD_,FatJet_deepTag_ZvsQCD_+bytes/sizeof(FatJet_deepTag_ZvsQCD_[0]));
+        loaded_FatJet_deepTag_ZvsQCD_ = true;
+    }
+    return v_FatJet_deepTag_ZvsQCD_;
 }
 const vector<float> &Nano::FatJet_eta() {
     if (!loaded_FatJet_eta_) {
@@ -3545,6 +5408,15 @@ const vector<float> &Nano::FatJet_pt() {
         loaded_FatJet_pt_ = true;
     }
     return v_FatJet_pt_;
+}
+const vector<float> &Nano::FatJet_rawFactor() {
+    if (!loaded_FatJet_rawFactor_) {
+        if (!b_FatJet_rawFactor_) throw std::runtime_error("FatJet_rawFactor branch doesn't exist");
+        int bytes = b_FatJet_rawFactor_->GetEntry(index);
+        v_FatJet_rawFactor_ = vector<float>(FatJet_rawFactor_,FatJet_rawFactor_+bytes/sizeof(FatJet_rawFactor_[0]));
+        loaded_FatJet_rawFactor_ = true;
+    }
+    return v_FatJet_rawFactor_;
 }
 const vector<int> &Nano::FatJet_subJetIdx1() {
     if (!loaded_FatJet_subJetIdx1_) {
@@ -3720,6 +5592,14 @@ const bool &Nano::Flag_ecalBadCalibFilter() {
     }
     return Flag_ecalBadCalibFilter_;
 }
+const bool &Nano::Flag_ecalBadCalibFilterV2() {
+    if (!loaded_Flag_ecalBadCalibFilterV2_) {
+        if (!b_Flag_ecalBadCalibFilterV2_) throw std::runtime_error("Flag_ecalBadCalibFilterV2 branch doesn't exist");
+        b_Flag_ecalBadCalibFilterV2_->GetEntry(index);
+        loaded_Flag_ecalBadCalibFilterV2_ = true;
+    }
+    return Flag_ecalBadCalibFilterV2_;
+}
 const bool &Nano::Flag_ecalLaserCorrFilter() {
     if (!loaded_Flag_ecalLaserCorrFilter_) {
         if (!b_Flag_ecalLaserCorrFilter_) throw std::runtime_error("Flag_ecalLaserCorrFilter branch doesn't exist");
@@ -3816,6 +5696,15 @@ const vector<float> &Nano::GenDressedLepton_eta() {
         loaded_GenDressedLepton_eta_ = true;
     }
     return v_GenDressedLepton_eta_;
+}
+const vector<bool> &Nano::GenDressedLepton_hasTauAnc() {
+    if (!loaded_GenDressedLepton_hasTauAnc_) {
+        if (!b_GenDressedLepton_hasTauAnc_) throw std::runtime_error("GenDressedLepton_hasTauAnc branch doesn't exist");
+        int bytes = b_GenDressedLepton_hasTauAnc_->GetEntry(index);
+        v_GenDressedLepton_hasTauAnc_ = vector<bool>(GenDressedLepton_hasTauAnc_,GenDressedLepton_hasTauAnc_+bytes/sizeof(GenDressedLepton_hasTauAnc_[0]));
+        loaded_GenDressedLepton_hasTauAnc_ = true;
+    }
+    return v_GenDressedLepton_hasTauAnc_;
 }
 const vector<float> &Nano::GenDressedLepton_mass() {
     if (!loaded_GenDressedLepton_mass_) {
@@ -4382,6 +6271,14 @@ const bool &Nano::HLT_AK8PFJet140() {
     }
     return HLT_AK8PFJet140_;
 }
+const bool &Nano::HLT_AK8PFJet15() {
+    if (!loaded_HLT_AK8PFJet15_) {
+        if (!b_HLT_AK8PFJet15_) throw std::runtime_error("HLT_AK8PFJet15 branch doesn't exist");
+        b_HLT_AK8PFJet15_->GetEntry(index);
+        loaded_HLT_AK8PFJet15_ = true;
+    }
+    return HLT_AK8PFJet15_;
+}
 const bool &Nano::HLT_AK8PFJet200() {
     if (!loaded_HLT_AK8PFJet200_) {
         if (!b_HLT_AK8PFJet200_) throw std::runtime_error("HLT_AK8PFJet200 branch doesn't exist");
@@ -4389,6 +6286,14 @@ const bool &Nano::HLT_AK8PFJet200() {
         loaded_HLT_AK8PFJet200_ = true;
     }
     return HLT_AK8PFJet200_;
+}
+const bool &Nano::HLT_AK8PFJet25() {
+    if (!loaded_HLT_AK8PFJet25_) {
+        if (!b_HLT_AK8PFJet25_) throw std::runtime_error("HLT_AK8PFJet25 branch doesn't exist");
+        b_HLT_AK8PFJet25_->GetEntry(index);
+        loaded_HLT_AK8PFJet25_ = true;
+    }
+    return HLT_AK8PFJet25_;
 }
 const bool &Nano::HLT_AK8PFJet260() {
     if (!loaded_HLT_AK8PFJet260_) {
@@ -4406,21 +6311,45 @@ const bool &Nano::HLT_AK8PFJet320() {
     }
     return HLT_AK8PFJet320_;
 }
-const bool &Nano::HLT_AK8PFJet330_PFAK8BTagCSV_p1() {
-    if (!loaded_HLT_AK8PFJet330_PFAK8BTagCSV_p1_) {
-        if (!b_HLT_AK8PFJet330_PFAK8BTagCSV_p1_) throw std::runtime_error("HLT_AK8PFJet330_PFAK8BTagCSV_p1 branch doesn't exist");
-        b_HLT_AK8PFJet330_PFAK8BTagCSV_p1_->GetEntry(index);
-        loaded_HLT_AK8PFJet330_PFAK8BTagCSV_p1_ = true;
+const bool &Nano::HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p1() {
+    if (!loaded_HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p1_) {
+        if (!b_HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p1_) throw std::runtime_error("HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p1 branch doesn't exist");
+        b_HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p1_->GetEntry(index);
+        loaded_HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p1_ = true;
     }
-    return HLT_AK8PFJet330_PFAK8BTagCSV_p1_;
+    return HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p1_;
 }
-const bool &Nano::HLT_AK8PFJet330_PFAK8BTagCSV_p17() {
-    if (!loaded_HLT_AK8PFJet330_PFAK8BTagCSV_p17_) {
-        if (!b_HLT_AK8PFJet330_PFAK8BTagCSV_p17_) throw std::runtime_error("HLT_AK8PFJet330_PFAK8BTagCSV_p17 branch doesn't exist");
-        b_HLT_AK8PFJet330_PFAK8BTagCSV_p17_->GetEntry(index);
-        loaded_HLT_AK8PFJet330_PFAK8BTagCSV_p17_ = true;
+const bool &Nano::HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p17() {
+    if (!loaded_HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p17_) {
+        if (!b_HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p17_) throw std::runtime_error("HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p17 branch doesn't exist");
+        b_HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p17_->GetEntry(index);
+        loaded_HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p17_ = true;
     }
-    return HLT_AK8PFJet330_PFAK8BTagCSV_p17_;
+    return HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p17_;
+}
+const bool &Nano::HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np2() {
+    if (!loaded_HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np2_) {
+        if (!b_HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np2_) throw std::runtime_error("HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np2 branch doesn't exist");
+        b_HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np2_->GetEntry(index);
+        loaded_HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np2_ = true;
+    }
+    return HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np2_;
+}
+const bool &Nano::HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np4() {
+    if (!loaded_HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np4_) {
+        if (!b_HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np4_) throw std::runtime_error("HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np4 branch doesn't exist");
+        b_HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np4_->GetEntry(index);
+        loaded_HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np4_ = true;
+    }
+    return HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np4_;
+}
+const bool &Nano::HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_p02() {
+    if (!loaded_HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_p02_) {
+        if (!b_HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_p02_) throw std::runtime_error("HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_p02 branch doesn't exist");
+        b_HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_p02_->GetEntry(index);
+        loaded_HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_p02_ = true;
+    }
+    return HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_p02_;
 }
 const bool &Nano::HLT_AK8PFJet360_TrimMass30() {
     if (!loaded_HLT_AK8PFJet360_TrimMass30_) {
@@ -4518,6 +6447,14 @@ const bool &Nano::HLT_AK8PFJetFwd140() {
     }
     return HLT_AK8PFJetFwd140_;
 }
+const bool &Nano::HLT_AK8PFJetFwd15() {
+    if (!loaded_HLT_AK8PFJetFwd15_) {
+        if (!b_HLT_AK8PFJetFwd15_) throw std::runtime_error("HLT_AK8PFJetFwd15 branch doesn't exist");
+        b_HLT_AK8PFJetFwd15_->GetEntry(index);
+        loaded_HLT_AK8PFJetFwd15_ = true;
+    }
+    return HLT_AK8PFJetFwd15_;
+}
 const bool &Nano::HLT_AK8PFJetFwd200() {
     if (!loaded_HLT_AK8PFJetFwd200_) {
         if (!b_HLT_AK8PFJetFwd200_) throw std::runtime_error("HLT_AK8PFJetFwd200 branch doesn't exist");
@@ -4525,6 +6462,14 @@ const bool &Nano::HLT_AK8PFJetFwd200() {
         loaded_HLT_AK8PFJetFwd200_ = true;
     }
     return HLT_AK8PFJetFwd200_;
+}
+const bool &Nano::HLT_AK8PFJetFwd25() {
+    if (!loaded_HLT_AK8PFJetFwd25_) {
+        if (!b_HLT_AK8PFJetFwd25_) throw std::runtime_error("HLT_AK8PFJetFwd25 branch doesn't exist");
+        b_HLT_AK8PFJetFwd25_->GetEntry(index);
+        loaded_HLT_AK8PFJetFwd25_ = true;
+    }
+    return HLT_AK8PFJetFwd25_;
 }
 const bool &Nano::HLT_AK8PFJetFwd260() {
     if (!loaded_HLT_AK8PFJetFwd260_) {
@@ -4598,6 +6543,14 @@ const bool &Nano::HLT_BTagMu_AK4DiJet110_Mu5() {
     }
     return HLT_BTagMu_AK4DiJet110_Mu5_;
 }
+const bool &Nano::HLT_BTagMu_AK4DiJet110_Mu5_noalgo() {
+    if (!loaded_HLT_BTagMu_AK4DiJet110_Mu5_noalgo_) {
+        if (!b_HLT_BTagMu_AK4DiJet110_Mu5_noalgo_) throw std::runtime_error("HLT_BTagMu_AK4DiJet110_Mu5_noalgo branch doesn't exist");
+        b_HLT_BTagMu_AK4DiJet110_Mu5_noalgo_->GetEntry(index);
+        loaded_HLT_BTagMu_AK4DiJet110_Mu5_noalgo_ = true;
+    }
+    return HLT_BTagMu_AK4DiJet110_Mu5_noalgo_;
+}
 const bool &Nano::HLT_BTagMu_AK4DiJet170_Mu5() {
     if (!loaded_HLT_BTagMu_AK4DiJet170_Mu5_) {
         if (!b_HLT_BTagMu_AK4DiJet170_Mu5_) throw std::runtime_error("HLT_BTagMu_AK4DiJet170_Mu5 branch doesn't exist");
@@ -4605,6 +6558,14 @@ const bool &Nano::HLT_BTagMu_AK4DiJet170_Mu5() {
         loaded_HLT_BTagMu_AK4DiJet170_Mu5_ = true;
     }
     return HLT_BTagMu_AK4DiJet170_Mu5_;
+}
+const bool &Nano::HLT_BTagMu_AK4DiJet170_Mu5_noalgo() {
+    if (!loaded_HLT_BTagMu_AK4DiJet170_Mu5_noalgo_) {
+        if (!b_HLT_BTagMu_AK4DiJet170_Mu5_noalgo_) throw std::runtime_error("HLT_BTagMu_AK4DiJet170_Mu5_noalgo branch doesn't exist");
+        b_HLT_BTagMu_AK4DiJet170_Mu5_noalgo_->GetEntry(index);
+        loaded_HLT_BTagMu_AK4DiJet170_Mu5_noalgo_ = true;
+    }
+    return HLT_BTagMu_AK4DiJet170_Mu5_noalgo_;
 }
 const bool &Nano::HLT_BTagMu_AK4DiJet20_Mu5() {
     if (!loaded_HLT_BTagMu_AK4DiJet20_Mu5_) {
@@ -4614,6 +6575,14 @@ const bool &Nano::HLT_BTagMu_AK4DiJet20_Mu5() {
     }
     return HLT_BTagMu_AK4DiJet20_Mu5_;
 }
+const bool &Nano::HLT_BTagMu_AK4DiJet20_Mu5_noalgo() {
+    if (!loaded_HLT_BTagMu_AK4DiJet20_Mu5_noalgo_) {
+        if (!b_HLT_BTagMu_AK4DiJet20_Mu5_noalgo_) throw std::runtime_error("HLT_BTagMu_AK4DiJet20_Mu5_noalgo branch doesn't exist");
+        b_HLT_BTagMu_AK4DiJet20_Mu5_noalgo_->GetEntry(index);
+        loaded_HLT_BTagMu_AK4DiJet20_Mu5_noalgo_ = true;
+    }
+    return HLT_BTagMu_AK4DiJet20_Mu5_noalgo_;
+}
 const bool &Nano::HLT_BTagMu_AK4DiJet40_Mu5() {
     if (!loaded_HLT_BTagMu_AK4DiJet40_Mu5_) {
         if (!b_HLT_BTagMu_AK4DiJet40_Mu5_) throw std::runtime_error("HLT_BTagMu_AK4DiJet40_Mu5 branch doesn't exist");
@@ -4621,6 +6590,14 @@ const bool &Nano::HLT_BTagMu_AK4DiJet40_Mu5() {
         loaded_HLT_BTagMu_AK4DiJet40_Mu5_ = true;
     }
     return HLT_BTagMu_AK4DiJet40_Mu5_;
+}
+const bool &Nano::HLT_BTagMu_AK4DiJet40_Mu5_noalgo() {
+    if (!loaded_HLT_BTagMu_AK4DiJet40_Mu5_noalgo_) {
+        if (!b_HLT_BTagMu_AK4DiJet40_Mu5_noalgo_) throw std::runtime_error("HLT_BTagMu_AK4DiJet40_Mu5_noalgo branch doesn't exist");
+        b_HLT_BTagMu_AK4DiJet40_Mu5_noalgo_->GetEntry(index);
+        loaded_HLT_BTagMu_AK4DiJet40_Mu5_noalgo_ = true;
+    }
+    return HLT_BTagMu_AK4DiJet40_Mu5_noalgo_;
 }
 const bool &Nano::HLT_BTagMu_AK4DiJet70_Mu5() {
     if (!loaded_HLT_BTagMu_AK4DiJet70_Mu5_) {
@@ -4630,6 +6607,14 @@ const bool &Nano::HLT_BTagMu_AK4DiJet70_Mu5() {
     }
     return HLT_BTagMu_AK4DiJet70_Mu5_;
 }
+const bool &Nano::HLT_BTagMu_AK4DiJet70_Mu5_noalgo() {
+    if (!loaded_HLT_BTagMu_AK4DiJet70_Mu5_noalgo_) {
+        if (!b_HLT_BTagMu_AK4DiJet70_Mu5_noalgo_) throw std::runtime_error("HLT_BTagMu_AK4DiJet70_Mu5_noalgo branch doesn't exist");
+        b_HLT_BTagMu_AK4DiJet70_Mu5_noalgo_->GetEntry(index);
+        loaded_HLT_BTagMu_AK4DiJet70_Mu5_noalgo_ = true;
+    }
+    return HLT_BTagMu_AK4DiJet70_Mu5_noalgo_;
+}
 const bool &Nano::HLT_BTagMu_AK4Jet300_Mu5() {
     if (!loaded_HLT_BTagMu_AK4Jet300_Mu5_) {
         if (!b_HLT_BTagMu_AK4Jet300_Mu5_) throw std::runtime_error("HLT_BTagMu_AK4Jet300_Mu5 branch doesn't exist");
@@ -4637,6 +6622,14 @@ const bool &Nano::HLT_BTagMu_AK4Jet300_Mu5() {
         loaded_HLT_BTagMu_AK4Jet300_Mu5_ = true;
     }
     return HLT_BTagMu_AK4Jet300_Mu5_;
+}
+const bool &Nano::HLT_BTagMu_AK4Jet300_Mu5_noalgo() {
+    if (!loaded_HLT_BTagMu_AK4Jet300_Mu5_noalgo_) {
+        if (!b_HLT_BTagMu_AK4Jet300_Mu5_noalgo_) throw std::runtime_error("HLT_BTagMu_AK4Jet300_Mu5_noalgo branch doesn't exist");
+        b_HLT_BTagMu_AK4Jet300_Mu5_noalgo_->GetEntry(index);
+        loaded_HLT_BTagMu_AK4Jet300_Mu5_noalgo_ = true;
+    }
+    return HLT_BTagMu_AK4Jet300_Mu5_noalgo_;
 }
 const bool &Nano::HLT_BTagMu_AK8DiJet170_Mu5() {
     if (!loaded_HLT_BTagMu_AK8DiJet170_Mu5_) {
@@ -4646,6 +6639,30 @@ const bool &Nano::HLT_BTagMu_AK8DiJet170_Mu5() {
     }
     return HLT_BTagMu_AK8DiJet170_Mu5_;
 }
+const bool &Nano::HLT_BTagMu_AK8DiJet170_Mu5_noalgo() {
+    if (!loaded_HLT_BTagMu_AK8DiJet170_Mu5_noalgo_) {
+        if (!b_HLT_BTagMu_AK8DiJet170_Mu5_noalgo_) throw std::runtime_error("HLT_BTagMu_AK8DiJet170_Mu5_noalgo branch doesn't exist");
+        b_HLT_BTagMu_AK8DiJet170_Mu5_noalgo_->GetEntry(index);
+        loaded_HLT_BTagMu_AK8DiJet170_Mu5_noalgo_ = true;
+    }
+    return HLT_BTagMu_AK8DiJet170_Mu5_noalgo_;
+}
+const bool &Nano::HLT_BTagMu_AK8Jet170_DoubleMu5() {
+    if (!loaded_HLT_BTagMu_AK8Jet170_DoubleMu5_) {
+        if (!b_HLT_BTagMu_AK8Jet170_DoubleMu5_) throw std::runtime_error("HLT_BTagMu_AK8Jet170_DoubleMu5 branch doesn't exist");
+        b_HLT_BTagMu_AK8Jet170_DoubleMu5_->GetEntry(index);
+        loaded_HLT_BTagMu_AK8Jet170_DoubleMu5_ = true;
+    }
+    return HLT_BTagMu_AK8Jet170_DoubleMu5_;
+}
+const bool &Nano::HLT_BTagMu_AK8Jet170_DoubleMu5_noalgo() {
+    if (!loaded_HLT_BTagMu_AK8Jet170_DoubleMu5_noalgo_) {
+        if (!b_HLT_BTagMu_AK8Jet170_DoubleMu5_noalgo_) throw std::runtime_error("HLT_BTagMu_AK8Jet170_DoubleMu5_noalgo branch doesn't exist");
+        b_HLT_BTagMu_AK8Jet170_DoubleMu5_noalgo_->GetEntry(index);
+        loaded_HLT_BTagMu_AK8Jet170_DoubleMu5_noalgo_ = true;
+    }
+    return HLT_BTagMu_AK8Jet170_DoubleMu5_noalgo_;
+}
 const bool &Nano::HLT_BTagMu_AK8Jet300_Mu5() {
     if (!loaded_HLT_BTagMu_AK8Jet300_Mu5_) {
         if (!b_HLT_BTagMu_AK8Jet300_Mu5_) throw std::runtime_error("HLT_BTagMu_AK8Jet300_Mu5 branch doesn't exist");
@@ -4653,6 +6670,30 @@ const bool &Nano::HLT_BTagMu_AK8Jet300_Mu5() {
         loaded_HLT_BTagMu_AK8Jet300_Mu5_ = true;
     }
     return HLT_BTagMu_AK8Jet300_Mu5_;
+}
+const bool &Nano::HLT_BTagMu_AK8Jet300_Mu5_noalgo() {
+    if (!loaded_HLT_BTagMu_AK8Jet300_Mu5_noalgo_) {
+        if (!b_HLT_BTagMu_AK8Jet300_Mu5_noalgo_) throw std::runtime_error("HLT_BTagMu_AK8Jet300_Mu5_noalgo branch doesn't exist");
+        b_HLT_BTagMu_AK8Jet300_Mu5_noalgo_->GetEntry(index);
+        loaded_HLT_BTagMu_AK8Jet300_Mu5_noalgo_ = true;
+    }
+    return HLT_BTagMu_AK8Jet300_Mu5_noalgo_;
+}
+const bool &Nano::HLT_CDC_L2cosmic_5_er1p0() {
+    if (!loaded_HLT_CDC_L2cosmic_5_er1p0_) {
+        if (!b_HLT_CDC_L2cosmic_5_er1p0_) throw std::runtime_error("HLT_CDC_L2cosmic_5_er1p0 branch doesn't exist");
+        b_HLT_CDC_L2cosmic_5_er1p0_->GetEntry(index);
+        loaded_HLT_CDC_L2cosmic_5_er1p0_ = true;
+    }
+    return HLT_CDC_L2cosmic_5_er1p0_;
+}
+const bool &Nano::HLT_CDC_L2cosmic_5p5_er1p0() {
+    if (!loaded_HLT_CDC_L2cosmic_5p5_er1p0_) {
+        if (!b_HLT_CDC_L2cosmic_5p5_er1p0_) throw std::runtime_error("HLT_CDC_L2cosmic_5p5_er1p0 branch doesn't exist");
+        b_HLT_CDC_L2cosmic_5p5_er1p0_->GetEntry(index);
+        loaded_HLT_CDC_L2cosmic_5p5_er1p0_ = true;
+    }
+    return HLT_CDC_L2cosmic_5p5_er1p0_;
 }
 const bool &Nano::HLT_CaloJet500_NoJetID() {
     if (!loaded_HLT_CaloJet500_NoJetID_) {
@@ -4806,6 +6847,14 @@ const bool &Nano::HLT_DiJet110_35_Mjj650_PFMET130() {
     }
     return HLT_DiJet110_35_Mjj650_PFMET130_;
 }
+const bool &Nano::HLT_DiMu4_Ele9_CaloIdL_TrackIdL_DZ_Mass3p8() {
+    if (!loaded_HLT_DiMu4_Ele9_CaloIdL_TrackIdL_DZ_Mass3p8_) {
+        if (!b_HLT_DiMu4_Ele9_CaloIdL_TrackIdL_DZ_Mass3p8_) throw std::runtime_error("HLT_DiMu4_Ele9_CaloIdL_TrackIdL_DZ_Mass3p8 branch doesn't exist");
+        b_HLT_DiMu4_Ele9_CaloIdL_TrackIdL_DZ_Mass3p8_->GetEntry(index);
+        loaded_HLT_DiMu4_Ele9_CaloIdL_TrackIdL_DZ_Mass3p8_ = true;
+    }
+    return HLT_DiMu4_Ele9_CaloIdL_TrackIdL_DZ_Mass3p8_;
+}
 const bool &Nano::HLT_DiMu9_Ele9_CaloIdL_TrackIdL() {
     if (!loaded_HLT_DiMu9_Ele9_CaloIdL_TrackIdL_) {
         if (!b_HLT_DiMu9_Ele9_CaloIdL_TrackIdL_) throw std::runtime_error("HLT_DiMu9_Ele9_CaloIdL_TrackIdL branch doesn't exist");
@@ -4822,38 +6871,6 @@ const bool &Nano::HLT_DiMu9_Ele9_CaloIdL_TrackIdL_DZ() {
     }
     return HLT_DiMu9_Ele9_CaloIdL_TrackIdL_DZ_;
 }
-const bool &Nano::HLT_DiPFJet15_FBEta3_NoCaloMatched() {
-    if (!loaded_HLT_DiPFJet15_FBEta3_NoCaloMatched_) {
-        if (!b_HLT_DiPFJet15_FBEta3_NoCaloMatched_) throw std::runtime_error("HLT_DiPFJet15_FBEta3_NoCaloMatched branch doesn't exist");
-        b_HLT_DiPFJet15_FBEta3_NoCaloMatched_->GetEntry(index);
-        loaded_HLT_DiPFJet15_FBEta3_NoCaloMatched_ = true;
-    }
-    return HLT_DiPFJet15_FBEta3_NoCaloMatched_;
-}
-const bool &Nano::HLT_DiPFJet15_NoCaloMatched() {
-    if (!loaded_HLT_DiPFJet15_NoCaloMatched_) {
-        if (!b_HLT_DiPFJet15_NoCaloMatched_) throw std::runtime_error("HLT_DiPFJet15_NoCaloMatched branch doesn't exist");
-        b_HLT_DiPFJet15_NoCaloMatched_->GetEntry(index);
-        loaded_HLT_DiPFJet15_NoCaloMatched_ = true;
-    }
-    return HLT_DiPFJet15_NoCaloMatched_;
-}
-const bool &Nano::HLT_DiPFJet25_FBEta3_NoCaloMatched() {
-    if (!loaded_HLT_DiPFJet25_FBEta3_NoCaloMatched_) {
-        if (!b_HLT_DiPFJet25_FBEta3_NoCaloMatched_) throw std::runtime_error("HLT_DiPFJet25_FBEta3_NoCaloMatched branch doesn't exist");
-        b_HLT_DiPFJet25_FBEta3_NoCaloMatched_->GetEntry(index);
-        loaded_HLT_DiPFJet25_FBEta3_NoCaloMatched_ = true;
-    }
-    return HLT_DiPFJet25_FBEta3_NoCaloMatched_;
-}
-const bool &Nano::HLT_DiPFJet25_NoCaloMatched() {
-    if (!loaded_HLT_DiPFJet25_NoCaloMatched_) {
-        if (!b_HLT_DiPFJet25_NoCaloMatched_) throw std::runtime_error("HLT_DiPFJet25_NoCaloMatched branch doesn't exist");
-        b_HLT_DiPFJet25_NoCaloMatched_->GetEntry(index);
-        loaded_HLT_DiPFJet25_NoCaloMatched_ = true;
-    }
-    return HLT_DiPFJet25_NoCaloMatched_;
-}
 const bool &Nano::HLT_DiPFJetAve100_HFJEC() {
     if (!loaded_HLT_DiPFJetAve100_HFJEC_) {
         if (!b_HLT_DiPFJetAve100_HFJEC_) throw std::runtime_error("HLT_DiPFJetAve100_HFJEC branch doesn't exist");
@@ -4869,14 +6886,6 @@ const bool &Nano::HLT_DiPFJetAve140() {
         loaded_HLT_DiPFJetAve140_ = true;
     }
     return HLT_DiPFJetAve140_;
-}
-const bool &Nano::HLT_DiPFJetAve15_HFJEC() {
-    if (!loaded_HLT_DiPFJetAve15_HFJEC_) {
-        if (!b_HLT_DiPFJetAve15_HFJEC_) throw std::runtime_error("HLT_DiPFJetAve15_HFJEC branch doesn't exist");
-        b_HLT_DiPFJetAve15_HFJEC_->GetEntry(index);
-        loaded_HLT_DiPFJetAve15_HFJEC_ = true;
-    }
-    return HLT_DiPFJetAve15_HFJEC_;
 }
 const bool &Nano::HLT_DiPFJetAve160_HFJEC() {
     if (!loaded_HLT_DiPFJetAve160_HFJEC_) {
@@ -4902,14 +6911,6 @@ const bool &Nano::HLT_DiPFJetAve220_HFJEC() {
     }
     return HLT_DiPFJetAve220_HFJEC_;
 }
-const bool &Nano::HLT_DiPFJetAve25_HFJEC() {
-    if (!loaded_HLT_DiPFJetAve25_HFJEC_) {
-        if (!b_HLT_DiPFJetAve25_HFJEC_) throw std::runtime_error("HLT_DiPFJetAve25_HFJEC branch doesn't exist");
-        b_HLT_DiPFJetAve25_HFJEC_->GetEntry(index);
-        loaded_HLT_DiPFJetAve25_HFJEC_ = true;
-    }
-    return HLT_DiPFJetAve25_HFJEC_;
-}
 const bool &Nano::HLT_DiPFJetAve260() {
     if (!loaded_HLT_DiPFJetAve260_) {
         if (!b_HLT_DiPFJetAve260_) throw std::runtime_error("HLT_DiPFJetAve260 branch doesn't exist");
@@ -4933,14 +6934,6 @@ const bool &Nano::HLT_DiPFJetAve320() {
         loaded_HLT_DiPFJetAve320_ = true;
     }
     return HLT_DiPFJetAve320_;
-}
-const bool &Nano::HLT_DiPFJetAve35_HFJEC() {
-    if (!loaded_HLT_DiPFJetAve35_HFJEC_) {
-        if (!b_HLT_DiPFJetAve35_HFJEC_) throw std::runtime_error("HLT_DiPFJetAve35_HFJEC branch doesn't exist");
-        b_HLT_DiPFJetAve35_HFJEC_->GetEntry(index);
-        loaded_HLT_DiPFJetAve35_HFJEC_ = true;
-    }
-    return HLT_DiPFJetAve35_HFJEC_;
 }
 const bool &Nano::HLT_DiPFJetAve40() {
     if (!loaded_HLT_DiPFJetAve40_) {
@@ -5190,21 +7183,13 @@ const bool &Nano::HLT_Dimuon10_PsiPrime_Barrel_Seagulls() {
     }
     return HLT_Dimuon10_PsiPrime_Barrel_Seagulls_;
 }
-const bool &Nano::HLT_Dimuon10_Upsilon_Barrel_Seagulls() {
-    if (!loaded_HLT_Dimuon10_Upsilon_Barrel_Seagulls_) {
-        if (!b_HLT_Dimuon10_Upsilon_Barrel_Seagulls_) throw std::runtime_error("HLT_Dimuon10_Upsilon_Barrel_Seagulls branch doesn't exist");
-        b_HLT_Dimuon10_Upsilon_Barrel_Seagulls_->GetEntry(index);
-        loaded_HLT_Dimuon10_Upsilon_Barrel_Seagulls_ = true;
+const bool &Nano::HLT_Dimuon12_Upsilon_y1p4() {
+    if (!loaded_HLT_Dimuon12_Upsilon_y1p4_) {
+        if (!b_HLT_Dimuon12_Upsilon_y1p4_) throw std::runtime_error("HLT_Dimuon12_Upsilon_y1p4 branch doesn't exist");
+        b_HLT_Dimuon12_Upsilon_y1p4_->GetEntry(index);
+        loaded_HLT_Dimuon12_Upsilon_y1p4_ = true;
     }
-    return HLT_Dimuon10_Upsilon_Barrel_Seagulls_;
-}
-const bool &Nano::HLT_Dimuon12_Upsilon_eta1p5() {
-    if (!loaded_HLT_Dimuon12_Upsilon_eta1p5_) {
-        if (!b_HLT_Dimuon12_Upsilon_eta1p5_) throw std::runtime_error("HLT_Dimuon12_Upsilon_eta1p5 branch doesn't exist");
-        b_HLT_Dimuon12_Upsilon_eta1p5_->GetEntry(index);
-        loaded_HLT_Dimuon12_Upsilon_eta1p5_ = true;
-    }
-    return HLT_Dimuon12_Upsilon_eta1p5_;
+    return HLT_Dimuon12_Upsilon_y1p4_;
 }
 const bool &Nano::HLT_Dimuon14_Phi_Barrel_Seagulls() {
     if (!loaded_HLT_Dimuon14_Phi_Barrel_Seagulls_) {
@@ -5270,22 +7255,6 @@ const bool &Nano::HLT_Dimuon25_Jpsi_noCorrL1() {
     }
     return HLT_Dimuon25_Jpsi_noCorrL1_;
 }
-const bool &Nano::HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55() {
-    if (!loaded_HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_) {
-        if (!b_HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_) throw std::runtime_error("HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55 branch doesn't exist");
-        b_HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_->GetEntry(index);
-        loaded_HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_ = true;
-    }
-    return HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_;
-}
-const bool &Nano::HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55() {
-    if (!loaded_HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_) {
-        if (!b_HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_) throw std::runtime_error("HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55 branch doesn't exist");
-        b_HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_->GetEntry(index);
-        loaded_HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_ = true;
-    }
-    return HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_;
-}
 const bool &Nano::HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55() {
     if (!loaded_HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_) {
         if (!b_HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_) throw std::runtime_error("HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55 branch doesn't exist");
@@ -5302,21 +7271,21 @@ const bool &Nano::HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto
     }
     return HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_;
 }
-const bool &Nano::HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55() {
-    if (!loaded_HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_) {
-        if (!b_HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_) throw std::runtime_error("HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55 branch doesn't exist");
-        b_HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_->GetEntry(index);
-        loaded_HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_ = true;
+const bool &Nano::HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto() {
+    if (!loaded_HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_) {
+        if (!b_HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_) throw std::runtime_error("HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto branch doesn't exist");
+        b_HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_->GetEntry(index);
+        loaded_HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_ = true;
     }
-    return HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_;
+    return HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_;
 }
-const bool &Nano::HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55() {
-    if (!loaded_HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_) {
-        if (!b_HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_) throw std::runtime_error("HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55 branch doesn't exist");
-        b_HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_->GetEntry(index);
-        loaded_HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_ = true;
+const bool &Nano::HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_Mass55() {
+    if (!loaded_HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_Mass55_) {
+        if (!b_HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_Mass55_) throw std::runtime_error("HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_Mass55 branch doesn't exist");
+        b_HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_Mass55_->GetEntry(index);
+        loaded_HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_Mass55_ = true;
     }
-    return HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_;
+    return HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_Mass55_;
 }
 const bool &Nano::HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90() {
     if (!loaded_HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90_) {
@@ -5390,13 +7359,101 @@ const bool &Nano::HLT_DoubleIsoMu20_eta2p1() {
     }
     return HLT_DoubleIsoMu20_eta2p1_;
 }
-const bool &Nano::HLT_DoubleIsoMu24_eta2p1() {
-    if (!loaded_HLT_DoubleIsoMu24_eta2p1_) {
-        if (!b_HLT_DoubleIsoMu24_eta2p1_) throw std::runtime_error("HLT_DoubleIsoMu24_eta2p1 branch doesn't exist");
-        b_HLT_DoubleIsoMu24_eta2p1_->GetEntry(index);
-        loaded_HLT_DoubleIsoMu24_eta2p1_ = true;
+const bool &Nano::HLT_DoubleL2Mu23NoVtx_2Cha() {
+    if (!loaded_HLT_DoubleL2Mu23NoVtx_2Cha_) {
+        if (!b_HLT_DoubleL2Mu23NoVtx_2Cha_) throw std::runtime_error("HLT_DoubleL2Mu23NoVtx_2Cha branch doesn't exist");
+        b_HLT_DoubleL2Mu23NoVtx_2Cha_->GetEntry(index);
+        loaded_HLT_DoubleL2Mu23NoVtx_2Cha_ = true;
     }
-    return HLT_DoubleIsoMu24_eta2p1_;
+    return HLT_DoubleL2Mu23NoVtx_2Cha_;
+}
+const bool &Nano::HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed() {
+    if (!loaded_HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_) {
+        if (!b_HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_) throw std::runtime_error("HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed branch doesn't exist");
+        b_HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_->GetEntry(index);
+        loaded_HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_ = true;
+    }
+    return HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_;
+}
+const bool &Nano::HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_NoL2Matched() {
+    if (!loaded_HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_NoL2Matched_) {
+        if (!b_HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_NoL2Matched_) throw std::runtime_error("HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_NoL2Matched branch doesn't exist");
+        b_HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_NoL2Matched_->GetEntry(index);
+        loaded_HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_NoL2Matched_ = true;
+    }
+    return HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_NoL2Matched_;
+}
+const bool &Nano::HLT_DoubleL2Mu23NoVtx_2Cha_NoL2Matched() {
+    if (!loaded_HLT_DoubleL2Mu23NoVtx_2Cha_NoL2Matched_) {
+        if (!b_HLT_DoubleL2Mu23NoVtx_2Cha_NoL2Matched_) throw std::runtime_error("HLT_DoubleL2Mu23NoVtx_2Cha_NoL2Matched branch doesn't exist");
+        b_HLT_DoubleL2Mu23NoVtx_2Cha_NoL2Matched_->GetEntry(index);
+        loaded_HLT_DoubleL2Mu23NoVtx_2Cha_NoL2Matched_ = true;
+    }
+    return HLT_DoubleL2Mu23NoVtx_2Cha_NoL2Matched_;
+}
+const bool &Nano::HLT_DoubleL2Mu25NoVtx_2Cha() {
+    if (!loaded_HLT_DoubleL2Mu25NoVtx_2Cha_) {
+        if (!b_HLT_DoubleL2Mu25NoVtx_2Cha_) throw std::runtime_error("HLT_DoubleL2Mu25NoVtx_2Cha branch doesn't exist");
+        b_HLT_DoubleL2Mu25NoVtx_2Cha_->GetEntry(index);
+        loaded_HLT_DoubleL2Mu25NoVtx_2Cha_ = true;
+    }
+    return HLT_DoubleL2Mu25NoVtx_2Cha_;
+}
+const bool &Nano::HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed() {
+    if (!loaded_HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_) {
+        if (!b_HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_) throw std::runtime_error("HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed branch doesn't exist");
+        b_HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_->GetEntry(index);
+        loaded_HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_ = true;
+    }
+    return HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_;
+}
+const bool &Nano::HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_Eta2p4() {
+    if (!loaded_HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_Eta2p4_) {
+        if (!b_HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_Eta2p4_) throw std::runtime_error("HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_Eta2p4 branch doesn't exist");
+        b_HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_Eta2p4_->GetEntry(index);
+        loaded_HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_Eta2p4_ = true;
+    }
+    return HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_Eta2p4_;
+}
+const bool &Nano::HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_NoL2Matched() {
+    if (!loaded_HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_NoL2Matched_) {
+        if (!b_HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_NoL2Matched_) throw std::runtime_error("HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_NoL2Matched branch doesn't exist");
+        b_HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_NoL2Matched_->GetEntry(index);
+        loaded_HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_NoL2Matched_ = true;
+    }
+    return HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_NoL2Matched_;
+}
+const bool &Nano::HLT_DoubleL2Mu25NoVtx_2Cha_Eta2p4() {
+    if (!loaded_HLT_DoubleL2Mu25NoVtx_2Cha_Eta2p4_) {
+        if (!b_HLT_DoubleL2Mu25NoVtx_2Cha_Eta2p4_) throw std::runtime_error("HLT_DoubleL2Mu25NoVtx_2Cha_Eta2p4 branch doesn't exist");
+        b_HLT_DoubleL2Mu25NoVtx_2Cha_Eta2p4_->GetEntry(index);
+        loaded_HLT_DoubleL2Mu25NoVtx_2Cha_Eta2p4_ = true;
+    }
+    return HLT_DoubleL2Mu25NoVtx_2Cha_Eta2p4_;
+}
+const bool &Nano::HLT_DoubleL2Mu25NoVtx_2Cha_NoL2Matched() {
+    if (!loaded_HLT_DoubleL2Mu25NoVtx_2Cha_NoL2Matched_) {
+        if (!b_HLT_DoubleL2Mu25NoVtx_2Cha_NoL2Matched_) throw std::runtime_error("HLT_DoubleL2Mu25NoVtx_2Cha_NoL2Matched branch doesn't exist");
+        b_HLT_DoubleL2Mu25NoVtx_2Cha_NoL2Matched_->GetEntry(index);
+        loaded_HLT_DoubleL2Mu25NoVtx_2Cha_NoL2Matched_ = true;
+    }
+    return HLT_DoubleL2Mu25NoVtx_2Cha_NoL2Matched_;
+}
+const bool &Nano::HLT_DoubleL2Mu30NoVtx_2Cha_CosmicSeed_Eta2p4() {
+    if (!loaded_HLT_DoubleL2Mu30NoVtx_2Cha_CosmicSeed_Eta2p4_) {
+        if (!b_HLT_DoubleL2Mu30NoVtx_2Cha_CosmicSeed_Eta2p4_) throw std::runtime_error("HLT_DoubleL2Mu30NoVtx_2Cha_CosmicSeed_Eta2p4 branch doesn't exist");
+        b_HLT_DoubleL2Mu30NoVtx_2Cha_CosmicSeed_Eta2p4_->GetEntry(index);
+        loaded_HLT_DoubleL2Mu30NoVtx_2Cha_CosmicSeed_Eta2p4_ = true;
+    }
+    return HLT_DoubleL2Mu30NoVtx_2Cha_CosmicSeed_Eta2p4_;
+}
+const bool &Nano::HLT_DoubleL2Mu30NoVtx_2Cha_Eta2p4() {
+    if (!loaded_HLT_DoubleL2Mu30NoVtx_2Cha_Eta2p4_) {
+        if (!b_HLT_DoubleL2Mu30NoVtx_2Cha_Eta2p4_) throw std::runtime_error("HLT_DoubleL2Mu30NoVtx_2Cha_Eta2p4 branch doesn't exist");
+        b_HLT_DoubleL2Mu30NoVtx_2Cha_Eta2p4_->GetEntry(index);
+        loaded_HLT_DoubleL2Mu30NoVtx_2Cha_Eta2p4_ = true;
+    }
+    return HLT_DoubleL2Mu30NoVtx_2Cha_Eta2p4_;
 }
 const bool &Nano::HLT_DoubleL2Mu50() {
     if (!loaded_HLT_DoubleL2Mu50_) {
@@ -5406,69 +7463,37 @@ const bool &Nano::HLT_DoubleL2Mu50() {
     }
     return HLT_DoubleL2Mu50_;
 }
-const bool &Nano::HLT_DoubleLooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg() {
-    if (!loaded_HLT_DoubleLooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_) {
-        if (!b_HLT_DoubleLooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_) throw std::runtime_error("HLT_DoubleLooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg branch doesn't exist");
-        b_HLT_DoubleLooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_->GetEntry(index);
-        loaded_HLT_DoubleLooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_ = true;
+const bool &Nano::HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg() {
+    if (!loaded_HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_) {
+        if (!b_HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_) throw std::runtime_error("HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg branch doesn't exist");
+        b_HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_->GetEntry(index);
+        loaded_HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_ = true;
     }
-    return HLT_DoubleLooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_;
+    return HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_;
 }
-const bool &Nano::HLT_DoubleLooseChargedIsoPFTau35_Trk1_eta2p1_Reg() {
-    if (!loaded_HLT_DoubleLooseChargedIsoPFTau35_Trk1_eta2p1_Reg_) {
-        if (!b_HLT_DoubleLooseChargedIsoPFTau35_Trk1_eta2p1_Reg_) throw std::runtime_error("HLT_DoubleLooseChargedIsoPFTau35_Trk1_eta2p1_Reg branch doesn't exist");
-        b_HLT_DoubleLooseChargedIsoPFTau35_Trk1_eta2p1_Reg_->GetEntry(index);
-        loaded_HLT_DoubleLooseChargedIsoPFTau35_Trk1_eta2p1_Reg_ = true;
+const bool &Nano::HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg() {
+    if (!loaded_HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_) {
+        if (!b_HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_) throw std::runtime_error("HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg branch doesn't exist");
+        b_HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_->GetEntry(index);
+        loaded_HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_ = true;
     }
-    return HLT_DoubleLooseChargedIsoPFTau35_Trk1_eta2p1_Reg_;
+    return HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_;
 }
-const bool &Nano::HLT_DoubleLooseChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg() {
-    if (!loaded_HLT_DoubleLooseChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_) {
-        if (!b_HLT_DoubleLooseChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_) throw std::runtime_error("HLT_DoubleLooseChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg branch doesn't exist");
-        b_HLT_DoubleLooseChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_->GetEntry(index);
-        loaded_HLT_DoubleLooseChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_ = true;
+const bool &Nano::HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg() {
+    if (!loaded_HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg_) {
+        if (!b_HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg_) throw std::runtime_error("HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg branch doesn't exist");
+        b_HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg_->GetEntry(index);
+        loaded_HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg_ = true;
     }
-    return HLT_DoubleLooseChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_;
+    return HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg_;
 }
-const bool &Nano::HLT_DoubleLooseChargedIsoPFTau40_Trk1_eta2p1_Reg() {
-    if (!loaded_HLT_DoubleLooseChargedIsoPFTau40_Trk1_eta2p1_Reg_) {
-        if (!b_HLT_DoubleLooseChargedIsoPFTau40_Trk1_eta2p1_Reg_) throw std::runtime_error("HLT_DoubleLooseChargedIsoPFTau40_Trk1_eta2p1_Reg branch doesn't exist");
-        b_HLT_DoubleLooseChargedIsoPFTau40_Trk1_eta2p1_Reg_->GetEntry(index);
-        loaded_HLT_DoubleLooseChargedIsoPFTau40_Trk1_eta2p1_Reg_ = true;
+const bool &Nano::HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_eta2p1_Reg() {
+    if (!loaded_HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_eta2p1_Reg_) {
+        if (!b_HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_eta2p1_Reg_) throw std::runtime_error("HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_eta2p1_Reg branch doesn't exist");
+        b_HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_eta2p1_Reg_->GetEntry(index);
+        loaded_HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_eta2p1_Reg_ = true;
     }
-    return HLT_DoubleLooseChargedIsoPFTau40_Trk1_eta2p1_Reg_;
-}
-const bool &Nano::HLT_DoubleMediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg() {
-    if (!loaded_HLT_DoubleMediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_) {
-        if (!b_HLT_DoubleMediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_) throw std::runtime_error("HLT_DoubleMediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg branch doesn't exist");
-        b_HLT_DoubleMediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_->GetEntry(index);
-        loaded_HLT_DoubleMediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_ = true;
-    }
-    return HLT_DoubleMediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_;
-}
-const bool &Nano::HLT_DoubleMediumChargedIsoPFTau35_Trk1_eta2p1_Reg() {
-    if (!loaded_HLT_DoubleMediumChargedIsoPFTau35_Trk1_eta2p1_Reg_) {
-        if (!b_HLT_DoubleMediumChargedIsoPFTau35_Trk1_eta2p1_Reg_) throw std::runtime_error("HLT_DoubleMediumChargedIsoPFTau35_Trk1_eta2p1_Reg branch doesn't exist");
-        b_HLT_DoubleMediumChargedIsoPFTau35_Trk1_eta2p1_Reg_->GetEntry(index);
-        loaded_HLT_DoubleMediumChargedIsoPFTau35_Trk1_eta2p1_Reg_ = true;
-    }
-    return HLT_DoubleMediumChargedIsoPFTau35_Trk1_eta2p1_Reg_;
-}
-const bool &Nano::HLT_DoubleMediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg() {
-    if (!loaded_HLT_DoubleMediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_) {
-        if (!b_HLT_DoubleMediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_) throw std::runtime_error("HLT_DoubleMediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg branch doesn't exist");
-        b_HLT_DoubleMediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_->GetEntry(index);
-        loaded_HLT_DoubleMediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_ = true;
-    }
-    return HLT_DoubleMediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_;
-}
-const bool &Nano::HLT_DoubleMediumChargedIsoPFTau40_Trk1_eta2p1_Reg() {
-    if (!loaded_HLT_DoubleMediumChargedIsoPFTau40_Trk1_eta2p1_Reg_) {
-        if (!b_HLT_DoubleMediumChargedIsoPFTau40_Trk1_eta2p1_Reg_) throw std::runtime_error("HLT_DoubleMediumChargedIsoPFTau40_Trk1_eta2p1_Reg branch doesn't exist");
-        b_HLT_DoubleMediumChargedIsoPFTau40_Trk1_eta2p1_Reg_->GetEntry(index);
-        loaded_HLT_DoubleMediumChargedIsoPFTau40_Trk1_eta2p1_Reg_ = true;
-    }
-    return HLT_DoubleMediumChargedIsoPFTau40_Trk1_eta2p1_Reg_;
+    return HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_eta2p1_Reg_;
 }
 const bool &Nano::HLT_DoubleMu20_7_Mass0to30_L1_DM4() {
     if (!loaded_HLT_DoubleMu20_7_Mass0to30_L1_DM4_) {
@@ -5502,13 +7527,21 @@ const bool &Nano::HLT_DoubleMu2_Jpsi_DoubleTkMu0_Phi() {
     }
     return HLT_DoubleMu2_Jpsi_DoubleTkMu0_Phi_;
 }
-const bool &Nano::HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi() {
-    if (!loaded_HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi_) {
-        if (!b_HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi_) throw std::runtime_error("HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi branch doesn't exist");
-        b_HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi_->GetEntry(index);
-        loaded_HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi_ = true;
+const bool &Nano::HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi1p05() {
+    if (!loaded_HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi1p05_) {
+        if (!b_HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi1p05_) throw std::runtime_error("HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi1p05 branch doesn't exist");
+        b_HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi1p05_->GetEntry(index);
+        loaded_HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi1p05_ = true;
     }
-    return HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi_;
+    return HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi1p05_;
+}
+const bool &Nano::HLT_DoubleMu33NoFiltersNoVtxDisplaced() {
+    if (!loaded_HLT_DoubleMu33NoFiltersNoVtxDisplaced_) {
+        if (!b_HLT_DoubleMu33NoFiltersNoVtxDisplaced_) throw std::runtime_error("HLT_DoubleMu33NoFiltersNoVtxDisplaced branch doesn't exist");
+        b_HLT_DoubleMu33NoFiltersNoVtxDisplaced_->GetEntry(index);
+        loaded_HLT_DoubleMu33NoFiltersNoVtxDisplaced_ = true;
+    }
+    return HLT_DoubleMu33NoFiltersNoVtxDisplaced_;
 }
 const bool &Nano::HLT_DoubleMu3_DCA_PFMET50_PFMHT60() {
     if (!loaded_HLT_DoubleMu3_DCA_PFMET50_PFMHT60_) {
@@ -5542,6 +7575,22 @@ const bool &Nano::HLT_DoubleMu3_DZ_PFMET90_PFMHT90() {
     }
     return HLT_DoubleMu3_DZ_PFMET90_PFMHT90_;
 }
+const bool &Nano::HLT_DoubleMu3_DoubleEle7p5_CaloIdL_TrackIdL_Upsilon() {
+    if (!loaded_HLT_DoubleMu3_DoubleEle7p5_CaloIdL_TrackIdL_Upsilon_) {
+        if (!b_HLT_DoubleMu3_DoubleEle7p5_CaloIdL_TrackIdL_Upsilon_) throw std::runtime_error("HLT_DoubleMu3_DoubleEle7p5_CaloIdL_TrackIdL_Upsilon branch doesn't exist");
+        b_HLT_DoubleMu3_DoubleEle7p5_CaloIdL_TrackIdL_Upsilon_->GetEntry(index);
+        loaded_HLT_DoubleMu3_DoubleEle7p5_CaloIdL_TrackIdL_Upsilon_ = true;
+    }
+    return HLT_DoubleMu3_DoubleEle7p5_CaloIdL_TrackIdL_Upsilon_;
+}
+const bool &Nano::HLT_DoubleMu3_TkMu_DsTau3Mu() {
+    if (!loaded_HLT_DoubleMu3_TkMu_DsTau3Mu_) {
+        if (!b_HLT_DoubleMu3_TkMu_DsTau3Mu_) throw std::runtime_error("HLT_DoubleMu3_TkMu_DsTau3Mu branch doesn't exist");
+        b_HLT_DoubleMu3_TkMu_DsTau3Mu_->GetEntry(index);
+        loaded_HLT_DoubleMu3_TkMu_DsTau3Mu_ = true;
+    }
+    return HLT_DoubleMu3_TkMu_DsTau3Mu_;
+}
 const bool &Nano::HLT_DoubleMu3_Trk_Tau3mu() {
     if (!loaded_HLT_DoubleMu3_Trk_Tau3mu_) {
         if (!b_HLT_DoubleMu3_Trk_Tau3mu_) throw std::runtime_error("HLT_DoubleMu3_Trk_Tau3mu branch doesn't exist");
@@ -5557,6 +7606,14 @@ const bool &Nano::HLT_DoubleMu3_Trk_Tau3mu_NoL1Mass() {
         loaded_HLT_DoubleMu3_Trk_Tau3mu_NoL1Mass_ = true;
     }
     return HLT_DoubleMu3_Trk_Tau3mu_NoL1Mass_;
+}
+const bool &Nano::HLT_DoubleMu40NoFiltersNoVtxDisplaced() {
+    if (!loaded_HLT_DoubleMu40NoFiltersNoVtxDisplaced_) {
+        if (!b_HLT_DoubleMu40NoFiltersNoVtxDisplaced_) throw std::runtime_error("HLT_DoubleMu40NoFiltersNoVtxDisplaced branch doesn't exist");
+        b_HLT_DoubleMu40NoFiltersNoVtxDisplaced_->GetEntry(index);
+        loaded_HLT_DoubleMu40NoFiltersNoVtxDisplaced_ = true;
+    }
+    return HLT_DoubleMu40NoFiltersNoVtxDisplaced_;
 }
 const bool &Nano::HLT_DoubleMu43NoFiltersNoVtx() {
     if (!loaded_HLT_DoubleMu43NoFiltersNoVtx_) {
@@ -5582,13 +7639,13 @@ const bool &Nano::HLT_DoubleMu4_3_Bs() {
     }
     return HLT_DoubleMu4_3_Bs_;
 }
-const bool &Nano::HLT_DoubleMu4_3_Jpsi_Displaced() {
-    if (!loaded_HLT_DoubleMu4_3_Jpsi_Displaced_) {
-        if (!b_HLT_DoubleMu4_3_Jpsi_Displaced_) throw std::runtime_error("HLT_DoubleMu4_3_Jpsi_Displaced branch doesn't exist");
-        b_HLT_DoubleMu4_3_Jpsi_Displaced_->GetEntry(index);
-        loaded_HLT_DoubleMu4_3_Jpsi_Displaced_ = true;
+const bool &Nano::HLT_DoubleMu4_3_Jpsi() {
+    if (!loaded_HLT_DoubleMu4_3_Jpsi_) {
+        if (!b_HLT_DoubleMu4_3_Jpsi_) throw std::runtime_error("HLT_DoubleMu4_3_Jpsi branch doesn't exist");
+        b_HLT_DoubleMu4_3_Jpsi_->GetEntry(index);
+        loaded_HLT_DoubleMu4_3_Jpsi_ = true;
     }
-    return HLT_DoubleMu4_3_Jpsi_Displaced_;
+    return HLT_DoubleMu4_3_Jpsi_;
 }
 const bool &Nano::HLT_DoubleMu4_JpsiTrkTrk_Displaced() {
     if (!loaded_HLT_DoubleMu4_JpsiTrkTrk_Displaced_) {
@@ -5630,13 +7687,13 @@ const bool &Nano::HLT_DoubleMu4_LowMassNonResonantTrk_Displaced() {
     }
     return HLT_DoubleMu4_LowMassNonResonantTrk_Displaced_;
 }
-const bool &Nano::HLT_DoubleMu4_Mass8_DZ_PFHT350() {
-    if (!loaded_HLT_DoubleMu4_Mass8_DZ_PFHT350_) {
-        if (!b_HLT_DoubleMu4_Mass8_DZ_PFHT350_) throw std::runtime_error("HLT_DoubleMu4_Mass8_DZ_PFHT350 branch doesn't exist");
-        b_HLT_DoubleMu4_Mass8_DZ_PFHT350_->GetEntry(index);
-        loaded_HLT_DoubleMu4_Mass8_DZ_PFHT350_ = true;
+const bool &Nano::HLT_DoubleMu4_Mass3p8_DZ_PFHT350() {
+    if (!loaded_HLT_DoubleMu4_Mass3p8_DZ_PFHT350_) {
+        if (!b_HLT_DoubleMu4_Mass3p8_DZ_PFHT350_) throw std::runtime_error("HLT_DoubleMu4_Mass3p8_DZ_PFHT350 branch doesn't exist");
+        b_HLT_DoubleMu4_Mass3p8_DZ_PFHT350_->GetEntry(index);
+        loaded_HLT_DoubleMu4_Mass3p8_DZ_PFHT350_ = true;
     }
-    return HLT_DoubleMu4_Mass8_DZ_PFHT350_;
+    return HLT_DoubleMu4_Mass3p8_DZ_PFHT350_;
 }
 const bool &Nano::HLT_DoubleMu4_PsiPrimeTrk_Displaced() {
     if (!loaded_HLT_DoubleMu4_PsiPrimeTrk_Displaced_) {
@@ -5646,69 +7703,61 @@ const bool &Nano::HLT_DoubleMu4_PsiPrimeTrk_Displaced() {
     }
     return HLT_DoubleMu4_PsiPrimeTrk_Displaced_;
 }
-const bool &Nano::HLT_DoubleMu8_Mass8_PFHT350() {
-    if (!loaded_HLT_DoubleMu8_Mass8_PFHT350_) {
-        if (!b_HLT_DoubleMu8_Mass8_PFHT350_) throw std::runtime_error("HLT_DoubleMu8_Mass8_PFHT350 branch doesn't exist");
-        b_HLT_DoubleMu8_Mass8_PFHT350_->GetEntry(index);
-        loaded_HLT_DoubleMu8_Mass8_PFHT350_ = true;
+const bool &Nano::HLT_DoubleMu5_Upsilon_DoubleEle3_CaloIdL_TrackIdL() {
+    if (!loaded_HLT_DoubleMu5_Upsilon_DoubleEle3_CaloIdL_TrackIdL_) {
+        if (!b_HLT_DoubleMu5_Upsilon_DoubleEle3_CaloIdL_TrackIdL_) throw std::runtime_error("HLT_DoubleMu5_Upsilon_DoubleEle3_CaloIdL_TrackIdL branch doesn't exist");
+        b_HLT_DoubleMu5_Upsilon_DoubleEle3_CaloIdL_TrackIdL_->GetEntry(index);
+        loaded_HLT_DoubleMu5_Upsilon_DoubleEle3_CaloIdL_TrackIdL_ = true;
     }
-    return HLT_DoubleMu8_Mass8_PFHT350_;
+    return HLT_DoubleMu5_Upsilon_DoubleEle3_CaloIdL_TrackIdL_;
 }
-const bool &Nano::HLT_DoublePFJets100MaxDeta1p6_DoubleCaloBTagCSV_p33() {
-    if (!loaded_HLT_DoublePFJets100MaxDeta1p6_DoubleCaloBTagCSV_p33_) {
-        if (!b_HLT_DoublePFJets100MaxDeta1p6_DoubleCaloBTagCSV_p33_) throw std::runtime_error("HLT_DoublePFJets100MaxDeta1p6_DoubleCaloBTagCSV_p33 branch doesn't exist");
-        b_HLT_DoublePFJets100MaxDeta1p6_DoubleCaloBTagCSV_p33_->GetEntry(index);
-        loaded_HLT_DoublePFJets100MaxDeta1p6_DoubleCaloBTagCSV_p33_ = true;
+const bool &Nano::HLT_DoublePFJets100_CaloBTagDeepCSV_p71() {
+    if (!loaded_HLT_DoublePFJets100_CaloBTagDeepCSV_p71_) {
+        if (!b_HLT_DoublePFJets100_CaloBTagDeepCSV_p71_) throw std::runtime_error("HLT_DoublePFJets100_CaloBTagDeepCSV_p71 branch doesn't exist");
+        b_HLT_DoublePFJets100_CaloBTagDeepCSV_p71_->GetEntry(index);
+        loaded_HLT_DoublePFJets100_CaloBTagDeepCSV_p71_ = true;
     }
-    return HLT_DoublePFJets100MaxDeta1p6_DoubleCaloBTagCSV_p33_;
+    return HLT_DoublePFJets100_CaloBTagDeepCSV_p71_;
 }
-const bool &Nano::HLT_DoublePFJets100_CaloBTagCSV_p33() {
-    if (!loaded_HLT_DoublePFJets100_CaloBTagCSV_p33_) {
-        if (!b_HLT_DoublePFJets100_CaloBTagCSV_p33_) throw std::runtime_error("HLT_DoublePFJets100_CaloBTagCSV_p33 branch doesn't exist");
-        b_HLT_DoublePFJets100_CaloBTagCSV_p33_->GetEntry(index);
-        loaded_HLT_DoublePFJets100_CaloBTagCSV_p33_ = true;
+const bool &Nano::HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagDeepCSV_p71() {
+    if (!loaded_HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_) {
+        if (!b_HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_) throw std::runtime_error("HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagDeepCSV_p71 branch doesn't exist");
+        b_HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_->GetEntry(index);
+        loaded_HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_ = true;
     }
-    return HLT_DoublePFJets100_CaloBTagCSV_p33_;
+    return HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_;
 }
-const bool &Nano::HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagCSV_p33() {
-    if (!loaded_HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagCSV_p33_) {
-        if (!b_HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagCSV_p33_) throw std::runtime_error("HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagCSV_p33 branch doesn't exist");
-        b_HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagCSV_p33_->GetEntry(index);
-        loaded_HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagCSV_p33_ = true;
+const bool &Nano::HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagDeepCSV_p71() {
+    if (!loaded_HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_) {
+        if (!b_HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_) throw std::runtime_error("HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagDeepCSV_p71 branch doesn't exist");
+        b_HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_->GetEntry(index);
+        loaded_HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_ = true;
     }
-    return HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagCSV_p33_;
+    return HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_;
 }
-const bool &Nano::HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagCSV_p33() {
-    if (!loaded_HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagCSV_p33_) {
-        if (!b_HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagCSV_p33_) throw std::runtime_error("HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagCSV_p33 branch doesn't exist");
-        b_HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagCSV_p33_->GetEntry(index);
-        loaded_HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagCSV_p33_ = true;
+const bool &Nano::HLT_DoublePFJets200_CaloBTagDeepCSV_p71() {
+    if (!loaded_HLT_DoublePFJets200_CaloBTagDeepCSV_p71_) {
+        if (!b_HLT_DoublePFJets200_CaloBTagDeepCSV_p71_) throw std::runtime_error("HLT_DoublePFJets200_CaloBTagDeepCSV_p71 branch doesn't exist");
+        b_HLT_DoublePFJets200_CaloBTagDeepCSV_p71_->GetEntry(index);
+        loaded_HLT_DoublePFJets200_CaloBTagDeepCSV_p71_ = true;
     }
-    return HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagCSV_p33_;
+    return HLT_DoublePFJets200_CaloBTagDeepCSV_p71_;
 }
-const bool &Nano::HLT_DoublePFJets200_CaloBTagCSV_p33() {
-    if (!loaded_HLT_DoublePFJets200_CaloBTagCSV_p33_) {
-        if (!b_HLT_DoublePFJets200_CaloBTagCSV_p33_) throw std::runtime_error("HLT_DoublePFJets200_CaloBTagCSV_p33 branch doesn't exist");
-        b_HLT_DoublePFJets200_CaloBTagCSV_p33_->GetEntry(index);
-        loaded_HLT_DoublePFJets200_CaloBTagCSV_p33_ = true;
+const bool &Nano::HLT_DoublePFJets350_CaloBTagDeepCSV_p71() {
+    if (!loaded_HLT_DoublePFJets350_CaloBTagDeepCSV_p71_) {
+        if (!b_HLT_DoublePFJets350_CaloBTagDeepCSV_p71_) throw std::runtime_error("HLT_DoublePFJets350_CaloBTagDeepCSV_p71 branch doesn't exist");
+        b_HLT_DoublePFJets350_CaloBTagDeepCSV_p71_->GetEntry(index);
+        loaded_HLT_DoublePFJets350_CaloBTagDeepCSV_p71_ = true;
     }
-    return HLT_DoublePFJets200_CaloBTagCSV_p33_;
+    return HLT_DoublePFJets350_CaloBTagDeepCSV_p71_;
 }
-const bool &Nano::HLT_DoublePFJets350_CaloBTagCSV_p33() {
-    if (!loaded_HLT_DoublePFJets350_CaloBTagCSV_p33_) {
-        if (!b_HLT_DoublePFJets350_CaloBTagCSV_p33_) throw std::runtime_error("HLT_DoublePFJets350_CaloBTagCSV_p33 branch doesn't exist");
-        b_HLT_DoublePFJets350_CaloBTagCSV_p33_->GetEntry(index);
-        loaded_HLT_DoublePFJets350_CaloBTagCSV_p33_ = true;
+const bool &Nano::HLT_DoublePFJets40_CaloBTagDeepCSV_p71() {
+    if (!loaded_HLT_DoublePFJets40_CaloBTagDeepCSV_p71_) {
+        if (!b_HLT_DoublePFJets40_CaloBTagDeepCSV_p71_) throw std::runtime_error("HLT_DoublePFJets40_CaloBTagDeepCSV_p71 branch doesn't exist");
+        b_HLT_DoublePFJets40_CaloBTagDeepCSV_p71_->GetEntry(index);
+        loaded_HLT_DoublePFJets40_CaloBTagDeepCSV_p71_ = true;
     }
-    return HLT_DoublePFJets350_CaloBTagCSV_p33_;
-}
-const bool &Nano::HLT_DoublePFJets40_CaloBTagCSV_p33() {
-    if (!loaded_HLT_DoublePFJets40_CaloBTagCSV_p33_) {
-        if (!b_HLT_DoublePFJets40_CaloBTagCSV_p33_) throw std::runtime_error("HLT_DoublePFJets40_CaloBTagCSV_p33 branch doesn't exist");
-        b_HLT_DoublePFJets40_CaloBTagCSV_p33_->GetEntry(index);
-        loaded_HLT_DoublePFJets40_CaloBTagCSV_p33_ = true;
-    }
-    return HLT_DoublePFJets40_CaloBTagCSV_p33_;
+    return HLT_DoublePFJets40_CaloBTagDeepCSV_p71_;
 }
 const bool &Nano::HLT_DoublePhoton33_CaloIdL() {
     if (!loaded_HLT_DoublePhoton33_CaloIdL_) {
@@ -5734,37 +7783,45 @@ const bool &Nano::HLT_DoublePhoton85() {
     }
     return HLT_DoublePhoton85_;
 }
-const bool &Nano::HLT_DoubleTightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg() {
-    if (!loaded_HLT_DoubleTightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_) {
-        if (!b_HLT_DoubleTightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_) throw std::runtime_error("HLT_DoubleTightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg branch doesn't exist");
-        b_HLT_DoubleTightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_->GetEntry(index);
-        loaded_HLT_DoubleTightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_ = true;
+const bool &Nano::HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg() {
+    if (!loaded_HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_) {
+        if (!b_HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_) throw std::runtime_error("HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg branch doesn't exist");
+        b_HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_->GetEntry(index);
+        loaded_HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_ = true;
     }
-    return HLT_DoubleTightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_;
+    return HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_;
 }
-const bool &Nano::HLT_DoubleTightChargedIsoPFTau35_Trk1_eta2p1_Reg() {
-    if (!loaded_HLT_DoubleTightChargedIsoPFTau35_Trk1_eta2p1_Reg_) {
-        if (!b_HLT_DoubleTightChargedIsoPFTau35_Trk1_eta2p1_Reg_) throw std::runtime_error("HLT_DoubleTightChargedIsoPFTau35_Trk1_eta2p1_Reg branch doesn't exist");
-        b_HLT_DoubleTightChargedIsoPFTau35_Trk1_eta2p1_Reg_->GetEntry(index);
-        loaded_HLT_DoubleTightChargedIsoPFTau35_Trk1_eta2p1_Reg_ = true;
+const bool &Nano::HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg() {
+    if (!loaded_HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_) {
+        if (!b_HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_) throw std::runtime_error("HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg branch doesn't exist");
+        b_HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_->GetEntry(index);
+        loaded_HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_ = true;
     }
-    return HLT_DoubleTightChargedIsoPFTau35_Trk1_eta2p1_Reg_;
+    return HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_;
 }
-const bool &Nano::HLT_DoubleTightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg() {
-    if (!loaded_HLT_DoubleTightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_) {
-        if (!b_HLT_DoubleTightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_) throw std::runtime_error("HLT_DoubleTightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg branch doesn't exist");
-        b_HLT_DoubleTightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_->GetEntry(index);
-        loaded_HLT_DoubleTightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_ = true;
+const bool &Nano::HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg() {
+    if (!loaded_HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg_) {
+        if (!b_HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg_) throw std::runtime_error("HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg branch doesn't exist");
+        b_HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg_->GetEntry(index);
+        loaded_HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg_ = true;
     }
-    return HLT_DoubleTightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_;
+    return HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg_;
 }
-const bool &Nano::HLT_DoubleTightChargedIsoPFTau40_Trk1_eta2p1_Reg() {
-    if (!loaded_HLT_DoubleTightChargedIsoPFTau40_Trk1_eta2p1_Reg_) {
-        if (!b_HLT_DoubleTightChargedIsoPFTau40_Trk1_eta2p1_Reg_) throw std::runtime_error("HLT_DoubleTightChargedIsoPFTau40_Trk1_eta2p1_Reg branch doesn't exist");
-        b_HLT_DoubleTightChargedIsoPFTau40_Trk1_eta2p1_Reg_->GetEntry(index);
-        loaded_HLT_DoubleTightChargedIsoPFTau40_Trk1_eta2p1_Reg_ = true;
+const bool &Nano::HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_eta2p1_Reg() {
+    if (!loaded_HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_eta2p1_Reg_) {
+        if (!b_HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_eta2p1_Reg_) throw std::runtime_error("HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_eta2p1_Reg branch doesn't exist");
+        b_HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_eta2p1_Reg_->GetEntry(index);
+        loaded_HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_eta2p1_Reg_ = true;
     }
-    return HLT_DoubleTightChargedIsoPFTau40_Trk1_eta2p1_Reg_;
+    return HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_eta2p1_Reg_;
+}
+const bool &Nano::HLT_DoubleTrkMu_16_6_NoFiltersNoVtx() {
+    if (!loaded_HLT_DoubleTrkMu_16_6_NoFiltersNoVtx_) {
+        if (!b_HLT_DoubleTrkMu_16_6_NoFiltersNoVtx_) throw std::runtime_error("HLT_DoubleTrkMu_16_6_NoFiltersNoVtx branch doesn't exist");
+        b_HLT_DoubleTrkMu_16_6_NoFiltersNoVtx_->GetEntry(index);
+        loaded_HLT_DoubleTrkMu_16_6_NoFiltersNoVtx_ = true;
+    }
+    return HLT_DoubleTrkMu_16_6_NoFiltersNoVtx_;
 }
 const bool &Nano::HLT_ECALHT800() {
     if (!loaded_HLT_ECALHT800_) {
@@ -5814,6 +7871,22 @@ const bool &Nano::HLT_Ele145_CaloIdVT_GsfTrkIdT() {
     }
     return HLT_Ele145_CaloIdVT_GsfTrkIdT_;
 }
+const bool &Nano::HLT_Ele15_CaloIdL_TrackIdL_IsoVL_PFJet30() {
+    if (!loaded_HLT_Ele15_CaloIdL_TrackIdL_IsoVL_PFJet30_) {
+        if (!b_HLT_Ele15_CaloIdL_TrackIdL_IsoVL_PFJet30_) throw std::runtime_error("HLT_Ele15_CaloIdL_TrackIdL_IsoVL_PFJet30 branch doesn't exist");
+        b_HLT_Ele15_CaloIdL_TrackIdL_IsoVL_PFJet30_->GetEntry(index);
+        loaded_HLT_Ele15_CaloIdL_TrackIdL_IsoVL_PFJet30_ = true;
+    }
+    return HLT_Ele15_CaloIdL_TrackIdL_IsoVL_PFJet30_;
+}
+const bool &Nano::HLT_Ele15_Ele8_CaloIdL_TrackIdL_IsoVL() {
+    if (!loaded_HLT_Ele15_Ele8_CaloIdL_TrackIdL_IsoVL_) {
+        if (!b_HLT_Ele15_Ele8_CaloIdL_TrackIdL_IsoVL_) throw std::runtime_error("HLT_Ele15_Ele8_CaloIdL_TrackIdL_IsoVL branch doesn't exist");
+        b_HLT_Ele15_Ele8_CaloIdL_TrackIdL_IsoVL_->GetEntry(index);
+        loaded_HLT_Ele15_Ele8_CaloIdL_TrackIdL_IsoVL_ = true;
+    }
+    return HLT_Ele15_Ele8_CaloIdL_TrackIdL_IsoVL_;
+}
 const bool &Nano::HLT_Ele15_IsoVVVL_PFHT450() {
     if (!loaded_HLT_Ele15_IsoVVVL_PFHT450_) {
         if (!b_HLT_Ele15_IsoVVVL_PFHT450_) throw std::runtime_error("HLT_Ele15_IsoVVVL_PFHT450 branch doesn't exist");
@@ -5822,13 +7895,13 @@ const bool &Nano::HLT_Ele15_IsoVVVL_PFHT450() {
     }
     return HLT_Ele15_IsoVVVL_PFHT450_;
 }
-const bool &Nano::HLT_Ele15_IsoVVVL_PFHT450_CaloBTagCSV_4p5() {
-    if (!loaded_HLT_Ele15_IsoVVVL_PFHT450_CaloBTagCSV_4p5_) {
-        if (!b_HLT_Ele15_IsoVVVL_PFHT450_CaloBTagCSV_4p5_) throw std::runtime_error("HLT_Ele15_IsoVVVL_PFHT450_CaloBTagCSV_4p5 branch doesn't exist");
-        b_HLT_Ele15_IsoVVVL_PFHT450_CaloBTagCSV_4p5_->GetEntry(index);
-        loaded_HLT_Ele15_IsoVVVL_PFHT450_CaloBTagCSV_4p5_ = true;
+const bool &Nano::HLT_Ele15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5() {
+    if (!loaded_HLT_Ele15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5_) {
+        if (!b_HLT_Ele15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5_) throw std::runtime_error("HLT_Ele15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5 branch doesn't exist");
+        b_HLT_Ele15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5_->GetEntry(index);
+        loaded_HLT_Ele15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5_ = true;
     }
-    return HLT_Ele15_IsoVVVL_PFHT450_CaloBTagCSV_4p5_;
+    return HLT_Ele15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5_;
 }
 const bool &Nano::HLT_Ele15_IsoVVVL_PFHT450_PFMET50() {
     if (!loaded_HLT_Ele15_IsoVVVL_PFHT450_PFMET50_) {
@@ -5846,6 +7919,14 @@ const bool &Nano::HLT_Ele15_IsoVVVL_PFHT600() {
     }
     return HLT_Ele15_IsoVVVL_PFHT600_;
 }
+const bool &Nano::HLT_Ele15_WPLoose_Gsf() {
+    if (!loaded_HLT_Ele15_WPLoose_Gsf_) {
+        if (!b_HLT_Ele15_WPLoose_Gsf_) throw std::runtime_error("HLT_Ele15_WPLoose_Gsf branch doesn't exist");
+        b_HLT_Ele15_WPLoose_Gsf_->GetEntry(index);
+        loaded_HLT_Ele15_WPLoose_Gsf_ = true;
+    }
+    return HLT_Ele15_WPLoose_Gsf_;
+}
 const bool &Nano::HLT_Ele16_Ele12_Ele8_CaloIdL_TrackIdL() {
     if (!loaded_HLT_Ele16_Ele12_Ele8_CaloIdL_TrackIdL_) {
         if (!b_HLT_Ele16_Ele12_Ele8_CaloIdL_TrackIdL_) throw std::runtime_error("HLT_Ele16_Ele12_Ele8_CaloIdL_TrackIdL branch doesn't exist");
@@ -5861,6 +7942,14 @@ const bool &Nano::HLT_Ele17_CaloIdM_TrackIdM_PFJet30() {
         loaded_HLT_Ele17_CaloIdM_TrackIdM_PFJet30_ = true;
     }
     return HLT_Ele17_CaloIdM_TrackIdM_PFJet30_;
+}
+const bool &Nano::HLT_Ele17_WPLoose_Gsf() {
+    if (!loaded_HLT_Ele17_WPLoose_Gsf_) {
+        if (!b_HLT_Ele17_WPLoose_Gsf_) throw std::runtime_error("HLT_Ele17_WPLoose_Gsf branch doesn't exist");
+        b_HLT_Ele17_WPLoose_Gsf_->GetEntry(index);
+        loaded_HLT_Ele17_WPLoose_Gsf_ = true;
+    }
+    return HLT_Ele17_WPLoose_Gsf_;
 }
 const bool &Nano::HLT_Ele200_CaloIdVT_GsfTrkIdT() {
     if (!loaded_HLT_Ele200_CaloIdVT_GsfTrkIdT_) {
@@ -5926,53 +8015,53 @@ const bool &Nano::HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_DZ() {
     }
     return HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_DZ_;
 }
-const bool &Nano::HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_CrossL1() {
-    if (!loaded_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_CrossL1_) {
-        if (!b_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_CrossL1_) throw std::runtime_error("HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_CrossL1 branch doesn't exist");
-        b_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_CrossL1_->GetEntry(index);
-        loaded_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_CrossL1_ = true;
+const bool &Nano::HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_CrossL1() {
+    if (!loaded_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_CrossL1_) {
+        if (!b_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_CrossL1_) throw std::runtime_error("HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_CrossL1 branch doesn't exist");
+        b_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_CrossL1_->GetEntry(index);
+        loaded_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_CrossL1_ = true;
     }
-    return HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_CrossL1_;
+    return HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_CrossL1_;
 }
-const bool &Nano::HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_TightID_CrossL1() {
-    if (!loaded_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_TightID_CrossL1_) {
-        if (!b_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_TightID_CrossL1_) throw std::runtime_error("HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_TightID_CrossL1 branch doesn't exist");
-        b_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_TightID_CrossL1_->GetEntry(index);
-        loaded_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_TightID_CrossL1_ = true;
+const bool &Nano::HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1() {
+    if (!loaded_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_) {
+        if (!b_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_) throw std::runtime_error("HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1 branch doesn't exist");
+        b_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_->GetEntry(index);
+        loaded_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_ = true;
     }
-    return HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_TightID_CrossL1_;
+    return HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_;
 }
-const bool &Nano::HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_CrossL1() {
-    if (!loaded_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_CrossL1_) {
-        if (!b_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_CrossL1_) throw std::runtime_error("HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_CrossL1 branch doesn't exist");
-        b_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_CrossL1_->GetEntry(index);
-        loaded_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_CrossL1_ = true;
+const bool &Nano::HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_CrossL1() {
+    if (!loaded_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_CrossL1_) {
+        if (!b_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_CrossL1_) throw std::runtime_error("HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_CrossL1 branch doesn't exist");
+        b_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_CrossL1_->GetEntry(index);
+        loaded_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_CrossL1_ = true;
     }
-    return HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_CrossL1_;
+    return HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_CrossL1_;
 }
-const bool &Nano::HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_TightID_CrossL1() {
-    if (!loaded_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_TightID_CrossL1_) {
-        if (!b_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_TightID_CrossL1_) throw std::runtime_error("HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_TightID_CrossL1 branch doesn't exist");
-        b_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_TightID_CrossL1_->GetEntry(index);
-        loaded_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_TightID_CrossL1_ = true;
+const bool &Nano::HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1() {
+    if (!loaded_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_) {
+        if (!b_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_) throw std::runtime_error("HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1 branch doesn't exist");
+        b_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_->GetEntry(index);
+        loaded_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_ = true;
     }
-    return HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_TightID_CrossL1_;
+    return HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_;
 }
-const bool &Nano::HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_CrossL1() {
-    if (!loaded_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_CrossL1_) {
-        if (!b_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_CrossL1_) throw std::runtime_error("HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_CrossL1 branch doesn't exist");
-        b_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_CrossL1_->GetEntry(index);
-        loaded_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_CrossL1_ = true;
+const bool &Nano::HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_CrossL1() {
+    if (!loaded_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_CrossL1_) {
+        if (!b_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_CrossL1_) throw std::runtime_error("HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_CrossL1 branch doesn't exist");
+        b_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_CrossL1_->GetEntry(index);
+        loaded_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_CrossL1_ = true;
     }
-    return HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_CrossL1_;
+    return HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_CrossL1_;
 }
-const bool &Nano::HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_TightID_CrossL1() {
-    if (!loaded_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_TightID_CrossL1_) {
-        if (!b_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_TightID_CrossL1_) throw std::runtime_error("HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_TightID_CrossL1 branch doesn't exist");
-        b_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_TightID_CrossL1_->GetEntry(index);
-        loaded_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_TightID_CrossL1_ = true;
+const bool &Nano::HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1() {
+    if (!loaded_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_) {
+        if (!b_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_) throw std::runtime_error("HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1 branch doesn't exist");
+        b_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_->GetEntry(index);
+        loaded_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_ = true;
     }
-    return HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_TightID_CrossL1_;
+    return HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_;
 }
 const bool &Nano::HLT_Ele250_CaloIdVT_GsfTrkIdT() {
     if (!loaded_HLT_Ele250_CaloIdVT_GsfTrkIdT_) {
@@ -6006,6 +8095,14 @@ const bool &Nano::HLT_Ele28_HighEta_SC20_Mass55() {
     }
     return HLT_Ele28_HighEta_SC20_Mass55_;
 }
+const bool &Nano::HLT_Ele28_WPTight_Gsf() {
+    if (!loaded_HLT_Ele28_WPTight_Gsf_) {
+        if (!b_HLT_Ele28_WPTight_Gsf_) throw std::runtime_error("HLT_Ele28_WPTight_Gsf branch doesn't exist");
+        b_HLT_Ele28_WPTight_Gsf_->GetEntry(index);
+        loaded_HLT_Ele28_WPTight_Gsf_ = true;
+    }
+    return HLT_Ele28_WPTight_Gsf_;
+}
 const bool &Nano::HLT_Ele28_eta2p1_WPTight_Gsf_HT150() {
     if (!loaded_HLT_Ele28_eta2p1_WPTight_Gsf_HT150_) {
         if (!b_HLT_Ele28_eta2p1_WPTight_Gsf_HT150_) throw std::runtime_error("HLT_Ele28_eta2p1_WPTight_Gsf_HT150 branch doesn't exist");
@@ -6021,6 +8118,14 @@ const bool &Nano::HLT_Ele300_CaloIdVT_GsfTrkIdT() {
         loaded_HLT_Ele300_CaloIdVT_GsfTrkIdT_ = true;
     }
     return HLT_Ele300_CaloIdVT_GsfTrkIdT_;
+}
+const bool &Nano::HLT_Ele30_WPTight_Gsf() {
+    if (!loaded_HLT_Ele30_WPTight_Gsf_) {
+        if (!b_HLT_Ele30_WPTight_Gsf_) throw std::runtime_error("HLT_Ele30_WPTight_Gsf branch doesn't exist");
+        b_HLT_Ele30_WPTight_Gsf_->GetEntry(index);
+        loaded_HLT_Ele30_WPTight_Gsf_ = true;
+    }
+    return HLT_Ele30_WPTight_Gsf_;
 }
 const bool &Nano::HLT_Ele30_eta2p1_WPTight_Gsf_CentralPFJet35_EleCleaned() {
     if (!loaded_HLT_Ele30_eta2p1_WPTight_Gsf_CentralPFJet35_EleCleaned_) {
@@ -6110,86 +8215,6 @@ const bool &Nano::HLT_Ele8_CaloIdM_TrackIdM_PFJet30() {
     }
     return HLT_Ele8_CaloIdM_TrackIdM_PFJet30_;
 }
-const bool &Nano::HLT_FullTrack_Multiplicity100() {
-    if (!loaded_HLT_FullTrack_Multiplicity100_) {
-        if (!b_HLT_FullTrack_Multiplicity100_) throw std::runtime_error("HLT_FullTrack_Multiplicity100 branch doesn't exist");
-        b_HLT_FullTrack_Multiplicity100_->GetEntry(index);
-        loaded_HLT_FullTrack_Multiplicity100_ = true;
-    }
-    return HLT_FullTrack_Multiplicity100_;
-}
-const bool &Nano::HLT_FullTrack_Multiplicity130() {
-    if (!loaded_HLT_FullTrack_Multiplicity130_) {
-        if (!b_HLT_FullTrack_Multiplicity130_) throw std::runtime_error("HLT_FullTrack_Multiplicity130 branch doesn't exist");
-        b_HLT_FullTrack_Multiplicity130_->GetEntry(index);
-        loaded_HLT_FullTrack_Multiplicity130_ = true;
-    }
-    return HLT_FullTrack_Multiplicity130_;
-}
-const bool &Nano::HLT_FullTrack_Multiplicity155() {
-    if (!loaded_HLT_FullTrack_Multiplicity155_) {
-        if (!b_HLT_FullTrack_Multiplicity155_) throw std::runtime_error("HLT_FullTrack_Multiplicity155 branch doesn't exist");
-        b_HLT_FullTrack_Multiplicity155_->GetEntry(index);
-        loaded_HLT_FullTrack_Multiplicity155_ = true;
-    }
-    return HLT_FullTrack_Multiplicity155_;
-}
-const bool &Nano::HLT_FullTrack_Multiplicity85() {
-    if (!loaded_HLT_FullTrack_Multiplicity85_) {
-        if (!b_HLT_FullTrack_Multiplicity85_) throw std::runtime_error("HLT_FullTrack_Multiplicity85 branch doesn't exist");
-        b_HLT_FullTrack_Multiplicity85_->GetEntry(index);
-        loaded_HLT_FullTrack_Multiplicity85_ = true;
-    }
-    return HLT_FullTrack_Multiplicity85_;
-}
-const bool &Nano::HLT_HISinglePhoton10_Eta3p1ForPPRef() {
-    if (!loaded_HLT_HISinglePhoton10_Eta3p1ForPPRef_) {
-        if (!b_HLT_HISinglePhoton10_Eta3p1ForPPRef_) throw std::runtime_error("HLT_HISinglePhoton10_Eta3p1ForPPRef branch doesn't exist");
-        b_HLT_HISinglePhoton10_Eta3p1ForPPRef_->GetEntry(index);
-        loaded_HLT_HISinglePhoton10_Eta3p1ForPPRef_ = true;
-    }
-    return HLT_HISinglePhoton10_Eta3p1ForPPRef_;
-}
-const bool &Nano::HLT_HISinglePhoton20_Eta3p1ForPPRef() {
-    if (!loaded_HLT_HISinglePhoton20_Eta3p1ForPPRef_) {
-        if (!b_HLT_HISinglePhoton20_Eta3p1ForPPRef_) throw std::runtime_error("HLT_HISinglePhoton20_Eta3p1ForPPRef branch doesn't exist");
-        b_HLT_HISinglePhoton20_Eta3p1ForPPRef_->GetEntry(index);
-        loaded_HLT_HISinglePhoton20_Eta3p1ForPPRef_ = true;
-    }
-    return HLT_HISinglePhoton20_Eta3p1ForPPRef_;
-}
-const bool &Nano::HLT_HISinglePhoton30_Eta3p1ForPPRef() {
-    if (!loaded_HLT_HISinglePhoton30_Eta3p1ForPPRef_) {
-        if (!b_HLT_HISinglePhoton30_Eta3p1ForPPRef_) throw std::runtime_error("HLT_HISinglePhoton30_Eta3p1ForPPRef branch doesn't exist");
-        b_HLT_HISinglePhoton30_Eta3p1ForPPRef_->GetEntry(index);
-        loaded_HLT_HISinglePhoton30_Eta3p1ForPPRef_ = true;
-    }
-    return HLT_HISinglePhoton30_Eta3p1ForPPRef_;
-}
-const bool &Nano::HLT_HISinglePhoton40_Eta3p1ForPPRef() {
-    if (!loaded_HLT_HISinglePhoton40_Eta3p1ForPPRef_) {
-        if (!b_HLT_HISinglePhoton40_Eta3p1ForPPRef_) throw std::runtime_error("HLT_HISinglePhoton40_Eta3p1ForPPRef branch doesn't exist");
-        b_HLT_HISinglePhoton40_Eta3p1ForPPRef_->GetEntry(index);
-        loaded_HLT_HISinglePhoton40_Eta3p1ForPPRef_ = true;
-    }
-    return HLT_HISinglePhoton40_Eta3p1ForPPRef_;
-}
-const bool &Nano::HLT_HISinglePhoton50_Eta3p1ForPPRef() {
-    if (!loaded_HLT_HISinglePhoton50_Eta3p1ForPPRef_) {
-        if (!b_HLT_HISinglePhoton50_Eta3p1ForPPRef_) throw std::runtime_error("HLT_HISinglePhoton50_Eta3p1ForPPRef branch doesn't exist");
-        b_HLT_HISinglePhoton50_Eta3p1ForPPRef_->GetEntry(index);
-        loaded_HLT_HISinglePhoton50_Eta3p1ForPPRef_ = true;
-    }
-    return HLT_HISinglePhoton50_Eta3p1ForPPRef_;
-}
-const bool &Nano::HLT_HISinglePhoton60_Eta3p1ForPPRef() {
-    if (!loaded_HLT_HISinglePhoton60_Eta3p1ForPPRef_) {
-        if (!b_HLT_HISinglePhoton60_Eta3p1ForPPRef_) throw std::runtime_error("HLT_HISinglePhoton60_Eta3p1ForPPRef branch doesn't exist");
-        b_HLT_HISinglePhoton60_Eta3p1ForPPRef_->GetEntry(index);
-        loaded_HLT_HISinglePhoton60_Eta3p1ForPPRef_ = true;
-    }
-    return HLT_HISinglePhoton60_Eta3p1ForPPRef_;
-}
 const bool &Nano::HLT_HT300_Beamspot() {
     if (!loaded_HLT_HT300_Beamspot_) {
         if (!b_HLT_HT300_Beamspot_) throw std::runtime_error("HLT_HT300_Beamspot branch doesn't exist");
@@ -6230,14 +8255,6 @@ const bool &Nano::HLT_HT430_DisplacedDijet60_DisplacedTrack() {
     }
     return HLT_HT430_DisplacedDijet60_DisplacedTrack_;
 }
-const bool &Nano::HLT_HT430_DisplacedDijet80_DisplacedTrack() {
-    if (!loaded_HLT_HT430_DisplacedDijet80_DisplacedTrack_) {
-        if (!b_HLT_HT430_DisplacedDijet80_DisplacedTrack_) throw std::runtime_error("HLT_HT430_DisplacedDijet80_DisplacedTrack branch doesn't exist");
-        b_HLT_HT430_DisplacedDijet80_DisplacedTrack_->GetEntry(index);
-        loaded_HLT_HT430_DisplacedDijet80_DisplacedTrack_ = true;
-    }
-    return HLT_HT430_DisplacedDijet80_DisplacedTrack_;
-}
 const bool &Nano::HLT_HT450_Beamspot() {
     if (!loaded_HLT_HT450_Beamspot_) {
         if (!b_HLT_HT450_Beamspot_) throw std::runtime_error("HLT_HT450_Beamspot branch doesn't exist");
@@ -6245,6 +8262,14 @@ const bool &Nano::HLT_HT450_Beamspot() {
         loaded_HLT_HT450_Beamspot_ = true;
     }
     return HLT_HT450_Beamspot_;
+}
+const bool &Nano::HLT_HT500_DisplacedDijet40_DisplacedTrack() {
+    if (!loaded_HLT_HT500_DisplacedDijet40_DisplacedTrack_) {
+        if (!b_HLT_HT500_DisplacedDijet40_DisplacedTrack_) throw std::runtime_error("HLT_HT500_DisplacedDijet40_DisplacedTrack branch doesn't exist");
+        b_HLT_HT500_DisplacedDijet40_DisplacedTrack_->GetEntry(index);
+        loaded_HLT_HT500_DisplacedDijet40_DisplacedTrack_ = true;
+    }
+    return HLT_HT500_DisplacedDijet40_DisplacedTrack_;
 }
 const bool &Nano::HLT_HT550_DisplacedDijet60_Inclusive() {
     if (!loaded_HLT_HT550_DisplacedDijet60_Inclusive_) {
@@ -6254,14 +8279,6 @@ const bool &Nano::HLT_HT550_DisplacedDijet60_Inclusive() {
     }
     return HLT_HT550_DisplacedDijet60_Inclusive_;
 }
-const bool &Nano::HLT_HT550_DisplacedDijet80_Inclusive() {
-    if (!loaded_HLT_HT550_DisplacedDijet80_Inclusive_) {
-        if (!b_HLT_HT550_DisplacedDijet80_Inclusive_) throw std::runtime_error("HLT_HT550_DisplacedDijet80_Inclusive branch doesn't exist");
-        b_HLT_HT550_DisplacedDijet80_Inclusive_->GetEntry(index);
-        loaded_HLT_HT550_DisplacedDijet80_Inclusive_ = true;
-    }
-    return HLT_HT550_DisplacedDijet80_Inclusive_;
-}
 const bool &Nano::HLT_HT650_DisplacedDijet60_Inclusive() {
     if (!loaded_HLT_HT650_DisplacedDijet60_Inclusive_) {
         if (!b_HLT_HT650_DisplacedDijet60_Inclusive_) throw std::runtime_error("HLT_HT650_DisplacedDijet60_Inclusive branch doesn't exist");
@@ -6269,22 +8286,6 @@ const bool &Nano::HLT_HT650_DisplacedDijet60_Inclusive() {
         loaded_HLT_HT650_DisplacedDijet60_Inclusive_ = true;
     }
     return HLT_HT650_DisplacedDijet60_Inclusive_;
-}
-const bool &Nano::HLT_HT650_DisplacedDijet80_Inclusive() {
-    if (!loaded_HLT_HT650_DisplacedDijet80_Inclusive_) {
-        if (!b_HLT_HT650_DisplacedDijet80_Inclusive_) throw std::runtime_error("HLT_HT650_DisplacedDijet80_Inclusive branch doesn't exist");
-        b_HLT_HT650_DisplacedDijet80_Inclusive_->GetEntry(index);
-        loaded_HLT_HT650_DisplacedDijet80_Inclusive_ = true;
-    }
-    return HLT_HT650_DisplacedDijet80_Inclusive_;
-}
-const bool &Nano::HLT_HT750_DisplacedDijet80_Inclusive() {
-    if (!loaded_HLT_HT750_DisplacedDijet80_Inclusive_) {
-        if (!b_HLT_HT750_DisplacedDijet80_Inclusive_) throw std::runtime_error("HLT_HT750_DisplacedDijet80_Inclusive branch doesn't exist");
-        b_HLT_HT750_DisplacedDijet80_Inclusive_->GetEntry(index);
-        loaded_HLT_HT750_DisplacedDijet80_Inclusive_ = true;
-    }
-    return HLT_HT750_DisplacedDijet80_Inclusive_;
 }
 const bool &Nano::HLT_HcalCalibration() {
     if (!loaded_HLT_HcalCalibration_) {
@@ -6326,53 +8327,53 @@ const bool &Nano::HLT_IsoMu20() {
     }
     return HLT_IsoMu20_;
 }
-const bool &Nano::HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_CrossL1() {
-    if (!loaded_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_CrossL1_) {
-        if (!b_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_CrossL1_) throw std::runtime_error("HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_CrossL1 branch doesn't exist");
-        b_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_CrossL1_->GetEntry(index);
-        loaded_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_CrossL1_ = true;
+const bool &Nano::HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1() {
+    if (!loaded_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1_) {
+        if (!b_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1_) throw std::runtime_error("HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1 branch doesn't exist");
+        b_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1_->GetEntry(index);
+        loaded_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1_ = true;
     }
-    return HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_CrossL1_;
+    return HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1_;
 }
-const bool &Nano::HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_TightID_CrossL1() {
-    if (!loaded_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_TightID_CrossL1_) {
-        if (!b_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_TightID_CrossL1_) throw std::runtime_error("HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_TightID_CrossL1 branch doesn't exist");
-        b_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_TightID_CrossL1_->GetEntry(index);
-        loaded_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_TightID_CrossL1_ = true;
+const bool &Nano::HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1() {
+    if (!loaded_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_) {
+        if (!b_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_) throw std::runtime_error("HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1 branch doesn't exist");
+        b_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_->GetEntry(index);
+        loaded_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_ = true;
     }
-    return HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_TightID_CrossL1_;
+    return HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_;
 }
-const bool &Nano::HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_CrossL1() {
-    if (!loaded_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_CrossL1_) {
-        if (!b_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_CrossL1_) throw std::runtime_error("HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_CrossL1 branch doesn't exist");
-        b_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_CrossL1_->GetEntry(index);
-        loaded_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_CrossL1_ = true;
+const bool &Nano::HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_CrossL1() {
+    if (!loaded_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_CrossL1_) {
+        if (!b_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_CrossL1_) throw std::runtime_error("HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_CrossL1 branch doesn't exist");
+        b_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_CrossL1_->GetEntry(index);
+        loaded_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_CrossL1_ = true;
     }
-    return HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_CrossL1_;
+    return HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_CrossL1_;
 }
-const bool &Nano::HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_TightID_CrossL1() {
-    if (!loaded_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_TightID_CrossL1_) {
-        if (!b_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_TightID_CrossL1_) throw std::runtime_error("HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_TightID_CrossL1 branch doesn't exist");
-        b_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_TightID_CrossL1_->GetEntry(index);
-        loaded_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_TightID_CrossL1_ = true;
+const bool &Nano::HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1() {
+    if (!loaded_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_) {
+        if (!b_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_) throw std::runtime_error("HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1 branch doesn't exist");
+        b_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_->GetEntry(index);
+        loaded_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_ = true;
     }
-    return HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_TightID_CrossL1_;
+    return HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_;
 }
-const bool &Nano::HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_CrossL1() {
-    if (!loaded_HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_CrossL1_) {
-        if (!b_HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_CrossL1_) throw std::runtime_error("HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_CrossL1 branch doesn't exist");
-        b_HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_CrossL1_->GetEntry(index);
-        loaded_HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_CrossL1_ = true;
+const bool &Nano::HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_CrossL1() {
+    if (!loaded_HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_CrossL1_) {
+        if (!b_HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_CrossL1_) throw std::runtime_error("HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_CrossL1 branch doesn't exist");
+        b_HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_CrossL1_->GetEntry(index);
+        loaded_HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_CrossL1_ = true;
     }
-    return HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_CrossL1_;
+    return HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_CrossL1_;
 }
-const bool &Nano::HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_TightID_CrossL1() {
-    if (!loaded_HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_TightID_CrossL1_) {
-        if (!b_HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_TightID_CrossL1_) throw std::runtime_error("HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_TightID_CrossL1 branch doesn't exist");
-        b_HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_TightID_CrossL1_->GetEntry(index);
-        loaded_HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_TightID_CrossL1_ = true;
+const bool &Nano::HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1() {
+    if (!loaded_HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_) {
+        if (!b_HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_) throw std::runtime_error("HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1 branch doesn't exist");
+        b_HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_->GetEntry(index);
+        loaded_HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_ = true;
     }
-    return HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_TightID_CrossL1_;
+    return HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_;
 }
 const bool &Nano::HLT_IsoMu24() {
     if (!loaded_HLT_IsoMu24_) {
@@ -6382,6 +8383,14 @@ const bool &Nano::HLT_IsoMu24() {
     }
     return HLT_IsoMu24_;
 }
+const bool &Nano::HLT_IsoMu24_TwoProngs35() {
+    if (!loaded_HLT_IsoMu24_TwoProngs35_) {
+        if (!b_HLT_IsoMu24_TwoProngs35_) throw std::runtime_error("HLT_IsoMu24_TwoProngs35 branch doesn't exist");
+        b_HLT_IsoMu24_TwoProngs35_->GetEntry(index);
+        loaded_HLT_IsoMu24_TwoProngs35_ = true;
+    }
+    return HLT_IsoMu24_TwoProngs35_;
+}
 const bool &Nano::HLT_IsoMu24_eta2p1() {
     if (!loaded_HLT_IsoMu24_eta2p1_) {
         if (!b_HLT_IsoMu24_eta2p1_) throw std::runtime_error("HLT_IsoMu24_eta2p1 branch doesn't exist");
@@ -6389,86 +8398,6 @@ const bool &Nano::HLT_IsoMu24_eta2p1() {
         loaded_HLT_IsoMu24_eta2p1_ = true;
     }
     return HLT_IsoMu24_eta2p1_;
-}
-const bool &Nano::HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_SingleL1() {
-    if (!loaded_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_SingleL1_) {
-        if (!b_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_SingleL1_) throw std::runtime_error("HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_SingleL1 branch doesn't exist");
-        b_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_SingleL1_->GetEntry(index);
-        loaded_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_SingleL1_ = true;
-    }
-    return HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_SingleL1_;
-}
-const bool &Nano::HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_TightID_SingleL1() {
-    if (!loaded_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_TightID_SingleL1_) {
-        if (!b_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_TightID_SingleL1_) throw std::runtime_error("HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_TightID_SingleL1 branch doesn't exist");
-        b_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_TightID_SingleL1_->GetEntry(index);
-        loaded_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_TightID_SingleL1_ = true;
-    }
-    return HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_TightID_SingleL1_;
-}
-const bool &Nano::HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1() {
-    if (!loaded_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_) {
-        if (!b_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_) throw std::runtime_error("HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1 branch doesn't exist");
-        b_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_->GetEntry(index);
-        loaded_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_ = true;
-    }
-    return HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_;
-}
-const bool &Nano::HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1() {
-    if (!loaded_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_) {
-        if (!b_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_) throw std::runtime_error("HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1 branch doesn't exist");
-        b_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_->GetEntry(index);
-        loaded_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_ = true;
-    }
-    return HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_;
-}
-const bool &Nano::HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_SingleL1() {
-    if (!loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_SingleL1_) {
-        if (!b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_SingleL1_) throw std::runtime_error("HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_SingleL1 branch doesn't exist");
-        b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_SingleL1_->GetEntry(index);
-        loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_SingleL1_ = true;
-    }
-    return HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_SingleL1_;
-}
-const bool &Nano::HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_TightID_SingleL1() {
-    if (!loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_TightID_SingleL1_) {
-        if (!b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_TightID_SingleL1_) throw std::runtime_error("HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_TightID_SingleL1 branch doesn't exist");
-        b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_TightID_SingleL1_->GetEntry(index);
-        loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_TightID_SingleL1_ = true;
-    }
-    return HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_TightID_SingleL1_;
-}
-const bool &Nano::HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1() {
-    if (!loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_) {
-        if (!b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_) throw std::runtime_error("HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1 branch doesn't exist");
-        b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_->GetEntry(index);
-        loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_ = true;
-    }
-    return HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_;
-}
-const bool &Nano::HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1() {
-    if (!loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_) {
-        if (!b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_) throw std::runtime_error("HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1 branch doesn't exist");
-        b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_->GetEntry(index);
-        loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_ = true;
-    }
-    return HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_;
-}
-const bool &Nano::HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1() {
-    if (!loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1_) {
-        if (!b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1_) throw std::runtime_error("HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1 branch doesn't exist");
-        b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1_->GetEntry(index);
-        loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1_ = true;
-    }
-    return HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1_;
-}
-const bool &Nano::HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1() {
-    if (!loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1_) {
-        if (!b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1_) throw std::runtime_error("HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1 branch doesn't exist");
-        b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1_->GetEntry(index);
-        loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1_ = true;
-    }
-    return HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1_;
 }
 const bool &Nano::HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr() {
     if (!loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_) {
@@ -6478,53 +8407,37 @@ const bool &Nano::HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr() 
     }
     return HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_;
 }
-const bool &Nano::HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_SingleL1() {
-    if (!loaded_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_SingleL1_) {
-        if (!b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_SingleL1_) throw std::runtime_error("HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_SingleL1 branch doesn't exist");
-        b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_SingleL1_->GetEntry(index);
-        loaded_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_SingleL1_ = true;
+const bool &Nano::HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1() {
+    if (!loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1_) {
+        if (!b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1_) throw std::runtime_error("HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1 branch doesn't exist");
+        b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1_->GetEntry(index);
+        loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1_ = true;
     }
-    return HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_SingleL1_;
+    return HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1_;
 }
-const bool &Nano::HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_TightID_SingleL1() {
-    if (!loaded_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_TightID_SingleL1_) {
-        if (!b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_TightID_SingleL1_) throw std::runtime_error("HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_TightID_SingleL1 branch doesn't exist");
-        b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_TightID_SingleL1_->GetEntry(index);
-        loaded_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_TightID_SingleL1_ = true;
+const bool &Nano::HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1() {
+    if (!loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1_) {
+        if (!b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1_) throw std::runtime_error("HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1 branch doesn't exist");
+        b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1_->GetEntry(index);
+        loaded_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1_ = true;
     }
-    return HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_TightID_SingleL1_;
+    return HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1_;
 }
-const bool &Nano::HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1() {
-    if (!loaded_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_) {
-        if (!b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_) throw std::runtime_error("HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1 branch doesn't exist");
-        b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_->GetEntry(index);
-        loaded_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_ = true;
+const bool &Nano::HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1() {
+    if (!loaded_HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1_) {
+        if (!b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1_) throw std::runtime_error("HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1 branch doesn't exist");
+        b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1_->GetEntry(index);
+        loaded_HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1_ = true;
     }
-    return HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_;
+    return HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1_;
 }
-const bool &Nano::HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1() {
-    if (!loaded_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_) {
-        if (!b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_) throw std::runtime_error("HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1 branch doesn't exist");
-        b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_->GetEntry(index);
-        loaded_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_ = true;
+const bool &Nano::HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1() {
+    if (!loaded_HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1_) {
+        if (!b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1_) throw std::runtime_error("HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1 branch doesn't exist");
+        b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1_->GetEntry(index);
+        loaded_HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1_ = true;
     }
-    return HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_;
-}
-const bool &Nano::HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1() {
-    if (!loaded_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1_) {
-        if (!b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1_) throw std::runtime_error("HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1 branch doesn't exist");
-        b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1_->GetEntry(index);
-        loaded_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1_ = true;
-    }
-    return HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1_;
-}
-const bool &Nano::HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1() {
-    if (!loaded_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1_) {
-        if (!b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1_) throw std::runtime_error("HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1 branch doesn't exist");
-        b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1_->GetEntry(index);
-        loaded_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1_ = true;
-    }
-    return HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1_;
+    return HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1_;
 }
 const bool &Nano::HLT_IsoMu27() {
     if (!loaded_HLT_IsoMu27_) {
@@ -6534,29 +8447,37 @@ const bool &Nano::HLT_IsoMu27() {
     }
     return HLT_IsoMu27_;
 }
-const bool &Nano::HLT_IsoMu27_LooseChargedIsoPFTau20_SingleL1() {
-    if (!loaded_HLT_IsoMu27_LooseChargedIsoPFTau20_SingleL1_) {
-        if (!b_HLT_IsoMu27_LooseChargedIsoPFTau20_SingleL1_) throw std::runtime_error("HLT_IsoMu27_LooseChargedIsoPFTau20_SingleL1 branch doesn't exist");
-        b_HLT_IsoMu27_LooseChargedIsoPFTau20_SingleL1_->GetEntry(index);
-        loaded_HLT_IsoMu27_LooseChargedIsoPFTau20_SingleL1_ = true;
+const bool &Nano::HLT_IsoMu27_LooseChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1() {
+    if (!loaded_HLT_IsoMu27_LooseChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_) {
+        if (!b_HLT_IsoMu27_LooseChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_) throw std::runtime_error("HLT_IsoMu27_LooseChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1 branch doesn't exist");
+        b_HLT_IsoMu27_LooseChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_->GetEntry(index);
+        loaded_HLT_IsoMu27_LooseChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_ = true;
     }
-    return HLT_IsoMu27_LooseChargedIsoPFTau20_SingleL1_;
+    return HLT_IsoMu27_LooseChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_;
 }
-const bool &Nano::HLT_IsoMu27_MediumChargedIsoPFTau20_SingleL1() {
-    if (!loaded_HLT_IsoMu27_MediumChargedIsoPFTau20_SingleL1_) {
-        if (!b_HLT_IsoMu27_MediumChargedIsoPFTau20_SingleL1_) throw std::runtime_error("HLT_IsoMu27_MediumChargedIsoPFTau20_SingleL1 branch doesn't exist");
-        b_HLT_IsoMu27_MediumChargedIsoPFTau20_SingleL1_->GetEntry(index);
-        loaded_HLT_IsoMu27_MediumChargedIsoPFTau20_SingleL1_ = true;
+const bool &Nano::HLT_IsoMu27_MET90() {
+    if (!loaded_HLT_IsoMu27_MET90_) {
+        if (!b_HLT_IsoMu27_MET90_) throw std::runtime_error("HLT_IsoMu27_MET90 branch doesn't exist");
+        b_HLT_IsoMu27_MET90_->GetEntry(index);
+        loaded_HLT_IsoMu27_MET90_ = true;
     }
-    return HLT_IsoMu27_MediumChargedIsoPFTau20_SingleL1_;
+    return HLT_IsoMu27_MET90_;
 }
-const bool &Nano::HLT_IsoMu27_TightChargedIsoPFTau20_SingleL1() {
-    if (!loaded_HLT_IsoMu27_TightChargedIsoPFTau20_SingleL1_) {
-        if (!b_HLT_IsoMu27_TightChargedIsoPFTau20_SingleL1_) throw std::runtime_error("HLT_IsoMu27_TightChargedIsoPFTau20_SingleL1 branch doesn't exist");
-        b_HLT_IsoMu27_TightChargedIsoPFTau20_SingleL1_->GetEntry(index);
-        loaded_HLT_IsoMu27_TightChargedIsoPFTau20_SingleL1_ = true;
+const bool &Nano::HLT_IsoMu27_MediumChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1() {
+    if (!loaded_HLT_IsoMu27_MediumChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_) {
+        if (!b_HLT_IsoMu27_MediumChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_) throw std::runtime_error("HLT_IsoMu27_MediumChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1 branch doesn't exist");
+        b_HLT_IsoMu27_MediumChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_->GetEntry(index);
+        loaded_HLT_IsoMu27_MediumChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_ = true;
     }
-    return HLT_IsoMu27_TightChargedIsoPFTau20_SingleL1_;
+    return HLT_IsoMu27_MediumChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_;
+}
+const bool &Nano::HLT_IsoMu27_TightChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1() {
+    if (!loaded_HLT_IsoMu27_TightChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_) {
+        if (!b_HLT_IsoMu27_TightChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_) throw std::runtime_error("HLT_IsoMu27_TightChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1 branch doesn't exist");
+        b_HLT_IsoMu27_TightChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_->GetEntry(index);
+        loaded_HLT_IsoMu27_TightChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_ = true;
+    }
+    return HLT_IsoMu27_TightChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_;
 }
 const bool &Nano::HLT_IsoMu30() {
     if (!loaded_HLT_IsoMu30_) {
@@ -6589,22 +8510,6 @@ const bool &Nano::HLT_L1ETMHadSeeds() {
         loaded_HLT_L1ETMHadSeeds_ = true;
     }
     return HLT_L1ETMHadSeeds_;
-}
-const bool &Nano::HLT_L1MinimumBiasHF0OR() {
-    if (!loaded_HLT_L1MinimumBiasHF0OR_) {
-        if (!b_HLT_L1MinimumBiasHF0OR_) throw std::runtime_error("HLT_L1MinimumBiasHF0OR branch doesn't exist");
-        b_HLT_L1MinimumBiasHF0OR_->GetEntry(index);
-        loaded_HLT_L1MinimumBiasHF0OR_ = true;
-    }
-    return HLT_L1MinimumBiasHF0OR_;
-}
-const bool &Nano::HLT_L1MinimumBiasHF_OR() {
-    if (!loaded_HLT_L1MinimumBiasHF_OR_) {
-        if (!b_HLT_L1MinimumBiasHF_OR_) throw std::runtime_error("HLT_L1MinimumBiasHF_OR branch doesn't exist");
-        b_HLT_L1MinimumBiasHF_OR_->GetEntry(index);
-        loaded_HLT_L1MinimumBiasHF_OR_ = true;
-    }
-    return HLT_L1MinimumBiasHF_OR_;
 }
 const bool &Nano::HLT_L1NotBptxOR() {
     if (!loaded_HLT_L1NotBptxOR_) {
@@ -6654,14 +8559,6 @@ const bool &Nano::HLT_L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142() {
     }
     return HLT_L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142_;
 }
-const bool &Nano::HLT_L1_DoubleJet30_Mass_Min400_Mu10() {
-    if (!loaded_HLT_L1_DoubleJet30_Mass_Min400_Mu10_) {
-        if (!b_HLT_L1_DoubleJet30_Mass_Min400_Mu10_) throw std::runtime_error("HLT_L1_DoubleJet30_Mass_Min400_Mu10 branch doesn't exist");
-        b_HLT_L1_DoubleJet30_Mass_Min400_Mu10_->GetEntry(index);
-        loaded_HLT_L1_DoubleJet30_Mass_Min400_Mu10_ = true;
-    }
-    return HLT_L1_DoubleJet30_Mass_Min400_Mu10_;
-}
 const bool &Nano::HLT_L2Mu10() {
     if (!loaded_HLT_L2Mu10_) {
         if (!b_HLT_L2Mu10_) throw std::runtime_error("HLT_L2Mu10 branch doesn't exist");
@@ -6685,6 +8582,22 @@ const bool &Nano::HLT_L2Mu10_NoVertex_NoBPTX3BX() {
         loaded_HLT_L2Mu10_NoVertex_NoBPTX3BX_ = true;
     }
     return HLT_L2Mu10_NoVertex_NoBPTX3BX_;
+}
+const bool &Nano::HLT_L2Mu23NoVtx_2Cha() {
+    if (!loaded_HLT_L2Mu23NoVtx_2Cha_) {
+        if (!b_HLT_L2Mu23NoVtx_2Cha_) throw std::runtime_error("HLT_L2Mu23NoVtx_2Cha branch doesn't exist");
+        b_HLT_L2Mu23NoVtx_2Cha_->GetEntry(index);
+        loaded_HLT_L2Mu23NoVtx_2Cha_ = true;
+    }
+    return HLT_L2Mu23NoVtx_2Cha_;
+}
+const bool &Nano::HLT_L2Mu23NoVtx_2Cha_CosmicSeed() {
+    if (!loaded_HLT_L2Mu23NoVtx_2Cha_CosmicSeed_) {
+        if (!b_HLT_L2Mu23NoVtx_2Cha_CosmicSeed_) throw std::runtime_error("HLT_L2Mu23NoVtx_2Cha_CosmicSeed branch doesn't exist");
+        b_HLT_L2Mu23NoVtx_2Cha_CosmicSeed_->GetEntry(index);
+        loaded_HLT_L2Mu23NoVtx_2Cha_CosmicSeed_ = true;
+    }
+    return HLT_L2Mu23NoVtx_2Cha_CosmicSeed_;
 }
 const bool &Nano::HLT_L2Mu40_NoVertex_3Sta_NoBPTX3BX() {
     if (!loaded_HLT_L2Mu40_NoVertex_3Sta_NoBPTX3BX_) {
@@ -6742,6 +8655,22 @@ const bool &Nano::HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1_1pr(
     }
     return HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1_1pr_;
 }
+const bool &Nano::HLT_MediumChargedIsoPFTau200HighPtRelaxedIso_Trk50_eta2p1() {
+    if (!loaded_HLT_MediumChargedIsoPFTau200HighPtRelaxedIso_Trk50_eta2p1_) {
+        if (!b_HLT_MediumChargedIsoPFTau200HighPtRelaxedIso_Trk50_eta2p1_) throw std::runtime_error("HLT_MediumChargedIsoPFTau200HighPtRelaxedIso_Trk50_eta2p1 branch doesn't exist");
+        b_HLT_MediumChargedIsoPFTau200HighPtRelaxedIso_Trk50_eta2p1_->GetEntry(index);
+        loaded_HLT_MediumChargedIsoPFTau200HighPtRelaxedIso_Trk50_eta2p1_ = true;
+    }
+    return HLT_MediumChargedIsoPFTau200HighPtRelaxedIso_Trk50_eta2p1_;
+}
+const bool &Nano::HLT_MediumChargedIsoPFTau220HighPtRelaxedIso_Trk50_eta2p1() {
+    if (!loaded_HLT_MediumChargedIsoPFTau220HighPtRelaxedIso_Trk50_eta2p1_) {
+        if (!b_HLT_MediumChargedIsoPFTau220HighPtRelaxedIso_Trk50_eta2p1_) throw std::runtime_error("HLT_MediumChargedIsoPFTau220HighPtRelaxedIso_Trk50_eta2p1 branch doesn't exist");
+        b_HLT_MediumChargedIsoPFTau220HighPtRelaxedIso_Trk50_eta2p1_->GetEntry(index);
+        loaded_HLT_MediumChargedIsoPFTau220HighPtRelaxedIso_Trk50_eta2p1_ = true;
+    }
+    return HLT_MediumChargedIsoPFTau220HighPtRelaxedIso_Trk50_eta2p1_;
+}
 const bool &Nano::HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr() {
     if (!loaded_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_) {
         if (!b_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_) throw std::runtime_error("HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr branch doesn't exist");
@@ -6781,6 +8710,14 @@ const bool &Nano::HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET130() {
         loaded_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET130_ = true;
     }
     return HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET130_;
+}
+const bool &Nano::HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET140() {
+    if (!loaded_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET140_) {
+        if (!b_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET140_) throw std::runtime_error("HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET140 branch doesn't exist");
+        b_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET140_->GetEntry(index);
+        loaded_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET140_ = true;
+    }
+    return HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET140_;
 }
 const bool &Nano::HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET90() {
     if (!loaded_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET90_) {
@@ -6830,61 +8767,69 @@ const bool &Nano::HLT_Mu10_TrkIsoVVL_DiPFJet40_DEta3p5_MJJ750_HTT350_PFMETNoMu60
     }
     return HLT_Mu10_TrkIsoVVL_DiPFJet40_DEta3p5_MJJ750_HTT350_PFMETNoMu60_;
 }
-const bool &Nano::HLT_Mu12_DoublePFJets100_CaloBTagCSV_p33() {
-    if (!loaded_HLT_Mu12_DoublePFJets100_CaloBTagCSV_p33_) {
-        if (!b_HLT_Mu12_DoublePFJets100_CaloBTagCSV_p33_) throw std::runtime_error("HLT_Mu12_DoublePFJets100_CaloBTagCSV_p33 branch doesn't exist");
-        b_HLT_Mu12_DoublePFJets100_CaloBTagCSV_p33_->GetEntry(index);
-        loaded_HLT_Mu12_DoublePFJets100_CaloBTagCSV_p33_ = true;
+const bool &Nano::HLT_Mu12() {
+    if (!loaded_HLT_Mu12_) {
+        if (!b_HLT_Mu12_) throw std::runtime_error("HLT_Mu12 branch doesn't exist");
+        b_HLT_Mu12_->GetEntry(index);
+        loaded_HLT_Mu12_ = true;
     }
-    return HLT_Mu12_DoublePFJets100_CaloBTagCSV_p33_;
+    return HLT_Mu12_;
 }
-const bool &Nano::HLT_Mu12_DoublePFJets200_CaloBTagCSV_p33() {
-    if (!loaded_HLT_Mu12_DoublePFJets200_CaloBTagCSV_p33_) {
-        if (!b_HLT_Mu12_DoublePFJets200_CaloBTagCSV_p33_) throw std::runtime_error("HLT_Mu12_DoublePFJets200_CaloBTagCSV_p33 branch doesn't exist");
-        b_HLT_Mu12_DoublePFJets200_CaloBTagCSV_p33_->GetEntry(index);
-        loaded_HLT_Mu12_DoublePFJets200_CaloBTagCSV_p33_ = true;
+const bool &Nano::HLT_Mu12_DoublePFJets100_CaloBTagDeepCSV_p71() {
+    if (!loaded_HLT_Mu12_DoublePFJets100_CaloBTagDeepCSV_p71_) {
+        if (!b_HLT_Mu12_DoublePFJets100_CaloBTagDeepCSV_p71_) throw std::runtime_error("HLT_Mu12_DoublePFJets100_CaloBTagDeepCSV_p71 branch doesn't exist");
+        b_HLT_Mu12_DoublePFJets100_CaloBTagDeepCSV_p71_->GetEntry(index);
+        loaded_HLT_Mu12_DoublePFJets100_CaloBTagDeepCSV_p71_ = true;
     }
-    return HLT_Mu12_DoublePFJets200_CaloBTagCSV_p33_;
+    return HLT_Mu12_DoublePFJets100_CaloBTagDeepCSV_p71_;
 }
-const bool &Nano::HLT_Mu12_DoublePFJets350_CaloBTagCSV_p33() {
-    if (!loaded_HLT_Mu12_DoublePFJets350_CaloBTagCSV_p33_) {
-        if (!b_HLT_Mu12_DoublePFJets350_CaloBTagCSV_p33_) throw std::runtime_error("HLT_Mu12_DoublePFJets350_CaloBTagCSV_p33 branch doesn't exist");
-        b_HLT_Mu12_DoublePFJets350_CaloBTagCSV_p33_->GetEntry(index);
-        loaded_HLT_Mu12_DoublePFJets350_CaloBTagCSV_p33_ = true;
+const bool &Nano::HLT_Mu12_DoublePFJets200_CaloBTagDeepCSV_p71() {
+    if (!loaded_HLT_Mu12_DoublePFJets200_CaloBTagDeepCSV_p71_) {
+        if (!b_HLT_Mu12_DoublePFJets200_CaloBTagDeepCSV_p71_) throw std::runtime_error("HLT_Mu12_DoublePFJets200_CaloBTagDeepCSV_p71 branch doesn't exist");
+        b_HLT_Mu12_DoublePFJets200_CaloBTagDeepCSV_p71_->GetEntry(index);
+        loaded_HLT_Mu12_DoublePFJets200_CaloBTagDeepCSV_p71_ = true;
     }
-    return HLT_Mu12_DoublePFJets350_CaloBTagCSV_p33_;
+    return HLT_Mu12_DoublePFJets200_CaloBTagDeepCSV_p71_;
 }
-const bool &Nano::HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagCSV_p33() {
-    if (!loaded_HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagCSV_p33_) {
-        if (!b_HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagCSV_p33_) throw std::runtime_error("HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagCSV_p33 branch doesn't exist");
-        b_HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagCSV_p33_->GetEntry(index);
-        loaded_HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagCSV_p33_ = true;
+const bool &Nano::HLT_Mu12_DoublePFJets350_CaloBTagDeepCSV_p71() {
+    if (!loaded_HLT_Mu12_DoublePFJets350_CaloBTagDeepCSV_p71_) {
+        if (!b_HLT_Mu12_DoublePFJets350_CaloBTagDeepCSV_p71_) throw std::runtime_error("HLT_Mu12_DoublePFJets350_CaloBTagDeepCSV_p71 branch doesn't exist");
+        b_HLT_Mu12_DoublePFJets350_CaloBTagDeepCSV_p71_->GetEntry(index);
+        loaded_HLT_Mu12_DoublePFJets350_CaloBTagDeepCSV_p71_ = true;
     }
-    return HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagCSV_p33_;
+    return HLT_Mu12_DoublePFJets350_CaloBTagDeepCSV_p71_;
 }
-const bool &Nano::HLT_Mu12_DoublePFJets40_CaloBTagCSV_p33() {
-    if (!loaded_HLT_Mu12_DoublePFJets40_CaloBTagCSV_p33_) {
-        if (!b_HLT_Mu12_DoublePFJets40_CaloBTagCSV_p33_) throw std::runtime_error("HLT_Mu12_DoublePFJets40_CaloBTagCSV_p33 branch doesn't exist");
-        b_HLT_Mu12_DoublePFJets40_CaloBTagCSV_p33_->GetEntry(index);
-        loaded_HLT_Mu12_DoublePFJets40_CaloBTagCSV_p33_ = true;
+const bool &Nano::HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagDeepCSV_p71() {
+    if (!loaded_HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_) {
+        if (!b_HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_) throw std::runtime_error("HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagDeepCSV_p71 branch doesn't exist");
+        b_HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_->GetEntry(index);
+        loaded_HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_ = true;
     }
-    return HLT_Mu12_DoublePFJets40_CaloBTagCSV_p33_;
+    return HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_;
 }
-const bool &Nano::HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagCSV_p33() {
-    if (!loaded_HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagCSV_p33_) {
-        if (!b_HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagCSV_p33_) throw std::runtime_error("HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagCSV_p33 branch doesn't exist");
-        b_HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagCSV_p33_->GetEntry(index);
-        loaded_HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagCSV_p33_ = true;
+const bool &Nano::HLT_Mu12_DoublePFJets40_CaloBTagDeepCSV_p71() {
+    if (!loaded_HLT_Mu12_DoublePFJets40_CaloBTagDeepCSV_p71_) {
+        if (!b_HLT_Mu12_DoublePFJets40_CaloBTagDeepCSV_p71_) throw std::runtime_error("HLT_Mu12_DoublePFJets40_CaloBTagDeepCSV_p71 branch doesn't exist");
+        b_HLT_Mu12_DoublePFJets40_CaloBTagDeepCSV_p71_->GetEntry(index);
+        loaded_HLT_Mu12_DoublePFJets40_CaloBTagDeepCSV_p71_ = true;
     }
-    return HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagCSV_p33_;
+    return HLT_Mu12_DoublePFJets40_CaloBTagDeepCSV_p71_;
 }
-const bool &Nano::HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagCSV_p33() {
-    if (!loaded_HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagCSV_p33_) {
-        if (!b_HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagCSV_p33_) throw std::runtime_error("HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagCSV_p33 branch doesn't exist");
-        b_HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagCSV_p33_->GetEntry(index);
-        loaded_HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagCSV_p33_ = true;
+const bool &Nano::HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagDeepCSV_p71() {
+    if (!loaded_HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_) {
+        if (!b_HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_) throw std::runtime_error("HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagDeepCSV_p71 branch doesn't exist");
+        b_HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_->GetEntry(index);
+        loaded_HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_ = true;
     }
-    return HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagCSV_p33_;
+    return HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_;
+}
+const bool &Nano::HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagDeepCSV_p71() {
+    if (!loaded_HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_) {
+        if (!b_HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_) throw std::runtime_error("HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagDeepCSV_p71 branch doesn't exist");
+        b_HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_->GetEntry(index);
+        loaded_HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_ = true;
+    }
+    return HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_;
 }
 const bool &Nano::HLT_Mu12_DoublePhoton20() {
     if (!loaded_HLT_Mu12_DoublePhoton20_) {
@@ -6893,6 +8838,46 @@ const bool &Nano::HLT_Mu12_DoublePhoton20() {
         loaded_HLT_Mu12_DoublePhoton20_ = true;
     }
     return HLT_Mu12_DoublePhoton20_;
+}
+const bool &Nano::HLT_Mu12_IP6_part0() {
+    if (!loaded_HLT_Mu12_IP6_part0_) {
+        if (!b_HLT_Mu12_IP6_part0_) throw std::runtime_error("HLT_Mu12_IP6_part0 branch doesn't exist");
+        b_HLT_Mu12_IP6_part0_->GetEntry(index);
+        loaded_HLT_Mu12_IP6_part0_ = true;
+    }
+    return HLT_Mu12_IP6_part0_;
+}
+const bool &Nano::HLT_Mu12_IP6_part1() {
+    if (!loaded_HLT_Mu12_IP6_part1_) {
+        if (!b_HLT_Mu12_IP6_part1_) throw std::runtime_error("HLT_Mu12_IP6_part1 branch doesn't exist");
+        b_HLT_Mu12_IP6_part1_->GetEntry(index);
+        loaded_HLT_Mu12_IP6_part1_ = true;
+    }
+    return HLT_Mu12_IP6_part1_;
+}
+const bool &Nano::HLT_Mu12_IP6_part2() {
+    if (!loaded_HLT_Mu12_IP6_part2_) {
+        if (!b_HLT_Mu12_IP6_part2_) throw std::runtime_error("HLT_Mu12_IP6_part2 branch doesn't exist");
+        b_HLT_Mu12_IP6_part2_->GetEntry(index);
+        loaded_HLT_Mu12_IP6_part2_ = true;
+    }
+    return HLT_Mu12_IP6_part2_;
+}
+const bool &Nano::HLT_Mu12_IP6_part3() {
+    if (!loaded_HLT_Mu12_IP6_part3_) {
+        if (!b_HLT_Mu12_IP6_part3_) throw std::runtime_error("HLT_Mu12_IP6_part3 branch doesn't exist");
+        b_HLT_Mu12_IP6_part3_->GetEntry(index);
+        loaded_HLT_Mu12_IP6_part3_ = true;
+    }
+    return HLT_Mu12_IP6_part3_;
+}
+const bool &Nano::HLT_Mu12_IP6_part4() {
+    if (!loaded_HLT_Mu12_IP6_part4_) {
+        if (!b_HLT_Mu12_IP6_part4_) throw std::runtime_error("HLT_Mu12_IP6_part4 branch doesn't exist");
+        b_HLT_Mu12_IP6_part4_->GetEntry(index);
+        loaded_HLT_Mu12_IP6_part4_ = true;
+    }
+    return HLT_Mu12_IP6_part4_;
 }
 const bool &Nano::HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL() {
     if (!loaded_HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_) {
@@ -6910,6 +8895,14 @@ const bool &Nano::HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ() {
     }
     return HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_;
 }
+const bool &Nano::HLT_Mu15() {
+    if (!loaded_HLT_Mu15_) {
+        if (!b_HLT_Mu15_) throw std::runtime_error("HLT_Mu15 branch doesn't exist");
+        b_HLT_Mu15_->GetEntry(index);
+        loaded_HLT_Mu15_ = true;
+    }
+    return HLT_Mu15_;
+}
 const bool &Nano::HLT_Mu15_IsoVVVL_PFHT450() {
     if (!loaded_HLT_Mu15_IsoVVVL_PFHT450_) {
         if (!b_HLT_Mu15_IsoVVVL_PFHT450_) throw std::runtime_error("HLT_Mu15_IsoVVVL_PFHT450 branch doesn't exist");
@@ -6918,13 +8911,13 @@ const bool &Nano::HLT_Mu15_IsoVVVL_PFHT450() {
     }
     return HLT_Mu15_IsoVVVL_PFHT450_;
 }
-const bool &Nano::HLT_Mu15_IsoVVVL_PFHT450_CaloBTagCSV_4p5() {
-    if (!loaded_HLT_Mu15_IsoVVVL_PFHT450_CaloBTagCSV_4p5_) {
-        if (!b_HLT_Mu15_IsoVVVL_PFHT450_CaloBTagCSV_4p5_) throw std::runtime_error("HLT_Mu15_IsoVVVL_PFHT450_CaloBTagCSV_4p5 branch doesn't exist");
-        b_HLT_Mu15_IsoVVVL_PFHT450_CaloBTagCSV_4p5_->GetEntry(index);
-        loaded_HLT_Mu15_IsoVVVL_PFHT450_CaloBTagCSV_4p5_ = true;
+const bool &Nano::HLT_Mu15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5() {
+    if (!loaded_HLT_Mu15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5_) {
+        if (!b_HLT_Mu15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5_) throw std::runtime_error("HLT_Mu15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5 branch doesn't exist");
+        b_HLT_Mu15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5_->GetEntry(index);
+        loaded_HLT_Mu15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5_ = true;
     }
-    return HLT_Mu15_IsoVVVL_PFHT450_CaloBTagCSV_4p5_;
+    return HLT_Mu15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5_;
 }
 const bool &Nano::HLT_Mu15_IsoVVVL_PFHT450_PFMET50() {
     if (!loaded_HLT_Mu15_IsoVVVL_PFHT450_PFMET50_) {
@@ -7206,13 +9199,21 @@ const bool &Nano::HLT_Mu27_Ele37_CaloIdL_MW() {
     }
     return HLT_Mu27_Ele37_CaloIdL_MW_;
 }
-const bool &Nano::HLT_Mu30_TkMu0_Onia() {
-    if (!loaded_HLT_Mu30_TkMu0_Onia_) {
-        if (!b_HLT_Mu30_TkMu0_Onia_) throw std::runtime_error("HLT_Mu30_TkMu0_Onia branch doesn't exist");
-        b_HLT_Mu30_TkMu0_Onia_->GetEntry(index);
-        loaded_HLT_Mu30_TkMu0_Onia_ = true;
+const bool &Nano::HLT_Mu30_TkMu0_Psi() {
+    if (!loaded_HLT_Mu30_TkMu0_Psi_) {
+        if (!b_HLT_Mu30_TkMu0_Psi_) throw std::runtime_error("HLT_Mu30_TkMu0_Psi branch doesn't exist");
+        b_HLT_Mu30_TkMu0_Psi_->GetEntry(index);
+        loaded_HLT_Mu30_TkMu0_Psi_ = true;
     }
-    return HLT_Mu30_TkMu0_Onia_;
+    return HLT_Mu30_TkMu0_Psi_;
+}
+const bool &Nano::HLT_Mu30_TkMu0_Upsilon() {
+    if (!loaded_HLT_Mu30_TkMu0_Upsilon_) {
+        if (!b_HLT_Mu30_TkMu0_Upsilon_) throw std::runtime_error("HLT_Mu30_TkMu0_Upsilon branch doesn't exist");
+        b_HLT_Mu30_TkMu0_Upsilon_->GetEntry(index);
+        loaded_HLT_Mu30_TkMu0_Upsilon_ = true;
+    }
+    return HLT_Mu30_TkMu0_Upsilon_;
 }
 const bool &Nano::HLT_Mu37_Ele27_CaloIdL_MW() {
     if (!loaded_HLT_Mu37_Ele27_CaloIdL_MW_) {
@@ -7230,6 +9231,22 @@ const bool &Nano::HLT_Mu37_TkMu27() {
     }
     return HLT_Mu37_TkMu27_;
 }
+const bool &Nano::HLT_Mu38NoFiltersNoVtxDisplaced_Photon38_CaloIdL() {
+    if (!loaded_HLT_Mu38NoFiltersNoVtxDisplaced_Photon38_CaloIdL_) {
+        if (!b_HLT_Mu38NoFiltersNoVtxDisplaced_Photon38_CaloIdL_) throw std::runtime_error("HLT_Mu38NoFiltersNoVtxDisplaced_Photon38_CaloIdL branch doesn't exist");
+        b_HLT_Mu38NoFiltersNoVtxDisplaced_Photon38_CaloIdL_->GetEntry(index);
+        loaded_HLT_Mu38NoFiltersNoVtxDisplaced_Photon38_CaloIdL_ = true;
+    }
+    return HLT_Mu38NoFiltersNoVtxDisplaced_Photon38_CaloIdL_;
+}
+const bool &Nano::HLT_Mu3_L1SingleMu5orSingleMu7() {
+    if (!loaded_HLT_Mu3_L1SingleMu5orSingleMu7_) {
+        if (!b_HLT_Mu3_L1SingleMu5orSingleMu7_) throw std::runtime_error("HLT_Mu3_L1SingleMu5orSingleMu7 branch doesn't exist");
+        b_HLT_Mu3_L1SingleMu5orSingleMu7_->GetEntry(index);
+        loaded_HLT_Mu3_L1SingleMu5orSingleMu7_ = true;
+    }
+    return HLT_Mu3_L1SingleMu5orSingleMu7_;
+}
 const bool &Nano::HLT_Mu3_PFJet40() {
     if (!loaded_HLT_Mu3_PFJet40_) {
         if (!b_HLT_Mu3_PFJet40_) throw std::runtime_error("HLT_Mu3_PFJet40 branch doesn't exist");
@@ -7237,6 +9254,78 @@ const bool &Nano::HLT_Mu3_PFJet40() {
         loaded_HLT_Mu3_PFJet40_ = true;
     }
     return HLT_Mu3_PFJet40_;
+}
+const bool &Nano::HLT_Mu3er1p5_PFJet100er2p5_PFMET100_PFMHT100_IDTight() {
+    if (!loaded_HLT_Mu3er1p5_PFJet100er2p5_PFMET100_PFMHT100_IDTight_) {
+        if (!b_HLT_Mu3er1p5_PFJet100er2p5_PFMET100_PFMHT100_IDTight_) throw std::runtime_error("HLT_Mu3er1p5_PFJet100er2p5_PFMET100_PFMHT100_IDTight branch doesn't exist");
+        b_HLT_Mu3er1p5_PFJet100er2p5_PFMET100_PFMHT100_IDTight_->GetEntry(index);
+        loaded_HLT_Mu3er1p5_PFJet100er2p5_PFMET100_PFMHT100_IDTight_ = true;
+    }
+    return HLT_Mu3er1p5_PFJet100er2p5_PFMET100_PFMHT100_IDTight_;
+}
+const bool &Nano::HLT_Mu3er1p5_PFJet100er2p5_PFMET70_PFMHT70_IDTight() {
+    if (!loaded_HLT_Mu3er1p5_PFJet100er2p5_PFMET70_PFMHT70_IDTight_) {
+        if (!b_HLT_Mu3er1p5_PFJet100er2p5_PFMET70_PFMHT70_IDTight_) throw std::runtime_error("HLT_Mu3er1p5_PFJet100er2p5_PFMET70_PFMHT70_IDTight branch doesn't exist");
+        b_HLT_Mu3er1p5_PFJet100er2p5_PFMET70_PFMHT70_IDTight_->GetEntry(index);
+        loaded_HLT_Mu3er1p5_PFJet100er2p5_PFMET70_PFMHT70_IDTight_ = true;
+    }
+    return HLT_Mu3er1p5_PFJet100er2p5_PFMET70_PFMHT70_IDTight_;
+}
+const bool &Nano::HLT_Mu3er1p5_PFJet100er2p5_PFMET80_PFMHT80_IDTight() {
+    if (!loaded_HLT_Mu3er1p5_PFJet100er2p5_PFMET80_PFMHT80_IDTight_) {
+        if (!b_HLT_Mu3er1p5_PFJet100er2p5_PFMET80_PFMHT80_IDTight_) throw std::runtime_error("HLT_Mu3er1p5_PFJet100er2p5_PFMET80_PFMHT80_IDTight branch doesn't exist");
+        b_HLT_Mu3er1p5_PFJet100er2p5_PFMET80_PFMHT80_IDTight_->GetEntry(index);
+        loaded_HLT_Mu3er1p5_PFJet100er2p5_PFMET80_PFMHT80_IDTight_ = true;
+    }
+    return HLT_Mu3er1p5_PFJet100er2p5_PFMET80_PFMHT80_IDTight_;
+}
+const bool &Nano::HLT_Mu3er1p5_PFJet100er2p5_PFMET90_PFMHT90_IDTight() {
+    if (!loaded_HLT_Mu3er1p5_PFJet100er2p5_PFMET90_PFMHT90_IDTight_) {
+        if (!b_HLT_Mu3er1p5_PFJet100er2p5_PFMET90_PFMHT90_IDTight_) throw std::runtime_error("HLT_Mu3er1p5_PFJet100er2p5_PFMET90_PFMHT90_IDTight branch doesn't exist");
+        b_HLT_Mu3er1p5_PFJet100er2p5_PFMET90_PFMHT90_IDTight_->GetEntry(index);
+        loaded_HLT_Mu3er1p5_PFJet100er2p5_PFMET90_PFMHT90_IDTight_ = true;
+    }
+    return HLT_Mu3er1p5_PFJet100er2p5_PFMET90_PFMHT90_IDTight_;
+}
+const bool &Nano::HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu100_PFMHTNoMu100_IDTight() {
+    if (!loaded_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu100_PFMHTNoMu100_IDTight_) {
+        if (!b_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu100_PFMHTNoMu100_IDTight_) throw std::runtime_error("HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu100_PFMHTNoMu100_IDTight branch doesn't exist");
+        b_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu100_PFMHTNoMu100_IDTight_->GetEntry(index);
+        loaded_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu100_PFMHTNoMu100_IDTight_ = true;
+    }
+    return HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu100_PFMHTNoMu100_IDTight_;
+}
+const bool &Nano::HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu70_PFMHTNoMu70_IDTight() {
+    if (!loaded_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu70_PFMHTNoMu70_IDTight_) {
+        if (!b_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu70_PFMHTNoMu70_IDTight_) throw std::runtime_error("HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu70_PFMHTNoMu70_IDTight branch doesn't exist");
+        b_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu70_PFMHTNoMu70_IDTight_->GetEntry(index);
+        loaded_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu70_PFMHTNoMu70_IDTight_ = true;
+    }
+    return HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu70_PFMHTNoMu70_IDTight_;
+}
+const bool &Nano::HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu80_PFMHTNoMu80_IDTight() {
+    if (!loaded_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu80_PFMHTNoMu80_IDTight_) {
+        if (!b_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu80_PFMHTNoMu80_IDTight_) throw std::runtime_error("HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu80_PFMHTNoMu80_IDTight branch doesn't exist");
+        b_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu80_PFMHTNoMu80_IDTight_->GetEntry(index);
+        loaded_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu80_PFMHTNoMu80_IDTight_ = true;
+    }
+    return HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu80_PFMHTNoMu80_IDTight_;
+}
+const bool &Nano::HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu90_PFMHTNoMu90_IDTight() {
+    if (!loaded_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu90_PFMHTNoMu90_IDTight_) {
+        if (!b_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu90_PFMHTNoMu90_IDTight_) throw std::runtime_error("HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu90_PFMHTNoMu90_IDTight branch doesn't exist");
+        b_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu90_PFMHTNoMu90_IDTight_->GetEntry(index);
+        loaded_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu90_PFMHTNoMu90_IDTight_ = true;
+    }
+    return HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu90_PFMHTNoMu90_IDTight_;
+}
+const bool &Nano::HLT_Mu43NoFiltersNoVtxDisplaced_Photon43_CaloIdL() {
+    if (!loaded_HLT_Mu43NoFiltersNoVtxDisplaced_Photon43_CaloIdL_) {
+        if (!b_HLT_Mu43NoFiltersNoVtxDisplaced_Photon43_CaloIdL_) throw std::runtime_error("HLT_Mu43NoFiltersNoVtxDisplaced_Photon43_CaloIdL branch doesn't exist");
+        b_HLT_Mu43NoFiltersNoVtxDisplaced_Photon43_CaloIdL_->GetEntry(index);
+        loaded_HLT_Mu43NoFiltersNoVtxDisplaced_Photon43_CaloIdL_ = true;
+    }
+    return HLT_Mu43NoFiltersNoVtxDisplaced_Photon43_CaloIdL_;
 }
 const bool &Nano::HLT_Mu43NoFiltersNoVtx_Photon43_CaloIdL() {
     if (!loaded_HLT_Mu43NoFiltersNoVtx_Photon43_CaloIdL_) {
@@ -7253,6 +9342,14 @@ const bool &Nano::HLT_Mu48NoFiltersNoVtx_Photon48_CaloIdL() {
         loaded_HLT_Mu48NoFiltersNoVtx_Photon48_CaloIdL_ = true;
     }
     return HLT_Mu48NoFiltersNoVtx_Photon48_CaloIdL_;
+}
+const bool &Nano::HLT_Mu4_TrkIsoVVL_DiPFJet90_40_DEta3p5_MJJ750_HTT300_PFMETNoMu60() {
+    if (!loaded_HLT_Mu4_TrkIsoVVL_DiPFJet90_40_DEta3p5_MJJ750_HTT300_PFMETNoMu60_) {
+        if (!b_HLT_Mu4_TrkIsoVVL_DiPFJet90_40_DEta3p5_MJJ750_HTT300_PFMETNoMu60_) throw std::runtime_error("HLT_Mu4_TrkIsoVVL_DiPFJet90_40_DEta3p5_MJJ750_HTT300_PFMETNoMu60 branch doesn't exist");
+        b_HLT_Mu4_TrkIsoVVL_DiPFJet90_40_DEta3p5_MJJ750_HTT300_PFMETNoMu60_->GetEntry(index);
+        loaded_HLT_Mu4_TrkIsoVVL_DiPFJet90_40_DEta3p5_MJJ750_HTT300_PFMETNoMu60_ = true;
+    }
+    return HLT_Mu4_TrkIsoVVL_DiPFJet90_40_DEta3p5_MJJ750_HTT300_PFMETNoMu60_;
 }
 const bool &Nano::HLT_Mu50() {
     if (!loaded_HLT_Mu50_) {
@@ -7277,6 +9374,46 @@ const bool &Nano::HLT_Mu55() {
         loaded_HLT_Mu55_ = true;
     }
     return HLT_Mu55_;
+}
+const bool &Nano::HLT_Mu7_IP4_part0() {
+    if (!loaded_HLT_Mu7_IP4_part0_) {
+        if (!b_HLT_Mu7_IP4_part0_) throw std::runtime_error("HLT_Mu7_IP4_part0 branch doesn't exist");
+        b_HLT_Mu7_IP4_part0_->GetEntry(index);
+        loaded_HLT_Mu7_IP4_part0_ = true;
+    }
+    return HLT_Mu7_IP4_part0_;
+}
+const bool &Nano::HLT_Mu7_IP4_part1() {
+    if (!loaded_HLT_Mu7_IP4_part1_) {
+        if (!b_HLT_Mu7_IP4_part1_) throw std::runtime_error("HLT_Mu7_IP4_part1 branch doesn't exist");
+        b_HLT_Mu7_IP4_part1_->GetEntry(index);
+        loaded_HLT_Mu7_IP4_part1_ = true;
+    }
+    return HLT_Mu7_IP4_part1_;
+}
+const bool &Nano::HLT_Mu7_IP4_part2() {
+    if (!loaded_HLT_Mu7_IP4_part2_) {
+        if (!b_HLT_Mu7_IP4_part2_) throw std::runtime_error("HLT_Mu7_IP4_part2 branch doesn't exist");
+        b_HLT_Mu7_IP4_part2_->GetEntry(index);
+        loaded_HLT_Mu7_IP4_part2_ = true;
+    }
+    return HLT_Mu7_IP4_part2_;
+}
+const bool &Nano::HLT_Mu7_IP4_part3() {
+    if (!loaded_HLT_Mu7_IP4_part3_) {
+        if (!b_HLT_Mu7_IP4_part3_) throw std::runtime_error("HLT_Mu7_IP4_part3 branch doesn't exist");
+        b_HLT_Mu7_IP4_part3_->GetEntry(index);
+        loaded_HLT_Mu7_IP4_part3_ = true;
+    }
+    return HLT_Mu7_IP4_part3_;
+}
+const bool &Nano::HLT_Mu7_IP4_part4() {
+    if (!loaded_HLT_Mu7_IP4_part4_) {
+        if (!b_HLT_Mu7_IP4_part4_) throw std::runtime_error("HLT_Mu7_IP4_part4 branch doesn't exist");
+        b_HLT_Mu7_IP4_part4_->GetEntry(index);
+        loaded_HLT_Mu7_IP4_part4_ = true;
+    }
+    return HLT_Mu7_IP4_part4_;
 }
 const bool &Nano::HLT_Mu7p5_L2Mu2_Jpsi() {
     if (!loaded_HLT_Mu7p5_L2Mu2_Jpsi_) {
@@ -7382,6 +9519,126 @@ const bool &Nano::HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT350_DZ() {
     }
     return HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT350_DZ_;
 }
+const bool &Nano::HLT_Mu8_IP3_part0() {
+    if (!loaded_HLT_Mu8_IP3_part0_) {
+        if (!b_HLT_Mu8_IP3_part0_) throw std::runtime_error("HLT_Mu8_IP3_part0 branch doesn't exist");
+        b_HLT_Mu8_IP3_part0_->GetEntry(index);
+        loaded_HLT_Mu8_IP3_part0_ = true;
+    }
+    return HLT_Mu8_IP3_part0_;
+}
+const bool &Nano::HLT_Mu8_IP3_part1() {
+    if (!loaded_HLT_Mu8_IP3_part1_) {
+        if (!b_HLT_Mu8_IP3_part1_) throw std::runtime_error("HLT_Mu8_IP3_part1 branch doesn't exist");
+        b_HLT_Mu8_IP3_part1_->GetEntry(index);
+        loaded_HLT_Mu8_IP3_part1_ = true;
+    }
+    return HLT_Mu8_IP3_part1_;
+}
+const bool &Nano::HLT_Mu8_IP3_part2() {
+    if (!loaded_HLT_Mu8_IP3_part2_) {
+        if (!b_HLT_Mu8_IP3_part2_) throw std::runtime_error("HLT_Mu8_IP3_part2 branch doesn't exist");
+        b_HLT_Mu8_IP3_part2_->GetEntry(index);
+        loaded_HLT_Mu8_IP3_part2_ = true;
+    }
+    return HLT_Mu8_IP3_part2_;
+}
+const bool &Nano::HLT_Mu8_IP3_part3() {
+    if (!loaded_HLT_Mu8_IP3_part3_) {
+        if (!b_HLT_Mu8_IP3_part3_) throw std::runtime_error("HLT_Mu8_IP3_part3 branch doesn't exist");
+        b_HLT_Mu8_IP3_part3_->GetEntry(index);
+        loaded_HLT_Mu8_IP3_part3_ = true;
+    }
+    return HLT_Mu8_IP3_part3_;
+}
+const bool &Nano::HLT_Mu8_IP3_part4() {
+    if (!loaded_HLT_Mu8_IP3_part4_) {
+        if (!b_HLT_Mu8_IP3_part4_) throw std::runtime_error("HLT_Mu8_IP3_part4 branch doesn't exist");
+        b_HLT_Mu8_IP3_part4_->GetEntry(index);
+        loaded_HLT_Mu8_IP3_part4_ = true;
+    }
+    return HLT_Mu8_IP3_part4_;
+}
+const bool &Nano::HLT_Mu8_IP5_part0() {
+    if (!loaded_HLT_Mu8_IP5_part0_) {
+        if (!b_HLT_Mu8_IP5_part0_) throw std::runtime_error("HLT_Mu8_IP5_part0 branch doesn't exist");
+        b_HLT_Mu8_IP5_part0_->GetEntry(index);
+        loaded_HLT_Mu8_IP5_part0_ = true;
+    }
+    return HLT_Mu8_IP5_part0_;
+}
+const bool &Nano::HLT_Mu8_IP5_part1() {
+    if (!loaded_HLT_Mu8_IP5_part1_) {
+        if (!b_HLT_Mu8_IP5_part1_) throw std::runtime_error("HLT_Mu8_IP5_part1 branch doesn't exist");
+        b_HLT_Mu8_IP5_part1_->GetEntry(index);
+        loaded_HLT_Mu8_IP5_part1_ = true;
+    }
+    return HLT_Mu8_IP5_part1_;
+}
+const bool &Nano::HLT_Mu8_IP5_part2() {
+    if (!loaded_HLT_Mu8_IP5_part2_) {
+        if (!b_HLT_Mu8_IP5_part2_) throw std::runtime_error("HLT_Mu8_IP5_part2 branch doesn't exist");
+        b_HLT_Mu8_IP5_part2_->GetEntry(index);
+        loaded_HLT_Mu8_IP5_part2_ = true;
+    }
+    return HLT_Mu8_IP5_part2_;
+}
+const bool &Nano::HLT_Mu8_IP5_part3() {
+    if (!loaded_HLT_Mu8_IP5_part3_) {
+        if (!b_HLT_Mu8_IP5_part3_) throw std::runtime_error("HLT_Mu8_IP5_part3 branch doesn't exist");
+        b_HLT_Mu8_IP5_part3_->GetEntry(index);
+        loaded_HLT_Mu8_IP5_part3_ = true;
+    }
+    return HLT_Mu8_IP5_part3_;
+}
+const bool &Nano::HLT_Mu8_IP5_part4() {
+    if (!loaded_HLT_Mu8_IP5_part4_) {
+        if (!b_HLT_Mu8_IP5_part4_) throw std::runtime_error("HLT_Mu8_IP5_part4 branch doesn't exist");
+        b_HLT_Mu8_IP5_part4_->GetEntry(index);
+        loaded_HLT_Mu8_IP5_part4_ = true;
+    }
+    return HLT_Mu8_IP5_part4_;
+}
+const bool &Nano::HLT_Mu8_IP6_part0() {
+    if (!loaded_HLT_Mu8_IP6_part0_) {
+        if (!b_HLT_Mu8_IP6_part0_) throw std::runtime_error("HLT_Mu8_IP6_part0 branch doesn't exist");
+        b_HLT_Mu8_IP6_part0_->GetEntry(index);
+        loaded_HLT_Mu8_IP6_part0_ = true;
+    }
+    return HLT_Mu8_IP6_part0_;
+}
+const bool &Nano::HLT_Mu8_IP6_part1() {
+    if (!loaded_HLT_Mu8_IP6_part1_) {
+        if (!b_HLT_Mu8_IP6_part1_) throw std::runtime_error("HLT_Mu8_IP6_part1 branch doesn't exist");
+        b_HLT_Mu8_IP6_part1_->GetEntry(index);
+        loaded_HLT_Mu8_IP6_part1_ = true;
+    }
+    return HLT_Mu8_IP6_part1_;
+}
+const bool &Nano::HLT_Mu8_IP6_part2() {
+    if (!loaded_HLT_Mu8_IP6_part2_) {
+        if (!b_HLT_Mu8_IP6_part2_) throw std::runtime_error("HLT_Mu8_IP6_part2 branch doesn't exist");
+        b_HLT_Mu8_IP6_part2_->GetEntry(index);
+        loaded_HLT_Mu8_IP6_part2_ = true;
+    }
+    return HLT_Mu8_IP6_part2_;
+}
+const bool &Nano::HLT_Mu8_IP6_part3() {
+    if (!loaded_HLT_Mu8_IP6_part3_) {
+        if (!b_HLT_Mu8_IP6_part3_) throw std::runtime_error("HLT_Mu8_IP6_part3 branch doesn't exist");
+        b_HLT_Mu8_IP6_part3_->GetEntry(index);
+        loaded_HLT_Mu8_IP6_part3_ = true;
+    }
+    return HLT_Mu8_IP6_part3_;
+}
+const bool &Nano::HLT_Mu8_IP6_part4() {
+    if (!loaded_HLT_Mu8_IP6_part4_) {
+        if (!b_HLT_Mu8_IP6_part4_) throw std::runtime_error("HLT_Mu8_IP6_part4 branch doesn't exist");
+        b_HLT_Mu8_IP6_part4_->GetEntry(index);
+        loaded_HLT_Mu8_IP6_part4_ = true;
+    }
+    return HLT_Mu8_IP6_part4_;
+}
 const bool &Nano::HLT_Mu8_TrkIsoVVL() {
     if (!loaded_HLT_Mu8_TrkIsoVVL_) {
         if (!b_HLT_Mu8_TrkIsoVVL_) throw std::runtime_error("HLT_Mu8_TrkIsoVVL branch doesn't exist");
@@ -7413,6 +9670,158 @@ const bool &Nano::HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ() {
         loaded_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_ = true;
     }
     return HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_;
+}
+const bool &Nano::HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30() {
+    if (!loaded_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_) {
+        if (!b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_) throw std::runtime_error("HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30 branch doesn't exist");
+        b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_->GetEntry(index);
+        loaded_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_ = true;
+    }
+    return HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_;
+}
+const bool &Nano::HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_CaloBtagDeepCSV_1p5() {
+    if (!loaded_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_CaloBtagDeepCSV_1p5_) {
+        if (!b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_CaloBtagDeepCSV_1p5_) throw std::runtime_error("HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_CaloBtagDeepCSV_1p5 branch doesn't exist");
+        b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_CaloBtagDeepCSV_1p5_->GetEntry(index);
+        loaded_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_CaloBtagDeepCSV_1p5_ = true;
+    }
+    return HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_CaloBtagDeepCSV_1p5_;
+}
+const bool &Nano::HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30() {
+    if (!loaded_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_) {
+        if (!b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_) throw std::runtime_error("HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30 branch doesn't exist");
+        b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_->GetEntry(index);
+        loaded_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_ = true;
+    }
+    return HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_;
+}
+const bool &Nano::HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_PFBtagDeepCSV_1p5() {
+    if (!loaded_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_PFBtagDeepCSV_1p5_) {
+        if (!b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_PFBtagDeepCSV_1p5_) throw std::runtime_error("HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_PFBtagDeepCSV_1p5 branch doesn't exist");
+        b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_PFBtagDeepCSV_1p5_->GetEntry(index);
+        loaded_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_PFBtagDeepCSV_1p5_ = true;
+    }
+    return HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_PFBtagDeepCSV_1p5_;
+}
+const bool &Nano::HLT_Mu9_IP4_part0() {
+    if (!loaded_HLT_Mu9_IP4_part0_) {
+        if (!b_HLT_Mu9_IP4_part0_) throw std::runtime_error("HLT_Mu9_IP4_part0 branch doesn't exist");
+        b_HLT_Mu9_IP4_part0_->GetEntry(index);
+        loaded_HLT_Mu9_IP4_part0_ = true;
+    }
+    return HLT_Mu9_IP4_part0_;
+}
+const bool &Nano::HLT_Mu9_IP4_part1() {
+    if (!loaded_HLT_Mu9_IP4_part1_) {
+        if (!b_HLT_Mu9_IP4_part1_) throw std::runtime_error("HLT_Mu9_IP4_part1 branch doesn't exist");
+        b_HLT_Mu9_IP4_part1_->GetEntry(index);
+        loaded_HLT_Mu9_IP4_part1_ = true;
+    }
+    return HLT_Mu9_IP4_part1_;
+}
+const bool &Nano::HLT_Mu9_IP4_part2() {
+    if (!loaded_HLT_Mu9_IP4_part2_) {
+        if (!b_HLT_Mu9_IP4_part2_) throw std::runtime_error("HLT_Mu9_IP4_part2 branch doesn't exist");
+        b_HLT_Mu9_IP4_part2_->GetEntry(index);
+        loaded_HLT_Mu9_IP4_part2_ = true;
+    }
+    return HLT_Mu9_IP4_part2_;
+}
+const bool &Nano::HLT_Mu9_IP4_part3() {
+    if (!loaded_HLT_Mu9_IP4_part3_) {
+        if (!b_HLT_Mu9_IP4_part3_) throw std::runtime_error("HLT_Mu9_IP4_part3 branch doesn't exist");
+        b_HLT_Mu9_IP4_part3_->GetEntry(index);
+        loaded_HLT_Mu9_IP4_part3_ = true;
+    }
+    return HLT_Mu9_IP4_part3_;
+}
+const bool &Nano::HLT_Mu9_IP4_part4() {
+    if (!loaded_HLT_Mu9_IP4_part4_) {
+        if (!b_HLT_Mu9_IP4_part4_) throw std::runtime_error("HLT_Mu9_IP4_part4 branch doesn't exist");
+        b_HLT_Mu9_IP4_part4_->GetEntry(index);
+        loaded_HLT_Mu9_IP4_part4_ = true;
+    }
+    return HLT_Mu9_IP4_part4_;
+}
+const bool &Nano::HLT_Mu9_IP5_part0() {
+    if (!loaded_HLT_Mu9_IP5_part0_) {
+        if (!b_HLT_Mu9_IP5_part0_) throw std::runtime_error("HLT_Mu9_IP5_part0 branch doesn't exist");
+        b_HLT_Mu9_IP5_part0_->GetEntry(index);
+        loaded_HLT_Mu9_IP5_part0_ = true;
+    }
+    return HLT_Mu9_IP5_part0_;
+}
+const bool &Nano::HLT_Mu9_IP5_part1() {
+    if (!loaded_HLT_Mu9_IP5_part1_) {
+        if (!b_HLT_Mu9_IP5_part1_) throw std::runtime_error("HLT_Mu9_IP5_part1 branch doesn't exist");
+        b_HLT_Mu9_IP5_part1_->GetEntry(index);
+        loaded_HLT_Mu9_IP5_part1_ = true;
+    }
+    return HLT_Mu9_IP5_part1_;
+}
+const bool &Nano::HLT_Mu9_IP5_part2() {
+    if (!loaded_HLT_Mu9_IP5_part2_) {
+        if (!b_HLT_Mu9_IP5_part2_) throw std::runtime_error("HLT_Mu9_IP5_part2 branch doesn't exist");
+        b_HLT_Mu9_IP5_part2_->GetEntry(index);
+        loaded_HLT_Mu9_IP5_part2_ = true;
+    }
+    return HLT_Mu9_IP5_part2_;
+}
+const bool &Nano::HLT_Mu9_IP5_part3() {
+    if (!loaded_HLT_Mu9_IP5_part3_) {
+        if (!b_HLT_Mu9_IP5_part3_) throw std::runtime_error("HLT_Mu9_IP5_part3 branch doesn't exist");
+        b_HLT_Mu9_IP5_part3_->GetEntry(index);
+        loaded_HLT_Mu9_IP5_part3_ = true;
+    }
+    return HLT_Mu9_IP5_part3_;
+}
+const bool &Nano::HLT_Mu9_IP5_part4() {
+    if (!loaded_HLT_Mu9_IP5_part4_) {
+        if (!b_HLT_Mu9_IP5_part4_) throw std::runtime_error("HLT_Mu9_IP5_part4 branch doesn't exist");
+        b_HLT_Mu9_IP5_part4_->GetEntry(index);
+        loaded_HLT_Mu9_IP5_part4_ = true;
+    }
+    return HLT_Mu9_IP5_part4_;
+}
+const bool &Nano::HLT_Mu9_IP6_part0() {
+    if (!loaded_HLT_Mu9_IP6_part0_) {
+        if (!b_HLT_Mu9_IP6_part0_) throw std::runtime_error("HLT_Mu9_IP6_part0 branch doesn't exist");
+        b_HLT_Mu9_IP6_part0_->GetEntry(index);
+        loaded_HLT_Mu9_IP6_part0_ = true;
+    }
+    return HLT_Mu9_IP6_part0_;
+}
+const bool &Nano::HLT_Mu9_IP6_part1() {
+    if (!loaded_HLT_Mu9_IP6_part1_) {
+        if (!b_HLT_Mu9_IP6_part1_) throw std::runtime_error("HLT_Mu9_IP6_part1 branch doesn't exist");
+        b_HLT_Mu9_IP6_part1_->GetEntry(index);
+        loaded_HLT_Mu9_IP6_part1_ = true;
+    }
+    return HLT_Mu9_IP6_part1_;
+}
+const bool &Nano::HLT_Mu9_IP6_part2() {
+    if (!loaded_HLT_Mu9_IP6_part2_) {
+        if (!b_HLT_Mu9_IP6_part2_) throw std::runtime_error("HLT_Mu9_IP6_part2 branch doesn't exist");
+        b_HLT_Mu9_IP6_part2_->GetEntry(index);
+        loaded_HLT_Mu9_IP6_part2_ = true;
+    }
+    return HLT_Mu9_IP6_part2_;
+}
+const bool &Nano::HLT_Mu9_IP6_part3() {
+    if (!loaded_HLT_Mu9_IP6_part3_) {
+        if (!b_HLT_Mu9_IP6_part3_) throw std::runtime_error("HLT_Mu9_IP6_part3 branch doesn't exist");
+        b_HLT_Mu9_IP6_part3_->GetEntry(index);
+        loaded_HLT_Mu9_IP6_part3_ = true;
+    }
+    return HLT_Mu9_IP6_part3_;
+}
+const bool &Nano::HLT_Mu9_IP6_part4() {
+    if (!loaded_HLT_Mu9_IP6_part4_) {
+        if (!b_HLT_Mu9_IP6_part4_) throw std::runtime_error("HLT_Mu9_IP6_part4 branch doesn't exist");
+        b_HLT_Mu9_IP6_part4_->GetEntry(index);
+        loaded_HLT_Mu9_IP6_part4_ = true;
+    }
+    return HLT_Mu9_IP6_part4_;
 }
 const bool &Nano::HLT_OldMu100() {
     if (!loaded_HLT_OldMu100_) {
@@ -7446,21 +9855,21 @@ const bool &Nano::HLT_PFHT250() {
     }
     return HLT_PFHT250_;
 }
-const bool &Nano::HLT_PFHT300PT30_QuadPFJet_75_60_45_40() {
-    if (!loaded_HLT_PFHT300PT30_QuadPFJet_75_60_45_40_) {
-        if (!b_HLT_PFHT300PT30_QuadPFJet_75_60_45_40_) throw std::runtime_error("HLT_PFHT300PT30_QuadPFJet_75_60_45_40 branch doesn't exist");
-        b_HLT_PFHT300PT30_QuadPFJet_75_60_45_40_->GetEntry(index);
-        loaded_HLT_PFHT300PT30_QuadPFJet_75_60_45_40_ = true;
+const bool &Nano::HLT_PFHT330PT30_QuadPFJet_75_60_45_40() {
+    if (!loaded_HLT_PFHT330PT30_QuadPFJet_75_60_45_40_) {
+        if (!b_HLT_PFHT330PT30_QuadPFJet_75_60_45_40_) throw std::runtime_error("HLT_PFHT330PT30_QuadPFJet_75_60_45_40 branch doesn't exist");
+        b_HLT_PFHT330PT30_QuadPFJet_75_60_45_40_->GetEntry(index);
+        loaded_HLT_PFHT330PT30_QuadPFJet_75_60_45_40_ = true;
     }
-    return HLT_PFHT300PT30_QuadPFJet_75_60_45_40_;
+    return HLT_PFHT330PT30_QuadPFJet_75_60_45_40_;
 }
-const bool &Nano::HLT_PFHT300PT30_QuadPFJet_75_60_45_40_TriplePFBTagCSV_3p0() {
-    if (!loaded_HLT_PFHT300PT30_QuadPFJet_75_60_45_40_TriplePFBTagCSV_3p0_) {
-        if (!b_HLT_PFHT300PT30_QuadPFJet_75_60_45_40_TriplePFBTagCSV_3p0_) throw std::runtime_error("HLT_PFHT300PT30_QuadPFJet_75_60_45_40_TriplePFBTagCSV_3p0 branch doesn't exist");
-        b_HLT_PFHT300PT30_QuadPFJet_75_60_45_40_TriplePFBTagCSV_3p0_->GetEntry(index);
-        loaded_HLT_PFHT300PT30_QuadPFJet_75_60_45_40_TriplePFBTagCSV_3p0_ = true;
+const bool &Nano::HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepCSV_4p5() {
+    if (!loaded_HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepCSV_4p5_) {
+        if (!b_HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepCSV_4p5_) throw std::runtime_error("HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepCSV_4p5 branch doesn't exist");
+        b_HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepCSV_4p5_->GetEntry(index);
+        loaded_HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepCSV_4p5_ = true;
     }
-    return HLT_PFHT300PT30_QuadPFJet_75_60_45_40_TriplePFBTagCSV_3p0_;
+    return HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepCSV_4p5_;
 }
 const bool &Nano::HLT_PFHT350() {
     if (!loaded_HLT_PFHT350_) {
@@ -7486,29 +9895,21 @@ const bool &Nano::HLT_PFHT370() {
     }
     return HLT_PFHT370_;
 }
-const bool &Nano::HLT_PFHT380_SixPFJet32() {
-    if (!loaded_HLT_PFHT380_SixPFJet32_) {
-        if (!b_HLT_PFHT380_SixPFJet32_) throw std::runtime_error("HLT_PFHT380_SixPFJet32 branch doesn't exist");
-        b_HLT_PFHT380_SixPFJet32_->GetEntry(index);
-        loaded_HLT_PFHT380_SixPFJet32_ = true;
+const bool &Nano::HLT_PFHT400_SixPFJet32() {
+    if (!loaded_HLT_PFHT400_SixPFJet32_) {
+        if (!b_HLT_PFHT400_SixPFJet32_) throw std::runtime_error("HLT_PFHT400_SixPFJet32 branch doesn't exist");
+        b_HLT_PFHT400_SixPFJet32_->GetEntry(index);
+        loaded_HLT_PFHT400_SixPFJet32_ = true;
     }
-    return HLT_PFHT380_SixPFJet32_;
+    return HLT_PFHT400_SixPFJet32_;
 }
-const bool &Nano::HLT_PFHT380_SixPFJet32_DoublePFBTagCSV_2p2() {
-    if (!loaded_HLT_PFHT380_SixPFJet32_DoublePFBTagCSV_2p2_) {
-        if (!b_HLT_PFHT380_SixPFJet32_DoublePFBTagCSV_2p2_) throw std::runtime_error("HLT_PFHT380_SixPFJet32_DoublePFBTagCSV_2p2 branch doesn't exist");
-        b_HLT_PFHT380_SixPFJet32_DoublePFBTagCSV_2p2_->GetEntry(index);
-        loaded_HLT_PFHT380_SixPFJet32_DoublePFBTagCSV_2p2_ = true;
+const bool &Nano::HLT_PFHT400_SixPFJet32_DoublePFBTagDeepCSV_2p94() {
+    if (!loaded_HLT_PFHT400_SixPFJet32_DoublePFBTagDeepCSV_2p94_) {
+        if (!b_HLT_PFHT400_SixPFJet32_DoublePFBTagDeepCSV_2p94_) throw std::runtime_error("HLT_PFHT400_SixPFJet32_DoublePFBTagDeepCSV_2p94 branch doesn't exist");
+        b_HLT_PFHT400_SixPFJet32_DoublePFBTagDeepCSV_2p94_->GetEntry(index);
+        loaded_HLT_PFHT400_SixPFJet32_DoublePFBTagDeepCSV_2p94_ = true;
     }
-    return HLT_PFHT380_SixPFJet32_DoublePFBTagCSV_2p2_;
-}
-const bool &Nano::HLT_PFHT380_SixPFJet32_DoublePFBTagDeepCSV_2p2() {
-    if (!loaded_HLT_PFHT380_SixPFJet32_DoublePFBTagDeepCSV_2p2_) {
-        if (!b_HLT_PFHT380_SixPFJet32_DoublePFBTagDeepCSV_2p2_) throw std::runtime_error("HLT_PFHT380_SixPFJet32_DoublePFBTagDeepCSV_2p2 branch doesn't exist");
-        b_HLT_PFHT380_SixPFJet32_DoublePFBTagDeepCSV_2p2_->GetEntry(index);
-        loaded_HLT_PFHT380_SixPFJet32_DoublePFBTagDeepCSV_2p2_ = true;
-    }
-    return HLT_PFHT380_SixPFJet32_DoublePFBTagDeepCSV_2p2_;
+    return HLT_PFHT400_SixPFJet32_DoublePFBTagDeepCSV_2p94_;
 }
 const bool &Nano::HLT_PFHT430() {
     if (!loaded_HLT_PFHT430_) {
@@ -7518,21 +9919,21 @@ const bool &Nano::HLT_PFHT430() {
     }
     return HLT_PFHT430_;
 }
-const bool &Nano::HLT_PFHT430_SixPFJet40() {
-    if (!loaded_HLT_PFHT430_SixPFJet40_) {
-        if (!b_HLT_PFHT430_SixPFJet40_) throw std::runtime_error("HLT_PFHT430_SixPFJet40 branch doesn't exist");
-        b_HLT_PFHT430_SixPFJet40_->GetEntry(index);
-        loaded_HLT_PFHT430_SixPFJet40_ = true;
+const bool &Nano::HLT_PFHT450_SixPFJet36() {
+    if (!loaded_HLT_PFHT450_SixPFJet36_) {
+        if (!b_HLT_PFHT450_SixPFJet36_) throw std::runtime_error("HLT_PFHT450_SixPFJet36 branch doesn't exist");
+        b_HLT_PFHT450_SixPFJet36_->GetEntry(index);
+        loaded_HLT_PFHT450_SixPFJet36_ = true;
     }
-    return HLT_PFHT430_SixPFJet40_;
+    return HLT_PFHT450_SixPFJet36_;
 }
-const bool &Nano::HLT_PFHT430_SixPFJet40_PFBTagCSV_1p5() {
-    if (!loaded_HLT_PFHT430_SixPFJet40_PFBTagCSV_1p5_) {
-        if (!b_HLT_PFHT430_SixPFJet40_PFBTagCSV_1p5_) throw std::runtime_error("HLT_PFHT430_SixPFJet40_PFBTagCSV_1p5 branch doesn't exist");
-        b_HLT_PFHT430_SixPFJet40_PFBTagCSV_1p5_->GetEntry(index);
-        loaded_HLT_PFHT430_SixPFJet40_PFBTagCSV_1p5_ = true;
+const bool &Nano::HLT_PFHT450_SixPFJet36_PFBTagDeepCSV_1p59() {
+    if (!loaded_HLT_PFHT450_SixPFJet36_PFBTagDeepCSV_1p59_) {
+        if (!b_HLT_PFHT450_SixPFJet36_PFBTagDeepCSV_1p59_) throw std::runtime_error("HLT_PFHT450_SixPFJet36_PFBTagDeepCSV_1p59 branch doesn't exist");
+        b_HLT_PFHT450_SixPFJet36_PFBTagDeepCSV_1p59_->GetEntry(index);
+        loaded_HLT_PFHT450_SixPFJet36_PFBTagDeepCSV_1p59_ = true;
     }
-    return HLT_PFHT430_SixPFJet40_PFBTagCSV_1p5_;
+    return HLT_PFHT450_SixPFJet36_PFBTagDeepCSV_1p59_;
 }
 const bool &Nano::HLT_PFHT500_PFMET100_PFMHT100_IDTight() {
     if (!loaded_HLT_PFHT500_PFMET100_PFMHT100_IDTight_) {
@@ -7630,6 +10031,14 @@ const bool &Nano::HLT_PFJet140() {
     }
     return HLT_PFJet140_;
 }
+const bool &Nano::HLT_PFJet15() {
+    if (!loaded_HLT_PFJet15_) {
+        if (!b_HLT_PFJet15_) throw std::runtime_error("HLT_PFJet15 branch doesn't exist");
+        b_HLT_PFJet15_->GetEntry(index);
+        loaded_HLT_PFJet15_ = true;
+    }
+    return HLT_PFJet15_;
+}
 const bool &Nano::HLT_PFJet200() {
     if (!loaded_HLT_PFJet200_) {
         if (!b_HLT_PFJet200_) throw std::runtime_error("HLT_PFJet200 branch doesn't exist");
@@ -7637,6 +10046,14 @@ const bool &Nano::HLT_PFJet200() {
         loaded_HLT_PFJet200_ = true;
     }
     return HLT_PFJet200_;
+}
+const bool &Nano::HLT_PFJet25() {
+    if (!loaded_HLT_PFJet25_) {
+        if (!b_HLT_PFJet25_) throw std::runtime_error("HLT_PFJet25 branch doesn't exist");
+        b_HLT_PFJet25_->GetEntry(index);
+        loaded_HLT_PFJet25_ = true;
+    }
+    return HLT_PFJet25_;
 }
 const bool &Nano::HLT_PFJet260() {
     if (!loaded_HLT_PFJet260_) {
@@ -7718,6 +10135,14 @@ const bool &Nano::HLT_PFJetFwd140() {
     }
     return HLT_PFJetFwd140_;
 }
+const bool &Nano::HLT_PFJetFwd15() {
+    if (!loaded_HLT_PFJetFwd15_) {
+        if (!b_HLT_PFJetFwd15_) throw std::runtime_error("HLT_PFJetFwd15 branch doesn't exist");
+        b_HLT_PFJetFwd15_->GetEntry(index);
+        loaded_HLT_PFJetFwd15_ = true;
+    }
+    return HLT_PFJetFwd15_;
+}
 const bool &Nano::HLT_PFJetFwd200() {
     if (!loaded_HLT_PFJetFwd200_) {
         if (!b_HLT_PFJetFwd200_) throw std::runtime_error("HLT_PFJetFwd200 branch doesn't exist");
@@ -7725,6 +10150,14 @@ const bool &Nano::HLT_PFJetFwd200() {
         loaded_HLT_PFJetFwd200_ = true;
     }
     return HLT_PFJetFwd200_;
+}
+const bool &Nano::HLT_PFJetFwd25() {
+    if (!loaded_HLT_PFJetFwd25_) {
+        if (!b_HLT_PFJetFwd25_) throw std::runtime_error("HLT_PFJetFwd25 branch doesn't exist");
+        b_HLT_PFJetFwd25_->GetEntry(index);
+        loaded_HLT_PFJetFwd25_ = true;
+    }
+    return HLT_PFJetFwd25_;
 }
 const bool &Nano::HLT_PFJetFwd260() {
     if (!loaded_HLT_PFJetFwd260_) {
@@ -7790,13 +10223,13 @@ const bool &Nano::HLT_PFJetFwd80() {
     }
     return HLT_PFJetFwd80_;
 }
-const bool &Nano::HLT_PFMET100_PFMHT100_IDTight_CaloBTagCSV_3p1() {
-    if (!loaded_HLT_PFMET100_PFMHT100_IDTight_CaloBTagCSV_3p1_) {
-        if (!b_HLT_PFMET100_PFMHT100_IDTight_CaloBTagCSV_3p1_) throw std::runtime_error("HLT_PFMET100_PFMHT100_IDTight_CaloBTagCSV_3p1 branch doesn't exist");
-        b_HLT_PFMET100_PFMHT100_IDTight_CaloBTagCSV_3p1_->GetEntry(index);
-        loaded_HLT_PFMET100_PFMHT100_IDTight_CaloBTagCSV_3p1_ = true;
+const bool &Nano::HLT_PFMET100_PFMHT100_IDTight_CaloBTagDeepCSV_3p1() {
+    if (!loaded_HLT_PFMET100_PFMHT100_IDTight_CaloBTagDeepCSV_3p1_) {
+        if (!b_HLT_PFMET100_PFMHT100_IDTight_CaloBTagDeepCSV_3p1_) throw std::runtime_error("HLT_PFMET100_PFMHT100_IDTight_CaloBTagDeepCSV_3p1 branch doesn't exist");
+        b_HLT_PFMET100_PFMHT100_IDTight_CaloBTagDeepCSV_3p1_->GetEntry(index);
+        loaded_HLT_PFMET100_PFMHT100_IDTight_CaloBTagDeepCSV_3p1_ = true;
     }
-    return HLT_PFMET100_PFMHT100_IDTight_CaloBTagCSV_3p1_;
+    return HLT_PFMET100_PFMHT100_IDTight_CaloBTagDeepCSV_3p1_;
 }
 const bool &Nano::HLT_PFMET100_PFMHT100_IDTight_PFHT60() {
     if (!loaded_HLT_PFMET100_PFMHT100_IDTight_PFHT60_) {
@@ -7814,13 +10247,13 @@ const bool &Nano::HLT_PFMET110_PFMHT110_IDTight() {
     }
     return HLT_PFMET110_PFMHT110_IDTight_;
 }
-const bool &Nano::HLT_PFMET110_PFMHT110_IDTight_CaloBTagCSV_3p1() {
-    if (!loaded_HLT_PFMET110_PFMHT110_IDTight_CaloBTagCSV_3p1_) {
-        if (!b_HLT_PFMET110_PFMHT110_IDTight_CaloBTagCSV_3p1_) throw std::runtime_error("HLT_PFMET110_PFMHT110_IDTight_CaloBTagCSV_3p1 branch doesn't exist");
-        b_HLT_PFMET110_PFMHT110_IDTight_CaloBTagCSV_3p1_->GetEntry(index);
-        loaded_HLT_PFMET110_PFMHT110_IDTight_CaloBTagCSV_3p1_ = true;
+const bool &Nano::HLT_PFMET110_PFMHT110_IDTight_CaloBTagDeepCSV_3p1() {
+    if (!loaded_HLT_PFMET110_PFMHT110_IDTight_CaloBTagDeepCSV_3p1_) {
+        if (!b_HLT_PFMET110_PFMHT110_IDTight_CaloBTagDeepCSV_3p1_) throw std::runtime_error("HLT_PFMET110_PFMHT110_IDTight_CaloBTagDeepCSV_3p1 branch doesn't exist");
+        b_HLT_PFMET110_PFMHT110_IDTight_CaloBTagDeepCSV_3p1_->GetEntry(index);
+        loaded_HLT_PFMET110_PFMHT110_IDTight_CaloBTagDeepCSV_3p1_ = true;
     }
-    return HLT_PFMET110_PFMHT110_IDTight_CaloBTagCSV_3p1_;
+    return HLT_PFMET110_PFMHT110_IDTight_CaloBTagDeepCSV_3p1_;
 }
 const bool &Nano::HLT_PFMET120_PFMHT120_IDTight() {
     if (!loaded_HLT_PFMET120_PFMHT120_IDTight_) {
@@ -7830,13 +10263,13 @@ const bool &Nano::HLT_PFMET120_PFMHT120_IDTight() {
     }
     return HLT_PFMET120_PFMHT120_IDTight_;
 }
-const bool &Nano::HLT_PFMET120_PFMHT120_IDTight_CaloBTagCSV_3p1() {
-    if (!loaded_HLT_PFMET120_PFMHT120_IDTight_CaloBTagCSV_3p1_) {
-        if (!b_HLT_PFMET120_PFMHT120_IDTight_CaloBTagCSV_3p1_) throw std::runtime_error("HLT_PFMET120_PFMHT120_IDTight_CaloBTagCSV_3p1 branch doesn't exist");
-        b_HLT_PFMET120_PFMHT120_IDTight_CaloBTagCSV_3p1_->GetEntry(index);
-        loaded_HLT_PFMET120_PFMHT120_IDTight_CaloBTagCSV_3p1_ = true;
+const bool &Nano::HLT_PFMET120_PFMHT120_IDTight_CaloBTagDeepCSV_3p1() {
+    if (!loaded_HLT_PFMET120_PFMHT120_IDTight_CaloBTagDeepCSV_3p1_) {
+        if (!b_HLT_PFMET120_PFMHT120_IDTight_CaloBTagDeepCSV_3p1_) throw std::runtime_error("HLT_PFMET120_PFMHT120_IDTight_CaloBTagDeepCSV_3p1 branch doesn't exist");
+        b_HLT_PFMET120_PFMHT120_IDTight_CaloBTagDeepCSV_3p1_->GetEntry(index);
+        loaded_HLT_PFMET120_PFMHT120_IDTight_CaloBTagDeepCSV_3p1_ = true;
     }
-    return HLT_PFMET120_PFMHT120_IDTight_CaloBTagCSV_3p1_;
+    return HLT_PFMET120_PFMHT120_IDTight_CaloBTagDeepCSV_3p1_;
 }
 const bool &Nano::HLT_PFMET120_PFMHT120_IDTight_PFHT60() {
     if (!loaded_HLT_PFMET120_PFMHT120_IDTight_PFHT60_) {
@@ -7854,13 +10287,13 @@ const bool &Nano::HLT_PFMET130_PFMHT130_IDTight() {
     }
     return HLT_PFMET130_PFMHT130_IDTight_;
 }
-const bool &Nano::HLT_PFMET130_PFMHT130_IDTight_CaloBTagCSV_3p1() {
-    if (!loaded_HLT_PFMET130_PFMHT130_IDTight_CaloBTagCSV_3p1_) {
-        if (!b_HLT_PFMET130_PFMHT130_IDTight_CaloBTagCSV_3p1_) throw std::runtime_error("HLT_PFMET130_PFMHT130_IDTight_CaloBTagCSV_3p1 branch doesn't exist");
-        b_HLT_PFMET130_PFMHT130_IDTight_CaloBTagCSV_3p1_->GetEntry(index);
-        loaded_HLT_PFMET130_PFMHT130_IDTight_CaloBTagCSV_3p1_ = true;
+const bool &Nano::HLT_PFMET130_PFMHT130_IDTight_CaloBTagDeepCSV_3p1() {
+    if (!loaded_HLT_PFMET130_PFMHT130_IDTight_CaloBTagDeepCSV_3p1_) {
+        if (!b_HLT_PFMET130_PFMHT130_IDTight_CaloBTagDeepCSV_3p1_) throw std::runtime_error("HLT_PFMET130_PFMHT130_IDTight_CaloBTagDeepCSV_3p1 branch doesn't exist");
+        b_HLT_PFMET130_PFMHT130_IDTight_CaloBTagDeepCSV_3p1_->GetEntry(index);
+        loaded_HLT_PFMET130_PFMHT130_IDTight_CaloBTagDeepCSV_3p1_ = true;
     }
-    return HLT_PFMET130_PFMHT130_IDTight_CaloBTagCSV_3p1_;
+    return HLT_PFMET130_PFMHT130_IDTight_CaloBTagDeepCSV_3p1_;
 }
 const bool &Nano::HLT_PFMET140_PFMHT140_IDTight() {
     if (!loaded_HLT_PFMET140_PFMHT140_IDTight_) {
@@ -7870,13 +10303,13 @@ const bool &Nano::HLT_PFMET140_PFMHT140_IDTight() {
     }
     return HLT_PFMET140_PFMHT140_IDTight_;
 }
-const bool &Nano::HLT_PFMET140_PFMHT140_IDTight_CaloBTagCSV_3p1() {
-    if (!loaded_HLT_PFMET140_PFMHT140_IDTight_CaloBTagCSV_3p1_) {
-        if (!b_HLT_PFMET140_PFMHT140_IDTight_CaloBTagCSV_3p1_) throw std::runtime_error("HLT_PFMET140_PFMHT140_IDTight_CaloBTagCSV_3p1 branch doesn't exist");
-        b_HLT_PFMET140_PFMHT140_IDTight_CaloBTagCSV_3p1_->GetEntry(index);
-        loaded_HLT_PFMET140_PFMHT140_IDTight_CaloBTagCSV_3p1_ = true;
+const bool &Nano::HLT_PFMET140_PFMHT140_IDTight_CaloBTagDeepCSV_3p1() {
+    if (!loaded_HLT_PFMET140_PFMHT140_IDTight_CaloBTagDeepCSV_3p1_) {
+        if (!b_HLT_PFMET140_PFMHT140_IDTight_CaloBTagDeepCSV_3p1_) throw std::runtime_error("HLT_PFMET140_PFMHT140_IDTight_CaloBTagDeepCSV_3p1 branch doesn't exist");
+        b_HLT_PFMET140_PFMHT140_IDTight_CaloBTagDeepCSV_3p1_->GetEntry(index);
+        loaded_HLT_PFMET140_PFMHT140_IDTight_CaloBTagDeepCSV_3p1_ = true;
     }
-    return HLT_PFMET140_PFMHT140_IDTight_CaloBTagCSV_3p1_;
+    return HLT_PFMET140_PFMHT140_IDTight_CaloBTagDeepCSV_3p1_;
 }
 const bool &Nano::HLT_PFMET200_HBHECleaned() {
     if (!loaded_HLT_PFMET200_HBHECleaned_) {
@@ -8022,6 +10455,46 @@ const bool &Nano::HLT_PFMETTypeOne200_HBHE_BeamHaloCleaned() {
     }
     return HLT_PFMETTypeOne200_HBHE_BeamHaloCleaned_;
 }
+const bool &Nano::HLT_Photon100EBHE10() {
+    if (!loaded_HLT_Photon100EBHE10_) {
+        if (!b_HLT_Photon100EBHE10_) throw std::runtime_error("HLT_Photon100EBHE10 branch doesn't exist");
+        b_HLT_Photon100EBHE10_->GetEntry(index);
+        loaded_HLT_Photon100EBHE10_ = true;
+    }
+    return HLT_Photon100EBHE10_;
+}
+const bool &Nano::HLT_Photon100EB_TightID_TightIso() {
+    if (!loaded_HLT_Photon100EB_TightID_TightIso_) {
+        if (!b_HLT_Photon100EB_TightID_TightIso_) throw std::runtime_error("HLT_Photon100EB_TightID_TightIso branch doesn't exist");
+        b_HLT_Photon100EB_TightID_TightIso_->GetEntry(index);
+        loaded_HLT_Photon100EB_TightID_TightIso_ = true;
+    }
+    return HLT_Photon100EB_TightID_TightIso_;
+}
+const bool &Nano::HLT_Photon100EEHE10() {
+    if (!loaded_HLT_Photon100EEHE10_) {
+        if (!b_HLT_Photon100EEHE10_) throw std::runtime_error("HLT_Photon100EEHE10 branch doesn't exist");
+        b_HLT_Photon100EEHE10_->GetEntry(index);
+        loaded_HLT_Photon100EEHE10_ = true;
+    }
+    return HLT_Photon100EEHE10_;
+}
+const bool &Nano::HLT_Photon100EE_TightID_TightIso() {
+    if (!loaded_HLT_Photon100EE_TightID_TightIso_) {
+        if (!b_HLT_Photon100EE_TightID_TightIso_) throw std::runtime_error("HLT_Photon100EE_TightID_TightIso branch doesn't exist");
+        b_HLT_Photon100EE_TightID_TightIso_->GetEntry(index);
+        loaded_HLT_Photon100EE_TightID_TightIso_ = true;
+    }
+    return HLT_Photon100EE_TightID_TightIso_;
+}
+const bool &Nano::HLT_Photon110EB_TightID_TightIso() {
+    if (!loaded_HLT_Photon110EB_TightID_TightIso_) {
+        if (!b_HLT_Photon110EB_TightID_TightIso_) throw std::runtime_error("HLT_Photon110EB_TightID_TightIso branch doesn't exist");
+        b_HLT_Photon110EB_TightID_TightIso_->GetEntry(index);
+        loaded_HLT_Photon110EB_TightID_TightIso_ = true;
+    }
+    return HLT_Photon110EB_TightID_TightIso_;
+}
 const bool &Nano::HLT_Photon120() {
     if (!loaded_HLT_Photon120_) {
         if (!b_HLT_Photon120_) throw std::runtime_error("HLT_Photon120 branch doesn't exist");
@@ -8029,6 +10502,14 @@ const bool &Nano::HLT_Photon120() {
         loaded_HLT_Photon120_ = true;
     }
     return HLT_Photon120_;
+}
+const bool &Nano::HLT_Photon120EB_TightID_TightIso() {
+    if (!loaded_HLT_Photon120EB_TightID_TightIso_) {
+        if (!b_HLT_Photon120EB_TightID_TightIso_) throw std::runtime_error("HLT_Photon120EB_TightID_TightIso branch doesn't exist");
+        b_HLT_Photon120EB_TightID_TightIso_->GetEntry(index);
+        loaded_HLT_Photon120EB_TightID_TightIso_ = true;
+    }
+    return HLT_Photon120EB_TightID_TightIso_;
 }
 const bool &Nano::HLT_Photon120_R9Id90_HE10_IsoM() {
     if (!loaded_HLT_Photon120_R9Id90_HE10_IsoM_) {
@@ -8062,6 +10543,14 @@ const bool &Nano::HLT_Photon175() {
     }
     return HLT_Photon175_;
 }
+const bool &Nano::HLT_Photon20() {
+    if (!loaded_HLT_Photon20_) {
+        if (!b_HLT_Photon20_) throw std::runtime_error("HLT_Photon20 branch doesn't exist");
+        b_HLT_Photon20_->GetEntry(index);
+        loaded_HLT_Photon20_ = true;
+    }
+    return HLT_Photon20_;
+}
 const bool &Nano::HLT_Photon200() {
     if (!loaded_HLT_Photon200_) {
         if (!b_HLT_Photon200_) throw std::runtime_error("HLT_Photon200 branch doesn't exist");
@@ -8077,14 +10566,6 @@ const bool &Nano::HLT_Photon20_HoverELoose() {
         loaded_HLT_Photon20_HoverELoose_ = true;
     }
     return HLT_Photon20_HoverELoose_;
-}
-const bool &Nano::HLT_Photon25() {
-    if (!loaded_HLT_Photon25_) {
-        if (!b_HLT_Photon25_) throw std::runtime_error("HLT_Photon25 branch doesn't exist");
-        b_HLT_Photon25_->GetEntry(index);
-        loaded_HLT_Photon25_ = true;
-    }
-    return HLT_Photon25_;
 }
 const bool &Nano::HLT_Photon300_NoHE() {
     if (!loaded_HLT_Photon300_NoHE_) {
@@ -8110,13 +10591,13 @@ const bool &Nano::HLT_Photon33() {
     }
     return HLT_Photon33_;
 }
-const bool &Nano::HLT_Photon40_HoverELoose() {
-    if (!loaded_HLT_Photon40_HoverELoose_) {
-        if (!b_HLT_Photon40_HoverELoose_) throw std::runtime_error("HLT_Photon40_HoverELoose branch doesn't exist");
-        b_HLT_Photon40_HoverELoose_->GetEntry(index);
-        loaded_HLT_Photon40_HoverELoose_ = true;
+const bool &Nano::HLT_Photon35_TwoProngs35() {
+    if (!loaded_HLT_Photon35_TwoProngs35_) {
+        if (!b_HLT_Photon35_TwoProngs35_) throw std::runtime_error("HLT_Photon35_TwoProngs35 branch doesn't exist");
+        b_HLT_Photon35_TwoProngs35_->GetEntry(index);
+        loaded_HLT_Photon35_TwoProngs35_ = true;
     }
-    return HLT_Photon40_HoverELoose_;
+    return HLT_Photon35_TwoProngs35_;
 }
 const bool &Nano::HLT_Photon50() {
     if (!loaded_HLT_Photon50_) {
@@ -8125,14 +10606,6 @@ const bool &Nano::HLT_Photon50() {
         loaded_HLT_Photon50_ = true;
     }
     return HLT_Photon50_;
-}
-const bool &Nano::HLT_Photon50_HoverELoose() {
-    if (!loaded_HLT_Photon50_HoverELoose_) {
-        if (!b_HLT_Photon50_HoverELoose_) throw std::runtime_error("HLT_Photon50_HoverELoose branch doesn't exist");
-        b_HLT_Photon50_HoverELoose_->GetEntry(index);
-        loaded_HLT_Photon50_HoverELoose_ = true;
-    }
-    return HLT_Photon50_HoverELoose_;
 }
 const bool &Nano::HLT_Photon50_R9Id90_HE10_IsoM() {
     if (!loaded_HLT_Photon50_R9Id90_HE10_IsoM_) {
@@ -8149,14 +10622,6 @@ const bool &Nano::HLT_Photon50_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3_PFMET50
         loaded_HLT_Photon50_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3_PFMET50_ = true;
     }
     return HLT_Photon50_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3_PFMET50_;
-}
-const bool &Nano::HLT_Photon60_HoverELoose() {
-    if (!loaded_HLT_Photon60_HoverELoose_) {
-        if (!b_HLT_Photon60_HoverELoose_) throw std::runtime_error("HLT_Photon60_HoverELoose branch doesn't exist");
-        b_HLT_Photon60_HoverELoose_->GetEntry(index);
-        loaded_HLT_Photon60_HoverELoose_ = true;
-    }
-    return HLT_Photon60_HoverELoose_;
 }
 const bool &Nano::HLT_Photon60_R9Id90_CaloIdL_IsoL() {
     if (!loaded_HLT_Photon60_R9Id90_CaloIdL_IsoL_) {
@@ -8197,6 +10662,22 @@ const bool &Nano::HLT_Photon75_R9Id90_HE10_IsoM() {
         loaded_HLT_Photon75_R9Id90_HE10_IsoM_ = true;
     }
     return HLT_Photon75_R9Id90_HE10_IsoM_;
+}
+const bool &Nano::HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ300_PFJetsMJJ400DEta3() {
+    if (!loaded_HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ300_PFJetsMJJ400DEta3_) {
+        if (!b_HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ300_PFJetsMJJ400DEta3_) throw std::runtime_error("HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ300_PFJetsMJJ400DEta3 branch doesn't exist");
+        b_HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ300_PFJetsMJJ400DEta3_->GetEntry(index);
+        loaded_HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ300_PFJetsMJJ400DEta3_ = true;
+    }
+    return HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ300_PFJetsMJJ400DEta3_;
+}
+const bool &Nano::HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ400_PFJetsMJJ600DEta3() {
+    if (!loaded_HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ400_PFJetsMJJ600DEta3_) {
+        if (!b_HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ400_PFJetsMJJ600DEta3_) throw std::runtime_error("HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ400_PFJetsMJJ600DEta3 branch doesn't exist");
+        b_HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ400_PFJetsMJJ600DEta3_->GetEntry(index);
+        loaded_HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ400_PFJetsMJJ600DEta3_ = true;
+    }
+    return HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ400_PFJetsMJJ600DEta3_;
 }
 const bool &Nano::HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3() {
     if (!loaded_HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3_) {
@@ -8318,21 +10799,21 @@ const bool &Nano::HLT_QuadPFJet103_88_75_15() {
     }
     return HLT_QuadPFJet103_88_75_15_;
 }
-const bool &Nano::HLT_QuadPFJet103_88_75_15_BTagCSV_p013_VBF2() {
-    if (!loaded_HLT_QuadPFJet103_88_75_15_BTagCSV_p013_VBF2_) {
-        if (!b_HLT_QuadPFJet103_88_75_15_BTagCSV_p013_VBF2_) throw std::runtime_error("HLT_QuadPFJet103_88_75_15_BTagCSV_p013_VBF2 branch doesn't exist");
-        b_HLT_QuadPFJet103_88_75_15_BTagCSV_p013_VBF2_->GetEntry(index);
-        loaded_HLT_QuadPFJet103_88_75_15_BTagCSV_p013_VBF2_ = true;
+const bool &Nano::HLT_QuadPFJet103_88_75_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1() {
+    if (!loaded_HLT_QuadPFJet103_88_75_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_) {
+        if (!b_HLT_QuadPFJet103_88_75_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_) throw std::runtime_error("HLT_QuadPFJet103_88_75_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1 branch doesn't exist");
+        b_HLT_QuadPFJet103_88_75_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_->GetEntry(index);
+        loaded_HLT_QuadPFJet103_88_75_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_ = true;
     }
-    return HLT_QuadPFJet103_88_75_15_BTagCSV_p013_VBF2_;
+    return HLT_QuadPFJet103_88_75_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_;
 }
-const bool &Nano::HLT_QuadPFJet103_88_75_15_DoubleBTagCSV_p013_p08_VBF1() {
-    if (!loaded_HLT_QuadPFJet103_88_75_15_DoubleBTagCSV_p013_p08_VBF1_) {
-        if (!b_HLT_QuadPFJet103_88_75_15_DoubleBTagCSV_p013_p08_VBF1_) throw std::runtime_error("HLT_QuadPFJet103_88_75_15_DoubleBTagCSV_p013_p08_VBF1 branch doesn't exist");
-        b_HLT_QuadPFJet103_88_75_15_DoubleBTagCSV_p013_p08_VBF1_->GetEntry(index);
-        loaded_HLT_QuadPFJet103_88_75_15_DoubleBTagCSV_p013_p08_VBF1_ = true;
+const bool &Nano::HLT_QuadPFJet103_88_75_15_PFBTagDeepCSV_1p3_VBF2() {
+    if (!loaded_HLT_QuadPFJet103_88_75_15_PFBTagDeepCSV_1p3_VBF2_) {
+        if (!b_HLT_QuadPFJet103_88_75_15_PFBTagDeepCSV_1p3_VBF2_) throw std::runtime_error("HLT_QuadPFJet103_88_75_15_PFBTagDeepCSV_1p3_VBF2 branch doesn't exist");
+        b_HLT_QuadPFJet103_88_75_15_PFBTagDeepCSV_1p3_VBF2_->GetEntry(index);
+        loaded_HLT_QuadPFJet103_88_75_15_PFBTagDeepCSV_1p3_VBF2_ = true;
     }
-    return HLT_QuadPFJet103_88_75_15_DoubleBTagCSV_p013_p08_VBF1_;
+    return HLT_QuadPFJet103_88_75_15_PFBTagDeepCSV_1p3_VBF2_;
 }
 const bool &Nano::HLT_QuadPFJet105_88_76_15() {
     if (!loaded_HLT_QuadPFJet105_88_76_15_) {
@@ -8342,21 +10823,21 @@ const bool &Nano::HLT_QuadPFJet105_88_76_15() {
     }
     return HLT_QuadPFJet105_88_76_15_;
 }
-const bool &Nano::HLT_QuadPFJet105_88_76_15_BTagCSV_p013_VBF2() {
-    if (!loaded_HLT_QuadPFJet105_88_76_15_BTagCSV_p013_VBF2_) {
-        if (!b_HLT_QuadPFJet105_88_76_15_BTagCSV_p013_VBF2_) throw std::runtime_error("HLT_QuadPFJet105_88_76_15_BTagCSV_p013_VBF2 branch doesn't exist");
-        b_HLT_QuadPFJet105_88_76_15_BTagCSV_p013_VBF2_->GetEntry(index);
-        loaded_HLT_QuadPFJet105_88_76_15_BTagCSV_p013_VBF2_ = true;
+const bool &Nano::HLT_QuadPFJet105_88_76_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1() {
+    if (!loaded_HLT_QuadPFJet105_88_76_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_) {
+        if (!b_HLT_QuadPFJet105_88_76_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_) throw std::runtime_error("HLT_QuadPFJet105_88_76_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1 branch doesn't exist");
+        b_HLT_QuadPFJet105_88_76_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_->GetEntry(index);
+        loaded_HLT_QuadPFJet105_88_76_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_ = true;
     }
-    return HLT_QuadPFJet105_88_76_15_BTagCSV_p013_VBF2_;
+    return HLT_QuadPFJet105_88_76_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_;
 }
-const bool &Nano::HLT_QuadPFJet105_90_76_15_DoubleBTagCSV_p013_p08_VBF1() {
-    if (!loaded_HLT_QuadPFJet105_90_76_15_DoubleBTagCSV_p013_p08_VBF1_) {
-        if (!b_HLT_QuadPFJet105_90_76_15_DoubleBTagCSV_p013_p08_VBF1_) throw std::runtime_error("HLT_QuadPFJet105_90_76_15_DoubleBTagCSV_p013_p08_VBF1 branch doesn't exist");
-        b_HLT_QuadPFJet105_90_76_15_DoubleBTagCSV_p013_p08_VBF1_->GetEntry(index);
-        loaded_HLT_QuadPFJet105_90_76_15_DoubleBTagCSV_p013_p08_VBF1_ = true;
+const bool &Nano::HLT_QuadPFJet105_88_76_15_PFBTagDeepCSV_1p3_VBF2() {
+    if (!loaded_HLT_QuadPFJet105_88_76_15_PFBTagDeepCSV_1p3_VBF2_) {
+        if (!b_HLT_QuadPFJet105_88_76_15_PFBTagDeepCSV_1p3_VBF2_) throw std::runtime_error("HLT_QuadPFJet105_88_76_15_PFBTagDeepCSV_1p3_VBF2 branch doesn't exist");
+        b_HLT_QuadPFJet105_88_76_15_PFBTagDeepCSV_1p3_VBF2_->GetEntry(index);
+        loaded_HLT_QuadPFJet105_88_76_15_PFBTagDeepCSV_1p3_VBF2_ = true;
     }
-    return HLT_QuadPFJet105_90_76_15_DoubleBTagCSV_p013_p08_VBF1_;
+    return HLT_QuadPFJet105_88_76_15_PFBTagDeepCSV_1p3_VBF2_;
 }
 const bool &Nano::HLT_QuadPFJet111_90_80_15() {
     if (!loaded_HLT_QuadPFJet111_90_80_15_) {
@@ -8366,21 +10847,21 @@ const bool &Nano::HLT_QuadPFJet111_90_80_15() {
     }
     return HLT_QuadPFJet111_90_80_15_;
 }
-const bool &Nano::HLT_QuadPFJet111_90_80_15_BTagCSV_p013_VBF2() {
-    if (!loaded_HLT_QuadPFJet111_90_80_15_BTagCSV_p013_VBF2_) {
-        if (!b_HLT_QuadPFJet111_90_80_15_BTagCSV_p013_VBF2_) throw std::runtime_error("HLT_QuadPFJet111_90_80_15_BTagCSV_p013_VBF2 branch doesn't exist");
-        b_HLT_QuadPFJet111_90_80_15_BTagCSV_p013_VBF2_->GetEntry(index);
-        loaded_HLT_QuadPFJet111_90_80_15_BTagCSV_p013_VBF2_ = true;
+const bool &Nano::HLT_QuadPFJet111_90_80_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1() {
+    if (!loaded_HLT_QuadPFJet111_90_80_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_) {
+        if (!b_HLT_QuadPFJet111_90_80_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_) throw std::runtime_error("HLT_QuadPFJet111_90_80_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1 branch doesn't exist");
+        b_HLT_QuadPFJet111_90_80_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_->GetEntry(index);
+        loaded_HLT_QuadPFJet111_90_80_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_ = true;
     }
-    return HLT_QuadPFJet111_90_80_15_BTagCSV_p013_VBF2_;
+    return HLT_QuadPFJet111_90_80_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_;
 }
-const bool &Nano::HLT_QuadPFJet111_90_80_15_DoubleBTagCSV_p013_p08_VBF1() {
-    if (!loaded_HLT_QuadPFJet111_90_80_15_DoubleBTagCSV_p013_p08_VBF1_) {
-        if (!b_HLT_QuadPFJet111_90_80_15_DoubleBTagCSV_p013_p08_VBF1_) throw std::runtime_error("HLT_QuadPFJet111_90_80_15_DoubleBTagCSV_p013_p08_VBF1 branch doesn't exist");
-        b_HLT_QuadPFJet111_90_80_15_DoubleBTagCSV_p013_p08_VBF1_->GetEntry(index);
-        loaded_HLT_QuadPFJet111_90_80_15_DoubleBTagCSV_p013_p08_VBF1_ = true;
+const bool &Nano::HLT_QuadPFJet111_90_80_15_PFBTagDeepCSV_1p3_VBF2() {
+    if (!loaded_HLT_QuadPFJet111_90_80_15_PFBTagDeepCSV_1p3_VBF2_) {
+        if (!b_HLT_QuadPFJet111_90_80_15_PFBTagDeepCSV_1p3_VBF2_) throw std::runtime_error("HLT_QuadPFJet111_90_80_15_PFBTagDeepCSV_1p3_VBF2 branch doesn't exist");
+        b_HLT_QuadPFJet111_90_80_15_PFBTagDeepCSV_1p3_VBF2_->GetEntry(index);
+        loaded_HLT_QuadPFJet111_90_80_15_PFBTagDeepCSV_1p3_VBF2_ = true;
     }
-    return HLT_QuadPFJet111_90_80_15_DoubleBTagCSV_p013_p08_VBF1_;
+    return HLT_QuadPFJet111_90_80_15_PFBTagDeepCSV_1p3_VBF2_;
 }
 const bool &Nano::HLT_QuadPFJet98_83_71_15() {
     if (!loaded_HLT_QuadPFJet98_83_71_15_) {
@@ -8390,21 +10871,21 @@ const bool &Nano::HLT_QuadPFJet98_83_71_15() {
     }
     return HLT_QuadPFJet98_83_71_15_;
 }
-const bool &Nano::HLT_QuadPFJet98_83_71_15_BTagCSV_p013_VBF2() {
-    if (!loaded_HLT_QuadPFJet98_83_71_15_BTagCSV_p013_VBF2_) {
-        if (!b_HLT_QuadPFJet98_83_71_15_BTagCSV_p013_VBF2_) throw std::runtime_error("HLT_QuadPFJet98_83_71_15_BTagCSV_p013_VBF2 branch doesn't exist");
-        b_HLT_QuadPFJet98_83_71_15_BTagCSV_p013_VBF2_->GetEntry(index);
-        loaded_HLT_QuadPFJet98_83_71_15_BTagCSV_p013_VBF2_ = true;
+const bool &Nano::HLT_QuadPFJet98_83_71_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1() {
+    if (!loaded_HLT_QuadPFJet98_83_71_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_) {
+        if (!b_HLT_QuadPFJet98_83_71_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_) throw std::runtime_error("HLT_QuadPFJet98_83_71_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1 branch doesn't exist");
+        b_HLT_QuadPFJet98_83_71_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_->GetEntry(index);
+        loaded_HLT_QuadPFJet98_83_71_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_ = true;
     }
-    return HLT_QuadPFJet98_83_71_15_BTagCSV_p013_VBF2_;
+    return HLT_QuadPFJet98_83_71_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_;
 }
-const bool &Nano::HLT_QuadPFJet98_83_71_15_DoubleBTagCSV_p013_p08_VBF1() {
-    if (!loaded_HLT_QuadPFJet98_83_71_15_DoubleBTagCSV_p013_p08_VBF1_) {
-        if (!b_HLT_QuadPFJet98_83_71_15_DoubleBTagCSV_p013_p08_VBF1_) throw std::runtime_error("HLT_QuadPFJet98_83_71_15_DoubleBTagCSV_p013_p08_VBF1 branch doesn't exist");
-        b_HLT_QuadPFJet98_83_71_15_DoubleBTagCSV_p013_p08_VBF1_->GetEntry(index);
-        loaded_HLT_QuadPFJet98_83_71_15_DoubleBTagCSV_p013_p08_VBF1_ = true;
+const bool &Nano::HLT_QuadPFJet98_83_71_15_PFBTagDeepCSV_1p3_VBF2() {
+    if (!loaded_HLT_QuadPFJet98_83_71_15_PFBTagDeepCSV_1p3_VBF2_) {
+        if (!b_HLT_QuadPFJet98_83_71_15_PFBTagDeepCSV_1p3_VBF2_) throw std::runtime_error("HLT_QuadPFJet98_83_71_15_PFBTagDeepCSV_1p3_VBF2 branch doesn't exist");
+        b_HLT_QuadPFJet98_83_71_15_PFBTagDeepCSV_1p3_VBF2_->GetEntry(index);
+        loaded_HLT_QuadPFJet98_83_71_15_PFBTagDeepCSV_1p3_VBF2_ = true;
     }
-    return HLT_QuadPFJet98_83_71_15_DoubleBTagCSV_p013_p08_VBF1_;
+    return HLT_QuadPFJet98_83_71_15_PFBTagDeepCSV_1p3_VBF2_;
 }
 const bool &Nano::HLT_Random() {
     if (!loaded_HLT_Random_) {
@@ -8470,6 +10951,30 @@ const bool &Nano::HLT_SingleJet30_Mu12_SinglePFJet40() {
     }
     return HLT_SingleJet30_Mu12_SinglePFJet40_;
 }
+const bool &Nano::HLT_SinglePhoton10_Eta3p1ForPPRef() {
+    if (!loaded_HLT_SinglePhoton10_Eta3p1ForPPRef_) {
+        if (!b_HLT_SinglePhoton10_Eta3p1ForPPRef_) throw std::runtime_error("HLT_SinglePhoton10_Eta3p1ForPPRef branch doesn't exist");
+        b_HLT_SinglePhoton10_Eta3p1ForPPRef_->GetEntry(index);
+        loaded_HLT_SinglePhoton10_Eta3p1ForPPRef_ = true;
+    }
+    return HLT_SinglePhoton10_Eta3p1ForPPRef_;
+}
+const bool &Nano::HLT_SinglePhoton20_Eta3p1ForPPRef() {
+    if (!loaded_HLT_SinglePhoton20_Eta3p1ForPPRef_) {
+        if (!b_HLT_SinglePhoton20_Eta3p1ForPPRef_) throw std::runtime_error("HLT_SinglePhoton20_Eta3p1ForPPRef branch doesn't exist");
+        b_HLT_SinglePhoton20_Eta3p1ForPPRef_->GetEntry(index);
+        loaded_HLT_SinglePhoton20_Eta3p1ForPPRef_ = true;
+    }
+    return HLT_SinglePhoton20_Eta3p1ForPPRef_;
+}
+const bool &Nano::HLT_SinglePhoton30_Eta3p1ForPPRef() {
+    if (!loaded_HLT_SinglePhoton30_Eta3p1ForPPRef_) {
+        if (!b_HLT_SinglePhoton30_Eta3p1ForPPRef_) throw std::runtime_error("HLT_SinglePhoton30_Eta3p1ForPPRef branch doesn't exist");
+        b_HLT_SinglePhoton30_Eta3p1ForPPRef_->GetEntry(index);
+        loaded_HLT_SinglePhoton30_Eta3p1ForPPRef_ = true;
+    }
+    return HLT_SinglePhoton30_Eta3p1ForPPRef_;
+}
 const bool &Nano::HLT_Tau3Mu_Mu7_Mu1_TkMu1_IsoTau15() {
     if (!loaded_HLT_Tau3Mu_Mu7_Mu1_TkMu1_IsoTau15_) {
         if (!b_HLT_Tau3Mu_Mu7_Mu1_TkMu1_IsoTau15_) throw std::runtime_error("HLT_Tau3Mu_Mu7_Mu1_TkMu1_IsoTau15 branch doesn't exist");
@@ -8518,6 +11023,14 @@ const bool &Nano::HLT_Trimuon5_3p5_2_Upsilon_Muon() {
     }
     return HLT_Trimuon5_3p5_2_Upsilon_Muon_;
 }
+const bool &Nano::HLT_TrimuonOpen_5_3p5_2_Upsilon_Muon() {
+    if (!loaded_HLT_TrimuonOpen_5_3p5_2_Upsilon_Muon_) {
+        if (!b_HLT_TrimuonOpen_5_3p5_2_Upsilon_Muon_) throw std::runtime_error("HLT_TrimuonOpen_5_3p5_2_Upsilon_Muon branch doesn't exist");
+        b_HLT_TrimuonOpen_5_3p5_2_Upsilon_Muon_->GetEntry(index);
+        loaded_HLT_TrimuonOpen_5_3p5_2_Upsilon_Muon_ = true;
+    }
+    return HLT_TrimuonOpen_5_3p5_2_Upsilon_Muon_;
+}
 const bool &Nano::HLT_TripleJet110_35_35_Mjj650_PFMET110() {
     if (!loaded_HLT_TripleJet110_35_35_Mjj650_PFMET110_) {
         if (!b_HLT_TripleJet110_35_35_Mjj650_PFMET110_) throw std::runtime_error("HLT_TripleJet110_35_35_Mjj650_PFMET110 branch doesn't exist");
@@ -8558,21 +11071,21 @@ const bool &Nano::HLT_TripleMu_12_10_5() {
     }
     return HLT_TripleMu_12_10_5_;
 }
-const bool &Nano::HLT_TripleMu_5_3_3_Mass3p8to60_DCA() {
-    if (!loaded_HLT_TripleMu_5_3_3_Mass3p8to60_DCA_) {
-        if (!b_HLT_TripleMu_5_3_3_Mass3p8to60_DCA_) throw std::runtime_error("HLT_TripleMu_5_3_3_Mass3p8to60_DCA branch doesn't exist");
-        b_HLT_TripleMu_5_3_3_Mass3p8to60_DCA_->GetEntry(index);
-        loaded_HLT_TripleMu_5_3_3_Mass3p8to60_DCA_ = true;
+const bool &Nano::HLT_TripleMu_5_3_3_Mass3p8_DCA() {
+    if (!loaded_HLT_TripleMu_5_3_3_Mass3p8_DCA_) {
+        if (!b_HLT_TripleMu_5_3_3_Mass3p8_DCA_) throw std::runtime_error("HLT_TripleMu_5_3_3_Mass3p8_DCA branch doesn't exist");
+        b_HLT_TripleMu_5_3_3_Mass3p8_DCA_->GetEntry(index);
+        loaded_HLT_TripleMu_5_3_3_Mass3p8_DCA_ = true;
     }
-    return HLT_TripleMu_5_3_3_Mass3p8to60_DCA_;
+    return HLT_TripleMu_5_3_3_Mass3p8_DCA_;
 }
-const bool &Nano::HLT_TripleMu_5_3_3_Mass3p8to60_DZ() {
-    if (!loaded_HLT_TripleMu_5_3_3_Mass3p8to60_DZ_) {
-        if (!b_HLT_TripleMu_5_3_3_Mass3p8to60_DZ_) throw std::runtime_error("HLT_TripleMu_5_3_3_Mass3p8to60_DZ branch doesn't exist");
-        b_HLT_TripleMu_5_3_3_Mass3p8to60_DZ_->GetEntry(index);
-        loaded_HLT_TripleMu_5_3_3_Mass3p8to60_DZ_ = true;
+const bool &Nano::HLT_TripleMu_5_3_3_Mass3p8_DZ() {
+    if (!loaded_HLT_TripleMu_5_3_3_Mass3p8_DZ_) {
+        if (!b_HLT_TripleMu_5_3_3_Mass3p8_DZ_) throw std::runtime_error("HLT_TripleMu_5_3_3_Mass3p8_DZ branch doesn't exist");
+        b_HLT_TripleMu_5_3_3_Mass3p8_DZ_->GetEntry(index);
+        loaded_HLT_TripleMu_5_3_3_Mass3p8_DZ_ = true;
     }
-    return HLT_TripleMu_5_3_3_Mass3p8to60_DZ_;
+    return HLT_TripleMu_5_3_3_Mass3p8_DZ_;
 }
 const bool &Nano::HLT_TriplePhoton_20_20_20_CaloIdLV2() {
     if (!loaded_HLT_TriplePhoton_20_20_20_CaloIdLV2_) {
@@ -8622,6 +11135,14 @@ const bool &Nano::HLT_TrkMu12_DoubleTrkMu5NoFiltersNoVtx() {
     }
     return HLT_TrkMu12_DoubleTrkMu5NoFiltersNoVtx_;
 }
+const bool &Nano::HLT_TrkMu16NoFiltersNoVtx() {
+    if (!loaded_HLT_TrkMu16NoFiltersNoVtx_) {
+        if (!b_HLT_TrkMu16NoFiltersNoVtx_) throw std::runtime_error("HLT_TrkMu16NoFiltersNoVtx branch doesn't exist");
+        b_HLT_TrkMu16NoFiltersNoVtx_->GetEntry(index);
+        loaded_HLT_TrkMu16NoFiltersNoVtx_ = true;
+    }
+    return HLT_TrkMu16NoFiltersNoVtx_;
+}
 const bool &Nano::HLT_TrkMu16_DoubleTrkMu6NoFiltersNoVtx() {
     if (!loaded_HLT_TrkMu16_DoubleTrkMu6NoFiltersNoVtx_) {
         if (!b_HLT_TrkMu16_DoubleTrkMu6NoFiltersNoVtx_) throw std::runtime_error("HLT_TrkMu16_DoubleTrkMu6NoFiltersNoVtx branch doesn't exist");
@@ -8637,6 +11158,14 @@ const bool &Nano::HLT_TrkMu17_DoubleTrkMu8NoFiltersNoVtx() {
         loaded_HLT_TrkMu17_DoubleTrkMu8NoFiltersNoVtx_ = true;
     }
     return HLT_TrkMu17_DoubleTrkMu8NoFiltersNoVtx_;
+}
+const bool &Nano::HLT_TrkMu6NoFiltersNoVtx() {
+    if (!loaded_HLT_TrkMu6NoFiltersNoVtx_) {
+        if (!b_HLT_TrkMu6NoFiltersNoVtx_) throw std::runtime_error("HLT_TrkMu6NoFiltersNoVtx branch doesn't exist");
+        b_HLT_TrkMu6NoFiltersNoVtx_->GetEntry(index);
+        loaded_HLT_TrkMu6NoFiltersNoVtx_ = true;
+    }
+    return HLT_TrkMu6NoFiltersNoVtx_;
 }
 const bool &Nano::HLT_UncorrectedJetE30_NoBPTX() {
     if (!loaded_HLT_UncorrectedJetE30_NoBPTX_) {
@@ -8670,29 +11199,29 @@ const bool &Nano::HLT_UncorrectedJetE70_NoBPTX3BX() {
     }
     return HLT_UncorrectedJetE70_NoBPTX3BX_;
 }
-const bool &Nano::HLT_VBF_DoubleLooseChargedIsoPFTau20_Trk1_eta2p1_Reg() {
-    if (!loaded_HLT_VBF_DoubleLooseChargedIsoPFTau20_Trk1_eta2p1_Reg_) {
-        if (!b_HLT_VBF_DoubleLooseChargedIsoPFTau20_Trk1_eta2p1_Reg_) throw std::runtime_error("HLT_VBF_DoubleLooseChargedIsoPFTau20_Trk1_eta2p1_Reg branch doesn't exist");
-        b_HLT_VBF_DoubleLooseChargedIsoPFTau20_Trk1_eta2p1_Reg_->GetEntry(index);
-        loaded_HLT_VBF_DoubleLooseChargedIsoPFTau20_Trk1_eta2p1_Reg_ = true;
+const bool &Nano::HLT_VBF_DoubleLooseChargedIsoPFTauHPS20_Trk1_eta2p1() {
+    if (!loaded_HLT_VBF_DoubleLooseChargedIsoPFTauHPS20_Trk1_eta2p1_) {
+        if (!b_HLT_VBF_DoubleLooseChargedIsoPFTauHPS20_Trk1_eta2p1_) throw std::runtime_error("HLT_VBF_DoubleLooseChargedIsoPFTauHPS20_Trk1_eta2p1 branch doesn't exist");
+        b_HLT_VBF_DoubleLooseChargedIsoPFTauHPS20_Trk1_eta2p1_->GetEntry(index);
+        loaded_HLT_VBF_DoubleLooseChargedIsoPFTauHPS20_Trk1_eta2p1_ = true;
     }
-    return HLT_VBF_DoubleLooseChargedIsoPFTau20_Trk1_eta2p1_Reg_;
+    return HLT_VBF_DoubleLooseChargedIsoPFTauHPS20_Trk1_eta2p1_;
 }
-const bool &Nano::HLT_VBF_DoubleMediumChargedIsoPFTau20_Trk1_eta2p1_Reg() {
-    if (!loaded_HLT_VBF_DoubleMediumChargedIsoPFTau20_Trk1_eta2p1_Reg_) {
-        if (!b_HLT_VBF_DoubleMediumChargedIsoPFTau20_Trk1_eta2p1_Reg_) throw std::runtime_error("HLT_VBF_DoubleMediumChargedIsoPFTau20_Trk1_eta2p1_Reg branch doesn't exist");
-        b_HLT_VBF_DoubleMediumChargedIsoPFTau20_Trk1_eta2p1_Reg_->GetEntry(index);
-        loaded_HLT_VBF_DoubleMediumChargedIsoPFTau20_Trk1_eta2p1_Reg_ = true;
+const bool &Nano::HLT_VBF_DoubleMediumChargedIsoPFTauHPS20_Trk1_eta2p1() {
+    if (!loaded_HLT_VBF_DoubleMediumChargedIsoPFTauHPS20_Trk1_eta2p1_) {
+        if (!b_HLT_VBF_DoubleMediumChargedIsoPFTauHPS20_Trk1_eta2p1_) throw std::runtime_error("HLT_VBF_DoubleMediumChargedIsoPFTauHPS20_Trk1_eta2p1 branch doesn't exist");
+        b_HLT_VBF_DoubleMediumChargedIsoPFTauHPS20_Trk1_eta2p1_->GetEntry(index);
+        loaded_HLT_VBF_DoubleMediumChargedIsoPFTauHPS20_Trk1_eta2p1_ = true;
     }
-    return HLT_VBF_DoubleMediumChargedIsoPFTau20_Trk1_eta2p1_Reg_;
+    return HLT_VBF_DoubleMediumChargedIsoPFTauHPS20_Trk1_eta2p1_;
 }
-const bool &Nano::HLT_VBF_DoubleTightChargedIsoPFTau20_Trk1_eta2p1_Reg() {
-    if (!loaded_HLT_VBF_DoubleTightChargedIsoPFTau20_Trk1_eta2p1_Reg_) {
-        if (!b_HLT_VBF_DoubleTightChargedIsoPFTau20_Trk1_eta2p1_Reg_) throw std::runtime_error("HLT_VBF_DoubleTightChargedIsoPFTau20_Trk1_eta2p1_Reg branch doesn't exist");
-        b_HLT_VBF_DoubleTightChargedIsoPFTau20_Trk1_eta2p1_Reg_->GetEntry(index);
-        loaded_HLT_VBF_DoubleTightChargedIsoPFTau20_Trk1_eta2p1_Reg_ = true;
+const bool &Nano::HLT_VBF_DoubleTightChargedIsoPFTauHPS20_Trk1_eta2p1() {
+    if (!loaded_HLT_VBF_DoubleTightChargedIsoPFTauHPS20_Trk1_eta2p1_) {
+        if (!b_HLT_VBF_DoubleTightChargedIsoPFTauHPS20_Trk1_eta2p1_) throw std::runtime_error("HLT_VBF_DoubleTightChargedIsoPFTauHPS20_Trk1_eta2p1 branch doesn't exist");
+        b_HLT_VBF_DoubleTightChargedIsoPFTauHPS20_Trk1_eta2p1_->GetEntry(index);
+        loaded_HLT_VBF_DoubleTightChargedIsoPFTauHPS20_Trk1_eta2p1_ = true;
     }
-    return HLT_VBF_DoubleTightChargedIsoPFTau20_Trk1_eta2p1_Reg_;
+    return HLT_VBF_DoubleTightChargedIsoPFTauHPS20_Trk1_eta2p1_;
 }
 const bool &Nano::HLT_ZeroBias() {
     if (!loaded_HLT_ZeroBias_) {
@@ -8701,6 +11230,22 @@ const bool &Nano::HLT_ZeroBias() {
         loaded_HLT_ZeroBias_ = true;
     }
     return HLT_ZeroBias_;
+}
+const bool &Nano::HLT_ZeroBias_Alignment() {
+    if (!loaded_HLT_ZeroBias_Alignment_) {
+        if (!b_HLT_ZeroBias_Alignment_) throw std::runtime_error("HLT_ZeroBias_Alignment branch doesn't exist");
+        b_HLT_ZeroBias_Alignment_->GetEntry(index);
+        loaded_HLT_ZeroBias_Alignment_ = true;
+    }
+    return HLT_ZeroBias_Alignment_;
+}
+const bool &Nano::HLT_ZeroBias_Beamspot() {
+    if (!loaded_HLT_ZeroBias_Beamspot_) {
+        if (!b_HLT_ZeroBias_Beamspot_) throw std::runtime_error("HLT_ZeroBias_Beamspot branch doesn't exist");
+        b_HLT_ZeroBias_Beamspot_->GetEntry(index);
+        loaded_HLT_ZeroBias_Beamspot_ = true;
+    }
+    return HLT_ZeroBias_Beamspot_;
 }
 const bool &Nano::HLT_ZeroBias_FirstBXAfterTrain() {
     if (!loaded_HLT_ZeroBias_FirstBXAfterTrain_) {
@@ -8822,6 +11367,94 @@ const bool &Nano::HLTriggerFirstPath() {
     }
     return HLTriggerFirstPath_;
 }
+const float &Nano::HTXS_Higgs_pt() {
+    if (!loaded_HTXS_Higgs_pt_) {
+        if (!b_HTXS_Higgs_pt_) throw std::runtime_error("HTXS_Higgs_pt branch doesn't exist");
+        b_HTXS_Higgs_pt_->GetEntry(index);
+        loaded_HTXS_Higgs_pt_ = true;
+    }
+    return HTXS_Higgs_pt_;
+}
+const float &Nano::HTXS_Higgs_y() {
+    if (!loaded_HTXS_Higgs_y_) {
+        if (!b_HTXS_Higgs_y_) throw std::runtime_error("HTXS_Higgs_y branch doesn't exist");
+        b_HTXS_Higgs_y_->GetEntry(index);
+        loaded_HTXS_Higgs_y_ = true;
+    }
+    return HTXS_Higgs_y_;
+}
+const UChar_t &Nano::HTXS_njets25() {
+    if (!loaded_HTXS_njets25_) {
+        if (!b_HTXS_njets25_) throw std::runtime_error("HTXS_njets25 branch doesn't exist");
+        b_HTXS_njets25_->GetEntry(index);
+        loaded_HTXS_njets25_ = true;
+    }
+    return HTXS_njets25_;
+}
+const UChar_t &Nano::HTXS_njets30() {
+    if (!loaded_HTXS_njets30_) {
+        if (!b_HTXS_njets30_) throw std::runtime_error("HTXS_njets30 branch doesn't exist");
+        b_HTXS_njets30_->GetEntry(index);
+        loaded_HTXS_njets30_ = true;
+    }
+    return HTXS_njets30_;
+}
+const int &Nano::HTXS_stage1_1_cat_pTjet25GeV() {
+    if (!loaded_HTXS_stage1_1_cat_pTjet25GeV_) {
+        if (!b_HTXS_stage1_1_cat_pTjet25GeV_) throw std::runtime_error("HTXS_stage1_1_cat_pTjet25GeV branch doesn't exist");
+        b_HTXS_stage1_1_cat_pTjet25GeV_->GetEntry(index);
+        loaded_HTXS_stage1_1_cat_pTjet25GeV_ = true;
+    }
+    return HTXS_stage1_1_cat_pTjet25GeV_;
+}
+const int &Nano::HTXS_stage1_1_cat_pTjet30GeV() {
+    if (!loaded_HTXS_stage1_1_cat_pTjet30GeV_) {
+        if (!b_HTXS_stage1_1_cat_pTjet30GeV_) throw std::runtime_error("HTXS_stage1_1_cat_pTjet30GeV branch doesn't exist");
+        b_HTXS_stage1_1_cat_pTjet30GeV_->GetEntry(index);
+        loaded_HTXS_stage1_1_cat_pTjet30GeV_ = true;
+    }
+    return HTXS_stage1_1_cat_pTjet30GeV_;
+}
+const int &Nano::HTXS_stage1_1_fine_cat_pTjet25GeV() {
+    if (!loaded_HTXS_stage1_1_fine_cat_pTjet25GeV_) {
+        if (!b_HTXS_stage1_1_fine_cat_pTjet25GeV_) throw std::runtime_error("HTXS_stage1_1_fine_cat_pTjet25GeV branch doesn't exist");
+        b_HTXS_stage1_1_fine_cat_pTjet25GeV_->GetEntry(index);
+        loaded_HTXS_stage1_1_fine_cat_pTjet25GeV_ = true;
+    }
+    return HTXS_stage1_1_fine_cat_pTjet25GeV_;
+}
+const int &Nano::HTXS_stage1_1_fine_cat_pTjet30GeV() {
+    if (!loaded_HTXS_stage1_1_fine_cat_pTjet30GeV_) {
+        if (!b_HTXS_stage1_1_fine_cat_pTjet30GeV_) throw std::runtime_error("HTXS_stage1_1_fine_cat_pTjet30GeV branch doesn't exist");
+        b_HTXS_stage1_1_fine_cat_pTjet30GeV_->GetEntry(index);
+        loaded_HTXS_stage1_1_fine_cat_pTjet30GeV_ = true;
+    }
+    return HTXS_stage1_1_fine_cat_pTjet30GeV_;
+}
+const int &Nano::HTXS_stage_0() {
+    if (!loaded_HTXS_stage_0_) {
+        if (!b_HTXS_stage_0_) throw std::runtime_error("HTXS_stage_0 branch doesn't exist");
+        b_HTXS_stage_0_->GetEntry(index);
+        loaded_HTXS_stage_0_ = true;
+    }
+    return HTXS_stage_0_;
+}
+const int &Nano::HTXS_stage_1_pTjet25() {
+    if (!loaded_HTXS_stage_1_pTjet25_) {
+        if (!b_HTXS_stage_1_pTjet25_) throw std::runtime_error("HTXS_stage_1_pTjet25 branch doesn't exist");
+        b_HTXS_stage_1_pTjet25_->GetEntry(index);
+        loaded_HTXS_stage_1_pTjet25_ = true;
+    }
+    return HTXS_stage_1_pTjet25_;
+}
+const int &Nano::HTXS_stage_1_pTjet30() {
+    if (!loaded_HTXS_stage_1_pTjet30_) {
+        if (!b_HTXS_stage_1_pTjet30_) throw std::runtime_error("HTXS_stage_1_pTjet30 branch doesn't exist");
+        b_HTXS_stage_1_pTjet30_->GetEntry(index);
+        loaded_HTXS_stage_1_pTjet30_ = true;
+    }
+    return HTXS_stage_1_pTjet30_;
+}
 const vector<float> &Nano::IsoTrack_dxy() {
     if (!loaded_IsoTrack_dxy_) {
         if (!b_IsoTrack_dxy_) throw std::runtime_error("IsoTrack_dxy branch doesn't exist");
@@ -8848,6 +11481,24 @@ const vector<float> &Nano::IsoTrack_eta() {
         loaded_IsoTrack_eta_ = true;
     }
     return v_IsoTrack_eta_;
+}
+const vector<int> &Nano::IsoTrack_fromPV() {
+    if (!loaded_IsoTrack_fromPV_) {
+        if (!b_IsoTrack_fromPV_) throw std::runtime_error("IsoTrack_fromPV branch doesn't exist");
+        int bytes = b_IsoTrack_fromPV_->GetEntry(index);
+        v_IsoTrack_fromPV_ = vector<int>(IsoTrack_fromPV_,IsoTrack_fromPV_+bytes/sizeof(IsoTrack_fromPV_[0]));
+        loaded_IsoTrack_fromPV_ = true;
+    }
+    return v_IsoTrack_fromPV_;
+}
+const vector<bool> &Nano::IsoTrack_isFromLostTrack() {
+    if (!loaded_IsoTrack_isFromLostTrack_) {
+        if (!b_IsoTrack_isFromLostTrack_) throw std::runtime_error("IsoTrack_isFromLostTrack branch doesn't exist");
+        int bytes = b_IsoTrack_isFromLostTrack_->GetEntry(index);
+        v_IsoTrack_isFromLostTrack_ = vector<bool>(IsoTrack_isFromLostTrack_,IsoTrack_isFromLostTrack_+bytes/sizeof(IsoTrack_isFromLostTrack_[0]));
+        loaded_IsoTrack_isFromLostTrack_ = true;
+    }
+    return v_IsoTrack_isFromLostTrack_;
 }
 const vector<bool> &Nano::IsoTrack_isHighPurityTrack() {
     if (!loaded_IsoTrack_isHighPurityTrack_) {
@@ -8939,14 +11590,23 @@ const vector<float> &Nano::Jet_area() {
     }
     return v_Jet_area_;
 }
-const vector<float> &Nano::Jet_bReg() {
-    if (!loaded_Jet_bReg_) {
-        if (!b_Jet_bReg_) throw std::runtime_error("Jet_bReg branch doesn't exist");
-        int bytes = b_Jet_bReg_->GetEntry(index);
-        v_Jet_bReg_ = vector<float>(Jet_bReg_,Jet_bReg_+bytes/sizeof(Jet_bReg_[0]));
-        loaded_Jet_bReg_ = true;
+const vector<float> &Nano::Jet_bRegCorr() {
+    if (!loaded_Jet_bRegCorr_) {
+        if (!b_Jet_bRegCorr_) throw std::runtime_error("Jet_bRegCorr branch doesn't exist");
+        int bytes = b_Jet_bRegCorr_->GetEntry(index);
+        v_Jet_bRegCorr_ = vector<float>(Jet_bRegCorr_,Jet_bRegCorr_+bytes/sizeof(Jet_bRegCorr_[0]));
+        loaded_Jet_bRegCorr_ = true;
     }
-    return v_Jet_bReg_;
+    return v_Jet_bRegCorr_;
+}
+const vector<float> &Nano::Jet_bRegRes() {
+    if (!loaded_Jet_bRegRes_) {
+        if (!b_Jet_bRegRes_) throw std::runtime_error("Jet_bRegRes branch doesn't exist");
+        int bytes = b_Jet_bRegRes_->GetEntry(index);
+        v_Jet_bRegRes_ = vector<float>(Jet_bRegRes_,Jet_bRegRes_+bytes/sizeof(Jet_bRegRes_[0]));
+        loaded_Jet_bRegRes_ = true;
+    }
+    return v_Jet_bRegRes_;
 }
 const vector<float> &Nano::Jet_btagCMVA() {
     if (!loaded_Jet_btagCMVA_) {
@@ -8992,6 +11652,15 @@ const vector<float> &Nano::Jet_btagDeepFlavB() {
         loaded_Jet_btagDeepFlavB_ = true;
     }
     return v_Jet_btagDeepFlavB_;
+}
+const vector<float> &Nano::Jet_btagDeepFlavC() {
+    if (!loaded_Jet_btagDeepFlavC_) {
+        if (!b_Jet_btagDeepFlavC_) throw std::runtime_error("Jet_btagDeepFlavC branch doesn't exist");
+        int bytes = b_Jet_btagDeepFlavC_->GetEntry(index);
+        v_Jet_btagDeepFlavC_ = vector<float>(Jet_btagDeepFlavC_,Jet_btagDeepFlavC_+bytes/sizeof(Jet_btagDeepFlavC_[0]));
+        loaded_Jet_btagDeepFlavC_ = true;
+    }
+    return v_Jet_btagDeepFlavC_;
 }
 const vector<float> &Nano::Jet_chEmEF() {
     if (!loaded_Jet_chEmEF_) {
@@ -9065,6 +11734,24 @@ const vector<int> &Nano::Jet_hadronFlavour() {
     }
     return v_Jet_hadronFlavour_;
 }
+const vector<float> &Nano::Jet_jercCHF() {
+    if (!loaded_Jet_jercCHF_) {
+        if (!b_Jet_jercCHF_) throw std::runtime_error("Jet_jercCHF branch doesn't exist");
+        int bytes = b_Jet_jercCHF_->GetEntry(index);
+        v_Jet_jercCHF_ = vector<float>(Jet_jercCHF_,Jet_jercCHF_+bytes/sizeof(Jet_jercCHF_[0]));
+        loaded_Jet_jercCHF_ = true;
+    }
+    return v_Jet_jercCHF_;
+}
+const vector<float> &Nano::Jet_jercCHPUF() {
+    if (!loaded_Jet_jercCHPUF_) {
+        if (!b_Jet_jercCHPUF_) throw std::runtime_error("Jet_jercCHPUF branch doesn't exist");
+        int bytes = b_Jet_jercCHPUF_->GetEntry(index);
+        v_Jet_jercCHPUF_ = vector<float>(Jet_jercCHPUF_,Jet_jercCHPUF_+bytes/sizeof(Jet_jercCHPUF_[0]));
+        loaded_Jet_jercCHPUF_ = true;
+    }
+    return v_Jet_jercCHPUF_;
+}
 const vector<int> &Nano::Jet_jetId() {
     if (!loaded_Jet_jetId_) {
         if (!b_Jet_jetId_) throw std::runtime_error("Jet_jetId branch doesn't exist");
@@ -9083,6 +11770,15 @@ const vector<float> &Nano::Jet_mass() {
     }
     return v_Jet_mass_;
 }
+const vector<float> &Nano::Jet_muEF() {
+    if (!loaded_Jet_muEF_) {
+        if (!b_Jet_muEF_) throw std::runtime_error("Jet_muEF branch doesn't exist");
+        int bytes = b_Jet_muEF_->GetEntry(index);
+        v_Jet_muEF_ = vector<float>(Jet_muEF_,Jet_muEF_+bytes/sizeof(Jet_muEF_[0]));
+        loaded_Jet_muEF_ = true;
+    }
+    return v_Jet_muEF_;
+}
 const vector<int> &Nano::Jet_muonIdx1() {
     if (!loaded_Jet_muonIdx1_) {
         if (!b_Jet_muonIdx1_) throw std::runtime_error("Jet_muonIdx1 branch doesn't exist");
@@ -9100,6 +11796,15 @@ const vector<int> &Nano::Jet_muonIdx2() {
         loaded_Jet_muonIdx2_ = true;
     }
     return v_Jet_muonIdx2_;
+}
+const vector<float> &Nano::Jet_muonSubtrFactor() {
+    if (!loaded_Jet_muonSubtrFactor_) {
+        if (!b_Jet_muonSubtrFactor_) throw std::runtime_error("Jet_muonSubtrFactor branch doesn't exist");
+        int bytes = b_Jet_muonSubtrFactor_->GetEntry(index);
+        v_Jet_muonSubtrFactor_ = vector<float>(Jet_muonSubtrFactor_,Jet_muonSubtrFactor_+bytes/sizeof(Jet_muonSubtrFactor_[0]));
+        loaded_Jet_muonSubtrFactor_ = true;
+    }
+    return v_Jet_muonSubtrFactor_;
 }
 const vector<int> &Nano::Jet_nConstituents() {
     if (!loaded_Jet_nConstituents_) {
@@ -9214,6 +11919,2582 @@ const vector<float> &Nano::Jet_rawFactor() {
     }
     return v_Jet_rawFactor_;
 }
+const bool &Nano::L1Reco_step() {
+    if (!loaded_L1Reco_step_) {
+        if (!b_L1Reco_step_) throw std::runtime_error("L1Reco_step branch doesn't exist");
+        b_L1Reco_step_->GetEntry(index);
+        loaded_L1Reco_step_ = true;
+    }
+    return L1Reco_step_;
+}
+const bool &Nano::L1_AlwaysTrue() {
+    if (!loaded_L1_AlwaysTrue_) {
+        if (!b_L1_AlwaysTrue_) throw std::runtime_error("L1_AlwaysTrue branch doesn't exist");
+        b_L1_AlwaysTrue_->GetEntry(index);
+        loaded_L1_AlwaysTrue_ = true;
+    }
+    return L1_AlwaysTrue_;
+}
+const bool &Nano::L1_BPTX_AND_Ref1_VME() {
+    if (!loaded_L1_BPTX_AND_Ref1_VME_) {
+        if (!b_L1_BPTX_AND_Ref1_VME_) throw std::runtime_error("L1_BPTX_AND_Ref1_VME branch doesn't exist");
+        b_L1_BPTX_AND_Ref1_VME_->GetEntry(index);
+        loaded_L1_BPTX_AND_Ref1_VME_ = true;
+    }
+    return L1_BPTX_AND_Ref1_VME_;
+}
+const bool &Nano::L1_BPTX_AND_Ref3_VME() {
+    if (!loaded_L1_BPTX_AND_Ref3_VME_) {
+        if (!b_L1_BPTX_AND_Ref3_VME_) throw std::runtime_error("L1_BPTX_AND_Ref3_VME branch doesn't exist");
+        b_L1_BPTX_AND_Ref3_VME_->GetEntry(index);
+        loaded_L1_BPTX_AND_Ref3_VME_ = true;
+    }
+    return L1_BPTX_AND_Ref3_VME_;
+}
+const bool &Nano::L1_BPTX_AND_Ref4_VME() {
+    if (!loaded_L1_BPTX_AND_Ref4_VME_) {
+        if (!b_L1_BPTX_AND_Ref4_VME_) throw std::runtime_error("L1_BPTX_AND_Ref4_VME branch doesn't exist");
+        b_L1_BPTX_AND_Ref4_VME_->GetEntry(index);
+        loaded_L1_BPTX_AND_Ref4_VME_ = true;
+    }
+    return L1_BPTX_AND_Ref4_VME_;
+}
+const bool &Nano::L1_BPTX_BeamGas_B1_VME() {
+    if (!loaded_L1_BPTX_BeamGas_B1_VME_) {
+        if (!b_L1_BPTX_BeamGas_B1_VME_) throw std::runtime_error("L1_BPTX_BeamGas_B1_VME branch doesn't exist");
+        b_L1_BPTX_BeamGas_B1_VME_->GetEntry(index);
+        loaded_L1_BPTX_BeamGas_B1_VME_ = true;
+    }
+    return L1_BPTX_BeamGas_B1_VME_;
+}
+const bool &Nano::L1_BPTX_BeamGas_B2_VME() {
+    if (!loaded_L1_BPTX_BeamGas_B2_VME_) {
+        if (!b_L1_BPTX_BeamGas_B2_VME_) throw std::runtime_error("L1_BPTX_BeamGas_B2_VME branch doesn't exist");
+        b_L1_BPTX_BeamGas_B2_VME_->GetEntry(index);
+        loaded_L1_BPTX_BeamGas_B2_VME_ = true;
+    }
+    return L1_BPTX_BeamGas_B2_VME_;
+}
+const bool &Nano::L1_BPTX_BeamGas_Ref1_VME() {
+    if (!loaded_L1_BPTX_BeamGas_Ref1_VME_) {
+        if (!b_L1_BPTX_BeamGas_Ref1_VME_) throw std::runtime_error("L1_BPTX_BeamGas_Ref1_VME branch doesn't exist");
+        b_L1_BPTX_BeamGas_Ref1_VME_->GetEntry(index);
+        loaded_L1_BPTX_BeamGas_Ref1_VME_ = true;
+    }
+    return L1_BPTX_BeamGas_Ref1_VME_;
+}
+const bool &Nano::L1_BPTX_BeamGas_Ref2_VME() {
+    if (!loaded_L1_BPTX_BeamGas_Ref2_VME_) {
+        if (!b_L1_BPTX_BeamGas_Ref2_VME_) throw std::runtime_error("L1_BPTX_BeamGas_Ref2_VME branch doesn't exist");
+        b_L1_BPTX_BeamGas_Ref2_VME_->GetEntry(index);
+        loaded_L1_BPTX_BeamGas_Ref2_VME_ = true;
+    }
+    return L1_BPTX_BeamGas_Ref2_VME_;
+}
+const bool &Nano::L1_BPTX_NotOR_VME() {
+    if (!loaded_L1_BPTX_NotOR_VME_) {
+        if (!b_L1_BPTX_NotOR_VME_) throw std::runtime_error("L1_BPTX_NotOR_VME branch doesn't exist");
+        b_L1_BPTX_NotOR_VME_->GetEntry(index);
+        loaded_L1_BPTX_NotOR_VME_ = true;
+    }
+    return L1_BPTX_NotOR_VME_;
+}
+const bool &Nano::L1_BPTX_OR_Ref3_VME() {
+    if (!loaded_L1_BPTX_OR_Ref3_VME_) {
+        if (!b_L1_BPTX_OR_Ref3_VME_) throw std::runtime_error("L1_BPTX_OR_Ref3_VME branch doesn't exist");
+        b_L1_BPTX_OR_Ref3_VME_->GetEntry(index);
+        loaded_L1_BPTX_OR_Ref3_VME_ = true;
+    }
+    return L1_BPTX_OR_Ref3_VME_;
+}
+const bool &Nano::L1_BPTX_OR_Ref4_VME() {
+    if (!loaded_L1_BPTX_OR_Ref4_VME_) {
+        if (!b_L1_BPTX_OR_Ref4_VME_) throw std::runtime_error("L1_BPTX_OR_Ref4_VME branch doesn't exist");
+        b_L1_BPTX_OR_Ref4_VME_->GetEntry(index);
+        loaded_L1_BPTX_OR_Ref4_VME_ = true;
+    }
+    return L1_BPTX_OR_Ref4_VME_;
+}
+const bool &Nano::L1_BPTX_RefAND_VME() {
+    if (!loaded_L1_BPTX_RefAND_VME_) {
+        if (!b_L1_BPTX_RefAND_VME_) throw std::runtime_error("L1_BPTX_RefAND_VME branch doesn't exist");
+        b_L1_BPTX_RefAND_VME_->GetEntry(index);
+        loaded_L1_BPTX_RefAND_VME_ = true;
+    }
+    return L1_BPTX_RefAND_VME_;
+}
+const bool &Nano::L1_BptxMinus() {
+    if (!loaded_L1_BptxMinus_) {
+        if (!b_L1_BptxMinus_) throw std::runtime_error("L1_BptxMinus branch doesn't exist");
+        b_L1_BptxMinus_->GetEntry(index);
+        loaded_L1_BptxMinus_ = true;
+    }
+    return L1_BptxMinus_;
+}
+const bool &Nano::L1_BptxOR() {
+    if (!loaded_L1_BptxOR_) {
+        if (!b_L1_BptxOR_) throw std::runtime_error("L1_BptxOR branch doesn't exist");
+        b_L1_BptxOR_->GetEntry(index);
+        loaded_L1_BptxOR_ = true;
+    }
+    return L1_BptxOR_;
+}
+const bool &Nano::L1_BptxPlus() {
+    if (!loaded_L1_BptxPlus_) {
+        if (!b_L1_BptxPlus_) throw std::runtime_error("L1_BptxPlus branch doesn't exist");
+        b_L1_BptxPlus_->GetEntry(index);
+        loaded_L1_BptxPlus_ = true;
+    }
+    return L1_BptxPlus_;
+}
+const bool &Nano::L1_BptxXOR() {
+    if (!loaded_L1_BptxXOR_) {
+        if (!b_L1_BptxXOR_) throw std::runtime_error("L1_BptxXOR branch doesn't exist");
+        b_L1_BptxXOR_->GetEntry(index);
+        loaded_L1_BptxXOR_ = true;
+    }
+    return L1_BptxXOR_;
+}
+const bool &Nano::L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142() {
+    if (!loaded_L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142_) {
+        if (!b_L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142_) throw std::runtime_error("L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142 branch doesn't exist");
+        b_L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142_->GetEntry(index);
+        loaded_L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142_ = true;
+    }
+    return L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142_;
+}
+const bool &Nano::L1_DoubleEG8er2p5_HTT260er() {
+    if (!loaded_L1_DoubleEG8er2p5_HTT260er_) {
+        if (!b_L1_DoubleEG8er2p5_HTT260er_) throw std::runtime_error("L1_DoubleEG8er2p5_HTT260er branch doesn't exist");
+        b_L1_DoubleEG8er2p5_HTT260er_->GetEntry(index);
+        loaded_L1_DoubleEG8er2p5_HTT260er_ = true;
+    }
+    return L1_DoubleEG8er2p5_HTT260er_;
+}
+const bool &Nano::L1_DoubleEG8er2p5_HTT280er() {
+    if (!loaded_L1_DoubleEG8er2p5_HTT280er_) {
+        if (!b_L1_DoubleEG8er2p5_HTT280er_) throw std::runtime_error("L1_DoubleEG8er2p5_HTT280er branch doesn't exist");
+        b_L1_DoubleEG8er2p5_HTT280er_->GetEntry(index);
+        loaded_L1_DoubleEG8er2p5_HTT280er_ = true;
+    }
+    return L1_DoubleEG8er2p5_HTT280er_;
+}
+const bool &Nano::L1_DoubleEG8er2p5_HTT300er() {
+    if (!loaded_L1_DoubleEG8er2p5_HTT300er_) {
+        if (!b_L1_DoubleEG8er2p5_HTT300er_) throw std::runtime_error("L1_DoubleEG8er2p5_HTT300er branch doesn't exist");
+        b_L1_DoubleEG8er2p5_HTT300er_->GetEntry(index);
+        loaded_L1_DoubleEG8er2p5_HTT300er_ = true;
+    }
+    return L1_DoubleEG8er2p5_HTT300er_;
+}
+const bool &Nano::L1_DoubleEG8er2p5_HTT320er() {
+    if (!loaded_L1_DoubleEG8er2p5_HTT320er_) {
+        if (!b_L1_DoubleEG8er2p5_HTT320er_) throw std::runtime_error("L1_DoubleEG8er2p5_HTT320er branch doesn't exist");
+        b_L1_DoubleEG8er2p5_HTT320er_->GetEntry(index);
+        loaded_L1_DoubleEG8er2p5_HTT320er_ = true;
+    }
+    return L1_DoubleEG8er2p5_HTT320er_;
+}
+const bool &Nano::L1_DoubleEG8er2p5_HTT340er() {
+    if (!loaded_L1_DoubleEG8er2p5_HTT340er_) {
+        if (!b_L1_DoubleEG8er2p5_HTT340er_) throw std::runtime_error("L1_DoubleEG8er2p5_HTT340er branch doesn't exist");
+        b_L1_DoubleEG8er2p5_HTT340er_->GetEntry(index);
+        loaded_L1_DoubleEG8er2p5_HTT340er_ = true;
+    }
+    return L1_DoubleEG8er2p5_HTT340er_;
+}
+const bool &Nano::L1_DoubleEG_15_10_er2p5() {
+    if (!loaded_L1_DoubleEG_15_10_er2p5_) {
+        if (!b_L1_DoubleEG_15_10_er2p5_) throw std::runtime_error("L1_DoubleEG_15_10_er2p5 branch doesn't exist");
+        b_L1_DoubleEG_15_10_er2p5_->GetEntry(index);
+        loaded_L1_DoubleEG_15_10_er2p5_ = true;
+    }
+    return L1_DoubleEG_15_10_er2p5_;
+}
+const bool &Nano::L1_DoubleEG_20_10_er2p5() {
+    if (!loaded_L1_DoubleEG_20_10_er2p5_) {
+        if (!b_L1_DoubleEG_20_10_er2p5_) throw std::runtime_error("L1_DoubleEG_20_10_er2p5 branch doesn't exist");
+        b_L1_DoubleEG_20_10_er2p5_->GetEntry(index);
+        loaded_L1_DoubleEG_20_10_er2p5_ = true;
+    }
+    return L1_DoubleEG_20_10_er2p5_;
+}
+const bool &Nano::L1_DoubleEG_22_10_er2p5() {
+    if (!loaded_L1_DoubleEG_22_10_er2p5_) {
+        if (!b_L1_DoubleEG_22_10_er2p5_) throw std::runtime_error("L1_DoubleEG_22_10_er2p5 branch doesn't exist");
+        b_L1_DoubleEG_22_10_er2p5_->GetEntry(index);
+        loaded_L1_DoubleEG_22_10_er2p5_ = true;
+    }
+    return L1_DoubleEG_22_10_er2p5_;
+}
+const bool &Nano::L1_DoubleEG_25_12_er2p5() {
+    if (!loaded_L1_DoubleEG_25_12_er2p5_) {
+        if (!b_L1_DoubleEG_25_12_er2p5_) throw std::runtime_error("L1_DoubleEG_25_12_er2p5 branch doesn't exist");
+        b_L1_DoubleEG_25_12_er2p5_->GetEntry(index);
+        loaded_L1_DoubleEG_25_12_er2p5_ = true;
+    }
+    return L1_DoubleEG_25_12_er2p5_;
+}
+const bool &Nano::L1_DoubleEG_25_14_er2p5() {
+    if (!loaded_L1_DoubleEG_25_14_er2p5_) {
+        if (!b_L1_DoubleEG_25_14_er2p5_) throw std::runtime_error("L1_DoubleEG_25_14_er2p5 branch doesn't exist");
+        b_L1_DoubleEG_25_14_er2p5_->GetEntry(index);
+        loaded_L1_DoubleEG_25_14_er2p5_ = true;
+    }
+    return L1_DoubleEG_25_14_er2p5_;
+}
+const bool &Nano::L1_DoubleEG_27_14_er2p5() {
+    if (!loaded_L1_DoubleEG_27_14_er2p5_) {
+        if (!b_L1_DoubleEG_27_14_er2p5_) throw std::runtime_error("L1_DoubleEG_27_14_er2p5 branch doesn't exist");
+        b_L1_DoubleEG_27_14_er2p5_->GetEntry(index);
+        loaded_L1_DoubleEG_27_14_er2p5_ = true;
+    }
+    return L1_DoubleEG_27_14_er2p5_;
+}
+const bool &Nano::L1_DoubleEG_LooseIso20_10_er2p5() {
+    if (!loaded_L1_DoubleEG_LooseIso20_10_er2p5_) {
+        if (!b_L1_DoubleEG_LooseIso20_10_er2p5_) throw std::runtime_error("L1_DoubleEG_LooseIso20_10_er2p5 branch doesn't exist");
+        b_L1_DoubleEG_LooseIso20_10_er2p5_->GetEntry(index);
+        loaded_L1_DoubleEG_LooseIso20_10_er2p5_ = true;
+    }
+    return L1_DoubleEG_LooseIso20_10_er2p5_;
+}
+const bool &Nano::L1_DoubleEG_LooseIso22_10_er2p5() {
+    if (!loaded_L1_DoubleEG_LooseIso22_10_er2p5_) {
+        if (!b_L1_DoubleEG_LooseIso22_10_er2p5_) throw std::runtime_error("L1_DoubleEG_LooseIso22_10_er2p5 branch doesn't exist");
+        b_L1_DoubleEG_LooseIso22_10_er2p5_->GetEntry(index);
+        loaded_L1_DoubleEG_LooseIso22_10_er2p5_ = true;
+    }
+    return L1_DoubleEG_LooseIso22_10_er2p5_;
+}
+const bool &Nano::L1_DoubleEG_LooseIso22_12_er2p5() {
+    if (!loaded_L1_DoubleEG_LooseIso22_12_er2p5_) {
+        if (!b_L1_DoubleEG_LooseIso22_12_er2p5_) throw std::runtime_error("L1_DoubleEG_LooseIso22_12_er2p5 branch doesn't exist");
+        b_L1_DoubleEG_LooseIso22_12_er2p5_->GetEntry(index);
+        loaded_L1_DoubleEG_LooseIso22_12_er2p5_ = true;
+    }
+    return L1_DoubleEG_LooseIso22_12_er2p5_;
+}
+const bool &Nano::L1_DoubleEG_LooseIso25_12_er2p5() {
+    if (!loaded_L1_DoubleEG_LooseIso25_12_er2p5_) {
+        if (!b_L1_DoubleEG_LooseIso25_12_er2p5_) throw std::runtime_error("L1_DoubleEG_LooseIso25_12_er2p5 branch doesn't exist");
+        b_L1_DoubleEG_LooseIso25_12_er2p5_->GetEntry(index);
+        loaded_L1_DoubleEG_LooseIso25_12_er2p5_ = true;
+    }
+    return L1_DoubleEG_LooseIso25_12_er2p5_;
+}
+const bool &Nano::L1_DoubleIsoTau32er2p1() {
+    if (!loaded_L1_DoubleIsoTau32er2p1_) {
+        if (!b_L1_DoubleIsoTau32er2p1_) throw std::runtime_error("L1_DoubleIsoTau32er2p1 branch doesn't exist");
+        b_L1_DoubleIsoTau32er2p1_->GetEntry(index);
+        loaded_L1_DoubleIsoTau32er2p1_ = true;
+    }
+    return L1_DoubleIsoTau32er2p1_;
+}
+const bool &Nano::L1_DoubleIsoTau34er2p1() {
+    if (!loaded_L1_DoubleIsoTau34er2p1_) {
+        if (!b_L1_DoubleIsoTau34er2p1_) throw std::runtime_error("L1_DoubleIsoTau34er2p1 branch doesn't exist");
+        b_L1_DoubleIsoTau34er2p1_->GetEntry(index);
+        loaded_L1_DoubleIsoTau34er2p1_ = true;
+    }
+    return L1_DoubleIsoTau34er2p1_;
+}
+const bool &Nano::L1_DoubleIsoTau36er2p1() {
+    if (!loaded_L1_DoubleIsoTau36er2p1_) {
+        if (!b_L1_DoubleIsoTau36er2p1_) throw std::runtime_error("L1_DoubleIsoTau36er2p1 branch doesn't exist");
+        b_L1_DoubleIsoTau36er2p1_->GetEntry(index);
+        loaded_L1_DoubleIsoTau36er2p1_ = true;
+    }
+    return L1_DoubleIsoTau36er2p1_;
+}
+const bool &Nano::L1_DoubleJet100er2p3_dEta_Max1p6() {
+    if (!loaded_L1_DoubleJet100er2p3_dEta_Max1p6_) {
+        if (!b_L1_DoubleJet100er2p3_dEta_Max1p6_) throw std::runtime_error("L1_DoubleJet100er2p3_dEta_Max1p6 branch doesn't exist");
+        b_L1_DoubleJet100er2p3_dEta_Max1p6_->GetEntry(index);
+        loaded_L1_DoubleJet100er2p3_dEta_Max1p6_ = true;
+    }
+    return L1_DoubleJet100er2p3_dEta_Max1p6_;
+}
+const bool &Nano::L1_DoubleJet100er2p5() {
+    if (!loaded_L1_DoubleJet100er2p5_) {
+        if (!b_L1_DoubleJet100er2p5_) throw std::runtime_error("L1_DoubleJet100er2p5 branch doesn't exist");
+        b_L1_DoubleJet100er2p5_->GetEntry(index);
+        loaded_L1_DoubleJet100er2p5_ = true;
+    }
+    return L1_DoubleJet100er2p5_;
+}
+const bool &Nano::L1_DoubleJet112er2p3_dEta_Max1p6() {
+    if (!loaded_L1_DoubleJet112er2p3_dEta_Max1p6_) {
+        if (!b_L1_DoubleJet112er2p3_dEta_Max1p6_) throw std::runtime_error("L1_DoubleJet112er2p3_dEta_Max1p6 branch doesn't exist");
+        b_L1_DoubleJet112er2p3_dEta_Max1p6_->GetEntry(index);
+        loaded_L1_DoubleJet112er2p3_dEta_Max1p6_ = true;
+    }
+    return L1_DoubleJet112er2p3_dEta_Max1p6_;
+}
+const bool &Nano::L1_DoubleJet120er2p5() {
+    if (!loaded_L1_DoubleJet120er2p5_) {
+        if (!b_L1_DoubleJet120er2p5_) throw std::runtime_error("L1_DoubleJet120er2p5 branch doesn't exist");
+        b_L1_DoubleJet120er2p5_->GetEntry(index);
+        loaded_L1_DoubleJet120er2p5_ = true;
+    }
+    return L1_DoubleJet120er2p5_;
+}
+const bool &Nano::L1_DoubleJet150er2p5() {
+    if (!loaded_L1_DoubleJet150er2p5_) {
+        if (!b_L1_DoubleJet150er2p5_) throw std::runtime_error("L1_DoubleJet150er2p5 branch doesn't exist");
+        b_L1_DoubleJet150er2p5_->GetEntry(index);
+        loaded_L1_DoubleJet150er2p5_ = true;
+    }
+    return L1_DoubleJet150er2p5_;
+}
+const bool &Nano::L1_DoubleJet30er2p5_Mass_Min150_dEta_Max1p5() {
+    if (!loaded_L1_DoubleJet30er2p5_Mass_Min150_dEta_Max1p5_) {
+        if (!b_L1_DoubleJet30er2p5_Mass_Min150_dEta_Max1p5_) throw std::runtime_error("L1_DoubleJet30er2p5_Mass_Min150_dEta_Max1p5 branch doesn't exist");
+        b_L1_DoubleJet30er2p5_Mass_Min150_dEta_Max1p5_->GetEntry(index);
+        loaded_L1_DoubleJet30er2p5_Mass_Min150_dEta_Max1p5_ = true;
+    }
+    return L1_DoubleJet30er2p5_Mass_Min150_dEta_Max1p5_;
+}
+const bool &Nano::L1_DoubleJet30er2p5_Mass_Min200_dEta_Max1p5() {
+    if (!loaded_L1_DoubleJet30er2p5_Mass_Min200_dEta_Max1p5_) {
+        if (!b_L1_DoubleJet30er2p5_Mass_Min200_dEta_Max1p5_) throw std::runtime_error("L1_DoubleJet30er2p5_Mass_Min200_dEta_Max1p5 branch doesn't exist");
+        b_L1_DoubleJet30er2p5_Mass_Min200_dEta_Max1p5_->GetEntry(index);
+        loaded_L1_DoubleJet30er2p5_Mass_Min200_dEta_Max1p5_ = true;
+    }
+    return L1_DoubleJet30er2p5_Mass_Min200_dEta_Max1p5_;
+}
+const bool &Nano::L1_DoubleJet30er2p5_Mass_Min250_dEta_Max1p5() {
+    if (!loaded_L1_DoubleJet30er2p5_Mass_Min250_dEta_Max1p5_) {
+        if (!b_L1_DoubleJet30er2p5_Mass_Min250_dEta_Max1p5_) throw std::runtime_error("L1_DoubleJet30er2p5_Mass_Min250_dEta_Max1p5 branch doesn't exist");
+        b_L1_DoubleJet30er2p5_Mass_Min250_dEta_Max1p5_->GetEntry(index);
+        loaded_L1_DoubleJet30er2p5_Mass_Min250_dEta_Max1p5_ = true;
+    }
+    return L1_DoubleJet30er2p5_Mass_Min250_dEta_Max1p5_;
+}
+const bool &Nano::L1_DoubleJet30er2p5_Mass_Min300_dEta_Max1p5() {
+    if (!loaded_L1_DoubleJet30er2p5_Mass_Min300_dEta_Max1p5_) {
+        if (!b_L1_DoubleJet30er2p5_Mass_Min300_dEta_Max1p5_) throw std::runtime_error("L1_DoubleJet30er2p5_Mass_Min300_dEta_Max1p5 branch doesn't exist");
+        b_L1_DoubleJet30er2p5_Mass_Min300_dEta_Max1p5_->GetEntry(index);
+        loaded_L1_DoubleJet30er2p5_Mass_Min300_dEta_Max1p5_ = true;
+    }
+    return L1_DoubleJet30er2p5_Mass_Min300_dEta_Max1p5_;
+}
+const bool &Nano::L1_DoubleJet30er2p5_Mass_Min330_dEta_Max1p5() {
+    if (!loaded_L1_DoubleJet30er2p5_Mass_Min330_dEta_Max1p5_) {
+        if (!b_L1_DoubleJet30er2p5_Mass_Min330_dEta_Max1p5_) throw std::runtime_error("L1_DoubleJet30er2p5_Mass_Min330_dEta_Max1p5 branch doesn't exist");
+        b_L1_DoubleJet30er2p5_Mass_Min330_dEta_Max1p5_->GetEntry(index);
+        loaded_L1_DoubleJet30er2p5_Mass_Min330_dEta_Max1p5_ = true;
+    }
+    return L1_DoubleJet30er2p5_Mass_Min330_dEta_Max1p5_;
+}
+const bool &Nano::L1_DoubleJet30er2p5_Mass_Min360_dEta_Max1p5() {
+    if (!loaded_L1_DoubleJet30er2p5_Mass_Min360_dEta_Max1p5_) {
+        if (!b_L1_DoubleJet30er2p5_Mass_Min360_dEta_Max1p5_) throw std::runtime_error("L1_DoubleJet30er2p5_Mass_Min360_dEta_Max1p5 branch doesn't exist");
+        b_L1_DoubleJet30er2p5_Mass_Min360_dEta_Max1p5_->GetEntry(index);
+        loaded_L1_DoubleJet30er2p5_Mass_Min360_dEta_Max1p5_ = true;
+    }
+    return L1_DoubleJet30er2p5_Mass_Min360_dEta_Max1p5_;
+}
+const bool &Nano::L1_DoubleJet35_Mass_Min450_IsoTau45_RmOvlp() {
+    if (!loaded_L1_DoubleJet35_Mass_Min450_IsoTau45_RmOvlp_) {
+        if (!b_L1_DoubleJet35_Mass_Min450_IsoTau45_RmOvlp_) throw std::runtime_error("L1_DoubleJet35_Mass_Min450_IsoTau45_RmOvlp branch doesn't exist");
+        b_L1_DoubleJet35_Mass_Min450_IsoTau45_RmOvlp_->GetEntry(index);
+        loaded_L1_DoubleJet35_Mass_Min450_IsoTau45_RmOvlp_ = true;
+    }
+    return L1_DoubleJet35_Mass_Min450_IsoTau45_RmOvlp_;
+}
+const bool &Nano::L1_DoubleJet40er2p5() {
+    if (!loaded_L1_DoubleJet40er2p5_) {
+        if (!b_L1_DoubleJet40er2p5_) throw std::runtime_error("L1_DoubleJet40er2p5 branch doesn't exist");
+        b_L1_DoubleJet40er2p5_->GetEntry(index);
+        loaded_L1_DoubleJet40er2p5_ = true;
+    }
+    return L1_DoubleJet40er2p5_;
+}
+const bool &Nano::L1_DoubleJet_100_30_DoubleJet30_Mass_Min620() {
+    if (!loaded_L1_DoubleJet_100_30_DoubleJet30_Mass_Min620_) {
+        if (!b_L1_DoubleJet_100_30_DoubleJet30_Mass_Min620_) throw std::runtime_error("L1_DoubleJet_100_30_DoubleJet30_Mass_Min620 branch doesn't exist");
+        b_L1_DoubleJet_100_30_DoubleJet30_Mass_Min620_->GetEntry(index);
+        loaded_L1_DoubleJet_100_30_DoubleJet30_Mass_Min620_ = true;
+    }
+    return L1_DoubleJet_100_30_DoubleJet30_Mass_Min620_;
+}
+const bool &Nano::L1_DoubleJet_110_35_DoubleJet35_Mass_Min620() {
+    if (!loaded_L1_DoubleJet_110_35_DoubleJet35_Mass_Min620_) {
+        if (!b_L1_DoubleJet_110_35_DoubleJet35_Mass_Min620_) throw std::runtime_error("L1_DoubleJet_110_35_DoubleJet35_Mass_Min620 branch doesn't exist");
+        b_L1_DoubleJet_110_35_DoubleJet35_Mass_Min620_->GetEntry(index);
+        loaded_L1_DoubleJet_110_35_DoubleJet35_Mass_Min620_ = true;
+    }
+    return L1_DoubleJet_110_35_DoubleJet35_Mass_Min620_;
+}
+const bool &Nano::L1_DoubleJet_115_40_DoubleJet40_Mass_Min620() {
+    if (!loaded_L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_) {
+        if (!b_L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_) throw std::runtime_error("L1_DoubleJet_115_40_DoubleJet40_Mass_Min620 branch doesn't exist");
+        b_L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_->GetEntry(index);
+        loaded_L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_ = true;
+    }
+    return L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_;
+}
+const bool &Nano::L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_Jet60TT28() {
+    if (!loaded_L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_Jet60TT28_) {
+        if (!b_L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_Jet60TT28_) throw std::runtime_error("L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_Jet60TT28 branch doesn't exist");
+        b_L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_Jet60TT28_->GetEntry(index);
+        loaded_L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_Jet60TT28_ = true;
+    }
+    return L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_Jet60TT28_;
+}
+const bool &Nano::L1_DoubleJet_120_45_DoubleJet45_Mass_Min620() {
+    if (!loaded_L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_) {
+        if (!b_L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_) throw std::runtime_error("L1_DoubleJet_120_45_DoubleJet45_Mass_Min620 branch doesn't exist");
+        b_L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_->GetEntry(index);
+        loaded_L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_ = true;
+    }
+    return L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_;
+}
+const bool &Nano::L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_Jet60TT28() {
+    if (!loaded_L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_Jet60TT28_) {
+        if (!b_L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_Jet60TT28_) throw std::runtime_error("L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_Jet60TT28 branch doesn't exist");
+        b_L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_Jet60TT28_->GetEntry(index);
+        loaded_L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_Jet60TT28_ = true;
+    }
+    return L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_Jet60TT28_;
+}
+const bool &Nano::L1_DoubleJet_80_30_Mass_Min420_DoubleMu0_SQ() {
+    if (!loaded_L1_DoubleJet_80_30_Mass_Min420_DoubleMu0_SQ_) {
+        if (!b_L1_DoubleJet_80_30_Mass_Min420_DoubleMu0_SQ_) throw std::runtime_error("L1_DoubleJet_80_30_Mass_Min420_DoubleMu0_SQ branch doesn't exist");
+        b_L1_DoubleJet_80_30_Mass_Min420_DoubleMu0_SQ_->GetEntry(index);
+        loaded_L1_DoubleJet_80_30_Mass_Min420_DoubleMu0_SQ_ = true;
+    }
+    return L1_DoubleJet_80_30_Mass_Min420_DoubleMu0_SQ_;
+}
+const bool &Nano::L1_DoubleJet_80_30_Mass_Min420_IsoTau40_RmOvlp() {
+    if (!loaded_L1_DoubleJet_80_30_Mass_Min420_IsoTau40_RmOvlp_) {
+        if (!b_L1_DoubleJet_80_30_Mass_Min420_IsoTau40_RmOvlp_) throw std::runtime_error("L1_DoubleJet_80_30_Mass_Min420_IsoTau40_RmOvlp branch doesn't exist");
+        b_L1_DoubleJet_80_30_Mass_Min420_IsoTau40_RmOvlp_->GetEntry(index);
+        loaded_L1_DoubleJet_80_30_Mass_Min420_IsoTau40_RmOvlp_ = true;
+    }
+    return L1_DoubleJet_80_30_Mass_Min420_IsoTau40_RmOvlp_;
+}
+const bool &Nano::L1_DoubleJet_80_30_Mass_Min420_Mu8() {
+    if (!loaded_L1_DoubleJet_80_30_Mass_Min420_Mu8_) {
+        if (!b_L1_DoubleJet_80_30_Mass_Min420_Mu8_) throw std::runtime_error("L1_DoubleJet_80_30_Mass_Min420_Mu8 branch doesn't exist");
+        b_L1_DoubleJet_80_30_Mass_Min420_Mu8_->GetEntry(index);
+        loaded_L1_DoubleJet_80_30_Mass_Min420_Mu8_ = true;
+    }
+    return L1_DoubleJet_80_30_Mass_Min420_Mu8_;
+}
+const bool &Nano::L1_DoubleJet_90_30_DoubleJet30_Mass_Min620() {
+    if (!loaded_L1_DoubleJet_90_30_DoubleJet30_Mass_Min620_) {
+        if (!b_L1_DoubleJet_90_30_DoubleJet30_Mass_Min620_) throw std::runtime_error("L1_DoubleJet_90_30_DoubleJet30_Mass_Min620 branch doesn't exist");
+        b_L1_DoubleJet_90_30_DoubleJet30_Mass_Min620_->GetEntry(index);
+        loaded_L1_DoubleJet_90_30_DoubleJet30_Mass_Min620_ = true;
+    }
+    return L1_DoubleJet_90_30_DoubleJet30_Mass_Min620_;
+}
+const bool &Nano::L1_DoubleLooseIsoEG22er2p1() {
+    if (!loaded_L1_DoubleLooseIsoEG22er2p1_) {
+        if (!b_L1_DoubleLooseIsoEG22er2p1_) throw std::runtime_error("L1_DoubleLooseIsoEG22er2p1 branch doesn't exist");
+        b_L1_DoubleLooseIsoEG22er2p1_->GetEntry(index);
+        loaded_L1_DoubleLooseIsoEG22er2p1_ = true;
+    }
+    return L1_DoubleLooseIsoEG22er2p1_;
+}
+const bool &Nano::L1_DoubleLooseIsoEG24er2p1() {
+    if (!loaded_L1_DoubleLooseIsoEG24er2p1_) {
+        if (!b_L1_DoubleLooseIsoEG24er2p1_) throw std::runtime_error("L1_DoubleLooseIsoEG24er2p1 branch doesn't exist");
+        b_L1_DoubleLooseIsoEG24er2p1_->GetEntry(index);
+        loaded_L1_DoubleLooseIsoEG24er2p1_ = true;
+    }
+    return L1_DoubleLooseIsoEG24er2p1_;
+}
+const bool &Nano::L1_DoubleMu0() {
+    if (!loaded_L1_DoubleMu0_) {
+        if (!b_L1_DoubleMu0_) throw std::runtime_error("L1_DoubleMu0 branch doesn't exist");
+        b_L1_DoubleMu0_->GetEntry(index);
+        loaded_L1_DoubleMu0_ = true;
+    }
+    return L1_DoubleMu0_;
+}
+const bool &Nano::L1_DoubleMu0_Mass_Min1() {
+    if (!loaded_L1_DoubleMu0_Mass_Min1_) {
+        if (!b_L1_DoubleMu0_Mass_Min1_) throw std::runtime_error("L1_DoubleMu0_Mass_Min1 branch doesn't exist");
+        b_L1_DoubleMu0_Mass_Min1_->GetEntry(index);
+        loaded_L1_DoubleMu0_Mass_Min1_ = true;
+    }
+    return L1_DoubleMu0_Mass_Min1_;
+}
+const bool &Nano::L1_DoubleMu0_OQ() {
+    if (!loaded_L1_DoubleMu0_OQ_) {
+        if (!b_L1_DoubleMu0_OQ_) throw std::runtime_error("L1_DoubleMu0_OQ branch doesn't exist");
+        b_L1_DoubleMu0_OQ_->GetEntry(index);
+        loaded_L1_DoubleMu0_OQ_ = true;
+    }
+    return L1_DoubleMu0_OQ_;
+}
+const bool &Nano::L1_DoubleMu0_SQ() {
+    if (!loaded_L1_DoubleMu0_SQ_) {
+        if (!b_L1_DoubleMu0_SQ_) throw std::runtime_error("L1_DoubleMu0_SQ branch doesn't exist");
+        b_L1_DoubleMu0_SQ_->GetEntry(index);
+        loaded_L1_DoubleMu0_SQ_ = true;
+    }
+    return L1_DoubleMu0_SQ_;
+}
+const bool &Nano::L1_DoubleMu0_SQ_OS() {
+    if (!loaded_L1_DoubleMu0_SQ_OS_) {
+        if (!b_L1_DoubleMu0_SQ_OS_) throw std::runtime_error("L1_DoubleMu0_SQ_OS branch doesn't exist");
+        b_L1_DoubleMu0_SQ_OS_->GetEntry(index);
+        loaded_L1_DoubleMu0_SQ_OS_ = true;
+    }
+    return L1_DoubleMu0_SQ_OS_;
+}
+const bool &Nano::L1_DoubleMu0_dR_Max1p6_Jet90er2p5_dR_Max0p8() {
+    if (!loaded_L1_DoubleMu0_dR_Max1p6_Jet90er2p5_dR_Max0p8_) {
+        if (!b_L1_DoubleMu0_dR_Max1p6_Jet90er2p5_dR_Max0p8_) throw std::runtime_error("L1_DoubleMu0_dR_Max1p6_Jet90er2p5_dR_Max0p8 branch doesn't exist");
+        b_L1_DoubleMu0_dR_Max1p6_Jet90er2p5_dR_Max0p8_->GetEntry(index);
+        loaded_L1_DoubleMu0_dR_Max1p6_Jet90er2p5_dR_Max0p8_ = true;
+    }
+    return L1_DoubleMu0_dR_Max1p6_Jet90er2p5_dR_Max0p8_;
+}
+const bool &Nano::L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4() {
+    if (!loaded_L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4_) {
+        if (!b_L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4_) throw std::runtime_error("L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4 branch doesn't exist");
+        b_L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4_->GetEntry(index);
+        loaded_L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4_ = true;
+    }
+    return L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4_;
+}
+const bool &Nano::L1_DoubleMu0er1p5_SQ() {
+    if (!loaded_L1_DoubleMu0er1p5_SQ_) {
+        if (!b_L1_DoubleMu0er1p5_SQ_) throw std::runtime_error("L1_DoubleMu0er1p5_SQ branch doesn't exist");
+        b_L1_DoubleMu0er1p5_SQ_->GetEntry(index);
+        loaded_L1_DoubleMu0er1p5_SQ_ = true;
+    }
+    return L1_DoubleMu0er1p5_SQ_;
+}
+const bool &Nano::L1_DoubleMu0er1p5_SQ_OS() {
+    if (!loaded_L1_DoubleMu0er1p5_SQ_OS_) {
+        if (!b_L1_DoubleMu0er1p5_SQ_OS_) throw std::runtime_error("L1_DoubleMu0er1p5_SQ_OS branch doesn't exist");
+        b_L1_DoubleMu0er1p5_SQ_OS_->GetEntry(index);
+        loaded_L1_DoubleMu0er1p5_SQ_OS_ = true;
+    }
+    return L1_DoubleMu0er1p5_SQ_OS_;
+}
+const bool &Nano::L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4() {
+    if (!loaded_L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4_) {
+        if (!b_L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4_) throw std::runtime_error("L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4 branch doesn't exist");
+        b_L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4_->GetEntry(index);
+        loaded_L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4_ = true;
+    }
+    return L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4_;
+}
+const bool &Nano::L1_DoubleMu0er1p5_SQ_dR_Max1p4() {
+    if (!loaded_L1_DoubleMu0er1p5_SQ_dR_Max1p4_) {
+        if (!b_L1_DoubleMu0er1p5_SQ_dR_Max1p4_) throw std::runtime_error("L1_DoubleMu0er1p5_SQ_dR_Max1p4 branch doesn't exist");
+        b_L1_DoubleMu0er1p5_SQ_dR_Max1p4_->GetEntry(index);
+        loaded_L1_DoubleMu0er1p5_SQ_dR_Max1p4_ = true;
+    }
+    return L1_DoubleMu0er1p5_SQ_dR_Max1p4_;
+}
+const bool &Nano::L1_DoubleMu0er2p0_SQ_OS_dR_Max1p4() {
+    if (!loaded_L1_DoubleMu0er2p0_SQ_OS_dR_Max1p4_) {
+        if (!b_L1_DoubleMu0er2p0_SQ_OS_dR_Max1p4_) throw std::runtime_error("L1_DoubleMu0er2p0_SQ_OS_dR_Max1p4 branch doesn't exist");
+        b_L1_DoubleMu0er2p0_SQ_OS_dR_Max1p4_->GetEntry(index);
+        loaded_L1_DoubleMu0er2p0_SQ_OS_dR_Max1p4_ = true;
+    }
+    return L1_DoubleMu0er2p0_SQ_OS_dR_Max1p4_;
+}
+const bool &Nano::L1_DoubleMu0er2p0_SQ_dR_Max1p4() {
+    if (!loaded_L1_DoubleMu0er2p0_SQ_dR_Max1p4_) {
+        if (!b_L1_DoubleMu0er2p0_SQ_dR_Max1p4_) throw std::runtime_error("L1_DoubleMu0er2p0_SQ_dR_Max1p4 branch doesn't exist");
+        b_L1_DoubleMu0er2p0_SQ_dR_Max1p4_->GetEntry(index);
+        loaded_L1_DoubleMu0er2p0_SQ_dR_Max1p4_ = true;
+    }
+    return L1_DoubleMu0er2p0_SQ_dR_Max1p4_;
+}
+const bool &Nano::L1_DoubleMu10_SQ() {
+    if (!loaded_L1_DoubleMu10_SQ_) {
+        if (!b_L1_DoubleMu10_SQ_) throw std::runtime_error("L1_DoubleMu10_SQ branch doesn't exist");
+        b_L1_DoubleMu10_SQ_->GetEntry(index);
+        loaded_L1_DoubleMu10_SQ_ = true;
+    }
+    return L1_DoubleMu10_SQ_;
+}
+const bool &Nano::L1_DoubleMu18er2p1() {
+    if (!loaded_L1_DoubleMu18er2p1_) {
+        if (!b_L1_DoubleMu18er2p1_) throw std::runtime_error("L1_DoubleMu18er2p1 branch doesn't exist");
+        b_L1_DoubleMu18er2p1_->GetEntry(index);
+        loaded_L1_DoubleMu18er2p1_ = true;
+    }
+    return L1_DoubleMu18er2p1_;
+}
+const bool &Nano::L1_DoubleMu3_OS_DoubleEG7p5Upsilon() {
+    if (!loaded_L1_DoubleMu3_OS_DoubleEG7p5Upsilon_) {
+        if (!b_L1_DoubleMu3_OS_DoubleEG7p5Upsilon_) throw std::runtime_error("L1_DoubleMu3_OS_DoubleEG7p5Upsilon branch doesn't exist");
+        b_L1_DoubleMu3_OS_DoubleEG7p5Upsilon_->GetEntry(index);
+        loaded_L1_DoubleMu3_OS_DoubleEG7p5Upsilon_ = true;
+    }
+    return L1_DoubleMu3_OS_DoubleEG7p5Upsilon_;
+}
+const bool &Nano::L1_DoubleMu3_SQ_ETMHF50_HTT60er() {
+    if (!loaded_L1_DoubleMu3_SQ_ETMHF50_HTT60er_) {
+        if (!b_L1_DoubleMu3_SQ_ETMHF50_HTT60er_) throw std::runtime_error("L1_DoubleMu3_SQ_ETMHF50_HTT60er branch doesn't exist");
+        b_L1_DoubleMu3_SQ_ETMHF50_HTT60er_->GetEntry(index);
+        loaded_L1_DoubleMu3_SQ_ETMHF50_HTT60er_ = true;
+    }
+    return L1_DoubleMu3_SQ_ETMHF50_HTT60er_;
+}
+const bool &Nano::L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5() {
+    if (!loaded_L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_) {
+        if (!b_L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_) throw std::runtime_error("L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5 branch doesn't exist");
+        b_L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_->GetEntry(index);
+        loaded_L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_ = true;
+    }
+    return L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_;
+}
+const bool &Nano::L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_OR_DoubleJet40er2p5() {
+    if (!loaded_L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_OR_DoubleJet40er2p5_) {
+        if (!b_L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_OR_DoubleJet40er2p5_) throw std::runtime_error("L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_OR_DoubleJet40er2p5 branch doesn't exist");
+        b_L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_OR_DoubleJet40er2p5_->GetEntry(index);
+        loaded_L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_OR_DoubleJet40er2p5_ = true;
+    }
+    return L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_OR_DoubleJet40er2p5_;
+}
+const bool &Nano::L1_DoubleMu3_SQ_ETMHF60_Jet60er2p5() {
+    if (!loaded_L1_DoubleMu3_SQ_ETMHF60_Jet60er2p5_) {
+        if (!b_L1_DoubleMu3_SQ_ETMHF60_Jet60er2p5_) throw std::runtime_error("L1_DoubleMu3_SQ_ETMHF60_Jet60er2p5 branch doesn't exist");
+        b_L1_DoubleMu3_SQ_ETMHF60_Jet60er2p5_->GetEntry(index);
+        loaded_L1_DoubleMu3_SQ_ETMHF60_Jet60er2p5_ = true;
+    }
+    return L1_DoubleMu3_SQ_ETMHF60_Jet60er2p5_;
+}
+const bool &Nano::L1_DoubleMu3_SQ_HTT220er() {
+    if (!loaded_L1_DoubleMu3_SQ_HTT220er_) {
+        if (!b_L1_DoubleMu3_SQ_HTT220er_) throw std::runtime_error("L1_DoubleMu3_SQ_HTT220er branch doesn't exist");
+        b_L1_DoubleMu3_SQ_HTT220er_->GetEntry(index);
+        loaded_L1_DoubleMu3_SQ_HTT220er_ = true;
+    }
+    return L1_DoubleMu3_SQ_HTT220er_;
+}
+const bool &Nano::L1_DoubleMu3_SQ_HTT240er() {
+    if (!loaded_L1_DoubleMu3_SQ_HTT240er_) {
+        if (!b_L1_DoubleMu3_SQ_HTT240er_) throw std::runtime_error("L1_DoubleMu3_SQ_HTT240er branch doesn't exist");
+        b_L1_DoubleMu3_SQ_HTT240er_->GetEntry(index);
+        loaded_L1_DoubleMu3_SQ_HTT240er_ = true;
+    }
+    return L1_DoubleMu3_SQ_HTT240er_;
+}
+const bool &Nano::L1_DoubleMu3_SQ_HTT260er() {
+    if (!loaded_L1_DoubleMu3_SQ_HTT260er_) {
+        if (!b_L1_DoubleMu3_SQ_HTT260er_) throw std::runtime_error("L1_DoubleMu3_SQ_HTT260er branch doesn't exist");
+        b_L1_DoubleMu3_SQ_HTT260er_->GetEntry(index);
+        loaded_L1_DoubleMu3_SQ_HTT260er_ = true;
+    }
+    return L1_DoubleMu3_SQ_HTT260er_;
+}
+const bool &Nano::L1_DoubleMu3_dR_Max1p6_Jet90er2p5_dR_Max0p8() {
+    if (!loaded_L1_DoubleMu3_dR_Max1p6_Jet90er2p5_dR_Max0p8_) {
+        if (!b_L1_DoubleMu3_dR_Max1p6_Jet90er2p5_dR_Max0p8_) throw std::runtime_error("L1_DoubleMu3_dR_Max1p6_Jet90er2p5_dR_Max0p8 branch doesn't exist");
+        b_L1_DoubleMu3_dR_Max1p6_Jet90er2p5_dR_Max0p8_->GetEntry(index);
+        loaded_L1_DoubleMu3_dR_Max1p6_Jet90er2p5_dR_Max0p8_ = true;
+    }
+    return L1_DoubleMu3_dR_Max1p6_Jet90er2p5_dR_Max0p8_;
+}
+const bool &Nano::L1_DoubleMu4_SQ_EG9er2p5() {
+    if (!loaded_L1_DoubleMu4_SQ_EG9er2p5_) {
+        if (!b_L1_DoubleMu4_SQ_EG9er2p5_) throw std::runtime_error("L1_DoubleMu4_SQ_EG9er2p5 branch doesn't exist");
+        b_L1_DoubleMu4_SQ_EG9er2p5_->GetEntry(index);
+        loaded_L1_DoubleMu4_SQ_EG9er2p5_ = true;
+    }
+    return L1_DoubleMu4_SQ_EG9er2p5_;
+}
+const bool &Nano::L1_DoubleMu4_SQ_OS() {
+    if (!loaded_L1_DoubleMu4_SQ_OS_) {
+        if (!b_L1_DoubleMu4_SQ_OS_) throw std::runtime_error("L1_DoubleMu4_SQ_OS branch doesn't exist");
+        b_L1_DoubleMu4_SQ_OS_->GetEntry(index);
+        loaded_L1_DoubleMu4_SQ_OS_ = true;
+    }
+    return L1_DoubleMu4_SQ_OS_;
+}
+const bool &Nano::L1_DoubleMu4_SQ_OS_dR_Max1p2() {
+    if (!loaded_L1_DoubleMu4_SQ_OS_dR_Max1p2_) {
+        if (!b_L1_DoubleMu4_SQ_OS_dR_Max1p2_) throw std::runtime_error("L1_DoubleMu4_SQ_OS_dR_Max1p2 branch doesn't exist");
+        b_L1_DoubleMu4_SQ_OS_dR_Max1p2_->GetEntry(index);
+        loaded_L1_DoubleMu4_SQ_OS_dR_Max1p2_ = true;
+    }
+    return L1_DoubleMu4_SQ_OS_dR_Max1p2_;
+}
+const bool &Nano::L1_DoubleMu4p5_SQ_OS() {
+    if (!loaded_L1_DoubleMu4p5_SQ_OS_) {
+        if (!b_L1_DoubleMu4p5_SQ_OS_) throw std::runtime_error("L1_DoubleMu4p5_SQ_OS branch doesn't exist");
+        b_L1_DoubleMu4p5_SQ_OS_->GetEntry(index);
+        loaded_L1_DoubleMu4p5_SQ_OS_ = true;
+    }
+    return L1_DoubleMu4p5_SQ_OS_;
+}
+const bool &Nano::L1_DoubleMu4p5_SQ_OS_dR_Max1p2() {
+    if (!loaded_L1_DoubleMu4p5_SQ_OS_dR_Max1p2_) {
+        if (!b_L1_DoubleMu4p5_SQ_OS_dR_Max1p2_) throw std::runtime_error("L1_DoubleMu4p5_SQ_OS_dR_Max1p2 branch doesn't exist");
+        b_L1_DoubleMu4p5_SQ_OS_dR_Max1p2_->GetEntry(index);
+        loaded_L1_DoubleMu4p5_SQ_OS_dR_Max1p2_ = true;
+    }
+    return L1_DoubleMu4p5_SQ_OS_dR_Max1p2_;
+}
+const bool &Nano::L1_DoubleMu4p5er2p0_SQ_OS() {
+    if (!loaded_L1_DoubleMu4p5er2p0_SQ_OS_) {
+        if (!b_L1_DoubleMu4p5er2p0_SQ_OS_) throw std::runtime_error("L1_DoubleMu4p5er2p0_SQ_OS branch doesn't exist");
+        b_L1_DoubleMu4p5er2p0_SQ_OS_->GetEntry(index);
+        loaded_L1_DoubleMu4p5er2p0_SQ_OS_ = true;
+    }
+    return L1_DoubleMu4p5er2p0_SQ_OS_;
+}
+const bool &Nano::L1_DoubleMu4p5er2p0_SQ_OS_Mass7to18() {
+    if (!loaded_L1_DoubleMu4p5er2p0_SQ_OS_Mass7to18_) {
+        if (!b_L1_DoubleMu4p5er2p0_SQ_OS_Mass7to18_) throw std::runtime_error("L1_DoubleMu4p5er2p0_SQ_OS_Mass7to18 branch doesn't exist");
+        b_L1_DoubleMu4p5er2p0_SQ_OS_Mass7to18_->GetEntry(index);
+        loaded_L1_DoubleMu4p5er2p0_SQ_OS_Mass7to18_ = true;
+    }
+    return L1_DoubleMu4p5er2p0_SQ_OS_Mass7to18_;
+}
+const bool &Nano::L1_DoubleMu5Upsilon_OS_DoubleEG3() {
+    if (!loaded_L1_DoubleMu5Upsilon_OS_DoubleEG3_) {
+        if (!b_L1_DoubleMu5Upsilon_OS_DoubleEG3_) throw std::runtime_error("L1_DoubleMu5Upsilon_OS_DoubleEG3 branch doesn't exist");
+        b_L1_DoubleMu5Upsilon_OS_DoubleEG3_->GetEntry(index);
+        loaded_L1_DoubleMu5Upsilon_OS_DoubleEG3_ = true;
+    }
+    return L1_DoubleMu5Upsilon_OS_DoubleEG3_;
+}
+const bool &Nano::L1_DoubleMu5_SQ_EG9er2p5() {
+    if (!loaded_L1_DoubleMu5_SQ_EG9er2p5_) {
+        if (!b_L1_DoubleMu5_SQ_EG9er2p5_) throw std::runtime_error("L1_DoubleMu5_SQ_EG9er2p5 branch doesn't exist");
+        b_L1_DoubleMu5_SQ_EG9er2p5_->GetEntry(index);
+        loaded_L1_DoubleMu5_SQ_EG9er2p5_ = true;
+    }
+    return L1_DoubleMu5_SQ_EG9er2p5_;
+}
+const bool &Nano::L1_DoubleMu9_SQ() {
+    if (!loaded_L1_DoubleMu9_SQ_) {
+        if (!b_L1_DoubleMu9_SQ_) throw std::runtime_error("L1_DoubleMu9_SQ branch doesn't exist");
+        b_L1_DoubleMu9_SQ_->GetEntry(index);
+        loaded_L1_DoubleMu9_SQ_ = true;
+    }
+    return L1_DoubleMu9_SQ_;
+}
+const bool &Nano::L1_DoubleMu_12_5() {
+    if (!loaded_L1_DoubleMu_12_5_) {
+        if (!b_L1_DoubleMu_12_5_) throw std::runtime_error("L1_DoubleMu_12_5 branch doesn't exist");
+        b_L1_DoubleMu_12_5_->GetEntry(index);
+        loaded_L1_DoubleMu_12_5_ = true;
+    }
+    return L1_DoubleMu_12_5_;
+}
+const bool &Nano::L1_DoubleMu_15_5_SQ() {
+    if (!loaded_L1_DoubleMu_15_5_SQ_) {
+        if (!b_L1_DoubleMu_15_5_SQ_) throw std::runtime_error("L1_DoubleMu_15_5_SQ branch doesn't exist");
+        b_L1_DoubleMu_15_5_SQ_->GetEntry(index);
+        loaded_L1_DoubleMu_15_5_SQ_ = true;
+    }
+    return L1_DoubleMu_15_5_SQ_;
+}
+const bool &Nano::L1_DoubleMu_15_7() {
+    if (!loaded_L1_DoubleMu_15_7_) {
+        if (!b_L1_DoubleMu_15_7_) throw std::runtime_error("L1_DoubleMu_15_7 branch doesn't exist");
+        b_L1_DoubleMu_15_7_->GetEntry(index);
+        loaded_L1_DoubleMu_15_7_ = true;
+    }
+    return L1_DoubleMu_15_7_;
+}
+const bool &Nano::L1_DoubleMu_15_7_Mass_Min1() {
+    if (!loaded_L1_DoubleMu_15_7_Mass_Min1_) {
+        if (!b_L1_DoubleMu_15_7_Mass_Min1_) throw std::runtime_error("L1_DoubleMu_15_7_Mass_Min1 branch doesn't exist");
+        b_L1_DoubleMu_15_7_Mass_Min1_->GetEntry(index);
+        loaded_L1_DoubleMu_15_7_Mass_Min1_ = true;
+    }
+    return L1_DoubleMu_15_7_Mass_Min1_;
+}
+const bool &Nano::L1_DoubleMu_15_7_SQ() {
+    if (!loaded_L1_DoubleMu_15_7_SQ_) {
+        if (!b_L1_DoubleMu_15_7_SQ_) throw std::runtime_error("L1_DoubleMu_15_7_SQ branch doesn't exist");
+        b_L1_DoubleMu_15_7_SQ_->GetEntry(index);
+        loaded_L1_DoubleMu_15_7_SQ_ = true;
+    }
+    return L1_DoubleMu_15_7_SQ_;
+}
+const bool &Nano::L1_DoubleTau70er2p1() {
+    if (!loaded_L1_DoubleTau70er2p1_) {
+        if (!b_L1_DoubleTau70er2p1_) throw std::runtime_error("L1_DoubleTau70er2p1 branch doesn't exist");
+        b_L1_DoubleTau70er2p1_->GetEntry(index);
+        loaded_L1_DoubleTau70er2p1_ = true;
+    }
+    return L1_DoubleTau70er2p1_;
+}
+const bool &Nano::L1_ETM120() {
+    if (!loaded_L1_ETM120_) {
+        if (!b_L1_ETM120_) throw std::runtime_error("L1_ETM120 branch doesn't exist");
+        b_L1_ETM120_->GetEntry(index);
+        loaded_L1_ETM120_ = true;
+    }
+    return L1_ETM120_;
+}
+const bool &Nano::L1_ETM150() {
+    if (!loaded_L1_ETM150_) {
+        if (!b_L1_ETM150_) throw std::runtime_error("L1_ETM150 branch doesn't exist");
+        b_L1_ETM150_->GetEntry(index);
+        loaded_L1_ETM150_ = true;
+    }
+    return L1_ETM150_;
+}
+const bool &Nano::L1_ETMHF100() {
+    if (!loaded_L1_ETMHF100_) {
+        if (!b_L1_ETMHF100_) throw std::runtime_error("L1_ETMHF100 branch doesn't exist");
+        b_L1_ETMHF100_->GetEntry(index);
+        loaded_L1_ETMHF100_ = true;
+    }
+    return L1_ETMHF100_;
+}
+const bool &Nano::L1_ETMHF100_HTT60er() {
+    if (!loaded_L1_ETMHF100_HTT60er_) {
+        if (!b_L1_ETMHF100_HTT60er_) throw std::runtime_error("L1_ETMHF100_HTT60er branch doesn't exist");
+        b_L1_ETMHF100_HTT60er_->GetEntry(index);
+        loaded_L1_ETMHF100_HTT60er_ = true;
+    }
+    return L1_ETMHF100_HTT60er_;
+}
+const bool &Nano::L1_ETMHF110() {
+    if (!loaded_L1_ETMHF110_) {
+        if (!b_L1_ETMHF110_) throw std::runtime_error("L1_ETMHF110 branch doesn't exist");
+        b_L1_ETMHF110_->GetEntry(index);
+        loaded_L1_ETMHF110_ = true;
+    }
+    return L1_ETMHF110_;
+}
+const bool &Nano::L1_ETMHF110_HTT60er() {
+    if (!loaded_L1_ETMHF110_HTT60er_) {
+        if (!b_L1_ETMHF110_HTT60er_) throw std::runtime_error("L1_ETMHF110_HTT60er branch doesn't exist");
+        b_L1_ETMHF110_HTT60er_->GetEntry(index);
+        loaded_L1_ETMHF110_HTT60er_ = true;
+    }
+    return L1_ETMHF110_HTT60er_;
+}
+const bool &Nano::L1_ETMHF110_HTT60er_NotSecondBunchInTrain() {
+    if (!loaded_L1_ETMHF110_HTT60er_NotSecondBunchInTrain_) {
+        if (!b_L1_ETMHF110_HTT60er_NotSecondBunchInTrain_) throw std::runtime_error("L1_ETMHF110_HTT60er_NotSecondBunchInTrain branch doesn't exist");
+        b_L1_ETMHF110_HTT60er_NotSecondBunchInTrain_->GetEntry(index);
+        loaded_L1_ETMHF110_HTT60er_NotSecondBunchInTrain_ = true;
+    }
+    return L1_ETMHF110_HTT60er_NotSecondBunchInTrain_;
+}
+const bool &Nano::L1_ETMHF120() {
+    if (!loaded_L1_ETMHF120_) {
+        if (!b_L1_ETMHF120_) throw std::runtime_error("L1_ETMHF120 branch doesn't exist");
+        b_L1_ETMHF120_->GetEntry(index);
+        loaded_L1_ETMHF120_ = true;
+    }
+    return L1_ETMHF120_;
+}
+const bool &Nano::L1_ETMHF120_HTT60er() {
+    if (!loaded_L1_ETMHF120_HTT60er_) {
+        if (!b_L1_ETMHF120_HTT60er_) throw std::runtime_error("L1_ETMHF120_HTT60er branch doesn't exist");
+        b_L1_ETMHF120_HTT60er_->GetEntry(index);
+        loaded_L1_ETMHF120_HTT60er_ = true;
+    }
+    return L1_ETMHF120_HTT60er_;
+}
+const bool &Nano::L1_ETMHF120_NotSecondBunchInTrain() {
+    if (!loaded_L1_ETMHF120_NotSecondBunchInTrain_) {
+        if (!b_L1_ETMHF120_NotSecondBunchInTrain_) throw std::runtime_error("L1_ETMHF120_NotSecondBunchInTrain branch doesn't exist");
+        b_L1_ETMHF120_NotSecondBunchInTrain_->GetEntry(index);
+        loaded_L1_ETMHF120_NotSecondBunchInTrain_ = true;
+    }
+    return L1_ETMHF120_NotSecondBunchInTrain_;
+}
+const bool &Nano::L1_ETMHF130() {
+    if (!loaded_L1_ETMHF130_) {
+        if (!b_L1_ETMHF130_) throw std::runtime_error("L1_ETMHF130 branch doesn't exist");
+        b_L1_ETMHF130_->GetEntry(index);
+        loaded_L1_ETMHF130_ = true;
+    }
+    return L1_ETMHF130_;
+}
+const bool &Nano::L1_ETMHF130_HTT60er() {
+    if (!loaded_L1_ETMHF130_HTT60er_) {
+        if (!b_L1_ETMHF130_HTT60er_) throw std::runtime_error("L1_ETMHF130_HTT60er branch doesn't exist");
+        b_L1_ETMHF130_HTT60er_->GetEntry(index);
+        loaded_L1_ETMHF130_HTT60er_ = true;
+    }
+    return L1_ETMHF130_HTT60er_;
+}
+const bool &Nano::L1_ETMHF140() {
+    if (!loaded_L1_ETMHF140_) {
+        if (!b_L1_ETMHF140_) throw std::runtime_error("L1_ETMHF140 branch doesn't exist");
+        b_L1_ETMHF140_->GetEntry(index);
+        loaded_L1_ETMHF140_ = true;
+    }
+    return L1_ETMHF140_;
+}
+const bool &Nano::L1_ETMHF150() {
+    if (!loaded_L1_ETMHF150_) {
+        if (!b_L1_ETMHF150_) throw std::runtime_error("L1_ETMHF150 branch doesn't exist");
+        b_L1_ETMHF150_->GetEntry(index);
+        loaded_L1_ETMHF150_ = true;
+    }
+    return L1_ETMHF150_;
+}
+const bool &Nano::L1_ETMHF90_HTT60er() {
+    if (!loaded_L1_ETMHF90_HTT60er_) {
+        if (!b_L1_ETMHF90_HTT60er_) throw std::runtime_error("L1_ETMHF90_HTT60er branch doesn't exist");
+        b_L1_ETMHF90_HTT60er_->GetEntry(index);
+        loaded_L1_ETMHF90_HTT60er_ = true;
+    }
+    return L1_ETMHF90_HTT60er_;
+}
+const bool &Nano::L1_ETT1200() {
+    if (!loaded_L1_ETT1200_) {
+        if (!b_L1_ETT1200_) throw std::runtime_error("L1_ETT1200 branch doesn't exist");
+        b_L1_ETT1200_->GetEntry(index);
+        loaded_L1_ETT1200_ = true;
+    }
+    return L1_ETT1200_;
+}
+const bool &Nano::L1_ETT1600() {
+    if (!loaded_L1_ETT1600_) {
+        if (!b_L1_ETT1600_) throw std::runtime_error("L1_ETT1600 branch doesn't exist");
+        b_L1_ETT1600_->GetEntry(index);
+        loaded_L1_ETT1600_ = true;
+    }
+    return L1_ETT1600_;
+}
+const bool &Nano::L1_ETT2000() {
+    if (!loaded_L1_ETT2000_) {
+        if (!b_L1_ETT2000_) throw std::runtime_error("L1_ETT2000 branch doesn't exist");
+        b_L1_ETT2000_->GetEntry(index);
+        loaded_L1_ETT2000_ = true;
+    }
+    return L1_ETT2000_;
+}
+const bool &Nano::L1_FirstBunchAfterTrain() {
+    if (!loaded_L1_FirstBunchAfterTrain_) {
+        if (!b_L1_FirstBunchAfterTrain_) throw std::runtime_error("L1_FirstBunchAfterTrain branch doesn't exist");
+        b_L1_FirstBunchAfterTrain_->GetEntry(index);
+        loaded_L1_FirstBunchAfterTrain_ = true;
+    }
+    return L1_FirstBunchAfterTrain_;
+}
+const bool &Nano::L1_FirstBunchBeforeTrain() {
+    if (!loaded_L1_FirstBunchBeforeTrain_) {
+        if (!b_L1_FirstBunchBeforeTrain_) throw std::runtime_error("L1_FirstBunchBeforeTrain branch doesn't exist");
+        b_L1_FirstBunchBeforeTrain_->GetEntry(index);
+        loaded_L1_FirstBunchBeforeTrain_ = true;
+    }
+    return L1_FirstBunchBeforeTrain_;
+}
+const bool &Nano::L1_FirstBunchInTrain() {
+    if (!loaded_L1_FirstBunchInTrain_) {
+        if (!b_L1_FirstBunchInTrain_) throw std::runtime_error("L1_FirstBunchInTrain branch doesn't exist");
+        b_L1_FirstBunchInTrain_->GetEntry(index);
+        loaded_L1_FirstBunchInTrain_ = true;
+    }
+    return L1_FirstBunchInTrain_;
+}
+const bool &Nano::L1_FirstCollisionInOrbit() {
+    if (!loaded_L1_FirstCollisionInOrbit_) {
+        if (!b_L1_FirstCollisionInOrbit_) throw std::runtime_error("L1_FirstCollisionInOrbit branch doesn't exist");
+        b_L1_FirstCollisionInOrbit_->GetEntry(index);
+        loaded_L1_FirstCollisionInOrbit_ = true;
+    }
+    return L1_FirstCollisionInOrbit_;
+}
+const bool &Nano::L1_FirstCollisionInTrain() {
+    if (!loaded_L1_FirstCollisionInTrain_) {
+        if (!b_L1_FirstCollisionInTrain_) throw std::runtime_error("L1_FirstCollisionInTrain branch doesn't exist");
+        b_L1_FirstCollisionInTrain_->GetEntry(index);
+        loaded_L1_FirstCollisionInTrain_ = true;
+    }
+    return L1_FirstCollisionInTrain_;
+}
+const bool &Nano::L1_HCAL_LaserMon_Trig() {
+    if (!loaded_L1_HCAL_LaserMon_Trig_) {
+        if (!b_L1_HCAL_LaserMon_Trig_) throw std::runtime_error("L1_HCAL_LaserMon_Trig branch doesn't exist");
+        b_L1_HCAL_LaserMon_Trig_->GetEntry(index);
+        loaded_L1_HCAL_LaserMon_Trig_ = true;
+    }
+    return L1_HCAL_LaserMon_Trig_;
+}
+const bool &Nano::L1_HCAL_LaserMon_Veto() {
+    if (!loaded_L1_HCAL_LaserMon_Veto_) {
+        if (!b_L1_HCAL_LaserMon_Veto_) throw std::runtime_error("L1_HCAL_LaserMon_Veto branch doesn't exist");
+        b_L1_HCAL_LaserMon_Veto_->GetEntry(index);
+        loaded_L1_HCAL_LaserMon_Veto_ = true;
+    }
+    return L1_HCAL_LaserMon_Veto_;
+}
+const bool &Nano::L1_HTT120er() {
+    if (!loaded_L1_HTT120er_) {
+        if (!b_L1_HTT120er_) throw std::runtime_error("L1_HTT120er branch doesn't exist");
+        b_L1_HTT120er_->GetEntry(index);
+        loaded_L1_HTT120er_ = true;
+    }
+    return L1_HTT120er_;
+}
+const bool &Nano::L1_HTT160er() {
+    if (!loaded_L1_HTT160er_) {
+        if (!b_L1_HTT160er_) throw std::runtime_error("L1_HTT160er branch doesn't exist");
+        b_L1_HTT160er_->GetEntry(index);
+        loaded_L1_HTT160er_ = true;
+    }
+    return L1_HTT160er_;
+}
+const bool &Nano::L1_HTT200er() {
+    if (!loaded_L1_HTT200er_) {
+        if (!b_L1_HTT200er_) throw std::runtime_error("L1_HTT200er branch doesn't exist");
+        b_L1_HTT200er_->GetEntry(index);
+        loaded_L1_HTT200er_ = true;
+    }
+    return L1_HTT200er_;
+}
+const bool &Nano::L1_HTT255er() {
+    if (!loaded_L1_HTT255er_) {
+        if (!b_L1_HTT255er_) throw std::runtime_error("L1_HTT255er branch doesn't exist");
+        b_L1_HTT255er_->GetEntry(index);
+        loaded_L1_HTT255er_ = true;
+    }
+    return L1_HTT255er_;
+}
+const bool &Nano::L1_HTT280er() {
+    if (!loaded_L1_HTT280er_) {
+        if (!b_L1_HTT280er_) throw std::runtime_error("L1_HTT280er branch doesn't exist");
+        b_L1_HTT280er_->GetEntry(index);
+        loaded_L1_HTT280er_ = true;
+    }
+    return L1_HTT280er_;
+}
+const bool &Nano::L1_HTT280er_QuadJet_70_55_40_35_er2p4() {
+    if (!loaded_L1_HTT280er_QuadJet_70_55_40_35_er2p4_) {
+        if (!b_L1_HTT280er_QuadJet_70_55_40_35_er2p4_) throw std::runtime_error("L1_HTT280er_QuadJet_70_55_40_35_er2p4 branch doesn't exist");
+        b_L1_HTT280er_QuadJet_70_55_40_35_er2p4_->GetEntry(index);
+        loaded_L1_HTT280er_QuadJet_70_55_40_35_er2p4_ = true;
+    }
+    return L1_HTT280er_QuadJet_70_55_40_35_er2p4_;
+}
+const bool &Nano::L1_HTT320er() {
+    if (!loaded_L1_HTT320er_) {
+        if (!b_L1_HTT320er_) throw std::runtime_error("L1_HTT320er branch doesn't exist");
+        b_L1_HTT320er_->GetEntry(index);
+        loaded_L1_HTT320er_ = true;
+    }
+    return L1_HTT320er_;
+}
+const bool &Nano::L1_HTT320er_QuadJet_70_55_40_40_er2p4() {
+    if (!loaded_L1_HTT320er_QuadJet_70_55_40_40_er2p4_) {
+        if (!b_L1_HTT320er_QuadJet_70_55_40_40_er2p4_) throw std::runtime_error("L1_HTT320er_QuadJet_70_55_40_40_er2p4 branch doesn't exist");
+        b_L1_HTT320er_QuadJet_70_55_40_40_er2p4_->GetEntry(index);
+        loaded_L1_HTT320er_QuadJet_70_55_40_40_er2p4_ = true;
+    }
+    return L1_HTT320er_QuadJet_70_55_40_40_er2p4_;
+}
+const bool &Nano::L1_HTT320er_QuadJet_80_60_er2p1_45_40_er2p3() {
+    if (!loaded_L1_HTT320er_QuadJet_80_60_er2p1_45_40_er2p3_) {
+        if (!b_L1_HTT320er_QuadJet_80_60_er2p1_45_40_er2p3_) throw std::runtime_error("L1_HTT320er_QuadJet_80_60_er2p1_45_40_er2p3 branch doesn't exist");
+        b_L1_HTT320er_QuadJet_80_60_er2p1_45_40_er2p3_->GetEntry(index);
+        loaded_L1_HTT320er_QuadJet_80_60_er2p1_45_40_er2p3_ = true;
+    }
+    return L1_HTT320er_QuadJet_80_60_er2p1_45_40_er2p3_;
+}
+const bool &Nano::L1_HTT320er_QuadJet_80_60_er2p1_50_45_er2p3() {
+    if (!loaded_L1_HTT320er_QuadJet_80_60_er2p1_50_45_er2p3_) {
+        if (!b_L1_HTT320er_QuadJet_80_60_er2p1_50_45_er2p3_) throw std::runtime_error("L1_HTT320er_QuadJet_80_60_er2p1_50_45_er2p3 branch doesn't exist");
+        b_L1_HTT320er_QuadJet_80_60_er2p1_50_45_er2p3_->GetEntry(index);
+        loaded_L1_HTT320er_QuadJet_80_60_er2p1_50_45_er2p3_ = true;
+    }
+    return L1_HTT320er_QuadJet_80_60_er2p1_50_45_er2p3_;
+}
+const bool &Nano::L1_HTT360er() {
+    if (!loaded_L1_HTT360er_) {
+        if (!b_L1_HTT360er_) throw std::runtime_error("L1_HTT360er branch doesn't exist");
+        b_L1_HTT360er_->GetEntry(index);
+        loaded_L1_HTT360er_ = true;
+    }
+    return L1_HTT360er_;
+}
+const bool &Nano::L1_HTT400er() {
+    if (!loaded_L1_HTT400er_) {
+        if (!b_L1_HTT400er_) throw std::runtime_error("L1_HTT400er branch doesn't exist");
+        b_L1_HTT400er_->GetEntry(index);
+        loaded_L1_HTT400er_ = true;
+    }
+    return L1_HTT400er_;
+}
+const bool &Nano::L1_HTT450er() {
+    if (!loaded_L1_HTT450er_) {
+        if (!b_L1_HTT450er_) throw std::runtime_error("L1_HTT450er branch doesn't exist");
+        b_L1_HTT450er_->GetEntry(index);
+        loaded_L1_HTT450er_ = true;
+    }
+    return L1_HTT450er_;
+}
+const bool &Nano::L1_IsoEG32er2p5_Mt40() {
+    if (!loaded_L1_IsoEG32er2p5_Mt40_) {
+        if (!b_L1_IsoEG32er2p5_Mt40_) throw std::runtime_error("L1_IsoEG32er2p5_Mt40 branch doesn't exist");
+        b_L1_IsoEG32er2p5_Mt40_->GetEntry(index);
+        loaded_L1_IsoEG32er2p5_Mt40_ = true;
+    }
+    return L1_IsoEG32er2p5_Mt40_;
+}
+const bool &Nano::L1_IsoEG32er2p5_Mt44() {
+    if (!loaded_L1_IsoEG32er2p5_Mt44_) {
+        if (!b_L1_IsoEG32er2p5_Mt44_) throw std::runtime_error("L1_IsoEG32er2p5_Mt44 branch doesn't exist");
+        b_L1_IsoEG32er2p5_Mt44_->GetEntry(index);
+        loaded_L1_IsoEG32er2p5_Mt44_ = true;
+    }
+    return L1_IsoEG32er2p5_Mt44_;
+}
+const bool &Nano::L1_IsoEG32er2p5_Mt48() {
+    if (!loaded_L1_IsoEG32er2p5_Mt48_) {
+        if (!b_L1_IsoEG32er2p5_Mt48_) throw std::runtime_error("L1_IsoEG32er2p5_Mt48 branch doesn't exist");
+        b_L1_IsoEG32er2p5_Mt48_->GetEntry(index);
+        loaded_L1_IsoEG32er2p5_Mt48_ = true;
+    }
+    return L1_IsoEG32er2p5_Mt48_;
+}
+const bool &Nano::L1_IsoTau40er2p1_ETMHF100() {
+    if (!loaded_L1_IsoTau40er2p1_ETMHF100_) {
+        if (!b_L1_IsoTau40er2p1_ETMHF100_) throw std::runtime_error("L1_IsoTau40er2p1_ETMHF100 branch doesn't exist");
+        b_L1_IsoTau40er2p1_ETMHF100_->GetEntry(index);
+        loaded_L1_IsoTau40er2p1_ETMHF100_ = true;
+    }
+    return L1_IsoTau40er2p1_ETMHF100_;
+}
+const bool &Nano::L1_IsoTau40er2p1_ETMHF110() {
+    if (!loaded_L1_IsoTau40er2p1_ETMHF110_) {
+        if (!b_L1_IsoTau40er2p1_ETMHF110_) throw std::runtime_error("L1_IsoTau40er2p1_ETMHF110 branch doesn't exist");
+        b_L1_IsoTau40er2p1_ETMHF110_->GetEntry(index);
+        loaded_L1_IsoTau40er2p1_ETMHF110_ = true;
+    }
+    return L1_IsoTau40er2p1_ETMHF110_;
+}
+const bool &Nano::L1_IsoTau40er2p1_ETMHF120() {
+    if (!loaded_L1_IsoTau40er2p1_ETMHF120_) {
+        if (!b_L1_IsoTau40er2p1_ETMHF120_) throw std::runtime_error("L1_IsoTau40er2p1_ETMHF120 branch doesn't exist");
+        b_L1_IsoTau40er2p1_ETMHF120_->GetEntry(index);
+        loaded_L1_IsoTau40er2p1_ETMHF120_ = true;
+    }
+    return L1_IsoTau40er2p1_ETMHF120_;
+}
+const bool &Nano::L1_IsoTau40er2p1_ETMHF90() {
+    if (!loaded_L1_IsoTau40er2p1_ETMHF90_) {
+        if (!b_L1_IsoTau40er2p1_ETMHF90_) throw std::runtime_error("L1_IsoTau40er2p1_ETMHF90 branch doesn't exist");
+        b_L1_IsoTau40er2p1_ETMHF90_->GetEntry(index);
+        loaded_L1_IsoTau40er2p1_ETMHF90_ = true;
+    }
+    return L1_IsoTau40er2p1_ETMHF90_;
+}
+const bool &Nano::L1_IsolatedBunch() {
+    if (!loaded_L1_IsolatedBunch_) {
+        if (!b_L1_IsolatedBunch_) throw std::runtime_error("L1_IsolatedBunch branch doesn't exist");
+        b_L1_IsolatedBunch_->GetEntry(index);
+        loaded_L1_IsolatedBunch_ = true;
+    }
+    return L1_IsolatedBunch_;
+}
+const bool &Nano::L1_LastBunchInTrain() {
+    if (!loaded_L1_LastBunchInTrain_) {
+        if (!b_L1_LastBunchInTrain_) throw std::runtime_error("L1_LastBunchInTrain branch doesn't exist");
+        b_L1_LastBunchInTrain_->GetEntry(index);
+        loaded_L1_LastBunchInTrain_ = true;
+    }
+    return L1_LastBunchInTrain_;
+}
+const bool &Nano::L1_LastCollisionInTrain() {
+    if (!loaded_L1_LastCollisionInTrain_) {
+        if (!b_L1_LastCollisionInTrain_) throw std::runtime_error("L1_LastCollisionInTrain branch doesn't exist");
+        b_L1_LastCollisionInTrain_->GetEntry(index);
+        loaded_L1_LastCollisionInTrain_ = true;
+    }
+    return L1_LastCollisionInTrain_;
+}
+const bool &Nano::L1_LooseIsoEG22er2p1_IsoTau26er2p1_dR_Min0p3() {
+    if (!loaded_L1_LooseIsoEG22er2p1_IsoTau26er2p1_dR_Min0p3_) {
+        if (!b_L1_LooseIsoEG22er2p1_IsoTau26er2p1_dR_Min0p3_) throw std::runtime_error("L1_LooseIsoEG22er2p1_IsoTau26er2p1_dR_Min0p3 branch doesn't exist");
+        b_L1_LooseIsoEG22er2p1_IsoTau26er2p1_dR_Min0p3_->GetEntry(index);
+        loaded_L1_LooseIsoEG22er2p1_IsoTau26er2p1_dR_Min0p3_ = true;
+    }
+    return L1_LooseIsoEG22er2p1_IsoTau26er2p1_dR_Min0p3_;
+}
+const bool &Nano::L1_LooseIsoEG22er2p1_Tau70er2p1_dR_Min0p3() {
+    if (!loaded_L1_LooseIsoEG22er2p1_Tau70er2p1_dR_Min0p3_) {
+        if (!b_L1_LooseIsoEG22er2p1_Tau70er2p1_dR_Min0p3_) throw std::runtime_error("L1_LooseIsoEG22er2p1_Tau70er2p1_dR_Min0p3 branch doesn't exist");
+        b_L1_LooseIsoEG22er2p1_Tau70er2p1_dR_Min0p3_->GetEntry(index);
+        loaded_L1_LooseIsoEG22er2p1_Tau70er2p1_dR_Min0p3_ = true;
+    }
+    return L1_LooseIsoEG22er2p1_Tau70er2p1_dR_Min0p3_;
+}
+const bool &Nano::L1_LooseIsoEG24er2p1_HTT100er() {
+    if (!loaded_L1_LooseIsoEG24er2p1_HTT100er_) {
+        if (!b_L1_LooseIsoEG24er2p1_HTT100er_) throw std::runtime_error("L1_LooseIsoEG24er2p1_HTT100er branch doesn't exist");
+        b_L1_LooseIsoEG24er2p1_HTT100er_->GetEntry(index);
+        loaded_L1_LooseIsoEG24er2p1_HTT100er_ = true;
+    }
+    return L1_LooseIsoEG24er2p1_HTT100er_;
+}
+const bool &Nano::L1_LooseIsoEG24er2p1_IsoTau27er2p1_dR_Min0p3() {
+    if (!loaded_L1_LooseIsoEG24er2p1_IsoTau27er2p1_dR_Min0p3_) {
+        if (!b_L1_LooseIsoEG24er2p1_IsoTau27er2p1_dR_Min0p3_) throw std::runtime_error("L1_LooseIsoEG24er2p1_IsoTau27er2p1_dR_Min0p3 branch doesn't exist");
+        b_L1_LooseIsoEG24er2p1_IsoTau27er2p1_dR_Min0p3_->GetEntry(index);
+        loaded_L1_LooseIsoEG24er2p1_IsoTau27er2p1_dR_Min0p3_ = true;
+    }
+    return L1_LooseIsoEG24er2p1_IsoTau27er2p1_dR_Min0p3_;
+}
+const bool &Nano::L1_LooseIsoEG26er2p1_HTT100er() {
+    if (!loaded_L1_LooseIsoEG26er2p1_HTT100er_) {
+        if (!b_L1_LooseIsoEG26er2p1_HTT100er_) throw std::runtime_error("L1_LooseIsoEG26er2p1_HTT100er branch doesn't exist");
+        b_L1_LooseIsoEG26er2p1_HTT100er_->GetEntry(index);
+        loaded_L1_LooseIsoEG26er2p1_HTT100er_ = true;
+    }
+    return L1_LooseIsoEG26er2p1_HTT100er_;
+}
+const bool &Nano::L1_LooseIsoEG26er2p1_Jet34er2p5_dR_Min0p3() {
+    if (!loaded_L1_LooseIsoEG26er2p1_Jet34er2p5_dR_Min0p3_) {
+        if (!b_L1_LooseIsoEG26er2p1_Jet34er2p5_dR_Min0p3_) throw std::runtime_error("L1_LooseIsoEG26er2p1_Jet34er2p5_dR_Min0p3 branch doesn't exist");
+        b_L1_LooseIsoEG26er2p1_Jet34er2p5_dR_Min0p3_->GetEntry(index);
+        loaded_L1_LooseIsoEG26er2p1_Jet34er2p5_dR_Min0p3_ = true;
+    }
+    return L1_LooseIsoEG26er2p1_Jet34er2p5_dR_Min0p3_;
+}
+const bool &Nano::L1_LooseIsoEG28er2p1_HTT100er() {
+    if (!loaded_L1_LooseIsoEG28er2p1_HTT100er_) {
+        if (!b_L1_LooseIsoEG28er2p1_HTT100er_) throw std::runtime_error("L1_LooseIsoEG28er2p1_HTT100er branch doesn't exist");
+        b_L1_LooseIsoEG28er2p1_HTT100er_->GetEntry(index);
+        loaded_L1_LooseIsoEG28er2p1_HTT100er_ = true;
+    }
+    return L1_LooseIsoEG28er2p1_HTT100er_;
+}
+const bool &Nano::L1_LooseIsoEG28er2p1_Jet34er2p5_dR_Min0p3() {
+    if (!loaded_L1_LooseIsoEG28er2p1_Jet34er2p5_dR_Min0p3_) {
+        if (!b_L1_LooseIsoEG28er2p1_Jet34er2p5_dR_Min0p3_) throw std::runtime_error("L1_LooseIsoEG28er2p1_Jet34er2p5_dR_Min0p3 branch doesn't exist");
+        b_L1_LooseIsoEG28er2p1_Jet34er2p5_dR_Min0p3_->GetEntry(index);
+        loaded_L1_LooseIsoEG28er2p1_Jet34er2p5_dR_Min0p3_ = true;
+    }
+    return L1_LooseIsoEG28er2p1_Jet34er2p5_dR_Min0p3_;
+}
+const bool &Nano::L1_LooseIsoEG30er2p1_HTT100er() {
+    if (!loaded_L1_LooseIsoEG30er2p1_HTT100er_) {
+        if (!b_L1_LooseIsoEG30er2p1_HTT100er_) throw std::runtime_error("L1_LooseIsoEG30er2p1_HTT100er branch doesn't exist");
+        b_L1_LooseIsoEG30er2p1_HTT100er_->GetEntry(index);
+        loaded_L1_LooseIsoEG30er2p1_HTT100er_ = true;
+    }
+    return L1_LooseIsoEG30er2p1_HTT100er_;
+}
+const bool &Nano::L1_LooseIsoEG30er2p1_Jet34er2p5_dR_Min0p3() {
+    if (!loaded_L1_LooseIsoEG30er2p1_Jet34er2p5_dR_Min0p3_) {
+        if (!b_L1_LooseIsoEG30er2p1_Jet34er2p5_dR_Min0p3_) throw std::runtime_error("L1_LooseIsoEG30er2p1_Jet34er2p5_dR_Min0p3 branch doesn't exist");
+        b_L1_LooseIsoEG30er2p1_Jet34er2p5_dR_Min0p3_->GetEntry(index);
+        loaded_L1_LooseIsoEG30er2p1_Jet34er2p5_dR_Min0p3_ = true;
+    }
+    return L1_LooseIsoEG30er2p1_Jet34er2p5_dR_Min0p3_;
+}
+const bool &Nano::L1_MinimumBiasHF0_AND_BptxAND() {
+    if (!loaded_L1_MinimumBiasHF0_AND_BptxAND_) {
+        if (!b_L1_MinimumBiasHF0_AND_BptxAND_) throw std::runtime_error("L1_MinimumBiasHF0_AND_BptxAND branch doesn't exist");
+        b_L1_MinimumBiasHF0_AND_BptxAND_->GetEntry(index);
+        loaded_L1_MinimumBiasHF0_AND_BptxAND_ = true;
+    }
+    return L1_MinimumBiasHF0_AND_BptxAND_;
+}
+const bool &Nano::L1_Mu10er2p3_Jet32er2p3_dR_Max0p4_DoubleJet32er2p3_dEta_Max1p6() {
+    if (!loaded_L1_Mu10er2p3_Jet32er2p3_dR_Max0p4_DoubleJet32er2p3_dEta_Max1p6_) {
+        if (!b_L1_Mu10er2p3_Jet32er2p3_dR_Max0p4_DoubleJet32er2p3_dEta_Max1p6_) throw std::runtime_error("L1_Mu10er2p3_Jet32er2p3_dR_Max0p4_DoubleJet32er2p3_dEta_Max1p6 branch doesn't exist");
+        b_L1_Mu10er2p3_Jet32er2p3_dR_Max0p4_DoubleJet32er2p3_dEta_Max1p6_->GetEntry(index);
+        loaded_L1_Mu10er2p3_Jet32er2p3_dR_Max0p4_DoubleJet32er2p3_dEta_Max1p6_ = true;
+    }
+    return L1_Mu10er2p3_Jet32er2p3_dR_Max0p4_DoubleJet32er2p3_dEta_Max1p6_;
+}
+const bool &Nano::L1_Mu12er2p3_Jet40er2p1_dR_Max0p4_DoubleJet40er2p1_dEta_Max1p6() {
+    if (!loaded_L1_Mu12er2p3_Jet40er2p1_dR_Max0p4_DoubleJet40er2p1_dEta_Max1p6_) {
+        if (!b_L1_Mu12er2p3_Jet40er2p1_dR_Max0p4_DoubleJet40er2p1_dEta_Max1p6_) throw std::runtime_error("L1_Mu12er2p3_Jet40er2p1_dR_Max0p4_DoubleJet40er2p1_dEta_Max1p6 branch doesn't exist");
+        b_L1_Mu12er2p3_Jet40er2p1_dR_Max0p4_DoubleJet40er2p1_dEta_Max1p6_->GetEntry(index);
+        loaded_L1_Mu12er2p3_Jet40er2p1_dR_Max0p4_DoubleJet40er2p1_dEta_Max1p6_ = true;
+    }
+    return L1_Mu12er2p3_Jet40er2p1_dR_Max0p4_DoubleJet40er2p1_dEta_Max1p6_;
+}
+const bool &Nano::L1_Mu12er2p3_Jet40er2p3_dR_Max0p4_DoubleJet40er2p3_dEta_Max1p6() {
+    if (!loaded_L1_Mu12er2p3_Jet40er2p3_dR_Max0p4_DoubleJet40er2p3_dEta_Max1p6_) {
+        if (!b_L1_Mu12er2p3_Jet40er2p3_dR_Max0p4_DoubleJet40er2p3_dEta_Max1p6_) throw std::runtime_error("L1_Mu12er2p3_Jet40er2p3_dR_Max0p4_DoubleJet40er2p3_dEta_Max1p6 branch doesn't exist");
+        b_L1_Mu12er2p3_Jet40er2p3_dR_Max0p4_DoubleJet40er2p3_dEta_Max1p6_->GetEntry(index);
+        loaded_L1_Mu12er2p3_Jet40er2p3_dR_Max0p4_DoubleJet40er2p3_dEta_Max1p6_ = true;
+    }
+    return L1_Mu12er2p3_Jet40er2p3_dR_Max0p4_DoubleJet40er2p3_dEta_Max1p6_;
+}
+const bool &Nano::L1_Mu18er2p1_Tau24er2p1() {
+    if (!loaded_L1_Mu18er2p1_Tau24er2p1_) {
+        if (!b_L1_Mu18er2p1_Tau24er2p1_) throw std::runtime_error("L1_Mu18er2p1_Tau24er2p1 branch doesn't exist");
+        b_L1_Mu18er2p1_Tau24er2p1_->GetEntry(index);
+        loaded_L1_Mu18er2p1_Tau24er2p1_ = true;
+    }
+    return L1_Mu18er2p1_Tau24er2p1_;
+}
+const bool &Nano::L1_Mu18er2p1_Tau26er2p1() {
+    if (!loaded_L1_Mu18er2p1_Tau26er2p1_) {
+        if (!b_L1_Mu18er2p1_Tau26er2p1_) throw std::runtime_error("L1_Mu18er2p1_Tau26er2p1 branch doesn't exist");
+        b_L1_Mu18er2p1_Tau26er2p1_->GetEntry(index);
+        loaded_L1_Mu18er2p1_Tau26er2p1_ = true;
+    }
+    return L1_Mu18er2p1_Tau26er2p1_;
+}
+const bool &Nano::L1_Mu20_EG10er2p5() {
+    if (!loaded_L1_Mu20_EG10er2p5_) {
+        if (!b_L1_Mu20_EG10er2p5_) throw std::runtime_error("L1_Mu20_EG10er2p5 branch doesn't exist");
+        b_L1_Mu20_EG10er2p5_->GetEntry(index);
+        loaded_L1_Mu20_EG10er2p5_ = true;
+    }
+    return L1_Mu20_EG10er2p5_;
+}
+const bool &Nano::L1_Mu22er2p1_IsoTau32er2p1() {
+    if (!loaded_L1_Mu22er2p1_IsoTau32er2p1_) {
+        if (!b_L1_Mu22er2p1_IsoTau32er2p1_) throw std::runtime_error("L1_Mu22er2p1_IsoTau32er2p1 branch doesn't exist");
+        b_L1_Mu22er2p1_IsoTau32er2p1_->GetEntry(index);
+        loaded_L1_Mu22er2p1_IsoTau32er2p1_ = true;
+    }
+    return L1_Mu22er2p1_IsoTau32er2p1_;
+}
+const bool &Nano::L1_Mu22er2p1_IsoTau34er2p1() {
+    if (!loaded_L1_Mu22er2p1_IsoTau34er2p1_) {
+        if (!b_L1_Mu22er2p1_IsoTau34er2p1_) throw std::runtime_error("L1_Mu22er2p1_IsoTau34er2p1 branch doesn't exist");
+        b_L1_Mu22er2p1_IsoTau34er2p1_->GetEntry(index);
+        loaded_L1_Mu22er2p1_IsoTau34er2p1_ = true;
+    }
+    return L1_Mu22er2p1_IsoTau34er2p1_;
+}
+const bool &Nano::L1_Mu22er2p1_IsoTau36er2p1() {
+    if (!loaded_L1_Mu22er2p1_IsoTau36er2p1_) {
+        if (!b_L1_Mu22er2p1_IsoTau36er2p1_) throw std::runtime_error("L1_Mu22er2p1_IsoTau36er2p1 branch doesn't exist");
+        b_L1_Mu22er2p1_IsoTau36er2p1_->GetEntry(index);
+        loaded_L1_Mu22er2p1_IsoTau36er2p1_ = true;
+    }
+    return L1_Mu22er2p1_IsoTau36er2p1_;
+}
+const bool &Nano::L1_Mu22er2p1_IsoTau40er2p1() {
+    if (!loaded_L1_Mu22er2p1_IsoTau40er2p1_) {
+        if (!b_L1_Mu22er2p1_IsoTau40er2p1_) throw std::runtime_error("L1_Mu22er2p1_IsoTau40er2p1 branch doesn't exist");
+        b_L1_Mu22er2p1_IsoTau40er2p1_->GetEntry(index);
+        loaded_L1_Mu22er2p1_IsoTau40er2p1_ = true;
+    }
+    return L1_Mu22er2p1_IsoTau40er2p1_;
+}
+const bool &Nano::L1_Mu22er2p1_Tau70er2p1() {
+    if (!loaded_L1_Mu22er2p1_Tau70er2p1_) {
+        if (!b_L1_Mu22er2p1_Tau70er2p1_) throw std::runtime_error("L1_Mu22er2p1_Tau70er2p1 branch doesn't exist");
+        b_L1_Mu22er2p1_Tau70er2p1_->GetEntry(index);
+        loaded_L1_Mu22er2p1_Tau70er2p1_ = true;
+    }
+    return L1_Mu22er2p1_Tau70er2p1_;
+}
+const bool &Nano::L1_Mu3_Jet120er2p5_dR_Max0p4() {
+    if (!loaded_L1_Mu3_Jet120er2p5_dR_Max0p4_) {
+        if (!b_L1_Mu3_Jet120er2p5_dR_Max0p4_) throw std::runtime_error("L1_Mu3_Jet120er2p5_dR_Max0p4 branch doesn't exist");
+        b_L1_Mu3_Jet120er2p5_dR_Max0p4_->GetEntry(index);
+        loaded_L1_Mu3_Jet120er2p5_dR_Max0p4_ = true;
+    }
+    return L1_Mu3_Jet120er2p5_dR_Max0p4_;
+}
+const bool &Nano::L1_Mu3_Jet120er2p5_dR_Max0p8() {
+    if (!loaded_L1_Mu3_Jet120er2p5_dR_Max0p8_) {
+        if (!b_L1_Mu3_Jet120er2p5_dR_Max0p8_) throw std::runtime_error("L1_Mu3_Jet120er2p5_dR_Max0p8 branch doesn't exist");
+        b_L1_Mu3_Jet120er2p5_dR_Max0p8_->GetEntry(index);
+        loaded_L1_Mu3_Jet120er2p5_dR_Max0p8_ = true;
+    }
+    return L1_Mu3_Jet120er2p5_dR_Max0p8_;
+}
+const bool &Nano::L1_Mu3_Jet16er2p5_dR_Max0p4() {
+    if (!loaded_L1_Mu3_Jet16er2p5_dR_Max0p4_) {
+        if (!b_L1_Mu3_Jet16er2p5_dR_Max0p4_) throw std::runtime_error("L1_Mu3_Jet16er2p5_dR_Max0p4 branch doesn't exist");
+        b_L1_Mu3_Jet16er2p5_dR_Max0p4_->GetEntry(index);
+        loaded_L1_Mu3_Jet16er2p5_dR_Max0p4_ = true;
+    }
+    return L1_Mu3_Jet16er2p5_dR_Max0p4_;
+}
+const bool &Nano::L1_Mu3_Jet30er2p5() {
+    if (!loaded_L1_Mu3_Jet30er2p5_) {
+        if (!b_L1_Mu3_Jet30er2p5_) throw std::runtime_error("L1_Mu3_Jet30er2p5 branch doesn't exist");
+        b_L1_Mu3_Jet30er2p5_->GetEntry(index);
+        loaded_L1_Mu3_Jet30er2p5_ = true;
+    }
+    return L1_Mu3_Jet30er2p5_;
+}
+const bool &Nano::L1_Mu3_Jet35er2p5_dR_Max0p4() {
+    if (!loaded_L1_Mu3_Jet35er2p5_dR_Max0p4_) {
+        if (!b_L1_Mu3_Jet35er2p5_dR_Max0p4_) throw std::runtime_error("L1_Mu3_Jet35er2p5_dR_Max0p4 branch doesn't exist");
+        b_L1_Mu3_Jet35er2p5_dR_Max0p4_->GetEntry(index);
+        loaded_L1_Mu3_Jet35er2p5_dR_Max0p4_ = true;
+    }
+    return L1_Mu3_Jet35er2p5_dR_Max0p4_;
+}
+const bool &Nano::L1_Mu3_Jet60er2p5_dR_Max0p4() {
+    if (!loaded_L1_Mu3_Jet60er2p5_dR_Max0p4_) {
+        if (!b_L1_Mu3_Jet60er2p5_dR_Max0p4_) throw std::runtime_error("L1_Mu3_Jet60er2p5_dR_Max0p4 branch doesn't exist");
+        b_L1_Mu3_Jet60er2p5_dR_Max0p4_->GetEntry(index);
+        loaded_L1_Mu3_Jet60er2p5_dR_Max0p4_ = true;
+    }
+    return L1_Mu3_Jet60er2p5_dR_Max0p4_;
+}
+const bool &Nano::L1_Mu3_Jet80er2p5_dR_Max0p4() {
+    if (!loaded_L1_Mu3_Jet80er2p5_dR_Max0p4_) {
+        if (!b_L1_Mu3_Jet80er2p5_dR_Max0p4_) throw std::runtime_error("L1_Mu3_Jet80er2p5_dR_Max0p4 branch doesn't exist");
+        b_L1_Mu3_Jet80er2p5_dR_Max0p4_->GetEntry(index);
+        loaded_L1_Mu3_Jet80er2p5_dR_Max0p4_ = true;
+    }
+    return L1_Mu3_Jet80er2p5_dR_Max0p4_;
+}
+const bool &Nano::L1_Mu3er1p5_Jet100er2p5_ETMHF40() {
+    if (!loaded_L1_Mu3er1p5_Jet100er2p5_ETMHF40_) {
+        if (!b_L1_Mu3er1p5_Jet100er2p5_ETMHF40_) throw std::runtime_error("L1_Mu3er1p5_Jet100er2p5_ETMHF40 branch doesn't exist");
+        b_L1_Mu3er1p5_Jet100er2p5_ETMHF40_->GetEntry(index);
+        loaded_L1_Mu3er1p5_Jet100er2p5_ETMHF40_ = true;
+    }
+    return L1_Mu3er1p5_Jet100er2p5_ETMHF40_;
+}
+const bool &Nano::L1_Mu3er1p5_Jet100er2p5_ETMHF50() {
+    if (!loaded_L1_Mu3er1p5_Jet100er2p5_ETMHF50_) {
+        if (!b_L1_Mu3er1p5_Jet100er2p5_ETMHF50_) throw std::runtime_error("L1_Mu3er1p5_Jet100er2p5_ETMHF50 branch doesn't exist");
+        b_L1_Mu3er1p5_Jet100er2p5_ETMHF50_->GetEntry(index);
+        loaded_L1_Mu3er1p5_Jet100er2p5_ETMHF50_ = true;
+    }
+    return L1_Mu3er1p5_Jet100er2p5_ETMHF50_;
+}
+const bool &Nano::L1_Mu5_EG23er2p5() {
+    if (!loaded_L1_Mu5_EG23er2p5_) {
+        if (!b_L1_Mu5_EG23er2p5_) throw std::runtime_error("L1_Mu5_EG23er2p5 branch doesn't exist");
+        b_L1_Mu5_EG23er2p5_->GetEntry(index);
+        loaded_L1_Mu5_EG23er2p5_ = true;
+    }
+    return L1_Mu5_EG23er2p5_;
+}
+const bool &Nano::L1_Mu5_LooseIsoEG20er2p5() {
+    if (!loaded_L1_Mu5_LooseIsoEG20er2p5_) {
+        if (!b_L1_Mu5_LooseIsoEG20er2p5_) throw std::runtime_error("L1_Mu5_LooseIsoEG20er2p5 branch doesn't exist");
+        b_L1_Mu5_LooseIsoEG20er2p5_->GetEntry(index);
+        loaded_L1_Mu5_LooseIsoEG20er2p5_ = true;
+    }
+    return L1_Mu5_LooseIsoEG20er2p5_;
+}
+const bool &Nano::L1_Mu6_DoubleEG10er2p5() {
+    if (!loaded_L1_Mu6_DoubleEG10er2p5_) {
+        if (!b_L1_Mu6_DoubleEG10er2p5_) throw std::runtime_error("L1_Mu6_DoubleEG10er2p5 branch doesn't exist");
+        b_L1_Mu6_DoubleEG10er2p5_->GetEntry(index);
+        loaded_L1_Mu6_DoubleEG10er2p5_ = true;
+    }
+    return L1_Mu6_DoubleEG10er2p5_;
+}
+const bool &Nano::L1_Mu6_DoubleEG12er2p5() {
+    if (!loaded_L1_Mu6_DoubleEG12er2p5_) {
+        if (!b_L1_Mu6_DoubleEG12er2p5_) throw std::runtime_error("L1_Mu6_DoubleEG12er2p5 branch doesn't exist");
+        b_L1_Mu6_DoubleEG12er2p5_->GetEntry(index);
+        loaded_L1_Mu6_DoubleEG12er2p5_ = true;
+    }
+    return L1_Mu6_DoubleEG12er2p5_;
+}
+const bool &Nano::L1_Mu6_DoubleEG15er2p5() {
+    if (!loaded_L1_Mu6_DoubleEG15er2p5_) {
+        if (!b_L1_Mu6_DoubleEG15er2p5_) throw std::runtime_error("L1_Mu6_DoubleEG15er2p5 branch doesn't exist");
+        b_L1_Mu6_DoubleEG15er2p5_->GetEntry(index);
+        loaded_L1_Mu6_DoubleEG15er2p5_ = true;
+    }
+    return L1_Mu6_DoubleEG15er2p5_;
+}
+const bool &Nano::L1_Mu6_DoubleEG17er2p5() {
+    if (!loaded_L1_Mu6_DoubleEG17er2p5_) {
+        if (!b_L1_Mu6_DoubleEG17er2p5_) throw std::runtime_error("L1_Mu6_DoubleEG17er2p5 branch doesn't exist");
+        b_L1_Mu6_DoubleEG17er2p5_->GetEntry(index);
+        loaded_L1_Mu6_DoubleEG17er2p5_ = true;
+    }
+    return L1_Mu6_DoubleEG17er2p5_;
+}
+const bool &Nano::L1_Mu6_HTT240er() {
+    if (!loaded_L1_Mu6_HTT240er_) {
+        if (!b_L1_Mu6_HTT240er_) throw std::runtime_error("L1_Mu6_HTT240er branch doesn't exist");
+        b_L1_Mu6_HTT240er_->GetEntry(index);
+        loaded_L1_Mu6_HTT240er_ = true;
+    }
+    return L1_Mu6_HTT240er_;
+}
+const bool &Nano::L1_Mu6_HTT250er() {
+    if (!loaded_L1_Mu6_HTT250er_) {
+        if (!b_L1_Mu6_HTT250er_) throw std::runtime_error("L1_Mu6_HTT250er branch doesn't exist");
+        b_L1_Mu6_HTT250er_->GetEntry(index);
+        loaded_L1_Mu6_HTT250er_ = true;
+    }
+    return L1_Mu6_HTT250er_;
+}
+const bool &Nano::L1_Mu7_EG23er2p5() {
+    if (!loaded_L1_Mu7_EG23er2p5_) {
+        if (!b_L1_Mu7_EG23er2p5_) throw std::runtime_error("L1_Mu7_EG23er2p5 branch doesn't exist");
+        b_L1_Mu7_EG23er2p5_->GetEntry(index);
+        loaded_L1_Mu7_EG23er2p5_ = true;
+    }
+    return L1_Mu7_EG23er2p5_;
+}
+const bool &Nano::L1_Mu7_LooseIsoEG20er2p5() {
+    if (!loaded_L1_Mu7_LooseIsoEG20er2p5_) {
+        if (!b_L1_Mu7_LooseIsoEG20er2p5_) throw std::runtime_error("L1_Mu7_LooseIsoEG20er2p5 branch doesn't exist");
+        b_L1_Mu7_LooseIsoEG20er2p5_->GetEntry(index);
+        loaded_L1_Mu7_LooseIsoEG20er2p5_ = true;
+    }
+    return L1_Mu7_LooseIsoEG20er2p5_;
+}
+const bool &Nano::L1_Mu7_LooseIsoEG23er2p5() {
+    if (!loaded_L1_Mu7_LooseIsoEG23er2p5_) {
+        if (!b_L1_Mu7_LooseIsoEG23er2p5_) throw std::runtime_error("L1_Mu7_LooseIsoEG23er2p5 branch doesn't exist");
+        b_L1_Mu7_LooseIsoEG23er2p5_->GetEntry(index);
+        loaded_L1_Mu7_LooseIsoEG23er2p5_ = true;
+    }
+    return L1_Mu7_LooseIsoEG23er2p5_;
+}
+const bool &Nano::L1_NotBptxOR() {
+    if (!loaded_L1_NotBptxOR_) {
+        if (!b_L1_NotBptxOR_) throw std::runtime_error("L1_NotBptxOR branch doesn't exist");
+        b_L1_NotBptxOR_->GetEntry(index);
+        loaded_L1_NotBptxOR_ = true;
+    }
+    return L1_NotBptxOR_;
+}
+const bool &Nano::L1_QuadJet36er2p5_IsoTau52er2p1() {
+    if (!loaded_L1_QuadJet36er2p5_IsoTau52er2p1_) {
+        if (!b_L1_QuadJet36er2p5_IsoTau52er2p1_) throw std::runtime_error("L1_QuadJet36er2p5_IsoTau52er2p1 branch doesn't exist");
+        b_L1_QuadJet36er2p5_IsoTau52er2p1_->GetEntry(index);
+        loaded_L1_QuadJet36er2p5_IsoTau52er2p1_ = true;
+    }
+    return L1_QuadJet36er2p5_IsoTau52er2p1_;
+}
+const bool &Nano::L1_QuadJet60er2p5() {
+    if (!loaded_L1_QuadJet60er2p5_) {
+        if (!b_L1_QuadJet60er2p5_) throw std::runtime_error("L1_QuadJet60er2p5 branch doesn't exist");
+        b_L1_QuadJet60er2p5_->GetEntry(index);
+        loaded_L1_QuadJet60er2p5_ = true;
+    }
+    return L1_QuadJet60er2p5_;
+}
+const bool &Nano::L1_QuadJet_95_75_65_20_DoubleJet_75_65_er2p5_Jet20_FWD3p0() {
+    if (!loaded_L1_QuadJet_95_75_65_20_DoubleJet_75_65_er2p5_Jet20_FWD3p0_) {
+        if (!b_L1_QuadJet_95_75_65_20_DoubleJet_75_65_er2p5_Jet20_FWD3p0_) throw std::runtime_error("L1_QuadJet_95_75_65_20_DoubleJet_75_65_er2p5_Jet20_FWD3p0 branch doesn't exist");
+        b_L1_QuadJet_95_75_65_20_DoubleJet_75_65_er2p5_Jet20_FWD3p0_->GetEntry(index);
+        loaded_L1_QuadJet_95_75_65_20_DoubleJet_75_65_er2p5_Jet20_FWD3p0_ = true;
+    }
+    return L1_QuadJet_95_75_65_20_DoubleJet_75_65_er2p5_Jet20_FWD3p0_;
+}
+const bool &Nano::L1_QuadMu0() {
+    if (!loaded_L1_QuadMu0_) {
+        if (!b_L1_QuadMu0_) throw std::runtime_error("L1_QuadMu0 branch doesn't exist");
+        b_L1_QuadMu0_->GetEntry(index);
+        loaded_L1_QuadMu0_ = true;
+    }
+    return L1_QuadMu0_;
+}
+const bool &Nano::L1_QuadMu0_OQ() {
+    if (!loaded_L1_QuadMu0_OQ_) {
+        if (!b_L1_QuadMu0_OQ_) throw std::runtime_error("L1_QuadMu0_OQ branch doesn't exist");
+        b_L1_QuadMu0_OQ_->GetEntry(index);
+        loaded_L1_QuadMu0_OQ_ = true;
+    }
+    return L1_QuadMu0_OQ_;
+}
+const bool &Nano::L1_QuadMu0_SQ() {
+    if (!loaded_L1_QuadMu0_SQ_) {
+        if (!b_L1_QuadMu0_SQ_) throw std::runtime_error("L1_QuadMu0_SQ branch doesn't exist");
+        b_L1_QuadMu0_SQ_->GetEntry(index);
+        loaded_L1_QuadMu0_SQ_ = true;
+    }
+    return L1_QuadMu0_SQ_;
+}
+const bool &Nano::L1_SecondBunchInTrain() {
+    if (!loaded_L1_SecondBunchInTrain_) {
+        if (!b_L1_SecondBunchInTrain_) throw std::runtime_error("L1_SecondBunchInTrain branch doesn't exist");
+        b_L1_SecondBunchInTrain_->GetEntry(index);
+        loaded_L1_SecondBunchInTrain_ = true;
+    }
+    return L1_SecondBunchInTrain_;
+}
+const bool &Nano::L1_SecondLastBunchInTrain() {
+    if (!loaded_L1_SecondLastBunchInTrain_) {
+        if (!b_L1_SecondLastBunchInTrain_) throw std::runtime_error("L1_SecondLastBunchInTrain branch doesn't exist");
+        b_L1_SecondLastBunchInTrain_->GetEntry(index);
+        loaded_L1_SecondLastBunchInTrain_ = true;
+    }
+    return L1_SecondLastBunchInTrain_;
+}
+const bool &Nano::L1_SingleEG10er2p5() {
+    if (!loaded_L1_SingleEG10er2p5_) {
+        if (!b_L1_SingleEG10er2p5_) throw std::runtime_error("L1_SingleEG10er2p5 branch doesn't exist");
+        b_L1_SingleEG10er2p5_->GetEntry(index);
+        loaded_L1_SingleEG10er2p5_ = true;
+    }
+    return L1_SingleEG10er2p5_;
+}
+const bool &Nano::L1_SingleEG15er2p5() {
+    if (!loaded_L1_SingleEG15er2p5_) {
+        if (!b_L1_SingleEG15er2p5_) throw std::runtime_error("L1_SingleEG15er2p5 branch doesn't exist");
+        b_L1_SingleEG15er2p5_->GetEntry(index);
+        loaded_L1_SingleEG15er2p5_ = true;
+    }
+    return L1_SingleEG15er2p5_;
+}
+const bool &Nano::L1_SingleEG26er2p5() {
+    if (!loaded_L1_SingleEG26er2p5_) {
+        if (!b_L1_SingleEG26er2p5_) throw std::runtime_error("L1_SingleEG26er2p5 branch doesn't exist");
+        b_L1_SingleEG26er2p5_->GetEntry(index);
+        loaded_L1_SingleEG26er2p5_ = true;
+    }
+    return L1_SingleEG26er2p5_;
+}
+const bool &Nano::L1_SingleEG34er2p5() {
+    if (!loaded_L1_SingleEG34er2p5_) {
+        if (!b_L1_SingleEG34er2p5_) throw std::runtime_error("L1_SingleEG34er2p5 branch doesn't exist");
+        b_L1_SingleEG34er2p5_->GetEntry(index);
+        loaded_L1_SingleEG34er2p5_ = true;
+    }
+    return L1_SingleEG34er2p5_;
+}
+const bool &Nano::L1_SingleEG36er2p5() {
+    if (!loaded_L1_SingleEG36er2p5_) {
+        if (!b_L1_SingleEG36er2p5_) throw std::runtime_error("L1_SingleEG36er2p5 branch doesn't exist");
+        b_L1_SingleEG36er2p5_->GetEntry(index);
+        loaded_L1_SingleEG36er2p5_ = true;
+    }
+    return L1_SingleEG36er2p5_;
+}
+const bool &Nano::L1_SingleEG38er2p5() {
+    if (!loaded_L1_SingleEG38er2p5_) {
+        if (!b_L1_SingleEG38er2p5_) throw std::runtime_error("L1_SingleEG38er2p5 branch doesn't exist");
+        b_L1_SingleEG38er2p5_->GetEntry(index);
+        loaded_L1_SingleEG38er2p5_ = true;
+    }
+    return L1_SingleEG38er2p5_;
+}
+const bool &Nano::L1_SingleEG40er2p5() {
+    if (!loaded_L1_SingleEG40er2p5_) {
+        if (!b_L1_SingleEG40er2p5_) throw std::runtime_error("L1_SingleEG40er2p5 branch doesn't exist");
+        b_L1_SingleEG40er2p5_->GetEntry(index);
+        loaded_L1_SingleEG40er2p5_ = true;
+    }
+    return L1_SingleEG40er2p5_;
+}
+const bool &Nano::L1_SingleEG42er2p5() {
+    if (!loaded_L1_SingleEG42er2p5_) {
+        if (!b_L1_SingleEG42er2p5_) throw std::runtime_error("L1_SingleEG42er2p5 branch doesn't exist");
+        b_L1_SingleEG42er2p5_->GetEntry(index);
+        loaded_L1_SingleEG42er2p5_ = true;
+    }
+    return L1_SingleEG42er2p5_;
+}
+const bool &Nano::L1_SingleEG45er2p5() {
+    if (!loaded_L1_SingleEG45er2p5_) {
+        if (!b_L1_SingleEG45er2p5_) throw std::runtime_error("L1_SingleEG45er2p5 branch doesn't exist");
+        b_L1_SingleEG45er2p5_->GetEntry(index);
+        loaded_L1_SingleEG45er2p5_ = true;
+    }
+    return L1_SingleEG45er2p5_;
+}
+const bool &Nano::L1_SingleEG50() {
+    if (!loaded_L1_SingleEG50_) {
+        if (!b_L1_SingleEG50_) throw std::runtime_error("L1_SingleEG50 branch doesn't exist");
+        b_L1_SingleEG50_->GetEntry(index);
+        loaded_L1_SingleEG50_ = true;
+    }
+    return L1_SingleEG50_;
+}
+const bool &Nano::L1_SingleEG60() {
+    if (!loaded_L1_SingleEG60_) {
+        if (!b_L1_SingleEG60_) throw std::runtime_error("L1_SingleEG60 branch doesn't exist");
+        b_L1_SingleEG60_->GetEntry(index);
+        loaded_L1_SingleEG60_ = true;
+    }
+    return L1_SingleEG60_;
+}
+const bool &Nano::L1_SingleEG8er2p5() {
+    if (!loaded_L1_SingleEG8er2p5_) {
+        if (!b_L1_SingleEG8er2p5_) throw std::runtime_error("L1_SingleEG8er2p5 branch doesn't exist");
+        b_L1_SingleEG8er2p5_->GetEntry(index);
+        loaded_L1_SingleEG8er2p5_ = true;
+    }
+    return L1_SingleEG8er2p5_;
+}
+const bool &Nano::L1_SingleIsoEG24er1p5() {
+    if (!loaded_L1_SingleIsoEG24er1p5_) {
+        if (!b_L1_SingleIsoEG24er1p5_) throw std::runtime_error("L1_SingleIsoEG24er1p5 branch doesn't exist");
+        b_L1_SingleIsoEG24er1p5_->GetEntry(index);
+        loaded_L1_SingleIsoEG24er1p5_ = true;
+    }
+    return L1_SingleIsoEG24er1p5_;
+}
+const bool &Nano::L1_SingleIsoEG24er2p1() {
+    if (!loaded_L1_SingleIsoEG24er2p1_) {
+        if (!b_L1_SingleIsoEG24er2p1_) throw std::runtime_error("L1_SingleIsoEG24er2p1 branch doesn't exist");
+        b_L1_SingleIsoEG24er2p1_->GetEntry(index);
+        loaded_L1_SingleIsoEG24er2p1_ = true;
+    }
+    return L1_SingleIsoEG24er2p1_;
+}
+const bool &Nano::L1_SingleIsoEG26er1p5() {
+    if (!loaded_L1_SingleIsoEG26er1p5_) {
+        if (!b_L1_SingleIsoEG26er1p5_) throw std::runtime_error("L1_SingleIsoEG26er1p5 branch doesn't exist");
+        b_L1_SingleIsoEG26er1p5_->GetEntry(index);
+        loaded_L1_SingleIsoEG26er1p5_ = true;
+    }
+    return L1_SingleIsoEG26er1p5_;
+}
+const bool &Nano::L1_SingleIsoEG26er2p1() {
+    if (!loaded_L1_SingleIsoEG26er2p1_) {
+        if (!b_L1_SingleIsoEG26er2p1_) throw std::runtime_error("L1_SingleIsoEG26er2p1 branch doesn't exist");
+        b_L1_SingleIsoEG26er2p1_->GetEntry(index);
+        loaded_L1_SingleIsoEG26er2p1_ = true;
+    }
+    return L1_SingleIsoEG26er2p1_;
+}
+const bool &Nano::L1_SingleIsoEG26er2p5() {
+    if (!loaded_L1_SingleIsoEG26er2p5_) {
+        if (!b_L1_SingleIsoEG26er2p5_) throw std::runtime_error("L1_SingleIsoEG26er2p5 branch doesn't exist");
+        b_L1_SingleIsoEG26er2p5_->GetEntry(index);
+        loaded_L1_SingleIsoEG26er2p5_ = true;
+    }
+    return L1_SingleIsoEG26er2p5_;
+}
+const bool &Nano::L1_SingleIsoEG28er1p5() {
+    if (!loaded_L1_SingleIsoEG28er1p5_) {
+        if (!b_L1_SingleIsoEG28er1p5_) throw std::runtime_error("L1_SingleIsoEG28er1p5 branch doesn't exist");
+        b_L1_SingleIsoEG28er1p5_->GetEntry(index);
+        loaded_L1_SingleIsoEG28er1p5_ = true;
+    }
+    return L1_SingleIsoEG28er1p5_;
+}
+const bool &Nano::L1_SingleIsoEG28er2p1() {
+    if (!loaded_L1_SingleIsoEG28er2p1_) {
+        if (!b_L1_SingleIsoEG28er2p1_) throw std::runtime_error("L1_SingleIsoEG28er2p1 branch doesn't exist");
+        b_L1_SingleIsoEG28er2p1_->GetEntry(index);
+        loaded_L1_SingleIsoEG28er2p1_ = true;
+    }
+    return L1_SingleIsoEG28er2p1_;
+}
+const bool &Nano::L1_SingleIsoEG28er2p5() {
+    if (!loaded_L1_SingleIsoEG28er2p5_) {
+        if (!b_L1_SingleIsoEG28er2p5_) throw std::runtime_error("L1_SingleIsoEG28er2p5 branch doesn't exist");
+        b_L1_SingleIsoEG28er2p5_->GetEntry(index);
+        loaded_L1_SingleIsoEG28er2p5_ = true;
+    }
+    return L1_SingleIsoEG28er2p5_;
+}
+const bool &Nano::L1_SingleIsoEG30er2p1() {
+    if (!loaded_L1_SingleIsoEG30er2p1_) {
+        if (!b_L1_SingleIsoEG30er2p1_) throw std::runtime_error("L1_SingleIsoEG30er2p1 branch doesn't exist");
+        b_L1_SingleIsoEG30er2p1_->GetEntry(index);
+        loaded_L1_SingleIsoEG30er2p1_ = true;
+    }
+    return L1_SingleIsoEG30er2p1_;
+}
+const bool &Nano::L1_SingleIsoEG30er2p5() {
+    if (!loaded_L1_SingleIsoEG30er2p5_) {
+        if (!b_L1_SingleIsoEG30er2p5_) throw std::runtime_error("L1_SingleIsoEG30er2p5 branch doesn't exist");
+        b_L1_SingleIsoEG30er2p5_->GetEntry(index);
+        loaded_L1_SingleIsoEG30er2p5_ = true;
+    }
+    return L1_SingleIsoEG30er2p5_;
+}
+const bool &Nano::L1_SingleIsoEG32er2p1() {
+    if (!loaded_L1_SingleIsoEG32er2p1_) {
+        if (!b_L1_SingleIsoEG32er2p1_) throw std::runtime_error("L1_SingleIsoEG32er2p1 branch doesn't exist");
+        b_L1_SingleIsoEG32er2p1_->GetEntry(index);
+        loaded_L1_SingleIsoEG32er2p1_ = true;
+    }
+    return L1_SingleIsoEG32er2p1_;
+}
+const bool &Nano::L1_SingleIsoEG32er2p5() {
+    if (!loaded_L1_SingleIsoEG32er2p5_) {
+        if (!b_L1_SingleIsoEG32er2p5_) throw std::runtime_error("L1_SingleIsoEG32er2p5 branch doesn't exist");
+        b_L1_SingleIsoEG32er2p5_->GetEntry(index);
+        loaded_L1_SingleIsoEG32er2p5_ = true;
+    }
+    return L1_SingleIsoEG32er2p5_;
+}
+const bool &Nano::L1_SingleIsoEG34er2p5() {
+    if (!loaded_L1_SingleIsoEG34er2p5_) {
+        if (!b_L1_SingleIsoEG34er2p5_) throw std::runtime_error("L1_SingleIsoEG34er2p5 branch doesn't exist");
+        b_L1_SingleIsoEG34er2p5_->GetEntry(index);
+        loaded_L1_SingleIsoEG34er2p5_ = true;
+    }
+    return L1_SingleIsoEG34er2p5_;
+}
+const bool &Nano::L1_SingleJet10erHE() {
+    if (!loaded_L1_SingleJet10erHE_) {
+        if (!b_L1_SingleJet10erHE_) throw std::runtime_error("L1_SingleJet10erHE branch doesn't exist");
+        b_L1_SingleJet10erHE_->GetEntry(index);
+        loaded_L1_SingleJet10erHE_ = true;
+    }
+    return L1_SingleJet10erHE_;
+}
+const bool &Nano::L1_SingleJet120() {
+    if (!loaded_L1_SingleJet120_) {
+        if (!b_L1_SingleJet120_) throw std::runtime_error("L1_SingleJet120 branch doesn't exist");
+        b_L1_SingleJet120_->GetEntry(index);
+        loaded_L1_SingleJet120_ = true;
+    }
+    return L1_SingleJet120_;
+}
+const bool &Nano::L1_SingleJet120_FWD3p0() {
+    if (!loaded_L1_SingleJet120_FWD3p0_) {
+        if (!b_L1_SingleJet120_FWD3p0_) throw std::runtime_error("L1_SingleJet120_FWD3p0 branch doesn't exist");
+        b_L1_SingleJet120_FWD3p0_->GetEntry(index);
+        loaded_L1_SingleJet120_FWD3p0_ = true;
+    }
+    return L1_SingleJet120_FWD3p0_;
+}
+const bool &Nano::L1_SingleJet120er2p5() {
+    if (!loaded_L1_SingleJet120er2p5_) {
+        if (!b_L1_SingleJet120er2p5_) throw std::runtime_error("L1_SingleJet120er2p5 branch doesn't exist");
+        b_L1_SingleJet120er2p5_->GetEntry(index);
+        loaded_L1_SingleJet120er2p5_ = true;
+    }
+    return L1_SingleJet120er2p5_;
+}
+const bool &Nano::L1_SingleJet12erHE() {
+    if (!loaded_L1_SingleJet12erHE_) {
+        if (!b_L1_SingleJet12erHE_) throw std::runtime_error("L1_SingleJet12erHE branch doesn't exist");
+        b_L1_SingleJet12erHE_->GetEntry(index);
+        loaded_L1_SingleJet12erHE_ = true;
+    }
+    return L1_SingleJet12erHE_;
+}
+const bool &Nano::L1_SingleJet140er2p5() {
+    if (!loaded_L1_SingleJet140er2p5_) {
+        if (!b_L1_SingleJet140er2p5_) throw std::runtime_error("L1_SingleJet140er2p5 branch doesn't exist");
+        b_L1_SingleJet140er2p5_->GetEntry(index);
+        loaded_L1_SingleJet140er2p5_ = true;
+    }
+    return L1_SingleJet140er2p5_;
+}
+const bool &Nano::L1_SingleJet140er2p5_ETMHF80() {
+    if (!loaded_L1_SingleJet140er2p5_ETMHF80_) {
+        if (!b_L1_SingleJet140er2p5_ETMHF80_) throw std::runtime_error("L1_SingleJet140er2p5_ETMHF80 branch doesn't exist");
+        b_L1_SingleJet140er2p5_ETMHF80_->GetEntry(index);
+        loaded_L1_SingleJet140er2p5_ETMHF80_ = true;
+    }
+    return L1_SingleJet140er2p5_ETMHF80_;
+}
+const bool &Nano::L1_SingleJet140er2p5_ETMHF90() {
+    if (!loaded_L1_SingleJet140er2p5_ETMHF90_) {
+        if (!b_L1_SingleJet140er2p5_ETMHF90_) throw std::runtime_error("L1_SingleJet140er2p5_ETMHF90 branch doesn't exist");
+        b_L1_SingleJet140er2p5_ETMHF90_->GetEntry(index);
+        loaded_L1_SingleJet140er2p5_ETMHF90_ = true;
+    }
+    return L1_SingleJet140er2p5_ETMHF90_;
+}
+const bool &Nano::L1_SingleJet160er2p5() {
+    if (!loaded_L1_SingleJet160er2p5_) {
+        if (!b_L1_SingleJet160er2p5_) throw std::runtime_error("L1_SingleJet160er2p5 branch doesn't exist");
+        b_L1_SingleJet160er2p5_->GetEntry(index);
+        loaded_L1_SingleJet160er2p5_ = true;
+    }
+    return L1_SingleJet160er2p5_;
+}
+const bool &Nano::L1_SingleJet180() {
+    if (!loaded_L1_SingleJet180_) {
+        if (!b_L1_SingleJet180_) throw std::runtime_error("L1_SingleJet180 branch doesn't exist");
+        b_L1_SingleJet180_->GetEntry(index);
+        loaded_L1_SingleJet180_ = true;
+    }
+    return L1_SingleJet180_;
+}
+const bool &Nano::L1_SingleJet180er2p5() {
+    if (!loaded_L1_SingleJet180er2p5_) {
+        if (!b_L1_SingleJet180er2p5_) throw std::runtime_error("L1_SingleJet180er2p5 branch doesn't exist");
+        b_L1_SingleJet180er2p5_->GetEntry(index);
+        loaded_L1_SingleJet180er2p5_ = true;
+    }
+    return L1_SingleJet180er2p5_;
+}
+const bool &Nano::L1_SingleJet200() {
+    if (!loaded_L1_SingleJet200_) {
+        if (!b_L1_SingleJet200_) throw std::runtime_error("L1_SingleJet200 branch doesn't exist");
+        b_L1_SingleJet200_->GetEntry(index);
+        loaded_L1_SingleJet200_ = true;
+    }
+    return L1_SingleJet200_;
+}
+const bool &Nano::L1_SingleJet20er2p5_NotBptxOR() {
+    if (!loaded_L1_SingleJet20er2p5_NotBptxOR_) {
+        if (!b_L1_SingleJet20er2p5_NotBptxOR_) throw std::runtime_error("L1_SingleJet20er2p5_NotBptxOR branch doesn't exist");
+        b_L1_SingleJet20er2p5_NotBptxOR_->GetEntry(index);
+        loaded_L1_SingleJet20er2p5_NotBptxOR_ = true;
+    }
+    return L1_SingleJet20er2p5_NotBptxOR_;
+}
+const bool &Nano::L1_SingleJet20er2p5_NotBptxOR_3BX() {
+    if (!loaded_L1_SingleJet20er2p5_NotBptxOR_3BX_) {
+        if (!b_L1_SingleJet20er2p5_NotBptxOR_3BX_) throw std::runtime_error("L1_SingleJet20er2p5_NotBptxOR_3BX branch doesn't exist");
+        b_L1_SingleJet20er2p5_NotBptxOR_3BX_->GetEntry(index);
+        loaded_L1_SingleJet20er2p5_NotBptxOR_3BX_ = true;
+    }
+    return L1_SingleJet20er2p5_NotBptxOR_3BX_;
+}
+const bool &Nano::L1_SingleJet35() {
+    if (!loaded_L1_SingleJet35_) {
+        if (!b_L1_SingleJet35_) throw std::runtime_error("L1_SingleJet35 branch doesn't exist");
+        b_L1_SingleJet35_->GetEntry(index);
+        loaded_L1_SingleJet35_ = true;
+    }
+    return L1_SingleJet35_;
+}
+const bool &Nano::L1_SingleJet35_FWD3p0() {
+    if (!loaded_L1_SingleJet35_FWD3p0_) {
+        if (!b_L1_SingleJet35_FWD3p0_) throw std::runtime_error("L1_SingleJet35_FWD3p0 branch doesn't exist");
+        b_L1_SingleJet35_FWD3p0_->GetEntry(index);
+        loaded_L1_SingleJet35_FWD3p0_ = true;
+    }
+    return L1_SingleJet35_FWD3p0_;
+}
+const bool &Nano::L1_SingleJet35er2p5() {
+    if (!loaded_L1_SingleJet35er2p5_) {
+        if (!b_L1_SingleJet35er2p5_) throw std::runtime_error("L1_SingleJet35er2p5 branch doesn't exist");
+        b_L1_SingleJet35er2p5_->GetEntry(index);
+        loaded_L1_SingleJet35er2p5_ = true;
+    }
+    return L1_SingleJet35er2p5_;
+}
+const bool &Nano::L1_SingleJet43er2p5_NotBptxOR_3BX() {
+    if (!loaded_L1_SingleJet43er2p5_NotBptxOR_3BX_) {
+        if (!b_L1_SingleJet43er2p5_NotBptxOR_3BX_) throw std::runtime_error("L1_SingleJet43er2p5_NotBptxOR_3BX branch doesn't exist");
+        b_L1_SingleJet43er2p5_NotBptxOR_3BX_->GetEntry(index);
+        loaded_L1_SingleJet43er2p5_NotBptxOR_3BX_ = true;
+    }
+    return L1_SingleJet43er2p5_NotBptxOR_3BX_;
+}
+const bool &Nano::L1_SingleJet46er2p5_NotBptxOR_3BX() {
+    if (!loaded_L1_SingleJet46er2p5_NotBptxOR_3BX_) {
+        if (!b_L1_SingleJet46er2p5_NotBptxOR_3BX_) throw std::runtime_error("L1_SingleJet46er2p5_NotBptxOR_3BX branch doesn't exist");
+        b_L1_SingleJet46er2p5_NotBptxOR_3BX_->GetEntry(index);
+        loaded_L1_SingleJet46er2p5_NotBptxOR_3BX_ = true;
+    }
+    return L1_SingleJet46er2p5_NotBptxOR_3BX_;
+}
+const bool &Nano::L1_SingleJet60() {
+    if (!loaded_L1_SingleJet60_) {
+        if (!b_L1_SingleJet60_) throw std::runtime_error("L1_SingleJet60 branch doesn't exist");
+        b_L1_SingleJet60_->GetEntry(index);
+        loaded_L1_SingleJet60_ = true;
+    }
+    return L1_SingleJet60_;
+}
+const bool &Nano::L1_SingleJet60_FWD3p0() {
+    if (!loaded_L1_SingleJet60_FWD3p0_) {
+        if (!b_L1_SingleJet60_FWD3p0_) throw std::runtime_error("L1_SingleJet60_FWD3p0 branch doesn't exist");
+        b_L1_SingleJet60_FWD3p0_->GetEntry(index);
+        loaded_L1_SingleJet60_FWD3p0_ = true;
+    }
+    return L1_SingleJet60_FWD3p0_;
+}
+const bool &Nano::L1_SingleJet60er2p5() {
+    if (!loaded_L1_SingleJet60er2p5_) {
+        if (!b_L1_SingleJet60er2p5_) throw std::runtime_error("L1_SingleJet60er2p5 branch doesn't exist");
+        b_L1_SingleJet60er2p5_->GetEntry(index);
+        loaded_L1_SingleJet60er2p5_ = true;
+    }
+    return L1_SingleJet60er2p5_;
+}
+const bool &Nano::L1_SingleJet8erHE() {
+    if (!loaded_L1_SingleJet8erHE_) {
+        if (!b_L1_SingleJet8erHE_) throw std::runtime_error("L1_SingleJet8erHE branch doesn't exist");
+        b_L1_SingleJet8erHE_->GetEntry(index);
+        loaded_L1_SingleJet8erHE_ = true;
+    }
+    return L1_SingleJet8erHE_;
+}
+const bool &Nano::L1_SingleJet90() {
+    if (!loaded_L1_SingleJet90_) {
+        if (!b_L1_SingleJet90_) throw std::runtime_error("L1_SingleJet90 branch doesn't exist");
+        b_L1_SingleJet90_->GetEntry(index);
+        loaded_L1_SingleJet90_ = true;
+    }
+    return L1_SingleJet90_;
+}
+const bool &Nano::L1_SingleJet90_FWD3p0() {
+    if (!loaded_L1_SingleJet90_FWD3p0_) {
+        if (!b_L1_SingleJet90_FWD3p0_) throw std::runtime_error("L1_SingleJet90_FWD3p0 branch doesn't exist");
+        b_L1_SingleJet90_FWD3p0_->GetEntry(index);
+        loaded_L1_SingleJet90_FWD3p0_ = true;
+    }
+    return L1_SingleJet90_FWD3p0_;
+}
+const bool &Nano::L1_SingleJet90er2p5() {
+    if (!loaded_L1_SingleJet90er2p5_) {
+        if (!b_L1_SingleJet90er2p5_) throw std::runtime_error("L1_SingleJet90er2p5 branch doesn't exist");
+        b_L1_SingleJet90er2p5_->GetEntry(index);
+        loaded_L1_SingleJet90er2p5_ = true;
+    }
+    return L1_SingleJet90er2p5_;
+}
+const bool &Nano::L1_SingleLooseIsoEG28er1p5() {
+    if (!loaded_L1_SingleLooseIsoEG28er1p5_) {
+        if (!b_L1_SingleLooseIsoEG28er1p5_) throw std::runtime_error("L1_SingleLooseIsoEG28er1p5 branch doesn't exist");
+        b_L1_SingleLooseIsoEG28er1p5_->GetEntry(index);
+        loaded_L1_SingleLooseIsoEG28er1p5_ = true;
+    }
+    return L1_SingleLooseIsoEG28er1p5_;
+}
+const bool &Nano::L1_SingleLooseIsoEG30er1p5() {
+    if (!loaded_L1_SingleLooseIsoEG30er1p5_) {
+        if (!b_L1_SingleLooseIsoEG30er1p5_) throw std::runtime_error("L1_SingleLooseIsoEG30er1p5 branch doesn't exist");
+        b_L1_SingleLooseIsoEG30er1p5_->GetEntry(index);
+        loaded_L1_SingleLooseIsoEG30er1p5_ = true;
+    }
+    return L1_SingleLooseIsoEG30er1p5_;
+}
+const bool &Nano::L1_SingleMu0_BMTF() {
+    if (!loaded_L1_SingleMu0_BMTF_) {
+        if (!b_L1_SingleMu0_BMTF_) throw std::runtime_error("L1_SingleMu0_BMTF branch doesn't exist");
+        b_L1_SingleMu0_BMTF_->GetEntry(index);
+        loaded_L1_SingleMu0_BMTF_ = true;
+    }
+    return L1_SingleMu0_BMTF_;
+}
+const bool &Nano::L1_SingleMu0_DQ() {
+    if (!loaded_L1_SingleMu0_DQ_) {
+        if (!b_L1_SingleMu0_DQ_) throw std::runtime_error("L1_SingleMu0_DQ branch doesn't exist");
+        b_L1_SingleMu0_DQ_->GetEntry(index);
+        loaded_L1_SingleMu0_DQ_ = true;
+    }
+    return L1_SingleMu0_DQ_;
+}
+const bool &Nano::L1_SingleMu0_EMTF() {
+    if (!loaded_L1_SingleMu0_EMTF_) {
+        if (!b_L1_SingleMu0_EMTF_) throw std::runtime_error("L1_SingleMu0_EMTF branch doesn't exist");
+        b_L1_SingleMu0_EMTF_->GetEntry(index);
+        loaded_L1_SingleMu0_EMTF_ = true;
+    }
+    return L1_SingleMu0_EMTF_;
+}
+const bool &Nano::L1_SingleMu0_OMTF() {
+    if (!loaded_L1_SingleMu0_OMTF_) {
+        if (!b_L1_SingleMu0_OMTF_) throw std::runtime_error("L1_SingleMu0_OMTF branch doesn't exist");
+        b_L1_SingleMu0_OMTF_->GetEntry(index);
+        loaded_L1_SingleMu0_OMTF_ = true;
+    }
+    return L1_SingleMu0_OMTF_;
+}
+const bool &Nano::L1_SingleMu10er1p5() {
+    if (!loaded_L1_SingleMu10er1p5_) {
+        if (!b_L1_SingleMu10er1p5_) throw std::runtime_error("L1_SingleMu10er1p5 branch doesn't exist");
+        b_L1_SingleMu10er1p5_->GetEntry(index);
+        loaded_L1_SingleMu10er1p5_ = true;
+    }
+    return L1_SingleMu10er1p5_;
+}
+const bool &Nano::L1_SingleMu12_DQ_BMTF() {
+    if (!loaded_L1_SingleMu12_DQ_BMTF_) {
+        if (!b_L1_SingleMu12_DQ_BMTF_) throw std::runtime_error("L1_SingleMu12_DQ_BMTF branch doesn't exist");
+        b_L1_SingleMu12_DQ_BMTF_->GetEntry(index);
+        loaded_L1_SingleMu12_DQ_BMTF_ = true;
+    }
+    return L1_SingleMu12_DQ_BMTF_;
+}
+const bool &Nano::L1_SingleMu12_DQ_EMTF() {
+    if (!loaded_L1_SingleMu12_DQ_EMTF_) {
+        if (!b_L1_SingleMu12_DQ_EMTF_) throw std::runtime_error("L1_SingleMu12_DQ_EMTF branch doesn't exist");
+        b_L1_SingleMu12_DQ_EMTF_->GetEntry(index);
+        loaded_L1_SingleMu12_DQ_EMTF_ = true;
+    }
+    return L1_SingleMu12_DQ_EMTF_;
+}
+const bool &Nano::L1_SingleMu12_DQ_OMTF() {
+    if (!loaded_L1_SingleMu12_DQ_OMTF_) {
+        if (!b_L1_SingleMu12_DQ_OMTF_) throw std::runtime_error("L1_SingleMu12_DQ_OMTF branch doesn't exist");
+        b_L1_SingleMu12_DQ_OMTF_->GetEntry(index);
+        loaded_L1_SingleMu12_DQ_OMTF_ = true;
+    }
+    return L1_SingleMu12_DQ_OMTF_;
+}
+const bool &Nano::L1_SingleMu12er1p5() {
+    if (!loaded_L1_SingleMu12er1p5_) {
+        if (!b_L1_SingleMu12er1p5_) throw std::runtime_error("L1_SingleMu12er1p5 branch doesn't exist");
+        b_L1_SingleMu12er1p5_->GetEntry(index);
+        loaded_L1_SingleMu12er1p5_ = true;
+    }
+    return L1_SingleMu12er1p5_;
+}
+const bool &Nano::L1_SingleMu14er1p5() {
+    if (!loaded_L1_SingleMu14er1p5_) {
+        if (!b_L1_SingleMu14er1p5_) throw std::runtime_error("L1_SingleMu14er1p5 branch doesn't exist");
+        b_L1_SingleMu14er1p5_->GetEntry(index);
+        loaded_L1_SingleMu14er1p5_ = true;
+    }
+    return L1_SingleMu14er1p5_;
+}
+const bool &Nano::L1_SingleMu15_DQ() {
+    if (!loaded_L1_SingleMu15_DQ_) {
+        if (!b_L1_SingleMu15_DQ_) throw std::runtime_error("L1_SingleMu15_DQ branch doesn't exist");
+        b_L1_SingleMu15_DQ_->GetEntry(index);
+        loaded_L1_SingleMu15_DQ_ = true;
+    }
+    return L1_SingleMu15_DQ_;
+}
+const bool &Nano::L1_SingleMu16er1p5() {
+    if (!loaded_L1_SingleMu16er1p5_) {
+        if (!b_L1_SingleMu16er1p5_) throw std::runtime_error("L1_SingleMu16er1p5 branch doesn't exist");
+        b_L1_SingleMu16er1p5_->GetEntry(index);
+        loaded_L1_SingleMu16er1p5_ = true;
+    }
+    return L1_SingleMu16er1p5_;
+}
+const bool &Nano::L1_SingleMu18() {
+    if (!loaded_L1_SingleMu18_) {
+        if (!b_L1_SingleMu18_) throw std::runtime_error("L1_SingleMu18 branch doesn't exist");
+        b_L1_SingleMu18_->GetEntry(index);
+        loaded_L1_SingleMu18_ = true;
+    }
+    return L1_SingleMu18_;
+}
+const bool &Nano::L1_SingleMu18er1p5() {
+    if (!loaded_L1_SingleMu18er1p5_) {
+        if (!b_L1_SingleMu18er1p5_) throw std::runtime_error("L1_SingleMu18er1p5 branch doesn't exist");
+        b_L1_SingleMu18er1p5_->GetEntry(index);
+        loaded_L1_SingleMu18er1p5_ = true;
+    }
+    return L1_SingleMu18er1p5_;
+}
+const bool &Nano::L1_SingleMu20() {
+    if (!loaded_L1_SingleMu20_) {
+        if (!b_L1_SingleMu20_) throw std::runtime_error("L1_SingleMu20 branch doesn't exist");
+        b_L1_SingleMu20_->GetEntry(index);
+        loaded_L1_SingleMu20_ = true;
+    }
+    return L1_SingleMu20_;
+}
+const bool &Nano::L1_SingleMu22() {
+    if (!loaded_L1_SingleMu22_) {
+        if (!b_L1_SingleMu22_) throw std::runtime_error("L1_SingleMu22 branch doesn't exist");
+        b_L1_SingleMu22_->GetEntry(index);
+        loaded_L1_SingleMu22_ = true;
+    }
+    return L1_SingleMu22_;
+}
+const bool &Nano::L1_SingleMu22_BMTF() {
+    if (!loaded_L1_SingleMu22_BMTF_) {
+        if (!b_L1_SingleMu22_BMTF_) throw std::runtime_error("L1_SingleMu22_BMTF branch doesn't exist");
+        b_L1_SingleMu22_BMTF_->GetEntry(index);
+        loaded_L1_SingleMu22_BMTF_ = true;
+    }
+    return L1_SingleMu22_BMTF_;
+}
+const bool &Nano::L1_SingleMu22_EMTF() {
+    if (!loaded_L1_SingleMu22_EMTF_) {
+        if (!b_L1_SingleMu22_EMTF_) throw std::runtime_error("L1_SingleMu22_EMTF branch doesn't exist");
+        b_L1_SingleMu22_EMTF_->GetEntry(index);
+        loaded_L1_SingleMu22_EMTF_ = true;
+    }
+    return L1_SingleMu22_EMTF_;
+}
+const bool &Nano::L1_SingleMu22_OMTF() {
+    if (!loaded_L1_SingleMu22_OMTF_) {
+        if (!b_L1_SingleMu22_OMTF_) throw std::runtime_error("L1_SingleMu22_OMTF branch doesn't exist");
+        b_L1_SingleMu22_OMTF_->GetEntry(index);
+        loaded_L1_SingleMu22_OMTF_ = true;
+    }
+    return L1_SingleMu22_OMTF_;
+}
+const bool &Nano::L1_SingleMu25() {
+    if (!loaded_L1_SingleMu25_) {
+        if (!b_L1_SingleMu25_) throw std::runtime_error("L1_SingleMu25 branch doesn't exist");
+        b_L1_SingleMu25_->GetEntry(index);
+        loaded_L1_SingleMu25_ = true;
+    }
+    return L1_SingleMu25_;
+}
+const bool &Nano::L1_SingleMu3() {
+    if (!loaded_L1_SingleMu3_) {
+        if (!b_L1_SingleMu3_) throw std::runtime_error("L1_SingleMu3 branch doesn't exist");
+        b_L1_SingleMu3_->GetEntry(index);
+        loaded_L1_SingleMu3_ = true;
+    }
+    return L1_SingleMu3_;
+}
+const bool &Nano::L1_SingleMu5() {
+    if (!loaded_L1_SingleMu5_) {
+        if (!b_L1_SingleMu5_) throw std::runtime_error("L1_SingleMu5 branch doesn't exist");
+        b_L1_SingleMu5_->GetEntry(index);
+        loaded_L1_SingleMu5_ = true;
+    }
+    return L1_SingleMu5_;
+}
+const bool &Nano::L1_SingleMu6er1p5() {
+    if (!loaded_L1_SingleMu6er1p5_) {
+        if (!b_L1_SingleMu6er1p5_) throw std::runtime_error("L1_SingleMu6er1p5 branch doesn't exist");
+        b_L1_SingleMu6er1p5_->GetEntry(index);
+        loaded_L1_SingleMu6er1p5_ = true;
+    }
+    return L1_SingleMu6er1p5_;
+}
+const bool &Nano::L1_SingleMu7() {
+    if (!loaded_L1_SingleMu7_) {
+        if (!b_L1_SingleMu7_) throw std::runtime_error("L1_SingleMu7 branch doesn't exist");
+        b_L1_SingleMu7_->GetEntry(index);
+        loaded_L1_SingleMu7_ = true;
+    }
+    return L1_SingleMu7_;
+}
+const bool &Nano::L1_SingleMu7_DQ() {
+    if (!loaded_L1_SingleMu7_DQ_) {
+        if (!b_L1_SingleMu7_DQ_) throw std::runtime_error("L1_SingleMu7_DQ branch doesn't exist");
+        b_L1_SingleMu7_DQ_->GetEntry(index);
+        loaded_L1_SingleMu7_DQ_ = true;
+    }
+    return L1_SingleMu7_DQ_;
+}
+const bool &Nano::L1_SingleMu7er1p5() {
+    if (!loaded_L1_SingleMu7er1p5_) {
+        if (!b_L1_SingleMu7er1p5_) throw std::runtime_error("L1_SingleMu7er1p5 branch doesn't exist");
+        b_L1_SingleMu7er1p5_->GetEntry(index);
+        loaded_L1_SingleMu7er1p5_ = true;
+    }
+    return L1_SingleMu7er1p5_;
+}
+const bool &Nano::L1_SingleMu8er1p5() {
+    if (!loaded_L1_SingleMu8er1p5_) {
+        if (!b_L1_SingleMu8er1p5_) throw std::runtime_error("L1_SingleMu8er1p5 branch doesn't exist");
+        b_L1_SingleMu8er1p5_->GetEntry(index);
+        loaded_L1_SingleMu8er1p5_ = true;
+    }
+    return L1_SingleMu8er1p5_;
+}
+const bool &Nano::L1_SingleMu9er1p5() {
+    if (!loaded_L1_SingleMu9er1p5_) {
+        if (!b_L1_SingleMu9er1p5_) throw std::runtime_error("L1_SingleMu9er1p5 branch doesn't exist");
+        b_L1_SingleMu9er1p5_->GetEntry(index);
+        loaded_L1_SingleMu9er1p5_ = true;
+    }
+    return L1_SingleMu9er1p5_;
+}
+const bool &Nano::L1_SingleMuCosmics() {
+    if (!loaded_L1_SingleMuCosmics_) {
+        if (!b_L1_SingleMuCosmics_) throw std::runtime_error("L1_SingleMuCosmics branch doesn't exist");
+        b_L1_SingleMuCosmics_->GetEntry(index);
+        loaded_L1_SingleMuCosmics_ = true;
+    }
+    return L1_SingleMuCosmics_;
+}
+const bool &Nano::L1_SingleMuCosmics_BMTF() {
+    if (!loaded_L1_SingleMuCosmics_BMTF_) {
+        if (!b_L1_SingleMuCosmics_BMTF_) throw std::runtime_error("L1_SingleMuCosmics_BMTF branch doesn't exist");
+        b_L1_SingleMuCosmics_BMTF_->GetEntry(index);
+        loaded_L1_SingleMuCosmics_BMTF_ = true;
+    }
+    return L1_SingleMuCosmics_BMTF_;
+}
+const bool &Nano::L1_SingleMuCosmics_EMTF() {
+    if (!loaded_L1_SingleMuCosmics_EMTF_) {
+        if (!b_L1_SingleMuCosmics_EMTF_) throw std::runtime_error("L1_SingleMuCosmics_EMTF branch doesn't exist");
+        b_L1_SingleMuCosmics_EMTF_->GetEntry(index);
+        loaded_L1_SingleMuCosmics_EMTF_ = true;
+    }
+    return L1_SingleMuCosmics_EMTF_;
+}
+const bool &Nano::L1_SingleMuCosmics_OMTF() {
+    if (!loaded_L1_SingleMuCosmics_OMTF_) {
+        if (!b_L1_SingleMuCosmics_OMTF_) throw std::runtime_error("L1_SingleMuCosmics_OMTF branch doesn't exist");
+        b_L1_SingleMuCosmics_OMTF_->GetEntry(index);
+        loaded_L1_SingleMuCosmics_OMTF_ = true;
+    }
+    return L1_SingleMuCosmics_OMTF_;
+}
+const bool &Nano::L1_SingleMuOpen() {
+    if (!loaded_L1_SingleMuOpen_) {
+        if (!b_L1_SingleMuOpen_) throw std::runtime_error("L1_SingleMuOpen branch doesn't exist");
+        b_L1_SingleMuOpen_->GetEntry(index);
+        loaded_L1_SingleMuOpen_ = true;
+    }
+    return L1_SingleMuOpen_;
+}
+const bool &Nano::L1_SingleMuOpen_NotBptxOR() {
+    if (!loaded_L1_SingleMuOpen_NotBptxOR_) {
+        if (!b_L1_SingleMuOpen_NotBptxOR_) throw std::runtime_error("L1_SingleMuOpen_NotBptxOR branch doesn't exist");
+        b_L1_SingleMuOpen_NotBptxOR_->GetEntry(index);
+        loaded_L1_SingleMuOpen_NotBptxOR_ = true;
+    }
+    return L1_SingleMuOpen_NotBptxOR_;
+}
+const bool &Nano::L1_SingleMuOpen_er1p1_NotBptxOR_3BX() {
+    if (!loaded_L1_SingleMuOpen_er1p1_NotBptxOR_3BX_) {
+        if (!b_L1_SingleMuOpen_er1p1_NotBptxOR_3BX_) throw std::runtime_error("L1_SingleMuOpen_er1p1_NotBptxOR_3BX branch doesn't exist");
+        b_L1_SingleMuOpen_er1p1_NotBptxOR_3BX_->GetEntry(index);
+        loaded_L1_SingleMuOpen_er1p1_NotBptxOR_3BX_ = true;
+    }
+    return L1_SingleMuOpen_er1p1_NotBptxOR_3BX_;
+}
+const bool &Nano::L1_SingleMuOpen_er1p4_NotBptxOR_3BX() {
+    if (!loaded_L1_SingleMuOpen_er1p4_NotBptxOR_3BX_) {
+        if (!b_L1_SingleMuOpen_er1p4_NotBptxOR_3BX_) throw std::runtime_error("L1_SingleMuOpen_er1p4_NotBptxOR_3BX branch doesn't exist");
+        b_L1_SingleMuOpen_er1p4_NotBptxOR_3BX_->GetEntry(index);
+        loaded_L1_SingleMuOpen_er1p4_NotBptxOR_3BX_ = true;
+    }
+    return L1_SingleMuOpen_er1p4_NotBptxOR_3BX_;
+}
+const bool &Nano::L1_SingleTau120er2p1() {
+    if (!loaded_L1_SingleTau120er2p1_) {
+        if (!b_L1_SingleTau120er2p1_) throw std::runtime_error("L1_SingleTau120er2p1 branch doesn't exist");
+        b_L1_SingleTau120er2p1_->GetEntry(index);
+        loaded_L1_SingleTau120er2p1_ = true;
+    }
+    return L1_SingleTau120er2p1_;
+}
+const bool &Nano::L1_SingleTau130er2p1() {
+    if (!loaded_L1_SingleTau130er2p1_) {
+        if (!b_L1_SingleTau130er2p1_) throw std::runtime_error("L1_SingleTau130er2p1 branch doesn't exist");
+        b_L1_SingleTau130er2p1_->GetEntry(index);
+        loaded_L1_SingleTau130er2p1_ = true;
+    }
+    return L1_SingleTau130er2p1_;
+}
+const bool &Nano::L1_TOTEM_1() {
+    if (!loaded_L1_TOTEM_1_) {
+        if (!b_L1_TOTEM_1_) throw std::runtime_error("L1_TOTEM_1 branch doesn't exist");
+        b_L1_TOTEM_1_->GetEntry(index);
+        loaded_L1_TOTEM_1_ = true;
+    }
+    return L1_TOTEM_1_;
+}
+const bool &Nano::L1_TOTEM_2() {
+    if (!loaded_L1_TOTEM_2_) {
+        if (!b_L1_TOTEM_2_) throw std::runtime_error("L1_TOTEM_2 branch doesn't exist");
+        b_L1_TOTEM_2_->GetEntry(index);
+        loaded_L1_TOTEM_2_ = true;
+    }
+    return L1_TOTEM_2_;
+}
+const bool &Nano::L1_TOTEM_3() {
+    if (!loaded_L1_TOTEM_3_) {
+        if (!b_L1_TOTEM_3_) throw std::runtime_error("L1_TOTEM_3 branch doesn't exist");
+        b_L1_TOTEM_3_->GetEntry(index);
+        loaded_L1_TOTEM_3_ = true;
+    }
+    return L1_TOTEM_3_;
+}
+const bool &Nano::L1_TOTEM_4() {
+    if (!loaded_L1_TOTEM_4_) {
+        if (!b_L1_TOTEM_4_) throw std::runtime_error("L1_TOTEM_4 branch doesn't exist");
+        b_L1_TOTEM_4_->GetEntry(index);
+        loaded_L1_TOTEM_4_ = true;
+    }
+    return L1_TOTEM_4_;
+}
+const bool &Nano::L1_TripleEG16er2p5() {
+    if (!loaded_L1_TripleEG16er2p5_) {
+        if (!b_L1_TripleEG16er2p5_) throw std::runtime_error("L1_TripleEG16er2p5 branch doesn't exist");
+        b_L1_TripleEG16er2p5_->GetEntry(index);
+        loaded_L1_TripleEG16er2p5_ = true;
+    }
+    return L1_TripleEG16er2p5_;
+}
+const bool &Nano::L1_TripleEG_16_12_8_er2p5() {
+    if (!loaded_L1_TripleEG_16_12_8_er2p5_) {
+        if (!b_L1_TripleEG_16_12_8_er2p5_) throw std::runtime_error("L1_TripleEG_16_12_8_er2p5 branch doesn't exist");
+        b_L1_TripleEG_16_12_8_er2p5_->GetEntry(index);
+        loaded_L1_TripleEG_16_12_8_er2p5_ = true;
+    }
+    return L1_TripleEG_16_12_8_er2p5_;
+}
+const bool &Nano::L1_TripleEG_16_15_8_er2p5() {
+    if (!loaded_L1_TripleEG_16_15_8_er2p5_) {
+        if (!b_L1_TripleEG_16_15_8_er2p5_) throw std::runtime_error("L1_TripleEG_16_15_8_er2p5 branch doesn't exist");
+        b_L1_TripleEG_16_15_8_er2p5_->GetEntry(index);
+        loaded_L1_TripleEG_16_15_8_er2p5_ = true;
+    }
+    return L1_TripleEG_16_15_8_er2p5_;
+}
+const bool &Nano::L1_TripleEG_18_17_8_er2p5() {
+    if (!loaded_L1_TripleEG_18_17_8_er2p5_) {
+        if (!b_L1_TripleEG_18_17_8_er2p5_) throw std::runtime_error("L1_TripleEG_18_17_8_er2p5 branch doesn't exist");
+        b_L1_TripleEG_18_17_8_er2p5_->GetEntry(index);
+        loaded_L1_TripleEG_18_17_8_er2p5_ = true;
+    }
+    return L1_TripleEG_18_17_8_er2p5_;
+}
+const bool &Nano::L1_TripleEG_18_18_12_er2p5() {
+    if (!loaded_L1_TripleEG_18_18_12_er2p5_) {
+        if (!b_L1_TripleEG_18_18_12_er2p5_) throw std::runtime_error("L1_TripleEG_18_18_12_er2p5 branch doesn't exist");
+        b_L1_TripleEG_18_18_12_er2p5_->GetEntry(index);
+        loaded_L1_TripleEG_18_18_12_er2p5_ = true;
+    }
+    return L1_TripleEG_18_18_12_er2p5_;
+}
+const bool &Nano::L1_TripleJet_100_80_70_DoubleJet_80_70_er2p5() {
+    if (!loaded_L1_TripleJet_100_80_70_DoubleJet_80_70_er2p5_) {
+        if (!b_L1_TripleJet_100_80_70_DoubleJet_80_70_er2p5_) throw std::runtime_error("L1_TripleJet_100_80_70_DoubleJet_80_70_er2p5 branch doesn't exist");
+        b_L1_TripleJet_100_80_70_DoubleJet_80_70_er2p5_->GetEntry(index);
+        loaded_L1_TripleJet_100_80_70_DoubleJet_80_70_er2p5_ = true;
+    }
+    return L1_TripleJet_100_80_70_DoubleJet_80_70_er2p5_;
+}
+const bool &Nano::L1_TripleJet_105_85_75_DoubleJet_85_75_er2p5() {
+    if (!loaded_L1_TripleJet_105_85_75_DoubleJet_85_75_er2p5_) {
+        if (!b_L1_TripleJet_105_85_75_DoubleJet_85_75_er2p5_) throw std::runtime_error("L1_TripleJet_105_85_75_DoubleJet_85_75_er2p5 branch doesn't exist");
+        b_L1_TripleJet_105_85_75_DoubleJet_85_75_er2p5_->GetEntry(index);
+        loaded_L1_TripleJet_105_85_75_DoubleJet_85_75_er2p5_ = true;
+    }
+    return L1_TripleJet_105_85_75_DoubleJet_85_75_er2p5_;
+}
+const bool &Nano::L1_TripleJet_95_75_65_DoubleJet_75_65_er2p5() {
+    if (!loaded_L1_TripleJet_95_75_65_DoubleJet_75_65_er2p5_) {
+        if (!b_L1_TripleJet_95_75_65_DoubleJet_75_65_er2p5_) throw std::runtime_error("L1_TripleJet_95_75_65_DoubleJet_75_65_er2p5 branch doesn't exist");
+        b_L1_TripleJet_95_75_65_DoubleJet_75_65_er2p5_->GetEntry(index);
+        loaded_L1_TripleJet_95_75_65_DoubleJet_75_65_er2p5_ = true;
+    }
+    return L1_TripleJet_95_75_65_DoubleJet_75_65_er2p5_;
+}
+const bool &Nano::L1_TripleMu0() {
+    if (!loaded_L1_TripleMu0_) {
+        if (!b_L1_TripleMu0_) throw std::runtime_error("L1_TripleMu0 branch doesn't exist");
+        b_L1_TripleMu0_->GetEntry(index);
+        loaded_L1_TripleMu0_ = true;
+    }
+    return L1_TripleMu0_;
+}
+const bool &Nano::L1_TripleMu0_OQ() {
+    if (!loaded_L1_TripleMu0_OQ_) {
+        if (!b_L1_TripleMu0_OQ_) throw std::runtime_error("L1_TripleMu0_OQ branch doesn't exist");
+        b_L1_TripleMu0_OQ_->GetEntry(index);
+        loaded_L1_TripleMu0_OQ_ = true;
+    }
+    return L1_TripleMu0_OQ_;
+}
+const bool &Nano::L1_TripleMu0_SQ() {
+    if (!loaded_L1_TripleMu0_SQ_) {
+        if (!b_L1_TripleMu0_SQ_) throw std::runtime_error("L1_TripleMu0_SQ branch doesn't exist");
+        b_L1_TripleMu0_SQ_->GetEntry(index);
+        loaded_L1_TripleMu0_SQ_ = true;
+    }
+    return L1_TripleMu0_SQ_;
+}
+const bool &Nano::L1_TripleMu3() {
+    if (!loaded_L1_TripleMu3_) {
+        if (!b_L1_TripleMu3_) throw std::runtime_error("L1_TripleMu3 branch doesn't exist");
+        b_L1_TripleMu3_->GetEntry(index);
+        loaded_L1_TripleMu3_ = true;
+    }
+    return L1_TripleMu3_;
+}
+const bool &Nano::L1_TripleMu3_SQ() {
+    if (!loaded_L1_TripleMu3_SQ_) {
+        if (!b_L1_TripleMu3_SQ_) throw std::runtime_error("L1_TripleMu3_SQ branch doesn't exist");
+        b_L1_TripleMu3_SQ_->GetEntry(index);
+        loaded_L1_TripleMu3_SQ_ = true;
+    }
+    return L1_TripleMu3_SQ_;
+}
+const bool &Nano::L1_TripleMu_5SQ_3SQ_0OQ() {
+    if (!loaded_L1_TripleMu_5SQ_3SQ_0OQ_) {
+        if (!b_L1_TripleMu_5SQ_3SQ_0OQ_) throw std::runtime_error("L1_TripleMu_5SQ_3SQ_0OQ branch doesn't exist");
+        b_L1_TripleMu_5SQ_3SQ_0OQ_->GetEntry(index);
+        loaded_L1_TripleMu_5SQ_3SQ_0OQ_ = true;
+    }
+    return L1_TripleMu_5SQ_3SQ_0OQ_;
+}
+const bool &Nano::L1_TripleMu_5SQ_3SQ_0OQ_DoubleMu_5_3_SQ_OS_Mass_Max9() {
+    if (!loaded_L1_TripleMu_5SQ_3SQ_0OQ_DoubleMu_5_3_SQ_OS_Mass_Max9_) {
+        if (!b_L1_TripleMu_5SQ_3SQ_0OQ_DoubleMu_5_3_SQ_OS_Mass_Max9_) throw std::runtime_error("L1_TripleMu_5SQ_3SQ_0OQ_DoubleMu_5_3_SQ_OS_Mass_Max9 branch doesn't exist");
+        b_L1_TripleMu_5SQ_3SQ_0OQ_DoubleMu_5_3_SQ_OS_Mass_Max9_->GetEntry(index);
+        loaded_L1_TripleMu_5SQ_3SQ_0OQ_DoubleMu_5_3_SQ_OS_Mass_Max9_ = true;
+    }
+    return L1_TripleMu_5SQ_3SQ_0OQ_DoubleMu_5_3_SQ_OS_Mass_Max9_;
+}
+const bool &Nano::L1_TripleMu_5SQ_3SQ_0_DoubleMu_5_3_SQ_OS_Mass_Max9() {
+    if (!loaded_L1_TripleMu_5SQ_3SQ_0_DoubleMu_5_3_SQ_OS_Mass_Max9_) {
+        if (!b_L1_TripleMu_5SQ_3SQ_0_DoubleMu_5_3_SQ_OS_Mass_Max9_) throw std::runtime_error("L1_TripleMu_5SQ_3SQ_0_DoubleMu_5_3_SQ_OS_Mass_Max9 branch doesn't exist");
+        b_L1_TripleMu_5SQ_3SQ_0_DoubleMu_5_3_SQ_OS_Mass_Max9_->GetEntry(index);
+        loaded_L1_TripleMu_5SQ_3SQ_0_DoubleMu_5_3_SQ_OS_Mass_Max9_ = true;
+    }
+    return L1_TripleMu_5SQ_3SQ_0_DoubleMu_5_3_SQ_OS_Mass_Max9_;
+}
+const bool &Nano::L1_TripleMu_5_3_3() {
+    if (!loaded_L1_TripleMu_5_3_3_) {
+        if (!b_L1_TripleMu_5_3_3_) throw std::runtime_error("L1_TripleMu_5_3_3 branch doesn't exist");
+        b_L1_TripleMu_5_3_3_->GetEntry(index);
+        loaded_L1_TripleMu_5_3_3_ = true;
+    }
+    return L1_TripleMu_5_3_3_;
+}
+const bool &Nano::L1_TripleMu_5_3_3_SQ() {
+    if (!loaded_L1_TripleMu_5_3_3_SQ_) {
+        if (!b_L1_TripleMu_5_3_3_SQ_) throw std::runtime_error("L1_TripleMu_5_3_3_SQ branch doesn't exist");
+        b_L1_TripleMu_5_3_3_SQ_->GetEntry(index);
+        loaded_L1_TripleMu_5_3_3_SQ_ = true;
+    }
+    return L1_TripleMu_5_3_3_SQ_;
+}
+const bool &Nano::L1_TripleMu_5_3p5_2p5() {
+    if (!loaded_L1_TripleMu_5_3p5_2p5_) {
+        if (!b_L1_TripleMu_5_3p5_2p5_) throw std::runtime_error("L1_TripleMu_5_3p5_2p5 branch doesn't exist");
+        b_L1_TripleMu_5_3p5_2p5_->GetEntry(index);
+        loaded_L1_TripleMu_5_3p5_2p5_ = true;
+    }
+    return L1_TripleMu_5_3p5_2p5_;
+}
+const bool &Nano::L1_TripleMu_5_3p5_2p5_DoubleMu_5_2p5_OS_Mass_5to17() {
+    if (!loaded_L1_TripleMu_5_3p5_2p5_DoubleMu_5_2p5_OS_Mass_5to17_) {
+        if (!b_L1_TripleMu_5_3p5_2p5_DoubleMu_5_2p5_OS_Mass_5to17_) throw std::runtime_error("L1_TripleMu_5_3p5_2p5_DoubleMu_5_2p5_OS_Mass_5to17 branch doesn't exist");
+        b_L1_TripleMu_5_3p5_2p5_DoubleMu_5_2p5_OS_Mass_5to17_->GetEntry(index);
+        loaded_L1_TripleMu_5_3p5_2p5_DoubleMu_5_2p5_OS_Mass_5to17_ = true;
+    }
+    return L1_TripleMu_5_3p5_2p5_DoubleMu_5_2p5_OS_Mass_5to17_;
+}
+const bool &Nano::L1_TripleMu_5_3p5_2p5_OQ_DoubleMu_5_2p5_OQ_OS_Mass_5to17() {
+    if (!loaded_L1_TripleMu_5_3p5_2p5_OQ_DoubleMu_5_2p5_OQ_OS_Mass_5to17_) {
+        if (!b_L1_TripleMu_5_3p5_2p5_OQ_DoubleMu_5_2p5_OQ_OS_Mass_5to17_) throw std::runtime_error("L1_TripleMu_5_3p5_2p5_OQ_DoubleMu_5_2p5_OQ_OS_Mass_5to17 branch doesn't exist");
+        b_L1_TripleMu_5_3p5_2p5_OQ_DoubleMu_5_2p5_OQ_OS_Mass_5to17_->GetEntry(index);
+        loaded_L1_TripleMu_5_3p5_2p5_OQ_DoubleMu_5_2p5_OQ_OS_Mass_5to17_ = true;
+    }
+    return L1_TripleMu_5_3p5_2p5_OQ_DoubleMu_5_2p5_OQ_OS_Mass_5to17_;
+}
+const bool &Nano::L1_TripleMu_5_4_2p5_DoubleMu_5_2p5_OS_Mass_5to17() {
+    if (!loaded_L1_TripleMu_5_4_2p5_DoubleMu_5_2p5_OS_Mass_5to17_) {
+        if (!b_L1_TripleMu_5_4_2p5_DoubleMu_5_2p5_OS_Mass_5to17_) throw std::runtime_error("L1_TripleMu_5_4_2p5_DoubleMu_5_2p5_OS_Mass_5to17 branch doesn't exist");
+        b_L1_TripleMu_5_4_2p5_DoubleMu_5_2p5_OS_Mass_5to17_->GetEntry(index);
+        loaded_L1_TripleMu_5_4_2p5_DoubleMu_5_2p5_OS_Mass_5to17_ = true;
+    }
+    return L1_TripleMu_5_4_2p5_DoubleMu_5_2p5_OS_Mass_5to17_;
+}
+const bool &Nano::L1_TripleMu_5_5_3() {
+    if (!loaded_L1_TripleMu_5_5_3_) {
+        if (!b_L1_TripleMu_5_5_3_) throw std::runtime_error("L1_TripleMu_5_5_3 branch doesn't exist");
+        b_L1_TripleMu_5_5_3_->GetEntry(index);
+        loaded_L1_TripleMu_5_5_3_ = true;
+    }
+    return L1_TripleMu_5_5_3_;
+}
+const bool &Nano::L1_UnpairedBunchBptxMinus() {
+    if (!loaded_L1_UnpairedBunchBptxMinus_) {
+        if (!b_L1_UnpairedBunchBptxMinus_) throw std::runtime_error("L1_UnpairedBunchBptxMinus branch doesn't exist");
+        b_L1_UnpairedBunchBptxMinus_->GetEntry(index);
+        loaded_L1_UnpairedBunchBptxMinus_ = true;
+    }
+    return L1_UnpairedBunchBptxMinus_;
+}
+const bool &Nano::L1_UnpairedBunchBptxPlus() {
+    if (!loaded_L1_UnpairedBunchBptxPlus_) {
+        if (!b_L1_UnpairedBunchBptxPlus_) throw std::runtime_error("L1_UnpairedBunchBptxPlus branch doesn't exist");
+        b_L1_UnpairedBunchBptxPlus_->GetEntry(index);
+        loaded_L1_UnpairedBunchBptxPlus_ = true;
+    }
+    return L1_UnpairedBunchBptxPlus_;
+}
+const bool &Nano::L1_ZeroBias() {
+    if (!loaded_L1_ZeroBias_) {
+        if (!b_L1_ZeroBias_) throw std::runtime_error("L1_ZeroBias branch doesn't exist");
+        b_L1_ZeroBias_->GetEntry(index);
+        loaded_L1_ZeroBias_ = true;
+    }
+    return L1_ZeroBias_;
+}
+const bool &Nano::L1_ZeroBias_copy() {
+    if (!loaded_L1_ZeroBias_copy_) {
+        if (!b_L1_ZeroBias_copy_) throw std::runtime_error("L1_ZeroBias_copy branch doesn't exist");
+        b_L1_ZeroBias_copy_->GetEntry(index);
+        loaded_L1_ZeroBias_copy_ = true;
+    }
+    return L1_ZeroBias_copy_;
+}
 const bool &Nano::L1simulation_step() {
     if (!loaded_L1simulation_step_) {
         if (!b_L1simulation_step_) throw std::runtime_error("L1simulation_step branch doesn't exist");
@@ -9289,6 +14570,15 @@ const vector<float> &Nano::LHEPdfWeight() {
         loaded_LHEPdfWeight_ = true;
     }
     return v_LHEPdfWeight_;
+}
+const vector<float> &Nano::LHEReweightingWeight() {
+    if (!loaded_LHEReweightingWeight_) {
+        if (!b_LHEReweightingWeight_) throw std::runtime_error("LHEReweightingWeight branch doesn't exist");
+        int bytes = b_LHEReweightingWeight_->GetEntry(index);
+        v_LHEReweightingWeight_ = vector<float>(LHEReweightingWeight_,LHEReweightingWeight_+bytes/sizeof(LHEReweightingWeight_[0]));
+        loaded_LHEReweightingWeight_ = true;
+    }
+    return v_LHEReweightingWeight_;
 }
 const vector<float> &Nano::LHEScaleWeight() {
     if (!loaded_LHEScaleWeight_) {
@@ -9565,6 +14855,15 @@ const vector<UChar_t> &Nano::Muon_highPtId() {
     }
     return v_Muon_highPtId_;
 }
+const vector<bool> &Nano::Muon_inTimeMuon() {
+    if (!loaded_Muon_inTimeMuon_) {
+        if (!b_Muon_inTimeMuon_) throw std::runtime_error("Muon_inTimeMuon branch doesn't exist");
+        int bytes = b_Muon_inTimeMuon_->GetEntry(index);
+        v_Muon_inTimeMuon_ = vector<bool>(Muon_inTimeMuon_,Muon_inTimeMuon_+bytes/sizeof(Muon_inTimeMuon_[0]));
+        loaded_Muon_inTimeMuon_ = true;
+    }
+    return v_Muon_inTimeMuon_;
+}
 const vector<float> &Nano::Muon_ip3d() {
     if (!loaded_Muon_ip3d_) {
         if (!b_Muon_ip3d_) throw std::runtime_error("Muon_ip3d branch doesn't exist");
@@ -9573,6 +14872,15 @@ const vector<float> &Nano::Muon_ip3d() {
         loaded_Muon_ip3d_ = true;
     }
     return v_Muon_ip3d_;
+}
+const vector<bool> &Nano::Muon_isGlobal() {
+    if (!loaded_Muon_isGlobal_) {
+        if (!b_Muon_isGlobal_) throw std::runtime_error("Muon_isGlobal branch doesn't exist");
+        int bytes = b_Muon_isGlobal_->GetEntry(index);
+        v_Muon_isGlobal_ = vector<bool>(Muon_isGlobal_,Muon_isGlobal_+bytes/sizeof(Muon_isGlobal_[0]));
+        loaded_Muon_isGlobal_ = true;
+    }
+    return v_Muon_isGlobal_;
 }
 const vector<bool> &Nano::Muon_isPFcand() {
     if (!loaded_Muon_isPFcand_) {
@@ -9583,6 +14891,15 @@ const vector<bool> &Nano::Muon_isPFcand() {
     }
     return v_Muon_isPFcand_;
 }
+const vector<bool> &Nano::Muon_isTracker() {
+    if (!loaded_Muon_isTracker_) {
+        if (!b_Muon_isTracker_) throw std::runtime_error("Muon_isTracker branch doesn't exist");
+        int bytes = b_Muon_isTracker_->GetEntry(index);
+        v_Muon_isTracker_ = vector<bool>(Muon_isTracker_,Muon_isTracker_+bytes/sizeof(Muon_isTracker_[0]));
+        loaded_Muon_isTracker_ = true;
+    }
+    return v_Muon_isTracker_;
+}
 const vector<int> &Nano::Muon_jetIdx() {
     if (!loaded_Muon_jetIdx_) {
         if (!b_Muon_jetIdx_) throw std::runtime_error("Muon_jetIdx branch doesn't exist");
@@ -9591,6 +14908,33 @@ const vector<int> &Nano::Muon_jetIdx() {
         loaded_Muon_jetIdx_ = true;
     }
     return v_Muon_jetIdx_;
+}
+const vector<float> &Nano::Muon_jetPtRelv2() {
+    if (!loaded_Muon_jetPtRelv2_) {
+        if (!b_Muon_jetPtRelv2_) throw std::runtime_error("Muon_jetPtRelv2 branch doesn't exist");
+        int bytes = b_Muon_jetPtRelv2_->GetEntry(index);
+        v_Muon_jetPtRelv2_ = vector<float>(Muon_jetPtRelv2_,Muon_jetPtRelv2_+bytes/sizeof(Muon_jetPtRelv2_[0]));
+        loaded_Muon_jetPtRelv2_ = true;
+    }
+    return v_Muon_jetPtRelv2_;
+}
+const vector<float> &Nano::Muon_jetRelIso() {
+    if (!loaded_Muon_jetRelIso_) {
+        if (!b_Muon_jetRelIso_) throw std::runtime_error("Muon_jetRelIso branch doesn't exist");
+        int bytes = b_Muon_jetRelIso_->GetEntry(index);
+        v_Muon_jetRelIso_ = vector<float>(Muon_jetRelIso_,Muon_jetRelIso_+bytes/sizeof(Muon_jetRelIso_[0]));
+        loaded_Muon_jetRelIso_ = true;
+    }
+    return v_Muon_jetRelIso_;
+}
+const vector<bool> &Nano::Muon_looseId() {
+    if (!loaded_Muon_looseId_) {
+        if (!b_Muon_looseId_) throw std::runtime_error("Muon_looseId branch doesn't exist");
+        int bytes = b_Muon_looseId_->GetEntry(index);
+        v_Muon_looseId_ = vector<bool>(Muon_looseId_,Muon_looseId_+bytes/sizeof(Muon_looseId_[0]));
+        loaded_Muon_looseId_ = true;
+    }
+    return v_Muon_looseId_;
 }
 const vector<float> &Nano::Muon_mass() {
     if (!loaded_Muon_mass_) {
@@ -9610,6 +14954,24 @@ const vector<bool> &Nano::Muon_mediumId() {
     }
     return v_Muon_mediumId_;
 }
+const vector<bool> &Nano::Muon_mediumPromptId() {
+    if (!loaded_Muon_mediumPromptId_) {
+        if (!b_Muon_mediumPromptId_) throw std::runtime_error("Muon_mediumPromptId branch doesn't exist");
+        int bytes = b_Muon_mediumPromptId_->GetEntry(index);
+        v_Muon_mediumPromptId_ = vector<bool>(Muon_mediumPromptId_,Muon_mediumPromptId_+bytes/sizeof(Muon_mediumPromptId_[0]));
+        loaded_Muon_mediumPromptId_ = true;
+    }
+    return v_Muon_mediumPromptId_;
+}
+const vector<UChar_t> &Nano::Muon_miniIsoId() {
+    if (!loaded_Muon_miniIsoId_) {
+        if (!b_Muon_miniIsoId_) throw std::runtime_error("Muon_miniIsoId branch doesn't exist");
+        int bytes = b_Muon_miniIsoId_->GetEntry(index);
+        v_Muon_miniIsoId_ = vector<UChar_t>(Muon_miniIsoId_,Muon_miniIsoId_+bytes/sizeof(Muon_miniIsoId_[0]));
+        loaded_Muon_miniIsoId_ = true;
+    }
+    return v_Muon_miniIsoId_;
+}
 const vector<float> &Nano::Muon_miniPFRelIso_all() {
     if (!loaded_Muon_miniPFRelIso_all_) {
         if (!b_Muon_miniPFRelIso_all_) throw std::runtime_error("Muon_miniPFRelIso_all branch doesn't exist");
@@ -9627,6 +14989,33 @@ const vector<float> &Nano::Muon_miniPFRelIso_chg() {
         loaded_Muon_miniPFRelIso_chg_ = true;
     }
     return v_Muon_miniPFRelIso_chg_;
+}
+const vector<UChar_t> &Nano::Muon_multiIsoId() {
+    if (!loaded_Muon_multiIsoId_) {
+        if (!b_Muon_multiIsoId_) throw std::runtime_error("Muon_multiIsoId branch doesn't exist");
+        int bytes = b_Muon_multiIsoId_->GetEntry(index);
+        v_Muon_multiIsoId_ = vector<UChar_t>(Muon_multiIsoId_,Muon_multiIsoId_+bytes/sizeof(Muon_multiIsoId_[0]));
+        loaded_Muon_multiIsoId_ = true;
+    }
+    return v_Muon_multiIsoId_;
+}
+const vector<UChar_t> &Nano::Muon_mvaId() {
+    if (!loaded_Muon_mvaId_) {
+        if (!b_Muon_mvaId_) throw std::runtime_error("Muon_mvaId branch doesn't exist");
+        int bytes = b_Muon_mvaId_->GetEntry(index);
+        v_Muon_mvaId_ = vector<UChar_t>(Muon_mvaId_,Muon_mvaId_+bytes/sizeof(Muon_mvaId_[0]));
+        loaded_Muon_mvaId_ = true;
+    }
+    return v_Muon_mvaId_;
+}
+const vector<float> &Nano::Muon_mvaLowPt() {
+    if (!loaded_Muon_mvaLowPt_) {
+        if (!b_Muon_mvaLowPt_) throw std::runtime_error("Muon_mvaLowPt branch doesn't exist");
+        int bytes = b_Muon_mvaLowPt_->GetEntry(index);
+        v_Muon_mvaLowPt_ = vector<float>(Muon_mvaLowPt_,Muon_mvaLowPt_+bytes/sizeof(Muon_mvaLowPt_[0]));
+        loaded_Muon_mvaLowPt_ = true;
+    }
+    return v_Muon_mvaLowPt_;
 }
 const vector<float> &Nano::Muon_mvaTTH() {
     if (!loaded_Muon_mvaTTH_) {
@@ -9677,6 +15066,15 @@ const vector<int> &Nano::Muon_pdgId() {
         loaded_Muon_pdgId_ = true;
     }
     return v_Muon_pdgId_;
+}
+const vector<UChar_t> &Nano::Muon_pfIsoId() {
+    if (!loaded_Muon_pfIsoId_) {
+        if (!b_Muon_pfIsoId_) throw std::runtime_error("Muon_pfIsoId branch doesn't exist");
+        int bytes = b_Muon_pfIsoId_->GetEntry(index);
+        v_Muon_pfIsoId_ = vector<UChar_t>(Muon_pfIsoId_,Muon_pfIsoId_+bytes/sizeof(Muon_pfIsoId_[0]));
+        loaded_Muon_pfIsoId_ = true;
+    }
+    return v_Muon_pfIsoId_;
 }
 const vector<float> &Nano::Muon_pfRelIso03_all() {
     if (!loaded_Muon_pfRelIso03_all_) {
@@ -9759,6 +15157,24 @@ const vector<bool> &Nano::Muon_softId() {
     }
     return v_Muon_softId_;
 }
+const vector<float> &Nano::Muon_softMva() {
+    if (!loaded_Muon_softMva_) {
+        if (!b_Muon_softMva_) throw std::runtime_error("Muon_softMva branch doesn't exist");
+        int bytes = b_Muon_softMva_->GetEntry(index);
+        v_Muon_softMva_ = vector<float>(Muon_softMva_,Muon_softMva_+bytes/sizeof(Muon_softMva_[0]));
+        loaded_Muon_softMva_ = true;
+    }
+    return v_Muon_softMva_;
+}
+const vector<bool> &Nano::Muon_softMvaId() {
+    if (!loaded_Muon_softMvaId_) {
+        if (!b_Muon_softMvaId_) throw std::runtime_error("Muon_softMvaId branch doesn't exist");
+        int bytes = b_Muon_softMvaId_->GetEntry(index);
+        v_Muon_softMvaId_ = vector<bool>(Muon_softMvaId_,Muon_softMvaId_+bytes/sizeof(Muon_softMvaId_[0]));
+        loaded_Muon_softMvaId_ = true;
+    }
+    return v_Muon_softMvaId_;
+}
 const vector<int> &Nano::Muon_tightCharge() {
     if (!loaded_Muon_tightCharge_) {
         if (!b_Muon_tightCharge_) throw std::runtime_error("Muon_tightCharge branch doesn't exist");
@@ -9777,6 +15193,42 @@ const vector<bool> &Nano::Muon_tightId() {
     }
     return v_Muon_tightId_;
 }
+const vector<UChar_t> &Nano::Muon_tkIsoId() {
+    if (!loaded_Muon_tkIsoId_) {
+        if (!b_Muon_tkIsoId_) throw std::runtime_error("Muon_tkIsoId branch doesn't exist");
+        int bytes = b_Muon_tkIsoId_->GetEntry(index);
+        v_Muon_tkIsoId_ = vector<UChar_t>(Muon_tkIsoId_,Muon_tkIsoId_+bytes/sizeof(Muon_tkIsoId_[0]));
+        loaded_Muon_tkIsoId_ = true;
+    }
+    return v_Muon_tkIsoId_;
+}
+const vector<float> &Nano::Muon_tkRelIso() {
+    if (!loaded_Muon_tkRelIso_) {
+        if (!b_Muon_tkRelIso_) throw std::runtime_error("Muon_tkRelIso branch doesn't exist");
+        int bytes = b_Muon_tkRelIso_->GetEntry(index);
+        v_Muon_tkRelIso_ = vector<float>(Muon_tkRelIso_,Muon_tkRelIso_+bytes/sizeof(Muon_tkRelIso_[0]));
+        loaded_Muon_tkRelIso_ = true;
+    }
+    return v_Muon_tkRelIso_;
+}
+const vector<bool> &Nano::Muon_triggerIdLoose() {
+    if (!loaded_Muon_triggerIdLoose_) {
+        if (!b_Muon_triggerIdLoose_) throw std::runtime_error("Muon_triggerIdLoose branch doesn't exist");
+        int bytes = b_Muon_triggerIdLoose_->GetEntry(index);
+        v_Muon_triggerIdLoose_ = vector<bool>(Muon_triggerIdLoose_,Muon_triggerIdLoose_+bytes/sizeof(Muon_triggerIdLoose_[0]));
+        loaded_Muon_triggerIdLoose_ = true;
+    }
+    return v_Muon_triggerIdLoose_;
+}
+const vector<float> &Nano::Muon_tunepRelPt() {
+    if (!loaded_Muon_tunepRelPt_) {
+        if (!b_Muon_tunepRelPt_) throw std::runtime_error("Muon_tunepRelPt branch doesn't exist");
+        int bytes = b_Muon_tunepRelPt_->GetEntry(index);
+        v_Muon_tunepRelPt_ = vector<float>(Muon_tunepRelPt_,Muon_tunepRelPt_+bytes/sizeof(Muon_tunepRelPt_[0]));
+        loaded_Muon_tunepRelPt_ = true;
+    }
+    return v_Muon_tunepRelPt_;
+}
 const vector<float> &Nano::OtherPV_z() {
     if (!loaded_OtherPV_z_) {
         if (!b_OtherPV_z_) throw std::runtime_error("OtherPV_z branch doesn't exist");
@@ -9785,6 +15237,15 @@ const vector<float> &Nano::OtherPV_z() {
         loaded_OtherPV_z_ = true;
     }
     return v_OtherPV_z_;
+}
+const vector<float> &Nano::PSWeight() {
+    if (!loaded_PSWeight_) {
+        if (!b_PSWeight_) throw std::runtime_error("PSWeight branch doesn't exist");
+        int bytes = b_PSWeight_->GetEntry(index);
+        v_PSWeight_ = vector<float>(PSWeight_,PSWeight_+bytes/sizeof(PSWeight_[0]));
+        loaded_PSWeight_ = true;
+    }
+    return v_PSWeight_;
 }
 const float &Nano::PV_chi2() {
     if (!loaded_PV_chi2_) {
@@ -9876,6 +15337,15 @@ const vector<int> &Nano::Photon_cutBasedBitmap() {
         loaded_Photon_cutBasedBitmap_ = true;
     }
     return v_Photon_cutBasedBitmap_;
+}
+const vector<int> &Nano::Photon_cutBasedV1Bitmap() {
+    if (!loaded_Photon_cutBasedV1Bitmap_) {
+        if (!b_Photon_cutBasedV1Bitmap_) throw std::runtime_error("Photon_cutBasedV1Bitmap branch doesn't exist");
+        int bytes = b_Photon_cutBasedV1Bitmap_->GetEntry(index);
+        v_Photon_cutBasedV1Bitmap_ = vector<int>(Photon_cutBasedV1Bitmap_,Photon_cutBasedV1Bitmap_+bytes/sizeof(Photon_cutBasedV1Bitmap_[0]));
+        loaded_Photon_cutBasedV1Bitmap_ = true;
+    }
+    return v_Photon_cutBasedV1Bitmap_;
 }
 const vector<float> &Nano::Photon_eCorr() {
     if (!loaded_Photon_eCorr_) {
@@ -9994,6 +15464,15 @@ const vector<float> &Nano::Photon_mvaID() {
     }
     return v_Photon_mvaID_;
 }
+const vector<float> &Nano::Photon_mvaIDV1() {
+    if (!loaded_Photon_mvaIDV1_) {
+        if (!b_Photon_mvaIDV1_) throw std::runtime_error("Photon_mvaIDV1 branch doesn't exist");
+        int bytes = b_Photon_mvaIDV1_->GetEntry(index);
+        v_Photon_mvaIDV1_ = vector<float>(Photon_mvaIDV1_,Photon_mvaIDV1_+bytes/sizeof(Photon_mvaIDV1_[0]));
+        loaded_Photon_mvaIDV1_ = true;
+    }
+    return v_Photon_mvaIDV1_;
+}
 const vector<bool> &Nano::Photon_mvaID_WP80() {
     if (!loaded_Photon_mvaID_WP80_) {
         if (!b_Photon_mvaID_WP80_) throw std::runtime_error("Photon_mvaID_WP80 branch doesn't exist");
@@ -10089,6 +15568,15 @@ const vector<float> &Nano::Photon_r9() {
     }
     return v_Photon_r9_;
 }
+const vector<UChar_t> &Nano::Photon_seedGain() {
+    if (!loaded_Photon_seedGain_) {
+        if (!b_Photon_seedGain_) throw std::runtime_error("Photon_seedGain branch doesn't exist");
+        int bytes = b_Photon_seedGain_->GetEntry(index);
+        v_Photon_seedGain_ = vector<UChar_t>(Photon_seedGain_,Photon_seedGain_+bytes/sizeof(Photon_seedGain_[0]));
+        loaded_Photon_seedGain_ = true;
+    }
+    return v_Photon_seedGain_;
+}
 const vector<float> &Nano::Photon_sieie() {
     if (!loaded_Photon_sieie_) {
         if (!b_Photon_sieie_) throw std::runtime_error("Photon_sieie branch doesn't exist");
@@ -10107,6 +15595,14 @@ const vector<int> &Nano::Photon_vidNestedWPBitmap() {
     }
     return v_Photon_vidNestedWPBitmap_;
 }
+const float &Nano::Pileup_gpudensity() {
+    if (!loaded_Pileup_gpudensity_) {
+        if (!b_Pileup_gpudensity_) throw std::runtime_error("Pileup_gpudensity branch doesn't exist");
+        b_Pileup_gpudensity_->GetEntry(index);
+        loaded_Pileup_gpudensity_ = true;
+    }
+    return Pileup_gpudensity_;
+}
 const int &Nano::Pileup_nPU() {
     if (!loaded_Pileup_nPU_) {
         if (!b_Pileup_nPU_) throw std::runtime_error("Pileup_nPU branch doesn't exist");
@@ -10122,6 +15618,14 @@ const float &Nano::Pileup_nTrueInt() {
         loaded_Pileup_nTrueInt_ = true;
     }
     return Pileup_nTrueInt_;
+}
+const float &Nano::Pileup_pudensity() {
+    if (!loaded_Pileup_pudensity_) {
+        if (!b_Pileup_pudensity_) throw std::runtime_error("Pileup_pudensity branch doesn't exist");
+        b_Pileup_pudensity_->GetEntry(index);
+        loaded_Pileup_pudensity_ = true;
+    }
+    return Pileup_pudensity_;
 }
 const int &Nano::Pileup_sumEOOT() {
     if (!loaded_Pileup_sumEOOT_) {
@@ -10537,6 +16041,15 @@ const vector<float> &Nano::SubJet_pt() {
     }
     return v_SubJet_pt_;
 }
+const vector<float> &Nano::SubJet_rawFactor() {
+    if (!loaded_SubJet_rawFactor_) {
+        if (!b_SubJet_rawFactor_) throw std::runtime_error("SubJet_rawFactor branch doesn't exist");
+        int bytes = b_SubJet_rawFactor_->GetEntry(index);
+        v_SubJet_rawFactor_ = vector<float>(SubJet_rawFactor_,SubJet_rawFactor_+bytes/sizeof(SubJet_rawFactor_[0]));
+        loaded_SubJet_rawFactor_ = true;
+    }
+    return v_SubJet_rawFactor_;
+}
 const vector<float> &Nano::SubJet_tau1() {
     if (!loaded_SubJet_tau1_) {
         if (!b_SubJet_tau1_) throw std::runtime_error("SubJet_tau1 branch doesn't exist");
@@ -10662,6 +16175,15 @@ const vector<UChar_t> &Nano::Tau_idAntiEle() {
         loaded_Tau_idAntiEle_ = true;
     }
     return v_Tau_idAntiEle_;
+}
+const vector<UChar_t> &Nano::Tau_idAntiEle2018() {
+    if (!loaded_Tau_idAntiEle2018_) {
+        if (!b_Tau_idAntiEle2018_) throw std::runtime_error("Tau_idAntiEle2018 branch doesn't exist");
+        int bytes = b_Tau_idAntiEle2018_->GetEntry(index);
+        v_Tau_idAntiEle2018_ = vector<UChar_t>(Tau_idAntiEle2018_,Tau_idAntiEle2018_+bytes/sizeof(Tau_idAntiEle2018_[0]));
+        loaded_Tau_idAntiEle2018_ = true;
+    }
+    return v_Tau_idAntiEle2018_;
 }
 const vector<UChar_t> &Nano::Tau_idAntiMu() {
     if (!loaded_Tau_idAntiMu_) {
@@ -10848,6 +16370,15 @@ const vector<float> &Nano::Tau_rawAntiEle() {
     }
     return v_Tau_rawAntiEle_;
 }
+const vector<float> &Nano::Tau_rawAntiEle2018() {
+    if (!loaded_Tau_rawAntiEle2018_) {
+        if (!b_Tau_rawAntiEle2018_) throw std::runtime_error("Tau_rawAntiEle2018 branch doesn't exist");
+        int bytes = b_Tau_rawAntiEle2018_->GetEntry(index);
+        v_Tau_rawAntiEle2018_ = vector<float>(Tau_rawAntiEle2018_,Tau_rawAntiEle2018_+bytes/sizeof(Tau_rawAntiEle2018_[0]));
+        loaded_Tau_rawAntiEle2018_ = true;
+    }
+    return v_Tau_rawAntiEle2018_;
+}
 const vector<int> &Nano::Tau_rawAntiEleCat() {
     if (!loaded_Tau_rawAntiEleCat_) {
         if (!b_Tau_rawAntiEleCat_) throw std::runtime_error("Tau_rawAntiEleCat branch doesn't exist");
@@ -10856,6 +16387,15 @@ const vector<int> &Nano::Tau_rawAntiEleCat() {
         loaded_Tau_rawAntiEleCat_ = true;
     }
     return v_Tau_rawAntiEleCat_;
+}
+const vector<int> &Nano::Tau_rawAntiEleCat2018() {
+    if (!loaded_Tau_rawAntiEleCat2018_) {
+        if (!b_Tau_rawAntiEleCat2018_) throw std::runtime_error("Tau_rawAntiEleCat2018 branch doesn't exist");
+        int bytes = b_Tau_rawAntiEleCat2018_->GetEntry(index);
+        v_Tau_rawAntiEleCat2018_ = vector<int>(Tau_rawAntiEleCat2018_,Tau_rawAntiEleCat2018_+bytes/sizeof(Tau_rawAntiEleCat2018_[0]));
+        loaded_Tau_rawAntiEleCat2018_ = true;
+    }
+    return v_Tau_rawAntiEleCat2018_;
 }
 const vector<float> &Nano::Tau_rawIso() {
     if (!loaded_Tau_rawIso_) {
@@ -11034,6 +16574,22 @@ const vector<float> &Nano::TrigObj_pt() {
     }
     return v_TrigObj_pt_;
 }
+const float &Nano::btagWeight_CSVV2() {
+    if (!loaded_btagWeight_CSVV2_) {
+        if (!b_btagWeight_CSVV2_) throw std::runtime_error("btagWeight_CSVV2 branch doesn't exist");
+        b_btagWeight_CSVV2_->GetEntry(index);
+        loaded_btagWeight_CSVV2_ = true;
+    }
+    return btagWeight_CSVV2_;
+}
+const float &Nano::btagWeight_DeepCSVB() {
+    if (!loaded_btagWeight_DeepCSVB_) {
+        if (!b_btagWeight_DeepCSVB_) throw std::runtime_error("btagWeight_DeepCSVB branch doesn't exist");
+        b_btagWeight_DeepCSVB_->GetEntry(index);
+        loaded_btagWeight_DeepCSVB_ = true;
+    }
+    return btagWeight_DeepCSVB_;
+}
 const ULong64_t &Nano::event() {
     if (!loaded_event_) {
         if (!b_event_) throw std::runtime_error("event branch doesn't exist");
@@ -11050,6 +16606,14 @@ const float &Nano::fixedGridRhoFastjetAll() {
     }
     return fixedGridRhoFastjetAll_;
 }
+const float &Nano::fixedGridRhoFastjetCentral() {
+    if (!loaded_fixedGridRhoFastjetCentral_) {
+        if (!b_fixedGridRhoFastjetCentral_) throw std::runtime_error("fixedGridRhoFastjetCentral branch doesn't exist");
+        b_fixedGridRhoFastjetCentral_->GetEntry(index);
+        loaded_fixedGridRhoFastjetCentral_ = true;
+    }
+    return fixedGridRhoFastjetCentral_;
+}
 const float &Nano::fixedGridRhoFastjetCentralCalo() {
     if (!loaded_fixedGridRhoFastjetCentralCalo_) {
         if (!b_fixedGridRhoFastjetCentralCalo_) throw std::runtime_error("fixedGridRhoFastjetCentralCalo branch doesn't exist");
@@ -11057,6 +16621,14 @@ const float &Nano::fixedGridRhoFastjetCentralCalo() {
         loaded_fixedGridRhoFastjetCentralCalo_ = true;
     }
     return fixedGridRhoFastjetCentralCalo_;
+}
+const float &Nano::fixedGridRhoFastjetCentralChargedPileUp() {
+    if (!loaded_fixedGridRhoFastjetCentralChargedPileUp_) {
+        if (!b_fixedGridRhoFastjetCentralChargedPileUp_) throw std::runtime_error("fixedGridRhoFastjetCentralChargedPileUp branch doesn't exist");
+        b_fixedGridRhoFastjetCentralChargedPileUp_->GetEntry(index);
+        loaded_fixedGridRhoFastjetCentralChargedPileUp_ = true;
+    }
+    return fixedGridRhoFastjetCentralChargedPileUp_;
 }
 const float &Nano::fixedGridRhoFastjetCentralNeutral() {
     if (!loaded_fixedGridRhoFastjetCentralNeutral_) {
@@ -11089,6 +16661,14 @@ const UInt_t &Nano::luminosityBlock() {
         loaded_luminosityBlock_ = true;
     }
     return luminosityBlock_;
+}
+const UInt_t &Nano::nCorrT1METJet() {
+    if (!loaded_nCorrT1METJet_) {
+        if (!b_nCorrT1METJet_) throw std::runtime_error("nCorrT1METJet branch doesn't exist");
+        b_nCorrT1METJet_->GetEntry(index);
+        loaded_nCorrT1METJet_ = true;
+    }
+    return nCorrT1METJet_;
 }
 const UInt_t &Nano::nElectron() {
     if (!loaded_nElectron_) {
@@ -11178,6 +16758,14 @@ const UInt_t &Nano::nLHEPdfWeight() {
     }
     return nLHEPdfWeight_;
 }
+const UInt_t &Nano::nLHEReweightingWeight() {
+    if (!loaded_nLHEReweightingWeight_) {
+        if (!b_nLHEReweightingWeight_) throw std::runtime_error("nLHEReweightingWeight branch doesn't exist");
+        b_nLHEReweightingWeight_->GetEntry(index);
+        loaded_nLHEReweightingWeight_ = true;
+    }
+    return nLHEReweightingWeight_;
+}
 const UInt_t &Nano::nLHEScaleWeight() {
     if (!loaded_nLHEScaleWeight_) {
         if (!b_nLHEScaleWeight_) throw std::runtime_error("nLHEScaleWeight branch doesn't exist");
@@ -11201,6 +16789,14 @@ const UInt_t &Nano::nOtherPV() {
         loaded_nOtherPV_ = true;
     }
     return nOtherPV_;
+}
+const UInt_t &Nano::nPSWeight() {
+    if (!loaded_nPSWeight_) {
+        if (!b_nPSWeight_) throw std::runtime_error("nPSWeight branch doesn't exist");
+        b_nPSWeight_->GetEntry(index);
+        loaded_nPSWeight_ = true;
+    }
+    return nPSWeight_;
 }
 const UInt_t &Nano::nPhoton() {
     if (!loaded_nPhoton_) {
@@ -11271,15 +16867,25 @@ namespace tas {
     const float &CaloMET_phi() { return nt.CaloMET_phi(); }
     const float &CaloMET_pt() { return nt.CaloMET_pt(); }
     const float &CaloMET_sumEt() { return nt.CaloMET_sumEt(); }
+    const float &ChsMET_phi() { return nt.ChsMET_phi(); }
+    const float &ChsMET_pt() { return nt.ChsMET_pt(); }
+    const float &ChsMET_sumEt() { return nt.ChsMET_sumEt(); }
+    const vector<float> &CorrT1METJet_area() { return nt.CorrT1METJet_area(); }
+    const vector<float> &CorrT1METJet_eta() { return nt.CorrT1METJet_eta(); }
+    const vector<float> &CorrT1METJet_muonSubtrFactor() { return nt.CorrT1METJet_muonSubtrFactor(); }
+    const vector<float> &CorrT1METJet_phi() { return nt.CorrT1METJet_phi(); }
+    const vector<float> &CorrT1METJet_rawPt() { return nt.CorrT1METJet_rawPt(); }
     const vector<int> &Electron_charge() { return nt.Electron_charge(); }
     const vector<UChar_t> &Electron_cleanmask() { return nt.Electron_cleanmask(); }
     const vector<bool> &Electron_convVeto() { return nt.Electron_convVeto(); }
     const vector<int> &Electron_cutBased() { return nt.Electron_cutBased(); }
+    const vector<int> &Electron_cutBased_Fall17_V1() { return nt.Electron_cutBased_Fall17_V1(); }
     const vector<bool> &Electron_cutBased_HEEP() { return nt.Electron_cutBased_HEEP(); }
     const vector<float> &Electron_deltaEtaSC() { return nt.Electron_deltaEtaSC(); }
     const vector<float> &Electron_dr03EcalRecHitSumEt() { return nt.Electron_dr03EcalRecHitSumEt(); }
     const vector<float> &Electron_dr03HcalDepth1TowerSumEt() { return nt.Electron_dr03HcalDepth1TowerSumEt(); }
     const vector<float> &Electron_dr03TkSumPt() { return nt.Electron_dr03TkSumPt(); }
+    const vector<float> &Electron_dr03TkSumPtHEEP() { return nt.Electron_dr03TkSumPtHEEP(); }
     const vector<float> &Electron_dxy() { return nt.Electron_dxy(); }
     const vector<float> &Electron_dxyErr() { return nt.Electron_dxyErr(); }
     const vector<float> &Electron_dz() { return nt.Electron_dz(); }
@@ -11294,18 +16900,28 @@ namespace tas {
     const vector<float> &Electron_ip3d() { return nt.Electron_ip3d(); }
     const vector<bool> &Electron_isPFcand() { return nt.Electron_isPFcand(); }
     const vector<int> &Electron_jetIdx() { return nt.Electron_jetIdx(); }
+    const vector<float> &Electron_jetPtRelv2() { return nt.Electron_jetPtRelv2(); }
+    const vector<float> &Electron_jetRelIso() { return nt.Electron_jetRelIso(); }
     const vector<UChar_t> &Electron_lostHits() { return nt.Electron_lostHits(); }
     const vector<float> &Electron_mass() { return nt.Electron_mass(); }
     const vector<float> &Electron_miniPFRelIso_all() { return nt.Electron_miniPFRelIso_all(); }
     const vector<float> &Electron_miniPFRelIso_chg() { return nt.Electron_miniPFRelIso_chg(); }
-    const vector<float> &Electron_mvaFall17Iso() { return nt.Electron_mvaFall17Iso(); }
-    const vector<bool> &Electron_mvaFall17Iso_WP80() { return nt.Electron_mvaFall17Iso_WP80(); }
-    const vector<bool> &Electron_mvaFall17Iso_WP90() { return nt.Electron_mvaFall17Iso_WP90(); }
-    const vector<bool> &Electron_mvaFall17Iso_WPL() { return nt.Electron_mvaFall17Iso_WPL(); }
-    const vector<float> &Electron_mvaFall17noIso() { return nt.Electron_mvaFall17noIso(); }
-    const vector<bool> &Electron_mvaFall17noIso_WP80() { return nt.Electron_mvaFall17noIso_WP80(); }
-    const vector<bool> &Electron_mvaFall17noIso_WP90() { return nt.Electron_mvaFall17noIso_WP90(); }
-    const vector<bool> &Electron_mvaFall17noIso_WPL() { return nt.Electron_mvaFall17noIso_WPL(); }
+    const vector<float> &Electron_mvaFall17V1Iso() { return nt.Electron_mvaFall17V1Iso(); }
+    const vector<bool> &Electron_mvaFall17V1Iso_WP80() { return nt.Electron_mvaFall17V1Iso_WP80(); }
+    const vector<bool> &Electron_mvaFall17V1Iso_WP90() { return nt.Electron_mvaFall17V1Iso_WP90(); }
+    const vector<bool> &Electron_mvaFall17V1Iso_WPL() { return nt.Electron_mvaFall17V1Iso_WPL(); }
+    const vector<float> &Electron_mvaFall17V1noIso() { return nt.Electron_mvaFall17V1noIso(); }
+    const vector<bool> &Electron_mvaFall17V1noIso_WP80() { return nt.Electron_mvaFall17V1noIso_WP80(); }
+    const vector<bool> &Electron_mvaFall17V1noIso_WP90() { return nt.Electron_mvaFall17V1noIso_WP90(); }
+    const vector<bool> &Electron_mvaFall17V1noIso_WPL() { return nt.Electron_mvaFall17V1noIso_WPL(); }
+    const vector<float> &Electron_mvaFall17V2Iso() { return nt.Electron_mvaFall17V2Iso(); }
+    const vector<bool> &Electron_mvaFall17V2Iso_WP80() { return nt.Electron_mvaFall17V2Iso_WP80(); }
+    const vector<bool> &Electron_mvaFall17V2Iso_WP90() { return nt.Electron_mvaFall17V2Iso_WP90(); }
+    const vector<bool> &Electron_mvaFall17V2Iso_WPL() { return nt.Electron_mvaFall17V2Iso_WPL(); }
+    const vector<float> &Electron_mvaFall17V2noIso() { return nt.Electron_mvaFall17V2noIso(); }
+    const vector<bool> &Electron_mvaFall17V2noIso_WP80() { return nt.Electron_mvaFall17V2noIso_WP80(); }
+    const vector<bool> &Electron_mvaFall17V2noIso_WP90() { return nt.Electron_mvaFall17V2noIso_WP90(); }
+    const vector<bool> &Electron_mvaFall17V2noIso_WPL() { return nt.Electron_mvaFall17V2noIso_WPL(); }
     const vector<float> &Electron_mvaTTH() { return nt.Electron_mvaTTH(); }
     const vector<LorentzVector> &Electron_p4() { return nt.Electron_p4(); }
     const vector<int> &Electron_pdgId() { return nt.Electron_pdgId(); }
@@ -11315,6 +16931,7 @@ namespace tas {
     const vector<int> &Electron_photonIdx() { return nt.Electron_photonIdx(); }
     const vector<float> &Electron_pt() { return nt.Electron_pt(); }
     const vector<float> &Electron_r9() { return nt.Electron_r9(); }
+    const vector<UChar_t> &Electron_seedGain() { return nt.Electron_seedGain(); }
     const vector<float> &Electron_sieie() { return nt.Electron_sieie(); }
     const vector<float> &Electron_sip3d() { return nt.Electron_sip3d(); }
     const vector<int> &Electron_tightCharge() { return nt.Electron_tightCharge(); }
@@ -11322,8 +16939,27 @@ namespace tas {
     const vector<float> &FatJet_area() { return nt.FatJet_area(); }
     const vector<float> &FatJet_btagCMVA() { return nt.FatJet_btagCMVA(); }
     const vector<float> &FatJet_btagCSVV2() { return nt.FatJet_btagCSVV2(); }
+    const vector<float> &FatJet_btagDDBvL() { return nt.FatJet_btagDDBvL(); }
+    const vector<float> &FatJet_btagDDCvB() { return nt.FatJet_btagDDCvB(); }
+    const vector<float> &FatJet_btagDDCvL() { return nt.FatJet_btagDDCvL(); }
     const vector<float> &FatJet_btagDeepB() { return nt.FatJet_btagDeepB(); }
     const vector<float> &FatJet_btagHbb() { return nt.FatJet_btagHbb(); }
+    const vector<float> &FatJet_deepTagMD_H4qvsQCD() { return nt.FatJet_deepTagMD_H4qvsQCD(); }
+    const vector<float> &FatJet_deepTagMD_HbbvsQCD() { return nt.FatJet_deepTagMD_HbbvsQCD(); }
+    const vector<float> &FatJet_deepTagMD_TvsQCD() { return nt.FatJet_deepTagMD_TvsQCD(); }
+    const vector<float> &FatJet_deepTagMD_WvsQCD() { return nt.FatJet_deepTagMD_WvsQCD(); }
+    const vector<float> &FatJet_deepTagMD_ZHbbvsQCD() { return nt.FatJet_deepTagMD_ZHbbvsQCD(); }
+    const vector<float> &FatJet_deepTagMD_ZHccvsQCD() { return nt.FatJet_deepTagMD_ZHccvsQCD(); }
+    const vector<float> &FatJet_deepTagMD_ZbbvsQCD() { return nt.FatJet_deepTagMD_ZbbvsQCD(); }
+    const vector<float> &FatJet_deepTagMD_ZvsQCD() { return nt.FatJet_deepTagMD_ZvsQCD(); }
+    const vector<float> &FatJet_deepTagMD_bbvsLight() { return nt.FatJet_deepTagMD_bbvsLight(); }
+    const vector<float> &FatJet_deepTagMD_ccvsLight() { return nt.FatJet_deepTagMD_ccvsLight(); }
+    const vector<float> &FatJet_deepTag_H() { return nt.FatJet_deepTag_H(); }
+    const vector<float> &FatJet_deepTag_QCD() { return nt.FatJet_deepTag_QCD(); }
+    const vector<float> &FatJet_deepTag_QCDothers() { return nt.FatJet_deepTag_QCDothers(); }
+    const vector<float> &FatJet_deepTag_TvsQCD() { return nt.FatJet_deepTag_TvsQCD(); }
+    const vector<float> &FatJet_deepTag_WvsQCD() { return nt.FatJet_deepTag_WvsQCD(); }
+    const vector<float> &FatJet_deepTag_ZvsQCD() { return nt.FatJet_deepTag_ZvsQCD(); }
     const vector<float> &FatJet_eta() { return nt.FatJet_eta(); }
     const vector<int> &FatJet_jetId() { return nt.FatJet_jetId(); }
     const vector<float> &FatJet_mass() { return nt.FatJet_mass(); }
@@ -11333,6 +16969,7 @@ namespace tas {
     const vector<LorentzVector> &FatJet_p4() { return nt.FatJet_p4(); }
     const vector<float> &FatJet_phi() { return nt.FatJet_phi(); }
     const vector<float> &FatJet_pt() { return nt.FatJet_pt(); }
+    const vector<float> &FatJet_rawFactor() { return nt.FatJet_rawFactor(); }
     const vector<int> &FatJet_subJetIdx1() { return nt.FatJet_subJetIdx1(); }
     const vector<int> &FatJet_subJetIdx2() { return nt.FatJet_subJetIdx2(); }
     const vector<float> &FatJet_tau1() { return nt.FatJet_tau1(); }
@@ -11354,6 +16991,7 @@ namespace tas {
     const bool &Flag_METFilters() { return nt.Flag_METFilters(); }
     const bool &Flag_chargedHadronTrackResolutionFilter() { return nt.Flag_chargedHadronTrackResolutionFilter(); }
     const bool &Flag_ecalBadCalibFilter() { return nt.Flag_ecalBadCalibFilter(); }
+    const bool &Flag_ecalBadCalibFilterV2() { return nt.Flag_ecalBadCalibFilterV2(); }
     const bool &Flag_ecalLaserCorrFilter() { return nt.Flag_ecalLaserCorrFilter(); }
     const bool &Flag_eeBadScFilter() { return nt.Flag_eeBadScFilter(); }
     const bool &Flag_globalSuperTightHalo2016Filter() { return nt.Flag_globalSuperTightHalo2016Filter(); }
@@ -11366,6 +17004,7 @@ namespace tas {
     const bool &Flag_trkPOG_manystripclus53X() { return nt.Flag_trkPOG_manystripclus53X(); }
     const bool &Flag_trkPOG_toomanystripclus53X() { return nt.Flag_trkPOG_toomanystripclus53X(); }
     const vector<float> &GenDressedLepton_eta() { return nt.GenDressedLepton_eta(); }
+    const vector<bool> &GenDressedLepton_hasTauAnc() { return nt.GenDressedLepton_hasTauAnc(); }
     const vector<float> &GenDressedLepton_mass() { return nt.GenDressedLepton_mass(); }
     const vector<LorentzVector> &GenDressedLepton_p4() { return nt.GenDressedLepton_p4(); }
     const vector<int> &GenDressedLepton_pdgId() { return nt.GenDressedLepton_pdgId(); }
@@ -11429,11 +17068,16 @@ namespace tas {
     const bool &HLT_AK8PFHT850_TrimMass50() { return nt.HLT_AK8PFHT850_TrimMass50(); }
     const bool &HLT_AK8PFHT900_TrimMass50() { return nt.HLT_AK8PFHT900_TrimMass50(); }
     const bool &HLT_AK8PFJet140() { return nt.HLT_AK8PFJet140(); }
+    const bool &HLT_AK8PFJet15() { return nt.HLT_AK8PFJet15(); }
     const bool &HLT_AK8PFJet200() { return nt.HLT_AK8PFJet200(); }
+    const bool &HLT_AK8PFJet25() { return nt.HLT_AK8PFJet25(); }
     const bool &HLT_AK8PFJet260() { return nt.HLT_AK8PFJet260(); }
     const bool &HLT_AK8PFJet320() { return nt.HLT_AK8PFJet320(); }
-    const bool &HLT_AK8PFJet330_PFAK8BTagCSV_p1() { return nt.HLT_AK8PFJet330_PFAK8BTagCSV_p1(); }
-    const bool &HLT_AK8PFJet330_PFAK8BTagCSV_p17() { return nt.HLT_AK8PFJet330_PFAK8BTagCSV_p17(); }
+    const bool &HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p1() { return nt.HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p1(); }
+    const bool &HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p17() { return nt.HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p17(); }
+    const bool &HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np2() { return nt.HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np2(); }
+    const bool &HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np4() { return nt.HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np4(); }
+    const bool &HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_p02() { return nt.HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_p02(); }
     const bool &HLT_AK8PFJet360_TrimMass30() { return nt.HLT_AK8PFJet360_TrimMass30(); }
     const bool &HLT_AK8PFJet380_TrimMass30() { return nt.HLT_AK8PFJet380_TrimMass30(); }
     const bool &HLT_AK8PFJet40() { return nt.HLT_AK8PFJet40(); }
@@ -11446,7 +17090,9 @@ namespace tas {
     const bool &HLT_AK8PFJet60() { return nt.HLT_AK8PFJet60(); }
     const bool &HLT_AK8PFJet80() { return nt.HLT_AK8PFJet80(); }
     const bool &HLT_AK8PFJetFwd140() { return nt.HLT_AK8PFJetFwd140(); }
+    const bool &HLT_AK8PFJetFwd15() { return nt.HLT_AK8PFJetFwd15(); }
     const bool &HLT_AK8PFJetFwd200() { return nt.HLT_AK8PFJetFwd200(); }
+    const bool &HLT_AK8PFJetFwd25() { return nt.HLT_AK8PFJetFwd25(); }
     const bool &HLT_AK8PFJetFwd260() { return nt.HLT_AK8PFJetFwd260(); }
     const bool &HLT_AK8PFJetFwd320() { return nt.HLT_AK8PFJetFwd320(); }
     const bool &HLT_AK8PFJetFwd40() { return nt.HLT_AK8PFJetFwd40(); }
@@ -11456,13 +17102,25 @@ namespace tas {
     const bool &HLT_AK8PFJetFwd60() { return nt.HLT_AK8PFJetFwd60(); }
     const bool &HLT_AK8PFJetFwd80() { return nt.HLT_AK8PFJetFwd80(); }
     const bool &HLT_BTagMu_AK4DiJet110_Mu5() { return nt.HLT_BTagMu_AK4DiJet110_Mu5(); }
+    const bool &HLT_BTagMu_AK4DiJet110_Mu5_noalgo() { return nt.HLT_BTagMu_AK4DiJet110_Mu5_noalgo(); }
     const bool &HLT_BTagMu_AK4DiJet170_Mu5() { return nt.HLT_BTagMu_AK4DiJet170_Mu5(); }
+    const bool &HLT_BTagMu_AK4DiJet170_Mu5_noalgo() { return nt.HLT_BTagMu_AK4DiJet170_Mu5_noalgo(); }
     const bool &HLT_BTagMu_AK4DiJet20_Mu5() { return nt.HLT_BTagMu_AK4DiJet20_Mu5(); }
+    const bool &HLT_BTagMu_AK4DiJet20_Mu5_noalgo() { return nt.HLT_BTagMu_AK4DiJet20_Mu5_noalgo(); }
     const bool &HLT_BTagMu_AK4DiJet40_Mu5() { return nt.HLT_BTagMu_AK4DiJet40_Mu5(); }
+    const bool &HLT_BTagMu_AK4DiJet40_Mu5_noalgo() { return nt.HLT_BTagMu_AK4DiJet40_Mu5_noalgo(); }
     const bool &HLT_BTagMu_AK4DiJet70_Mu5() { return nt.HLT_BTagMu_AK4DiJet70_Mu5(); }
+    const bool &HLT_BTagMu_AK4DiJet70_Mu5_noalgo() { return nt.HLT_BTagMu_AK4DiJet70_Mu5_noalgo(); }
     const bool &HLT_BTagMu_AK4Jet300_Mu5() { return nt.HLT_BTagMu_AK4Jet300_Mu5(); }
+    const bool &HLT_BTagMu_AK4Jet300_Mu5_noalgo() { return nt.HLT_BTagMu_AK4Jet300_Mu5_noalgo(); }
     const bool &HLT_BTagMu_AK8DiJet170_Mu5() { return nt.HLT_BTagMu_AK8DiJet170_Mu5(); }
+    const bool &HLT_BTagMu_AK8DiJet170_Mu5_noalgo() { return nt.HLT_BTagMu_AK8DiJet170_Mu5_noalgo(); }
+    const bool &HLT_BTagMu_AK8Jet170_DoubleMu5() { return nt.HLT_BTagMu_AK8Jet170_DoubleMu5(); }
+    const bool &HLT_BTagMu_AK8Jet170_DoubleMu5_noalgo() { return nt.HLT_BTagMu_AK8Jet170_DoubleMu5_noalgo(); }
     const bool &HLT_BTagMu_AK8Jet300_Mu5() { return nt.HLT_BTagMu_AK8Jet300_Mu5(); }
+    const bool &HLT_BTagMu_AK8Jet300_Mu5_noalgo() { return nt.HLT_BTagMu_AK8Jet300_Mu5_noalgo(); }
+    const bool &HLT_CDC_L2cosmic_5_er1p0() { return nt.HLT_CDC_L2cosmic_5_er1p0(); }
+    const bool &HLT_CDC_L2cosmic_5p5_er1p0() { return nt.HLT_CDC_L2cosmic_5p5_er1p0(); }
     const bool &HLT_CaloJet500_NoJetID() { return nt.HLT_CaloJet500_NoJetID(); }
     const bool &HLT_CaloJet550_NoJetID() { return nt.HLT_CaloJet550_NoJetID(); }
     const bool &HLT_CaloMET100_HBHECleaned() { return nt.HLT_CaloMET100_HBHECleaned(); }
@@ -11482,23 +17140,17 @@ namespace tas {
     const bool &HLT_DiJet110_35_Mjj650_PFMET110() { return nt.HLT_DiJet110_35_Mjj650_PFMET110(); }
     const bool &HLT_DiJet110_35_Mjj650_PFMET120() { return nt.HLT_DiJet110_35_Mjj650_PFMET120(); }
     const bool &HLT_DiJet110_35_Mjj650_PFMET130() { return nt.HLT_DiJet110_35_Mjj650_PFMET130(); }
+    const bool &HLT_DiMu4_Ele9_CaloIdL_TrackIdL_DZ_Mass3p8() { return nt.HLT_DiMu4_Ele9_CaloIdL_TrackIdL_DZ_Mass3p8(); }
     const bool &HLT_DiMu9_Ele9_CaloIdL_TrackIdL() { return nt.HLT_DiMu9_Ele9_CaloIdL_TrackIdL(); }
     const bool &HLT_DiMu9_Ele9_CaloIdL_TrackIdL_DZ() { return nt.HLT_DiMu9_Ele9_CaloIdL_TrackIdL_DZ(); }
-    const bool &HLT_DiPFJet15_FBEta3_NoCaloMatched() { return nt.HLT_DiPFJet15_FBEta3_NoCaloMatched(); }
-    const bool &HLT_DiPFJet15_NoCaloMatched() { return nt.HLT_DiPFJet15_NoCaloMatched(); }
-    const bool &HLT_DiPFJet25_FBEta3_NoCaloMatched() { return nt.HLT_DiPFJet25_FBEta3_NoCaloMatched(); }
-    const bool &HLT_DiPFJet25_NoCaloMatched() { return nt.HLT_DiPFJet25_NoCaloMatched(); }
     const bool &HLT_DiPFJetAve100_HFJEC() { return nt.HLT_DiPFJetAve100_HFJEC(); }
     const bool &HLT_DiPFJetAve140() { return nt.HLT_DiPFJetAve140(); }
-    const bool &HLT_DiPFJetAve15_HFJEC() { return nt.HLT_DiPFJetAve15_HFJEC(); }
     const bool &HLT_DiPFJetAve160_HFJEC() { return nt.HLT_DiPFJetAve160_HFJEC(); }
     const bool &HLT_DiPFJetAve200() { return nt.HLT_DiPFJetAve200(); }
     const bool &HLT_DiPFJetAve220_HFJEC() { return nt.HLT_DiPFJetAve220_HFJEC(); }
-    const bool &HLT_DiPFJetAve25_HFJEC() { return nt.HLT_DiPFJetAve25_HFJEC(); }
     const bool &HLT_DiPFJetAve260() { return nt.HLT_DiPFJetAve260(); }
     const bool &HLT_DiPFJetAve300_HFJEC() { return nt.HLT_DiPFJetAve300_HFJEC(); }
     const bool &HLT_DiPFJetAve320() { return nt.HLT_DiPFJetAve320(); }
-    const bool &HLT_DiPFJetAve35_HFJEC() { return nt.HLT_DiPFJetAve35_HFJEC(); }
     const bool &HLT_DiPFJetAve40() { return nt.HLT_DiPFJetAve40(); }
     const bool &HLT_DiPFJetAve400() { return nt.HLT_DiPFJetAve400(); }
     const bool &HLT_DiPFJetAve500() { return nt.HLT_DiPFJetAve500(); }
@@ -11530,8 +17182,7 @@ namespace tas {
     const bool &HLT_Dimuon0_Upsilon_Muon_NoL1Mass() { return nt.HLT_Dimuon0_Upsilon_Muon_NoL1Mass(); }
     const bool &HLT_Dimuon0_Upsilon_NoVertexing() { return nt.HLT_Dimuon0_Upsilon_NoVertexing(); }
     const bool &HLT_Dimuon10_PsiPrime_Barrel_Seagulls() { return nt.HLT_Dimuon10_PsiPrime_Barrel_Seagulls(); }
-    const bool &HLT_Dimuon10_Upsilon_Barrel_Seagulls() { return nt.HLT_Dimuon10_Upsilon_Barrel_Seagulls(); }
-    const bool &HLT_Dimuon12_Upsilon_eta1p5() { return nt.HLT_Dimuon12_Upsilon_eta1p5(); }
+    const bool &HLT_Dimuon12_Upsilon_y1p4() { return nt.HLT_Dimuon12_Upsilon_y1p4(); }
     const bool &HLT_Dimuon14_Phi_Barrel_Seagulls() { return nt.HLT_Dimuon14_Phi_Barrel_Seagulls(); }
     const bool &HLT_Dimuon18_PsiPrime() { return nt.HLT_Dimuon18_PsiPrime(); }
     const bool &HLT_Dimuon18_PsiPrime_noCorrL1() { return nt.HLT_Dimuon18_PsiPrime_noCorrL1(); }
@@ -11540,12 +17191,10 @@ namespace tas {
     const bool &HLT_Dimuon24_Upsilon_noCorrL1() { return nt.HLT_Dimuon24_Upsilon_noCorrL1(); }
     const bool &HLT_Dimuon25_Jpsi() { return nt.HLT_Dimuon25_Jpsi(); }
     const bool &HLT_Dimuon25_Jpsi_noCorrL1() { return nt.HLT_Dimuon25_Jpsi_noCorrL1(); }
-    const bool &HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55() { return nt.HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55(); }
-    const bool &HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55() { return nt.HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55(); }
     const bool &HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55() { return nt.HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55(); }
     const bool &HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55() { return nt.HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55(); }
-    const bool &HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55() { return nt.HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55(); }
-    const bool &HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55() { return nt.HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55(); }
+    const bool &HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto() { return nt.HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto(); }
+    const bool &HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_Mass55() { return nt.HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_Mass55(); }
     const bool &HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90() { return nt.HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90(); }
     const bool &HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass95() { return nt.HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass95(); }
     const bool &HLT_DoubleEle24_eta2p1_WPTight_Gsf() { return nt.HLT_DoubleEle24_eta2p1_WPTight_Gsf(); }
@@ -11555,65 +17204,80 @@ namespace tas {
     const bool &HLT_DoubleEle8_CaloIdM_TrackIdM_Mass8_DZ_PFHT350() { return nt.HLT_DoubleEle8_CaloIdM_TrackIdM_Mass8_DZ_PFHT350(); }
     const bool &HLT_DoubleEle8_CaloIdM_TrackIdM_Mass8_PFHT350() { return nt.HLT_DoubleEle8_CaloIdM_TrackIdM_Mass8_PFHT350(); }
     const bool &HLT_DoubleIsoMu20_eta2p1() { return nt.HLT_DoubleIsoMu20_eta2p1(); }
-    const bool &HLT_DoubleIsoMu24_eta2p1() { return nt.HLT_DoubleIsoMu24_eta2p1(); }
+    const bool &HLT_DoubleL2Mu23NoVtx_2Cha() { return nt.HLT_DoubleL2Mu23NoVtx_2Cha(); }
+    const bool &HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed() { return nt.HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed(); }
+    const bool &HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_NoL2Matched() { return nt.HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_NoL2Matched(); }
+    const bool &HLT_DoubleL2Mu23NoVtx_2Cha_NoL2Matched() { return nt.HLT_DoubleL2Mu23NoVtx_2Cha_NoL2Matched(); }
+    const bool &HLT_DoubleL2Mu25NoVtx_2Cha() { return nt.HLT_DoubleL2Mu25NoVtx_2Cha(); }
+    const bool &HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed() { return nt.HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed(); }
+    const bool &HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_Eta2p4() { return nt.HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_Eta2p4(); }
+    const bool &HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_NoL2Matched() { return nt.HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_NoL2Matched(); }
+    const bool &HLT_DoubleL2Mu25NoVtx_2Cha_Eta2p4() { return nt.HLT_DoubleL2Mu25NoVtx_2Cha_Eta2p4(); }
+    const bool &HLT_DoubleL2Mu25NoVtx_2Cha_NoL2Matched() { return nt.HLT_DoubleL2Mu25NoVtx_2Cha_NoL2Matched(); }
+    const bool &HLT_DoubleL2Mu30NoVtx_2Cha_CosmicSeed_Eta2p4() { return nt.HLT_DoubleL2Mu30NoVtx_2Cha_CosmicSeed_Eta2p4(); }
+    const bool &HLT_DoubleL2Mu30NoVtx_2Cha_Eta2p4() { return nt.HLT_DoubleL2Mu30NoVtx_2Cha_Eta2p4(); }
     const bool &HLT_DoubleL2Mu50() { return nt.HLT_DoubleL2Mu50(); }
-    const bool &HLT_DoubleLooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg() { return nt.HLT_DoubleLooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg(); }
-    const bool &HLT_DoubleLooseChargedIsoPFTau35_Trk1_eta2p1_Reg() { return nt.HLT_DoubleLooseChargedIsoPFTau35_Trk1_eta2p1_Reg(); }
-    const bool &HLT_DoubleLooseChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg() { return nt.HLT_DoubleLooseChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg(); }
-    const bool &HLT_DoubleLooseChargedIsoPFTau40_Trk1_eta2p1_Reg() { return nt.HLT_DoubleLooseChargedIsoPFTau40_Trk1_eta2p1_Reg(); }
-    const bool &HLT_DoubleMediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg() { return nt.HLT_DoubleMediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg(); }
-    const bool &HLT_DoubleMediumChargedIsoPFTau35_Trk1_eta2p1_Reg() { return nt.HLT_DoubleMediumChargedIsoPFTau35_Trk1_eta2p1_Reg(); }
-    const bool &HLT_DoubleMediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg() { return nt.HLT_DoubleMediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg(); }
-    const bool &HLT_DoubleMediumChargedIsoPFTau40_Trk1_eta2p1_Reg() { return nt.HLT_DoubleMediumChargedIsoPFTau40_Trk1_eta2p1_Reg(); }
+    const bool &HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg() { return nt.HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg(); }
+    const bool &HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg() { return nt.HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg(); }
+    const bool &HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg() { return nt.HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg(); }
+    const bool &HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_eta2p1_Reg() { return nt.HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_eta2p1_Reg(); }
     const bool &HLT_DoubleMu20_7_Mass0to30_L1_DM4() { return nt.HLT_DoubleMu20_7_Mass0to30_L1_DM4(); }
     const bool &HLT_DoubleMu20_7_Mass0to30_L1_DM4EG() { return nt.HLT_DoubleMu20_7_Mass0to30_L1_DM4EG(); }
     const bool &HLT_DoubleMu20_7_Mass0to30_Photon23() { return nt.HLT_DoubleMu20_7_Mass0to30_Photon23(); }
     const bool &HLT_DoubleMu2_Jpsi_DoubleTkMu0_Phi() { return nt.HLT_DoubleMu2_Jpsi_DoubleTkMu0_Phi(); }
-    const bool &HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi() { return nt.HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi(); }
+    const bool &HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi1p05() { return nt.HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi1p05(); }
+    const bool &HLT_DoubleMu33NoFiltersNoVtxDisplaced() { return nt.HLT_DoubleMu33NoFiltersNoVtxDisplaced(); }
     const bool &HLT_DoubleMu3_DCA_PFMET50_PFMHT60() { return nt.HLT_DoubleMu3_DCA_PFMET50_PFMHT60(); }
     const bool &HLT_DoubleMu3_DZ_PFMET50_PFMHT60() { return nt.HLT_DoubleMu3_DZ_PFMET50_PFMHT60(); }
     const bool &HLT_DoubleMu3_DZ_PFMET70_PFMHT70() { return nt.HLT_DoubleMu3_DZ_PFMET70_PFMHT70(); }
     const bool &HLT_DoubleMu3_DZ_PFMET90_PFMHT90() { return nt.HLT_DoubleMu3_DZ_PFMET90_PFMHT90(); }
+    const bool &HLT_DoubleMu3_DoubleEle7p5_CaloIdL_TrackIdL_Upsilon() { return nt.HLT_DoubleMu3_DoubleEle7p5_CaloIdL_TrackIdL_Upsilon(); }
+    const bool &HLT_DoubleMu3_TkMu_DsTau3Mu() { return nt.HLT_DoubleMu3_TkMu_DsTau3Mu(); }
     const bool &HLT_DoubleMu3_Trk_Tau3mu() { return nt.HLT_DoubleMu3_Trk_Tau3mu(); }
     const bool &HLT_DoubleMu3_Trk_Tau3mu_NoL1Mass() { return nt.HLT_DoubleMu3_Trk_Tau3mu_NoL1Mass(); }
+    const bool &HLT_DoubleMu40NoFiltersNoVtxDisplaced() { return nt.HLT_DoubleMu40NoFiltersNoVtxDisplaced(); }
     const bool &HLT_DoubleMu43NoFiltersNoVtx() { return nt.HLT_DoubleMu43NoFiltersNoVtx(); }
     const bool &HLT_DoubleMu48NoFiltersNoVtx() { return nt.HLT_DoubleMu48NoFiltersNoVtx(); }
     const bool &HLT_DoubleMu4_3_Bs() { return nt.HLT_DoubleMu4_3_Bs(); }
-    const bool &HLT_DoubleMu4_3_Jpsi_Displaced() { return nt.HLT_DoubleMu4_3_Jpsi_Displaced(); }
+    const bool &HLT_DoubleMu4_3_Jpsi() { return nt.HLT_DoubleMu4_3_Jpsi(); }
     const bool &HLT_DoubleMu4_JpsiTrkTrk_Displaced() { return nt.HLT_DoubleMu4_JpsiTrkTrk_Displaced(); }
     const bool &HLT_DoubleMu4_JpsiTrk_Displaced() { return nt.HLT_DoubleMu4_JpsiTrk_Displaced(); }
     const bool &HLT_DoubleMu4_Jpsi_Displaced() { return nt.HLT_DoubleMu4_Jpsi_Displaced(); }
     const bool &HLT_DoubleMu4_Jpsi_NoVertexing() { return nt.HLT_DoubleMu4_Jpsi_NoVertexing(); }
     const bool &HLT_DoubleMu4_LowMassNonResonantTrk_Displaced() { return nt.HLT_DoubleMu4_LowMassNonResonantTrk_Displaced(); }
-    const bool &HLT_DoubleMu4_Mass8_DZ_PFHT350() { return nt.HLT_DoubleMu4_Mass8_DZ_PFHT350(); }
+    const bool &HLT_DoubleMu4_Mass3p8_DZ_PFHT350() { return nt.HLT_DoubleMu4_Mass3p8_DZ_PFHT350(); }
     const bool &HLT_DoubleMu4_PsiPrimeTrk_Displaced() { return nt.HLT_DoubleMu4_PsiPrimeTrk_Displaced(); }
-    const bool &HLT_DoubleMu8_Mass8_PFHT350() { return nt.HLT_DoubleMu8_Mass8_PFHT350(); }
-    const bool &HLT_DoublePFJets100MaxDeta1p6_DoubleCaloBTagCSV_p33() { return nt.HLT_DoublePFJets100MaxDeta1p6_DoubleCaloBTagCSV_p33(); }
-    const bool &HLT_DoublePFJets100_CaloBTagCSV_p33() { return nt.HLT_DoublePFJets100_CaloBTagCSV_p33(); }
-    const bool &HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagCSV_p33() { return nt.HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagCSV_p33(); }
-    const bool &HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagCSV_p33() { return nt.HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagCSV_p33(); }
-    const bool &HLT_DoublePFJets200_CaloBTagCSV_p33() { return nt.HLT_DoublePFJets200_CaloBTagCSV_p33(); }
-    const bool &HLT_DoublePFJets350_CaloBTagCSV_p33() { return nt.HLT_DoublePFJets350_CaloBTagCSV_p33(); }
-    const bool &HLT_DoublePFJets40_CaloBTagCSV_p33() { return nt.HLT_DoublePFJets40_CaloBTagCSV_p33(); }
+    const bool &HLT_DoubleMu5_Upsilon_DoubleEle3_CaloIdL_TrackIdL() { return nt.HLT_DoubleMu5_Upsilon_DoubleEle3_CaloIdL_TrackIdL(); }
+    const bool &HLT_DoublePFJets100_CaloBTagDeepCSV_p71() { return nt.HLT_DoublePFJets100_CaloBTagDeepCSV_p71(); }
+    const bool &HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagDeepCSV_p71() { return nt.HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagDeepCSV_p71(); }
+    const bool &HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagDeepCSV_p71() { return nt.HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagDeepCSV_p71(); }
+    const bool &HLT_DoublePFJets200_CaloBTagDeepCSV_p71() { return nt.HLT_DoublePFJets200_CaloBTagDeepCSV_p71(); }
+    const bool &HLT_DoublePFJets350_CaloBTagDeepCSV_p71() { return nt.HLT_DoublePFJets350_CaloBTagDeepCSV_p71(); }
+    const bool &HLT_DoublePFJets40_CaloBTagDeepCSV_p71() { return nt.HLT_DoublePFJets40_CaloBTagDeepCSV_p71(); }
     const bool &HLT_DoublePhoton33_CaloIdL() { return nt.HLT_DoublePhoton33_CaloIdL(); }
     const bool &HLT_DoublePhoton70() { return nt.HLT_DoublePhoton70(); }
     const bool &HLT_DoublePhoton85() { return nt.HLT_DoublePhoton85(); }
-    const bool &HLT_DoubleTightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg() { return nt.HLT_DoubleTightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg(); }
-    const bool &HLT_DoubleTightChargedIsoPFTau35_Trk1_eta2p1_Reg() { return nt.HLT_DoubleTightChargedIsoPFTau35_Trk1_eta2p1_Reg(); }
-    const bool &HLT_DoubleTightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg() { return nt.HLT_DoubleTightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg(); }
-    const bool &HLT_DoubleTightChargedIsoPFTau40_Trk1_eta2p1_Reg() { return nt.HLT_DoubleTightChargedIsoPFTau40_Trk1_eta2p1_Reg(); }
+    const bool &HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg() { return nt.HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg(); }
+    const bool &HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg() { return nt.HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg(); }
+    const bool &HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg() { return nt.HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg(); }
+    const bool &HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_eta2p1_Reg() { return nt.HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_eta2p1_Reg(); }
+    const bool &HLT_DoubleTrkMu_16_6_NoFiltersNoVtx() { return nt.HLT_DoubleTrkMu_16_6_NoFiltersNoVtx(); }
     const bool &HLT_ECALHT800() { return nt.HLT_ECALHT800(); }
     const bool &HLT_EcalCalibration() { return nt.HLT_EcalCalibration(); }
     const bool &HLT_Ele115_CaloIdVT_GsfTrkIdT() { return nt.HLT_Ele115_CaloIdVT_GsfTrkIdT(); }
     const bool &HLT_Ele12_CaloIdL_TrackIdL_IsoVL_PFJet30() { return nt.HLT_Ele12_CaloIdL_TrackIdL_IsoVL_PFJet30(); }
     const bool &HLT_Ele135_CaloIdVT_GsfTrkIdT() { return nt.HLT_Ele135_CaloIdVT_GsfTrkIdT(); }
     const bool &HLT_Ele145_CaloIdVT_GsfTrkIdT() { return nt.HLT_Ele145_CaloIdVT_GsfTrkIdT(); }
+    const bool &HLT_Ele15_CaloIdL_TrackIdL_IsoVL_PFJet30() { return nt.HLT_Ele15_CaloIdL_TrackIdL_IsoVL_PFJet30(); }
+    const bool &HLT_Ele15_Ele8_CaloIdL_TrackIdL_IsoVL() { return nt.HLT_Ele15_Ele8_CaloIdL_TrackIdL_IsoVL(); }
     const bool &HLT_Ele15_IsoVVVL_PFHT450() { return nt.HLT_Ele15_IsoVVVL_PFHT450(); }
-    const bool &HLT_Ele15_IsoVVVL_PFHT450_CaloBTagCSV_4p5() { return nt.HLT_Ele15_IsoVVVL_PFHT450_CaloBTagCSV_4p5(); }
+    const bool &HLT_Ele15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5() { return nt.HLT_Ele15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5(); }
     const bool &HLT_Ele15_IsoVVVL_PFHT450_PFMET50() { return nt.HLT_Ele15_IsoVVVL_PFHT450_PFMET50(); }
     const bool &HLT_Ele15_IsoVVVL_PFHT600() { return nt.HLT_Ele15_IsoVVVL_PFHT600(); }
+    const bool &HLT_Ele15_WPLoose_Gsf() { return nt.HLT_Ele15_WPLoose_Gsf(); }
     const bool &HLT_Ele16_Ele12_Ele8_CaloIdL_TrackIdL() { return nt.HLT_Ele16_Ele12_Ele8_CaloIdL_TrackIdL(); }
     const bool &HLT_Ele17_CaloIdM_TrackIdM_PFJet30() { return nt.HLT_Ele17_CaloIdM_TrackIdM_PFJet30(); }
+    const bool &HLT_Ele17_WPLoose_Gsf() { return nt.HLT_Ele17_WPLoose_Gsf(); }
     const bool &HLT_Ele200_CaloIdVT_GsfTrkIdT() { return nt.HLT_Ele200_CaloIdVT_GsfTrkIdT(); }
     const bool &HLT_Ele20_WPLoose_Gsf() { return nt.HLT_Ele20_WPLoose_Gsf(); }
     const bool &HLT_Ele20_WPTight_Gsf() { return nt.HLT_Ele20_WPTight_Gsf(); }
@@ -11622,18 +17286,20 @@ namespace tas {
     const bool &HLT_Ele23_CaloIdM_TrackIdM_PFJet30() { return nt.HLT_Ele23_CaloIdM_TrackIdM_PFJet30(); }
     const bool &HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL() { return nt.HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL(); }
     const bool &HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_DZ() { return nt.HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_DZ(); }
-    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_CrossL1() { return nt.HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_CrossL1(); }
-    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_TightID_CrossL1() { return nt.HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_TightID_CrossL1(); }
-    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_CrossL1() { return nt.HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_CrossL1(); }
-    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_TightID_CrossL1() { return nt.HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_TightID_CrossL1(); }
-    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_CrossL1() { return nt.HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_CrossL1(); }
-    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_TightID_CrossL1() { return nt.HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_TightID_CrossL1(); }
+    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_CrossL1() { return nt.HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_CrossL1(); }
+    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1() { return nt.HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1(); }
+    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_CrossL1() { return nt.HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_CrossL1(); }
+    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1() { return nt.HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1(); }
+    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_CrossL1() { return nt.HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_CrossL1(); }
+    const bool &HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1() { return nt.HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1(); }
     const bool &HLT_Ele250_CaloIdVT_GsfTrkIdT() { return nt.HLT_Ele250_CaloIdVT_GsfTrkIdT(); }
     const bool &HLT_Ele27_Ele37_CaloIdL_MW() { return nt.HLT_Ele27_Ele37_CaloIdL_MW(); }
     const bool &HLT_Ele27_WPTight_Gsf() { return nt.HLT_Ele27_WPTight_Gsf(); }
     const bool &HLT_Ele28_HighEta_SC20_Mass55() { return nt.HLT_Ele28_HighEta_SC20_Mass55(); }
+    const bool &HLT_Ele28_WPTight_Gsf() { return nt.HLT_Ele28_WPTight_Gsf(); }
     const bool &HLT_Ele28_eta2p1_WPTight_Gsf_HT150() { return nt.HLT_Ele28_eta2p1_WPTight_Gsf_HT150(); }
     const bool &HLT_Ele300_CaloIdVT_GsfTrkIdT() { return nt.HLT_Ele300_CaloIdVT_GsfTrkIdT(); }
+    const bool &HLT_Ele30_WPTight_Gsf() { return nt.HLT_Ele30_WPTight_Gsf(); }
     const bool &HLT_Ele30_eta2p1_WPTight_Gsf_CentralPFJet35_EleCleaned() { return nt.HLT_Ele30_eta2p1_WPTight_Gsf_CentralPFJet35_EleCleaned(); }
     const bool &HLT_Ele32_WPTight_Gsf() { return nt.HLT_Ele32_WPTight_Gsf(); }
     const bool &HLT_Ele32_WPTight_Gsf_L1DoubleEG() { return nt.HLT_Ele32_WPTight_Gsf_L1DoubleEG(); }
@@ -11645,78 +17311,54 @@ namespace tas {
     const bool &HLT_Ele50_IsoVVVL_PFHT450() { return nt.HLT_Ele50_IsoVVVL_PFHT450(); }
     const bool &HLT_Ele8_CaloIdL_TrackIdL_IsoVL_PFJet30() { return nt.HLT_Ele8_CaloIdL_TrackIdL_IsoVL_PFJet30(); }
     const bool &HLT_Ele8_CaloIdM_TrackIdM_PFJet30() { return nt.HLT_Ele8_CaloIdM_TrackIdM_PFJet30(); }
-    const bool &HLT_FullTrack_Multiplicity100() { return nt.HLT_FullTrack_Multiplicity100(); }
-    const bool &HLT_FullTrack_Multiplicity130() { return nt.HLT_FullTrack_Multiplicity130(); }
-    const bool &HLT_FullTrack_Multiplicity155() { return nt.HLT_FullTrack_Multiplicity155(); }
-    const bool &HLT_FullTrack_Multiplicity85() { return nt.HLT_FullTrack_Multiplicity85(); }
-    const bool &HLT_HISinglePhoton10_Eta3p1ForPPRef() { return nt.HLT_HISinglePhoton10_Eta3p1ForPPRef(); }
-    const bool &HLT_HISinglePhoton20_Eta3p1ForPPRef() { return nt.HLT_HISinglePhoton20_Eta3p1ForPPRef(); }
-    const bool &HLT_HISinglePhoton30_Eta3p1ForPPRef() { return nt.HLT_HISinglePhoton30_Eta3p1ForPPRef(); }
-    const bool &HLT_HISinglePhoton40_Eta3p1ForPPRef() { return nt.HLT_HISinglePhoton40_Eta3p1ForPPRef(); }
-    const bool &HLT_HISinglePhoton50_Eta3p1ForPPRef() { return nt.HLT_HISinglePhoton50_Eta3p1ForPPRef(); }
-    const bool &HLT_HISinglePhoton60_Eta3p1ForPPRef() { return nt.HLT_HISinglePhoton60_Eta3p1ForPPRef(); }
     const bool &HLT_HT300_Beamspot() { return nt.HLT_HT300_Beamspot(); }
     const bool &HLT_HT400_DisplacedDijet40_DisplacedTrack() { return nt.HLT_HT400_DisplacedDijet40_DisplacedTrack(); }
     const bool &HLT_HT425() { return nt.HLT_HT425(); }
     const bool &HLT_HT430_DisplacedDijet40_DisplacedTrack() { return nt.HLT_HT430_DisplacedDijet40_DisplacedTrack(); }
     const bool &HLT_HT430_DisplacedDijet60_DisplacedTrack() { return nt.HLT_HT430_DisplacedDijet60_DisplacedTrack(); }
-    const bool &HLT_HT430_DisplacedDijet80_DisplacedTrack() { return nt.HLT_HT430_DisplacedDijet80_DisplacedTrack(); }
     const bool &HLT_HT450_Beamspot() { return nt.HLT_HT450_Beamspot(); }
+    const bool &HLT_HT500_DisplacedDijet40_DisplacedTrack() { return nt.HLT_HT500_DisplacedDijet40_DisplacedTrack(); }
     const bool &HLT_HT550_DisplacedDijet60_Inclusive() { return nt.HLT_HT550_DisplacedDijet60_Inclusive(); }
-    const bool &HLT_HT550_DisplacedDijet80_Inclusive() { return nt.HLT_HT550_DisplacedDijet80_Inclusive(); }
     const bool &HLT_HT650_DisplacedDijet60_Inclusive() { return nt.HLT_HT650_DisplacedDijet60_Inclusive(); }
-    const bool &HLT_HT650_DisplacedDijet80_Inclusive() { return nt.HLT_HT650_DisplacedDijet80_Inclusive(); }
-    const bool &HLT_HT750_DisplacedDijet80_Inclusive() { return nt.HLT_HT750_DisplacedDijet80_Inclusive(); }
     const bool &HLT_HcalCalibration() { return nt.HLT_HcalCalibration(); }
     const bool &HLT_HcalIsolatedbunch() { return nt.HLT_HcalIsolatedbunch(); }
     const bool &HLT_HcalNZS() { return nt.HLT_HcalNZS(); }
     const bool &HLT_HcalPhiSym() { return nt.HLT_HcalPhiSym(); }
     const bool &HLT_IsoMu20() { return nt.HLT_IsoMu20(); }
-    const bool &HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_CrossL1() { return nt.HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_CrossL1(); }
-    const bool &HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_TightID_CrossL1() { return nt.HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_TightID_CrossL1(); }
-    const bool &HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_CrossL1() { return nt.HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_CrossL1(); }
-    const bool &HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_TightID_CrossL1() { return nt.HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_TightID_CrossL1(); }
-    const bool &HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_CrossL1() { return nt.HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_CrossL1(); }
-    const bool &HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_TightID_CrossL1() { return nt.HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_TightID_CrossL1(); }
+    const bool &HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1() { return nt.HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1(); }
+    const bool &HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1() { return nt.HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1(); }
+    const bool &HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_CrossL1() { return nt.HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_CrossL1(); }
+    const bool &HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1() { return nt.HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1(); }
+    const bool &HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_CrossL1() { return nt.HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_CrossL1(); }
+    const bool &HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1() { return nt.HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1(); }
     const bool &HLT_IsoMu24() { return nt.HLT_IsoMu24(); }
+    const bool &HLT_IsoMu24_TwoProngs35() { return nt.HLT_IsoMu24_TwoProngs35(); }
     const bool &HLT_IsoMu24_eta2p1() { return nt.HLT_IsoMu24_eta2p1(); }
-    const bool &HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_SingleL1() { return nt.HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_SingleL1(); }
-    const bool &HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_TightID_SingleL1() { return nt.HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_TightID_SingleL1(); }
-    const bool &HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1() { return nt.HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1(); }
-    const bool &HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1() { return nt.HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1(); }
-    const bool &HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_SingleL1() { return nt.HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_SingleL1(); }
-    const bool &HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_TightID_SingleL1() { return nt.HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_TightID_SingleL1(); }
-    const bool &HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1() { return nt.HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1(); }
-    const bool &HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1() { return nt.HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1(); }
-    const bool &HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1() { return nt.HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1(); }
-    const bool &HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1() { return nt.HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1(); }
     const bool &HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr() { return nt.HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr(); }
-    const bool &HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_SingleL1() { return nt.HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_SingleL1(); }
-    const bool &HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_TightID_SingleL1() { return nt.HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_TightID_SingleL1(); }
-    const bool &HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1() { return nt.HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1(); }
-    const bool &HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1() { return nt.HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1(); }
-    const bool &HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1() { return nt.HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1(); }
-    const bool &HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1() { return nt.HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1(); }
+    const bool &HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1() { return nt.HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1(); }
+    const bool &HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1() { return nt.HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1(); }
+    const bool &HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1() { return nt.HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1(); }
+    const bool &HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1() { return nt.HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1(); }
     const bool &HLT_IsoMu27() { return nt.HLT_IsoMu27(); }
-    const bool &HLT_IsoMu27_LooseChargedIsoPFTau20_SingleL1() { return nt.HLT_IsoMu27_LooseChargedIsoPFTau20_SingleL1(); }
-    const bool &HLT_IsoMu27_MediumChargedIsoPFTau20_SingleL1() { return nt.HLT_IsoMu27_MediumChargedIsoPFTau20_SingleL1(); }
-    const bool &HLT_IsoMu27_TightChargedIsoPFTau20_SingleL1() { return nt.HLT_IsoMu27_TightChargedIsoPFTau20_SingleL1(); }
+    const bool &HLT_IsoMu27_LooseChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1() { return nt.HLT_IsoMu27_LooseChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1(); }
+    const bool &HLT_IsoMu27_MET90() { return nt.HLT_IsoMu27_MET90(); }
+    const bool &HLT_IsoMu27_MediumChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1() { return nt.HLT_IsoMu27_MediumChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1(); }
+    const bool &HLT_IsoMu27_TightChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1() { return nt.HLT_IsoMu27_TightChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1(); }
     const bool &HLT_IsoMu30() { return nt.HLT_IsoMu30(); }
     const bool &HLT_IsoTrackHB() { return nt.HLT_IsoTrackHB(); }
     const bool &HLT_IsoTrackHE() { return nt.HLT_IsoTrackHE(); }
     const bool &HLT_L1ETMHadSeeds() { return nt.HLT_L1ETMHadSeeds(); }
-    const bool &HLT_L1MinimumBiasHF0OR() { return nt.HLT_L1MinimumBiasHF0OR(); }
-    const bool &HLT_L1MinimumBiasHF_OR() { return nt.HLT_L1MinimumBiasHF_OR(); }
     const bool &HLT_L1NotBptxOR() { return nt.HLT_L1NotBptxOR(); }
     const bool &HLT_L1SingleMu18() { return nt.HLT_L1SingleMu18(); }
     const bool &HLT_L1SingleMu25() { return nt.HLT_L1SingleMu25(); }
     const bool &HLT_L1UnpairedBunchBptxMinus() { return nt.HLT_L1UnpairedBunchBptxMinus(); }
     const bool &HLT_L1UnpairedBunchBptxPlus() { return nt.HLT_L1UnpairedBunchBptxPlus(); }
     const bool &HLT_L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142() { return nt.HLT_L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142(); }
-    const bool &HLT_L1_DoubleJet30_Mass_Min400_Mu10() { return nt.HLT_L1_DoubleJet30_Mass_Min400_Mu10(); }
     const bool &HLT_L2Mu10() { return nt.HLT_L2Mu10(); }
     const bool &HLT_L2Mu10_NoVertex_NoBPTX() { return nt.HLT_L2Mu10_NoVertex_NoBPTX(); }
     const bool &HLT_L2Mu10_NoVertex_NoBPTX3BX() { return nt.HLT_L2Mu10_NoVertex_NoBPTX3BX(); }
+    const bool &HLT_L2Mu23NoVtx_2Cha() { return nt.HLT_L2Mu23NoVtx_2Cha(); }
+    const bool &HLT_L2Mu23NoVtx_2Cha_CosmicSeed() { return nt.HLT_L2Mu23NoVtx_2Cha_CosmicSeed(); }
     const bool &HLT_L2Mu40_NoVertex_3Sta_NoBPTX3BX() { return nt.HLT_L2Mu40_NoVertex_3Sta_NoBPTX3BX(); }
     const bool &HLT_L2Mu45_NoVertex_3Sta_NoBPTX3BX() { return nt.HLT_L2Mu45_NoVertex_3Sta_NoBPTX3BX(); }
     const bool &HLT_L2Mu50() { return nt.HLT_L2Mu50(); }
@@ -11724,29 +17366,39 @@ namespace tas {
     const bool &HLT_MET120_IsoTrk50() { return nt.HLT_MET120_IsoTrk50(); }
     const bool &HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1() { return nt.HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1(); }
     const bool &HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1_1pr() { return nt.HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1_1pr(); }
+    const bool &HLT_MediumChargedIsoPFTau200HighPtRelaxedIso_Trk50_eta2p1() { return nt.HLT_MediumChargedIsoPFTau200HighPtRelaxedIso_Trk50_eta2p1(); }
+    const bool &HLT_MediumChargedIsoPFTau220HighPtRelaxedIso_Trk50_eta2p1() { return nt.HLT_MediumChargedIsoPFTau220HighPtRelaxedIso_Trk50_eta2p1(); }
     const bool &HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr() { return nt.HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr(); }
     const bool &HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET100() { return nt.HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET100(); }
     const bool &HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET110() { return nt.HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET110(); }
     const bool &HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET120() { return nt.HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET120(); }
     const bool &HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET130() { return nt.HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET130(); }
+    const bool &HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET140() { return nt.HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET140(); }
     const bool &HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET90() { return nt.HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET90(); }
     const bool &HLT_MonoCentralPFJet80_PFMETNoMu110_PFMHTNoMu110_IDTight() { return nt.HLT_MonoCentralPFJet80_PFMETNoMu110_PFMHTNoMu110_IDTight(); }
     const bool &HLT_MonoCentralPFJet80_PFMETNoMu120_PFMHTNoMu120_IDTight() { return nt.HLT_MonoCentralPFJet80_PFMETNoMu120_PFMHTNoMu120_IDTight(); }
     const bool &HLT_MonoCentralPFJet80_PFMETNoMu130_PFMHTNoMu130_IDTight() { return nt.HLT_MonoCentralPFJet80_PFMETNoMu130_PFMHTNoMu130_IDTight(); }
     const bool &HLT_MonoCentralPFJet80_PFMETNoMu140_PFMHTNoMu140_IDTight() { return nt.HLT_MonoCentralPFJet80_PFMETNoMu140_PFMHTNoMu140_IDTight(); }
     const bool &HLT_Mu10_TrkIsoVVL_DiPFJet40_DEta3p5_MJJ750_HTT350_PFMETNoMu60() { return nt.HLT_Mu10_TrkIsoVVL_DiPFJet40_DEta3p5_MJJ750_HTT350_PFMETNoMu60(); }
-    const bool &HLT_Mu12_DoublePFJets100_CaloBTagCSV_p33() { return nt.HLT_Mu12_DoublePFJets100_CaloBTagCSV_p33(); }
-    const bool &HLT_Mu12_DoublePFJets200_CaloBTagCSV_p33() { return nt.HLT_Mu12_DoublePFJets200_CaloBTagCSV_p33(); }
-    const bool &HLT_Mu12_DoublePFJets350_CaloBTagCSV_p33() { return nt.HLT_Mu12_DoublePFJets350_CaloBTagCSV_p33(); }
-    const bool &HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagCSV_p33() { return nt.HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagCSV_p33(); }
-    const bool &HLT_Mu12_DoublePFJets40_CaloBTagCSV_p33() { return nt.HLT_Mu12_DoublePFJets40_CaloBTagCSV_p33(); }
-    const bool &HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagCSV_p33() { return nt.HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagCSV_p33(); }
-    const bool &HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagCSV_p33() { return nt.HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagCSV_p33(); }
+    const bool &HLT_Mu12() { return nt.HLT_Mu12(); }
+    const bool &HLT_Mu12_DoublePFJets100_CaloBTagDeepCSV_p71() { return nt.HLT_Mu12_DoublePFJets100_CaloBTagDeepCSV_p71(); }
+    const bool &HLT_Mu12_DoublePFJets200_CaloBTagDeepCSV_p71() { return nt.HLT_Mu12_DoublePFJets200_CaloBTagDeepCSV_p71(); }
+    const bool &HLT_Mu12_DoublePFJets350_CaloBTagDeepCSV_p71() { return nt.HLT_Mu12_DoublePFJets350_CaloBTagDeepCSV_p71(); }
+    const bool &HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagDeepCSV_p71() { return nt.HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagDeepCSV_p71(); }
+    const bool &HLT_Mu12_DoublePFJets40_CaloBTagDeepCSV_p71() { return nt.HLT_Mu12_DoublePFJets40_CaloBTagDeepCSV_p71(); }
+    const bool &HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagDeepCSV_p71() { return nt.HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagDeepCSV_p71(); }
+    const bool &HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagDeepCSV_p71() { return nt.HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagDeepCSV_p71(); }
     const bool &HLT_Mu12_DoublePhoton20() { return nt.HLT_Mu12_DoublePhoton20(); }
+    const bool &HLT_Mu12_IP6_part0() { return nt.HLT_Mu12_IP6_part0(); }
+    const bool &HLT_Mu12_IP6_part1() { return nt.HLT_Mu12_IP6_part1(); }
+    const bool &HLT_Mu12_IP6_part2() { return nt.HLT_Mu12_IP6_part2(); }
+    const bool &HLT_Mu12_IP6_part3() { return nt.HLT_Mu12_IP6_part3(); }
+    const bool &HLT_Mu12_IP6_part4() { return nt.HLT_Mu12_IP6_part4(); }
     const bool &HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL() { return nt.HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL(); }
     const bool &HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ() { return nt.HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ(); }
+    const bool &HLT_Mu15() { return nt.HLT_Mu15(); }
     const bool &HLT_Mu15_IsoVVVL_PFHT450() { return nt.HLT_Mu15_IsoVVVL_PFHT450(); }
-    const bool &HLT_Mu15_IsoVVVL_PFHT450_CaloBTagCSV_4p5() { return nt.HLT_Mu15_IsoVVVL_PFHT450_CaloBTagCSV_4p5(); }
+    const bool &HLT_Mu15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5() { return nt.HLT_Mu15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5(); }
     const bool &HLT_Mu15_IsoVVVL_PFHT450_PFMET50() { return nt.HLT_Mu15_IsoVVVL_PFHT450_PFMET50(); }
     const bool &HLT_Mu15_IsoVVVL_PFHT600() { return nt.HLT_Mu15_IsoVVVL_PFHT600(); }
     const bool &HLT_Mu17() { return nt.HLT_Mu17(); }
@@ -11782,15 +17434,33 @@ namespace tas {
     const bool &HLT_Mu25_TkMu0_Phi() { return nt.HLT_Mu25_TkMu0_Phi(); }
     const bool &HLT_Mu27() { return nt.HLT_Mu27(); }
     const bool &HLT_Mu27_Ele37_CaloIdL_MW() { return nt.HLT_Mu27_Ele37_CaloIdL_MW(); }
-    const bool &HLT_Mu30_TkMu0_Onia() { return nt.HLT_Mu30_TkMu0_Onia(); }
+    const bool &HLT_Mu30_TkMu0_Psi() { return nt.HLT_Mu30_TkMu0_Psi(); }
+    const bool &HLT_Mu30_TkMu0_Upsilon() { return nt.HLT_Mu30_TkMu0_Upsilon(); }
     const bool &HLT_Mu37_Ele27_CaloIdL_MW() { return nt.HLT_Mu37_Ele27_CaloIdL_MW(); }
     const bool &HLT_Mu37_TkMu27() { return nt.HLT_Mu37_TkMu27(); }
+    const bool &HLT_Mu38NoFiltersNoVtxDisplaced_Photon38_CaloIdL() { return nt.HLT_Mu38NoFiltersNoVtxDisplaced_Photon38_CaloIdL(); }
+    const bool &HLT_Mu3_L1SingleMu5orSingleMu7() { return nt.HLT_Mu3_L1SingleMu5orSingleMu7(); }
     const bool &HLT_Mu3_PFJet40() { return nt.HLT_Mu3_PFJet40(); }
+    const bool &HLT_Mu3er1p5_PFJet100er2p5_PFMET100_PFMHT100_IDTight() { return nt.HLT_Mu3er1p5_PFJet100er2p5_PFMET100_PFMHT100_IDTight(); }
+    const bool &HLT_Mu3er1p5_PFJet100er2p5_PFMET70_PFMHT70_IDTight() { return nt.HLT_Mu3er1p5_PFJet100er2p5_PFMET70_PFMHT70_IDTight(); }
+    const bool &HLT_Mu3er1p5_PFJet100er2p5_PFMET80_PFMHT80_IDTight() { return nt.HLT_Mu3er1p5_PFJet100er2p5_PFMET80_PFMHT80_IDTight(); }
+    const bool &HLT_Mu3er1p5_PFJet100er2p5_PFMET90_PFMHT90_IDTight() { return nt.HLT_Mu3er1p5_PFJet100er2p5_PFMET90_PFMHT90_IDTight(); }
+    const bool &HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu100_PFMHTNoMu100_IDTight() { return nt.HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu100_PFMHTNoMu100_IDTight(); }
+    const bool &HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu70_PFMHTNoMu70_IDTight() { return nt.HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu70_PFMHTNoMu70_IDTight(); }
+    const bool &HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu80_PFMHTNoMu80_IDTight() { return nt.HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu80_PFMHTNoMu80_IDTight(); }
+    const bool &HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu90_PFMHTNoMu90_IDTight() { return nt.HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu90_PFMHTNoMu90_IDTight(); }
+    const bool &HLT_Mu43NoFiltersNoVtxDisplaced_Photon43_CaloIdL() { return nt.HLT_Mu43NoFiltersNoVtxDisplaced_Photon43_CaloIdL(); }
     const bool &HLT_Mu43NoFiltersNoVtx_Photon43_CaloIdL() { return nt.HLT_Mu43NoFiltersNoVtx_Photon43_CaloIdL(); }
     const bool &HLT_Mu48NoFiltersNoVtx_Photon48_CaloIdL() { return nt.HLT_Mu48NoFiltersNoVtx_Photon48_CaloIdL(); }
+    const bool &HLT_Mu4_TrkIsoVVL_DiPFJet90_40_DEta3p5_MJJ750_HTT300_PFMETNoMu60() { return nt.HLT_Mu4_TrkIsoVVL_DiPFJet90_40_DEta3p5_MJJ750_HTT300_PFMETNoMu60(); }
     const bool &HLT_Mu50() { return nt.HLT_Mu50(); }
     const bool &HLT_Mu50_IsoVVVL_PFHT450() { return nt.HLT_Mu50_IsoVVVL_PFHT450(); }
     const bool &HLT_Mu55() { return nt.HLT_Mu55(); }
+    const bool &HLT_Mu7_IP4_part0() { return nt.HLT_Mu7_IP4_part0(); }
+    const bool &HLT_Mu7_IP4_part1() { return nt.HLT_Mu7_IP4_part1(); }
+    const bool &HLT_Mu7_IP4_part2() { return nt.HLT_Mu7_IP4_part2(); }
+    const bool &HLT_Mu7_IP4_part3() { return nt.HLT_Mu7_IP4_part3(); }
+    const bool &HLT_Mu7_IP4_part4() { return nt.HLT_Mu7_IP4_part4(); }
     const bool &HLT_Mu7p5_L2Mu2_Jpsi() { return nt.HLT_Mu7p5_L2Mu2_Jpsi(); }
     const bool &HLT_Mu7p5_L2Mu2_Upsilon() { return nt.HLT_Mu7p5_L2Mu2_Upsilon(); }
     const bool &HLT_Mu7p5_Track2_Jpsi() { return nt.HLT_Mu7p5_Track2_Jpsi(); }
@@ -11804,25 +17474,58 @@ namespace tas {
     const bool &HLT_Mu8_DiEle12_CaloIdL_TrackIdL_DZ() { return nt.HLT_Mu8_DiEle12_CaloIdL_TrackIdL_DZ(); }
     const bool &HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT350() { return nt.HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT350(); }
     const bool &HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT350_DZ() { return nt.HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT350_DZ(); }
+    const bool &HLT_Mu8_IP3_part0() { return nt.HLT_Mu8_IP3_part0(); }
+    const bool &HLT_Mu8_IP3_part1() { return nt.HLT_Mu8_IP3_part1(); }
+    const bool &HLT_Mu8_IP3_part2() { return nt.HLT_Mu8_IP3_part2(); }
+    const bool &HLT_Mu8_IP3_part3() { return nt.HLT_Mu8_IP3_part3(); }
+    const bool &HLT_Mu8_IP3_part4() { return nt.HLT_Mu8_IP3_part4(); }
+    const bool &HLT_Mu8_IP5_part0() { return nt.HLT_Mu8_IP5_part0(); }
+    const bool &HLT_Mu8_IP5_part1() { return nt.HLT_Mu8_IP5_part1(); }
+    const bool &HLT_Mu8_IP5_part2() { return nt.HLT_Mu8_IP5_part2(); }
+    const bool &HLT_Mu8_IP5_part3() { return nt.HLT_Mu8_IP5_part3(); }
+    const bool &HLT_Mu8_IP5_part4() { return nt.HLT_Mu8_IP5_part4(); }
+    const bool &HLT_Mu8_IP6_part0() { return nt.HLT_Mu8_IP6_part0(); }
+    const bool &HLT_Mu8_IP6_part1() { return nt.HLT_Mu8_IP6_part1(); }
+    const bool &HLT_Mu8_IP6_part2() { return nt.HLT_Mu8_IP6_part2(); }
+    const bool &HLT_Mu8_IP6_part3() { return nt.HLT_Mu8_IP6_part3(); }
+    const bool &HLT_Mu8_IP6_part4() { return nt.HLT_Mu8_IP6_part4(); }
     const bool &HLT_Mu8_TrkIsoVVL() { return nt.HLT_Mu8_TrkIsoVVL(); }
     const bool &HLT_Mu8_TrkIsoVVL_DiPFJet40_DEta3p5_MJJ750_HTT300_PFMETNoMu60() { return nt.HLT_Mu8_TrkIsoVVL_DiPFJet40_DEta3p5_MJJ750_HTT300_PFMETNoMu60(); }
     const bool &HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL() { return nt.HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL(); }
     const bool &HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ() { return nt.HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ(); }
+    const bool &HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30() { return nt.HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30(); }
+    const bool &HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_CaloBtagDeepCSV_1p5() { return nt.HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_CaloBtagDeepCSV_1p5(); }
+    const bool &HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30() { return nt.HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30(); }
+    const bool &HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_PFBtagDeepCSV_1p5() { return nt.HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_PFBtagDeepCSV_1p5(); }
+    const bool &HLT_Mu9_IP4_part0() { return nt.HLT_Mu9_IP4_part0(); }
+    const bool &HLT_Mu9_IP4_part1() { return nt.HLT_Mu9_IP4_part1(); }
+    const bool &HLT_Mu9_IP4_part2() { return nt.HLT_Mu9_IP4_part2(); }
+    const bool &HLT_Mu9_IP4_part3() { return nt.HLT_Mu9_IP4_part3(); }
+    const bool &HLT_Mu9_IP4_part4() { return nt.HLT_Mu9_IP4_part4(); }
+    const bool &HLT_Mu9_IP5_part0() { return nt.HLT_Mu9_IP5_part0(); }
+    const bool &HLT_Mu9_IP5_part1() { return nt.HLT_Mu9_IP5_part1(); }
+    const bool &HLT_Mu9_IP5_part2() { return nt.HLT_Mu9_IP5_part2(); }
+    const bool &HLT_Mu9_IP5_part3() { return nt.HLT_Mu9_IP5_part3(); }
+    const bool &HLT_Mu9_IP5_part4() { return nt.HLT_Mu9_IP5_part4(); }
+    const bool &HLT_Mu9_IP6_part0() { return nt.HLT_Mu9_IP6_part0(); }
+    const bool &HLT_Mu9_IP6_part1() { return nt.HLT_Mu9_IP6_part1(); }
+    const bool &HLT_Mu9_IP6_part2() { return nt.HLT_Mu9_IP6_part2(); }
+    const bool &HLT_Mu9_IP6_part3() { return nt.HLT_Mu9_IP6_part3(); }
+    const bool &HLT_Mu9_IP6_part4() { return nt.HLT_Mu9_IP6_part4(); }
     const bool &HLT_OldMu100() { return nt.HLT_OldMu100(); }
     const bool &HLT_PFHT1050() { return nt.HLT_PFHT1050(); }
     const bool &HLT_PFHT180() { return nt.HLT_PFHT180(); }
     const bool &HLT_PFHT250() { return nt.HLT_PFHT250(); }
-    const bool &HLT_PFHT300PT30_QuadPFJet_75_60_45_40() { return nt.HLT_PFHT300PT30_QuadPFJet_75_60_45_40(); }
-    const bool &HLT_PFHT300PT30_QuadPFJet_75_60_45_40_TriplePFBTagCSV_3p0() { return nt.HLT_PFHT300PT30_QuadPFJet_75_60_45_40_TriplePFBTagCSV_3p0(); }
+    const bool &HLT_PFHT330PT30_QuadPFJet_75_60_45_40() { return nt.HLT_PFHT330PT30_QuadPFJet_75_60_45_40(); }
+    const bool &HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepCSV_4p5() { return nt.HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepCSV_4p5(); }
     const bool &HLT_PFHT350() { return nt.HLT_PFHT350(); }
     const bool &HLT_PFHT350MinPFJet15() { return nt.HLT_PFHT350MinPFJet15(); }
     const bool &HLT_PFHT370() { return nt.HLT_PFHT370(); }
-    const bool &HLT_PFHT380_SixPFJet32() { return nt.HLT_PFHT380_SixPFJet32(); }
-    const bool &HLT_PFHT380_SixPFJet32_DoublePFBTagCSV_2p2() { return nt.HLT_PFHT380_SixPFJet32_DoublePFBTagCSV_2p2(); }
-    const bool &HLT_PFHT380_SixPFJet32_DoublePFBTagDeepCSV_2p2() { return nt.HLT_PFHT380_SixPFJet32_DoublePFBTagDeepCSV_2p2(); }
+    const bool &HLT_PFHT400_SixPFJet32() { return nt.HLT_PFHT400_SixPFJet32(); }
+    const bool &HLT_PFHT400_SixPFJet32_DoublePFBTagDeepCSV_2p94() { return nt.HLT_PFHT400_SixPFJet32_DoublePFBTagDeepCSV_2p94(); }
     const bool &HLT_PFHT430() { return nt.HLT_PFHT430(); }
-    const bool &HLT_PFHT430_SixPFJet40() { return nt.HLT_PFHT430_SixPFJet40(); }
-    const bool &HLT_PFHT430_SixPFJet40_PFBTagCSV_1p5() { return nt.HLT_PFHT430_SixPFJet40_PFBTagCSV_1p5(); }
+    const bool &HLT_PFHT450_SixPFJet36() { return nt.HLT_PFHT450_SixPFJet36(); }
+    const bool &HLT_PFHT450_SixPFJet36_PFBTagDeepCSV_1p59() { return nt.HLT_PFHT450_SixPFJet36_PFBTagDeepCSV_1p59(); }
     const bool &HLT_PFHT500_PFMET100_PFMHT100_IDTight() { return nt.HLT_PFHT500_PFMET100_PFMHT100_IDTight(); }
     const bool &HLT_PFHT500_PFMET110_PFMHT110_IDTight() { return nt.HLT_PFHT500_PFMET110_PFMHT110_IDTight(); }
     const bool &HLT_PFHT510() { return nt.HLT_PFHT510(); }
@@ -11835,7 +17538,9 @@ namespace tas {
     const bool &HLT_PFHT800_PFMET85_PFMHT85_IDTight() { return nt.HLT_PFHT800_PFMET85_PFMHT85_IDTight(); }
     const bool &HLT_PFHT890() { return nt.HLT_PFHT890(); }
     const bool &HLT_PFJet140() { return nt.HLT_PFJet140(); }
+    const bool &HLT_PFJet15() { return nt.HLT_PFJet15(); }
     const bool &HLT_PFJet200() { return nt.HLT_PFJet200(); }
+    const bool &HLT_PFJet25() { return nt.HLT_PFJet25(); }
     const bool &HLT_PFJet260() { return nt.HLT_PFJet260(); }
     const bool &HLT_PFJet320() { return nt.HLT_PFJet320(); }
     const bool &HLT_PFJet40() { return nt.HLT_PFJet40(); }
@@ -11846,7 +17551,9 @@ namespace tas {
     const bool &HLT_PFJet60() { return nt.HLT_PFJet60(); }
     const bool &HLT_PFJet80() { return nt.HLT_PFJet80(); }
     const bool &HLT_PFJetFwd140() { return nt.HLT_PFJetFwd140(); }
+    const bool &HLT_PFJetFwd15() { return nt.HLT_PFJetFwd15(); }
     const bool &HLT_PFJetFwd200() { return nt.HLT_PFJetFwd200(); }
+    const bool &HLT_PFJetFwd25() { return nt.HLT_PFJetFwd25(); }
     const bool &HLT_PFJetFwd260() { return nt.HLT_PFJetFwd260(); }
     const bool &HLT_PFJetFwd320() { return nt.HLT_PFJetFwd320(); }
     const bool &HLT_PFJetFwd40() { return nt.HLT_PFJetFwd40(); }
@@ -11855,17 +17562,17 @@ namespace tas {
     const bool &HLT_PFJetFwd500() { return nt.HLT_PFJetFwd500(); }
     const bool &HLT_PFJetFwd60() { return nt.HLT_PFJetFwd60(); }
     const bool &HLT_PFJetFwd80() { return nt.HLT_PFJetFwd80(); }
-    const bool &HLT_PFMET100_PFMHT100_IDTight_CaloBTagCSV_3p1() { return nt.HLT_PFMET100_PFMHT100_IDTight_CaloBTagCSV_3p1(); }
+    const bool &HLT_PFMET100_PFMHT100_IDTight_CaloBTagDeepCSV_3p1() { return nt.HLT_PFMET100_PFMHT100_IDTight_CaloBTagDeepCSV_3p1(); }
     const bool &HLT_PFMET100_PFMHT100_IDTight_PFHT60() { return nt.HLT_PFMET100_PFMHT100_IDTight_PFHT60(); }
     const bool &HLT_PFMET110_PFMHT110_IDTight() { return nt.HLT_PFMET110_PFMHT110_IDTight(); }
-    const bool &HLT_PFMET110_PFMHT110_IDTight_CaloBTagCSV_3p1() { return nt.HLT_PFMET110_PFMHT110_IDTight_CaloBTagCSV_3p1(); }
+    const bool &HLT_PFMET110_PFMHT110_IDTight_CaloBTagDeepCSV_3p1() { return nt.HLT_PFMET110_PFMHT110_IDTight_CaloBTagDeepCSV_3p1(); }
     const bool &HLT_PFMET120_PFMHT120_IDTight() { return nt.HLT_PFMET120_PFMHT120_IDTight(); }
-    const bool &HLT_PFMET120_PFMHT120_IDTight_CaloBTagCSV_3p1() { return nt.HLT_PFMET120_PFMHT120_IDTight_CaloBTagCSV_3p1(); }
+    const bool &HLT_PFMET120_PFMHT120_IDTight_CaloBTagDeepCSV_3p1() { return nt.HLT_PFMET120_PFMHT120_IDTight_CaloBTagDeepCSV_3p1(); }
     const bool &HLT_PFMET120_PFMHT120_IDTight_PFHT60() { return nt.HLT_PFMET120_PFMHT120_IDTight_PFHT60(); }
     const bool &HLT_PFMET130_PFMHT130_IDTight() { return nt.HLT_PFMET130_PFMHT130_IDTight(); }
-    const bool &HLT_PFMET130_PFMHT130_IDTight_CaloBTagCSV_3p1() { return nt.HLT_PFMET130_PFMHT130_IDTight_CaloBTagCSV_3p1(); }
+    const bool &HLT_PFMET130_PFMHT130_IDTight_CaloBTagDeepCSV_3p1() { return nt.HLT_PFMET130_PFMHT130_IDTight_CaloBTagDeepCSV_3p1(); }
     const bool &HLT_PFMET140_PFMHT140_IDTight() { return nt.HLT_PFMET140_PFMHT140_IDTight(); }
-    const bool &HLT_PFMET140_PFMHT140_IDTight_CaloBTagCSV_3p1() { return nt.HLT_PFMET140_PFMHT140_IDTight_CaloBTagCSV_3p1(); }
+    const bool &HLT_PFMET140_PFMHT140_IDTight_CaloBTagDeepCSV_3p1() { return nt.HLT_PFMET140_PFMHT140_IDTight_CaloBTagDeepCSV_3p1(); }
     const bool &HLT_PFMET200_HBHECleaned() { return nt.HLT_PFMET200_HBHECleaned(); }
     const bool &HLT_PFMET200_HBHE_BeamHaloCleaned() { return nt.HLT_PFMET200_HBHE_BeamHaloCleaned(); }
     const bool &HLT_PFMET200_NotCleaned() { return nt.HLT_PFMET200_NotCleaned(); }
@@ -11884,28 +17591,34 @@ namespace tas {
     const bool &HLT_PFMETTypeOne130_PFMHT130_IDTight() { return nt.HLT_PFMETTypeOne130_PFMHT130_IDTight(); }
     const bool &HLT_PFMETTypeOne140_PFMHT140_IDTight() { return nt.HLT_PFMETTypeOne140_PFMHT140_IDTight(); }
     const bool &HLT_PFMETTypeOne200_HBHE_BeamHaloCleaned() { return nt.HLT_PFMETTypeOne200_HBHE_BeamHaloCleaned(); }
+    const bool &HLT_Photon100EBHE10() { return nt.HLT_Photon100EBHE10(); }
+    const bool &HLT_Photon100EB_TightID_TightIso() { return nt.HLT_Photon100EB_TightID_TightIso(); }
+    const bool &HLT_Photon100EEHE10() { return nt.HLT_Photon100EEHE10(); }
+    const bool &HLT_Photon100EE_TightID_TightIso() { return nt.HLT_Photon100EE_TightID_TightIso(); }
+    const bool &HLT_Photon110EB_TightID_TightIso() { return nt.HLT_Photon110EB_TightID_TightIso(); }
     const bool &HLT_Photon120() { return nt.HLT_Photon120(); }
+    const bool &HLT_Photon120EB_TightID_TightIso() { return nt.HLT_Photon120EB_TightID_TightIso(); }
     const bool &HLT_Photon120_R9Id90_HE10_IsoM() { return nt.HLT_Photon120_R9Id90_HE10_IsoM(); }
     const bool &HLT_Photon150() { return nt.HLT_Photon150(); }
     const bool &HLT_Photon165_R9Id90_HE10_IsoM() { return nt.HLT_Photon165_R9Id90_HE10_IsoM(); }
     const bool &HLT_Photon175() { return nt.HLT_Photon175(); }
+    const bool &HLT_Photon20() { return nt.HLT_Photon20(); }
     const bool &HLT_Photon200() { return nt.HLT_Photon200(); }
     const bool &HLT_Photon20_HoverELoose() { return nt.HLT_Photon20_HoverELoose(); }
-    const bool &HLT_Photon25() { return nt.HLT_Photon25(); }
     const bool &HLT_Photon300_NoHE() { return nt.HLT_Photon300_NoHE(); }
     const bool &HLT_Photon30_HoverELoose() { return nt.HLT_Photon30_HoverELoose(); }
     const bool &HLT_Photon33() { return nt.HLT_Photon33(); }
-    const bool &HLT_Photon40_HoverELoose() { return nt.HLT_Photon40_HoverELoose(); }
+    const bool &HLT_Photon35_TwoProngs35() { return nt.HLT_Photon35_TwoProngs35(); }
     const bool &HLT_Photon50() { return nt.HLT_Photon50(); }
-    const bool &HLT_Photon50_HoverELoose() { return nt.HLT_Photon50_HoverELoose(); }
     const bool &HLT_Photon50_R9Id90_HE10_IsoM() { return nt.HLT_Photon50_R9Id90_HE10_IsoM(); }
     const bool &HLT_Photon50_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3_PFMET50() { return nt.HLT_Photon50_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3_PFMET50(); }
-    const bool &HLT_Photon60_HoverELoose() { return nt.HLT_Photon60_HoverELoose(); }
     const bool &HLT_Photon60_R9Id90_CaloIdL_IsoL() { return nt.HLT_Photon60_R9Id90_CaloIdL_IsoL(); }
     const bool &HLT_Photon60_R9Id90_CaloIdL_IsoL_DisplacedIdL() { return nt.HLT_Photon60_R9Id90_CaloIdL_IsoL_DisplacedIdL(); }
     const bool &HLT_Photon60_R9Id90_CaloIdL_IsoL_DisplacedIdL_PFHT350MinPFJet15() { return nt.HLT_Photon60_R9Id90_CaloIdL_IsoL_DisplacedIdL_PFHT350MinPFJet15(); }
     const bool &HLT_Photon75() { return nt.HLT_Photon75(); }
     const bool &HLT_Photon75_R9Id90_HE10_IsoM() { return nt.HLT_Photon75_R9Id90_HE10_IsoM(); }
+    const bool &HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ300_PFJetsMJJ400DEta3() { return nt.HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ300_PFJetsMJJ400DEta3(); }
+    const bool &HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ400_PFJetsMJJ600DEta3() { return nt.HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ400_PFJetsMJJ600DEta3(); }
     const bool &HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3() { return nt.HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3(); }
     const bool &HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ600DEta3() { return nt.HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ600DEta3(); }
     const bool &HLT_Photon90() { return nt.HLT_Photon90(); }
@@ -11921,17 +17634,17 @@ namespace tas {
     const bool &HLT_Physics_part6() { return nt.HLT_Physics_part6(); }
     const bool &HLT_Physics_part7() { return nt.HLT_Physics_part7(); }
     const bool &HLT_QuadPFJet103_88_75_15() { return nt.HLT_QuadPFJet103_88_75_15(); }
-    const bool &HLT_QuadPFJet103_88_75_15_BTagCSV_p013_VBF2() { return nt.HLT_QuadPFJet103_88_75_15_BTagCSV_p013_VBF2(); }
-    const bool &HLT_QuadPFJet103_88_75_15_DoubleBTagCSV_p013_p08_VBF1() { return nt.HLT_QuadPFJet103_88_75_15_DoubleBTagCSV_p013_p08_VBF1(); }
+    const bool &HLT_QuadPFJet103_88_75_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1() { return nt.HLT_QuadPFJet103_88_75_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1(); }
+    const bool &HLT_QuadPFJet103_88_75_15_PFBTagDeepCSV_1p3_VBF2() { return nt.HLT_QuadPFJet103_88_75_15_PFBTagDeepCSV_1p3_VBF2(); }
     const bool &HLT_QuadPFJet105_88_76_15() { return nt.HLT_QuadPFJet105_88_76_15(); }
-    const bool &HLT_QuadPFJet105_88_76_15_BTagCSV_p013_VBF2() { return nt.HLT_QuadPFJet105_88_76_15_BTagCSV_p013_VBF2(); }
-    const bool &HLT_QuadPFJet105_90_76_15_DoubleBTagCSV_p013_p08_VBF1() { return nt.HLT_QuadPFJet105_90_76_15_DoubleBTagCSV_p013_p08_VBF1(); }
+    const bool &HLT_QuadPFJet105_88_76_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1() { return nt.HLT_QuadPFJet105_88_76_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1(); }
+    const bool &HLT_QuadPFJet105_88_76_15_PFBTagDeepCSV_1p3_VBF2() { return nt.HLT_QuadPFJet105_88_76_15_PFBTagDeepCSV_1p3_VBF2(); }
     const bool &HLT_QuadPFJet111_90_80_15() { return nt.HLT_QuadPFJet111_90_80_15(); }
-    const bool &HLT_QuadPFJet111_90_80_15_BTagCSV_p013_VBF2() { return nt.HLT_QuadPFJet111_90_80_15_BTagCSV_p013_VBF2(); }
-    const bool &HLT_QuadPFJet111_90_80_15_DoubleBTagCSV_p013_p08_VBF1() { return nt.HLT_QuadPFJet111_90_80_15_DoubleBTagCSV_p013_p08_VBF1(); }
+    const bool &HLT_QuadPFJet111_90_80_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1() { return nt.HLT_QuadPFJet111_90_80_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1(); }
+    const bool &HLT_QuadPFJet111_90_80_15_PFBTagDeepCSV_1p3_VBF2() { return nt.HLT_QuadPFJet111_90_80_15_PFBTagDeepCSV_1p3_VBF2(); }
     const bool &HLT_QuadPFJet98_83_71_15() { return nt.HLT_QuadPFJet98_83_71_15(); }
-    const bool &HLT_QuadPFJet98_83_71_15_BTagCSV_p013_VBF2() { return nt.HLT_QuadPFJet98_83_71_15_BTagCSV_p013_VBF2(); }
-    const bool &HLT_QuadPFJet98_83_71_15_DoubleBTagCSV_p013_p08_VBF1() { return nt.HLT_QuadPFJet98_83_71_15_DoubleBTagCSV_p013_p08_VBF1(); }
+    const bool &HLT_QuadPFJet98_83_71_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1() { return nt.HLT_QuadPFJet98_83_71_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1(); }
+    const bool &HLT_QuadPFJet98_83_71_15_PFBTagDeepCSV_1p3_VBF2() { return nt.HLT_QuadPFJet98_83_71_15_PFBTagDeepCSV_1p3_VBF2(); }
     const bool &HLT_Random() { return nt.HLT_Random(); }
     const bool &HLT_Rsq0p35() { return nt.HLT_Rsq0p35(); }
     const bool &HLT_Rsq0p40() { return nt.HLT_Rsq0p40(); }
@@ -11940,35 +17653,43 @@ namespace tas {
     const bool &HLT_RsqMR320_Rsq0p09_MR200() { return nt.HLT_RsqMR320_Rsq0p09_MR200(); }
     const bool &HLT_RsqMR320_Rsq0p09_MR200_4jet() { return nt.HLT_RsqMR320_Rsq0p09_MR200_4jet(); }
     const bool &HLT_SingleJet30_Mu12_SinglePFJet40() { return nt.HLT_SingleJet30_Mu12_SinglePFJet40(); }
+    const bool &HLT_SinglePhoton10_Eta3p1ForPPRef() { return nt.HLT_SinglePhoton10_Eta3p1ForPPRef(); }
+    const bool &HLT_SinglePhoton20_Eta3p1ForPPRef() { return nt.HLT_SinglePhoton20_Eta3p1ForPPRef(); }
+    const bool &HLT_SinglePhoton30_Eta3p1ForPPRef() { return nt.HLT_SinglePhoton30_Eta3p1ForPPRef(); }
     const bool &HLT_Tau3Mu_Mu7_Mu1_TkMu1_IsoTau15() { return nt.HLT_Tau3Mu_Mu7_Mu1_TkMu1_IsoTau15(); }
     const bool &HLT_Tau3Mu_Mu7_Mu1_TkMu1_IsoTau15_Charge1() { return nt.HLT_Tau3Mu_Mu7_Mu1_TkMu1_IsoTau15_Charge1(); }
     const bool &HLT_Tau3Mu_Mu7_Mu1_TkMu1_Tau15() { return nt.HLT_Tau3Mu_Mu7_Mu1_TkMu1_Tau15(); }
     const bool &HLT_Tau3Mu_Mu7_Mu1_TkMu1_Tau15_Charge1() { return nt.HLT_Tau3Mu_Mu7_Mu1_TkMu1_Tau15_Charge1(); }
     const bool &HLT_TkMu100() { return nt.HLT_TkMu100(); }
     const bool &HLT_Trimuon5_3p5_2_Upsilon_Muon() { return nt.HLT_Trimuon5_3p5_2_Upsilon_Muon(); }
+    const bool &HLT_TrimuonOpen_5_3p5_2_Upsilon_Muon() { return nt.HLT_TrimuonOpen_5_3p5_2_Upsilon_Muon(); }
     const bool &HLT_TripleJet110_35_35_Mjj650_PFMET110() { return nt.HLT_TripleJet110_35_35_Mjj650_PFMET110(); }
     const bool &HLT_TripleJet110_35_35_Mjj650_PFMET120() { return nt.HLT_TripleJet110_35_35_Mjj650_PFMET120(); }
     const bool &HLT_TripleJet110_35_35_Mjj650_PFMET130() { return nt.HLT_TripleJet110_35_35_Mjj650_PFMET130(); }
     const bool &HLT_TripleMu_10_5_5_DZ() { return nt.HLT_TripleMu_10_5_5_DZ(); }
     const bool &HLT_TripleMu_12_10_5() { return nt.HLT_TripleMu_12_10_5(); }
-    const bool &HLT_TripleMu_5_3_3_Mass3p8to60_DCA() { return nt.HLT_TripleMu_5_3_3_Mass3p8to60_DCA(); }
-    const bool &HLT_TripleMu_5_3_3_Mass3p8to60_DZ() { return nt.HLT_TripleMu_5_3_3_Mass3p8to60_DZ(); }
+    const bool &HLT_TripleMu_5_3_3_Mass3p8_DCA() { return nt.HLT_TripleMu_5_3_3_Mass3p8_DCA(); }
+    const bool &HLT_TripleMu_5_3_3_Mass3p8_DZ() { return nt.HLT_TripleMu_5_3_3_Mass3p8_DZ(); }
     const bool &HLT_TriplePhoton_20_20_20_CaloIdLV2() { return nt.HLT_TriplePhoton_20_20_20_CaloIdLV2(); }
     const bool &HLT_TriplePhoton_20_20_20_CaloIdLV2_R9IdVL() { return nt.HLT_TriplePhoton_20_20_20_CaloIdLV2_R9IdVL(); }
     const bool &HLT_TriplePhoton_30_30_10_CaloIdLV2() { return nt.HLT_TriplePhoton_30_30_10_CaloIdLV2(); }
     const bool &HLT_TriplePhoton_30_30_10_CaloIdLV2_R9IdVL() { return nt.HLT_TriplePhoton_30_30_10_CaloIdLV2_R9IdVL(); }
     const bool &HLT_TriplePhoton_35_35_5_CaloIdLV2_R9IdVL() { return nt.HLT_TriplePhoton_35_35_5_CaloIdLV2_R9IdVL(); }
     const bool &HLT_TrkMu12_DoubleTrkMu5NoFiltersNoVtx() { return nt.HLT_TrkMu12_DoubleTrkMu5NoFiltersNoVtx(); }
+    const bool &HLT_TrkMu16NoFiltersNoVtx() { return nt.HLT_TrkMu16NoFiltersNoVtx(); }
     const bool &HLT_TrkMu16_DoubleTrkMu6NoFiltersNoVtx() { return nt.HLT_TrkMu16_DoubleTrkMu6NoFiltersNoVtx(); }
     const bool &HLT_TrkMu17_DoubleTrkMu8NoFiltersNoVtx() { return nt.HLT_TrkMu17_DoubleTrkMu8NoFiltersNoVtx(); }
+    const bool &HLT_TrkMu6NoFiltersNoVtx() { return nt.HLT_TrkMu6NoFiltersNoVtx(); }
     const bool &HLT_UncorrectedJetE30_NoBPTX() { return nt.HLT_UncorrectedJetE30_NoBPTX(); }
     const bool &HLT_UncorrectedJetE30_NoBPTX3BX() { return nt.HLT_UncorrectedJetE30_NoBPTX3BX(); }
     const bool &HLT_UncorrectedJetE60_NoBPTX3BX() { return nt.HLT_UncorrectedJetE60_NoBPTX3BX(); }
     const bool &HLT_UncorrectedJetE70_NoBPTX3BX() { return nt.HLT_UncorrectedJetE70_NoBPTX3BX(); }
-    const bool &HLT_VBF_DoubleLooseChargedIsoPFTau20_Trk1_eta2p1_Reg() { return nt.HLT_VBF_DoubleLooseChargedIsoPFTau20_Trk1_eta2p1_Reg(); }
-    const bool &HLT_VBF_DoubleMediumChargedIsoPFTau20_Trk1_eta2p1_Reg() { return nt.HLT_VBF_DoubleMediumChargedIsoPFTau20_Trk1_eta2p1_Reg(); }
-    const bool &HLT_VBF_DoubleTightChargedIsoPFTau20_Trk1_eta2p1_Reg() { return nt.HLT_VBF_DoubleTightChargedIsoPFTau20_Trk1_eta2p1_Reg(); }
+    const bool &HLT_VBF_DoubleLooseChargedIsoPFTauHPS20_Trk1_eta2p1() { return nt.HLT_VBF_DoubleLooseChargedIsoPFTauHPS20_Trk1_eta2p1(); }
+    const bool &HLT_VBF_DoubleMediumChargedIsoPFTauHPS20_Trk1_eta2p1() { return nt.HLT_VBF_DoubleMediumChargedIsoPFTauHPS20_Trk1_eta2p1(); }
+    const bool &HLT_VBF_DoubleTightChargedIsoPFTauHPS20_Trk1_eta2p1() { return nt.HLT_VBF_DoubleTightChargedIsoPFTauHPS20_Trk1_eta2p1(); }
     const bool &HLT_ZeroBias() { return nt.HLT_ZeroBias(); }
+    const bool &HLT_ZeroBias_Alignment() { return nt.HLT_ZeroBias_Alignment(); }
+    const bool &HLT_ZeroBias_Beamspot() { return nt.HLT_ZeroBias_Beamspot(); }
     const bool &HLT_ZeroBias_FirstBXAfterTrain() { return nt.HLT_ZeroBias_FirstBXAfterTrain(); }
     const bool &HLT_ZeroBias_FirstCollisionAfterAbortGap() { return nt.HLT_ZeroBias_FirstCollisionAfterAbortGap(); }
     const bool &HLT_ZeroBias_FirstCollisionInTrain() { return nt.HLT_ZeroBias_FirstCollisionInTrain(); }
@@ -11984,9 +17705,22 @@ namespace tas {
     const bool &HLT_ZeroBias_part7() { return nt.HLT_ZeroBias_part7(); }
     const bool &HLTriggerFinalPath() { return nt.HLTriggerFinalPath(); }
     const bool &HLTriggerFirstPath() { return nt.HLTriggerFirstPath(); }
+    const float &HTXS_Higgs_pt() { return nt.HTXS_Higgs_pt(); }
+    const float &HTXS_Higgs_y() { return nt.HTXS_Higgs_y(); }
+    const UChar_t &HTXS_njets25() { return nt.HTXS_njets25(); }
+    const UChar_t &HTXS_njets30() { return nt.HTXS_njets30(); }
+    const int &HTXS_stage1_1_cat_pTjet25GeV() { return nt.HTXS_stage1_1_cat_pTjet25GeV(); }
+    const int &HTXS_stage1_1_cat_pTjet30GeV() { return nt.HTXS_stage1_1_cat_pTjet30GeV(); }
+    const int &HTXS_stage1_1_fine_cat_pTjet25GeV() { return nt.HTXS_stage1_1_fine_cat_pTjet25GeV(); }
+    const int &HTXS_stage1_1_fine_cat_pTjet30GeV() { return nt.HTXS_stage1_1_fine_cat_pTjet30GeV(); }
+    const int &HTXS_stage_0() { return nt.HTXS_stage_0(); }
+    const int &HTXS_stage_1_pTjet25() { return nt.HTXS_stage_1_pTjet25(); }
+    const int &HTXS_stage_1_pTjet30() { return nt.HTXS_stage_1_pTjet30(); }
     const vector<float> &IsoTrack_dxy() { return nt.IsoTrack_dxy(); }
     const vector<float> &IsoTrack_dz() { return nt.IsoTrack_dz(); }
     const vector<float> &IsoTrack_eta() { return nt.IsoTrack_eta(); }
+    const vector<int> &IsoTrack_fromPV() { return nt.IsoTrack_fromPV(); }
+    const vector<bool> &IsoTrack_isFromLostTrack() { return nt.IsoTrack_isFromLostTrack(); }
     const vector<bool> &IsoTrack_isHighPurityTrack() { return nt.IsoTrack_isHighPurityTrack(); }
     const vector<bool> &IsoTrack_isPFcand() { return nt.IsoTrack_isPFcand(); }
     const vector<float> &IsoTrack_miniPFRelIso_all() { return nt.IsoTrack_miniPFRelIso_all(); }
@@ -11997,12 +17731,14 @@ namespace tas {
     const vector<float> &IsoTrack_phi() { return nt.IsoTrack_phi(); }
     const vector<float> &IsoTrack_pt() { return nt.IsoTrack_pt(); }
     const vector<float> &Jet_area() { return nt.Jet_area(); }
-    const vector<float> &Jet_bReg() { return nt.Jet_bReg(); }
+    const vector<float> &Jet_bRegCorr() { return nt.Jet_bRegCorr(); }
+    const vector<float> &Jet_bRegRes() { return nt.Jet_bRegRes(); }
     const vector<float> &Jet_btagCMVA() { return nt.Jet_btagCMVA(); }
     const vector<float> &Jet_btagCSVV2() { return nt.Jet_btagCSVV2(); }
     const vector<float> &Jet_btagDeepB() { return nt.Jet_btagDeepB(); }
     const vector<float> &Jet_btagDeepC() { return nt.Jet_btagDeepC(); }
     const vector<float> &Jet_btagDeepFlavB() { return nt.Jet_btagDeepFlavB(); }
+    const vector<float> &Jet_btagDeepFlavC() { return nt.Jet_btagDeepFlavC(); }
     const vector<float> &Jet_chEmEF() { return nt.Jet_chEmEF(); }
     const vector<float> &Jet_chHEF() { return nt.Jet_chHEF(); }
     const vector<UChar_t> &Jet_cleanmask() { return nt.Jet_cleanmask(); }
@@ -12011,10 +17747,14 @@ namespace tas {
     const vector<float> &Jet_eta() { return nt.Jet_eta(); }
     const vector<int> &Jet_genJetIdx() { return nt.Jet_genJetIdx(); }
     const vector<int> &Jet_hadronFlavour() { return nt.Jet_hadronFlavour(); }
+    const vector<float> &Jet_jercCHF() { return nt.Jet_jercCHF(); }
+    const vector<float> &Jet_jercCHPUF() { return nt.Jet_jercCHPUF(); }
     const vector<int> &Jet_jetId() { return nt.Jet_jetId(); }
     const vector<float> &Jet_mass() { return nt.Jet_mass(); }
+    const vector<float> &Jet_muEF() { return nt.Jet_muEF(); }
     const vector<int> &Jet_muonIdx1() { return nt.Jet_muonIdx1(); }
     const vector<int> &Jet_muonIdx2() { return nt.Jet_muonIdx2(); }
+    const vector<float> &Jet_muonSubtrFactor() { return nt.Jet_muonSubtrFactor(); }
     const vector<int> &Jet_nConstituents() { return nt.Jet_nConstituents(); }
     const vector<int> &Jet_nElectrons() { return nt.Jet_nElectrons(); }
     const vector<int> &Jet_nMuons() { return nt.Jet_nMuons(); }
@@ -12027,6 +17767,328 @@ namespace tas {
     const vector<int> &Jet_puId() { return nt.Jet_puId(); }
     const vector<float> &Jet_qgl() { return nt.Jet_qgl(); }
     const vector<float> &Jet_rawFactor() { return nt.Jet_rawFactor(); }
+    const bool &L1Reco_step() { return nt.L1Reco_step(); }
+    const bool &L1_AlwaysTrue() { return nt.L1_AlwaysTrue(); }
+    const bool &L1_BPTX_AND_Ref1_VME() { return nt.L1_BPTX_AND_Ref1_VME(); }
+    const bool &L1_BPTX_AND_Ref3_VME() { return nt.L1_BPTX_AND_Ref3_VME(); }
+    const bool &L1_BPTX_AND_Ref4_VME() { return nt.L1_BPTX_AND_Ref4_VME(); }
+    const bool &L1_BPTX_BeamGas_B1_VME() { return nt.L1_BPTX_BeamGas_B1_VME(); }
+    const bool &L1_BPTX_BeamGas_B2_VME() { return nt.L1_BPTX_BeamGas_B2_VME(); }
+    const bool &L1_BPTX_BeamGas_Ref1_VME() { return nt.L1_BPTX_BeamGas_Ref1_VME(); }
+    const bool &L1_BPTX_BeamGas_Ref2_VME() { return nt.L1_BPTX_BeamGas_Ref2_VME(); }
+    const bool &L1_BPTX_NotOR_VME() { return nt.L1_BPTX_NotOR_VME(); }
+    const bool &L1_BPTX_OR_Ref3_VME() { return nt.L1_BPTX_OR_Ref3_VME(); }
+    const bool &L1_BPTX_OR_Ref4_VME() { return nt.L1_BPTX_OR_Ref4_VME(); }
+    const bool &L1_BPTX_RefAND_VME() { return nt.L1_BPTX_RefAND_VME(); }
+    const bool &L1_BptxMinus() { return nt.L1_BptxMinus(); }
+    const bool &L1_BptxOR() { return nt.L1_BptxOR(); }
+    const bool &L1_BptxPlus() { return nt.L1_BptxPlus(); }
+    const bool &L1_BptxXOR() { return nt.L1_BptxXOR(); }
+    const bool &L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142() { return nt.L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142(); }
+    const bool &L1_DoubleEG8er2p5_HTT260er() { return nt.L1_DoubleEG8er2p5_HTT260er(); }
+    const bool &L1_DoubleEG8er2p5_HTT280er() { return nt.L1_DoubleEG8er2p5_HTT280er(); }
+    const bool &L1_DoubleEG8er2p5_HTT300er() { return nt.L1_DoubleEG8er2p5_HTT300er(); }
+    const bool &L1_DoubleEG8er2p5_HTT320er() { return nt.L1_DoubleEG8er2p5_HTT320er(); }
+    const bool &L1_DoubleEG8er2p5_HTT340er() { return nt.L1_DoubleEG8er2p5_HTT340er(); }
+    const bool &L1_DoubleEG_15_10_er2p5() { return nt.L1_DoubleEG_15_10_er2p5(); }
+    const bool &L1_DoubleEG_20_10_er2p5() { return nt.L1_DoubleEG_20_10_er2p5(); }
+    const bool &L1_DoubleEG_22_10_er2p5() { return nt.L1_DoubleEG_22_10_er2p5(); }
+    const bool &L1_DoubleEG_25_12_er2p5() { return nt.L1_DoubleEG_25_12_er2p5(); }
+    const bool &L1_DoubleEG_25_14_er2p5() { return nt.L1_DoubleEG_25_14_er2p5(); }
+    const bool &L1_DoubleEG_27_14_er2p5() { return nt.L1_DoubleEG_27_14_er2p5(); }
+    const bool &L1_DoubleEG_LooseIso20_10_er2p5() { return nt.L1_DoubleEG_LooseIso20_10_er2p5(); }
+    const bool &L1_DoubleEG_LooseIso22_10_er2p5() { return nt.L1_DoubleEG_LooseIso22_10_er2p5(); }
+    const bool &L1_DoubleEG_LooseIso22_12_er2p5() { return nt.L1_DoubleEG_LooseIso22_12_er2p5(); }
+    const bool &L1_DoubleEG_LooseIso25_12_er2p5() { return nt.L1_DoubleEG_LooseIso25_12_er2p5(); }
+    const bool &L1_DoubleIsoTau32er2p1() { return nt.L1_DoubleIsoTau32er2p1(); }
+    const bool &L1_DoubleIsoTau34er2p1() { return nt.L1_DoubleIsoTau34er2p1(); }
+    const bool &L1_DoubleIsoTau36er2p1() { return nt.L1_DoubleIsoTau36er2p1(); }
+    const bool &L1_DoubleJet100er2p3_dEta_Max1p6() { return nt.L1_DoubleJet100er2p3_dEta_Max1p6(); }
+    const bool &L1_DoubleJet100er2p5() { return nt.L1_DoubleJet100er2p5(); }
+    const bool &L1_DoubleJet112er2p3_dEta_Max1p6() { return nt.L1_DoubleJet112er2p3_dEta_Max1p6(); }
+    const bool &L1_DoubleJet120er2p5() { return nt.L1_DoubleJet120er2p5(); }
+    const bool &L1_DoubleJet150er2p5() { return nt.L1_DoubleJet150er2p5(); }
+    const bool &L1_DoubleJet30er2p5_Mass_Min150_dEta_Max1p5() { return nt.L1_DoubleJet30er2p5_Mass_Min150_dEta_Max1p5(); }
+    const bool &L1_DoubleJet30er2p5_Mass_Min200_dEta_Max1p5() { return nt.L1_DoubleJet30er2p5_Mass_Min200_dEta_Max1p5(); }
+    const bool &L1_DoubleJet30er2p5_Mass_Min250_dEta_Max1p5() { return nt.L1_DoubleJet30er2p5_Mass_Min250_dEta_Max1p5(); }
+    const bool &L1_DoubleJet30er2p5_Mass_Min300_dEta_Max1p5() { return nt.L1_DoubleJet30er2p5_Mass_Min300_dEta_Max1p5(); }
+    const bool &L1_DoubleJet30er2p5_Mass_Min330_dEta_Max1p5() { return nt.L1_DoubleJet30er2p5_Mass_Min330_dEta_Max1p5(); }
+    const bool &L1_DoubleJet30er2p5_Mass_Min360_dEta_Max1p5() { return nt.L1_DoubleJet30er2p5_Mass_Min360_dEta_Max1p5(); }
+    const bool &L1_DoubleJet35_Mass_Min450_IsoTau45_RmOvlp() { return nt.L1_DoubleJet35_Mass_Min450_IsoTau45_RmOvlp(); }
+    const bool &L1_DoubleJet40er2p5() { return nt.L1_DoubleJet40er2p5(); }
+    const bool &L1_DoubleJet_100_30_DoubleJet30_Mass_Min620() { return nt.L1_DoubleJet_100_30_DoubleJet30_Mass_Min620(); }
+    const bool &L1_DoubleJet_110_35_DoubleJet35_Mass_Min620() { return nt.L1_DoubleJet_110_35_DoubleJet35_Mass_Min620(); }
+    const bool &L1_DoubleJet_115_40_DoubleJet40_Mass_Min620() { return nt.L1_DoubleJet_115_40_DoubleJet40_Mass_Min620(); }
+    const bool &L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_Jet60TT28() { return nt.L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_Jet60TT28(); }
+    const bool &L1_DoubleJet_120_45_DoubleJet45_Mass_Min620() { return nt.L1_DoubleJet_120_45_DoubleJet45_Mass_Min620(); }
+    const bool &L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_Jet60TT28() { return nt.L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_Jet60TT28(); }
+    const bool &L1_DoubleJet_80_30_Mass_Min420_DoubleMu0_SQ() { return nt.L1_DoubleJet_80_30_Mass_Min420_DoubleMu0_SQ(); }
+    const bool &L1_DoubleJet_80_30_Mass_Min420_IsoTau40_RmOvlp() { return nt.L1_DoubleJet_80_30_Mass_Min420_IsoTau40_RmOvlp(); }
+    const bool &L1_DoubleJet_80_30_Mass_Min420_Mu8() { return nt.L1_DoubleJet_80_30_Mass_Min420_Mu8(); }
+    const bool &L1_DoubleJet_90_30_DoubleJet30_Mass_Min620() { return nt.L1_DoubleJet_90_30_DoubleJet30_Mass_Min620(); }
+    const bool &L1_DoubleLooseIsoEG22er2p1() { return nt.L1_DoubleLooseIsoEG22er2p1(); }
+    const bool &L1_DoubleLooseIsoEG24er2p1() { return nt.L1_DoubleLooseIsoEG24er2p1(); }
+    const bool &L1_DoubleMu0() { return nt.L1_DoubleMu0(); }
+    const bool &L1_DoubleMu0_Mass_Min1() { return nt.L1_DoubleMu0_Mass_Min1(); }
+    const bool &L1_DoubleMu0_OQ() { return nt.L1_DoubleMu0_OQ(); }
+    const bool &L1_DoubleMu0_SQ() { return nt.L1_DoubleMu0_SQ(); }
+    const bool &L1_DoubleMu0_SQ_OS() { return nt.L1_DoubleMu0_SQ_OS(); }
+    const bool &L1_DoubleMu0_dR_Max1p6_Jet90er2p5_dR_Max0p8() { return nt.L1_DoubleMu0_dR_Max1p6_Jet90er2p5_dR_Max0p8(); }
+    const bool &L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4() { return nt.L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4(); }
+    const bool &L1_DoubleMu0er1p5_SQ() { return nt.L1_DoubleMu0er1p5_SQ(); }
+    const bool &L1_DoubleMu0er1p5_SQ_OS() { return nt.L1_DoubleMu0er1p5_SQ_OS(); }
+    const bool &L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4() { return nt.L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4(); }
+    const bool &L1_DoubleMu0er1p5_SQ_dR_Max1p4() { return nt.L1_DoubleMu0er1p5_SQ_dR_Max1p4(); }
+    const bool &L1_DoubleMu0er2p0_SQ_OS_dR_Max1p4() { return nt.L1_DoubleMu0er2p0_SQ_OS_dR_Max1p4(); }
+    const bool &L1_DoubleMu0er2p0_SQ_dR_Max1p4() { return nt.L1_DoubleMu0er2p0_SQ_dR_Max1p4(); }
+    const bool &L1_DoubleMu10_SQ() { return nt.L1_DoubleMu10_SQ(); }
+    const bool &L1_DoubleMu18er2p1() { return nt.L1_DoubleMu18er2p1(); }
+    const bool &L1_DoubleMu3_OS_DoubleEG7p5Upsilon() { return nt.L1_DoubleMu3_OS_DoubleEG7p5Upsilon(); }
+    const bool &L1_DoubleMu3_SQ_ETMHF50_HTT60er() { return nt.L1_DoubleMu3_SQ_ETMHF50_HTT60er(); }
+    const bool &L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5() { return nt.L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5(); }
+    const bool &L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_OR_DoubleJet40er2p5() { return nt.L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_OR_DoubleJet40er2p5(); }
+    const bool &L1_DoubleMu3_SQ_ETMHF60_Jet60er2p5() { return nt.L1_DoubleMu3_SQ_ETMHF60_Jet60er2p5(); }
+    const bool &L1_DoubleMu3_SQ_HTT220er() { return nt.L1_DoubleMu3_SQ_HTT220er(); }
+    const bool &L1_DoubleMu3_SQ_HTT240er() { return nt.L1_DoubleMu3_SQ_HTT240er(); }
+    const bool &L1_DoubleMu3_SQ_HTT260er() { return nt.L1_DoubleMu3_SQ_HTT260er(); }
+    const bool &L1_DoubleMu3_dR_Max1p6_Jet90er2p5_dR_Max0p8() { return nt.L1_DoubleMu3_dR_Max1p6_Jet90er2p5_dR_Max0p8(); }
+    const bool &L1_DoubleMu4_SQ_EG9er2p5() { return nt.L1_DoubleMu4_SQ_EG9er2p5(); }
+    const bool &L1_DoubleMu4_SQ_OS() { return nt.L1_DoubleMu4_SQ_OS(); }
+    const bool &L1_DoubleMu4_SQ_OS_dR_Max1p2() { return nt.L1_DoubleMu4_SQ_OS_dR_Max1p2(); }
+    const bool &L1_DoubleMu4p5_SQ_OS() { return nt.L1_DoubleMu4p5_SQ_OS(); }
+    const bool &L1_DoubleMu4p5_SQ_OS_dR_Max1p2() { return nt.L1_DoubleMu4p5_SQ_OS_dR_Max1p2(); }
+    const bool &L1_DoubleMu4p5er2p0_SQ_OS() { return nt.L1_DoubleMu4p5er2p0_SQ_OS(); }
+    const bool &L1_DoubleMu4p5er2p0_SQ_OS_Mass7to18() { return nt.L1_DoubleMu4p5er2p0_SQ_OS_Mass7to18(); }
+    const bool &L1_DoubleMu5Upsilon_OS_DoubleEG3() { return nt.L1_DoubleMu5Upsilon_OS_DoubleEG3(); }
+    const bool &L1_DoubleMu5_SQ_EG9er2p5() { return nt.L1_DoubleMu5_SQ_EG9er2p5(); }
+    const bool &L1_DoubleMu9_SQ() { return nt.L1_DoubleMu9_SQ(); }
+    const bool &L1_DoubleMu_12_5() { return nt.L1_DoubleMu_12_5(); }
+    const bool &L1_DoubleMu_15_5_SQ() { return nt.L1_DoubleMu_15_5_SQ(); }
+    const bool &L1_DoubleMu_15_7() { return nt.L1_DoubleMu_15_7(); }
+    const bool &L1_DoubleMu_15_7_Mass_Min1() { return nt.L1_DoubleMu_15_7_Mass_Min1(); }
+    const bool &L1_DoubleMu_15_7_SQ() { return nt.L1_DoubleMu_15_7_SQ(); }
+    const bool &L1_DoubleTau70er2p1() { return nt.L1_DoubleTau70er2p1(); }
+    const bool &L1_ETM120() { return nt.L1_ETM120(); }
+    const bool &L1_ETM150() { return nt.L1_ETM150(); }
+    const bool &L1_ETMHF100() { return nt.L1_ETMHF100(); }
+    const bool &L1_ETMHF100_HTT60er() { return nt.L1_ETMHF100_HTT60er(); }
+    const bool &L1_ETMHF110() { return nt.L1_ETMHF110(); }
+    const bool &L1_ETMHF110_HTT60er() { return nt.L1_ETMHF110_HTT60er(); }
+    const bool &L1_ETMHF110_HTT60er_NotSecondBunchInTrain() { return nt.L1_ETMHF110_HTT60er_NotSecondBunchInTrain(); }
+    const bool &L1_ETMHF120() { return nt.L1_ETMHF120(); }
+    const bool &L1_ETMHF120_HTT60er() { return nt.L1_ETMHF120_HTT60er(); }
+    const bool &L1_ETMHF120_NotSecondBunchInTrain() { return nt.L1_ETMHF120_NotSecondBunchInTrain(); }
+    const bool &L1_ETMHF130() { return nt.L1_ETMHF130(); }
+    const bool &L1_ETMHF130_HTT60er() { return nt.L1_ETMHF130_HTT60er(); }
+    const bool &L1_ETMHF140() { return nt.L1_ETMHF140(); }
+    const bool &L1_ETMHF150() { return nt.L1_ETMHF150(); }
+    const bool &L1_ETMHF90_HTT60er() { return nt.L1_ETMHF90_HTT60er(); }
+    const bool &L1_ETT1200() { return nt.L1_ETT1200(); }
+    const bool &L1_ETT1600() { return nt.L1_ETT1600(); }
+    const bool &L1_ETT2000() { return nt.L1_ETT2000(); }
+    const bool &L1_FirstBunchAfterTrain() { return nt.L1_FirstBunchAfterTrain(); }
+    const bool &L1_FirstBunchBeforeTrain() { return nt.L1_FirstBunchBeforeTrain(); }
+    const bool &L1_FirstBunchInTrain() { return nt.L1_FirstBunchInTrain(); }
+    const bool &L1_FirstCollisionInOrbit() { return nt.L1_FirstCollisionInOrbit(); }
+    const bool &L1_FirstCollisionInTrain() { return nt.L1_FirstCollisionInTrain(); }
+    const bool &L1_HCAL_LaserMon_Trig() { return nt.L1_HCAL_LaserMon_Trig(); }
+    const bool &L1_HCAL_LaserMon_Veto() { return nt.L1_HCAL_LaserMon_Veto(); }
+    const bool &L1_HTT120er() { return nt.L1_HTT120er(); }
+    const bool &L1_HTT160er() { return nt.L1_HTT160er(); }
+    const bool &L1_HTT200er() { return nt.L1_HTT200er(); }
+    const bool &L1_HTT255er() { return nt.L1_HTT255er(); }
+    const bool &L1_HTT280er() { return nt.L1_HTT280er(); }
+    const bool &L1_HTT280er_QuadJet_70_55_40_35_er2p4() { return nt.L1_HTT280er_QuadJet_70_55_40_35_er2p4(); }
+    const bool &L1_HTT320er() { return nt.L1_HTT320er(); }
+    const bool &L1_HTT320er_QuadJet_70_55_40_40_er2p4() { return nt.L1_HTT320er_QuadJet_70_55_40_40_er2p4(); }
+    const bool &L1_HTT320er_QuadJet_80_60_er2p1_45_40_er2p3() { return nt.L1_HTT320er_QuadJet_80_60_er2p1_45_40_er2p3(); }
+    const bool &L1_HTT320er_QuadJet_80_60_er2p1_50_45_er2p3() { return nt.L1_HTT320er_QuadJet_80_60_er2p1_50_45_er2p3(); }
+    const bool &L1_HTT360er() { return nt.L1_HTT360er(); }
+    const bool &L1_HTT400er() { return nt.L1_HTT400er(); }
+    const bool &L1_HTT450er() { return nt.L1_HTT450er(); }
+    const bool &L1_IsoEG32er2p5_Mt40() { return nt.L1_IsoEG32er2p5_Mt40(); }
+    const bool &L1_IsoEG32er2p5_Mt44() { return nt.L1_IsoEG32er2p5_Mt44(); }
+    const bool &L1_IsoEG32er2p5_Mt48() { return nt.L1_IsoEG32er2p5_Mt48(); }
+    const bool &L1_IsoTau40er2p1_ETMHF100() { return nt.L1_IsoTau40er2p1_ETMHF100(); }
+    const bool &L1_IsoTau40er2p1_ETMHF110() { return nt.L1_IsoTau40er2p1_ETMHF110(); }
+    const bool &L1_IsoTau40er2p1_ETMHF120() { return nt.L1_IsoTau40er2p1_ETMHF120(); }
+    const bool &L1_IsoTau40er2p1_ETMHF90() { return nt.L1_IsoTau40er2p1_ETMHF90(); }
+    const bool &L1_IsolatedBunch() { return nt.L1_IsolatedBunch(); }
+    const bool &L1_LastBunchInTrain() { return nt.L1_LastBunchInTrain(); }
+    const bool &L1_LastCollisionInTrain() { return nt.L1_LastCollisionInTrain(); }
+    const bool &L1_LooseIsoEG22er2p1_IsoTau26er2p1_dR_Min0p3() { return nt.L1_LooseIsoEG22er2p1_IsoTau26er2p1_dR_Min0p3(); }
+    const bool &L1_LooseIsoEG22er2p1_Tau70er2p1_dR_Min0p3() { return nt.L1_LooseIsoEG22er2p1_Tau70er2p1_dR_Min0p3(); }
+    const bool &L1_LooseIsoEG24er2p1_HTT100er() { return nt.L1_LooseIsoEG24er2p1_HTT100er(); }
+    const bool &L1_LooseIsoEG24er2p1_IsoTau27er2p1_dR_Min0p3() { return nt.L1_LooseIsoEG24er2p1_IsoTau27er2p1_dR_Min0p3(); }
+    const bool &L1_LooseIsoEG26er2p1_HTT100er() { return nt.L1_LooseIsoEG26er2p1_HTT100er(); }
+    const bool &L1_LooseIsoEG26er2p1_Jet34er2p5_dR_Min0p3() { return nt.L1_LooseIsoEG26er2p1_Jet34er2p5_dR_Min0p3(); }
+    const bool &L1_LooseIsoEG28er2p1_HTT100er() { return nt.L1_LooseIsoEG28er2p1_HTT100er(); }
+    const bool &L1_LooseIsoEG28er2p1_Jet34er2p5_dR_Min0p3() { return nt.L1_LooseIsoEG28er2p1_Jet34er2p5_dR_Min0p3(); }
+    const bool &L1_LooseIsoEG30er2p1_HTT100er() { return nt.L1_LooseIsoEG30er2p1_HTT100er(); }
+    const bool &L1_LooseIsoEG30er2p1_Jet34er2p5_dR_Min0p3() { return nt.L1_LooseIsoEG30er2p1_Jet34er2p5_dR_Min0p3(); }
+    const bool &L1_MinimumBiasHF0_AND_BptxAND() { return nt.L1_MinimumBiasHF0_AND_BptxAND(); }
+    const bool &L1_Mu10er2p3_Jet32er2p3_dR_Max0p4_DoubleJet32er2p3_dEta_Max1p6() { return nt.L1_Mu10er2p3_Jet32er2p3_dR_Max0p4_DoubleJet32er2p3_dEta_Max1p6(); }
+    const bool &L1_Mu12er2p3_Jet40er2p1_dR_Max0p4_DoubleJet40er2p1_dEta_Max1p6() { return nt.L1_Mu12er2p3_Jet40er2p1_dR_Max0p4_DoubleJet40er2p1_dEta_Max1p6(); }
+    const bool &L1_Mu12er2p3_Jet40er2p3_dR_Max0p4_DoubleJet40er2p3_dEta_Max1p6() { return nt.L1_Mu12er2p3_Jet40er2p3_dR_Max0p4_DoubleJet40er2p3_dEta_Max1p6(); }
+    const bool &L1_Mu18er2p1_Tau24er2p1() { return nt.L1_Mu18er2p1_Tau24er2p1(); }
+    const bool &L1_Mu18er2p1_Tau26er2p1() { return nt.L1_Mu18er2p1_Tau26er2p1(); }
+    const bool &L1_Mu20_EG10er2p5() { return nt.L1_Mu20_EG10er2p5(); }
+    const bool &L1_Mu22er2p1_IsoTau32er2p1() { return nt.L1_Mu22er2p1_IsoTau32er2p1(); }
+    const bool &L1_Mu22er2p1_IsoTau34er2p1() { return nt.L1_Mu22er2p1_IsoTau34er2p1(); }
+    const bool &L1_Mu22er2p1_IsoTau36er2p1() { return nt.L1_Mu22er2p1_IsoTau36er2p1(); }
+    const bool &L1_Mu22er2p1_IsoTau40er2p1() { return nt.L1_Mu22er2p1_IsoTau40er2p1(); }
+    const bool &L1_Mu22er2p1_Tau70er2p1() { return nt.L1_Mu22er2p1_Tau70er2p1(); }
+    const bool &L1_Mu3_Jet120er2p5_dR_Max0p4() { return nt.L1_Mu3_Jet120er2p5_dR_Max0p4(); }
+    const bool &L1_Mu3_Jet120er2p5_dR_Max0p8() { return nt.L1_Mu3_Jet120er2p5_dR_Max0p8(); }
+    const bool &L1_Mu3_Jet16er2p5_dR_Max0p4() { return nt.L1_Mu3_Jet16er2p5_dR_Max0p4(); }
+    const bool &L1_Mu3_Jet30er2p5() { return nt.L1_Mu3_Jet30er2p5(); }
+    const bool &L1_Mu3_Jet35er2p5_dR_Max0p4() { return nt.L1_Mu3_Jet35er2p5_dR_Max0p4(); }
+    const bool &L1_Mu3_Jet60er2p5_dR_Max0p4() { return nt.L1_Mu3_Jet60er2p5_dR_Max0p4(); }
+    const bool &L1_Mu3_Jet80er2p5_dR_Max0p4() { return nt.L1_Mu3_Jet80er2p5_dR_Max0p4(); }
+    const bool &L1_Mu3er1p5_Jet100er2p5_ETMHF40() { return nt.L1_Mu3er1p5_Jet100er2p5_ETMHF40(); }
+    const bool &L1_Mu3er1p5_Jet100er2p5_ETMHF50() { return nt.L1_Mu3er1p5_Jet100er2p5_ETMHF50(); }
+    const bool &L1_Mu5_EG23er2p5() { return nt.L1_Mu5_EG23er2p5(); }
+    const bool &L1_Mu5_LooseIsoEG20er2p5() { return nt.L1_Mu5_LooseIsoEG20er2p5(); }
+    const bool &L1_Mu6_DoubleEG10er2p5() { return nt.L1_Mu6_DoubleEG10er2p5(); }
+    const bool &L1_Mu6_DoubleEG12er2p5() { return nt.L1_Mu6_DoubleEG12er2p5(); }
+    const bool &L1_Mu6_DoubleEG15er2p5() { return nt.L1_Mu6_DoubleEG15er2p5(); }
+    const bool &L1_Mu6_DoubleEG17er2p5() { return nt.L1_Mu6_DoubleEG17er2p5(); }
+    const bool &L1_Mu6_HTT240er() { return nt.L1_Mu6_HTT240er(); }
+    const bool &L1_Mu6_HTT250er() { return nt.L1_Mu6_HTT250er(); }
+    const bool &L1_Mu7_EG23er2p5() { return nt.L1_Mu7_EG23er2p5(); }
+    const bool &L1_Mu7_LooseIsoEG20er2p5() { return nt.L1_Mu7_LooseIsoEG20er2p5(); }
+    const bool &L1_Mu7_LooseIsoEG23er2p5() { return nt.L1_Mu7_LooseIsoEG23er2p5(); }
+    const bool &L1_NotBptxOR() { return nt.L1_NotBptxOR(); }
+    const bool &L1_QuadJet36er2p5_IsoTau52er2p1() { return nt.L1_QuadJet36er2p5_IsoTau52er2p1(); }
+    const bool &L1_QuadJet60er2p5() { return nt.L1_QuadJet60er2p5(); }
+    const bool &L1_QuadJet_95_75_65_20_DoubleJet_75_65_er2p5_Jet20_FWD3p0() { return nt.L1_QuadJet_95_75_65_20_DoubleJet_75_65_er2p5_Jet20_FWD3p0(); }
+    const bool &L1_QuadMu0() { return nt.L1_QuadMu0(); }
+    const bool &L1_QuadMu0_OQ() { return nt.L1_QuadMu0_OQ(); }
+    const bool &L1_QuadMu0_SQ() { return nt.L1_QuadMu0_SQ(); }
+    const bool &L1_SecondBunchInTrain() { return nt.L1_SecondBunchInTrain(); }
+    const bool &L1_SecondLastBunchInTrain() { return nt.L1_SecondLastBunchInTrain(); }
+    const bool &L1_SingleEG10er2p5() { return nt.L1_SingleEG10er2p5(); }
+    const bool &L1_SingleEG15er2p5() { return nt.L1_SingleEG15er2p5(); }
+    const bool &L1_SingleEG26er2p5() { return nt.L1_SingleEG26er2p5(); }
+    const bool &L1_SingleEG34er2p5() { return nt.L1_SingleEG34er2p5(); }
+    const bool &L1_SingleEG36er2p5() { return nt.L1_SingleEG36er2p5(); }
+    const bool &L1_SingleEG38er2p5() { return nt.L1_SingleEG38er2p5(); }
+    const bool &L1_SingleEG40er2p5() { return nt.L1_SingleEG40er2p5(); }
+    const bool &L1_SingleEG42er2p5() { return nt.L1_SingleEG42er2p5(); }
+    const bool &L1_SingleEG45er2p5() { return nt.L1_SingleEG45er2p5(); }
+    const bool &L1_SingleEG50() { return nt.L1_SingleEG50(); }
+    const bool &L1_SingleEG60() { return nt.L1_SingleEG60(); }
+    const bool &L1_SingleEG8er2p5() { return nt.L1_SingleEG8er2p5(); }
+    const bool &L1_SingleIsoEG24er1p5() { return nt.L1_SingleIsoEG24er1p5(); }
+    const bool &L1_SingleIsoEG24er2p1() { return nt.L1_SingleIsoEG24er2p1(); }
+    const bool &L1_SingleIsoEG26er1p5() { return nt.L1_SingleIsoEG26er1p5(); }
+    const bool &L1_SingleIsoEG26er2p1() { return nt.L1_SingleIsoEG26er2p1(); }
+    const bool &L1_SingleIsoEG26er2p5() { return nt.L1_SingleIsoEG26er2p5(); }
+    const bool &L1_SingleIsoEG28er1p5() { return nt.L1_SingleIsoEG28er1p5(); }
+    const bool &L1_SingleIsoEG28er2p1() { return nt.L1_SingleIsoEG28er2p1(); }
+    const bool &L1_SingleIsoEG28er2p5() { return nt.L1_SingleIsoEG28er2p5(); }
+    const bool &L1_SingleIsoEG30er2p1() { return nt.L1_SingleIsoEG30er2p1(); }
+    const bool &L1_SingleIsoEG30er2p5() { return nt.L1_SingleIsoEG30er2p5(); }
+    const bool &L1_SingleIsoEG32er2p1() { return nt.L1_SingleIsoEG32er2p1(); }
+    const bool &L1_SingleIsoEG32er2p5() { return nt.L1_SingleIsoEG32er2p5(); }
+    const bool &L1_SingleIsoEG34er2p5() { return nt.L1_SingleIsoEG34er2p5(); }
+    const bool &L1_SingleJet10erHE() { return nt.L1_SingleJet10erHE(); }
+    const bool &L1_SingleJet120() { return nt.L1_SingleJet120(); }
+    const bool &L1_SingleJet120_FWD3p0() { return nt.L1_SingleJet120_FWD3p0(); }
+    const bool &L1_SingleJet120er2p5() { return nt.L1_SingleJet120er2p5(); }
+    const bool &L1_SingleJet12erHE() { return nt.L1_SingleJet12erHE(); }
+    const bool &L1_SingleJet140er2p5() { return nt.L1_SingleJet140er2p5(); }
+    const bool &L1_SingleJet140er2p5_ETMHF80() { return nt.L1_SingleJet140er2p5_ETMHF80(); }
+    const bool &L1_SingleJet140er2p5_ETMHF90() { return nt.L1_SingleJet140er2p5_ETMHF90(); }
+    const bool &L1_SingleJet160er2p5() { return nt.L1_SingleJet160er2p5(); }
+    const bool &L1_SingleJet180() { return nt.L1_SingleJet180(); }
+    const bool &L1_SingleJet180er2p5() { return nt.L1_SingleJet180er2p5(); }
+    const bool &L1_SingleJet200() { return nt.L1_SingleJet200(); }
+    const bool &L1_SingleJet20er2p5_NotBptxOR() { return nt.L1_SingleJet20er2p5_NotBptxOR(); }
+    const bool &L1_SingleJet20er2p5_NotBptxOR_3BX() { return nt.L1_SingleJet20er2p5_NotBptxOR_3BX(); }
+    const bool &L1_SingleJet35() { return nt.L1_SingleJet35(); }
+    const bool &L1_SingleJet35_FWD3p0() { return nt.L1_SingleJet35_FWD3p0(); }
+    const bool &L1_SingleJet35er2p5() { return nt.L1_SingleJet35er2p5(); }
+    const bool &L1_SingleJet43er2p5_NotBptxOR_3BX() { return nt.L1_SingleJet43er2p5_NotBptxOR_3BX(); }
+    const bool &L1_SingleJet46er2p5_NotBptxOR_3BX() { return nt.L1_SingleJet46er2p5_NotBptxOR_3BX(); }
+    const bool &L1_SingleJet60() { return nt.L1_SingleJet60(); }
+    const bool &L1_SingleJet60_FWD3p0() { return nt.L1_SingleJet60_FWD3p0(); }
+    const bool &L1_SingleJet60er2p5() { return nt.L1_SingleJet60er2p5(); }
+    const bool &L1_SingleJet8erHE() { return nt.L1_SingleJet8erHE(); }
+    const bool &L1_SingleJet90() { return nt.L1_SingleJet90(); }
+    const bool &L1_SingleJet90_FWD3p0() { return nt.L1_SingleJet90_FWD3p0(); }
+    const bool &L1_SingleJet90er2p5() { return nt.L1_SingleJet90er2p5(); }
+    const bool &L1_SingleLooseIsoEG28er1p5() { return nt.L1_SingleLooseIsoEG28er1p5(); }
+    const bool &L1_SingleLooseIsoEG30er1p5() { return nt.L1_SingleLooseIsoEG30er1p5(); }
+    const bool &L1_SingleMu0_BMTF() { return nt.L1_SingleMu0_BMTF(); }
+    const bool &L1_SingleMu0_DQ() { return nt.L1_SingleMu0_DQ(); }
+    const bool &L1_SingleMu0_EMTF() { return nt.L1_SingleMu0_EMTF(); }
+    const bool &L1_SingleMu0_OMTF() { return nt.L1_SingleMu0_OMTF(); }
+    const bool &L1_SingleMu10er1p5() { return nt.L1_SingleMu10er1p5(); }
+    const bool &L1_SingleMu12_DQ_BMTF() { return nt.L1_SingleMu12_DQ_BMTF(); }
+    const bool &L1_SingleMu12_DQ_EMTF() { return nt.L1_SingleMu12_DQ_EMTF(); }
+    const bool &L1_SingleMu12_DQ_OMTF() { return nt.L1_SingleMu12_DQ_OMTF(); }
+    const bool &L1_SingleMu12er1p5() { return nt.L1_SingleMu12er1p5(); }
+    const bool &L1_SingleMu14er1p5() { return nt.L1_SingleMu14er1p5(); }
+    const bool &L1_SingleMu15_DQ() { return nt.L1_SingleMu15_DQ(); }
+    const bool &L1_SingleMu16er1p5() { return nt.L1_SingleMu16er1p5(); }
+    const bool &L1_SingleMu18() { return nt.L1_SingleMu18(); }
+    const bool &L1_SingleMu18er1p5() { return nt.L1_SingleMu18er1p5(); }
+    const bool &L1_SingleMu20() { return nt.L1_SingleMu20(); }
+    const bool &L1_SingleMu22() { return nt.L1_SingleMu22(); }
+    const bool &L1_SingleMu22_BMTF() { return nt.L1_SingleMu22_BMTF(); }
+    const bool &L1_SingleMu22_EMTF() { return nt.L1_SingleMu22_EMTF(); }
+    const bool &L1_SingleMu22_OMTF() { return nt.L1_SingleMu22_OMTF(); }
+    const bool &L1_SingleMu25() { return nt.L1_SingleMu25(); }
+    const bool &L1_SingleMu3() { return nt.L1_SingleMu3(); }
+    const bool &L1_SingleMu5() { return nt.L1_SingleMu5(); }
+    const bool &L1_SingleMu6er1p5() { return nt.L1_SingleMu6er1p5(); }
+    const bool &L1_SingleMu7() { return nt.L1_SingleMu7(); }
+    const bool &L1_SingleMu7_DQ() { return nt.L1_SingleMu7_DQ(); }
+    const bool &L1_SingleMu7er1p5() { return nt.L1_SingleMu7er1p5(); }
+    const bool &L1_SingleMu8er1p5() { return nt.L1_SingleMu8er1p5(); }
+    const bool &L1_SingleMu9er1p5() { return nt.L1_SingleMu9er1p5(); }
+    const bool &L1_SingleMuCosmics() { return nt.L1_SingleMuCosmics(); }
+    const bool &L1_SingleMuCosmics_BMTF() { return nt.L1_SingleMuCosmics_BMTF(); }
+    const bool &L1_SingleMuCosmics_EMTF() { return nt.L1_SingleMuCosmics_EMTF(); }
+    const bool &L1_SingleMuCosmics_OMTF() { return nt.L1_SingleMuCosmics_OMTF(); }
+    const bool &L1_SingleMuOpen() { return nt.L1_SingleMuOpen(); }
+    const bool &L1_SingleMuOpen_NotBptxOR() { return nt.L1_SingleMuOpen_NotBptxOR(); }
+    const bool &L1_SingleMuOpen_er1p1_NotBptxOR_3BX() { return nt.L1_SingleMuOpen_er1p1_NotBptxOR_3BX(); }
+    const bool &L1_SingleMuOpen_er1p4_NotBptxOR_3BX() { return nt.L1_SingleMuOpen_er1p4_NotBptxOR_3BX(); }
+    const bool &L1_SingleTau120er2p1() { return nt.L1_SingleTau120er2p1(); }
+    const bool &L1_SingleTau130er2p1() { return nt.L1_SingleTau130er2p1(); }
+    const bool &L1_TOTEM_1() { return nt.L1_TOTEM_1(); }
+    const bool &L1_TOTEM_2() { return nt.L1_TOTEM_2(); }
+    const bool &L1_TOTEM_3() { return nt.L1_TOTEM_3(); }
+    const bool &L1_TOTEM_4() { return nt.L1_TOTEM_4(); }
+    const bool &L1_TripleEG16er2p5() { return nt.L1_TripleEG16er2p5(); }
+    const bool &L1_TripleEG_16_12_8_er2p5() { return nt.L1_TripleEG_16_12_8_er2p5(); }
+    const bool &L1_TripleEG_16_15_8_er2p5() { return nt.L1_TripleEG_16_15_8_er2p5(); }
+    const bool &L1_TripleEG_18_17_8_er2p5() { return nt.L1_TripleEG_18_17_8_er2p5(); }
+    const bool &L1_TripleEG_18_18_12_er2p5() { return nt.L1_TripleEG_18_18_12_er2p5(); }
+    const bool &L1_TripleJet_100_80_70_DoubleJet_80_70_er2p5() { return nt.L1_TripleJet_100_80_70_DoubleJet_80_70_er2p5(); }
+    const bool &L1_TripleJet_105_85_75_DoubleJet_85_75_er2p5() { return nt.L1_TripleJet_105_85_75_DoubleJet_85_75_er2p5(); }
+    const bool &L1_TripleJet_95_75_65_DoubleJet_75_65_er2p5() { return nt.L1_TripleJet_95_75_65_DoubleJet_75_65_er2p5(); }
+    const bool &L1_TripleMu0() { return nt.L1_TripleMu0(); }
+    const bool &L1_TripleMu0_OQ() { return nt.L1_TripleMu0_OQ(); }
+    const bool &L1_TripleMu0_SQ() { return nt.L1_TripleMu0_SQ(); }
+    const bool &L1_TripleMu3() { return nt.L1_TripleMu3(); }
+    const bool &L1_TripleMu3_SQ() { return nt.L1_TripleMu3_SQ(); }
+    const bool &L1_TripleMu_5SQ_3SQ_0OQ() { return nt.L1_TripleMu_5SQ_3SQ_0OQ(); }
+    const bool &L1_TripleMu_5SQ_3SQ_0OQ_DoubleMu_5_3_SQ_OS_Mass_Max9() { return nt.L1_TripleMu_5SQ_3SQ_0OQ_DoubleMu_5_3_SQ_OS_Mass_Max9(); }
+    const bool &L1_TripleMu_5SQ_3SQ_0_DoubleMu_5_3_SQ_OS_Mass_Max9() { return nt.L1_TripleMu_5SQ_3SQ_0_DoubleMu_5_3_SQ_OS_Mass_Max9(); }
+    const bool &L1_TripleMu_5_3_3() { return nt.L1_TripleMu_5_3_3(); }
+    const bool &L1_TripleMu_5_3_3_SQ() { return nt.L1_TripleMu_5_3_3_SQ(); }
+    const bool &L1_TripleMu_5_3p5_2p5() { return nt.L1_TripleMu_5_3p5_2p5(); }
+    const bool &L1_TripleMu_5_3p5_2p5_DoubleMu_5_2p5_OS_Mass_5to17() { return nt.L1_TripleMu_5_3p5_2p5_DoubleMu_5_2p5_OS_Mass_5to17(); }
+    const bool &L1_TripleMu_5_3p5_2p5_OQ_DoubleMu_5_2p5_OQ_OS_Mass_5to17() { return nt.L1_TripleMu_5_3p5_2p5_OQ_DoubleMu_5_2p5_OQ_OS_Mass_5to17(); }
+    const bool &L1_TripleMu_5_4_2p5_DoubleMu_5_2p5_OS_Mass_5to17() { return nt.L1_TripleMu_5_4_2p5_DoubleMu_5_2p5_OS_Mass_5to17(); }
+    const bool &L1_TripleMu_5_5_3() { return nt.L1_TripleMu_5_5_3(); }
+    const bool &L1_UnpairedBunchBptxMinus() { return nt.L1_UnpairedBunchBptxMinus(); }
+    const bool &L1_UnpairedBunchBptxPlus() { return nt.L1_UnpairedBunchBptxPlus(); }
+    const bool &L1_ZeroBias() { return nt.L1_ZeroBias(); }
+    const bool &L1_ZeroBias_copy() { return nt.L1_ZeroBias_copy(); }
     const bool &L1simulation_step() { return nt.L1simulation_step(); }
     const vector<float> &LHEPart_eta() { return nt.LHEPart_eta(); }
     const vector<float> &LHEPart_mass() { return nt.LHEPart_mass(); }
@@ -12035,6 +18097,7 @@ namespace tas {
     const vector<float> &LHEPart_phi() { return nt.LHEPart_phi(); }
     const vector<float> &LHEPart_pt() { return nt.LHEPart_pt(); }
     const vector<float> &LHEPdfWeight() { return nt.LHEPdfWeight(); }
+    const vector<float> &LHEReweightingWeight() { return nt.LHEReweightingWeight(); }
     const vector<float> &LHEScaleWeight() { return nt.LHEScaleWeight(); }
     const float &LHEWeight_originalXWGTUP() { return nt.LHEWeight_originalXWGTUP(); }
     const float &LHE_HT() { return nt.LHE_HT(); }
@@ -12068,18 +18131,30 @@ namespace tas {
     const vector<UChar_t> &Muon_genPartFlav() { return nt.Muon_genPartFlav(); }
     const vector<int> &Muon_genPartIdx() { return nt.Muon_genPartIdx(); }
     const vector<UChar_t> &Muon_highPtId() { return nt.Muon_highPtId(); }
+    const vector<bool> &Muon_inTimeMuon() { return nt.Muon_inTimeMuon(); }
     const vector<float> &Muon_ip3d() { return nt.Muon_ip3d(); }
+    const vector<bool> &Muon_isGlobal() { return nt.Muon_isGlobal(); }
     const vector<bool> &Muon_isPFcand() { return nt.Muon_isPFcand(); }
+    const vector<bool> &Muon_isTracker() { return nt.Muon_isTracker(); }
     const vector<int> &Muon_jetIdx() { return nt.Muon_jetIdx(); }
+    const vector<float> &Muon_jetPtRelv2() { return nt.Muon_jetPtRelv2(); }
+    const vector<float> &Muon_jetRelIso() { return nt.Muon_jetRelIso(); }
+    const vector<bool> &Muon_looseId() { return nt.Muon_looseId(); }
     const vector<float> &Muon_mass() { return nt.Muon_mass(); }
     const vector<bool> &Muon_mediumId() { return nt.Muon_mediumId(); }
+    const vector<bool> &Muon_mediumPromptId() { return nt.Muon_mediumPromptId(); }
+    const vector<UChar_t> &Muon_miniIsoId() { return nt.Muon_miniIsoId(); }
     const vector<float> &Muon_miniPFRelIso_all() { return nt.Muon_miniPFRelIso_all(); }
     const vector<float> &Muon_miniPFRelIso_chg() { return nt.Muon_miniPFRelIso_chg(); }
+    const vector<UChar_t> &Muon_multiIsoId() { return nt.Muon_multiIsoId(); }
+    const vector<UChar_t> &Muon_mvaId() { return nt.Muon_mvaId(); }
+    const vector<float> &Muon_mvaLowPt() { return nt.Muon_mvaLowPt(); }
     const vector<float> &Muon_mvaTTH() { return nt.Muon_mvaTTH(); }
     const vector<int> &Muon_nStations() { return nt.Muon_nStations(); }
     const vector<int> &Muon_nTrackerLayers() { return nt.Muon_nTrackerLayers(); }
     const vector<LorentzVector> &Muon_p4() { return nt.Muon_p4(); }
     const vector<int> &Muon_pdgId() { return nt.Muon_pdgId(); }
+    const vector<UChar_t> &Muon_pfIsoId() { return nt.Muon_pfIsoId(); }
     const vector<float> &Muon_pfRelIso03_all() { return nt.Muon_pfRelIso03_all(); }
     const vector<float> &Muon_pfRelIso03_chg() { return nt.Muon_pfRelIso03_chg(); }
     const vector<float> &Muon_pfRelIso04_all() { return nt.Muon_pfRelIso04_all(); }
@@ -12089,9 +18164,16 @@ namespace tas {
     const vector<float> &Muon_segmentComp() { return nt.Muon_segmentComp(); }
     const vector<float> &Muon_sip3d() { return nt.Muon_sip3d(); }
     const vector<bool> &Muon_softId() { return nt.Muon_softId(); }
+    const vector<float> &Muon_softMva() { return nt.Muon_softMva(); }
+    const vector<bool> &Muon_softMvaId() { return nt.Muon_softMvaId(); }
     const vector<int> &Muon_tightCharge() { return nt.Muon_tightCharge(); }
     const vector<bool> &Muon_tightId() { return nt.Muon_tightId(); }
+    const vector<UChar_t> &Muon_tkIsoId() { return nt.Muon_tkIsoId(); }
+    const vector<float> &Muon_tkRelIso() { return nt.Muon_tkRelIso(); }
+    const vector<bool> &Muon_triggerIdLoose() { return nt.Muon_triggerIdLoose(); }
+    const vector<float> &Muon_tunepRelPt() { return nt.Muon_tunepRelPt(); }
     const vector<float> &OtherPV_z() { return nt.OtherPV_z(); }
+    const vector<float> &PSWeight() { return nt.PSWeight(); }
     const float &PV_chi2() { return nt.PV_chi2(); }
     const float &PV_ndof() { return nt.PV_ndof(); }
     const int &PV_npvs() { return nt.PV_npvs(); }
@@ -12103,6 +18185,7 @@ namespace tas {
     const vector<int> &Photon_charge() { return nt.Photon_charge(); }
     const vector<UChar_t> &Photon_cleanmask() { return nt.Photon_cleanmask(); }
     const vector<int> &Photon_cutBasedBitmap() { return nt.Photon_cutBasedBitmap(); }
+    const vector<int> &Photon_cutBasedV1Bitmap() { return nt.Photon_cutBasedV1Bitmap(); }
     const vector<float> &Photon_eCorr() { return nt.Photon_eCorr(); }
     const vector<int> &Photon_electronIdx() { return nt.Photon_electronIdx(); }
     const vector<bool> &Photon_electronVeto() { return nt.Photon_electronVeto(); }
@@ -12116,6 +18199,7 @@ namespace tas {
     const vector<int> &Photon_jetIdx() { return nt.Photon_jetIdx(); }
     const vector<float> &Photon_mass() { return nt.Photon_mass(); }
     const vector<float> &Photon_mvaID() { return nt.Photon_mvaID(); }
+    const vector<float> &Photon_mvaIDV1() { return nt.Photon_mvaIDV1(); }
     const vector<bool> &Photon_mvaID_WP80() { return nt.Photon_mvaID_WP80(); }
     const vector<bool> &Photon_mvaID_WP90() { return nt.Photon_mvaID_WP90(); }
     const vector<LorentzVector> &Photon_p4() { return nt.Photon_p4(); }
@@ -12126,10 +18210,13 @@ namespace tas {
     const vector<bool> &Photon_pixelSeed() { return nt.Photon_pixelSeed(); }
     const vector<float> &Photon_pt() { return nt.Photon_pt(); }
     const vector<float> &Photon_r9() { return nt.Photon_r9(); }
+    const vector<UChar_t> &Photon_seedGain() { return nt.Photon_seedGain(); }
     const vector<float> &Photon_sieie() { return nt.Photon_sieie(); }
     const vector<int> &Photon_vidNestedWPBitmap() { return nt.Photon_vidNestedWPBitmap(); }
+    const float &Pileup_gpudensity() { return nt.Pileup_gpudensity(); }
     const int &Pileup_nPU() { return nt.Pileup_nPU(); }
     const float &Pileup_nTrueInt() { return nt.Pileup_nTrueInt(); }
+    const float &Pileup_pudensity() { return nt.Pileup_pudensity(); }
     const int &Pileup_sumEOOT() { return nt.Pileup_sumEOOT(); }
     const int &Pileup_sumLOOT() { return nt.Pileup_sumLOOT(); }
     const float &PuppiMET_phi() { return nt.PuppiMET_phi(); }
@@ -12176,6 +18263,7 @@ namespace tas {
     const vector<LorentzVector> &SubJet_p4() { return nt.SubJet_p4(); }
     const vector<float> &SubJet_phi() { return nt.SubJet_phi(); }
     const vector<float> &SubJet_pt() { return nt.SubJet_pt(); }
+    const vector<float> &SubJet_rawFactor() { return nt.SubJet_rawFactor(); }
     const vector<float> &SubJet_tau1() { return nt.SubJet_tau1(); }
     const vector<float> &SubJet_tau2() { return nt.SubJet_tau2(); }
     const vector<float> &SubJet_tau3() { return nt.SubJet_tau3(); }
@@ -12190,6 +18278,7 @@ namespace tas {
     const vector<UChar_t> &Tau_genPartFlav() { return nt.Tau_genPartFlav(); }
     const vector<int> &Tau_genPartIdx() { return nt.Tau_genPartIdx(); }
     const vector<UChar_t> &Tau_idAntiEle() { return nt.Tau_idAntiEle(); }
+    const vector<UChar_t> &Tau_idAntiEle2018() { return nt.Tau_idAntiEle2018(); }
     const vector<UChar_t> &Tau_idAntiMu() { return nt.Tau_idAntiMu(); }
     const vector<bool> &Tau_idDecayMode() { return nt.Tau_idDecayMode(); }
     const vector<bool> &Tau_idDecayModeNewDMs() { return nt.Tau_idDecayModeNewDMs(); }
@@ -12210,7 +18299,9 @@ namespace tas {
     const vector<float> &Tau_pt() { return nt.Tau_pt(); }
     const vector<float> &Tau_puCorr() { return nt.Tau_puCorr(); }
     const vector<float> &Tau_rawAntiEle() { return nt.Tau_rawAntiEle(); }
+    const vector<float> &Tau_rawAntiEle2018() { return nt.Tau_rawAntiEle2018(); }
     const vector<int> &Tau_rawAntiEleCat() { return nt.Tau_rawAntiEleCat(); }
+    const vector<int> &Tau_rawAntiEleCat2018() { return nt.Tau_rawAntiEleCat2018(); }
     const vector<float> &Tau_rawIso() { return nt.Tau_rawIso(); }
     const vector<float> &Tau_rawIsodR03() { return nt.Tau_rawIsodR03(); }
     const vector<float> &Tau_rawMVAnewDM2017v2() { return nt.Tau_rawMVAnewDM2017v2(); }
@@ -12231,13 +18322,18 @@ namespace tas {
     const vector<float> &TrigObj_l2pt() { return nt.TrigObj_l2pt(); }
     const vector<float> &TrigObj_phi() { return nt.TrigObj_phi(); }
     const vector<float> &TrigObj_pt() { return nt.TrigObj_pt(); }
+    const float &btagWeight_CSVV2() { return nt.btagWeight_CSVV2(); }
+    const float &btagWeight_DeepCSVB() { return nt.btagWeight_DeepCSVB(); }
     const ULong64_t &event() { return nt.event(); }
     const float &fixedGridRhoFastjetAll() { return nt.fixedGridRhoFastjetAll(); }
+    const float &fixedGridRhoFastjetCentral() { return nt.fixedGridRhoFastjetCentral(); }
     const float &fixedGridRhoFastjetCentralCalo() { return nt.fixedGridRhoFastjetCentralCalo(); }
+    const float &fixedGridRhoFastjetCentralChargedPileUp() { return nt.fixedGridRhoFastjetCentralChargedPileUp(); }
     const float &fixedGridRhoFastjetCentralNeutral() { return nt.fixedGridRhoFastjetCentralNeutral(); }
     const int &genTtbarId() { return nt.genTtbarId(); }
     const float &genWeight() { return nt.genWeight(); }
     const UInt_t &luminosityBlock() { return nt.luminosityBlock(); }
+    const UInt_t &nCorrT1METJet() { return nt.nCorrT1METJet(); }
     const UInt_t &nElectron() { return nt.nElectron(); }
     const UInt_t &nFatJet() { return nt.nFatJet(); }
     const UInt_t &nGenDressedLepton() { return nt.nGenDressedLepton(); }
@@ -12249,9 +18345,11 @@ namespace tas {
     const UInt_t &nJet() { return nt.nJet(); }
     const UInt_t &nLHEPart() { return nt.nLHEPart(); }
     const UInt_t &nLHEPdfWeight() { return nt.nLHEPdfWeight(); }
+    const UInt_t &nLHEReweightingWeight() { return nt.nLHEReweightingWeight(); }
     const UInt_t &nLHEScaleWeight() { return nt.nLHEScaleWeight(); }
     const UInt_t &nMuon() { return nt.nMuon(); }
     const UInt_t &nOtherPV() { return nt.nOtherPV(); }
+    const UInt_t &nPSWeight() { return nt.nPSWeight(); }
     const UInt_t &nPhoton() { return nt.nPhoton(); }
     const UInt_t &nSV() { return nt.nSV(); }
     const UInt_t &nSoftActivityJet() { return nt.nSoftActivityJet(); }
@@ -12261,10 +18359,16 @@ namespace tas {
     const UInt_t &nTrigObj() { return nt.nTrigObj(); }
     const UInt_t &run() { return nt.run(); }
     vector<float> GetVF(const string &name) {
-        if (name == "Electron_deltaEtaSC") return nt.Electron_deltaEtaSC();
+        if (name == "CorrT1METJet_area") return nt.CorrT1METJet_area();
+        else if (name == "CorrT1METJet_eta") return nt.CorrT1METJet_eta();
+        else if (name == "CorrT1METJet_muonSubtrFactor") return nt.CorrT1METJet_muonSubtrFactor();
+        else if (name == "CorrT1METJet_phi") return nt.CorrT1METJet_phi();
+        else if (name == "CorrT1METJet_rawPt") return nt.CorrT1METJet_rawPt();
+        else if (name == "Electron_deltaEtaSC") return nt.Electron_deltaEtaSC();
         else if (name == "Electron_dr03EcalRecHitSumEt") return nt.Electron_dr03EcalRecHitSumEt();
         else if (name == "Electron_dr03HcalDepth1TowerSumEt") return nt.Electron_dr03HcalDepth1TowerSumEt();
         else if (name == "Electron_dr03TkSumPt") return nt.Electron_dr03TkSumPt();
+        else if (name == "Electron_dr03TkSumPtHEEP") return nt.Electron_dr03TkSumPtHEEP();
         else if (name == "Electron_dxy") return nt.Electron_dxy();
         else if (name == "Electron_dxyErr") return nt.Electron_dxyErr();
         else if (name == "Electron_dz") return nt.Electron_dz();
@@ -12275,11 +18379,15 @@ namespace tas {
         else if (name == "Electron_eta") return nt.Electron_eta();
         else if (name == "Electron_hoe") return nt.Electron_hoe();
         else if (name == "Electron_ip3d") return nt.Electron_ip3d();
+        else if (name == "Electron_jetPtRelv2") return nt.Electron_jetPtRelv2();
+        else if (name == "Electron_jetRelIso") return nt.Electron_jetRelIso();
         else if (name == "Electron_mass") return nt.Electron_mass();
         else if (name == "Electron_miniPFRelIso_all") return nt.Electron_miniPFRelIso_all();
         else if (name == "Electron_miniPFRelIso_chg") return nt.Electron_miniPFRelIso_chg();
-        else if (name == "Electron_mvaFall17Iso") return nt.Electron_mvaFall17Iso();
-        else if (name == "Electron_mvaFall17noIso") return nt.Electron_mvaFall17noIso();
+        else if (name == "Electron_mvaFall17V1Iso") return nt.Electron_mvaFall17V1Iso();
+        else if (name == "Electron_mvaFall17V1noIso") return nt.Electron_mvaFall17V1noIso();
+        else if (name == "Electron_mvaFall17V2Iso") return nt.Electron_mvaFall17V2Iso();
+        else if (name == "Electron_mvaFall17V2noIso") return nt.Electron_mvaFall17V2noIso();
         else if (name == "Electron_mvaTTH") return nt.Electron_mvaTTH();
         else if (name == "Electron_pfRelIso03_all") return nt.Electron_pfRelIso03_all();
         else if (name == "Electron_pfRelIso03_chg") return nt.Electron_pfRelIso03_chg();
@@ -12291,8 +18399,27 @@ namespace tas {
         else if (name == "FatJet_area") return nt.FatJet_area();
         else if (name == "FatJet_btagCMVA") return nt.FatJet_btagCMVA();
         else if (name == "FatJet_btagCSVV2") return nt.FatJet_btagCSVV2();
+        else if (name == "FatJet_btagDDBvL") return nt.FatJet_btagDDBvL();
+        else if (name == "FatJet_btagDDCvB") return nt.FatJet_btagDDCvB();
+        else if (name == "FatJet_btagDDCvL") return nt.FatJet_btagDDCvL();
         else if (name == "FatJet_btagDeepB") return nt.FatJet_btagDeepB();
         else if (name == "FatJet_btagHbb") return nt.FatJet_btagHbb();
+        else if (name == "FatJet_deepTagMD_H4qvsQCD") return nt.FatJet_deepTagMD_H4qvsQCD();
+        else if (name == "FatJet_deepTagMD_HbbvsQCD") return nt.FatJet_deepTagMD_HbbvsQCD();
+        else if (name == "FatJet_deepTagMD_TvsQCD") return nt.FatJet_deepTagMD_TvsQCD();
+        else if (name == "FatJet_deepTagMD_WvsQCD") return nt.FatJet_deepTagMD_WvsQCD();
+        else if (name == "FatJet_deepTagMD_ZHbbvsQCD") return nt.FatJet_deepTagMD_ZHbbvsQCD();
+        else if (name == "FatJet_deepTagMD_ZHccvsQCD") return nt.FatJet_deepTagMD_ZHccvsQCD();
+        else if (name == "FatJet_deepTagMD_ZbbvsQCD") return nt.FatJet_deepTagMD_ZbbvsQCD();
+        else if (name == "FatJet_deepTagMD_ZvsQCD") return nt.FatJet_deepTagMD_ZvsQCD();
+        else if (name == "FatJet_deepTagMD_bbvsLight") return nt.FatJet_deepTagMD_bbvsLight();
+        else if (name == "FatJet_deepTagMD_ccvsLight") return nt.FatJet_deepTagMD_ccvsLight();
+        else if (name == "FatJet_deepTag_H") return nt.FatJet_deepTag_H();
+        else if (name == "FatJet_deepTag_QCD") return nt.FatJet_deepTag_QCD();
+        else if (name == "FatJet_deepTag_QCDothers") return nt.FatJet_deepTag_QCDothers();
+        else if (name == "FatJet_deepTag_TvsQCD") return nt.FatJet_deepTag_TvsQCD();
+        else if (name == "FatJet_deepTag_WvsQCD") return nt.FatJet_deepTag_WvsQCD();
+        else if (name == "FatJet_deepTag_ZvsQCD") return nt.FatJet_deepTag_ZvsQCD();
         else if (name == "FatJet_eta") return nt.FatJet_eta();
         else if (name == "FatJet_mass") return nt.FatJet_mass();
         else if (name == "FatJet_msoftdrop") return nt.FatJet_msoftdrop();
@@ -12300,6 +18427,7 @@ namespace tas {
         else if (name == "FatJet_n3b1") return nt.FatJet_n3b1();
         else if (name == "FatJet_phi") return nt.FatJet_phi();
         else if (name == "FatJet_pt") return nt.FatJet_pt();
+        else if (name == "FatJet_rawFactor") return nt.FatJet_rawFactor();
         else if (name == "FatJet_tau1") return nt.FatJet_tau1();
         else if (name == "FatJet_tau2") return nt.FatJet_tau2();
         else if (name == "FatJet_tau3") return nt.FatJet_tau3();
@@ -12334,16 +18462,22 @@ namespace tas {
         else if (name == "IsoTrack_phi") return nt.IsoTrack_phi();
         else if (name == "IsoTrack_pt") return nt.IsoTrack_pt();
         else if (name == "Jet_area") return nt.Jet_area();
-        else if (name == "Jet_bReg") return nt.Jet_bReg();
+        else if (name == "Jet_bRegCorr") return nt.Jet_bRegCorr();
+        else if (name == "Jet_bRegRes") return nt.Jet_bRegRes();
         else if (name == "Jet_btagCMVA") return nt.Jet_btagCMVA();
         else if (name == "Jet_btagCSVV2") return nt.Jet_btagCSVV2();
         else if (name == "Jet_btagDeepB") return nt.Jet_btagDeepB();
         else if (name == "Jet_btagDeepC") return nt.Jet_btagDeepC();
         else if (name == "Jet_btagDeepFlavB") return nt.Jet_btagDeepFlavB();
+        else if (name == "Jet_btagDeepFlavC") return nt.Jet_btagDeepFlavC();
         else if (name == "Jet_chEmEF") return nt.Jet_chEmEF();
         else if (name == "Jet_chHEF") return nt.Jet_chHEF();
         else if (name == "Jet_eta") return nt.Jet_eta();
+        else if (name == "Jet_jercCHF") return nt.Jet_jercCHF();
+        else if (name == "Jet_jercCHPUF") return nt.Jet_jercCHPUF();
         else if (name == "Jet_mass") return nt.Jet_mass();
+        else if (name == "Jet_muEF") return nt.Jet_muEF();
+        else if (name == "Jet_muonSubtrFactor") return nt.Jet_muonSubtrFactor();
         else if (name == "Jet_neEmEF") return nt.Jet_neEmEF();
         else if (name == "Jet_neHEF") return nt.Jet_neHEF();
         else if (name == "Jet_phi") return nt.Jet_phi();
@@ -12355,6 +18489,7 @@ namespace tas {
         else if (name == "LHEPart_phi") return nt.LHEPart_phi();
         else if (name == "LHEPart_pt") return nt.LHEPart_pt();
         else if (name == "LHEPdfWeight") return nt.LHEPdfWeight();
+        else if (name == "LHEReweightingWeight") return nt.LHEReweightingWeight();
         else if (name == "LHEScaleWeight") return nt.LHEScaleWeight();
         else if (name == "Muon_dxy") return nt.Muon_dxy();
         else if (name == "Muon_dxyErr") return nt.Muon_dxyErr();
@@ -12362,9 +18497,12 @@ namespace tas {
         else if (name == "Muon_dzErr") return nt.Muon_dzErr();
         else if (name == "Muon_eta") return nt.Muon_eta();
         else if (name == "Muon_ip3d") return nt.Muon_ip3d();
+        else if (name == "Muon_jetPtRelv2") return nt.Muon_jetPtRelv2();
+        else if (name == "Muon_jetRelIso") return nt.Muon_jetRelIso();
         else if (name == "Muon_mass") return nt.Muon_mass();
         else if (name == "Muon_miniPFRelIso_all") return nt.Muon_miniPFRelIso_all();
         else if (name == "Muon_miniPFRelIso_chg") return nt.Muon_miniPFRelIso_chg();
+        else if (name == "Muon_mvaLowPt") return nt.Muon_mvaLowPt();
         else if (name == "Muon_mvaTTH") return nt.Muon_mvaTTH();
         else if (name == "Muon_pfRelIso03_all") return nt.Muon_pfRelIso03_all();
         else if (name == "Muon_pfRelIso03_chg") return nt.Muon_pfRelIso03_chg();
@@ -12374,13 +18512,18 @@ namespace tas {
         else if (name == "Muon_ptErr") return nt.Muon_ptErr();
         else if (name == "Muon_segmentComp") return nt.Muon_segmentComp();
         else if (name == "Muon_sip3d") return nt.Muon_sip3d();
+        else if (name == "Muon_softMva") return nt.Muon_softMva();
+        else if (name == "Muon_tkRelIso") return nt.Muon_tkRelIso();
+        else if (name == "Muon_tunepRelPt") return nt.Muon_tunepRelPt();
         else if (name == "OtherPV_z") return nt.OtherPV_z();
+        else if (name == "PSWeight") return nt.PSWeight();
         else if (name == "Photon_eCorr") return nt.Photon_eCorr();
         else if (name == "Photon_energyErr") return nt.Photon_energyErr();
         else if (name == "Photon_eta") return nt.Photon_eta();
         else if (name == "Photon_hoe") return nt.Photon_hoe();
         else if (name == "Photon_mass") return nt.Photon_mass();
         else if (name == "Photon_mvaID") return nt.Photon_mvaID();
+        else if (name == "Photon_mvaIDV1") return nt.Photon_mvaIDV1();
         else if (name == "Photon_pfRelIso03_all") return nt.Photon_pfRelIso03_all();
         else if (name == "Photon_pfRelIso03_chg") return nt.Photon_pfRelIso03_chg();
         else if (name == "Photon_phi") return nt.Photon_phi();
@@ -12415,6 +18558,7 @@ namespace tas {
         else if (name == "SubJet_n3b1") return nt.SubJet_n3b1();
         else if (name == "SubJet_phi") return nt.SubJet_phi();
         else if (name == "SubJet_pt") return nt.SubJet_pt();
+        else if (name == "SubJet_rawFactor") return nt.SubJet_rawFactor();
         else if (name == "SubJet_tau1") return nt.SubJet_tau1();
         else if (name == "SubJet_tau2") return nt.SubJet_tau2();
         else if (name == "SubJet_tau3") return nt.SubJet_tau3();
@@ -12433,6 +18577,7 @@ namespace tas {
         else if (name == "Tau_pt") return nt.Tau_pt();
         else if (name == "Tau_puCorr") return nt.Tau_puCorr();
         else if (name == "Tau_rawAntiEle") return nt.Tau_rawAntiEle();
+        else if (name == "Tau_rawAntiEle2018") return nt.Tau_rawAntiEle2018();
         else if (name == "Tau_rawIso") return nt.Tau_rawIso();
         else if (name == "Tau_rawIsodR03") return nt.Tau_rawIsodR03();
         else if (name == "Tau_rawMVAnewDM2017v2") return nt.Tau_rawMVAnewDM2017v2();
@@ -12450,6 +18595,13 @@ namespace tas {
     int GetI(const string &name) {
         if (name == "Generator_id1") return nt.Generator_id1();
         else if (name == "Generator_id2") return nt.Generator_id2();
+        else if (name == "HTXS_stage1_1_cat_pTjet25GeV") return nt.HTXS_stage1_1_cat_pTjet25GeV();
+        else if (name == "HTXS_stage1_1_cat_pTjet30GeV") return nt.HTXS_stage1_1_cat_pTjet30GeV();
+        else if (name == "HTXS_stage1_1_fine_cat_pTjet25GeV") return nt.HTXS_stage1_1_fine_cat_pTjet25GeV();
+        else if (name == "HTXS_stage1_1_fine_cat_pTjet30GeV") return nt.HTXS_stage1_1_fine_cat_pTjet30GeV();
+        else if (name == "HTXS_stage_0") return nt.HTXS_stage_0();
+        else if (name == "HTXS_stage_1_pTjet25") return nt.HTXS_stage_1_pTjet25();
+        else if (name == "HTXS_stage_1_pTjet30") return nt.HTXS_stage_1_pTjet30();
         else if (name == "PV_npvs") return nt.PV_npvs();
         else if (name == "PV_npvsGood") return nt.PV_npvsGood();
         else if (name == "Pileup_nPU") return nt.Pileup_nPU();
@@ -12464,6 +18616,9 @@ namespace tas {
         if (name == "CaloMET_phi") return nt.CaloMET_phi();
         else if (name == "CaloMET_pt") return nt.CaloMET_pt();
         else if (name == "CaloMET_sumEt") return nt.CaloMET_sumEt();
+        else if (name == "ChsMET_phi") return nt.ChsMET_phi();
+        else if (name == "ChsMET_pt") return nt.ChsMET_pt();
+        else if (name == "ChsMET_sumEt") return nt.ChsMET_sumEt();
         else if (name == "GenMET_phi") return nt.GenMET_phi();
         else if (name == "GenMET_pt") return nt.GenMET_pt();
         else if (name == "Generator_binvar") return nt.Generator_binvar();
@@ -12473,6 +18628,8 @@ namespace tas {
         else if (name == "Generator_x2") return nt.Generator_x2();
         else if (name == "Generator_xpdf1") return nt.Generator_xpdf1();
         else if (name == "Generator_xpdf2") return nt.Generator_xpdf2();
+        else if (name == "HTXS_Higgs_pt") return nt.HTXS_Higgs_pt();
+        else if (name == "HTXS_Higgs_y") return nt.HTXS_Higgs_y();
         else if (name == "LHEWeight_originalXWGTUP") return nt.LHEWeight_originalXWGTUP();
         else if (name == "LHE_HT") return nt.LHE_HT();
         else if (name == "LHE_HTIncoming") return nt.LHE_HTIncoming();
@@ -12494,7 +18651,9 @@ namespace tas {
         else if (name == "PV_x") return nt.PV_x();
         else if (name == "PV_y") return nt.PV_y();
         else if (name == "PV_z") return nt.PV_z();
+        else if (name == "Pileup_gpudensity") return nt.Pileup_gpudensity();
         else if (name == "Pileup_nTrueInt") return nt.Pileup_nTrueInt();
+        else if (name == "Pileup_pudensity") return nt.Pileup_pudensity();
         else if (name == "PuppiMET_phi") return nt.PuppiMET_phi();
         else if (name == "PuppiMET_pt") return nt.PuppiMET_pt();
         else if (name == "PuppiMET_sumEt") return nt.PuppiMET_sumEt();
@@ -12508,14 +18667,19 @@ namespace tas {
         else if (name == "TkMET_phi") return nt.TkMET_phi();
         else if (name == "TkMET_pt") return nt.TkMET_pt();
         else if (name == "TkMET_sumEt") return nt.TkMET_sumEt();
+        else if (name == "btagWeight_CSVV2") return nt.btagWeight_CSVV2();
+        else if (name == "btagWeight_DeepCSVB") return nt.btagWeight_DeepCSVB();
         else if (name == "fixedGridRhoFastjetAll") return nt.fixedGridRhoFastjetAll();
+        else if (name == "fixedGridRhoFastjetCentral") return nt.fixedGridRhoFastjetCentral();
         else if (name == "fixedGridRhoFastjetCentralCalo") return nt.fixedGridRhoFastjetCentralCalo();
+        else if (name == "fixedGridRhoFastjetCentralChargedPileUp") return nt.fixedGridRhoFastjetCentralChargedPileUp();
         else if (name == "fixedGridRhoFastjetCentralNeutral") return nt.fixedGridRhoFastjetCentralNeutral();
         return float();
     }
     vector<int> GetVI(const string &name) {
         if (name == "Electron_charge") return nt.Electron_charge();
         else if (name == "Electron_cutBased") return nt.Electron_cutBased();
+        else if (name == "Electron_cutBased_Fall17_V1") return nt.Electron_cutBased_Fall17_V1();
         else if (name == "Electron_genPartIdx") return nt.Electron_genPartIdx();
         else if (name == "Electron_jetIdx") return nt.Electron_jetIdx();
         else if (name == "Electron_pdgId") return nt.Electron_pdgId();
@@ -12535,6 +18699,7 @@ namespace tas {
         else if (name == "GenVisTau_charge") return nt.GenVisTau_charge();
         else if (name == "GenVisTau_genPartIdxMother") return nt.GenVisTau_genPartIdxMother();
         else if (name == "GenVisTau_status") return nt.GenVisTau_status();
+        else if (name == "IsoTrack_fromPV") return nt.IsoTrack_fromPV();
         else if (name == "IsoTrack_pdgId") return nt.IsoTrack_pdgId();
         else if (name == "Jet_electronIdx1") return nt.Jet_electronIdx1();
         else if (name == "Jet_electronIdx2") return nt.Jet_electronIdx2();
@@ -12558,6 +18723,7 @@ namespace tas {
         else if (name == "Muon_tightCharge") return nt.Muon_tightCharge();
         else if (name == "Photon_charge") return nt.Photon_charge();
         else if (name == "Photon_cutBasedBitmap") return nt.Photon_cutBasedBitmap();
+        else if (name == "Photon_cutBasedV1Bitmap") return nt.Photon_cutBasedV1Bitmap();
         else if (name == "Photon_electronIdx") return nt.Photon_electronIdx();
         else if (name == "Photon_genPartIdx") return nt.Photon_genPartIdx();
         else if (name == "Photon_jetIdx") return nt.Photon_jetIdx();
@@ -12568,6 +18734,7 @@ namespace tas {
         else if (name == "Tau_genPartIdx") return nt.Tau_genPartIdx();
         else if (name == "Tau_jetIdx") return nt.Tau_jetIdx();
         else if (name == "Tau_rawAntiEleCat") return nt.Tau_rawAntiEleCat();
+        else if (name == "Tau_rawAntiEleCat2018") return nt.Tau_rawAntiEleCat2018();
         else if (name == "TrigObj_filterBits") return nt.TrigObj_filterBits();
         else if (name == "TrigObj_id") return nt.TrigObj_id();
         else if (name == "TrigObj_l1charge") return nt.TrigObj_l1charge();
@@ -12606,6 +18773,7 @@ namespace tas {
         else if (name == "Flag_METFilters") return nt.Flag_METFilters();
         else if (name == "Flag_chargedHadronTrackResolutionFilter") return nt.Flag_chargedHadronTrackResolutionFilter();
         else if (name == "Flag_ecalBadCalibFilter") return nt.Flag_ecalBadCalibFilter();
+        else if (name == "Flag_ecalBadCalibFilterV2") return nt.Flag_ecalBadCalibFilterV2();
         else if (name == "Flag_ecalLaserCorrFilter") return nt.Flag_ecalLaserCorrFilter();
         else if (name == "Flag_eeBadScFilter") return nt.Flag_eeBadScFilter();
         else if (name == "Flag_globalSuperTightHalo2016Filter") return nt.Flag_globalSuperTightHalo2016Filter();
@@ -12633,11 +18801,16 @@ namespace tas {
         else if (name == "HLT_AK8PFHT850_TrimMass50") return nt.HLT_AK8PFHT850_TrimMass50();
         else if (name == "HLT_AK8PFHT900_TrimMass50") return nt.HLT_AK8PFHT900_TrimMass50();
         else if (name == "HLT_AK8PFJet140") return nt.HLT_AK8PFJet140();
+        else if (name == "HLT_AK8PFJet15") return nt.HLT_AK8PFJet15();
         else if (name == "HLT_AK8PFJet200") return nt.HLT_AK8PFJet200();
+        else if (name == "HLT_AK8PFJet25") return nt.HLT_AK8PFJet25();
         else if (name == "HLT_AK8PFJet260") return nt.HLT_AK8PFJet260();
         else if (name == "HLT_AK8PFJet320") return nt.HLT_AK8PFJet320();
-        else if (name == "HLT_AK8PFJet330_PFAK8BTagCSV_p1") return nt.HLT_AK8PFJet330_PFAK8BTagCSV_p1();
-        else if (name == "HLT_AK8PFJet330_PFAK8BTagCSV_p17") return nt.HLT_AK8PFJet330_PFAK8BTagCSV_p17();
+        else if (name == "HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p1") return nt.HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p1();
+        else if (name == "HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p17") return nt.HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p17();
+        else if (name == "HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np2") return nt.HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np2();
+        else if (name == "HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np4") return nt.HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np4();
+        else if (name == "HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_p02") return nt.HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_p02();
         else if (name == "HLT_AK8PFJet360_TrimMass30") return nt.HLT_AK8PFJet360_TrimMass30();
         else if (name == "HLT_AK8PFJet380_TrimMass30") return nt.HLT_AK8PFJet380_TrimMass30();
         else if (name == "HLT_AK8PFJet40") return nt.HLT_AK8PFJet40();
@@ -12650,7 +18823,9 @@ namespace tas {
         else if (name == "HLT_AK8PFJet60") return nt.HLT_AK8PFJet60();
         else if (name == "HLT_AK8PFJet80") return nt.HLT_AK8PFJet80();
         else if (name == "HLT_AK8PFJetFwd140") return nt.HLT_AK8PFJetFwd140();
+        else if (name == "HLT_AK8PFJetFwd15") return nt.HLT_AK8PFJetFwd15();
         else if (name == "HLT_AK8PFJetFwd200") return nt.HLT_AK8PFJetFwd200();
+        else if (name == "HLT_AK8PFJetFwd25") return nt.HLT_AK8PFJetFwd25();
         else if (name == "HLT_AK8PFJetFwd260") return nt.HLT_AK8PFJetFwd260();
         else if (name == "HLT_AK8PFJetFwd320") return nt.HLT_AK8PFJetFwd320();
         else if (name == "HLT_AK8PFJetFwd40") return nt.HLT_AK8PFJetFwd40();
@@ -12660,13 +18835,25 @@ namespace tas {
         else if (name == "HLT_AK8PFJetFwd60") return nt.HLT_AK8PFJetFwd60();
         else if (name == "HLT_AK8PFJetFwd80") return nt.HLT_AK8PFJetFwd80();
         else if (name == "HLT_BTagMu_AK4DiJet110_Mu5") return nt.HLT_BTagMu_AK4DiJet110_Mu5();
+        else if (name == "HLT_BTagMu_AK4DiJet110_Mu5_noalgo") return nt.HLT_BTagMu_AK4DiJet110_Mu5_noalgo();
         else if (name == "HLT_BTagMu_AK4DiJet170_Mu5") return nt.HLT_BTagMu_AK4DiJet170_Mu5();
+        else if (name == "HLT_BTagMu_AK4DiJet170_Mu5_noalgo") return nt.HLT_BTagMu_AK4DiJet170_Mu5_noalgo();
         else if (name == "HLT_BTagMu_AK4DiJet20_Mu5") return nt.HLT_BTagMu_AK4DiJet20_Mu5();
+        else if (name == "HLT_BTagMu_AK4DiJet20_Mu5_noalgo") return nt.HLT_BTagMu_AK4DiJet20_Mu5_noalgo();
         else if (name == "HLT_BTagMu_AK4DiJet40_Mu5") return nt.HLT_BTagMu_AK4DiJet40_Mu5();
+        else if (name == "HLT_BTagMu_AK4DiJet40_Mu5_noalgo") return nt.HLT_BTagMu_AK4DiJet40_Mu5_noalgo();
         else if (name == "HLT_BTagMu_AK4DiJet70_Mu5") return nt.HLT_BTagMu_AK4DiJet70_Mu5();
+        else if (name == "HLT_BTagMu_AK4DiJet70_Mu5_noalgo") return nt.HLT_BTagMu_AK4DiJet70_Mu5_noalgo();
         else if (name == "HLT_BTagMu_AK4Jet300_Mu5") return nt.HLT_BTagMu_AK4Jet300_Mu5();
+        else if (name == "HLT_BTagMu_AK4Jet300_Mu5_noalgo") return nt.HLT_BTagMu_AK4Jet300_Mu5_noalgo();
         else if (name == "HLT_BTagMu_AK8DiJet170_Mu5") return nt.HLT_BTagMu_AK8DiJet170_Mu5();
+        else if (name == "HLT_BTagMu_AK8DiJet170_Mu5_noalgo") return nt.HLT_BTagMu_AK8DiJet170_Mu5_noalgo();
+        else if (name == "HLT_BTagMu_AK8Jet170_DoubleMu5") return nt.HLT_BTagMu_AK8Jet170_DoubleMu5();
+        else if (name == "HLT_BTagMu_AK8Jet170_DoubleMu5_noalgo") return nt.HLT_BTagMu_AK8Jet170_DoubleMu5_noalgo();
         else if (name == "HLT_BTagMu_AK8Jet300_Mu5") return nt.HLT_BTagMu_AK8Jet300_Mu5();
+        else if (name == "HLT_BTagMu_AK8Jet300_Mu5_noalgo") return nt.HLT_BTagMu_AK8Jet300_Mu5_noalgo();
+        else if (name == "HLT_CDC_L2cosmic_5_er1p0") return nt.HLT_CDC_L2cosmic_5_er1p0();
+        else if (name == "HLT_CDC_L2cosmic_5p5_er1p0") return nt.HLT_CDC_L2cosmic_5p5_er1p0();
         else if (name == "HLT_CaloJet500_NoJetID") return nt.HLT_CaloJet500_NoJetID();
         else if (name == "HLT_CaloJet550_NoJetID") return nt.HLT_CaloJet550_NoJetID();
         else if (name == "HLT_CaloMET100_HBHECleaned") return nt.HLT_CaloMET100_HBHECleaned();
@@ -12686,23 +18873,17 @@ namespace tas {
         else if (name == "HLT_DiJet110_35_Mjj650_PFMET110") return nt.HLT_DiJet110_35_Mjj650_PFMET110();
         else if (name == "HLT_DiJet110_35_Mjj650_PFMET120") return nt.HLT_DiJet110_35_Mjj650_PFMET120();
         else if (name == "HLT_DiJet110_35_Mjj650_PFMET130") return nt.HLT_DiJet110_35_Mjj650_PFMET130();
+        else if (name == "HLT_DiMu4_Ele9_CaloIdL_TrackIdL_DZ_Mass3p8") return nt.HLT_DiMu4_Ele9_CaloIdL_TrackIdL_DZ_Mass3p8();
         else if (name == "HLT_DiMu9_Ele9_CaloIdL_TrackIdL") return nt.HLT_DiMu9_Ele9_CaloIdL_TrackIdL();
         else if (name == "HLT_DiMu9_Ele9_CaloIdL_TrackIdL_DZ") return nt.HLT_DiMu9_Ele9_CaloIdL_TrackIdL_DZ();
-        else if (name == "HLT_DiPFJet15_FBEta3_NoCaloMatched") return nt.HLT_DiPFJet15_FBEta3_NoCaloMatched();
-        else if (name == "HLT_DiPFJet15_NoCaloMatched") return nt.HLT_DiPFJet15_NoCaloMatched();
-        else if (name == "HLT_DiPFJet25_FBEta3_NoCaloMatched") return nt.HLT_DiPFJet25_FBEta3_NoCaloMatched();
-        else if (name == "HLT_DiPFJet25_NoCaloMatched") return nt.HLT_DiPFJet25_NoCaloMatched();
         else if (name == "HLT_DiPFJetAve100_HFJEC") return nt.HLT_DiPFJetAve100_HFJEC();
         else if (name == "HLT_DiPFJetAve140") return nt.HLT_DiPFJetAve140();
-        else if (name == "HLT_DiPFJetAve15_HFJEC") return nt.HLT_DiPFJetAve15_HFJEC();
         else if (name == "HLT_DiPFJetAve160_HFJEC") return nt.HLT_DiPFJetAve160_HFJEC();
         else if (name == "HLT_DiPFJetAve200") return nt.HLT_DiPFJetAve200();
         else if (name == "HLT_DiPFJetAve220_HFJEC") return nt.HLT_DiPFJetAve220_HFJEC();
-        else if (name == "HLT_DiPFJetAve25_HFJEC") return nt.HLT_DiPFJetAve25_HFJEC();
         else if (name == "HLT_DiPFJetAve260") return nt.HLT_DiPFJetAve260();
         else if (name == "HLT_DiPFJetAve300_HFJEC") return nt.HLT_DiPFJetAve300_HFJEC();
         else if (name == "HLT_DiPFJetAve320") return nt.HLT_DiPFJetAve320();
-        else if (name == "HLT_DiPFJetAve35_HFJEC") return nt.HLT_DiPFJetAve35_HFJEC();
         else if (name == "HLT_DiPFJetAve40") return nt.HLT_DiPFJetAve40();
         else if (name == "HLT_DiPFJetAve400") return nt.HLT_DiPFJetAve400();
         else if (name == "HLT_DiPFJetAve500") return nt.HLT_DiPFJetAve500();
@@ -12734,8 +18915,7 @@ namespace tas {
         else if (name == "HLT_Dimuon0_Upsilon_Muon_NoL1Mass") return nt.HLT_Dimuon0_Upsilon_Muon_NoL1Mass();
         else if (name == "HLT_Dimuon0_Upsilon_NoVertexing") return nt.HLT_Dimuon0_Upsilon_NoVertexing();
         else if (name == "HLT_Dimuon10_PsiPrime_Barrel_Seagulls") return nt.HLT_Dimuon10_PsiPrime_Barrel_Seagulls();
-        else if (name == "HLT_Dimuon10_Upsilon_Barrel_Seagulls") return nt.HLT_Dimuon10_Upsilon_Barrel_Seagulls();
-        else if (name == "HLT_Dimuon12_Upsilon_eta1p5") return nt.HLT_Dimuon12_Upsilon_eta1p5();
+        else if (name == "HLT_Dimuon12_Upsilon_y1p4") return nt.HLT_Dimuon12_Upsilon_y1p4();
         else if (name == "HLT_Dimuon14_Phi_Barrel_Seagulls") return nt.HLT_Dimuon14_Phi_Barrel_Seagulls();
         else if (name == "HLT_Dimuon18_PsiPrime") return nt.HLT_Dimuon18_PsiPrime();
         else if (name == "HLT_Dimuon18_PsiPrime_noCorrL1") return nt.HLT_Dimuon18_PsiPrime_noCorrL1();
@@ -12744,12 +18924,10 @@ namespace tas {
         else if (name == "HLT_Dimuon24_Upsilon_noCorrL1") return nt.HLT_Dimuon24_Upsilon_noCorrL1();
         else if (name == "HLT_Dimuon25_Jpsi") return nt.HLT_Dimuon25_Jpsi();
         else if (name == "HLT_Dimuon25_Jpsi_noCorrL1") return nt.HLT_Dimuon25_Jpsi_noCorrL1();
-        else if (name == "HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55") return nt.HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55();
-        else if (name == "HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55") return nt.HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55();
         else if (name == "HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55") return nt.HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55();
         else if (name == "HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55") return nt.HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55();
-        else if (name == "HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55") return nt.HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55();
-        else if (name == "HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55") return nt.HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55();
+        else if (name == "HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto") return nt.HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto();
+        else if (name == "HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_Mass55") return nt.HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_Mass55();
         else if (name == "HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90") return nt.HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90();
         else if (name == "HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass95") return nt.HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass95();
         else if (name == "HLT_DoubleEle24_eta2p1_WPTight_Gsf") return nt.HLT_DoubleEle24_eta2p1_WPTight_Gsf();
@@ -12759,65 +18937,80 @@ namespace tas {
         else if (name == "HLT_DoubleEle8_CaloIdM_TrackIdM_Mass8_DZ_PFHT350") return nt.HLT_DoubleEle8_CaloIdM_TrackIdM_Mass8_DZ_PFHT350();
         else if (name == "HLT_DoubleEle8_CaloIdM_TrackIdM_Mass8_PFHT350") return nt.HLT_DoubleEle8_CaloIdM_TrackIdM_Mass8_PFHT350();
         else if (name == "HLT_DoubleIsoMu20_eta2p1") return nt.HLT_DoubleIsoMu20_eta2p1();
-        else if (name == "HLT_DoubleIsoMu24_eta2p1") return nt.HLT_DoubleIsoMu24_eta2p1();
+        else if (name == "HLT_DoubleL2Mu23NoVtx_2Cha") return nt.HLT_DoubleL2Mu23NoVtx_2Cha();
+        else if (name == "HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed") return nt.HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed();
+        else if (name == "HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_NoL2Matched") return nt.HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_NoL2Matched();
+        else if (name == "HLT_DoubleL2Mu23NoVtx_2Cha_NoL2Matched") return nt.HLT_DoubleL2Mu23NoVtx_2Cha_NoL2Matched();
+        else if (name == "HLT_DoubleL2Mu25NoVtx_2Cha") return nt.HLT_DoubleL2Mu25NoVtx_2Cha();
+        else if (name == "HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed") return nt.HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed();
+        else if (name == "HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_Eta2p4") return nt.HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_Eta2p4();
+        else if (name == "HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_NoL2Matched") return nt.HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_NoL2Matched();
+        else if (name == "HLT_DoubleL2Mu25NoVtx_2Cha_Eta2p4") return nt.HLT_DoubleL2Mu25NoVtx_2Cha_Eta2p4();
+        else if (name == "HLT_DoubleL2Mu25NoVtx_2Cha_NoL2Matched") return nt.HLT_DoubleL2Mu25NoVtx_2Cha_NoL2Matched();
+        else if (name == "HLT_DoubleL2Mu30NoVtx_2Cha_CosmicSeed_Eta2p4") return nt.HLT_DoubleL2Mu30NoVtx_2Cha_CosmicSeed_Eta2p4();
+        else if (name == "HLT_DoubleL2Mu30NoVtx_2Cha_Eta2p4") return nt.HLT_DoubleL2Mu30NoVtx_2Cha_Eta2p4();
         else if (name == "HLT_DoubleL2Mu50") return nt.HLT_DoubleL2Mu50();
-        else if (name == "HLT_DoubleLooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg") return nt.HLT_DoubleLooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg();
-        else if (name == "HLT_DoubleLooseChargedIsoPFTau35_Trk1_eta2p1_Reg") return nt.HLT_DoubleLooseChargedIsoPFTau35_Trk1_eta2p1_Reg();
-        else if (name == "HLT_DoubleLooseChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg") return nt.HLT_DoubleLooseChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg();
-        else if (name == "HLT_DoubleLooseChargedIsoPFTau40_Trk1_eta2p1_Reg") return nt.HLT_DoubleLooseChargedIsoPFTau40_Trk1_eta2p1_Reg();
-        else if (name == "HLT_DoubleMediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg") return nt.HLT_DoubleMediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg();
-        else if (name == "HLT_DoubleMediumChargedIsoPFTau35_Trk1_eta2p1_Reg") return nt.HLT_DoubleMediumChargedIsoPFTau35_Trk1_eta2p1_Reg();
-        else if (name == "HLT_DoubleMediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg") return nt.HLT_DoubleMediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg();
-        else if (name == "HLT_DoubleMediumChargedIsoPFTau40_Trk1_eta2p1_Reg") return nt.HLT_DoubleMediumChargedIsoPFTau40_Trk1_eta2p1_Reg();
+        else if (name == "HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg") return nt.HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg();
+        else if (name == "HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg") return nt.HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg();
+        else if (name == "HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg") return nt.HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg();
+        else if (name == "HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_eta2p1_Reg") return nt.HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_eta2p1_Reg();
         else if (name == "HLT_DoubleMu20_7_Mass0to30_L1_DM4") return nt.HLT_DoubleMu20_7_Mass0to30_L1_DM4();
         else if (name == "HLT_DoubleMu20_7_Mass0to30_L1_DM4EG") return nt.HLT_DoubleMu20_7_Mass0to30_L1_DM4EG();
         else if (name == "HLT_DoubleMu20_7_Mass0to30_Photon23") return nt.HLT_DoubleMu20_7_Mass0to30_Photon23();
         else if (name == "HLT_DoubleMu2_Jpsi_DoubleTkMu0_Phi") return nt.HLT_DoubleMu2_Jpsi_DoubleTkMu0_Phi();
-        else if (name == "HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi") return nt.HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi();
+        else if (name == "HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi1p05") return nt.HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi1p05();
+        else if (name == "HLT_DoubleMu33NoFiltersNoVtxDisplaced") return nt.HLT_DoubleMu33NoFiltersNoVtxDisplaced();
         else if (name == "HLT_DoubleMu3_DCA_PFMET50_PFMHT60") return nt.HLT_DoubleMu3_DCA_PFMET50_PFMHT60();
         else if (name == "HLT_DoubleMu3_DZ_PFMET50_PFMHT60") return nt.HLT_DoubleMu3_DZ_PFMET50_PFMHT60();
         else if (name == "HLT_DoubleMu3_DZ_PFMET70_PFMHT70") return nt.HLT_DoubleMu3_DZ_PFMET70_PFMHT70();
         else if (name == "HLT_DoubleMu3_DZ_PFMET90_PFMHT90") return nt.HLT_DoubleMu3_DZ_PFMET90_PFMHT90();
+        else if (name == "HLT_DoubleMu3_DoubleEle7p5_CaloIdL_TrackIdL_Upsilon") return nt.HLT_DoubleMu3_DoubleEle7p5_CaloIdL_TrackIdL_Upsilon();
+        else if (name == "HLT_DoubleMu3_TkMu_DsTau3Mu") return nt.HLT_DoubleMu3_TkMu_DsTau3Mu();
         else if (name == "HLT_DoubleMu3_Trk_Tau3mu") return nt.HLT_DoubleMu3_Trk_Tau3mu();
         else if (name == "HLT_DoubleMu3_Trk_Tau3mu_NoL1Mass") return nt.HLT_DoubleMu3_Trk_Tau3mu_NoL1Mass();
+        else if (name == "HLT_DoubleMu40NoFiltersNoVtxDisplaced") return nt.HLT_DoubleMu40NoFiltersNoVtxDisplaced();
         else if (name == "HLT_DoubleMu43NoFiltersNoVtx") return nt.HLT_DoubleMu43NoFiltersNoVtx();
         else if (name == "HLT_DoubleMu48NoFiltersNoVtx") return nt.HLT_DoubleMu48NoFiltersNoVtx();
         else if (name == "HLT_DoubleMu4_3_Bs") return nt.HLT_DoubleMu4_3_Bs();
-        else if (name == "HLT_DoubleMu4_3_Jpsi_Displaced") return nt.HLT_DoubleMu4_3_Jpsi_Displaced();
+        else if (name == "HLT_DoubleMu4_3_Jpsi") return nt.HLT_DoubleMu4_3_Jpsi();
         else if (name == "HLT_DoubleMu4_JpsiTrkTrk_Displaced") return nt.HLT_DoubleMu4_JpsiTrkTrk_Displaced();
         else if (name == "HLT_DoubleMu4_JpsiTrk_Displaced") return nt.HLT_DoubleMu4_JpsiTrk_Displaced();
         else if (name == "HLT_DoubleMu4_Jpsi_Displaced") return nt.HLT_DoubleMu4_Jpsi_Displaced();
         else if (name == "HLT_DoubleMu4_Jpsi_NoVertexing") return nt.HLT_DoubleMu4_Jpsi_NoVertexing();
         else if (name == "HLT_DoubleMu4_LowMassNonResonantTrk_Displaced") return nt.HLT_DoubleMu4_LowMassNonResonantTrk_Displaced();
-        else if (name == "HLT_DoubleMu4_Mass8_DZ_PFHT350") return nt.HLT_DoubleMu4_Mass8_DZ_PFHT350();
+        else if (name == "HLT_DoubleMu4_Mass3p8_DZ_PFHT350") return nt.HLT_DoubleMu4_Mass3p8_DZ_PFHT350();
         else if (name == "HLT_DoubleMu4_PsiPrimeTrk_Displaced") return nt.HLT_DoubleMu4_PsiPrimeTrk_Displaced();
-        else if (name == "HLT_DoubleMu8_Mass8_PFHT350") return nt.HLT_DoubleMu8_Mass8_PFHT350();
-        else if (name == "HLT_DoublePFJets100MaxDeta1p6_DoubleCaloBTagCSV_p33") return nt.HLT_DoublePFJets100MaxDeta1p6_DoubleCaloBTagCSV_p33();
-        else if (name == "HLT_DoublePFJets100_CaloBTagCSV_p33") return nt.HLT_DoublePFJets100_CaloBTagCSV_p33();
-        else if (name == "HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagCSV_p33") return nt.HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagCSV_p33();
-        else if (name == "HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagCSV_p33") return nt.HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagCSV_p33();
-        else if (name == "HLT_DoublePFJets200_CaloBTagCSV_p33") return nt.HLT_DoublePFJets200_CaloBTagCSV_p33();
-        else if (name == "HLT_DoublePFJets350_CaloBTagCSV_p33") return nt.HLT_DoublePFJets350_CaloBTagCSV_p33();
-        else if (name == "HLT_DoublePFJets40_CaloBTagCSV_p33") return nt.HLT_DoublePFJets40_CaloBTagCSV_p33();
+        else if (name == "HLT_DoubleMu5_Upsilon_DoubleEle3_CaloIdL_TrackIdL") return nt.HLT_DoubleMu5_Upsilon_DoubleEle3_CaloIdL_TrackIdL();
+        else if (name == "HLT_DoublePFJets100_CaloBTagDeepCSV_p71") return nt.HLT_DoublePFJets100_CaloBTagDeepCSV_p71();
+        else if (name == "HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagDeepCSV_p71") return nt.HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagDeepCSV_p71();
+        else if (name == "HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagDeepCSV_p71") return nt.HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagDeepCSV_p71();
+        else if (name == "HLT_DoublePFJets200_CaloBTagDeepCSV_p71") return nt.HLT_DoublePFJets200_CaloBTagDeepCSV_p71();
+        else if (name == "HLT_DoublePFJets350_CaloBTagDeepCSV_p71") return nt.HLT_DoublePFJets350_CaloBTagDeepCSV_p71();
+        else if (name == "HLT_DoublePFJets40_CaloBTagDeepCSV_p71") return nt.HLT_DoublePFJets40_CaloBTagDeepCSV_p71();
         else if (name == "HLT_DoublePhoton33_CaloIdL") return nt.HLT_DoublePhoton33_CaloIdL();
         else if (name == "HLT_DoublePhoton70") return nt.HLT_DoublePhoton70();
         else if (name == "HLT_DoublePhoton85") return nt.HLT_DoublePhoton85();
-        else if (name == "HLT_DoubleTightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg") return nt.HLT_DoubleTightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg();
-        else if (name == "HLT_DoubleTightChargedIsoPFTau35_Trk1_eta2p1_Reg") return nt.HLT_DoubleTightChargedIsoPFTau35_Trk1_eta2p1_Reg();
-        else if (name == "HLT_DoubleTightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg") return nt.HLT_DoubleTightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg();
-        else if (name == "HLT_DoubleTightChargedIsoPFTau40_Trk1_eta2p1_Reg") return nt.HLT_DoubleTightChargedIsoPFTau40_Trk1_eta2p1_Reg();
+        else if (name == "HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg") return nt.HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg();
+        else if (name == "HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg") return nt.HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg();
+        else if (name == "HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg") return nt.HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg();
+        else if (name == "HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_eta2p1_Reg") return nt.HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_eta2p1_Reg();
+        else if (name == "HLT_DoubleTrkMu_16_6_NoFiltersNoVtx") return nt.HLT_DoubleTrkMu_16_6_NoFiltersNoVtx();
         else if (name == "HLT_ECALHT800") return nt.HLT_ECALHT800();
         else if (name == "HLT_EcalCalibration") return nt.HLT_EcalCalibration();
         else if (name == "HLT_Ele115_CaloIdVT_GsfTrkIdT") return nt.HLT_Ele115_CaloIdVT_GsfTrkIdT();
         else if (name == "HLT_Ele12_CaloIdL_TrackIdL_IsoVL_PFJet30") return nt.HLT_Ele12_CaloIdL_TrackIdL_IsoVL_PFJet30();
         else if (name == "HLT_Ele135_CaloIdVT_GsfTrkIdT") return nt.HLT_Ele135_CaloIdVT_GsfTrkIdT();
         else if (name == "HLT_Ele145_CaloIdVT_GsfTrkIdT") return nt.HLT_Ele145_CaloIdVT_GsfTrkIdT();
+        else if (name == "HLT_Ele15_CaloIdL_TrackIdL_IsoVL_PFJet30") return nt.HLT_Ele15_CaloIdL_TrackIdL_IsoVL_PFJet30();
+        else if (name == "HLT_Ele15_Ele8_CaloIdL_TrackIdL_IsoVL") return nt.HLT_Ele15_Ele8_CaloIdL_TrackIdL_IsoVL();
         else if (name == "HLT_Ele15_IsoVVVL_PFHT450") return nt.HLT_Ele15_IsoVVVL_PFHT450();
-        else if (name == "HLT_Ele15_IsoVVVL_PFHT450_CaloBTagCSV_4p5") return nt.HLT_Ele15_IsoVVVL_PFHT450_CaloBTagCSV_4p5();
+        else if (name == "HLT_Ele15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5") return nt.HLT_Ele15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5();
         else if (name == "HLT_Ele15_IsoVVVL_PFHT450_PFMET50") return nt.HLT_Ele15_IsoVVVL_PFHT450_PFMET50();
         else if (name == "HLT_Ele15_IsoVVVL_PFHT600") return nt.HLT_Ele15_IsoVVVL_PFHT600();
+        else if (name == "HLT_Ele15_WPLoose_Gsf") return nt.HLT_Ele15_WPLoose_Gsf();
         else if (name == "HLT_Ele16_Ele12_Ele8_CaloIdL_TrackIdL") return nt.HLT_Ele16_Ele12_Ele8_CaloIdL_TrackIdL();
         else if (name == "HLT_Ele17_CaloIdM_TrackIdM_PFJet30") return nt.HLT_Ele17_CaloIdM_TrackIdM_PFJet30();
+        else if (name == "HLT_Ele17_WPLoose_Gsf") return nt.HLT_Ele17_WPLoose_Gsf();
         else if (name == "HLT_Ele200_CaloIdVT_GsfTrkIdT") return nt.HLT_Ele200_CaloIdVT_GsfTrkIdT();
         else if (name == "HLT_Ele20_WPLoose_Gsf") return nt.HLT_Ele20_WPLoose_Gsf();
         else if (name == "HLT_Ele20_WPTight_Gsf") return nt.HLT_Ele20_WPTight_Gsf();
@@ -12826,18 +19019,20 @@ namespace tas {
         else if (name == "HLT_Ele23_CaloIdM_TrackIdM_PFJet30") return nt.HLT_Ele23_CaloIdM_TrackIdM_PFJet30();
         else if (name == "HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL") return nt.HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL();
         else if (name == "HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_DZ") return nt.HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_DZ();
-        else if (name == "HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_CrossL1") return nt.HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_CrossL1();
-        else if (name == "HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_TightID_CrossL1") return nt.HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_TightID_CrossL1();
-        else if (name == "HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_CrossL1") return nt.HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_CrossL1();
-        else if (name == "HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_TightID_CrossL1") return nt.HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_TightID_CrossL1();
-        else if (name == "HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_CrossL1") return nt.HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_CrossL1();
-        else if (name == "HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_TightID_CrossL1") return nt.HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_TightID_CrossL1();
+        else if (name == "HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_CrossL1") return nt.HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_CrossL1();
+        else if (name == "HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1") return nt.HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1();
+        else if (name == "HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_CrossL1") return nt.HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_CrossL1();
+        else if (name == "HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1") return nt.HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1();
+        else if (name == "HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_CrossL1") return nt.HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_CrossL1();
+        else if (name == "HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1") return nt.HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1();
         else if (name == "HLT_Ele250_CaloIdVT_GsfTrkIdT") return nt.HLT_Ele250_CaloIdVT_GsfTrkIdT();
         else if (name == "HLT_Ele27_Ele37_CaloIdL_MW") return nt.HLT_Ele27_Ele37_CaloIdL_MW();
         else if (name == "HLT_Ele27_WPTight_Gsf") return nt.HLT_Ele27_WPTight_Gsf();
         else if (name == "HLT_Ele28_HighEta_SC20_Mass55") return nt.HLT_Ele28_HighEta_SC20_Mass55();
+        else if (name == "HLT_Ele28_WPTight_Gsf") return nt.HLT_Ele28_WPTight_Gsf();
         else if (name == "HLT_Ele28_eta2p1_WPTight_Gsf_HT150") return nt.HLT_Ele28_eta2p1_WPTight_Gsf_HT150();
         else if (name == "HLT_Ele300_CaloIdVT_GsfTrkIdT") return nt.HLT_Ele300_CaloIdVT_GsfTrkIdT();
+        else if (name == "HLT_Ele30_WPTight_Gsf") return nt.HLT_Ele30_WPTight_Gsf();
         else if (name == "HLT_Ele30_eta2p1_WPTight_Gsf_CentralPFJet35_EleCleaned") return nt.HLT_Ele30_eta2p1_WPTight_Gsf_CentralPFJet35_EleCleaned();
         else if (name == "HLT_Ele32_WPTight_Gsf") return nt.HLT_Ele32_WPTight_Gsf();
         else if (name == "HLT_Ele32_WPTight_Gsf_L1DoubleEG") return nt.HLT_Ele32_WPTight_Gsf_L1DoubleEG();
@@ -12849,78 +19044,54 @@ namespace tas {
         else if (name == "HLT_Ele50_IsoVVVL_PFHT450") return nt.HLT_Ele50_IsoVVVL_PFHT450();
         else if (name == "HLT_Ele8_CaloIdL_TrackIdL_IsoVL_PFJet30") return nt.HLT_Ele8_CaloIdL_TrackIdL_IsoVL_PFJet30();
         else if (name == "HLT_Ele8_CaloIdM_TrackIdM_PFJet30") return nt.HLT_Ele8_CaloIdM_TrackIdM_PFJet30();
-        else if (name == "HLT_FullTrack_Multiplicity100") return nt.HLT_FullTrack_Multiplicity100();
-        else if (name == "HLT_FullTrack_Multiplicity130") return nt.HLT_FullTrack_Multiplicity130();
-        else if (name == "HLT_FullTrack_Multiplicity155") return nt.HLT_FullTrack_Multiplicity155();
-        else if (name == "HLT_FullTrack_Multiplicity85") return nt.HLT_FullTrack_Multiplicity85();
-        else if (name == "HLT_HISinglePhoton10_Eta3p1ForPPRef") return nt.HLT_HISinglePhoton10_Eta3p1ForPPRef();
-        else if (name == "HLT_HISinglePhoton20_Eta3p1ForPPRef") return nt.HLT_HISinglePhoton20_Eta3p1ForPPRef();
-        else if (name == "HLT_HISinglePhoton30_Eta3p1ForPPRef") return nt.HLT_HISinglePhoton30_Eta3p1ForPPRef();
-        else if (name == "HLT_HISinglePhoton40_Eta3p1ForPPRef") return nt.HLT_HISinglePhoton40_Eta3p1ForPPRef();
-        else if (name == "HLT_HISinglePhoton50_Eta3p1ForPPRef") return nt.HLT_HISinglePhoton50_Eta3p1ForPPRef();
-        else if (name == "HLT_HISinglePhoton60_Eta3p1ForPPRef") return nt.HLT_HISinglePhoton60_Eta3p1ForPPRef();
         else if (name == "HLT_HT300_Beamspot") return nt.HLT_HT300_Beamspot();
         else if (name == "HLT_HT400_DisplacedDijet40_DisplacedTrack") return nt.HLT_HT400_DisplacedDijet40_DisplacedTrack();
         else if (name == "HLT_HT425") return nt.HLT_HT425();
         else if (name == "HLT_HT430_DisplacedDijet40_DisplacedTrack") return nt.HLT_HT430_DisplacedDijet40_DisplacedTrack();
         else if (name == "HLT_HT430_DisplacedDijet60_DisplacedTrack") return nt.HLT_HT430_DisplacedDijet60_DisplacedTrack();
-        else if (name == "HLT_HT430_DisplacedDijet80_DisplacedTrack") return nt.HLT_HT430_DisplacedDijet80_DisplacedTrack();
         else if (name == "HLT_HT450_Beamspot") return nt.HLT_HT450_Beamspot();
+        else if (name == "HLT_HT500_DisplacedDijet40_DisplacedTrack") return nt.HLT_HT500_DisplacedDijet40_DisplacedTrack();
         else if (name == "HLT_HT550_DisplacedDijet60_Inclusive") return nt.HLT_HT550_DisplacedDijet60_Inclusive();
-        else if (name == "HLT_HT550_DisplacedDijet80_Inclusive") return nt.HLT_HT550_DisplacedDijet80_Inclusive();
         else if (name == "HLT_HT650_DisplacedDijet60_Inclusive") return nt.HLT_HT650_DisplacedDijet60_Inclusive();
-        else if (name == "HLT_HT650_DisplacedDijet80_Inclusive") return nt.HLT_HT650_DisplacedDijet80_Inclusive();
-        else if (name == "HLT_HT750_DisplacedDijet80_Inclusive") return nt.HLT_HT750_DisplacedDijet80_Inclusive();
         else if (name == "HLT_HcalCalibration") return nt.HLT_HcalCalibration();
         else if (name == "HLT_HcalIsolatedbunch") return nt.HLT_HcalIsolatedbunch();
         else if (name == "HLT_HcalNZS") return nt.HLT_HcalNZS();
         else if (name == "HLT_HcalPhiSym") return nt.HLT_HcalPhiSym();
         else if (name == "HLT_IsoMu20") return nt.HLT_IsoMu20();
-        else if (name == "HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_CrossL1") return nt.HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_CrossL1();
-        else if (name == "HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_TightID_CrossL1") return nt.HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_TightID_CrossL1();
-        else if (name == "HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_CrossL1") return nt.HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_CrossL1();
-        else if (name == "HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_TightID_CrossL1") return nt.HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_TightID_CrossL1();
-        else if (name == "HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_CrossL1") return nt.HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_CrossL1();
-        else if (name == "HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_TightID_CrossL1") return nt.HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_TightID_CrossL1();
+        else if (name == "HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1") return nt.HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1();
+        else if (name == "HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1") return nt.HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1();
+        else if (name == "HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_CrossL1") return nt.HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_CrossL1();
+        else if (name == "HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1") return nt.HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1();
+        else if (name == "HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_CrossL1") return nt.HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_CrossL1();
+        else if (name == "HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1") return nt.HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1();
         else if (name == "HLT_IsoMu24") return nt.HLT_IsoMu24();
+        else if (name == "HLT_IsoMu24_TwoProngs35") return nt.HLT_IsoMu24_TwoProngs35();
         else if (name == "HLT_IsoMu24_eta2p1") return nt.HLT_IsoMu24_eta2p1();
-        else if (name == "HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_SingleL1") return nt.HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_SingleL1();
-        else if (name == "HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_TightID_SingleL1") return nt.HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_TightID_SingleL1();
-        else if (name == "HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1") return nt.HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1();
-        else if (name == "HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1") return nt.HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1();
-        else if (name == "HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_SingleL1") return nt.HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_SingleL1();
-        else if (name == "HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_TightID_SingleL1") return nt.HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_TightID_SingleL1();
-        else if (name == "HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1") return nt.HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1();
-        else if (name == "HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1") return nt.HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1();
-        else if (name == "HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1") return nt.HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1();
-        else if (name == "HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1") return nt.HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1();
         else if (name == "HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr") return nt.HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr();
-        else if (name == "HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_SingleL1") return nt.HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_SingleL1();
-        else if (name == "HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_TightID_SingleL1") return nt.HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_TightID_SingleL1();
-        else if (name == "HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1") return nt.HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1();
-        else if (name == "HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1") return nt.HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1();
-        else if (name == "HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1") return nt.HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1();
-        else if (name == "HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1") return nt.HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1();
+        else if (name == "HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1") return nt.HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1();
+        else if (name == "HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1") return nt.HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1();
+        else if (name == "HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1") return nt.HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1();
+        else if (name == "HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1") return nt.HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1();
         else if (name == "HLT_IsoMu27") return nt.HLT_IsoMu27();
-        else if (name == "HLT_IsoMu27_LooseChargedIsoPFTau20_SingleL1") return nt.HLT_IsoMu27_LooseChargedIsoPFTau20_SingleL1();
-        else if (name == "HLT_IsoMu27_MediumChargedIsoPFTau20_SingleL1") return nt.HLT_IsoMu27_MediumChargedIsoPFTau20_SingleL1();
-        else if (name == "HLT_IsoMu27_TightChargedIsoPFTau20_SingleL1") return nt.HLT_IsoMu27_TightChargedIsoPFTau20_SingleL1();
+        else if (name == "HLT_IsoMu27_LooseChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1") return nt.HLT_IsoMu27_LooseChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1();
+        else if (name == "HLT_IsoMu27_MET90") return nt.HLT_IsoMu27_MET90();
+        else if (name == "HLT_IsoMu27_MediumChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1") return nt.HLT_IsoMu27_MediumChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1();
+        else if (name == "HLT_IsoMu27_TightChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1") return nt.HLT_IsoMu27_TightChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1();
         else if (name == "HLT_IsoMu30") return nt.HLT_IsoMu30();
         else if (name == "HLT_IsoTrackHB") return nt.HLT_IsoTrackHB();
         else if (name == "HLT_IsoTrackHE") return nt.HLT_IsoTrackHE();
         else if (name == "HLT_L1ETMHadSeeds") return nt.HLT_L1ETMHadSeeds();
-        else if (name == "HLT_L1MinimumBiasHF0OR") return nt.HLT_L1MinimumBiasHF0OR();
-        else if (name == "HLT_L1MinimumBiasHF_OR") return nt.HLT_L1MinimumBiasHF_OR();
         else if (name == "HLT_L1NotBptxOR") return nt.HLT_L1NotBptxOR();
         else if (name == "HLT_L1SingleMu18") return nt.HLT_L1SingleMu18();
         else if (name == "HLT_L1SingleMu25") return nt.HLT_L1SingleMu25();
         else if (name == "HLT_L1UnpairedBunchBptxMinus") return nt.HLT_L1UnpairedBunchBptxMinus();
         else if (name == "HLT_L1UnpairedBunchBptxPlus") return nt.HLT_L1UnpairedBunchBptxPlus();
         else if (name == "HLT_L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142") return nt.HLT_L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142();
-        else if (name == "HLT_L1_DoubleJet30_Mass_Min400_Mu10") return nt.HLT_L1_DoubleJet30_Mass_Min400_Mu10();
         else if (name == "HLT_L2Mu10") return nt.HLT_L2Mu10();
         else if (name == "HLT_L2Mu10_NoVertex_NoBPTX") return nt.HLT_L2Mu10_NoVertex_NoBPTX();
         else if (name == "HLT_L2Mu10_NoVertex_NoBPTX3BX") return nt.HLT_L2Mu10_NoVertex_NoBPTX3BX();
+        else if (name == "HLT_L2Mu23NoVtx_2Cha") return nt.HLT_L2Mu23NoVtx_2Cha();
+        else if (name == "HLT_L2Mu23NoVtx_2Cha_CosmicSeed") return nt.HLT_L2Mu23NoVtx_2Cha_CosmicSeed();
         else if (name == "HLT_L2Mu40_NoVertex_3Sta_NoBPTX3BX") return nt.HLT_L2Mu40_NoVertex_3Sta_NoBPTX3BX();
         else if (name == "HLT_L2Mu45_NoVertex_3Sta_NoBPTX3BX") return nt.HLT_L2Mu45_NoVertex_3Sta_NoBPTX3BX();
         else if (name == "HLT_L2Mu50") return nt.HLT_L2Mu50();
@@ -12928,29 +19099,39 @@ namespace tas {
         else if (name == "HLT_MET120_IsoTrk50") return nt.HLT_MET120_IsoTrk50();
         else if (name == "HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1") return nt.HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1();
         else if (name == "HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1_1pr") return nt.HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1_1pr();
+        else if (name == "HLT_MediumChargedIsoPFTau200HighPtRelaxedIso_Trk50_eta2p1") return nt.HLT_MediumChargedIsoPFTau200HighPtRelaxedIso_Trk50_eta2p1();
+        else if (name == "HLT_MediumChargedIsoPFTau220HighPtRelaxedIso_Trk50_eta2p1") return nt.HLT_MediumChargedIsoPFTau220HighPtRelaxedIso_Trk50_eta2p1();
         else if (name == "HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr") return nt.HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr();
         else if (name == "HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET100") return nt.HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET100();
         else if (name == "HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET110") return nt.HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET110();
         else if (name == "HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET120") return nt.HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET120();
         else if (name == "HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET130") return nt.HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET130();
+        else if (name == "HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET140") return nt.HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET140();
         else if (name == "HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET90") return nt.HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET90();
         else if (name == "HLT_MonoCentralPFJet80_PFMETNoMu110_PFMHTNoMu110_IDTight") return nt.HLT_MonoCentralPFJet80_PFMETNoMu110_PFMHTNoMu110_IDTight();
         else if (name == "HLT_MonoCentralPFJet80_PFMETNoMu120_PFMHTNoMu120_IDTight") return nt.HLT_MonoCentralPFJet80_PFMETNoMu120_PFMHTNoMu120_IDTight();
         else if (name == "HLT_MonoCentralPFJet80_PFMETNoMu130_PFMHTNoMu130_IDTight") return nt.HLT_MonoCentralPFJet80_PFMETNoMu130_PFMHTNoMu130_IDTight();
         else if (name == "HLT_MonoCentralPFJet80_PFMETNoMu140_PFMHTNoMu140_IDTight") return nt.HLT_MonoCentralPFJet80_PFMETNoMu140_PFMHTNoMu140_IDTight();
         else if (name == "HLT_Mu10_TrkIsoVVL_DiPFJet40_DEta3p5_MJJ750_HTT350_PFMETNoMu60") return nt.HLT_Mu10_TrkIsoVVL_DiPFJet40_DEta3p5_MJJ750_HTT350_PFMETNoMu60();
-        else if (name == "HLT_Mu12_DoublePFJets100_CaloBTagCSV_p33") return nt.HLT_Mu12_DoublePFJets100_CaloBTagCSV_p33();
-        else if (name == "HLT_Mu12_DoublePFJets200_CaloBTagCSV_p33") return nt.HLT_Mu12_DoublePFJets200_CaloBTagCSV_p33();
-        else if (name == "HLT_Mu12_DoublePFJets350_CaloBTagCSV_p33") return nt.HLT_Mu12_DoublePFJets350_CaloBTagCSV_p33();
-        else if (name == "HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagCSV_p33") return nt.HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagCSV_p33();
-        else if (name == "HLT_Mu12_DoublePFJets40_CaloBTagCSV_p33") return nt.HLT_Mu12_DoublePFJets40_CaloBTagCSV_p33();
-        else if (name == "HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagCSV_p33") return nt.HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagCSV_p33();
-        else if (name == "HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagCSV_p33") return nt.HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagCSV_p33();
+        else if (name == "HLT_Mu12") return nt.HLT_Mu12();
+        else if (name == "HLT_Mu12_DoublePFJets100_CaloBTagDeepCSV_p71") return nt.HLT_Mu12_DoublePFJets100_CaloBTagDeepCSV_p71();
+        else if (name == "HLT_Mu12_DoublePFJets200_CaloBTagDeepCSV_p71") return nt.HLT_Mu12_DoublePFJets200_CaloBTagDeepCSV_p71();
+        else if (name == "HLT_Mu12_DoublePFJets350_CaloBTagDeepCSV_p71") return nt.HLT_Mu12_DoublePFJets350_CaloBTagDeepCSV_p71();
+        else if (name == "HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagDeepCSV_p71") return nt.HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagDeepCSV_p71();
+        else if (name == "HLT_Mu12_DoublePFJets40_CaloBTagDeepCSV_p71") return nt.HLT_Mu12_DoublePFJets40_CaloBTagDeepCSV_p71();
+        else if (name == "HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagDeepCSV_p71") return nt.HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagDeepCSV_p71();
+        else if (name == "HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagDeepCSV_p71") return nt.HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagDeepCSV_p71();
         else if (name == "HLT_Mu12_DoublePhoton20") return nt.HLT_Mu12_DoublePhoton20();
+        else if (name == "HLT_Mu12_IP6_part0") return nt.HLT_Mu12_IP6_part0();
+        else if (name == "HLT_Mu12_IP6_part1") return nt.HLT_Mu12_IP6_part1();
+        else if (name == "HLT_Mu12_IP6_part2") return nt.HLT_Mu12_IP6_part2();
+        else if (name == "HLT_Mu12_IP6_part3") return nt.HLT_Mu12_IP6_part3();
+        else if (name == "HLT_Mu12_IP6_part4") return nt.HLT_Mu12_IP6_part4();
         else if (name == "HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL") return nt.HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL();
         else if (name == "HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ") return nt.HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ();
+        else if (name == "HLT_Mu15") return nt.HLT_Mu15();
         else if (name == "HLT_Mu15_IsoVVVL_PFHT450") return nt.HLT_Mu15_IsoVVVL_PFHT450();
-        else if (name == "HLT_Mu15_IsoVVVL_PFHT450_CaloBTagCSV_4p5") return nt.HLT_Mu15_IsoVVVL_PFHT450_CaloBTagCSV_4p5();
+        else if (name == "HLT_Mu15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5") return nt.HLT_Mu15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5();
         else if (name == "HLT_Mu15_IsoVVVL_PFHT450_PFMET50") return nt.HLT_Mu15_IsoVVVL_PFHT450_PFMET50();
         else if (name == "HLT_Mu15_IsoVVVL_PFHT600") return nt.HLT_Mu15_IsoVVVL_PFHT600();
         else if (name == "HLT_Mu17") return nt.HLT_Mu17();
@@ -12986,15 +19167,33 @@ namespace tas {
         else if (name == "HLT_Mu25_TkMu0_Phi") return nt.HLT_Mu25_TkMu0_Phi();
         else if (name == "HLT_Mu27") return nt.HLT_Mu27();
         else if (name == "HLT_Mu27_Ele37_CaloIdL_MW") return nt.HLT_Mu27_Ele37_CaloIdL_MW();
-        else if (name == "HLT_Mu30_TkMu0_Onia") return nt.HLT_Mu30_TkMu0_Onia();
+        else if (name == "HLT_Mu30_TkMu0_Psi") return nt.HLT_Mu30_TkMu0_Psi();
+        else if (name == "HLT_Mu30_TkMu0_Upsilon") return nt.HLT_Mu30_TkMu0_Upsilon();
         else if (name == "HLT_Mu37_Ele27_CaloIdL_MW") return nt.HLT_Mu37_Ele27_CaloIdL_MW();
         else if (name == "HLT_Mu37_TkMu27") return nt.HLT_Mu37_TkMu27();
+        else if (name == "HLT_Mu38NoFiltersNoVtxDisplaced_Photon38_CaloIdL") return nt.HLT_Mu38NoFiltersNoVtxDisplaced_Photon38_CaloIdL();
+        else if (name == "HLT_Mu3_L1SingleMu5orSingleMu7") return nt.HLT_Mu3_L1SingleMu5orSingleMu7();
         else if (name == "HLT_Mu3_PFJet40") return nt.HLT_Mu3_PFJet40();
+        else if (name == "HLT_Mu3er1p5_PFJet100er2p5_PFMET100_PFMHT100_IDTight") return nt.HLT_Mu3er1p5_PFJet100er2p5_PFMET100_PFMHT100_IDTight();
+        else if (name == "HLT_Mu3er1p5_PFJet100er2p5_PFMET70_PFMHT70_IDTight") return nt.HLT_Mu3er1p5_PFJet100er2p5_PFMET70_PFMHT70_IDTight();
+        else if (name == "HLT_Mu3er1p5_PFJet100er2p5_PFMET80_PFMHT80_IDTight") return nt.HLT_Mu3er1p5_PFJet100er2p5_PFMET80_PFMHT80_IDTight();
+        else if (name == "HLT_Mu3er1p5_PFJet100er2p5_PFMET90_PFMHT90_IDTight") return nt.HLT_Mu3er1p5_PFJet100er2p5_PFMET90_PFMHT90_IDTight();
+        else if (name == "HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu100_PFMHTNoMu100_IDTight") return nt.HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu100_PFMHTNoMu100_IDTight();
+        else if (name == "HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu70_PFMHTNoMu70_IDTight") return nt.HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu70_PFMHTNoMu70_IDTight();
+        else if (name == "HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu80_PFMHTNoMu80_IDTight") return nt.HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu80_PFMHTNoMu80_IDTight();
+        else if (name == "HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu90_PFMHTNoMu90_IDTight") return nt.HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu90_PFMHTNoMu90_IDTight();
+        else if (name == "HLT_Mu43NoFiltersNoVtxDisplaced_Photon43_CaloIdL") return nt.HLT_Mu43NoFiltersNoVtxDisplaced_Photon43_CaloIdL();
         else if (name == "HLT_Mu43NoFiltersNoVtx_Photon43_CaloIdL") return nt.HLT_Mu43NoFiltersNoVtx_Photon43_CaloIdL();
         else if (name == "HLT_Mu48NoFiltersNoVtx_Photon48_CaloIdL") return nt.HLT_Mu48NoFiltersNoVtx_Photon48_CaloIdL();
+        else if (name == "HLT_Mu4_TrkIsoVVL_DiPFJet90_40_DEta3p5_MJJ750_HTT300_PFMETNoMu60") return nt.HLT_Mu4_TrkIsoVVL_DiPFJet90_40_DEta3p5_MJJ750_HTT300_PFMETNoMu60();
         else if (name == "HLT_Mu50") return nt.HLT_Mu50();
         else if (name == "HLT_Mu50_IsoVVVL_PFHT450") return nt.HLT_Mu50_IsoVVVL_PFHT450();
         else if (name == "HLT_Mu55") return nt.HLT_Mu55();
+        else if (name == "HLT_Mu7_IP4_part0") return nt.HLT_Mu7_IP4_part0();
+        else if (name == "HLT_Mu7_IP4_part1") return nt.HLT_Mu7_IP4_part1();
+        else if (name == "HLT_Mu7_IP4_part2") return nt.HLT_Mu7_IP4_part2();
+        else if (name == "HLT_Mu7_IP4_part3") return nt.HLT_Mu7_IP4_part3();
+        else if (name == "HLT_Mu7_IP4_part4") return nt.HLT_Mu7_IP4_part4();
         else if (name == "HLT_Mu7p5_L2Mu2_Jpsi") return nt.HLT_Mu7p5_L2Mu2_Jpsi();
         else if (name == "HLT_Mu7p5_L2Mu2_Upsilon") return nt.HLT_Mu7p5_L2Mu2_Upsilon();
         else if (name == "HLT_Mu7p5_Track2_Jpsi") return nt.HLT_Mu7p5_Track2_Jpsi();
@@ -13008,25 +19207,58 @@ namespace tas {
         else if (name == "HLT_Mu8_DiEle12_CaloIdL_TrackIdL_DZ") return nt.HLT_Mu8_DiEle12_CaloIdL_TrackIdL_DZ();
         else if (name == "HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT350") return nt.HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT350();
         else if (name == "HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT350_DZ") return nt.HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT350_DZ();
+        else if (name == "HLT_Mu8_IP3_part0") return nt.HLT_Mu8_IP3_part0();
+        else if (name == "HLT_Mu8_IP3_part1") return nt.HLT_Mu8_IP3_part1();
+        else if (name == "HLT_Mu8_IP3_part2") return nt.HLT_Mu8_IP3_part2();
+        else if (name == "HLT_Mu8_IP3_part3") return nt.HLT_Mu8_IP3_part3();
+        else if (name == "HLT_Mu8_IP3_part4") return nt.HLT_Mu8_IP3_part4();
+        else if (name == "HLT_Mu8_IP5_part0") return nt.HLT_Mu8_IP5_part0();
+        else if (name == "HLT_Mu8_IP5_part1") return nt.HLT_Mu8_IP5_part1();
+        else if (name == "HLT_Mu8_IP5_part2") return nt.HLT_Mu8_IP5_part2();
+        else if (name == "HLT_Mu8_IP5_part3") return nt.HLT_Mu8_IP5_part3();
+        else if (name == "HLT_Mu8_IP5_part4") return nt.HLT_Mu8_IP5_part4();
+        else if (name == "HLT_Mu8_IP6_part0") return nt.HLT_Mu8_IP6_part0();
+        else if (name == "HLT_Mu8_IP6_part1") return nt.HLT_Mu8_IP6_part1();
+        else if (name == "HLT_Mu8_IP6_part2") return nt.HLT_Mu8_IP6_part2();
+        else if (name == "HLT_Mu8_IP6_part3") return nt.HLT_Mu8_IP6_part3();
+        else if (name == "HLT_Mu8_IP6_part4") return nt.HLT_Mu8_IP6_part4();
         else if (name == "HLT_Mu8_TrkIsoVVL") return nt.HLT_Mu8_TrkIsoVVL();
         else if (name == "HLT_Mu8_TrkIsoVVL_DiPFJet40_DEta3p5_MJJ750_HTT300_PFMETNoMu60") return nt.HLT_Mu8_TrkIsoVVL_DiPFJet40_DEta3p5_MJJ750_HTT300_PFMETNoMu60();
         else if (name == "HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL") return nt.HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL();
         else if (name == "HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ") return nt.HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ();
+        else if (name == "HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30") return nt.HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30();
+        else if (name == "HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_CaloBtagDeepCSV_1p5") return nt.HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_CaloBtagDeepCSV_1p5();
+        else if (name == "HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30") return nt.HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30();
+        else if (name == "HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_PFBtagDeepCSV_1p5") return nt.HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_PFBtagDeepCSV_1p5();
+        else if (name == "HLT_Mu9_IP4_part0") return nt.HLT_Mu9_IP4_part0();
+        else if (name == "HLT_Mu9_IP4_part1") return nt.HLT_Mu9_IP4_part1();
+        else if (name == "HLT_Mu9_IP4_part2") return nt.HLT_Mu9_IP4_part2();
+        else if (name == "HLT_Mu9_IP4_part3") return nt.HLT_Mu9_IP4_part3();
+        else if (name == "HLT_Mu9_IP4_part4") return nt.HLT_Mu9_IP4_part4();
+        else if (name == "HLT_Mu9_IP5_part0") return nt.HLT_Mu9_IP5_part0();
+        else if (name == "HLT_Mu9_IP5_part1") return nt.HLT_Mu9_IP5_part1();
+        else if (name == "HLT_Mu9_IP5_part2") return nt.HLT_Mu9_IP5_part2();
+        else if (name == "HLT_Mu9_IP5_part3") return nt.HLT_Mu9_IP5_part3();
+        else if (name == "HLT_Mu9_IP5_part4") return nt.HLT_Mu9_IP5_part4();
+        else if (name == "HLT_Mu9_IP6_part0") return nt.HLT_Mu9_IP6_part0();
+        else if (name == "HLT_Mu9_IP6_part1") return nt.HLT_Mu9_IP6_part1();
+        else if (name == "HLT_Mu9_IP6_part2") return nt.HLT_Mu9_IP6_part2();
+        else if (name == "HLT_Mu9_IP6_part3") return nt.HLT_Mu9_IP6_part3();
+        else if (name == "HLT_Mu9_IP6_part4") return nt.HLT_Mu9_IP6_part4();
         else if (name == "HLT_OldMu100") return nt.HLT_OldMu100();
         else if (name == "HLT_PFHT1050") return nt.HLT_PFHT1050();
         else if (name == "HLT_PFHT180") return nt.HLT_PFHT180();
         else if (name == "HLT_PFHT250") return nt.HLT_PFHT250();
-        else if (name == "HLT_PFHT300PT30_QuadPFJet_75_60_45_40") return nt.HLT_PFHT300PT30_QuadPFJet_75_60_45_40();
-        else if (name == "HLT_PFHT300PT30_QuadPFJet_75_60_45_40_TriplePFBTagCSV_3p0") return nt.HLT_PFHT300PT30_QuadPFJet_75_60_45_40_TriplePFBTagCSV_3p0();
+        else if (name == "HLT_PFHT330PT30_QuadPFJet_75_60_45_40") return nt.HLT_PFHT330PT30_QuadPFJet_75_60_45_40();
+        else if (name == "HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepCSV_4p5") return nt.HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepCSV_4p5();
         else if (name == "HLT_PFHT350") return nt.HLT_PFHT350();
         else if (name == "HLT_PFHT350MinPFJet15") return nt.HLT_PFHT350MinPFJet15();
         else if (name == "HLT_PFHT370") return nt.HLT_PFHT370();
-        else if (name == "HLT_PFHT380_SixPFJet32") return nt.HLT_PFHT380_SixPFJet32();
-        else if (name == "HLT_PFHT380_SixPFJet32_DoublePFBTagCSV_2p2") return nt.HLT_PFHT380_SixPFJet32_DoublePFBTagCSV_2p2();
-        else if (name == "HLT_PFHT380_SixPFJet32_DoublePFBTagDeepCSV_2p2") return nt.HLT_PFHT380_SixPFJet32_DoublePFBTagDeepCSV_2p2();
+        else if (name == "HLT_PFHT400_SixPFJet32") return nt.HLT_PFHT400_SixPFJet32();
+        else if (name == "HLT_PFHT400_SixPFJet32_DoublePFBTagDeepCSV_2p94") return nt.HLT_PFHT400_SixPFJet32_DoublePFBTagDeepCSV_2p94();
         else if (name == "HLT_PFHT430") return nt.HLT_PFHT430();
-        else if (name == "HLT_PFHT430_SixPFJet40") return nt.HLT_PFHT430_SixPFJet40();
-        else if (name == "HLT_PFHT430_SixPFJet40_PFBTagCSV_1p5") return nt.HLT_PFHT430_SixPFJet40_PFBTagCSV_1p5();
+        else if (name == "HLT_PFHT450_SixPFJet36") return nt.HLT_PFHT450_SixPFJet36();
+        else if (name == "HLT_PFHT450_SixPFJet36_PFBTagDeepCSV_1p59") return nt.HLT_PFHT450_SixPFJet36_PFBTagDeepCSV_1p59();
         else if (name == "HLT_PFHT500_PFMET100_PFMHT100_IDTight") return nt.HLT_PFHT500_PFMET100_PFMHT100_IDTight();
         else if (name == "HLT_PFHT500_PFMET110_PFMHT110_IDTight") return nt.HLT_PFHT500_PFMET110_PFMHT110_IDTight();
         else if (name == "HLT_PFHT510") return nt.HLT_PFHT510();
@@ -13039,7 +19271,9 @@ namespace tas {
         else if (name == "HLT_PFHT800_PFMET85_PFMHT85_IDTight") return nt.HLT_PFHT800_PFMET85_PFMHT85_IDTight();
         else if (name == "HLT_PFHT890") return nt.HLT_PFHT890();
         else if (name == "HLT_PFJet140") return nt.HLT_PFJet140();
+        else if (name == "HLT_PFJet15") return nt.HLT_PFJet15();
         else if (name == "HLT_PFJet200") return nt.HLT_PFJet200();
+        else if (name == "HLT_PFJet25") return nt.HLT_PFJet25();
         else if (name == "HLT_PFJet260") return nt.HLT_PFJet260();
         else if (name == "HLT_PFJet320") return nt.HLT_PFJet320();
         else if (name == "HLT_PFJet40") return nt.HLT_PFJet40();
@@ -13050,7 +19284,9 @@ namespace tas {
         else if (name == "HLT_PFJet60") return nt.HLT_PFJet60();
         else if (name == "HLT_PFJet80") return nt.HLT_PFJet80();
         else if (name == "HLT_PFJetFwd140") return nt.HLT_PFJetFwd140();
+        else if (name == "HLT_PFJetFwd15") return nt.HLT_PFJetFwd15();
         else if (name == "HLT_PFJetFwd200") return nt.HLT_PFJetFwd200();
+        else if (name == "HLT_PFJetFwd25") return nt.HLT_PFJetFwd25();
         else if (name == "HLT_PFJetFwd260") return nt.HLT_PFJetFwd260();
         else if (name == "HLT_PFJetFwd320") return nt.HLT_PFJetFwd320();
         else if (name == "HLT_PFJetFwd40") return nt.HLT_PFJetFwd40();
@@ -13059,17 +19295,17 @@ namespace tas {
         else if (name == "HLT_PFJetFwd500") return nt.HLT_PFJetFwd500();
         else if (name == "HLT_PFJetFwd60") return nt.HLT_PFJetFwd60();
         else if (name == "HLT_PFJetFwd80") return nt.HLT_PFJetFwd80();
-        else if (name == "HLT_PFMET100_PFMHT100_IDTight_CaloBTagCSV_3p1") return nt.HLT_PFMET100_PFMHT100_IDTight_CaloBTagCSV_3p1();
+        else if (name == "HLT_PFMET100_PFMHT100_IDTight_CaloBTagDeepCSV_3p1") return nt.HLT_PFMET100_PFMHT100_IDTight_CaloBTagDeepCSV_3p1();
         else if (name == "HLT_PFMET100_PFMHT100_IDTight_PFHT60") return nt.HLT_PFMET100_PFMHT100_IDTight_PFHT60();
         else if (name == "HLT_PFMET110_PFMHT110_IDTight") return nt.HLT_PFMET110_PFMHT110_IDTight();
-        else if (name == "HLT_PFMET110_PFMHT110_IDTight_CaloBTagCSV_3p1") return nt.HLT_PFMET110_PFMHT110_IDTight_CaloBTagCSV_3p1();
+        else if (name == "HLT_PFMET110_PFMHT110_IDTight_CaloBTagDeepCSV_3p1") return nt.HLT_PFMET110_PFMHT110_IDTight_CaloBTagDeepCSV_3p1();
         else if (name == "HLT_PFMET120_PFMHT120_IDTight") return nt.HLT_PFMET120_PFMHT120_IDTight();
-        else if (name == "HLT_PFMET120_PFMHT120_IDTight_CaloBTagCSV_3p1") return nt.HLT_PFMET120_PFMHT120_IDTight_CaloBTagCSV_3p1();
+        else if (name == "HLT_PFMET120_PFMHT120_IDTight_CaloBTagDeepCSV_3p1") return nt.HLT_PFMET120_PFMHT120_IDTight_CaloBTagDeepCSV_3p1();
         else if (name == "HLT_PFMET120_PFMHT120_IDTight_PFHT60") return nt.HLT_PFMET120_PFMHT120_IDTight_PFHT60();
         else if (name == "HLT_PFMET130_PFMHT130_IDTight") return nt.HLT_PFMET130_PFMHT130_IDTight();
-        else if (name == "HLT_PFMET130_PFMHT130_IDTight_CaloBTagCSV_3p1") return nt.HLT_PFMET130_PFMHT130_IDTight_CaloBTagCSV_3p1();
+        else if (name == "HLT_PFMET130_PFMHT130_IDTight_CaloBTagDeepCSV_3p1") return nt.HLT_PFMET130_PFMHT130_IDTight_CaloBTagDeepCSV_3p1();
         else if (name == "HLT_PFMET140_PFMHT140_IDTight") return nt.HLT_PFMET140_PFMHT140_IDTight();
-        else if (name == "HLT_PFMET140_PFMHT140_IDTight_CaloBTagCSV_3p1") return nt.HLT_PFMET140_PFMHT140_IDTight_CaloBTagCSV_3p1();
+        else if (name == "HLT_PFMET140_PFMHT140_IDTight_CaloBTagDeepCSV_3p1") return nt.HLT_PFMET140_PFMHT140_IDTight_CaloBTagDeepCSV_3p1();
         else if (name == "HLT_PFMET200_HBHECleaned") return nt.HLT_PFMET200_HBHECleaned();
         else if (name == "HLT_PFMET200_HBHE_BeamHaloCleaned") return nt.HLT_PFMET200_HBHE_BeamHaloCleaned();
         else if (name == "HLT_PFMET200_NotCleaned") return nt.HLT_PFMET200_NotCleaned();
@@ -13088,28 +19324,34 @@ namespace tas {
         else if (name == "HLT_PFMETTypeOne130_PFMHT130_IDTight") return nt.HLT_PFMETTypeOne130_PFMHT130_IDTight();
         else if (name == "HLT_PFMETTypeOne140_PFMHT140_IDTight") return nt.HLT_PFMETTypeOne140_PFMHT140_IDTight();
         else if (name == "HLT_PFMETTypeOne200_HBHE_BeamHaloCleaned") return nt.HLT_PFMETTypeOne200_HBHE_BeamHaloCleaned();
+        else if (name == "HLT_Photon100EBHE10") return nt.HLT_Photon100EBHE10();
+        else if (name == "HLT_Photon100EB_TightID_TightIso") return nt.HLT_Photon100EB_TightID_TightIso();
+        else if (name == "HLT_Photon100EEHE10") return nt.HLT_Photon100EEHE10();
+        else if (name == "HLT_Photon100EE_TightID_TightIso") return nt.HLT_Photon100EE_TightID_TightIso();
+        else if (name == "HLT_Photon110EB_TightID_TightIso") return nt.HLT_Photon110EB_TightID_TightIso();
         else if (name == "HLT_Photon120") return nt.HLT_Photon120();
+        else if (name == "HLT_Photon120EB_TightID_TightIso") return nt.HLT_Photon120EB_TightID_TightIso();
         else if (name == "HLT_Photon120_R9Id90_HE10_IsoM") return nt.HLT_Photon120_R9Id90_HE10_IsoM();
         else if (name == "HLT_Photon150") return nt.HLT_Photon150();
         else if (name == "HLT_Photon165_R9Id90_HE10_IsoM") return nt.HLT_Photon165_R9Id90_HE10_IsoM();
         else if (name == "HLT_Photon175") return nt.HLT_Photon175();
+        else if (name == "HLT_Photon20") return nt.HLT_Photon20();
         else if (name == "HLT_Photon200") return nt.HLT_Photon200();
         else if (name == "HLT_Photon20_HoverELoose") return nt.HLT_Photon20_HoverELoose();
-        else if (name == "HLT_Photon25") return nt.HLT_Photon25();
         else if (name == "HLT_Photon300_NoHE") return nt.HLT_Photon300_NoHE();
         else if (name == "HLT_Photon30_HoverELoose") return nt.HLT_Photon30_HoverELoose();
         else if (name == "HLT_Photon33") return nt.HLT_Photon33();
-        else if (name == "HLT_Photon40_HoverELoose") return nt.HLT_Photon40_HoverELoose();
+        else if (name == "HLT_Photon35_TwoProngs35") return nt.HLT_Photon35_TwoProngs35();
         else if (name == "HLT_Photon50") return nt.HLT_Photon50();
-        else if (name == "HLT_Photon50_HoverELoose") return nt.HLT_Photon50_HoverELoose();
         else if (name == "HLT_Photon50_R9Id90_HE10_IsoM") return nt.HLT_Photon50_R9Id90_HE10_IsoM();
         else if (name == "HLT_Photon50_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3_PFMET50") return nt.HLT_Photon50_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3_PFMET50();
-        else if (name == "HLT_Photon60_HoverELoose") return nt.HLT_Photon60_HoverELoose();
         else if (name == "HLT_Photon60_R9Id90_CaloIdL_IsoL") return nt.HLT_Photon60_R9Id90_CaloIdL_IsoL();
         else if (name == "HLT_Photon60_R9Id90_CaloIdL_IsoL_DisplacedIdL") return nt.HLT_Photon60_R9Id90_CaloIdL_IsoL_DisplacedIdL();
         else if (name == "HLT_Photon60_R9Id90_CaloIdL_IsoL_DisplacedIdL_PFHT350MinPFJet15") return nt.HLT_Photon60_R9Id90_CaloIdL_IsoL_DisplacedIdL_PFHT350MinPFJet15();
         else if (name == "HLT_Photon75") return nt.HLT_Photon75();
         else if (name == "HLT_Photon75_R9Id90_HE10_IsoM") return nt.HLT_Photon75_R9Id90_HE10_IsoM();
+        else if (name == "HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ300_PFJetsMJJ400DEta3") return nt.HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ300_PFJetsMJJ400DEta3();
+        else if (name == "HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ400_PFJetsMJJ600DEta3") return nt.HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ400_PFJetsMJJ600DEta3();
         else if (name == "HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3") return nt.HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3();
         else if (name == "HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ600DEta3") return nt.HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ600DEta3();
         else if (name == "HLT_Photon90") return nt.HLT_Photon90();
@@ -13125,17 +19367,17 @@ namespace tas {
         else if (name == "HLT_Physics_part6") return nt.HLT_Physics_part6();
         else if (name == "HLT_Physics_part7") return nt.HLT_Physics_part7();
         else if (name == "HLT_QuadPFJet103_88_75_15") return nt.HLT_QuadPFJet103_88_75_15();
-        else if (name == "HLT_QuadPFJet103_88_75_15_BTagCSV_p013_VBF2") return nt.HLT_QuadPFJet103_88_75_15_BTagCSV_p013_VBF2();
-        else if (name == "HLT_QuadPFJet103_88_75_15_DoubleBTagCSV_p013_p08_VBF1") return nt.HLT_QuadPFJet103_88_75_15_DoubleBTagCSV_p013_p08_VBF1();
+        else if (name == "HLT_QuadPFJet103_88_75_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1") return nt.HLT_QuadPFJet103_88_75_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1();
+        else if (name == "HLT_QuadPFJet103_88_75_15_PFBTagDeepCSV_1p3_VBF2") return nt.HLT_QuadPFJet103_88_75_15_PFBTagDeepCSV_1p3_VBF2();
         else if (name == "HLT_QuadPFJet105_88_76_15") return nt.HLT_QuadPFJet105_88_76_15();
-        else if (name == "HLT_QuadPFJet105_88_76_15_BTagCSV_p013_VBF2") return nt.HLT_QuadPFJet105_88_76_15_BTagCSV_p013_VBF2();
-        else if (name == "HLT_QuadPFJet105_90_76_15_DoubleBTagCSV_p013_p08_VBF1") return nt.HLT_QuadPFJet105_90_76_15_DoubleBTagCSV_p013_p08_VBF1();
+        else if (name == "HLT_QuadPFJet105_88_76_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1") return nt.HLT_QuadPFJet105_88_76_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1();
+        else if (name == "HLT_QuadPFJet105_88_76_15_PFBTagDeepCSV_1p3_VBF2") return nt.HLT_QuadPFJet105_88_76_15_PFBTagDeepCSV_1p3_VBF2();
         else if (name == "HLT_QuadPFJet111_90_80_15") return nt.HLT_QuadPFJet111_90_80_15();
-        else if (name == "HLT_QuadPFJet111_90_80_15_BTagCSV_p013_VBF2") return nt.HLT_QuadPFJet111_90_80_15_BTagCSV_p013_VBF2();
-        else if (name == "HLT_QuadPFJet111_90_80_15_DoubleBTagCSV_p013_p08_VBF1") return nt.HLT_QuadPFJet111_90_80_15_DoubleBTagCSV_p013_p08_VBF1();
+        else if (name == "HLT_QuadPFJet111_90_80_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1") return nt.HLT_QuadPFJet111_90_80_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1();
+        else if (name == "HLT_QuadPFJet111_90_80_15_PFBTagDeepCSV_1p3_VBF2") return nt.HLT_QuadPFJet111_90_80_15_PFBTagDeepCSV_1p3_VBF2();
         else if (name == "HLT_QuadPFJet98_83_71_15") return nt.HLT_QuadPFJet98_83_71_15();
-        else if (name == "HLT_QuadPFJet98_83_71_15_BTagCSV_p013_VBF2") return nt.HLT_QuadPFJet98_83_71_15_BTagCSV_p013_VBF2();
-        else if (name == "HLT_QuadPFJet98_83_71_15_DoubleBTagCSV_p013_p08_VBF1") return nt.HLT_QuadPFJet98_83_71_15_DoubleBTagCSV_p013_p08_VBF1();
+        else if (name == "HLT_QuadPFJet98_83_71_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1") return nt.HLT_QuadPFJet98_83_71_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1();
+        else if (name == "HLT_QuadPFJet98_83_71_15_PFBTagDeepCSV_1p3_VBF2") return nt.HLT_QuadPFJet98_83_71_15_PFBTagDeepCSV_1p3_VBF2();
         else if (name == "HLT_Random") return nt.HLT_Random();
         else if (name == "HLT_Rsq0p35") return nt.HLT_Rsq0p35();
         else if (name == "HLT_Rsq0p40") return nt.HLT_Rsq0p40();
@@ -13144,35 +19386,43 @@ namespace tas {
         else if (name == "HLT_RsqMR320_Rsq0p09_MR200") return nt.HLT_RsqMR320_Rsq0p09_MR200();
         else if (name == "HLT_RsqMR320_Rsq0p09_MR200_4jet") return nt.HLT_RsqMR320_Rsq0p09_MR200_4jet();
         else if (name == "HLT_SingleJet30_Mu12_SinglePFJet40") return nt.HLT_SingleJet30_Mu12_SinglePFJet40();
+        else if (name == "HLT_SinglePhoton10_Eta3p1ForPPRef") return nt.HLT_SinglePhoton10_Eta3p1ForPPRef();
+        else if (name == "HLT_SinglePhoton20_Eta3p1ForPPRef") return nt.HLT_SinglePhoton20_Eta3p1ForPPRef();
+        else if (name == "HLT_SinglePhoton30_Eta3p1ForPPRef") return nt.HLT_SinglePhoton30_Eta3p1ForPPRef();
         else if (name == "HLT_Tau3Mu_Mu7_Mu1_TkMu1_IsoTau15") return nt.HLT_Tau3Mu_Mu7_Mu1_TkMu1_IsoTau15();
         else if (name == "HLT_Tau3Mu_Mu7_Mu1_TkMu1_IsoTau15_Charge1") return nt.HLT_Tau3Mu_Mu7_Mu1_TkMu1_IsoTau15_Charge1();
         else if (name == "HLT_Tau3Mu_Mu7_Mu1_TkMu1_Tau15") return nt.HLT_Tau3Mu_Mu7_Mu1_TkMu1_Tau15();
         else if (name == "HLT_Tau3Mu_Mu7_Mu1_TkMu1_Tau15_Charge1") return nt.HLT_Tau3Mu_Mu7_Mu1_TkMu1_Tau15_Charge1();
         else if (name == "HLT_TkMu100") return nt.HLT_TkMu100();
         else if (name == "HLT_Trimuon5_3p5_2_Upsilon_Muon") return nt.HLT_Trimuon5_3p5_2_Upsilon_Muon();
+        else if (name == "HLT_TrimuonOpen_5_3p5_2_Upsilon_Muon") return nt.HLT_TrimuonOpen_5_3p5_2_Upsilon_Muon();
         else if (name == "HLT_TripleJet110_35_35_Mjj650_PFMET110") return nt.HLT_TripleJet110_35_35_Mjj650_PFMET110();
         else if (name == "HLT_TripleJet110_35_35_Mjj650_PFMET120") return nt.HLT_TripleJet110_35_35_Mjj650_PFMET120();
         else if (name == "HLT_TripleJet110_35_35_Mjj650_PFMET130") return nt.HLT_TripleJet110_35_35_Mjj650_PFMET130();
         else if (name == "HLT_TripleMu_10_5_5_DZ") return nt.HLT_TripleMu_10_5_5_DZ();
         else if (name == "HLT_TripleMu_12_10_5") return nt.HLT_TripleMu_12_10_5();
-        else if (name == "HLT_TripleMu_5_3_3_Mass3p8to60_DCA") return nt.HLT_TripleMu_5_3_3_Mass3p8to60_DCA();
-        else if (name == "HLT_TripleMu_5_3_3_Mass3p8to60_DZ") return nt.HLT_TripleMu_5_3_3_Mass3p8to60_DZ();
+        else if (name == "HLT_TripleMu_5_3_3_Mass3p8_DCA") return nt.HLT_TripleMu_5_3_3_Mass3p8_DCA();
+        else if (name == "HLT_TripleMu_5_3_3_Mass3p8_DZ") return nt.HLT_TripleMu_5_3_3_Mass3p8_DZ();
         else if (name == "HLT_TriplePhoton_20_20_20_CaloIdLV2") return nt.HLT_TriplePhoton_20_20_20_CaloIdLV2();
         else if (name == "HLT_TriplePhoton_20_20_20_CaloIdLV2_R9IdVL") return nt.HLT_TriplePhoton_20_20_20_CaloIdLV2_R9IdVL();
         else if (name == "HLT_TriplePhoton_30_30_10_CaloIdLV2") return nt.HLT_TriplePhoton_30_30_10_CaloIdLV2();
         else if (name == "HLT_TriplePhoton_30_30_10_CaloIdLV2_R9IdVL") return nt.HLT_TriplePhoton_30_30_10_CaloIdLV2_R9IdVL();
         else if (name == "HLT_TriplePhoton_35_35_5_CaloIdLV2_R9IdVL") return nt.HLT_TriplePhoton_35_35_5_CaloIdLV2_R9IdVL();
         else if (name == "HLT_TrkMu12_DoubleTrkMu5NoFiltersNoVtx") return nt.HLT_TrkMu12_DoubleTrkMu5NoFiltersNoVtx();
+        else if (name == "HLT_TrkMu16NoFiltersNoVtx") return nt.HLT_TrkMu16NoFiltersNoVtx();
         else if (name == "HLT_TrkMu16_DoubleTrkMu6NoFiltersNoVtx") return nt.HLT_TrkMu16_DoubleTrkMu6NoFiltersNoVtx();
         else if (name == "HLT_TrkMu17_DoubleTrkMu8NoFiltersNoVtx") return nt.HLT_TrkMu17_DoubleTrkMu8NoFiltersNoVtx();
+        else if (name == "HLT_TrkMu6NoFiltersNoVtx") return nt.HLT_TrkMu6NoFiltersNoVtx();
         else if (name == "HLT_UncorrectedJetE30_NoBPTX") return nt.HLT_UncorrectedJetE30_NoBPTX();
         else if (name == "HLT_UncorrectedJetE30_NoBPTX3BX") return nt.HLT_UncorrectedJetE30_NoBPTX3BX();
         else if (name == "HLT_UncorrectedJetE60_NoBPTX3BX") return nt.HLT_UncorrectedJetE60_NoBPTX3BX();
         else if (name == "HLT_UncorrectedJetE70_NoBPTX3BX") return nt.HLT_UncorrectedJetE70_NoBPTX3BX();
-        else if (name == "HLT_VBF_DoubleLooseChargedIsoPFTau20_Trk1_eta2p1_Reg") return nt.HLT_VBF_DoubleLooseChargedIsoPFTau20_Trk1_eta2p1_Reg();
-        else if (name == "HLT_VBF_DoubleMediumChargedIsoPFTau20_Trk1_eta2p1_Reg") return nt.HLT_VBF_DoubleMediumChargedIsoPFTau20_Trk1_eta2p1_Reg();
-        else if (name == "HLT_VBF_DoubleTightChargedIsoPFTau20_Trk1_eta2p1_Reg") return nt.HLT_VBF_DoubleTightChargedIsoPFTau20_Trk1_eta2p1_Reg();
+        else if (name == "HLT_VBF_DoubleLooseChargedIsoPFTauHPS20_Trk1_eta2p1") return nt.HLT_VBF_DoubleLooseChargedIsoPFTauHPS20_Trk1_eta2p1();
+        else if (name == "HLT_VBF_DoubleMediumChargedIsoPFTauHPS20_Trk1_eta2p1") return nt.HLT_VBF_DoubleMediumChargedIsoPFTauHPS20_Trk1_eta2p1();
+        else if (name == "HLT_VBF_DoubleTightChargedIsoPFTauHPS20_Trk1_eta2p1") return nt.HLT_VBF_DoubleTightChargedIsoPFTauHPS20_Trk1_eta2p1();
         else if (name == "HLT_ZeroBias") return nt.HLT_ZeroBias();
+        else if (name == "HLT_ZeroBias_Alignment") return nt.HLT_ZeroBias_Alignment();
+        else if (name == "HLT_ZeroBias_Beamspot") return nt.HLT_ZeroBias_Beamspot();
         else if (name == "HLT_ZeroBias_FirstBXAfterTrain") return nt.HLT_ZeroBias_FirstBXAfterTrain();
         else if (name == "HLT_ZeroBias_FirstCollisionAfterAbortGap") return nt.HLT_ZeroBias_FirstCollisionAfterAbortGap();
         else if (name == "HLT_ZeroBias_FirstCollisionInTrain") return nt.HLT_ZeroBias_FirstCollisionInTrain();
@@ -13188,24 +19438,361 @@ namespace tas {
         else if (name == "HLT_ZeroBias_part7") return nt.HLT_ZeroBias_part7();
         else if (name == "HLTriggerFinalPath") return nt.HLTriggerFinalPath();
         else if (name == "HLTriggerFirstPath") return nt.HLTriggerFirstPath();
+        else if (name == "L1Reco_step") return nt.L1Reco_step();
+        else if (name == "L1_AlwaysTrue") return nt.L1_AlwaysTrue();
+        else if (name == "L1_BPTX_AND_Ref1_VME") return nt.L1_BPTX_AND_Ref1_VME();
+        else if (name == "L1_BPTX_AND_Ref3_VME") return nt.L1_BPTX_AND_Ref3_VME();
+        else if (name == "L1_BPTX_AND_Ref4_VME") return nt.L1_BPTX_AND_Ref4_VME();
+        else if (name == "L1_BPTX_BeamGas_B1_VME") return nt.L1_BPTX_BeamGas_B1_VME();
+        else if (name == "L1_BPTX_BeamGas_B2_VME") return nt.L1_BPTX_BeamGas_B2_VME();
+        else if (name == "L1_BPTX_BeamGas_Ref1_VME") return nt.L1_BPTX_BeamGas_Ref1_VME();
+        else if (name == "L1_BPTX_BeamGas_Ref2_VME") return nt.L1_BPTX_BeamGas_Ref2_VME();
+        else if (name == "L1_BPTX_NotOR_VME") return nt.L1_BPTX_NotOR_VME();
+        else if (name == "L1_BPTX_OR_Ref3_VME") return nt.L1_BPTX_OR_Ref3_VME();
+        else if (name == "L1_BPTX_OR_Ref4_VME") return nt.L1_BPTX_OR_Ref4_VME();
+        else if (name == "L1_BPTX_RefAND_VME") return nt.L1_BPTX_RefAND_VME();
+        else if (name == "L1_BptxMinus") return nt.L1_BptxMinus();
+        else if (name == "L1_BptxOR") return nt.L1_BptxOR();
+        else if (name == "L1_BptxPlus") return nt.L1_BptxPlus();
+        else if (name == "L1_BptxXOR") return nt.L1_BptxXOR();
+        else if (name == "L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142") return nt.L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142();
+        else if (name == "L1_DoubleEG8er2p5_HTT260er") return nt.L1_DoubleEG8er2p5_HTT260er();
+        else if (name == "L1_DoubleEG8er2p5_HTT280er") return nt.L1_DoubleEG8er2p5_HTT280er();
+        else if (name == "L1_DoubleEG8er2p5_HTT300er") return nt.L1_DoubleEG8er2p5_HTT300er();
+        else if (name == "L1_DoubleEG8er2p5_HTT320er") return nt.L1_DoubleEG8er2p5_HTT320er();
+        else if (name == "L1_DoubleEG8er2p5_HTT340er") return nt.L1_DoubleEG8er2p5_HTT340er();
+        else if (name == "L1_DoubleEG_15_10_er2p5") return nt.L1_DoubleEG_15_10_er2p5();
+        else if (name == "L1_DoubleEG_20_10_er2p5") return nt.L1_DoubleEG_20_10_er2p5();
+        else if (name == "L1_DoubleEG_22_10_er2p5") return nt.L1_DoubleEG_22_10_er2p5();
+        else if (name == "L1_DoubleEG_25_12_er2p5") return nt.L1_DoubleEG_25_12_er2p5();
+        else if (name == "L1_DoubleEG_25_14_er2p5") return nt.L1_DoubleEG_25_14_er2p5();
+        else if (name == "L1_DoubleEG_27_14_er2p5") return nt.L1_DoubleEG_27_14_er2p5();
+        else if (name == "L1_DoubleEG_LooseIso20_10_er2p5") return nt.L1_DoubleEG_LooseIso20_10_er2p5();
+        else if (name == "L1_DoubleEG_LooseIso22_10_er2p5") return nt.L1_DoubleEG_LooseIso22_10_er2p5();
+        else if (name == "L1_DoubleEG_LooseIso22_12_er2p5") return nt.L1_DoubleEG_LooseIso22_12_er2p5();
+        else if (name == "L1_DoubleEG_LooseIso25_12_er2p5") return nt.L1_DoubleEG_LooseIso25_12_er2p5();
+        else if (name == "L1_DoubleIsoTau32er2p1") return nt.L1_DoubleIsoTau32er2p1();
+        else if (name == "L1_DoubleIsoTau34er2p1") return nt.L1_DoubleIsoTau34er2p1();
+        else if (name == "L1_DoubleIsoTau36er2p1") return nt.L1_DoubleIsoTau36er2p1();
+        else if (name == "L1_DoubleJet100er2p3_dEta_Max1p6") return nt.L1_DoubleJet100er2p3_dEta_Max1p6();
+        else if (name == "L1_DoubleJet100er2p5") return nt.L1_DoubleJet100er2p5();
+        else if (name == "L1_DoubleJet112er2p3_dEta_Max1p6") return nt.L1_DoubleJet112er2p3_dEta_Max1p6();
+        else if (name == "L1_DoubleJet120er2p5") return nt.L1_DoubleJet120er2p5();
+        else if (name == "L1_DoubleJet150er2p5") return nt.L1_DoubleJet150er2p5();
+        else if (name == "L1_DoubleJet30er2p5_Mass_Min150_dEta_Max1p5") return nt.L1_DoubleJet30er2p5_Mass_Min150_dEta_Max1p5();
+        else if (name == "L1_DoubleJet30er2p5_Mass_Min200_dEta_Max1p5") return nt.L1_DoubleJet30er2p5_Mass_Min200_dEta_Max1p5();
+        else if (name == "L1_DoubleJet30er2p5_Mass_Min250_dEta_Max1p5") return nt.L1_DoubleJet30er2p5_Mass_Min250_dEta_Max1p5();
+        else if (name == "L1_DoubleJet30er2p5_Mass_Min300_dEta_Max1p5") return nt.L1_DoubleJet30er2p5_Mass_Min300_dEta_Max1p5();
+        else if (name == "L1_DoubleJet30er2p5_Mass_Min330_dEta_Max1p5") return nt.L1_DoubleJet30er2p5_Mass_Min330_dEta_Max1p5();
+        else if (name == "L1_DoubleJet30er2p5_Mass_Min360_dEta_Max1p5") return nt.L1_DoubleJet30er2p5_Mass_Min360_dEta_Max1p5();
+        else if (name == "L1_DoubleJet35_Mass_Min450_IsoTau45_RmOvlp") return nt.L1_DoubleJet35_Mass_Min450_IsoTau45_RmOvlp();
+        else if (name == "L1_DoubleJet40er2p5") return nt.L1_DoubleJet40er2p5();
+        else if (name == "L1_DoubleJet_100_30_DoubleJet30_Mass_Min620") return nt.L1_DoubleJet_100_30_DoubleJet30_Mass_Min620();
+        else if (name == "L1_DoubleJet_110_35_DoubleJet35_Mass_Min620") return nt.L1_DoubleJet_110_35_DoubleJet35_Mass_Min620();
+        else if (name == "L1_DoubleJet_115_40_DoubleJet40_Mass_Min620") return nt.L1_DoubleJet_115_40_DoubleJet40_Mass_Min620();
+        else if (name == "L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_Jet60TT28") return nt.L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_Jet60TT28();
+        else if (name == "L1_DoubleJet_120_45_DoubleJet45_Mass_Min620") return nt.L1_DoubleJet_120_45_DoubleJet45_Mass_Min620();
+        else if (name == "L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_Jet60TT28") return nt.L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_Jet60TT28();
+        else if (name == "L1_DoubleJet_80_30_Mass_Min420_DoubleMu0_SQ") return nt.L1_DoubleJet_80_30_Mass_Min420_DoubleMu0_SQ();
+        else if (name == "L1_DoubleJet_80_30_Mass_Min420_IsoTau40_RmOvlp") return nt.L1_DoubleJet_80_30_Mass_Min420_IsoTau40_RmOvlp();
+        else if (name == "L1_DoubleJet_80_30_Mass_Min420_Mu8") return nt.L1_DoubleJet_80_30_Mass_Min420_Mu8();
+        else if (name == "L1_DoubleJet_90_30_DoubleJet30_Mass_Min620") return nt.L1_DoubleJet_90_30_DoubleJet30_Mass_Min620();
+        else if (name == "L1_DoubleLooseIsoEG22er2p1") return nt.L1_DoubleLooseIsoEG22er2p1();
+        else if (name == "L1_DoubleLooseIsoEG24er2p1") return nt.L1_DoubleLooseIsoEG24er2p1();
+        else if (name == "L1_DoubleMu0") return nt.L1_DoubleMu0();
+        else if (name == "L1_DoubleMu0_Mass_Min1") return nt.L1_DoubleMu0_Mass_Min1();
+        else if (name == "L1_DoubleMu0_OQ") return nt.L1_DoubleMu0_OQ();
+        else if (name == "L1_DoubleMu0_SQ") return nt.L1_DoubleMu0_SQ();
+        else if (name == "L1_DoubleMu0_SQ_OS") return nt.L1_DoubleMu0_SQ_OS();
+        else if (name == "L1_DoubleMu0_dR_Max1p6_Jet90er2p5_dR_Max0p8") return nt.L1_DoubleMu0_dR_Max1p6_Jet90er2p5_dR_Max0p8();
+        else if (name == "L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4") return nt.L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4();
+        else if (name == "L1_DoubleMu0er1p5_SQ") return nt.L1_DoubleMu0er1p5_SQ();
+        else if (name == "L1_DoubleMu0er1p5_SQ_OS") return nt.L1_DoubleMu0er1p5_SQ_OS();
+        else if (name == "L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4") return nt.L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4();
+        else if (name == "L1_DoubleMu0er1p5_SQ_dR_Max1p4") return nt.L1_DoubleMu0er1p5_SQ_dR_Max1p4();
+        else if (name == "L1_DoubleMu0er2p0_SQ_OS_dR_Max1p4") return nt.L1_DoubleMu0er2p0_SQ_OS_dR_Max1p4();
+        else if (name == "L1_DoubleMu0er2p0_SQ_dR_Max1p4") return nt.L1_DoubleMu0er2p0_SQ_dR_Max1p4();
+        else if (name == "L1_DoubleMu10_SQ") return nt.L1_DoubleMu10_SQ();
+        else if (name == "L1_DoubleMu18er2p1") return nt.L1_DoubleMu18er2p1();
+        else if (name == "L1_DoubleMu3_OS_DoubleEG7p5Upsilon") return nt.L1_DoubleMu3_OS_DoubleEG7p5Upsilon();
+        else if (name == "L1_DoubleMu3_SQ_ETMHF50_HTT60er") return nt.L1_DoubleMu3_SQ_ETMHF50_HTT60er();
+        else if (name == "L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5") return nt.L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5();
+        else if (name == "L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_OR_DoubleJet40er2p5") return nt.L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_OR_DoubleJet40er2p5();
+        else if (name == "L1_DoubleMu3_SQ_ETMHF60_Jet60er2p5") return nt.L1_DoubleMu3_SQ_ETMHF60_Jet60er2p5();
+        else if (name == "L1_DoubleMu3_SQ_HTT220er") return nt.L1_DoubleMu3_SQ_HTT220er();
+        else if (name == "L1_DoubleMu3_SQ_HTT240er") return nt.L1_DoubleMu3_SQ_HTT240er();
+        else if (name == "L1_DoubleMu3_SQ_HTT260er") return nt.L1_DoubleMu3_SQ_HTT260er();
+        else if (name == "L1_DoubleMu3_dR_Max1p6_Jet90er2p5_dR_Max0p8") return nt.L1_DoubleMu3_dR_Max1p6_Jet90er2p5_dR_Max0p8();
+        else if (name == "L1_DoubleMu4_SQ_EG9er2p5") return nt.L1_DoubleMu4_SQ_EG9er2p5();
+        else if (name == "L1_DoubleMu4_SQ_OS") return nt.L1_DoubleMu4_SQ_OS();
+        else if (name == "L1_DoubleMu4_SQ_OS_dR_Max1p2") return nt.L1_DoubleMu4_SQ_OS_dR_Max1p2();
+        else if (name == "L1_DoubleMu4p5_SQ_OS") return nt.L1_DoubleMu4p5_SQ_OS();
+        else if (name == "L1_DoubleMu4p5_SQ_OS_dR_Max1p2") return nt.L1_DoubleMu4p5_SQ_OS_dR_Max1p2();
+        else if (name == "L1_DoubleMu4p5er2p0_SQ_OS") return nt.L1_DoubleMu4p5er2p0_SQ_OS();
+        else if (name == "L1_DoubleMu4p5er2p0_SQ_OS_Mass7to18") return nt.L1_DoubleMu4p5er2p0_SQ_OS_Mass7to18();
+        else if (name == "L1_DoubleMu5Upsilon_OS_DoubleEG3") return nt.L1_DoubleMu5Upsilon_OS_DoubleEG3();
+        else if (name == "L1_DoubleMu5_SQ_EG9er2p5") return nt.L1_DoubleMu5_SQ_EG9er2p5();
+        else if (name == "L1_DoubleMu9_SQ") return nt.L1_DoubleMu9_SQ();
+        else if (name == "L1_DoubleMu_12_5") return nt.L1_DoubleMu_12_5();
+        else if (name == "L1_DoubleMu_15_5_SQ") return nt.L1_DoubleMu_15_5_SQ();
+        else if (name == "L1_DoubleMu_15_7") return nt.L1_DoubleMu_15_7();
+        else if (name == "L1_DoubleMu_15_7_Mass_Min1") return nt.L1_DoubleMu_15_7_Mass_Min1();
+        else if (name == "L1_DoubleMu_15_7_SQ") return nt.L1_DoubleMu_15_7_SQ();
+        else if (name == "L1_DoubleTau70er2p1") return nt.L1_DoubleTau70er2p1();
+        else if (name == "L1_ETM120") return nt.L1_ETM120();
+        else if (name == "L1_ETM150") return nt.L1_ETM150();
+        else if (name == "L1_ETMHF100") return nt.L1_ETMHF100();
+        else if (name == "L1_ETMHF100_HTT60er") return nt.L1_ETMHF100_HTT60er();
+        else if (name == "L1_ETMHF110") return nt.L1_ETMHF110();
+        else if (name == "L1_ETMHF110_HTT60er") return nt.L1_ETMHF110_HTT60er();
+        else if (name == "L1_ETMHF110_HTT60er_NotSecondBunchInTrain") return nt.L1_ETMHF110_HTT60er_NotSecondBunchInTrain();
+        else if (name == "L1_ETMHF120") return nt.L1_ETMHF120();
+        else if (name == "L1_ETMHF120_HTT60er") return nt.L1_ETMHF120_HTT60er();
+        else if (name == "L1_ETMHF120_NotSecondBunchInTrain") return nt.L1_ETMHF120_NotSecondBunchInTrain();
+        else if (name == "L1_ETMHF130") return nt.L1_ETMHF130();
+        else if (name == "L1_ETMHF130_HTT60er") return nt.L1_ETMHF130_HTT60er();
+        else if (name == "L1_ETMHF140") return nt.L1_ETMHF140();
+        else if (name == "L1_ETMHF150") return nt.L1_ETMHF150();
+        else if (name == "L1_ETMHF90_HTT60er") return nt.L1_ETMHF90_HTT60er();
+        else if (name == "L1_ETT1200") return nt.L1_ETT1200();
+        else if (name == "L1_ETT1600") return nt.L1_ETT1600();
+        else if (name == "L1_ETT2000") return nt.L1_ETT2000();
+        else if (name == "L1_FirstBunchAfterTrain") return nt.L1_FirstBunchAfterTrain();
+        else if (name == "L1_FirstBunchBeforeTrain") return nt.L1_FirstBunchBeforeTrain();
+        else if (name == "L1_FirstBunchInTrain") return nt.L1_FirstBunchInTrain();
+        else if (name == "L1_FirstCollisionInOrbit") return nt.L1_FirstCollisionInOrbit();
+        else if (name == "L1_FirstCollisionInTrain") return nt.L1_FirstCollisionInTrain();
+        else if (name == "L1_HCAL_LaserMon_Trig") return nt.L1_HCAL_LaserMon_Trig();
+        else if (name == "L1_HCAL_LaserMon_Veto") return nt.L1_HCAL_LaserMon_Veto();
+        else if (name == "L1_HTT120er") return nt.L1_HTT120er();
+        else if (name == "L1_HTT160er") return nt.L1_HTT160er();
+        else if (name == "L1_HTT200er") return nt.L1_HTT200er();
+        else if (name == "L1_HTT255er") return nt.L1_HTT255er();
+        else if (name == "L1_HTT280er") return nt.L1_HTT280er();
+        else if (name == "L1_HTT280er_QuadJet_70_55_40_35_er2p4") return nt.L1_HTT280er_QuadJet_70_55_40_35_er2p4();
+        else if (name == "L1_HTT320er") return nt.L1_HTT320er();
+        else if (name == "L1_HTT320er_QuadJet_70_55_40_40_er2p4") return nt.L1_HTT320er_QuadJet_70_55_40_40_er2p4();
+        else if (name == "L1_HTT320er_QuadJet_80_60_er2p1_45_40_er2p3") return nt.L1_HTT320er_QuadJet_80_60_er2p1_45_40_er2p3();
+        else if (name == "L1_HTT320er_QuadJet_80_60_er2p1_50_45_er2p3") return nt.L1_HTT320er_QuadJet_80_60_er2p1_50_45_er2p3();
+        else if (name == "L1_HTT360er") return nt.L1_HTT360er();
+        else if (name == "L1_HTT400er") return nt.L1_HTT400er();
+        else if (name == "L1_HTT450er") return nt.L1_HTT450er();
+        else if (name == "L1_IsoEG32er2p5_Mt40") return nt.L1_IsoEG32er2p5_Mt40();
+        else if (name == "L1_IsoEG32er2p5_Mt44") return nt.L1_IsoEG32er2p5_Mt44();
+        else if (name == "L1_IsoEG32er2p5_Mt48") return nt.L1_IsoEG32er2p5_Mt48();
+        else if (name == "L1_IsoTau40er2p1_ETMHF100") return nt.L1_IsoTau40er2p1_ETMHF100();
+        else if (name == "L1_IsoTau40er2p1_ETMHF110") return nt.L1_IsoTau40er2p1_ETMHF110();
+        else if (name == "L1_IsoTau40er2p1_ETMHF120") return nt.L1_IsoTau40er2p1_ETMHF120();
+        else if (name == "L1_IsoTau40er2p1_ETMHF90") return nt.L1_IsoTau40er2p1_ETMHF90();
+        else if (name == "L1_IsolatedBunch") return nt.L1_IsolatedBunch();
+        else if (name == "L1_LastBunchInTrain") return nt.L1_LastBunchInTrain();
+        else if (name == "L1_LastCollisionInTrain") return nt.L1_LastCollisionInTrain();
+        else if (name == "L1_LooseIsoEG22er2p1_IsoTau26er2p1_dR_Min0p3") return nt.L1_LooseIsoEG22er2p1_IsoTau26er2p1_dR_Min0p3();
+        else if (name == "L1_LooseIsoEG22er2p1_Tau70er2p1_dR_Min0p3") return nt.L1_LooseIsoEG22er2p1_Tau70er2p1_dR_Min0p3();
+        else if (name == "L1_LooseIsoEG24er2p1_HTT100er") return nt.L1_LooseIsoEG24er2p1_HTT100er();
+        else if (name == "L1_LooseIsoEG24er2p1_IsoTau27er2p1_dR_Min0p3") return nt.L1_LooseIsoEG24er2p1_IsoTau27er2p1_dR_Min0p3();
+        else if (name == "L1_LooseIsoEG26er2p1_HTT100er") return nt.L1_LooseIsoEG26er2p1_HTT100er();
+        else if (name == "L1_LooseIsoEG26er2p1_Jet34er2p5_dR_Min0p3") return nt.L1_LooseIsoEG26er2p1_Jet34er2p5_dR_Min0p3();
+        else if (name == "L1_LooseIsoEG28er2p1_HTT100er") return nt.L1_LooseIsoEG28er2p1_HTT100er();
+        else if (name == "L1_LooseIsoEG28er2p1_Jet34er2p5_dR_Min0p3") return nt.L1_LooseIsoEG28er2p1_Jet34er2p5_dR_Min0p3();
+        else if (name == "L1_LooseIsoEG30er2p1_HTT100er") return nt.L1_LooseIsoEG30er2p1_HTT100er();
+        else if (name == "L1_LooseIsoEG30er2p1_Jet34er2p5_dR_Min0p3") return nt.L1_LooseIsoEG30er2p1_Jet34er2p5_dR_Min0p3();
+        else if (name == "L1_MinimumBiasHF0_AND_BptxAND") return nt.L1_MinimumBiasHF0_AND_BptxAND();
+        else if (name == "L1_Mu10er2p3_Jet32er2p3_dR_Max0p4_DoubleJet32er2p3_dEta_Max1p6") return nt.L1_Mu10er2p3_Jet32er2p3_dR_Max0p4_DoubleJet32er2p3_dEta_Max1p6();
+        else if (name == "L1_Mu12er2p3_Jet40er2p1_dR_Max0p4_DoubleJet40er2p1_dEta_Max1p6") return nt.L1_Mu12er2p3_Jet40er2p1_dR_Max0p4_DoubleJet40er2p1_dEta_Max1p6();
+        else if (name == "L1_Mu12er2p3_Jet40er2p3_dR_Max0p4_DoubleJet40er2p3_dEta_Max1p6") return nt.L1_Mu12er2p3_Jet40er2p3_dR_Max0p4_DoubleJet40er2p3_dEta_Max1p6();
+        else if (name == "L1_Mu18er2p1_Tau24er2p1") return nt.L1_Mu18er2p1_Tau24er2p1();
+        else if (name == "L1_Mu18er2p1_Tau26er2p1") return nt.L1_Mu18er2p1_Tau26er2p1();
+        else if (name == "L1_Mu20_EG10er2p5") return nt.L1_Mu20_EG10er2p5();
+        else if (name == "L1_Mu22er2p1_IsoTau32er2p1") return nt.L1_Mu22er2p1_IsoTau32er2p1();
+        else if (name == "L1_Mu22er2p1_IsoTau34er2p1") return nt.L1_Mu22er2p1_IsoTau34er2p1();
+        else if (name == "L1_Mu22er2p1_IsoTau36er2p1") return nt.L1_Mu22er2p1_IsoTau36er2p1();
+        else if (name == "L1_Mu22er2p1_IsoTau40er2p1") return nt.L1_Mu22er2p1_IsoTau40er2p1();
+        else if (name == "L1_Mu22er2p1_Tau70er2p1") return nt.L1_Mu22er2p1_Tau70er2p1();
+        else if (name == "L1_Mu3_Jet120er2p5_dR_Max0p4") return nt.L1_Mu3_Jet120er2p5_dR_Max0p4();
+        else if (name == "L1_Mu3_Jet120er2p5_dR_Max0p8") return nt.L1_Mu3_Jet120er2p5_dR_Max0p8();
+        else if (name == "L1_Mu3_Jet16er2p5_dR_Max0p4") return nt.L1_Mu3_Jet16er2p5_dR_Max0p4();
+        else if (name == "L1_Mu3_Jet30er2p5") return nt.L1_Mu3_Jet30er2p5();
+        else if (name == "L1_Mu3_Jet35er2p5_dR_Max0p4") return nt.L1_Mu3_Jet35er2p5_dR_Max0p4();
+        else if (name == "L1_Mu3_Jet60er2p5_dR_Max0p4") return nt.L1_Mu3_Jet60er2p5_dR_Max0p4();
+        else if (name == "L1_Mu3_Jet80er2p5_dR_Max0p4") return nt.L1_Mu3_Jet80er2p5_dR_Max0p4();
+        else if (name == "L1_Mu3er1p5_Jet100er2p5_ETMHF40") return nt.L1_Mu3er1p5_Jet100er2p5_ETMHF40();
+        else if (name == "L1_Mu3er1p5_Jet100er2p5_ETMHF50") return nt.L1_Mu3er1p5_Jet100er2p5_ETMHF50();
+        else if (name == "L1_Mu5_EG23er2p5") return nt.L1_Mu5_EG23er2p5();
+        else if (name == "L1_Mu5_LooseIsoEG20er2p5") return nt.L1_Mu5_LooseIsoEG20er2p5();
+        else if (name == "L1_Mu6_DoubleEG10er2p5") return nt.L1_Mu6_DoubleEG10er2p5();
+        else if (name == "L1_Mu6_DoubleEG12er2p5") return nt.L1_Mu6_DoubleEG12er2p5();
+        else if (name == "L1_Mu6_DoubleEG15er2p5") return nt.L1_Mu6_DoubleEG15er2p5();
+        else if (name == "L1_Mu6_DoubleEG17er2p5") return nt.L1_Mu6_DoubleEG17er2p5();
+        else if (name == "L1_Mu6_HTT240er") return nt.L1_Mu6_HTT240er();
+        else if (name == "L1_Mu6_HTT250er") return nt.L1_Mu6_HTT250er();
+        else if (name == "L1_Mu7_EG23er2p5") return nt.L1_Mu7_EG23er2p5();
+        else if (name == "L1_Mu7_LooseIsoEG20er2p5") return nt.L1_Mu7_LooseIsoEG20er2p5();
+        else if (name == "L1_Mu7_LooseIsoEG23er2p5") return nt.L1_Mu7_LooseIsoEG23er2p5();
+        else if (name == "L1_NotBptxOR") return nt.L1_NotBptxOR();
+        else if (name == "L1_QuadJet36er2p5_IsoTau52er2p1") return nt.L1_QuadJet36er2p5_IsoTau52er2p1();
+        else if (name == "L1_QuadJet60er2p5") return nt.L1_QuadJet60er2p5();
+        else if (name == "L1_QuadJet_95_75_65_20_DoubleJet_75_65_er2p5_Jet20_FWD3p0") return nt.L1_QuadJet_95_75_65_20_DoubleJet_75_65_er2p5_Jet20_FWD3p0();
+        else if (name == "L1_QuadMu0") return nt.L1_QuadMu0();
+        else if (name == "L1_QuadMu0_OQ") return nt.L1_QuadMu0_OQ();
+        else if (name == "L1_QuadMu0_SQ") return nt.L1_QuadMu0_SQ();
+        else if (name == "L1_SecondBunchInTrain") return nt.L1_SecondBunchInTrain();
+        else if (name == "L1_SecondLastBunchInTrain") return nt.L1_SecondLastBunchInTrain();
+        else if (name == "L1_SingleEG10er2p5") return nt.L1_SingleEG10er2p5();
+        else if (name == "L1_SingleEG15er2p5") return nt.L1_SingleEG15er2p5();
+        else if (name == "L1_SingleEG26er2p5") return nt.L1_SingleEG26er2p5();
+        else if (name == "L1_SingleEG34er2p5") return nt.L1_SingleEG34er2p5();
+        else if (name == "L1_SingleEG36er2p5") return nt.L1_SingleEG36er2p5();
+        else if (name == "L1_SingleEG38er2p5") return nt.L1_SingleEG38er2p5();
+        else if (name == "L1_SingleEG40er2p5") return nt.L1_SingleEG40er2p5();
+        else if (name == "L1_SingleEG42er2p5") return nt.L1_SingleEG42er2p5();
+        else if (name == "L1_SingleEG45er2p5") return nt.L1_SingleEG45er2p5();
+        else if (name == "L1_SingleEG50") return nt.L1_SingleEG50();
+        else if (name == "L1_SingleEG60") return nt.L1_SingleEG60();
+        else if (name == "L1_SingleEG8er2p5") return nt.L1_SingleEG8er2p5();
+        else if (name == "L1_SingleIsoEG24er1p5") return nt.L1_SingleIsoEG24er1p5();
+        else if (name == "L1_SingleIsoEG24er2p1") return nt.L1_SingleIsoEG24er2p1();
+        else if (name == "L1_SingleIsoEG26er1p5") return nt.L1_SingleIsoEG26er1p5();
+        else if (name == "L1_SingleIsoEG26er2p1") return nt.L1_SingleIsoEG26er2p1();
+        else if (name == "L1_SingleIsoEG26er2p5") return nt.L1_SingleIsoEG26er2p5();
+        else if (name == "L1_SingleIsoEG28er1p5") return nt.L1_SingleIsoEG28er1p5();
+        else if (name == "L1_SingleIsoEG28er2p1") return nt.L1_SingleIsoEG28er2p1();
+        else if (name == "L1_SingleIsoEG28er2p5") return nt.L1_SingleIsoEG28er2p5();
+        else if (name == "L1_SingleIsoEG30er2p1") return nt.L1_SingleIsoEG30er2p1();
+        else if (name == "L1_SingleIsoEG30er2p5") return nt.L1_SingleIsoEG30er2p5();
+        else if (name == "L1_SingleIsoEG32er2p1") return nt.L1_SingleIsoEG32er2p1();
+        else if (name == "L1_SingleIsoEG32er2p5") return nt.L1_SingleIsoEG32er2p5();
+        else if (name == "L1_SingleIsoEG34er2p5") return nt.L1_SingleIsoEG34er2p5();
+        else if (name == "L1_SingleJet10erHE") return nt.L1_SingleJet10erHE();
+        else if (name == "L1_SingleJet120") return nt.L1_SingleJet120();
+        else if (name == "L1_SingleJet120_FWD3p0") return nt.L1_SingleJet120_FWD3p0();
+        else if (name == "L1_SingleJet120er2p5") return nt.L1_SingleJet120er2p5();
+        else if (name == "L1_SingleJet12erHE") return nt.L1_SingleJet12erHE();
+        else if (name == "L1_SingleJet140er2p5") return nt.L1_SingleJet140er2p5();
+        else if (name == "L1_SingleJet140er2p5_ETMHF80") return nt.L1_SingleJet140er2p5_ETMHF80();
+        else if (name == "L1_SingleJet140er2p5_ETMHF90") return nt.L1_SingleJet140er2p5_ETMHF90();
+        else if (name == "L1_SingleJet160er2p5") return nt.L1_SingleJet160er2p5();
+        else if (name == "L1_SingleJet180") return nt.L1_SingleJet180();
+        else if (name == "L1_SingleJet180er2p5") return nt.L1_SingleJet180er2p5();
+        else if (name == "L1_SingleJet200") return nt.L1_SingleJet200();
+        else if (name == "L1_SingleJet20er2p5_NotBptxOR") return nt.L1_SingleJet20er2p5_NotBptxOR();
+        else if (name == "L1_SingleJet20er2p5_NotBptxOR_3BX") return nt.L1_SingleJet20er2p5_NotBptxOR_3BX();
+        else if (name == "L1_SingleJet35") return nt.L1_SingleJet35();
+        else if (name == "L1_SingleJet35_FWD3p0") return nt.L1_SingleJet35_FWD3p0();
+        else if (name == "L1_SingleJet35er2p5") return nt.L1_SingleJet35er2p5();
+        else if (name == "L1_SingleJet43er2p5_NotBptxOR_3BX") return nt.L1_SingleJet43er2p5_NotBptxOR_3BX();
+        else if (name == "L1_SingleJet46er2p5_NotBptxOR_3BX") return nt.L1_SingleJet46er2p5_NotBptxOR_3BX();
+        else if (name == "L1_SingleJet60") return nt.L1_SingleJet60();
+        else if (name == "L1_SingleJet60_FWD3p0") return nt.L1_SingleJet60_FWD3p0();
+        else if (name == "L1_SingleJet60er2p5") return nt.L1_SingleJet60er2p5();
+        else if (name == "L1_SingleJet8erHE") return nt.L1_SingleJet8erHE();
+        else if (name == "L1_SingleJet90") return nt.L1_SingleJet90();
+        else if (name == "L1_SingleJet90_FWD3p0") return nt.L1_SingleJet90_FWD3p0();
+        else if (name == "L1_SingleJet90er2p5") return nt.L1_SingleJet90er2p5();
+        else if (name == "L1_SingleLooseIsoEG28er1p5") return nt.L1_SingleLooseIsoEG28er1p5();
+        else if (name == "L1_SingleLooseIsoEG30er1p5") return nt.L1_SingleLooseIsoEG30er1p5();
+        else if (name == "L1_SingleMu0_BMTF") return nt.L1_SingleMu0_BMTF();
+        else if (name == "L1_SingleMu0_DQ") return nt.L1_SingleMu0_DQ();
+        else if (name == "L1_SingleMu0_EMTF") return nt.L1_SingleMu0_EMTF();
+        else if (name == "L1_SingleMu0_OMTF") return nt.L1_SingleMu0_OMTF();
+        else if (name == "L1_SingleMu10er1p5") return nt.L1_SingleMu10er1p5();
+        else if (name == "L1_SingleMu12_DQ_BMTF") return nt.L1_SingleMu12_DQ_BMTF();
+        else if (name == "L1_SingleMu12_DQ_EMTF") return nt.L1_SingleMu12_DQ_EMTF();
+        else if (name == "L1_SingleMu12_DQ_OMTF") return nt.L1_SingleMu12_DQ_OMTF();
+        else if (name == "L1_SingleMu12er1p5") return nt.L1_SingleMu12er1p5();
+        else if (name == "L1_SingleMu14er1p5") return nt.L1_SingleMu14er1p5();
+        else if (name == "L1_SingleMu15_DQ") return nt.L1_SingleMu15_DQ();
+        else if (name == "L1_SingleMu16er1p5") return nt.L1_SingleMu16er1p5();
+        else if (name == "L1_SingleMu18") return nt.L1_SingleMu18();
+        else if (name == "L1_SingleMu18er1p5") return nt.L1_SingleMu18er1p5();
+        else if (name == "L1_SingleMu20") return nt.L1_SingleMu20();
+        else if (name == "L1_SingleMu22") return nt.L1_SingleMu22();
+        else if (name == "L1_SingleMu22_BMTF") return nt.L1_SingleMu22_BMTF();
+        else if (name == "L1_SingleMu22_EMTF") return nt.L1_SingleMu22_EMTF();
+        else if (name == "L1_SingleMu22_OMTF") return nt.L1_SingleMu22_OMTF();
+        else if (name == "L1_SingleMu25") return nt.L1_SingleMu25();
+        else if (name == "L1_SingleMu3") return nt.L1_SingleMu3();
+        else if (name == "L1_SingleMu5") return nt.L1_SingleMu5();
+        else if (name == "L1_SingleMu6er1p5") return nt.L1_SingleMu6er1p5();
+        else if (name == "L1_SingleMu7") return nt.L1_SingleMu7();
+        else if (name == "L1_SingleMu7_DQ") return nt.L1_SingleMu7_DQ();
+        else if (name == "L1_SingleMu7er1p5") return nt.L1_SingleMu7er1p5();
+        else if (name == "L1_SingleMu8er1p5") return nt.L1_SingleMu8er1p5();
+        else if (name == "L1_SingleMu9er1p5") return nt.L1_SingleMu9er1p5();
+        else if (name == "L1_SingleMuCosmics") return nt.L1_SingleMuCosmics();
+        else if (name == "L1_SingleMuCosmics_BMTF") return nt.L1_SingleMuCosmics_BMTF();
+        else if (name == "L1_SingleMuCosmics_EMTF") return nt.L1_SingleMuCosmics_EMTF();
+        else if (name == "L1_SingleMuCosmics_OMTF") return nt.L1_SingleMuCosmics_OMTF();
+        else if (name == "L1_SingleMuOpen") return nt.L1_SingleMuOpen();
+        else if (name == "L1_SingleMuOpen_NotBptxOR") return nt.L1_SingleMuOpen_NotBptxOR();
+        else if (name == "L1_SingleMuOpen_er1p1_NotBptxOR_3BX") return nt.L1_SingleMuOpen_er1p1_NotBptxOR_3BX();
+        else if (name == "L1_SingleMuOpen_er1p4_NotBptxOR_3BX") return nt.L1_SingleMuOpen_er1p4_NotBptxOR_3BX();
+        else if (name == "L1_SingleTau120er2p1") return nt.L1_SingleTau120er2p1();
+        else if (name == "L1_SingleTau130er2p1") return nt.L1_SingleTau130er2p1();
+        else if (name == "L1_TOTEM_1") return nt.L1_TOTEM_1();
+        else if (name == "L1_TOTEM_2") return nt.L1_TOTEM_2();
+        else if (name == "L1_TOTEM_3") return nt.L1_TOTEM_3();
+        else if (name == "L1_TOTEM_4") return nt.L1_TOTEM_4();
+        else if (name == "L1_TripleEG16er2p5") return nt.L1_TripleEG16er2p5();
+        else if (name == "L1_TripleEG_16_12_8_er2p5") return nt.L1_TripleEG_16_12_8_er2p5();
+        else if (name == "L1_TripleEG_16_15_8_er2p5") return nt.L1_TripleEG_16_15_8_er2p5();
+        else if (name == "L1_TripleEG_18_17_8_er2p5") return nt.L1_TripleEG_18_17_8_er2p5();
+        else if (name == "L1_TripleEG_18_18_12_er2p5") return nt.L1_TripleEG_18_18_12_er2p5();
+        else if (name == "L1_TripleJet_100_80_70_DoubleJet_80_70_er2p5") return nt.L1_TripleJet_100_80_70_DoubleJet_80_70_er2p5();
+        else if (name == "L1_TripleJet_105_85_75_DoubleJet_85_75_er2p5") return nt.L1_TripleJet_105_85_75_DoubleJet_85_75_er2p5();
+        else if (name == "L1_TripleJet_95_75_65_DoubleJet_75_65_er2p5") return nt.L1_TripleJet_95_75_65_DoubleJet_75_65_er2p5();
+        else if (name == "L1_TripleMu0") return nt.L1_TripleMu0();
+        else if (name == "L1_TripleMu0_OQ") return nt.L1_TripleMu0_OQ();
+        else if (name == "L1_TripleMu0_SQ") return nt.L1_TripleMu0_SQ();
+        else if (name == "L1_TripleMu3") return nt.L1_TripleMu3();
+        else if (name == "L1_TripleMu3_SQ") return nt.L1_TripleMu3_SQ();
+        else if (name == "L1_TripleMu_5SQ_3SQ_0OQ") return nt.L1_TripleMu_5SQ_3SQ_0OQ();
+        else if (name == "L1_TripleMu_5SQ_3SQ_0OQ_DoubleMu_5_3_SQ_OS_Mass_Max9") return nt.L1_TripleMu_5SQ_3SQ_0OQ_DoubleMu_5_3_SQ_OS_Mass_Max9();
+        else if (name == "L1_TripleMu_5SQ_3SQ_0_DoubleMu_5_3_SQ_OS_Mass_Max9") return nt.L1_TripleMu_5SQ_3SQ_0_DoubleMu_5_3_SQ_OS_Mass_Max9();
+        else if (name == "L1_TripleMu_5_3_3") return nt.L1_TripleMu_5_3_3();
+        else if (name == "L1_TripleMu_5_3_3_SQ") return nt.L1_TripleMu_5_3_3_SQ();
+        else if (name == "L1_TripleMu_5_3p5_2p5") return nt.L1_TripleMu_5_3p5_2p5();
+        else if (name == "L1_TripleMu_5_3p5_2p5_DoubleMu_5_2p5_OS_Mass_5to17") return nt.L1_TripleMu_5_3p5_2p5_DoubleMu_5_2p5_OS_Mass_5to17();
+        else if (name == "L1_TripleMu_5_3p5_2p5_OQ_DoubleMu_5_2p5_OQ_OS_Mass_5to17") return nt.L1_TripleMu_5_3p5_2p5_OQ_DoubleMu_5_2p5_OQ_OS_Mass_5to17();
+        else if (name == "L1_TripleMu_5_4_2p5_DoubleMu_5_2p5_OS_Mass_5to17") return nt.L1_TripleMu_5_4_2p5_DoubleMu_5_2p5_OS_Mass_5to17();
+        else if (name == "L1_TripleMu_5_5_3") return nt.L1_TripleMu_5_5_3();
+        else if (name == "L1_UnpairedBunchBptxMinus") return nt.L1_UnpairedBunchBptxMinus();
+        else if (name == "L1_UnpairedBunchBptxPlus") return nt.L1_UnpairedBunchBptxPlus();
+        else if (name == "L1_ZeroBias") return nt.L1_ZeroBias();
+        else if (name == "L1_ZeroBias_copy") return nt.L1_ZeroBias_copy();
         return bool();
     }
     vector<bool> GetVB(const string &name) {
         if (name == "Electron_convVeto") return nt.Electron_convVeto();
         else if (name == "Electron_cutBased_HEEP") return nt.Electron_cutBased_HEEP();
         else if (name == "Electron_isPFcand") return nt.Electron_isPFcand();
-        else if (name == "Electron_mvaFall17Iso_WP80") return nt.Electron_mvaFall17Iso_WP80();
-        else if (name == "Electron_mvaFall17Iso_WP90") return nt.Electron_mvaFall17Iso_WP90();
-        else if (name == "Electron_mvaFall17Iso_WPL") return nt.Electron_mvaFall17Iso_WPL();
-        else if (name == "Electron_mvaFall17noIso_WP80") return nt.Electron_mvaFall17noIso_WP80();
-        else if (name == "Electron_mvaFall17noIso_WP90") return nt.Electron_mvaFall17noIso_WP90();
-        else if (name == "Electron_mvaFall17noIso_WPL") return nt.Electron_mvaFall17noIso_WPL();
+        else if (name == "Electron_mvaFall17V1Iso_WP80") return nt.Electron_mvaFall17V1Iso_WP80();
+        else if (name == "Electron_mvaFall17V1Iso_WP90") return nt.Electron_mvaFall17V1Iso_WP90();
+        else if (name == "Electron_mvaFall17V1Iso_WPL") return nt.Electron_mvaFall17V1Iso_WPL();
+        else if (name == "Electron_mvaFall17V1noIso_WP80") return nt.Electron_mvaFall17V1noIso_WP80();
+        else if (name == "Electron_mvaFall17V1noIso_WP90") return nt.Electron_mvaFall17V1noIso_WP90();
+        else if (name == "Electron_mvaFall17V1noIso_WPL") return nt.Electron_mvaFall17V1noIso_WPL();
+        else if (name == "Electron_mvaFall17V2Iso_WP80") return nt.Electron_mvaFall17V2Iso_WP80();
+        else if (name == "Electron_mvaFall17V2Iso_WP90") return nt.Electron_mvaFall17V2Iso_WP90();
+        else if (name == "Electron_mvaFall17V2Iso_WPL") return nt.Electron_mvaFall17V2Iso_WPL();
+        else if (name == "Electron_mvaFall17V2noIso_WP80") return nt.Electron_mvaFall17V2noIso_WP80();
+        else if (name == "Electron_mvaFall17V2noIso_WP90") return nt.Electron_mvaFall17V2noIso_WP90();
+        else if (name == "Electron_mvaFall17V2noIso_WPL") return nt.Electron_mvaFall17V2noIso_WPL();
+        else if (name == "GenDressedLepton_hasTauAnc") return nt.GenDressedLepton_hasTauAnc();
+        else if (name == "IsoTrack_isFromLostTrack") return nt.IsoTrack_isFromLostTrack();
         else if (name == "IsoTrack_isHighPurityTrack") return nt.IsoTrack_isHighPurityTrack();
         else if (name == "IsoTrack_isPFcand") return nt.IsoTrack_isPFcand();
+        else if (name == "Muon_inTimeMuon") return nt.Muon_inTimeMuon();
+        else if (name == "Muon_isGlobal") return nt.Muon_isGlobal();
         else if (name == "Muon_isPFcand") return nt.Muon_isPFcand();
+        else if (name == "Muon_isTracker") return nt.Muon_isTracker();
+        else if (name == "Muon_looseId") return nt.Muon_looseId();
         else if (name == "Muon_mediumId") return nt.Muon_mediumId();
+        else if (name == "Muon_mediumPromptId") return nt.Muon_mediumPromptId();
         else if (name == "Muon_softId") return nt.Muon_softId();
+        else if (name == "Muon_softMvaId") return nt.Muon_softMvaId();
         else if (name == "Muon_tightId") return nt.Muon_tightId();
+        else if (name == "Muon_triggerIdLoose") return nt.Muon_triggerIdLoose();
         else if (name == "Photon_electronVeto") return nt.Photon_electronVeto();
         else if (name == "Photon_isScEtaEB") return nt.Photon_isScEtaEB();
         else if (name == "Photon_isScEtaEE") return nt.Photon_isScEtaEE();

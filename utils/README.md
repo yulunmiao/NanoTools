@@ -9,6 +9,10 @@ python ../utils/make_nanoclassfiles.py [nanoaodfile] --tree Events --looper
 
 Note that this `--looper` also creates a looper (`ScanChain.C` + `doAll.C`). 
 You can specify `--profiling` to make a beefier class file with more functions to help profile your code. 
+The automatic documentation (description of different branches) embedded in nanoAOD files
+is converted into comments inside `Nano.h`.
+
+
 All options and features are visible with `./make_nanoclassfiles.py -h`.
 
 ### LorentzVectors

@@ -11,6 +11,7 @@
 #include <vector>
 #include <math.h>
 #include <algorithm>
+#include <deque>
 
 class tqdm {
     private:
@@ -18,8 +19,8 @@ class tqdm {
         std::chrono::time_point<std::chrono::system_clock> t_first = std::chrono::system_clock::now();
         std::chrono::time_point<std::chrono::system_clock> t_old = std::chrono::system_clock::now();
         int n_old = 0;
-        std::vector<double> deq_t;
-        std::vector<int> deq_n;
+        std::deque<double> deq_t;
+        std::deque<int> deq_n;
         int nupdates = 0;
         int total_ = 0;
         int period = 1;
@@ -27,7 +28,8 @@ class tqdm {
         bool use_ema = false;
         float alpha_ema = 0.1;
 
-        std::vector<const char*> bars = {" ", "▏", "▎", "▍", "▋", "▋", "▊", "▉", "▉"};
+        std::vector<const char*> bars = {" ", "▏", "▎", "▍", "▌", "▋", "▊", "▉", "█"};
+
         bool in_screen = (system("test $STY") == 0);
         bool in_tmux = (system("test $TMUX") == 0);
         bool is_tty = isatty(1);
@@ -85,6 +87,7 @@ class tqdm {
         void set_theme_circle() { bars = {" ", "◓", "◑", "◒", "◐", "◓", "◑", "◒", "#"}; }
         void set_theme_braille() { bars = {" ", "⡀", "⡄", "⡆", "⡇", "⡏", "⡟", "⡿", "⣿" }; }
         void set_theme_braille_spin() { bars = {" ", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠇", "⠿" }; }
+        void set_theme_vertical() { bars = {"▁", "▂", "▃", "▄", "▅", "▆", "▇", "█", "█"}; }
         void set_theme_basic() {
             bars = {" ", " ", " ", " ", " ", " ", " ", " ", "#"}; 
             right_pad = "|";
@@ -100,7 +103,7 @@ class tqdm {
             printf("\n");
             fflush(stdout);
         }
-        void progress( int curr, int tot) {
+        void progress(int curr, int tot) {
             if(is_tty && (curr%period == 0)) {
                 total_ = tot;
                 nupdates++;
@@ -110,10 +113,10 @@ class tqdm {
                 int dn = curr - n_old;
                 n_old = curr;
                 t_old = now;
-                if (deq_n.size() >= smoothing) deq_n.erase(deq_n.begin());
-                if (deq_t.size() >= smoothing) deq_t.erase(deq_t.begin());
-                deq_t.push_back(dt);
-                deq_n.push_back(dn);
+                if (deq_n.size() >= smoothing) deq_n.pop_back();
+                if (deq_t.size() >= smoothing) deq_t.pop_back();
+                deq_t.emplace_front(dt);
+                deq_n.emplace_front(dn);
 
                 double avgrate = 0.;
                 if (use_ema) {

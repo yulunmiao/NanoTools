@@ -1,17 +1,17 @@
+#!/usr/bin/env python
 from tqdm import tqdm
 import ROOT as r
 import os
 
 ch = r.TChain("Events")
-ch.Add("../508B6DBB-9742-E811-BA65-A4BF0112BCB0.root")
-# ch.Add("root://cmsxrootd.fnal.gov///store/data/Run2017F/DoubleMuon/NANOAOD/31Mar2018-v1/20000/B8AAFAB7-B248-E811-BD17-001E67248138.root")
+ch.Add("root://redirector.t2.ucsd.edu///store/user/namin/nanoaod/TTJets_TuneCP5_13TeV-madgraphMLM-pythia8__RunIIAutumn18NanoAODv5-Nano1June2019_102X_upgrade2018_realistic_v19-v1/8E0C8306-DC0D-0548-BA7C-D0698140DF28.root");
 
 r.gSystem.Load('../NanoCORE/NANO_CORE.so')
 for include in ["Nano.cc", "SSSelections.cc", "MetSelections.cc"]:
     r.gInterpreter.ProcessLine('#include "../NanoCORE/%s"' % include)
 
 # CORE functions will be ROOT object members after we gSystem.Load CORE
-from ROOT import nt, passesMETfiltersMoriond17, isGoodMuon
+from ROOT import nt, passesMETfilters, isGoodMuon
 
 nt.Init(ch)
 N = ch.GetEntries()

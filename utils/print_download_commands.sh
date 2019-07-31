@@ -13,9 +13,10 @@ function print_commands {
 # ./print_download_commands.sh > commands.txt
 # ./parallel --nice 10 --jobs 10 --bar --joblog joblog.txt < commands.txt
 
-print_commands /TTJets_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv5-Nano1June2019_102X_upgrade2018_realistic_v19-v1/NANOAODSIM
-print_commands /DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv5-Nano1June2019_102X_upgrade2018_realistic_v19-v1/NANOAODSIM
-print_commands /SMS-T1tttt_TuneCP2_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv4-PUFall18Fast_Nano14Dec2018_102X_upgrade2018_realistic_v16-v2/NANOAODSIM
+# print_commands /TTJets_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv5-Nano1June2019_102X_upgrade2018_realistic_v19-v1/NANOAODSIM
+# print_commands /DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv5-Nano1June2019_102X_upgrade2018_realistic_v19-v1/NANOAODSIM
+# print_commands /SMS-T1tttt_TuneCP2_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv4-PUFall18Fast_Nano14Dec2018_102X_upgrade2018_realistic_v16-v2/NANOAODSIM
+print_commands /GluGluHToZZTo4L_M130_13TeV_powheg2_JHUGenV7011_pythia8/RunIIAutumn18NanoAODv5-Nano1June2019_102X_upgrade2018_realistic_v19-v1/NANOAODSIM
 
 # print_commands /RPVGluinoGluinoToJets-M-300/RunIIFall17NanoAODv5-PU2017_12Apr2018_Nano1June2019_102X_mc2017_realistic_v7-v1/NANOAODSIM
 # print_commands /RPVGluinoGluinoToJets-M-900/RunIIFall17NanoAODv5-PU2017_12Apr2018_Nano1June2019_102X_mc2017_realistic_v7-v1/NANOAODSIM

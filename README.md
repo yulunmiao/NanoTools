@@ -10,6 +10,7 @@ make -j8 # takes about 20 seconds
 
 ### Python dependencies (if desired)
 ```bash
+# install uproot with python2.7 and python3
+pip install uproot --user
 pip3 install uproot --user
-pip3 install matplotlib --user
 ```

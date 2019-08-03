@@ -14,3 +14,4 @@ ssh -N -f -L localhost:8893:localhost:8893 uaf-10.t2.ucsd.edu
 
 * `fourmu.ipynb` uses `coffea` tools to look at H to ZZ to 4mu in Run2 DoubleMuon datasets
 * `trijet.ipynb` uses `coffea` to store invariant masses of 2,3,4,5 jets with Run2 JetHT datasets
+* `convert.ipynb` converts NanoAOD datasets into columnar format (each column is a separate gzipped `.npz` file)

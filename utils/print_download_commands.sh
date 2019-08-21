@@ -6,7 +6,7 @@ function print_commands {
     files=$(./dis_client.py -t files -d "$dsname | grep name")
     for f in $files ; do
         tailname=$(echo $f | rev | cut -d '/' -f1 | rev)
-        echo xrdcp root://cmsxrootd.fnal.gov/$f root://redirector.t2.ucsd.edu//store/user/namin/nanoaod/$nicename/$tailname
+        echo xrdcp root://cmsxrootd.fnal.gov/$f root://redirector.t2.ucsd.edu//store/group/snt/nanoaod/$nicename/$tailname
     done
 }
 

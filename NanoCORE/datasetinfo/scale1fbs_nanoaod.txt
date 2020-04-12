@@ -1,5 +1,5 @@
-# File was generated on  Sun Apr 12 16:18:51 PDT 2020
-# NanoAOD dataset name                                                                                                                                                                                                                                     n_events        n_eff_events    xsec            scale1fb       
+# File was generated on  Sun Apr 12 16:20:08 PDT 2020
+# NanoAOD dataset name                                                                                                                                                                                                                                     xsec           
 /DYJetsToLL_M-10to50_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv6-Nano25Oct2019_102X_upgrade2018_realistic_v20_ext1-v1/NANOAODSIM                                                                                                              20657          
 /DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv6-Nano25Oct2019_102X_upgrade2018_realistic_v20-v1/NANOAODSIM                                                                                                                       6197.9         
 /DYJetsToLL_M-50_Zpt-150toInf_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv6-Nano25Oct2019_102X_upgrade2018_realistic_v20-v1/NANOAODSIM                                                                                                          202.9          

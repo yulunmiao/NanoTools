@@ -32,16 +32,16 @@ for NANO in $(grep "NANOAODSIM" ../../../condor/samples.py | col 1 | tr -d '"' )
     SCALE1FB=$(grep ${NANODSNAME} scale1fbs.txt | grep ${NANODSCONFIGYEARINFO} | grep -v '#' | tail -n 1| col 6)
     # echo $MINIAODNAME $NEVENTS $NEFFEVENTS $XSEC $SCALE1FB
 
+    # Debug purpose only
     # if [[ $NMATCH != *"1"* ]]; then
     #     echo "ERROR::: Found more than one match"
     #     echo $NMATCH
     #     grep ${NANODSNAME} scale1fbs.txt | grep ${NANODSCONFIGYEARINFO}
     # fi
 
-    printf '%-250s %-15s %-15s %-15s %-15s\n' $NANO $NEVENTS $NEFFEVENTS $XSEC $SCALE1FB >> scale1fbs_nanoaod.txt
-    # NANODSNAME=${NANO
-    # MINI=$(dis_client.py -t parents $NANO | tr ' ' '\n' | grep MINIAODSIM | tr -d '[' | tr "'" ' ' | col 2)
-    # echo $NANO $MINI
-    # grep $MINI scale1fbs.txt
-    # break
+    # Below prints out all information, however nevents and neffevents were based on CMS4 processing
+    # For Nano these do not apply. So we do not print out everything and only the xsec
+    # printf '%-250s %-15s %-15s %-15s %-15s\n' $NANO $NEVENTS $NEFFEVENTS $XSEC $SCALE1FB >> scale1fbs_nanoaod.txt
+    printf '%-250s %-15s\n' $NANO $XSEC >> scale1fbs_nanoaod.txt
+
 done

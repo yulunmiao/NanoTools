@@ -17,7 +17,12 @@ fi
 wget -q https://github.com/cmstas/CORE/raw/master/Tools/datasetinfo/scale1fbs.txt -O scale1fbs.txt
 
 echo "# File was generated on " $(date) > scale1fbs_nanoaod.txt
-printf '%-250s %-15s %-15s %-15s %-15s\n' "# NanoAOD dataset name" "n_events" "n_eff_events" "xsec" "scale1fb" >> scale1fbs_nanoaod.txt
+
+# Below prints out all information, however nevents and neffevents were based on CMS4 processing
+# For Nano these do not apply. So we do not print out everything and only the xsec
+# printf '%-250s %-15s %-15s %-15s %-15s\n' "# NanoAOD dataset name" "n_events" "n_eff_events" "xsec" "scale1fb" >> scale1fbs_nanoaod.txt
+printf '%-250s %-15s\n' "# NanoAOD dataset name" "xsec" >> scale1fbs_nanoaod.txt
+
 for NANO in $(grep "NANOAODSIM" ../../../condor/samples.py | col 1 | tr -d '"' ); do
     NANODSNAME=$(echo $NANO | awk -F/ '{print $2}')
     NANODSCONFIG=$(echo $NANO | awk -F/ '{print $3}')

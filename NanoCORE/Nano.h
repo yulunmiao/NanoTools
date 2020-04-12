@@ -6370,6 +6370,7 @@ public:
     const UInt_t &nTau();
     const UInt_t &nTrigObj();
     const UInt_t &run();
+    const Bool_t hasGenBranches();
 };
 
 #ifndef __CINT__

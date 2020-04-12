@@ -16863,6 +16863,13 @@ const UInt_t &Nano::run() {
     return run_;
 }
 
+const Bool_t Nano::hasGenBranches() {
+    if (b_GenPart_pt_)
+        return true;
+    else
+        return false;
+}
+
 namespace tas {
     const float &CaloMET_phi() { return nt.CaloMET_phi(); }
     const float &CaloMET_pt() { return nt.CaloMET_pt(); }

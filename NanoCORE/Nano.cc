@@ -18506,7 +18506,6 @@ namespace tas {
         else if (name == "FatJet_deepTag_WvsQCD") return nt.FatJet_deepTag_WvsQCD();
         else if (name == "FatJet_deepTag_ZvsQCD") return nt.FatJet_deepTag_ZvsQCD();
         else if (name == "FatJet_eta") return nt.FatJet_eta();
-        else if (name == "FatJet_genJetAK8Idx") return nt.FatJet_genJetAK8Idx();
         else if (name == "FatJet_mass") return nt.FatJet_mass();
         else if (name == "FatJet_msoftdrop") return nt.FatJet_msoftdrop();
         else if (name == "FatJet_n2b1") return nt.FatJet_n2b1();
@@ -18773,8 +18772,7 @@ namespace tas {
         else if (name == "Electron_tightCharge") return nt.Electron_tightCharge();
         else if (name == "Electron_vidNestedWPBitmap") return nt.Electron_vidNestedWPBitmap();
         else if (name == "FatJet_jetId") return nt.FatJet_jetId();
-        else if (name == "FatJet_nBHadrons") return nt.FatJet_nBHadrons();
-        else if (name == "FatJet_nCHadrons") return nt.FatJet_nCHadrons();
+        else if (name == "FatJet_genJetAK8Idx") return nt.FatJet_genJetAK8Idx();
         else if (name == "FatJet_subJetIdx1") return nt.FatJet_subJetIdx1();
         else if (name == "FatJet_subJetIdx2") return nt.FatJet_subJetIdx2();
         else if (name == "GenDressedLepton_pdgId") return nt.GenDressedLepton_pdgId();

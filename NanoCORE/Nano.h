@@ -4872,8 +4872,10 @@ protected:
     UInt_t run_;
     TBranch *b_run_;
     bool loaded_run_;
+    Int_t year_;
 public:
     void Init(TTree *tree);
+    void setYear(TTree* tree);
     void PrintUsage();
     void GetEntry(unsigned int idx);
     const float &CaloMET_phi();
@@ -6371,6 +6373,7 @@ public:
     const UInt_t &nTrigObj();
     const UInt_t &run();
     const Bool_t hasGenBranches();
+    const Int_t &year();
 };
 
 #ifndef __CINT__

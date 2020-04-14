@@ -194,8 +194,14 @@ void Nano::Init(TTree *tree) {
     if (b_FatJet_deepTag_ZvsQCD_) { b_FatJet_deepTag_ZvsQCD_->SetAddress(&FatJet_deepTag_ZvsQCD_); }
     b_FatJet_eta_ = tree->GetBranch("FatJet_eta");
     if (b_FatJet_eta_) { b_FatJet_eta_->SetAddress(&FatJet_eta_); }
+    b_FatJet_genJetAK8Idx_ = tree->GetBranch("FatJet_genJetAK8Idx");
+    if (b_FatJet_genJetAK8Idx_) { b_FatJet_genJetAK8Idx_->SetAddress(&FatJet_genJetAK8Idx_); }
     b_FatJet_jetId_ = tree->GetBranch("FatJet_jetId");
     if (b_FatJet_jetId_) { b_FatJet_jetId_->SetAddress(&FatJet_jetId_); }
+    b_FatJet_nBHadrons_ = tree->GetBranch("FatJet_nBHadrons");
+    if (b_FatJet_nBHadrons_) { b_FatJet_nBHadrons_->SetAddress(&FatJet_nBHadrons_); }
+    b_FatJet_nCHadrons_ = tree->GetBranch("FatJet_nCHadrons");
+    if (b_FatJet_nCHadrons_) { b_FatJet_nCHadrons_->SetAddress(&FatJet_nCHadrons_); }
     b_FatJet_mass_ = tree->GetBranch("FatJet_mass");
     if (b_FatJet_mass_) { b_FatJet_mass_->SetAddress(&FatJet_mass_); }
     b_FatJet_msoftdrop_ = tree->GetBranch("FatJet_msoftdrop");
@@ -3096,7 +3102,10 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_FatJet_deepTag_WvsQCD_ = false;
     loaded_FatJet_deepTag_ZvsQCD_ = false;
     loaded_FatJet_eta_ = false;
+    loaded_FatJet_genJetAK8Idx_ = false;
     loaded_FatJet_jetId_ = false;
+    loaded_FatJet_nBHadrons_ = false;
+    loaded_FatJet_nCHadrons_ = false;
     loaded_FatJet_mass_ = false;
     loaded_FatJet_msoftdrop_ = false;
     loaded_FatJet_n2b1_ = false;
@@ -5367,6 +5376,15 @@ const vector<float> &Nano::FatJet_eta() {
     }
     return v_FatJet_eta_;
 }
+const vector<int> &Nano::FatJet_genJetAK8Idx() {
+    if (!loaded_FatJet_genJetAK8Idx_) {
+        if (!b_FatJet_genJetAK8Idx_) throw std::runtime_error("FatJet_genJetAK8Idx branch doesn't exist");
+        int bytes = b_FatJet_genJetAK8Idx_->GetEntry(index);
+        v_FatJet_genJetAK8Idx_ = vector<int>(FatJet_genJetAK8Idx_,FatJet_genJetAK8Idx_+bytes/sizeof(FatJet_genJetAK8Idx_[0]));
+        loaded_FatJet_genJetAK8Idx_ = true;
+    }
+    return v_FatJet_genJetAK8Idx_;
+}
 const vector<int> &Nano::FatJet_jetId() {
     if (!loaded_FatJet_jetId_) {
         if (!b_FatJet_jetId_) throw std::runtime_error("FatJet_jetId branch doesn't exist");
@@ -5375,6 +5393,24 @@ const vector<int> &Nano::FatJet_jetId() {
         loaded_FatJet_jetId_ = true;
     }
     return v_FatJet_jetId_;
+}
+const vector<UChar_t> &Nano::FatJet_nBHadrons() {
+    if (!loaded_FatJet_nBHadrons_) {
+        if (!b_FatJet_nBHadrons_) throw std::runtime_error("FatJet_nBHadrons branch doesn't exist");
+        int bytes = b_FatJet_nBHadrons_->GetEntry(index);
+        v_FatJet_nBHadrons_ = vector<UChar_t>(FatJet_nBHadrons_,FatJet_nBHadrons_+bytes/sizeof(FatJet_nBHadrons_[0]));
+        loaded_FatJet_nBHadrons_ = true;
+    }
+    return v_FatJet_nBHadrons_;
+}
+const vector<UChar_t> &Nano::FatJet_nCHadrons() {
+    if (!loaded_FatJet_nCHadrons_) {
+        if (!b_FatJet_nCHadrons_) throw std::runtime_error("FatJet_nCHadrons branch doesn't exist");
+        int bytes = b_FatJet_nCHadrons_->GetEntry(index);
+        v_FatJet_nCHadrons_ = vector<UChar_t>(FatJet_nCHadrons_,FatJet_nCHadrons_+bytes/sizeof(FatJet_nCHadrons_[0]));
+        loaded_FatJet_nCHadrons_ = true;
+    }
+    return v_FatJet_nCHadrons_;
 }
 const vector<float> &Nano::FatJet_mass() {
     if (!loaded_FatJet_mass_) {
@@ -17007,7 +17043,10 @@ namespace tas {
     const vector<float> &FatJet_deepTag_WvsQCD() { return nt.FatJet_deepTag_WvsQCD(); }
     const vector<float> &FatJet_deepTag_ZvsQCD() { return nt.FatJet_deepTag_ZvsQCD(); }
     const vector<float> &FatJet_eta() { return nt.FatJet_eta(); }
+    const vector<int> &FatJet_genJetAK8Idx() { return nt.FatJet_genJetAK8Idx(); }
     const vector<int> &FatJet_jetId() { return nt.FatJet_jetId(); }
+    const vector<UChar_t> &FatJet_nBHadrons() { return nt.FatJet_nBHadrons(); }
+    const vector<UChar_t> &FatJet_nCHadrons() { return nt.FatJet_nCHadrons(); }
     const vector<float> &FatJet_mass() { return nt.FatJet_mass(); }
     const vector<float> &FatJet_msoftdrop() { return nt.FatJet_msoftdrop(); }
     const vector<float> &FatJet_n2b1() { return nt.FatJet_n2b1(); }
@@ -18467,6 +18506,7 @@ namespace tas {
         else if (name == "FatJet_deepTag_WvsQCD") return nt.FatJet_deepTag_WvsQCD();
         else if (name == "FatJet_deepTag_ZvsQCD") return nt.FatJet_deepTag_ZvsQCD();
         else if (name == "FatJet_eta") return nt.FatJet_eta();
+        else if (name == "FatJet_genJetAK8Idx") return nt.FatJet_genJetAK8Idx();
         else if (name == "FatJet_mass") return nt.FatJet_mass();
         else if (name == "FatJet_msoftdrop") return nt.FatJet_msoftdrop();
         else if (name == "FatJet_n2b1") return nt.FatJet_n2b1();
@@ -18733,6 +18773,8 @@ namespace tas {
         else if (name == "Electron_tightCharge") return nt.Electron_tightCharge();
         else if (name == "Electron_vidNestedWPBitmap") return nt.Electron_vidNestedWPBitmap();
         else if (name == "FatJet_jetId") return nt.FatJet_jetId();
+        else if (name == "FatJet_nBHadrons") return nt.FatJet_nBHadrons();
+        else if (name == "FatJet_nCHadrons") return nt.FatJet_nCHadrons();
         else if (name == "FatJet_subJetIdx1") return nt.FatJet_subJetIdx1();
         else if (name == "FatJet_subJetIdx2") return nt.FatJet_subJetIdx2();
         else if (name == "GenDressedLepton_pdgId") return nt.GenDressedLepton_pdgId();

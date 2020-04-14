@@ -411,10 +411,22 @@ protected:
     vector<float> v_FatJet_eta_;
     TBranch *b_FatJet_eta_;
     bool loaded_FatJet_eta_;
+    int FatJet_genJetAK8Idx_[21];
+    vector<int> v_FatJet_genJetAK8Idx_;
+    TBranch *b_FatJet_genJetAK8Idx_;
+    bool loaded_FatJet_genJetAK8Idx_;
     int FatJet_jetId_[21];
     vector<int> v_FatJet_jetId_;
     TBranch *b_FatJet_jetId_;
     bool loaded_FatJet_jetId_;
+    UChar_t FatJet_nBHadrons_[21];
+    vector<UChar_t> v_FatJet_nBHadrons_;
+    TBranch *b_FatJet_nBHadrons_;
+    bool loaded_FatJet_nBHadrons_;
+    UChar_t FatJet_nCHadrons_[21];
+    vector<UChar_t> v_FatJet_nCHadrons_;
+    TBranch *b_FatJet_nCHadrons_;
+    bool loaded_FatJet_nCHadrons_;
     float FatJet_mass_[21];
     vector<float> v_FatJet_mass_;
     TBranch *b_FatJet_mass_;
@@ -4975,7 +4987,10 @@ public:
     const vector<float> &FatJet_deepTag_WvsQCD();
     const vector<float> &FatJet_deepTag_ZvsQCD();
     const vector<float> &FatJet_eta();
+    const vector<int> &FatJet_genJetAK8Idx();
     const vector<int> &FatJet_jetId();
+    const vector<UChar_t> &FatJet_nBHadrons();
+    const vector<UChar_t> &FatJet_nCHadrons();
     const vector<float> &FatJet_mass();
     const vector<float> &FatJet_msoftdrop();
     const vector<float> &FatJet_n2b1();
@@ -6478,7 +6493,10 @@ namespace tas {
     const vector<float> &FatJet_deepTag_WvsQCD(); // DeepBoostedJet tagger W vs QCD discriminator
     const vector<float> &FatJet_deepTag_ZvsQCD(); // DeepBoostedJet tagger Z vs QCD discriminator
     const vector<float> &FatJet_eta(); // eta
+    const vector<int> &FatJet_genJetAK8Idx(); // index of matched gen AK8 jet
     const vector<int> &FatJet_jetId(); // Jet ID flags bit1 is loose (always false in 2017 since it does not exist), bit2 is tight, bit3 is tightLepVeto
+    const vector<UChar_t> &FatJet_nBHadrons(); // number of b-hadrons
+    const vector<UChar_t> &FatJet_nCHadrons(); // number of c-hadrons
     const vector<float> &FatJet_mass(); // mass
     const vector<float> &FatJet_msoftdrop(); // Corrected soft drop mass with PUPPI
     const vector<float> &FatJet_n2b1(); // N2 with beta=1

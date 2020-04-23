@@ -1,3 +1,15 @@
+## Style
+
+We use artistic style to format our code
+
+Add this to the ```~/.vimrc``` and use ```vim``` to code. (Assumes you are working on UAF)
+
+    autocmd BufNewFile,BufRead *.cxx set formatprg=/home/users/phchang/software/bin/astyle\ -U\ --delete-empty-lines\ --pad-oper\ --keep-one-line-blocks\ --pad-header\ --style=allman\ --keep-one-line-blocks\ --indent-switches\ --break-one-line-headers\ --add-braces\ --pad-comma
+    autocmd BufNewFile,BufRead *.cc set formatprg=/home/users/phchang/software/bin/astyle\ -U\ --delete-empty-lines\ --pad-oper\ --keep-one-line-blocks\ --pad-header\ --style=allman\ --keep-one-line-blocks\ --indent-switches\ --break-one-line-headers\ --add-braces\ --pad-comma
+    autocmd BufNewFile,BufRead *.C set formatprg=/home/users/phchang/software/bin/astyle\ -U\ --delete-empty-lines\ --pad-oper\ --keep-one-line-blocks\ --pad-header\ --style=allman\ --keep-one-line-blocks\ --indent-switches\ --break-one-line-headers\ --add-braces\ --pad-comma
+    autocmd BufNewFile,BufRead *.h set formatprg=/home/users/phchang/software/bin/astyle\ -U\ --delete-empty-lines\ --pad-oper\ --keep-one-line-blocks\ --pad-header\ --style=allman\ --keep-one-line-blocks\ --indent-switches\ --break-one-line-headers\ --add-braces\ --pad-comma
+
+To format press ```ggvGgq``` to format your code in "artistic" way.
 
 ## This is a WIP of course
 

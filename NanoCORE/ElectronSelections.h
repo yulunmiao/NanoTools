@@ -2,10 +2,10 @@
 #define ELECTRONSELECTIONS_H
 #include "Nano.h"
 
-bool electronID(int iel, IDLevel idlevel, int year);
-float electronMVACut(float A, float B, float C, float pt);
-bool passesElectronMVA(int iel, string id_name);
-bool isTriggerSafe_noIso_v1(int iel);
-bool isTriggerSafe_iso_v1(int iel);
+bool electronIDVBS(int elIdx, string id_name);
+float electronMvacut(float A, float B, float C, float pt);
+bool ifpassElectronMVAID(int iel, string id_name);
+bool isTriggerSafenoIso_v3(int iel);
+bool passElectronIso(double cut_miniiso, double cut_ptratio, double cut_ptrel, int iel);
 
 #endif

@@ -11,11 +11,12 @@
    Need another variable? Add a line with a dummy default.
 */
 
-class GlobalConfig {
-    public:
-        unsigned int year = 0;
-        std::string analysis = ""; 
-        // ...
+class GlobalConfig
+{
+public:
+    unsigned int year = 0;
+    std::string analysis = "";
+    // ...
 };
 
 #ifndef __CINT__

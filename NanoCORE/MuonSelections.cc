@@ -113,4 +113,4 @@ bool passMuonIso(double cut_miniiso, double cut_ptratio, double cut_ptrel, int i
     double val_ptratio = 1 / (Muon_jetRelIso()[imu] + 1);
     double val_ptrel = Muon_jetPtRelv2()[imu];
     return (val_miniiso < cut_miniiso && ((val_ptratio > cut_ptratio) || (val_ptrel > cut_ptrel)));
-}                                                                                                           ~
+}

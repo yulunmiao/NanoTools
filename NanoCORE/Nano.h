@@ -20,15 +20,6 @@
 #include "TTreeReaderValue.h"
 #include "TTreeReaderArray.h"
 
-enum IDLevel {
-    IDdefault = -1,
-    IDveto = 0, // for Z-veto
-    IDfakablenoiso = 1,
-    IDfakable = 2, // for fake background + jet cleaning
-    IDtightnoiso = 3,
-    IDtight = 4 // for analysis
-};
-
 typedef ROOT::Math::LorentzVector<ROOT::Math::PtEtaPhiM4D<float> > LorentzVector;
 #define makeP4(Collection, idx) LorentzVector(Collection##_pt[idx],Collection##_eta[idx],Collection##_phi[idx],Collection##_mass[idx]);
 #define RANGE(a, b) unsigned a=0; a<b; a++

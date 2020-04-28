@@ -113,7 +113,7 @@ bool electronIDVBS(int iel, string id_name)
             {
                 return false;    //SS_innerlayers
             }
-            if (Electron_tightCharge()[iel] == 0)
+            if (Electron_tightCharge()[iel] == 0 || Electron_tightCharge()[iel] == 1)
             {
                 return false;
             }

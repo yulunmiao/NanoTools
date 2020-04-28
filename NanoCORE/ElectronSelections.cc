@@ -262,6 +262,10 @@ bool isTriggerSafenoIso_v3(int iel)
         {
             return false;
         }
+        if (fabs(Electron_eInvMinusPInv()[iel]) >= 0.01 )
+        {
+            return false;
+        }
     }
     else if (fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) > 1.479 &&
              fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) < 2.5)
@@ -271,6 +275,10 @@ bool isTriggerSafenoIso_v3(int iel)
             return false;
         }
         if (Electron_hoe()[iel] >= 0.08)
+        {
+            return false;
+        }
+        if (fabs(Electron_eInvMinusPInv()[iel]) >= 0.01 )
         {
             return false;
         }

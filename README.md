@@ -21,7 +21,7 @@ clang-format -style="{BasedOnStyle: llvm, IndentWidth: 4, ColumnLimit: 120, Allo
 
 Add this to the ```~/.vimrc``` and use ```vim``` to code. (Assumes you are working on UAF)
 ```
-autocmd BufNewFile,BufRead *.cc,*.h,*.C,*.cxx set formatprg=clang-format\ -style=\"{BasedOnStyle:\ llvm,\ IndentWidth:\ 4,\ ColumnLimit:\ 100,\ AllowShortIfStatementsOnASingleLine:\ true,\ AllowShortBlocksOnASingleLine:\ true}\"
+autocmd BufNewFile,BufRead *.cc,*.h,*.C,*.cxx set formatprg=clang-format\ -style=\"{BasedOnStyle:\ llvm,\ IndentWidth:\ 4,\ ColumnLimit:\ 100,\ AllowShortIfStatementsOnASingleLine:\ true,\ AllowShortBlocksOnASingleLine:\ false,\ BreakBeforeBraces:\ Allman}\"
 ```
 
 To format your code, press ```ggvGgq```.

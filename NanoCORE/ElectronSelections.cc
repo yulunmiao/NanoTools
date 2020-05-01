@@ -3,17 +3,20 @@
 
 using namespace tas;
 
-bool electronIDVBS(int iel, string id_name) {
+bool electronIDVBS(int iel, string id_name)
+{
     int id_level;
     if (id_name == "2017_tight")
         id_level = 1;
     else if (id_name == "2017 loose")
         id_level = 2;
-    else {
+    else
+    {
         cout << "wrong input id name" << endl;
         return 0;
     }
-    switch (id_level) {
+    switch (id_level)
+    {
     case (1):
         if (Electron_pt()[iel] <= 10) return false;
         if (!isTriggerSafenoIso_v3(iel)) return false;
@@ -51,7 +54,8 @@ bool electronIDVBS(int iel, string id_name) {
     return 0;
 }
 
-float electronMvacut(float A, float B, float C, float pt) {
+float electronMvacut(float A, float B, float C, float pt)
+{
     if (pt < 10) return C;
     if (pt > 25)
         return B;
@@ -59,7 +63,8 @@ float electronMvacut(float A, float B, float C, float pt) {
         return (A + (B - A) / 15 * (pt - 10));
 }
 
-bool ifpassElectronMVAID(int iel, string id_name) {
+bool ifpassElectronMVAID(int iel, string id_name)
+{
     int id_level;
     if (id_name == "2017_medium")
         id_level = 1;
@@ -67,52 +72,75 @@ bool ifpassElectronMVAID(int iel, string id_name) {
         id_level = 2;
     else if (id_name == "2017SS_fo_looseMVA_noiso_v6")
         id_level = 3;
-    else {
+    else
+    {
         cout << "wrong input id name from ElectronSelection.C!!!!!" << endl;
         return 0;
     }
-    switch (id_level) {
+    switch (id_level)
+    {
     case (1):
-        if (fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) < 0.8) {
-            if (Electron_mvaFall17V1noIso()[iel] <= electronMvacut(0.2, 0.68, 0.2, Electron_pt()[iel])) return false;
+        if (fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) < 0.8)
+        {
+            if (Electron_mvaFall17V1noIso()[iel] <=
+                electronMvacut(0.2, 0.68, 0.2, Electron_pt()[iel]))
+                return false;
         }
         if (fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) >= 0.8 &&
-            fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) <= 1.479) {
-            if (Electron_mvaFall17V1noIso()[iel] <= electronMvacut(0.1, 0.475, 0.1, Electron_pt()[iel])) return false;
+            fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) <= 1.479)
+        {
+            if (Electron_mvaFall17V1noIso()[iel] <=
+                electronMvacut(0.1, 0.475, 0.1, Electron_pt()[iel]))
+                return false;
         }
-        if (fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) > 1.479) {
-            if (Electron_mvaFall17V1noIso()[iel] <= electronMvacut(-0.1, 0.32, -0.1, Electron_pt()[iel])) return false;
+        if (fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) > 1.479)
+        {
+            if (Electron_mvaFall17V1noIso()[iel] <=
+                electronMvacut(-0.1, 0.32, -0.1, Electron_pt()[iel]))
+                return false;
         }
         return true;
         break;
     case (2):
-        if (fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) < 0.8) {
-            if (Electron_mvaFall17V1noIso()[iel] <= electronMvacut(-0.788, -0.64, 0.488, Electron_pt()[iel]))
+        if (fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) < 0.8)
+        {
+            if (Electron_mvaFall17V1noIso()[iel] <=
+                electronMvacut(-0.788, -0.64, 0.488, Electron_pt()[iel]))
                 return false;
         }
         if (fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) >= 0.8 &&
-            fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) <= 1.479) {
-            if (Electron_mvaFall17V1noIso()[iel] <= electronMvacut(-0.85, -0.775, -0.045, Electron_pt()[iel]))
+            fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) <= 1.479)
+        {
+            if (Electron_mvaFall17V1noIso()[iel] <=
+                electronMvacut(-0.85, -0.775, -0.045, Electron_pt()[iel]))
                 return false;
         }
-        if (fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) > 1.479) {
-            if (Electron_mvaFall17V1noIso()[iel] <= electronMvacut(-0.81, -0.733, 0.176, Electron_pt()[iel]))
+        if (fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) > 1.479)
+        {
+            if (Electron_mvaFall17V1noIso()[iel] <=
+                electronMvacut(-0.81, -0.733, 0.176, Electron_pt()[iel]))
                 return false;
         }
         return true;
         break;
     case (3):
-        if (fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) < 0.8) {
-            if (Electron_mvaFall17V1noIso()[iel] <= electronMvacut(-0.93, -0.887, -0.135, Electron_pt()[iel]))
+        if (fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) < 0.8)
+        {
+            if (Electron_mvaFall17V1noIso()[iel] <=
+                electronMvacut(-0.93, -0.887, -0.135, Electron_pt()[iel]))
                 return false;
         }
         if (fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) >= 0.8 &&
-            fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) <= 1.479) {
-            if (Electron_mvaFall17V1noIso()[iel] <= electronMvacut(-0.93, -0.89, -0.417, Electron_pt()[iel]))
+            fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) <= 1.479)
+        {
+            if (Electron_mvaFall17V1noIso()[iel] <=
+                electronMvacut(-0.93, -0.89, -0.417, Electron_pt()[iel]))
                 return false;
         }
-        if (fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) > 1.479) {
-            if (Electron_mvaFall17V1noIso()[iel] <= electronMvacut(-0.942, -0.91, -0.470, Electron_pt()[iel]))
+        if (fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) > 1.479)
+        {
+            if (Electron_mvaFall17V1noIso()[iel] <=
+                electronMvacut(-0.942, -0.91, -0.470, Electron_pt()[iel]))
                 return false;
         }
         return true;
@@ -121,20 +149,25 @@ bool ifpassElectronMVAID(int iel, string id_name) {
     cout << "wrong !!!!!!!should not see this message!!!! from ElectronSelection.C" << endl;
     return 0;
 }
-bool isTriggerSafenoIso_v3(int iel) {
-    if (fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) <= 1.479) {
+bool isTriggerSafenoIso_v3(int iel)
+{
+    if (fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) <= 1.479)
+    {
         if (Electron_sieie()[iel] >= 0.011) return false;
         if (Electron_hoe()[iel] >= 0.08) return false;
         if (fabs(Electron_eInvMinusPInv()[iel]) >= 0.01) return false;
-    } else if (fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) > 1.479 &&
-               fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) < 2.5) {
+    }
+    else if (fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) > 1.479 &&
+             fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) < 2.5)
+    {
         if (Electron_sieie()[iel] >= 0.031) return false;
         if (Electron_hoe()[iel] >= 0.08) return false;
         if (fabs(Electron_eInvMinusPInv()[iel]) >= 0.01) return false;
     }
     return true;
 }
-bool passElectronIso(double cut_miniiso, double cut_ptratio, double cut_ptrel, int iel) {
+bool passElectronIso(double cut_miniiso, double cut_ptratio, double cut_ptrel, int iel)
+{
     double val_miniiso = Electron_miniPFRelIso_all()[iel];
     double val_ptratio = 1 / (Electron_jetRelIso()[iel] + 1);
     double val_ptrel = Electron_jetPtRelv2()[iel];

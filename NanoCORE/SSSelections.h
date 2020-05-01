@@ -3,7 +3,8 @@
 #include "IsolationTools.h"
 #include "Nano.h"
 
-enum IDLevel {
+enum IDLevel
+{
     IDdefault = -1,
     IDveto = 0, // for Z-veto
     IDfakablenoiso = 1,
@@ -14,9 +15,12 @@ enum IDLevel {
 
 IDLevel whichLeptonLevel(int id, int idx);
 
-struct Lepton {
-    Lepton(int id = 0, unsigned int idx = 0) : id_(id), idx_(idx) {
-        if (id != 0) {
+struct Lepton
+{
+    Lepton(int id = 0, unsigned int idx = 0) : id_(id), idx_(idx)
+    {
+        if (id != 0)
+        {
             pt_ = (abs(id_) == 11 ? nt.Electron_pt()[idx_] : nt.Muon_pt()[idx_]);
             eta_ = (abs(id_) == 11 ? nt.Electron_eta()[idx_] : nt.Muon_eta()[idx_]);
             p4_ = (abs(id_) == 11 ? nt.Electron_p4()[idx_] : nt.Muon_p4()[idx_]);
@@ -46,13 +50,15 @@ struct Lepton {
 typedef std::pair<Lepton, Lepton> Hyp;
 typedef std::vector<Lepton> Leptons;
 
-std::ostream &operator<<(std::ostream &os, Lepton &lep) {
+std::ostream &operator<<(std::ostream &os, Lepton &lep)
+{
     std::string lepstr = (abs(lep.id()) == 11) ? "Electron" : "Muon";
-    return os << "<" << lepstr << " id=" << std::showpos << setw(3) << lep.id() << std::noshowpos << ", idx=" << setw(2)
-              << lep.idx() << ", level=" << lep.idlevel() << ", (pT,eta)="
+    return os << "<" << lepstr << " id=" << std::showpos << setw(3) << lep.id() << std::noshowpos
+              << ", idx=" << setw(2) << lep.idx() << ", level=" << lep.idlevel() << ", (pT,eta)="
               << "(" << lep.pt() << "," << lep.eta() << ")>";
 }
-template <typename T1, typename T2> std::ostream &operator<<(std::ostream &os, std::pair<T1, T2> &p) {
+template <typename T1, typename T2> std::ostream &operator<<(std::ostream &os, std::pair<T1, T2> &p)
+{
     return os << "(" << p.first << ", " << p.second << ")";
 }
 

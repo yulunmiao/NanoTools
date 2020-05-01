@@ -1,18 +1,21 @@
-#include "MuonSelections.h"
 #include "IsolationTools.h"
+#include "MuonSelections.h"
 
 using namespace tas;
-bool muonIDVBS(unsigned int imu, string id_name) {
+bool muonIDVBS(unsigned int imu, string id_name)
+{
     int id_level_t;
     if (id_name == "2017_tight")
         id_level_t = 1;
     else if (id_name == "2017_loose")
         id_level_t = 2;
-    else {
+    else
+    {
         cout << "wrong input id name " << endl;
         return 0;
     }
-    switch (id_level_t) {
+    switch (id_level_t)
+    {
     case (1):
         if (Muon_pt()[imu] < 10) return false;
         if (fabs(Muon_eta()[imu]) > 2.4) return false;
@@ -43,7 +46,8 @@ bool muonIDVBS(unsigned int imu, string id_name) {
     return 0;
 }
 
-bool passMuonIso(double cut_miniiso, double cut_ptratio, double cut_ptrel, int imu) {
+bool passMuonIso(double cut_miniiso, double cut_ptratio, double cut_ptrel, int imu)
+{
     double val_miniiso = Muon_miniPFRelIso_all()[imu];
     double val_ptratio = 1 / (Muon_jetRelIso()[imu] + 1);
     double val_ptrel = Muon_jetPtRelv2()[imu];

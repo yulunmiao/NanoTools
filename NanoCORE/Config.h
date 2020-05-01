@@ -13,7 +13,7 @@
 
 class GlobalConfig
 {
-public:
+  public:
     unsigned int year = 0;
     std::string analysis = "";
     // ...

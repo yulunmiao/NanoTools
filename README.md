@@ -1,15 +1,15 @@
 ## Style
 
-We use artistic style to format our code
+We use `clang-format` based on LLVM style to format our code. To format the `ElectronSelections.cc` file in-place, do
+```bash
+clang-format -style="{BasedOnStyle: llvm, IndentWidth: 4, ColumnLimit: 100, AllowShortIfStatementsOnASingleLine: true, AllowShortBlocksOnASingleLine: true}" -i ElectronSelections.cc
+```
 
 Add this to the ```~/.vimrc``` and use ```vim``` to code. (Assumes you are working on UAF)
 
-    autocmd BufNewFile,BufRead *.cxx set formatprg=/home/users/phchang/software/bin/astyle\ -U\ --delete-empty-lines\ --pad-oper\ --keep-one-line-blocks\ --pad-header\ --style=allman\ --keep-one-line-blocks\ --indent-switches\ --break-one-line-headers\ --add-braces\ --pad-comma
-    autocmd BufNewFile,BufRead *.cc set formatprg=/home/users/phchang/software/bin/astyle\ -U\ --delete-empty-lines\ --pad-oper\ --keep-one-line-blocks\ --pad-header\ --style=allman\ --keep-one-line-blocks\ --indent-switches\ --break-one-line-headers\ --add-braces\ --pad-comma
-    autocmd BufNewFile,BufRead *.C set formatprg=/home/users/phchang/software/bin/astyle\ -U\ --delete-empty-lines\ --pad-oper\ --keep-one-line-blocks\ --pad-header\ --style=allman\ --keep-one-line-blocks\ --indent-switches\ --break-one-line-headers\ --add-braces\ --pad-comma
-    autocmd BufNewFile,BufRead *.h set formatprg=/home/users/phchang/software/bin/astyle\ -U\ --delete-empty-lines\ --pad-oper\ --keep-one-line-blocks\ --pad-header\ --style=allman\ --keep-one-line-blocks\ --indent-switches\ --break-one-line-headers\ --add-braces\ --pad-comma
+    autocmd BufNewFile,BufRead *.cc,*.h,*.C,*.cxx set formatprg=clang-format\ -style=\"{BasedOnStyle:\ llvm,\ IndentWidth:\ 4,\ ColumnLimit:\ 100,\ AllowShortIfStatementsOnASingleLine:\ true,\ AllowShortBlocksOnASingleLine:\ true}\"
 
-To format press ```ggvGgq``` to format your code in "artistic" way.
+To format press ```ggvGgq``` to format your code.
 
 ## This is a WIP of course
 

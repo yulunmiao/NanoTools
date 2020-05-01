@@ -2,7 +2,7 @@
 
 We use `clang-format` based on LLVM style to format our code. To format the `ElectronSelections.cc` file in-place, do
 ```bash
-clang-format -style="{BasedOnStyle: llvm, IndentWidth: 4, ColumnLimit: 100, AllowShortIfStatementsOnASingleLine: true, AllowShortBlocksOnASingleLine: true}" -i ElectronSelections.cc
+clang-format -style="{BasedOnStyle: llvm, IndentWidth: 4, ColumnLimit: 120, AllowShortIfStatementsOnASingleLine: true, AllowShortBlocksOnASingleLine: true}" -i ElectronSelections.cc
 ```
 
 Add this to the ```~/.vimrc``` and use ```vim``` to code. (Assumes you are working on UAF)

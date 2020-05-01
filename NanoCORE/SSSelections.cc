@@ -30,15 +30,13 @@ std::tuple<int, int, float> getJetInfo(Leptons &leps, int variation) {
         if (Jet_electronIdx1()[ijet] >= 0) {
             bool skip = false;
             for (auto &lep : leps) {
-                if (lep.is_el() && (Jet_electronIdx1()[ijet] == (int)(lep.idx())) &&
-                    lep.idlevel() >= IDfakable) {
+                if (lep.is_el() && (Jet_electronIdx1()[ijet] == (int)(lep.idx())) && lep.idlevel() >= IDfakable) {
                     skip = true;
                     break;
                 }
                 if (skip) break;
                 if (Jet_electronIdx2()[ijet] >= 0) {
-                    if (lep.is_el() && (Jet_electronIdx2()[ijet] == (int)(lep.idx())) &&
-                        lep.idlevel() >= IDfakable) {
+                    if (lep.is_el() && (Jet_electronIdx2()[ijet] == (int)(lep.idx())) && lep.idlevel() >= IDfakable) {
                         skip = true;
                         break;
                     }
@@ -51,15 +49,13 @@ std::tuple<int, int, float> getJetInfo(Leptons &leps, int variation) {
         if (Jet_muonIdx1()[ijet] >= 0) {
             bool skip = false;
             for (auto &lep : leps) {
-                if (lep.is_mu() && (Jet_muonIdx1()[ijet] == (int)(lep.idx())) &&
-                    lep.idlevel() >= IDfakable) {
+                if (lep.is_mu() && (Jet_muonIdx1()[ijet] == (int)(lep.idx())) && lep.idlevel() >= IDfakable) {
                     skip = true;
                     break;
                 }
                 if (skip) { break; }
                 if (Jet_muonIdx2()[ijet] >= 0) {
-                    if (lep.is_mu() && (Jet_muonIdx2()[ijet] == (int)(lep.idx())) &&
-                        lep.idlevel() >= IDfakable) {
+                    if (lep.is_mu() && (Jet_muonIdx2()[ijet] == (int)(lep.idx())) && lep.idlevel() >= IDfakable) {
                         skip = true;
                         break;
                     }
@@ -77,37 +73,28 @@ std::tuple<int, int, float> getJetInfo(Leptons &leps, int variation) {
     return std::make_tuple(njets, nbtags, ht);
 }
 
-std::pair<int, int> makesResonance(Leptons &leps, Lepton lep1, Lepton lep2, float mass,
-                                   float window) {
+std::pair<int, int> makesResonance(Leptons &leps, Lepton lep1, Lepton lep2, float mass, float window) {
     // return {which lepton (1,2), and index of resonance partner}
     for (auto &lep : leps) {
         if (lep.is_el()) {
             if (!(lep1.is_el() || lep2.is_el())) continue;
-            if ((lep.idx() == lep1.idx() && lep1.is_el()) ||
-                (lep.idx() == lep2.idx() && lep2.is_el()))
-                continue;
+            if ((lep.idx() == lep1.idx() && lep1.is_el()) || (lep.idx() == lep2.idx() && lep2.is_el())) continue;
             if (fabs(lep.eta()) > 2.4) continue;
             if (lep.pt() < 7) continue;
             if (lep.idlevel() < IDveto) continue;
-            if (lep1.is_el() && (lep1.id() * lep.id() < 0) &&
-                (fabs((lep1.p4() + lep.p4()).M() - mass) < window))
+            if (lep1.is_el() && (lep1.id() * lep.id() < 0) && (fabs((lep1.p4() + lep.p4()).M() - mass) < window))
                 return {1, lep.idx()};
-            if (lep2.is_el() && (lep2.id() * lep.id() < 0) &&
-                (fabs((lep2.p4() + lep.p4()).M() - mass) < window))
+            if (lep2.is_el() && (lep2.id() * lep.id() < 0) && (fabs((lep2.p4() + lep.p4()).M() - mass) < window))
                 return {2, lep.idx()};
         } else {
             if (!(lep1.is_mu() || lep2.is_mu())) continue;
-            if ((lep.idx() == lep1.idx() && lep1.is_mu()) ||
-                (lep.idx() == lep2.idx() && lep2.is_mu()))
-                continue;
+            if ((lep.idx() == lep1.idx() && lep1.is_mu()) || (lep.idx() == lep2.idx() && lep2.is_mu())) continue;
             if (fabs(lep.eta()) > 2.4) continue;
             if (lep.pt() < 5) continue;
             if (lep.idlevel() < IDveto) continue;
-            if (lep1.is_mu() && (lep1.id() * lep.id() < 0) &&
-                (fabs((lep1.p4() + lep.p4()).M() - mass) < window))
+            if (lep1.is_mu() && (lep1.id() * lep.id() < 0) && (fabs((lep1.p4() + lep.p4()).M() - mass) < window))
                 return {1, lep.idx()};
-            if (lep2.is_mu() && (lep2.id() * lep.id() < 0) &&
-                (fabs((lep2.p4() + lep.p4()).M() - mass) < window))
+            if (lep2.is_mu() && (lep2.id() * lep.id() < 0) && (fabs((lep2.p4() + lep.p4()).M() - mass) < window))
                 return {2, lep.idx()};
         }
     }
@@ -230,13 +217,10 @@ std::pair<int, Hyp> getBestHyp(Leptons &leptons) {
         best_hyp = hyps[0];
         for (unsigned int i = 1; i < hyps.size(); i++) {
             Hyp hyp = hyps[i];
-            if (hyp.first.is_mu() + hyp.second.is_mu() >
-                best_hyp.first.is_mu() + best_hyp.second.is_mu())
+            if (hyp.first.is_mu() + hyp.second.is_mu() > best_hyp.first.is_mu() + best_hyp.second.is_mu())
                 best_hyp = hyp;
-            else if (hyp.first.is_mu() + hyp.second.is_mu() ==
-                     best_hyp.first.is_mu() + best_hyp.second.is_mu()) {
-                if (hyp.first.pt() + hyp.second.pt() > best_hyp.first.pt() + best_hyp.second.pt())
-                    best_hyp = hyp;
+            else if (hyp.first.is_mu() + hyp.second.is_mu() == best_hyp.first.is_mu() + best_hyp.second.is_mu()) {
+                if (hyp.first.pt() + hyp.second.pt() > best_hyp.first.pt() + best_hyp.second.pt()) best_hyp = hyp;
             }
         }
     }

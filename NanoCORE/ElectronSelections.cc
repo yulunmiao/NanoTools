@@ -74,57 +74,45 @@ bool ifpassElectronMVAID(int iel, string id_name) {
     switch (id_level) {
     case (1):
         if (fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) < 0.8) {
-            if (Electron_mvaFall17V1noIso()[iel] <=
-                electronMvacut(0.2, 0.68, 0.2, Electron_pt()[iel]))
-                return false;
+            if (Electron_mvaFall17V1noIso()[iel] <= electronMvacut(0.2, 0.68, 0.2, Electron_pt()[iel])) return false;
         }
         if (fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) >= 0.8 &&
             fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) <= 1.479) {
-            if (Electron_mvaFall17V1noIso()[iel] <=
-                electronMvacut(0.1, 0.475, 0.1, Electron_pt()[iel]))
-                return false;
+            if (Electron_mvaFall17V1noIso()[iel] <= electronMvacut(0.1, 0.475, 0.1, Electron_pt()[iel])) return false;
         }
         if (fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) > 1.479) {
-            if (Electron_mvaFall17V1noIso()[iel] <=
-                electronMvacut(-0.1, 0.32, -0.1, Electron_pt()[iel]))
-                return false;
+            if (Electron_mvaFall17V1noIso()[iel] <= electronMvacut(-0.1, 0.32, -0.1, Electron_pt()[iel])) return false;
         }
         return true;
         break;
     case (2):
         if (fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) < 0.8) {
-            if (Electron_mvaFall17V1noIso()[iel] <=
-                electronMvacut(-0.788, -0.64, 0.488, Electron_pt()[iel]))
+            if (Electron_mvaFall17V1noIso()[iel] <= electronMvacut(-0.788, -0.64, 0.488, Electron_pt()[iel]))
                 return false;
         }
         if (fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) >= 0.8 &&
             fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) <= 1.479) {
-            if (Electron_mvaFall17V1noIso()[iel] <=
-                electronMvacut(-0.85, -0.775, -0.045, Electron_pt()[iel]))
+            if (Electron_mvaFall17V1noIso()[iel] <= electronMvacut(-0.85, -0.775, -0.045, Electron_pt()[iel]))
                 return false;
         }
         if (fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) > 1.479) {
-            if (Electron_mvaFall17V1noIso()[iel] <=
-                electronMvacut(-0.81, -0.733, 0.176, Electron_pt()[iel]))
+            if (Electron_mvaFall17V1noIso()[iel] <= electronMvacut(-0.81, -0.733, 0.176, Electron_pt()[iel]))
                 return false;
         }
         return true;
         break;
     case (3):
         if (fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) < 0.8) {
-            if (Electron_mvaFall17V1noIso()[iel] <=
-                electronMvacut(-0.93, -0.887, -0.135, Electron_pt()[iel]))
+            if (Electron_mvaFall17V1noIso()[iel] <= electronMvacut(-0.93, -0.887, -0.135, Electron_pt()[iel]))
                 return false;
         }
         if (fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) >= 0.8 &&
             fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) <= 1.479) {
-            if (Electron_mvaFall17V1noIso()[iel] <=
-                electronMvacut(-0.93, -0.89, -0.417, Electron_pt()[iel]))
+            if (Electron_mvaFall17V1noIso()[iel] <= electronMvacut(-0.93, -0.89, -0.417, Electron_pt()[iel]))
                 return false;
         }
         if (fabs(Electron_eta()[iel] + Electron_deltaEtaSC()[iel]) > 1.479) {
-            if (Electron_mvaFall17V1noIso()[iel] <=
-                electronMvacut(-0.942, -0.91, -0.470, Electron_pt()[iel]))
+            if (Electron_mvaFall17V1noIso()[iel] <= electronMvacut(-0.942, -0.91, -0.470, Electron_pt()[iel]))
                 return false;
         }
         return true;

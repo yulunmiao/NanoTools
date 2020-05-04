@@ -1,6 +1,6 @@
 include Makefile.arch
 
-SOURCES=$(wildcard *.cc)
+SOURCES=$(wildcard *.cc) $(wildcard Tools/*.cc)
 OBJECTS=$(SOURCES:.cc=.o)
 LIB=NANO_CORE.so
 
@@ -15,3 +15,6 @@ clean:
 	rm -f *.o \
 	rm -f *.d \
 	rm -f *.so \
+	rm -f Tools/*.o \
+	rm -f Tools/*.d \
+	rm -f Tools/*.so

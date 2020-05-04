@@ -2967,10 +2967,15 @@ void Nano::Init(TTree *tree) {
     b_run_ = tree->GetBranch("run");
     if (b_run_) { b_run_->SetAddress(&run_); }
     // Parsing year
-    setYear(tree);
+    ParseYear(tree);
 }
 
-void Nano::setYear(TTree* tree) {
+void Nano::SetYear(int year) {
+    year_ = year;
+}
+
+void Nano::ParseYear(TTree* tree) {
+    if (year_ != -999) return;
     year_ = -999;
     TString full_file_path = TString(((TFile*) tree->GetCurrentFile())->GetName());
     if (full_file_path.Contains("RunIIAutumn18NanoAOD"))
@@ -2999,7 +3004,7 @@ void Nano::setYear(TTree* tree) {
     }
     else
     {
-        throw std::runtime_error("Nano::setYear():: ERROR - Failed to recognize which year this NanoAOD is !\nPlease make sure the path has one of the following keywords:\n  2016: 'Run2016' or 'RunIISummer16NanoAOD'\n  2017: 'Run2017' or 'RunIIFall17NanoAOD'\n  2018: 'Run2018' or 'RunIIAutumn18NanoAOD'");
+        throw std::runtime_error("Nano::parseYear():: ERROR - Failed to recognize which year this NanoAOD is !\nPlease make sure the path has one of the following keywords:\n  2016: 'Run2016' or 'RunIISummer16NanoAOD'\n  2017: 'Run2017' or 'RunIIFall17NanoAOD'\n  2018: 'Run2018' or 'RunIIAutumn18NanoAOD'\nOR, use Nano::SetYear(int year) before Nano::Init()");
     }
 }
 
@@ -16938,7 +16943,7 @@ const Int_t &Nano::year() {
     return year_;
 }
 
-const Bool_t Nano::hasGenBranches() {
+Bool_t Nano::hasGenBranches() {
     if (b_GenPart_pt_)
         return true;
     else

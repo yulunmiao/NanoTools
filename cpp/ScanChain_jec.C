@@ -14,7 +14,7 @@
 #include <iostream>
 #include <iomanip>
 
-#define DEBUG
+// #define DEBUG
 
 struct debugger { template<typename T> debugger& operator , (const T& v) { cerr<<v<<" "; return *this; } } dbg;
 #ifdef DEBUG
@@ -26,7 +26,7 @@ struct debugger { template<typename T> debugger& operator , (const T& v) { cerr<
 using namespace std;
 using namespace tas;
 
-int ScanChain(TChain *ch) {
+int ScanChain(TChain *ch, int nevents_to_process=-1) {
 
     int nEventsTotal = 0;
     int nEventsChain = ch->GetEntries();
@@ -77,10 +77,9 @@ int ScanChain(TChain *ch) {
                 debug(i, rawpt, pt, newpt);
             }
 
-            if (event > 500) break;
-
-
+            if (nevents_to_process > 0 and nEventsTotal > nevents_to_process) break;
         }
+        if (nevents_to_process > 0 and nEventsTotal > nevents_to_process) break;
 
         delete file;
 

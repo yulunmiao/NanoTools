@@ -36,6 +36,7 @@ int ScanChain(TChain *ch, int nevents_to_process=-1) {
     tqdm bar;
 
     std::string jecEraMC = "Fall17_17Nov2017_V32";
+    debug(jecEraMC);
     FactorizedJetCorrector* jetCorr = makeJetCorrector({
             "../NanoCORE/Tools/jetcorr/data/"+jecEraMC+"_MC/"+jecEraMC+"_MC_L1FastJet_AK4PFchs.txt",
             "../NanoCORE/Tools/jetcorr/data/"+jecEraMC+"_MC/"+jecEraMC+"_MC_L2Relative_AK4PFchs.txt",
@@ -47,7 +48,7 @@ int ScanChain(TChain *ch, int nevents_to_process=-1) {
         TTree *tree = (TTree*)file->Get("Events");
         TString filename(currentFile->GetTitle());
 
-        tree->SetCacheSize(128*1024*1024);
+        tree->SetCacheSize(32*1024*1024);
         tree->SetCacheLearnEntries(100);
 
         nt.Init(tree);
@@ -67,10 +68,12 @@ int ScanChain(TChain *ch, int nevents_to_process=-1) {
                 float pt = Jet_pt()[i];
                 float rawpt = pt*(1.-Jet_rawFactor()[i]);
                 // Now compute the JEC again from text files
-                jetCorr->setJetEta(Jet_eta()[i]);
-                jetCorr->setJetPt(rawpt);
-                jetCorr->setJetA(Jet_area()[i]);
-                jetCorr->setRho(fixedGridRhoFastjetAll());
+                jetCorr->setJetPtEtaARho(rawpt, Jet_eta()[i], Jet_area()[i], fixedGridRhoFastjetAll());
+                // Which is shorthand for
+                //     jetCorr->setJetEta(Jet_eta()[i]);
+                //     jetCorr->setJetPt(rawpt);
+                //     jetCorr->setJetA(Jet_area()[i]);
+                //     jetCorr->setRho(fixedGridRhoFastjetAll());
                 float JEC = jetCorr->getCorrection();
                 float newpt = rawpt*JEC;
                 // Do they match?

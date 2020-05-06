@@ -25,7 +25,7 @@ int main() {
     ScanChain(ch);
 }
 ```
-Assuming such a file is in `main.cc`, execute
+Assuming this main function is in `main.cc`, execute
 ```bash
 g++ main.cc -o main.exe `root-config --cflags --glibs` ../NanoCORE/NANO_CORE.so
 ```
@@ -33,21 +33,22 @@ to compile and link against CORE functions. Simply run with `./main.exe`.
 
 ### CPU profiling a standalone executable
 
-To do CPU profiling of a standalone executable, we make use of `igprof`. First run the program
+To do CPU profiling of a standalone executable, we make use of `igprof`. Make sure NanoCORE and the executable
+were compiled with debug symbols enabled (`-g`). Run the program
 ```bash
 igprof -d -pp -z -o igprof.pp.gz ./main.exe >& log.txt &
 ```
 Then convert this profiling output file into a format to be used with a cgi script. For some reason, this only
-works with an older $SCRAM_ARCH, so switch to an older one temporarily in order to execute this command
+works with an older $SCRAM_ARCH, so we switch to an older one temporarily in order to execute `igprof-analyse`. (Commands
+in bash which are enclosed in `(`,`)` are executed in a sandboxed subshell, so this is why we don't need to reset the
+CMSSW environment again. Handy.)
 ```bash
-mycurrentrelease=$CMSSW_RELEASE_BASE
-cd /cvmfs/cms.cern.ch/slc6_amd64_gcc491/cms/cmssw-patch/CMSSW_7_4_7_patch1
-cmsenv
-cd -
-igprof-analyse --sqlite -d -v -g igprof.pp.gz | sqlite3 igreport_perf.sql3 >& /dev/null
-cd $mycurrentrelease
-cmsenv
-cd -
+(
+    cd /cvmfs/cms.cern.ch/slc6_amd64_gcc491/cms/cmssw-patch/CMSSW_7_4_7_patch1;
+    cmsenv;
+    cd -;
+    igprof-analyse --sqlite -d -v -g igprof.pp.gz | sqlite3 igreport_perf.sql3 >& /dev/null
+)
 ```
 This sqlite file can be viewed with a cgi script. Set it up with
 ```bash

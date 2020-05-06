@@ -29,6 +29,7 @@ class FactorizedJetCorrector
     void setJetEMF      (float fEMF); 
     void setJetA        (float fA);
     void setRho         (float fRho); 
+    void setJetPtEtaARho(float fPt, float fEta, float fA, float fRho);
     void setLepPx       (float fLepPx);
     void setLepPy       (float fLepPy);
     void setLepPz       (float fLepPz);

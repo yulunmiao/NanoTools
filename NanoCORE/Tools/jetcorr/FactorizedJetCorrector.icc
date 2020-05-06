@@ -557,6 +557,18 @@ void FactorizedJetCorrector::setRho(float fRho)
   mIsRhoset = true;
 }
 //------------------------------------------------------------------------
+void FactorizedJetCorrector::setJetPtEtaARho(float fPt, float fEta, float fA, float fRho)
+{
+  mJetPt = fPt;
+  mIsJetPtset  = true;
+  mJetEta = fEta;
+  mIsJetEtaset = true;
+  mJetA = fA;
+  mIsJetAset = true;
+  mRho = fRho;
+  mIsRhoset = true;
+}
+//------------------------------------------------------------------------
 void FactorizedJetCorrector::setLepPx(float fPx)
 {
   mLepPx = fPx;

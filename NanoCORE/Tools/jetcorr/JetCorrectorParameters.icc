@@ -178,14 +178,6 @@ int JetCorrectorParameters::binIndex(const std::vector<float>& fX) const
         // unless we somehow underflow, but that should never happen unless jet eta < ~6
         if (result > 0) result -= 1;
 
-        // if (N == 1) {
-        //     std::cout <<  "fX[0]: " << fX[0] <<  std::endl;
-        //     std::cout <<  "result: " << result <<  " " << mRecords[result].xMin(0) <<  "," << mRecords[result].xMax(0) << std::endl;
-        // } else {
-        //     std::cout <<  "fX[0]: " << fX[0] <<  " fX[1]: " << fX[1] <<  std::endl;
-        //     std::cout <<  "result: " << result <<  " " << mRecords[result].xMin(0) <<  "," << mRecords[result].xMax(0) <<  " | " << mRecords[result].xMin(1) <<  "," << mRecords[result].xMax(1) <<  std::endl;
-        // }
-
         return result;
     }
 
@@ -204,7 +196,6 @@ int JetCorrectorParameters::binIndex(const std::vector<float>& fX) const
             break;
         }
     } 
-
 
     return result;
 }

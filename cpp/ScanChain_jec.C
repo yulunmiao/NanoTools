@@ -8,13 +8,14 @@
 #include "TTreePerfStats.h"
 
 #include "../NanoCORE/Nano.h"
+#include "../NanoCORE/MetSelections.h"
 #include "../NanoCORE/Tools/JetCorrector.h"
 #include "../NanoCORE/tqdm.h"
 
 #include <iostream>
 #include <iomanip>
 
-// #define DEBUG
+#define DEBUG
 
 struct debugger { template<typename T> debugger& operator , (const T& v) { cerr<<v<<" "; return *this; } } dbg;
 #ifdef DEBUG
@@ -79,6 +80,11 @@ int ScanChain(TChain *ch, int nevents_to_process=-1) {
                 // Do they match?
                 debug(i, rawpt, pt, newpt);
             }
+
+            float rawmet = RawMET_pt();
+            float nanomet = MET_pt();
+            float t1met = getT1CHSMET(jetCorr).first;
+            debug(rawmet,nanomet,t1met);
 
             if (nevents_to_process > 0 and nEventsTotal > nevents_to_process) break;
         }

@@ -16950,7 +16950,13 @@ Bool_t Nano::hasGenBranches() {
         return false;
 }
 
+const Bool_t &Nano::isData() {
+    return loaded_GenPart_pt_;
+}
+
 namespace tas {
+    const Int_t &year() { return nt.year(); }
+    const Bool_t &isData() { return nt.isData(); }
     const float &CaloMET_phi() { return nt.CaloMET_phi(); }
     const float &CaloMET_pt() { return nt.CaloMET_pt(); }
     const float &CaloMET_sumEt() { return nt.CaloMET_sumEt(); }

@@ -1,5 +1,10 @@
 {
 
+    // // failed attempt to let `DEBUG=1 root -b -q -l -n doAll.C` pass a preprocessor flag into the ScanChain
+    // if (gSystem->Getenv("DEBUG")) {
+    //     std::cout << TString(gSystem->GetFlagsOpt()) + " -DDEBUG=1" << std::endl;
+    //     gSystem->SetFlagsOpt(TString(gSystem->GetFlagsOpt()) + " -DDEBUG=1");
+    // }
     gROOT->ProcessLine(".L ../NanoCORE/NANO_CORE.so");
     gROOT->ProcessLine(".L ScanChain_jec.C+");
     TChain *ch = new TChain("Events");

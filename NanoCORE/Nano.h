@@ -6389,6 +6389,7 @@ public:
     const UInt_t &nTrigObj();
     const UInt_t &run();
     Bool_t hasGenBranches();
+    const Bool_t &isData();
     const Int_t &year();
 };
 
@@ -6397,6 +6398,9 @@ extern Nano nt;
 #endif
 
 namespace tas {
+    Bool_t hasGenBranches();
+    const Bool_t &isData();
+    const Int_t &year();
     const float &CaloMET_phi(); // phi
     const float &CaloMET_pt(); // pt
     const float &CaloMET_sumEt(); // scalar sum of Et

@@ -7,6 +7,7 @@
 
 #include "SimpleJetCorrectionUncertainty.h"
 #include "JetCorrectorParameters.h"
+#include "Utilities.icc"
 #include <vector>
 #include <string>
 

@@ -36,12 +36,13 @@ int ScanChain(TChain *ch, int nevents_to_process=-1) {
     TIter fileIter(listOfFiles);
     tqdm bar;
 
-    std::string jecEraMC = "Fall17_17Nov2017_V32";
+    // std::string jecEraMC = "Fall17_17Nov2017_V32_MC";
+    std::string jecEraMC = "Autumn18_V19_MC";
     debug(jecEraMC);
     FactorizedJetCorrector* jetCorr = makeJetCorrector({
-            "../NanoCORE/Tools/jetcorr/data/"+jecEraMC+"_MC/"+jecEraMC+"_MC_L1FastJet_AK4PFchs.txt",
-            "../NanoCORE/Tools/jetcorr/data/"+jecEraMC+"_MC/"+jecEraMC+"_MC_L2Relative_AK4PFchs.txt",
-            "../NanoCORE/Tools/jetcorr/data/"+jecEraMC+"_MC/"+jecEraMC+"_MC_L3Absolute_AK4PFchs.txt",
+            "../NanoCORE/Tools/jetcorr/data/"+jecEraMC+"/"+jecEraMC+"_L1FastJet_AK4PFchs.txt",
+            "../NanoCORE/Tools/jetcorr/data/"+jecEraMC+"/"+jecEraMC+"_L2Relative_AK4PFchs.txt",
+            "../NanoCORE/Tools/jetcorr/data/"+jecEraMC+"/"+jecEraMC+"_L3Absolute_AK4PFchs.txt",
             });
 
     while ( (currentFile = (TFile*)fileIter.Next()) ) {
@@ -83,8 +84,8 @@ int ScanChain(TChain *ch, int nevents_to_process=-1) {
 
             float rawmet = RawMET_pt();
             float nanomet = MET_pt();
-            float t1met = getT1CHSMET(jetCorr).first;
-            debug(rawmet,nanomet,t1met);
+            float recalct1met = getT1CHSMET(jetCorr).first;
+            debug(rawmet, nanomet, recalct1met)
 
             if (nevents_to_process > 0 and nEventsTotal > nevents_to_process) break;
         }

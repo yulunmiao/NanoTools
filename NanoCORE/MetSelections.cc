@@ -9,6 +9,10 @@ using namespace tas;
 pair<float, float> getT1CHSMET(FactorizedJetCorrector *jet_corrector, JetCorrectionUncertainty *jecUnc, bool uncUp) {
     // T1 MET correction implementation in central nanoAOD-tools:
     // https://github.com/cms-nanoAOD/nanoAOD-tools/blob/6b4870f6c62dbffc717e82de80ce3e51a254c284/python/postprocessing/modules/jme/jetmetUncertainties.py#L412-L417
+    // CMSSW T1 MET code
+    // https://github.com/cms-sw/cmssw/blob/CMSSW_7_4_X/JetMETCorrections/Type1MET/interface/PFJetMETcorrInputProducerT.h#L188
+    // https://github.com/cms-sw/cmssw/blob/8706dbe8a09e7e1314f2127288cfc39051851eea/PhysicsTools/PatUtils/interface/PATJetCorrExtractor.h#L74-L77
+    // https://github.com/cms-sw/cmssw/blob/8706dbe8a09e7e1314f2127288cfc39051851eea/JetMETCorrections/Type1MET/interface/JetCorrExtractorT.h#L54-L70
 
     float T1_met = RawMET_pt();
     float T1_metPhi = RawMET_phi();
@@ -24,6 +28,7 @@ pair<float, float> getT1CHSMET(FactorizedJetCorrector *jet_corrector, JetCorrect
 
         float area = 0.;
         float fracEM = 0.;
+        float muonSubtrFactor = 0.;
 
         // LorentzVector jetp4_uncorr(0,0,0,0);
         LorentzVector jetp4_uncorr;
@@ -32,7 +37,7 @@ pair<float, float> getT1CHSMET(FactorizedJetCorrector *jet_corrector, JetCorrect
             int idx = ijet;
             jetp4_uncorr =
                 LorentzVector(CorrT1METJet_rawPt()[idx], CorrT1METJet_eta()[idx], CorrT1METJet_phi()[idx], 0.);
-            jetp4_uncorr *= (1 - CorrT1METJet_muonSubtrFactor()[idx]);
+            muonSubtrFactor = CorrT1METJet_muonSubtrFactor()[idx];
             area = CorrT1METJet_area()[idx];
             fracEM = 0.;
         } else {
@@ -40,13 +45,14 @@ pair<float, float> getT1CHSMET(FactorizedJetCorrector *jet_corrector, JetCorrect
             int idx = ijet - njets_lowpt;
             jetp4_uncorr = LorentzVector(Jet_pt()[idx], Jet_eta()[idx], Jet_phi()[idx], Jet_mass()[idx]);
             jetp4_uncorr *= (1 - Jet_rawFactor()[idx]);
-            jetp4_uncorr *= (1 - Jet_muonSubtrFactor()[idx]);
+            muonSubtrFactor = Jet_muonSubtrFactor()[idx];
             area = Jet_area()[idx];
             fracEM = Jet_neEmEF()[idx] + Jet_chEmEF()[idx];
         }
 
         if (fracEM > 0.9) continue;
         if (fabs(jetp4_uncorr.eta()) > 9.9) continue;
+
         if (year() == 2017) { // 2017 EE noise fix (exclude jets with raw pT < 50)
             if (jetp4_uncorr.pt() < 50. && abs(jetp4_uncorr.eta()) >= 2.65 && abs(jetp4_uncorr.eta()) <= 3.139)
                 continue;
@@ -69,6 +75,9 @@ pair<float, float> getT1CHSMET(FactorizedJetCorrector *jet_corrector, JetCorrect
             else
                 totalshift -= shift;
         }
+
+        // Now subtract the muon
+        jetp4_uncorr *= (1 - muonSubtrFactor);
 
         if (corr * jetp4_uncorr.pt() > 15.) {
             T1_metx += jetp4_uncorr.px() * (corr_l1 - corr * totalshift);

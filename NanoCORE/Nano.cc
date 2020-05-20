@@ -2975,7 +2975,7 @@ void Nano::SetYear(int year) {
 }
 
 void Nano::ParseYear(TTree* tree) {
-    if (year_ != -999) return;
+    if (year_ != 0) return;
     year_ = -999;
     TString full_file_path = TString(((TFile*) tree->GetCurrentFile())->GetName());
     if (full_file_path.Contains("RunIIAutumn18NanoAOD"))

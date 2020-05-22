@@ -1,4 +1,5 @@
 #include "MCSelections.h"
+#include "Math/VectorUtil.h"
 
 using namespace tas;
 

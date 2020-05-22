@@ -7,6 +7,7 @@ import os
 import itertools
 import fnmatch
 
+USE_DEFINES_FOR_ARRAY_SIZES = True
 
 def get_cc_top(ginfo,binfo):
     yield "#include \"{classname}.h\"".format(**ginfo)
@@ -147,6 +148,16 @@ def get_h_top(ginfo,binfo):
     yield "#define makeP4(Collection, idx) LorentzVector(Collection##_pt[idx],Collection##_eta[idx],Collection##_phi[idx],Collection##_mass[idx]);"
     yield "#define RANGE(a, b) unsigned a=0; a<b; a++"
     yield ""
+    if USE_DEFINES_FOR_ARRAY_SIZES:
+        defines = {}
+        for b in binfo:
+            if not b["ndatamacroname"]: continue
+            if b["ndatamacroname"] in defines: continue
+            multiplier = 3
+            defines[b["ndatamacroname"]] = dict(ndatamacroname=b["ndatamacroname"], collectionname=b["collectionname"], ndata=int(multiplier*b["ndata"]))
+        for v in defines.values():
+            yield "#define {ndatamacroname} {ndata} // for {collectionname}_* collection".format(**v)
+    yield ""
     yield "using namespace std;"
 
 def get_h_class(ginfo,binfo):
@@ -157,7 +168,10 @@ def get_h_class(ginfo,binfo):
     for bi in binfo:
         if bi["is_array"]:
             if "LorentzVector" not in bi["typename"]:
-                yield """    {typename_novec} {name}_[{ndata}];""".format(**bi)
+                if USE_DEFINES_FOR_ARRAY_SIZES:
+                    yield """    {typename_novec} {name}_[{ndatamacroname}];""".format(**bi)
+                else:
+                    yield """    {typename_novec} {name}_[{ndata}];""".format(**bi)
             yield """    {typename} v_{name}_;""".format(**bi)
         else:
             yield """    {typename} {name}_;""".format(**bi)
@@ -308,6 +322,7 @@ if __name__ == "__main__":
     d_branch_info = {}
 
     branches = list(t.GetListOfBranches())
+
     for branch in branches:
         title = branch.GetTitle()
         name = branch.GetName()
@@ -318,9 +333,17 @@ if __name__ == "__main__":
 
         leaf = branch.GetLeaf(branch.GetName())
         leaf_title = leaf.GetTitle()
+        is_array = "[" in leaf_title
         # DECLARING ARRAY WITH TOO LITTLE SPACE WILL SEGFAULT SO NEED TO BE REALLY CAREFUL
         # FIXME figure out better way. tripling is not a solution
-        ndata = 3*leaf.GetNdata()
+        # ndata = 3*leaf.GetNdata()
+        ndata = leaf.GetNdata()
+        collectionname = None
+        ndatamacroname = None
+        if is_array:
+            collectionname = leaf_title.split("_",1)[0].split("[",1)[0]
+            ndatamacroname = "N{}_MAX".format(collectionname.upper())
+
         typename = leaf.GetTypeName()
         tmap = {
                 "Float_t": "float",
@@ -329,7 +352,6 @@ if __name__ == "__main__":
                 }
         typename = tmap.get(typename,typename)
         typename_novec = typename[:]
-        is_array = "[" in leaf_title
         if is_array:
             leaf_title = "{}[{}]".format(leaf_title.split("[")[0],ndata)
             typename = "vector<{}>".format(typename)
@@ -342,6 +364,8 @@ if __name__ == "__main__":
                 "typename_novec": typename_novec,
                 "ndata": ndata,
                 "leaf_title": leaf_title,
+                "collectionname": collectionname,
+                "ndatamacroname": ndatamacroname,
                 }
 
     names = d_branch_info.keys()

@@ -113,7 +113,39 @@ if __name__ == "__main__":
             if "LorentzVector" in bi["typename"]: continue
             yield "    b_{name}_ = tree->GetBranch(\"{name}\");".format(**bi)
             yield "    if (b_{name}_) {{ b_{name}_->SetAddress(&{name}_); }}".format(**bi)
+        yield "    ParseYear(tree);".format(**bi)
         yield "}"
+
+    def get_cc_extra(ginfo,binfo):
+        yield """
+void {classname}::SetYear(int year) {{
+    year_ = year;
+}}
+
+void Nano::ParseYear(TTree* tree) {{
+    if (year_ != 0) return;
+    year_ = -999;
+    TString full_file_path = TString(((TFile*) tree->GetCurrentFile())->GetName());
+    if (full_file_path.Contains("RunIIAutumn18NanoAOD")) year_ = 2018;
+    else if (full_file_path.Contains("RunIIFall17NanoAOD")) year_ = 2017;
+    else if (full_file_path.Contains("RunIISummer16NanoAOD")) year_ = 2016;
+    else if (full_file_path.Contains("Run2018")) year_ = 2018;
+    else if (full_file_path.Contains("Run2017")) year_ = 2017;
+    else if (full_file_path.Contains("Run2016")) year_ = 2016;
+    else throw std::runtime_error("{classname}::parseYear():: ERROR - Failed to recognize which year this NanoAOD is !\\nPlease make sure the path has one of the following keywords:\\n  2016: 'Run2016' or 'RunIISummer16NanoAOD'\\n  2017: 'Run2017' or 'RunIIFall17NanoAOD'\\n  2018: 'Run2018' or 'RunIIAutumn18NanoAOD'\\nOR, use {classname}::SetYear(int year) before {classname}::Init()");
+}}
+
+const Int_t &{classname}::year() {{
+    return year_;
+}}
+
+const Bool_t &{classname}::isData() {{
+    return loaded_GenPart_pt_;
+}}
+
+    """.format(**ginfo)
+
+
 
     def get_cc_printusage(ginfo,binfo):
         yield "void {classname}::PrintUsage() {{".format(**ginfo)
@@ -229,12 +261,17 @@ if __name__ == "__main__":
             if profiling:
                 yield """    unsigned int counter_cached_{name}_;""".format(**bi)
                 yield """    unsigned int counter_uncached_{name}_;""".format(**bi)
+        yield """    Int_t year_;"""
         yield "public:"
         yield "    void Init(TTree *tree);"
+        yield "    void SetYear(int year);"
+        yield "    void ParseYear(TTree *tree);"
         yield "    void PrintUsage();"
         yield "    void GetEntry(unsigned int idx);"
         for bi in binfo:
             yield "    const {typename} &{name}();".format(**bi)
+        yield "    const Bool_t &isData();"
+        yield "    const Int_t &year();"
         yield "};"
         yield ""
         yield "#ifndef __CINT__"
@@ -331,10 +368,14 @@ int ScanChain(TChain *ch) {{
             }
 
     def extra_h_tas():
+        yield "    const Bool_t &isData();"
+        yield "    const Int_t &year();"
         for t in types:
             yield "    {typename} Get{shortname}(const string &name);".format(typename=t, shortname=short_map[t])
 
     def extra_cc_tas():
+        yield """    const Int_t &year() {{ return {objectname}.year(); }}""".format(**ginfo)
+        yield """    const Bool_t &isData() {{ return {objectname}.isData(); }}""".format(**ginfo)
         for t in types:
             yield """    {t} Get{short}(const string &name) {{""".format(t=t,short=short_map[t])
             bsame = [x for x in binfo if x["typename"] == t]
@@ -354,6 +395,7 @@ int ScanChain(TChain *ch) {{
         fhout.write("\n".join(get_cc_top(ginfo,binfo)))
         fhout.write("\n\n")
         fhout.write("\n".join(get_cc_init(ginfo,binfo)))
+        fhout.write("\n".join(get_cc_extra(ginfo,binfo)))
         fhout.write("\n\n")
         if profiling:
             fhout.write("\n".join(get_cc_printusage(ginfo,binfo)))

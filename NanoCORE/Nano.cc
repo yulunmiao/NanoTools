@@ -144,6 +144,8 @@ void Nano::Init(TTree *tree) {
     if (b_Electron_tightCharge_) { b_Electron_tightCharge_->SetAddress(&Electron_tightCharge_); }
     b_Electron_vidNestedWPBitmap_ = tree->GetBranch("Electron_vidNestedWPBitmap");
     if (b_Electron_vidNestedWPBitmap_) { b_Electron_vidNestedWPBitmap_->SetAddress(&Electron_vidNestedWPBitmap_); }
+    b_Electron_vidNestedWPBitmapHEEP_ = tree->GetBranch("Electron_vidNestedWPBitmapHEEP");
+    if (b_Electron_vidNestedWPBitmapHEEP_) { b_Electron_vidNestedWPBitmapHEEP_->SetAddress(&Electron_vidNestedWPBitmapHEEP_); }
     b_FatJet_area_ = tree->GetBranch("FatJet_area");
     if (b_FatJet_area_) { b_FatJet_area_->SetAddress(&FatJet_area_); }
     b_FatJet_btagCMVA_ = tree->GetBranch("FatJet_btagCMVA");
@@ -152,10 +154,16 @@ void Nano::Init(TTree *tree) {
     if (b_FatJet_btagCSVV2_) { b_FatJet_btagCSVV2_->SetAddress(&FatJet_btagCSVV2_); }
     b_FatJet_btagDDBvL_ = tree->GetBranch("FatJet_btagDDBvL");
     if (b_FatJet_btagDDBvL_) { b_FatJet_btagDDBvL_->SetAddress(&FatJet_btagDDBvL_); }
+    b_FatJet_btagDDBvL_noMD_ = tree->GetBranch("FatJet_btagDDBvL_noMD");
+    if (b_FatJet_btagDDBvL_noMD_) { b_FatJet_btagDDBvL_noMD_->SetAddress(&FatJet_btagDDBvL_noMD_); }
     b_FatJet_btagDDCvB_ = tree->GetBranch("FatJet_btagDDCvB");
     if (b_FatJet_btagDDCvB_) { b_FatJet_btagDDCvB_->SetAddress(&FatJet_btagDDCvB_); }
+    b_FatJet_btagDDCvB_noMD_ = tree->GetBranch("FatJet_btagDDCvB_noMD");
+    if (b_FatJet_btagDDCvB_noMD_) { b_FatJet_btagDDCvB_noMD_->SetAddress(&FatJet_btagDDCvB_noMD_); }
     b_FatJet_btagDDCvL_ = tree->GetBranch("FatJet_btagDDCvL");
     if (b_FatJet_btagDDCvL_) { b_FatJet_btagDDCvL_->SetAddress(&FatJet_btagDDCvL_); }
+    b_FatJet_btagDDCvL_noMD_ = tree->GetBranch("FatJet_btagDDCvL_noMD");
+    if (b_FatJet_btagDDCvL_noMD_) { b_FatJet_btagDDCvL_noMD_->SetAddress(&FatJet_btagDDCvL_noMD_); }
     b_FatJet_btagDeepB_ = tree->GetBranch("FatJet_btagDeepB");
     if (b_FatJet_btagDeepB_) { b_FatJet_btagDeepB_->SetAddress(&FatJet_btagDeepB_); }
     b_FatJet_btagHbb_ = tree->GetBranch("FatJet_btagHbb");
@@ -194,14 +202,8 @@ void Nano::Init(TTree *tree) {
     if (b_FatJet_deepTag_ZvsQCD_) { b_FatJet_deepTag_ZvsQCD_->SetAddress(&FatJet_deepTag_ZvsQCD_); }
     b_FatJet_eta_ = tree->GetBranch("FatJet_eta");
     if (b_FatJet_eta_) { b_FatJet_eta_->SetAddress(&FatJet_eta_); }
-    b_FatJet_genJetAK8Idx_ = tree->GetBranch("FatJet_genJetAK8Idx");
-    if (b_FatJet_genJetAK8Idx_) { b_FatJet_genJetAK8Idx_->SetAddress(&FatJet_genJetAK8Idx_); }
     b_FatJet_jetId_ = tree->GetBranch("FatJet_jetId");
     if (b_FatJet_jetId_) { b_FatJet_jetId_->SetAddress(&FatJet_jetId_); }
-    b_FatJet_nBHadrons_ = tree->GetBranch("FatJet_nBHadrons");
-    if (b_FatJet_nBHadrons_) { b_FatJet_nBHadrons_->SetAddress(&FatJet_nBHadrons_); }
-    b_FatJet_nCHadrons_ = tree->GetBranch("FatJet_nCHadrons");
-    if (b_FatJet_nCHadrons_) { b_FatJet_nCHadrons_->SetAddress(&FatJet_nCHadrons_); }
     b_FatJet_mass_ = tree->GetBranch("FatJet_mass");
     if (b_FatJet_mass_) { b_FatJet_mass_->SetAddress(&FatJet_mass_); }
     b_FatJet_msoftdrop_ = tree->GetBranch("FatJet_msoftdrop");
@@ -282,6 +284,18 @@ void Nano::Init(TTree *tree) {
     if (b_Flag_trkPOG_manystripclus53X_) { b_Flag_trkPOG_manystripclus53X_->SetAddress(&Flag_trkPOG_manystripclus53X_); }
     b_Flag_trkPOG_toomanystripclus53X_ = tree->GetBranch("Flag_trkPOG_toomanystripclus53X");
     if (b_Flag_trkPOG_toomanystripclus53X_) { b_Flag_trkPOG_toomanystripclus53X_->SetAddress(&Flag_trkPOG_toomanystripclus53X_); }
+    b_FsrPhoton_dROverEt2_ = tree->GetBranch("FsrPhoton_dROverEt2");
+    if (b_FsrPhoton_dROverEt2_) { b_FsrPhoton_dROverEt2_->SetAddress(&FsrPhoton_dROverEt2_); }
+    b_FsrPhoton_eta_ = tree->GetBranch("FsrPhoton_eta");
+    if (b_FsrPhoton_eta_) { b_FsrPhoton_eta_->SetAddress(&FsrPhoton_eta_); }
+    b_FsrPhoton_muonIdx_ = tree->GetBranch("FsrPhoton_muonIdx");
+    if (b_FsrPhoton_muonIdx_) { b_FsrPhoton_muonIdx_->SetAddress(&FsrPhoton_muonIdx_); }
+    b_FsrPhoton_phi_ = tree->GetBranch("FsrPhoton_phi");
+    if (b_FsrPhoton_phi_) { b_FsrPhoton_phi_->SetAddress(&FsrPhoton_phi_); }
+    b_FsrPhoton_pt_ = tree->GetBranch("FsrPhoton_pt");
+    if (b_FsrPhoton_pt_) { b_FsrPhoton_pt_->SetAddress(&FsrPhoton_pt_); }
+    b_FsrPhoton_relIso03_ = tree->GetBranch("FsrPhoton_relIso03");
+    if (b_FsrPhoton_relIso03_) { b_FsrPhoton_relIso03_->SetAddress(&FsrPhoton_relIso03_); }
     b_GenDressedLepton_eta_ = tree->GetBranch("GenDressedLepton_eta");
     if (b_GenDressedLepton_eta_) { b_GenDressedLepton_eta_->SetAddress(&GenDressedLepton_eta_); }
     b_GenDressedLepton_hasTauAnc_ = tree->GetBranch("GenDressedLepton_hasTauAnc");
@@ -2518,6 +2532,8 @@ void Nano::Init(TTree *tree) {
     if (b_Muon_dzErr_) { b_Muon_dzErr_->SetAddress(&Muon_dzErr_); }
     b_Muon_eta_ = tree->GetBranch("Muon_eta");
     if (b_Muon_eta_) { b_Muon_eta_->SetAddress(&Muon_eta_); }
+    b_Muon_fsrPhotonIdx_ = tree->GetBranch("Muon_fsrPhotonIdx");
+    if (b_Muon_fsrPhotonIdx_) { b_Muon_fsrPhotonIdx_->SetAddress(&Muon_fsrPhotonIdx_); }
     b_Muon_genPartFlav_ = tree->GetBranch("Muon_genPartFlav");
     if (b_Muon_genPartFlav_) { b_Muon_genPartFlav_->SetAddress(&Muon_genPartFlav_); }
     b_Muon_genPartIdx_ = tree->GetBranch("Muon_genPartIdx");
@@ -2714,6 +2730,10 @@ void Nano::Init(TTree *tree) {
     if (b_SV_dlen_) { b_SV_dlen_->SetAddress(&SV_dlen_); }
     b_SV_dlenSig_ = tree->GetBranch("SV_dlenSig");
     if (b_SV_dlenSig_) { b_SV_dlenSig_->SetAddress(&SV_dlenSig_); }
+    b_SV_dxy_ = tree->GetBranch("SV_dxy");
+    if (b_SV_dxy_) { b_SV_dxy_->SetAddress(&SV_dxy_); }
+    b_SV_dxySig_ = tree->GetBranch("SV_dxySig");
+    if (b_SV_dxySig_) { b_SV_dxySig_->SetAddress(&SV_dxySig_); }
     b_SV_eta_ = tree->GetBranch("SV_eta");
     if (b_SV_eta_) { b_SV_eta_->SetAddress(&SV_eta_); }
     b_SV_mass_ = tree->GetBranch("SV_mass");
@@ -2816,6 +2836,12 @@ void Nano::Init(TTree *tree) {
     if (b_Tau_idDecayMode_) { b_Tau_idDecayMode_->SetAddress(&Tau_idDecayMode_); }
     b_Tau_idDecayModeNewDMs_ = tree->GetBranch("Tau_idDecayModeNewDMs");
     if (b_Tau_idDecayModeNewDMs_) { b_Tau_idDecayModeNewDMs_->SetAddress(&Tau_idDecayModeNewDMs_); }
+    b_Tau_idDeepTau2017v2p1VSe_ = tree->GetBranch("Tau_idDeepTau2017v2p1VSe");
+    if (b_Tau_idDeepTau2017v2p1VSe_) { b_Tau_idDeepTau2017v2p1VSe_->SetAddress(&Tau_idDeepTau2017v2p1VSe_); }
+    b_Tau_idDeepTau2017v2p1VSjet_ = tree->GetBranch("Tau_idDeepTau2017v2p1VSjet");
+    if (b_Tau_idDeepTau2017v2p1VSjet_) { b_Tau_idDeepTau2017v2p1VSjet_->SetAddress(&Tau_idDeepTau2017v2p1VSjet_); }
+    b_Tau_idDeepTau2017v2p1VSmu_ = tree->GetBranch("Tau_idDeepTau2017v2p1VSmu");
+    if (b_Tau_idDeepTau2017v2p1VSmu_) { b_Tau_idDeepTau2017v2p1VSmu_->SetAddress(&Tau_idDeepTau2017v2p1VSmu_); }
     b_Tau_idMVAnewDM2017v2_ = tree->GetBranch("Tau_idMVAnewDM2017v2");
     if (b_Tau_idMVAnewDM2017v2_) { b_Tau_idMVAnewDM2017v2_->SetAddress(&Tau_idMVAnewDM2017v2_); }
     b_Tau_idMVAoldDM_ = tree->GetBranch("Tau_idMVAoldDM");
@@ -2854,6 +2880,12 @@ void Nano::Init(TTree *tree) {
     if (b_Tau_rawAntiEleCat_) { b_Tau_rawAntiEleCat_->SetAddress(&Tau_rawAntiEleCat_); }
     b_Tau_rawAntiEleCat2018_ = tree->GetBranch("Tau_rawAntiEleCat2018");
     if (b_Tau_rawAntiEleCat2018_) { b_Tau_rawAntiEleCat2018_->SetAddress(&Tau_rawAntiEleCat2018_); }
+    b_Tau_rawDeepTau2017v2p1VSe_ = tree->GetBranch("Tau_rawDeepTau2017v2p1VSe");
+    if (b_Tau_rawDeepTau2017v2p1VSe_) { b_Tau_rawDeepTau2017v2p1VSe_->SetAddress(&Tau_rawDeepTau2017v2p1VSe_); }
+    b_Tau_rawDeepTau2017v2p1VSjet_ = tree->GetBranch("Tau_rawDeepTau2017v2p1VSjet");
+    if (b_Tau_rawDeepTau2017v2p1VSjet_) { b_Tau_rawDeepTau2017v2p1VSjet_->SetAddress(&Tau_rawDeepTau2017v2p1VSjet_); }
+    b_Tau_rawDeepTau2017v2p1VSmu_ = tree->GetBranch("Tau_rawDeepTau2017v2p1VSmu");
+    if (b_Tau_rawDeepTau2017v2p1VSmu_) { b_Tau_rawDeepTau2017v2p1VSmu_->SetAddress(&Tau_rawDeepTau2017v2p1VSmu_); }
     b_Tau_rawIso_ = tree->GetBranch("Tau_rawIso");
     if (b_Tau_rawIso_) { b_Tau_rawIso_->SetAddress(&Tau_rawIso_); }
     b_Tau_rawIsodR03_ = tree->GetBranch("Tau_rawIsodR03");
@@ -2922,6 +2954,8 @@ void Nano::Init(TTree *tree) {
     if (b_nElectron_) { b_nElectron_->SetAddress(&nElectron_); }
     b_nFatJet_ = tree->GetBranch("nFatJet");
     if (b_nFatJet_) { b_nFatJet_->SetAddress(&nFatJet_); }
+    b_nFsrPhoton_ = tree->GetBranch("nFsrPhoton");
+    if (b_nFsrPhoton_) { b_nFsrPhoton_->SetAddress(&nFsrPhoton_); }
     b_nGenDressedLepton_ = tree->GetBranch("nGenDressedLepton");
     if (b_nGenDressedLepton_) { b_nGenDressedLepton_->SetAddress(&nGenDressedLepton_); }
     b_nGenJet_ = tree->GetBranch("nGenJet");
@@ -2966,10 +3000,8 @@ void Nano::Init(TTree *tree) {
     if (b_nTrigObj_) { b_nTrigObj_->SetAddress(&nTrigObj_); }
     b_run_ = tree->GetBranch("run");
     if (b_run_) { b_run_->SetAddress(&run_); }
-    // Parsing year
     ParseYear(tree);
 }
-
 void Nano::SetYear(int year) {
     year_ = year;
 }
@@ -2978,35 +3010,24 @@ void Nano::ParseYear(TTree* tree) {
     if (year_ != 0) return;
     year_ = -999;
     TString full_file_path = TString(((TFile*) tree->GetCurrentFile())->GetName());
-    if (full_file_path.Contains("RunIIAutumn18NanoAOD"))
-    {
-        year_ = 2018;
-    }
-    else if (full_file_path.Contains("RunIIFall17NanoAOD"))
-    {
-        year_ = 2017;
-    }
-    else if (full_file_path.Contains("RunIISummer16NanoAOD"))
-    {
-        year_ = 2016;
-    }
-    else if (full_file_path.Contains("Run2018"))
-    {
-        year_ = 2018;
-    }
-    else if (full_file_path.Contains("Run2017"))
-    {
-        year_ = 2017;
-    }
-    else if (full_file_path.Contains("Run2016"))
-    {
-        year_ = 2016;
-    }
-    else
-    {
-        throw std::runtime_error("Nano::parseYear():: ERROR - Failed to recognize which year this NanoAOD is !\nPlease make sure the path has one of the following keywords:\n  2016: 'Run2016' or 'RunIISummer16NanoAOD'\n  2017: 'Run2017' or 'RunIIFall17NanoAOD'\n  2018: 'Run2018' or 'RunIIAutumn18NanoAOD'\nOR, use Nano::SetYear(int year) before Nano::Init()");
-    }
+    if (full_file_path.Contains("RunIIAutumn18NanoAOD")) year_ = 2018;
+    else if (full_file_path.Contains("RunIIFall17NanoAOD")) year_ = 2017;
+    else if (full_file_path.Contains("RunIISummer16NanoAOD")) year_ = 2016;
+    else if (full_file_path.Contains("Run2018")) year_ = 2018;
+    else if (full_file_path.Contains("Run2017")) year_ = 2017;
+    else if (full_file_path.Contains("Run2016")) year_ = 2016;
+    else throw std::runtime_error("Nano::parseYear():: ERROR - Failed to recognize which year this NanoAOD is !\nPlease make sure the path has one of the following keywords:\n  2016: 'Run2016' or 'RunIISummer16NanoAOD'\n  2017: 'Run2017' or 'RunIIFall17NanoAOD'\n  2018: 'Run2018' or 'RunIIAutumn18NanoAOD'\nOR, use Nano::SetYear(int year) before Nano::Init()");
 }
+
+const Int_t &Nano::year() {
+    return year_;
+}
+
+const Bool_t &Nano::isData() {
+    return loaded_GenPart_pt_;
+}
+
+    
 
 void Nano::GetEntry(unsigned int idx) {
     index = idx;
@@ -3082,12 +3103,16 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_Electron_sip3d_ = false;
     loaded_Electron_tightCharge_ = false;
     loaded_Electron_vidNestedWPBitmap_ = false;
+    loaded_Electron_vidNestedWPBitmapHEEP_ = false;
     loaded_FatJet_area_ = false;
     loaded_FatJet_btagCMVA_ = false;
     loaded_FatJet_btagCSVV2_ = false;
     loaded_FatJet_btagDDBvL_ = false;
+    loaded_FatJet_btagDDBvL_noMD_ = false;
     loaded_FatJet_btagDDCvB_ = false;
+    loaded_FatJet_btagDDCvB_noMD_ = false;
     loaded_FatJet_btagDDCvL_ = false;
+    loaded_FatJet_btagDDCvL_noMD_ = false;
     loaded_FatJet_btagDeepB_ = false;
     loaded_FatJet_btagHbb_ = false;
     loaded_FatJet_deepTagMD_H4qvsQCD_ = false;
@@ -3107,10 +3132,7 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_FatJet_deepTag_WvsQCD_ = false;
     loaded_FatJet_deepTag_ZvsQCD_ = false;
     loaded_FatJet_eta_ = false;
-    loaded_FatJet_genJetAK8Idx_ = false;
     loaded_FatJet_jetId_ = false;
-    loaded_FatJet_nBHadrons_ = false;
-    loaded_FatJet_nCHadrons_ = false;
     loaded_FatJet_mass_ = false;
     loaded_FatJet_msoftdrop_ = false;
     loaded_FatJet_n2b1_ = false;
@@ -3152,6 +3174,12 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_Flag_trkPOG_logErrorTooManyClusters_ = false;
     loaded_Flag_trkPOG_manystripclus53X_ = false;
     loaded_Flag_trkPOG_toomanystripclus53X_ = false;
+    loaded_FsrPhoton_dROverEt2_ = false;
+    loaded_FsrPhoton_eta_ = false;
+    loaded_FsrPhoton_muonIdx_ = false;
+    loaded_FsrPhoton_phi_ = false;
+    loaded_FsrPhoton_pt_ = false;
+    loaded_FsrPhoton_relIso03_ = false;
     loaded_GenDressedLepton_eta_ = false;
     loaded_GenDressedLepton_hasTauAnc_ = false;
     loaded_GenDressedLepton_mass_ = false;
@@ -4277,6 +4305,7 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_Muon_dz_ = false;
     loaded_Muon_dzErr_ = false;
     loaded_Muon_eta_ = false;
+    loaded_Muon_fsrPhotonIdx_ = false;
     loaded_Muon_genPartFlav_ = false;
     loaded_Muon_genPartIdx_ = false;
     loaded_Muon_highPtId_ = false;
@@ -4377,6 +4406,8 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_SV_chi2_ = false;
     loaded_SV_dlen_ = false;
     loaded_SV_dlenSig_ = false;
+    loaded_SV_dxy_ = false;
+    loaded_SV_dxySig_ = false;
     loaded_SV_eta_ = false;
     loaded_SV_mass_ = false;
     loaded_SV_ndof_ = false;
@@ -4431,6 +4462,9 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_Tau_idAntiMu_ = false;
     loaded_Tau_idDecayMode_ = false;
     loaded_Tau_idDecayModeNewDMs_ = false;
+    loaded_Tau_idDeepTau2017v2p1VSe_ = false;
+    loaded_Tau_idDeepTau2017v2p1VSjet_ = false;
+    loaded_Tau_idDeepTau2017v2p1VSmu_ = false;
     loaded_Tau_idMVAnewDM2017v2_ = false;
     loaded_Tau_idMVAoldDM_ = false;
     loaded_Tau_idMVAoldDM2017v1_ = false;
@@ -4451,6 +4485,9 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_Tau_rawAntiEle2018_ = false;
     loaded_Tau_rawAntiEleCat_ = false;
     loaded_Tau_rawAntiEleCat2018_ = false;
+    loaded_Tau_rawDeepTau2017v2p1VSe_ = false;
+    loaded_Tau_rawDeepTau2017v2p1VSjet_ = false;
+    loaded_Tau_rawDeepTau2017v2p1VSmu_ = false;
     loaded_Tau_rawIso_ = false;
     loaded_Tau_rawIsodR03_ = false;
     loaded_Tau_rawMVAnewDM2017v2_ = false;
@@ -4485,6 +4522,7 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_nCorrT1METJet_ = false;
     loaded_nElectron_ = false;
     loaded_nFatJet_ = false;
+    loaded_nFsrPhoton_ = false;
     loaded_nGenDressedLepton_ = false;
     loaded_nGenJet_ = false;
     loaded_nGenJetAK8_ = false;
@@ -5156,6 +5194,15 @@ const vector<int> &Nano::Electron_vidNestedWPBitmap() {
     }
     return v_Electron_vidNestedWPBitmap_;
 }
+const vector<int> &Nano::Electron_vidNestedWPBitmapHEEP() {
+    if (!loaded_Electron_vidNestedWPBitmapHEEP_) {
+        if (!b_Electron_vidNestedWPBitmapHEEP_) throw std::runtime_error("Electron_vidNestedWPBitmapHEEP branch doesn't exist");
+        int bytes = b_Electron_vidNestedWPBitmapHEEP_->GetEntry(index);
+        v_Electron_vidNestedWPBitmapHEEP_ = vector<int>(Electron_vidNestedWPBitmapHEEP_,Electron_vidNestedWPBitmapHEEP_+bytes/sizeof(Electron_vidNestedWPBitmapHEEP_[0]));
+        loaded_Electron_vidNestedWPBitmapHEEP_ = true;
+    }
+    return v_Electron_vidNestedWPBitmapHEEP_;
+}
 const vector<float> &Nano::FatJet_area() {
     if (!loaded_FatJet_area_) {
         if (!b_FatJet_area_) throw std::runtime_error("FatJet_area branch doesn't exist");
@@ -5192,6 +5239,15 @@ const vector<float> &Nano::FatJet_btagDDBvL() {
     }
     return v_FatJet_btagDDBvL_;
 }
+const vector<float> &Nano::FatJet_btagDDBvL_noMD() {
+    if (!loaded_FatJet_btagDDBvL_noMD_) {
+        if (!b_FatJet_btagDDBvL_noMD_) throw std::runtime_error("FatJet_btagDDBvL_noMD branch doesn't exist");
+        int bytes = b_FatJet_btagDDBvL_noMD_->GetEntry(index);
+        v_FatJet_btagDDBvL_noMD_ = vector<float>(FatJet_btagDDBvL_noMD_,FatJet_btagDDBvL_noMD_+bytes/sizeof(FatJet_btagDDBvL_noMD_[0]));
+        loaded_FatJet_btagDDBvL_noMD_ = true;
+    }
+    return v_FatJet_btagDDBvL_noMD_;
+}
 const vector<float> &Nano::FatJet_btagDDCvB() {
     if (!loaded_FatJet_btagDDCvB_) {
         if (!b_FatJet_btagDDCvB_) throw std::runtime_error("FatJet_btagDDCvB branch doesn't exist");
@@ -5201,6 +5257,15 @@ const vector<float> &Nano::FatJet_btagDDCvB() {
     }
     return v_FatJet_btagDDCvB_;
 }
+const vector<float> &Nano::FatJet_btagDDCvB_noMD() {
+    if (!loaded_FatJet_btagDDCvB_noMD_) {
+        if (!b_FatJet_btagDDCvB_noMD_) throw std::runtime_error("FatJet_btagDDCvB_noMD branch doesn't exist");
+        int bytes = b_FatJet_btagDDCvB_noMD_->GetEntry(index);
+        v_FatJet_btagDDCvB_noMD_ = vector<float>(FatJet_btagDDCvB_noMD_,FatJet_btagDDCvB_noMD_+bytes/sizeof(FatJet_btagDDCvB_noMD_[0]));
+        loaded_FatJet_btagDDCvB_noMD_ = true;
+    }
+    return v_FatJet_btagDDCvB_noMD_;
+}
 const vector<float> &Nano::FatJet_btagDDCvL() {
     if (!loaded_FatJet_btagDDCvL_) {
         if (!b_FatJet_btagDDCvL_) throw std::runtime_error("FatJet_btagDDCvL branch doesn't exist");
@@ -5209,6 +5274,15 @@ const vector<float> &Nano::FatJet_btagDDCvL() {
         loaded_FatJet_btagDDCvL_ = true;
     }
     return v_FatJet_btagDDCvL_;
+}
+const vector<float> &Nano::FatJet_btagDDCvL_noMD() {
+    if (!loaded_FatJet_btagDDCvL_noMD_) {
+        if (!b_FatJet_btagDDCvL_noMD_) throw std::runtime_error("FatJet_btagDDCvL_noMD branch doesn't exist");
+        int bytes = b_FatJet_btagDDCvL_noMD_->GetEntry(index);
+        v_FatJet_btagDDCvL_noMD_ = vector<float>(FatJet_btagDDCvL_noMD_,FatJet_btagDDCvL_noMD_+bytes/sizeof(FatJet_btagDDCvL_noMD_[0]));
+        loaded_FatJet_btagDDCvL_noMD_ = true;
+    }
+    return v_FatJet_btagDDCvL_noMD_;
 }
 const vector<float> &Nano::FatJet_btagDeepB() {
     if (!loaded_FatJet_btagDeepB_) {
@@ -5381,15 +5455,6 @@ const vector<float> &Nano::FatJet_eta() {
     }
     return v_FatJet_eta_;
 }
-const vector<int> &Nano::FatJet_genJetAK8Idx() {
-    if (!loaded_FatJet_genJetAK8Idx_) {
-        if (!b_FatJet_genJetAK8Idx_) throw std::runtime_error("FatJet_genJetAK8Idx branch doesn't exist");
-        int bytes = b_FatJet_genJetAK8Idx_->GetEntry(index);
-        v_FatJet_genJetAK8Idx_ = vector<int>(FatJet_genJetAK8Idx_,FatJet_genJetAK8Idx_+bytes/sizeof(FatJet_genJetAK8Idx_[0]));
-        loaded_FatJet_genJetAK8Idx_ = true;
-    }
-    return v_FatJet_genJetAK8Idx_;
-}
 const vector<int> &Nano::FatJet_jetId() {
     if (!loaded_FatJet_jetId_) {
         if (!b_FatJet_jetId_) throw std::runtime_error("FatJet_jetId branch doesn't exist");
@@ -5398,24 +5463,6 @@ const vector<int> &Nano::FatJet_jetId() {
         loaded_FatJet_jetId_ = true;
     }
     return v_FatJet_jetId_;
-}
-const vector<UChar_t> &Nano::FatJet_nBHadrons() {
-    if (!loaded_FatJet_nBHadrons_) {
-        if (!b_FatJet_nBHadrons_) throw std::runtime_error("FatJet_nBHadrons branch doesn't exist");
-        int bytes = b_FatJet_nBHadrons_->GetEntry(index);
-        v_FatJet_nBHadrons_ = vector<UChar_t>(FatJet_nBHadrons_,FatJet_nBHadrons_+bytes/sizeof(FatJet_nBHadrons_[0]));
-        loaded_FatJet_nBHadrons_ = true;
-    }
-    return v_FatJet_nBHadrons_;
-}
-const vector<UChar_t> &Nano::FatJet_nCHadrons() {
-    if (!loaded_FatJet_nCHadrons_) {
-        if (!b_FatJet_nCHadrons_) throw std::runtime_error("FatJet_nCHadrons branch doesn't exist");
-        int bytes = b_FatJet_nCHadrons_->GetEntry(index);
-        v_FatJet_nCHadrons_ = vector<UChar_t>(FatJet_nCHadrons_,FatJet_nCHadrons_+bytes/sizeof(FatJet_nCHadrons_[0]));
-        loaded_FatJet_nCHadrons_ = true;
-    }
-    return v_FatJet_nCHadrons_;
 }
 const vector<float> &Nano::FatJet_mass() {
     if (!loaded_FatJet_mass_) {
@@ -5763,6 +5810,60 @@ const bool &Nano::Flag_trkPOG_toomanystripclus53X() {
         loaded_Flag_trkPOG_toomanystripclus53X_ = true;
     }
     return Flag_trkPOG_toomanystripclus53X_;
+}
+const vector<float> &Nano::FsrPhoton_dROverEt2() {
+    if (!loaded_FsrPhoton_dROverEt2_) {
+        if (!b_FsrPhoton_dROverEt2_) throw std::runtime_error("FsrPhoton_dROverEt2 branch doesn't exist");
+        int bytes = b_FsrPhoton_dROverEt2_->GetEntry(index);
+        v_FsrPhoton_dROverEt2_ = vector<float>(FsrPhoton_dROverEt2_,FsrPhoton_dROverEt2_+bytes/sizeof(FsrPhoton_dROverEt2_[0]));
+        loaded_FsrPhoton_dROverEt2_ = true;
+    }
+    return v_FsrPhoton_dROverEt2_;
+}
+const vector<float> &Nano::FsrPhoton_eta() {
+    if (!loaded_FsrPhoton_eta_) {
+        if (!b_FsrPhoton_eta_) throw std::runtime_error("FsrPhoton_eta branch doesn't exist");
+        int bytes = b_FsrPhoton_eta_->GetEntry(index);
+        v_FsrPhoton_eta_ = vector<float>(FsrPhoton_eta_,FsrPhoton_eta_+bytes/sizeof(FsrPhoton_eta_[0]));
+        loaded_FsrPhoton_eta_ = true;
+    }
+    return v_FsrPhoton_eta_;
+}
+const vector<int> &Nano::FsrPhoton_muonIdx() {
+    if (!loaded_FsrPhoton_muonIdx_) {
+        if (!b_FsrPhoton_muonIdx_) throw std::runtime_error("FsrPhoton_muonIdx branch doesn't exist");
+        int bytes = b_FsrPhoton_muonIdx_->GetEntry(index);
+        v_FsrPhoton_muonIdx_ = vector<int>(FsrPhoton_muonIdx_,FsrPhoton_muonIdx_+bytes/sizeof(FsrPhoton_muonIdx_[0]));
+        loaded_FsrPhoton_muonIdx_ = true;
+    }
+    return v_FsrPhoton_muonIdx_;
+}
+const vector<float> &Nano::FsrPhoton_phi() {
+    if (!loaded_FsrPhoton_phi_) {
+        if (!b_FsrPhoton_phi_) throw std::runtime_error("FsrPhoton_phi branch doesn't exist");
+        int bytes = b_FsrPhoton_phi_->GetEntry(index);
+        v_FsrPhoton_phi_ = vector<float>(FsrPhoton_phi_,FsrPhoton_phi_+bytes/sizeof(FsrPhoton_phi_[0]));
+        loaded_FsrPhoton_phi_ = true;
+    }
+    return v_FsrPhoton_phi_;
+}
+const vector<float> &Nano::FsrPhoton_pt() {
+    if (!loaded_FsrPhoton_pt_) {
+        if (!b_FsrPhoton_pt_) throw std::runtime_error("FsrPhoton_pt branch doesn't exist");
+        int bytes = b_FsrPhoton_pt_->GetEntry(index);
+        v_FsrPhoton_pt_ = vector<float>(FsrPhoton_pt_,FsrPhoton_pt_+bytes/sizeof(FsrPhoton_pt_[0]));
+        loaded_FsrPhoton_pt_ = true;
+    }
+    return v_FsrPhoton_pt_;
+}
+const vector<float> &Nano::FsrPhoton_relIso03() {
+    if (!loaded_FsrPhoton_relIso03_) {
+        if (!b_FsrPhoton_relIso03_) throw std::runtime_error("FsrPhoton_relIso03 branch doesn't exist");
+        int bytes = b_FsrPhoton_relIso03_->GetEntry(index);
+        v_FsrPhoton_relIso03_ = vector<float>(FsrPhoton_relIso03_,FsrPhoton_relIso03_+bytes/sizeof(FsrPhoton_relIso03_[0]));
+        loaded_FsrPhoton_relIso03_ = true;
+    }
+    return v_FsrPhoton_relIso03_;
 }
 const vector<float> &Nano::GenDressedLepton_eta() {
     if (!loaded_GenDressedLepton_eta_) {
@@ -14904,6 +15005,15 @@ const vector<float> &Nano::Muon_eta() {
     }
     return v_Muon_eta_;
 }
+const vector<int> &Nano::Muon_fsrPhotonIdx() {
+    if (!loaded_Muon_fsrPhotonIdx_) {
+        if (!b_Muon_fsrPhotonIdx_) throw std::runtime_error("Muon_fsrPhotonIdx branch doesn't exist");
+        int bytes = b_Muon_fsrPhotonIdx_->GetEntry(index);
+        v_Muon_fsrPhotonIdx_ = vector<int>(Muon_fsrPhotonIdx_,Muon_fsrPhotonIdx_+bytes/sizeof(Muon_fsrPhotonIdx_[0]));
+        loaded_Muon_fsrPhotonIdx_ = true;
+    }
+    return v_Muon_fsrPhotonIdx_;
+}
 const vector<UChar_t> &Nano::Muon_genPartFlav() {
     if (!loaded_Muon_genPartFlav_) {
         if (!b_Muon_genPartFlav_) throw std::runtime_error("Muon_genPartFlav branch doesn't exist");
@@ -15794,6 +15904,24 @@ const vector<float> &Nano::SV_dlenSig() {
     }
     return v_SV_dlenSig_;
 }
+const vector<float> &Nano::SV_dxy() {
+    if (!loaded_SV_dxy_) {
+        if (!b_SV_dxy_) throw std::runtime_error("SV_dxy branch doesn't exist");
+        int bytes = b_SV_dxy_->GetEntry(index);
+        v_SV_dxy_ = vector<float>(SV_dxy_,SV_dxy_+bytes/sizeof(SV_dxy_[0]));
+        loaded_SV_dxy_ = true;
+    }
+    return v_SV_dxy_;
+}
+const vector<float> &Nano::SV_dxySig() {
+    if (!loaded_SV_dxySig_) {
+        if (!b_SV_dxySig_) throw std::runtime_error("SV_dxySig branch doesn't exist");
+        int bytes = b_SV_dxySig_->GetEntry(index);
+        v_SV_dxySig_ = vector<float>(SV_dxySig_,SV_dxySig_+bytes/sizeof(SV_dxySig_[0]));
+        loaded_SV_dxySig_ = true;
+    }
+    return v_SV_dxySig_;
+}
 const vector<float> &Nano::SV_eta() {
     if (!loaded_SV_eta_) {
         if (!b_SV_eta_) throw std::runtime_error("SV_eta branch doesn't exist");
@@ -16288,6 +16416,33 @@ const vector<bool> &Nano::Tau_idDecayModeNewDMs() {
     }
     return v_Tau_idDecayModeNewDMs_;
 }
+const vector<UChar_t> &Nano::Tau_idDeepTau2017v2p1VSe() {
+    if (!loaded_Tau_idDeepTau2017v2p1VSe_) {
+        if (!b_Tau_idDeepTau2017v2p1VSe_) throw std::runtime_error("Tau_idDeepTau2017v2p1VSe branch doesn't exist");
+        int bytes = b_Tau_idDeepTau2017v2p1VSe_->GetEntry(index);
+        v_Tau_idDeepTau2017v2p1VSe_ = vector<UChar_t>(Tau_idDeepTau2017v2p1VSe_,Tau_idDeepTau2017v2p1VSe_+bytes/sizeof(Tau_idDeepTau2017v2p1VSe_[0]));
+        loaded_Tau_idDeepTau2017v2p1VSe_ = true;
+    }
+    return v_Tau_idDeepTau2017v2p1VSe_;
+}
+const vector<UChar_t> &Nano::Tau_idDeepTau2017v2p1VSjet() {
+    if (!loaded_Tau_idDeepTau2017v2p1VSjet_) {
+        if (!b_Tau_idDeepTau2017v2p1VSjet_) throw std::runtime_error("Tau_idDeepTau2017v2p1VSjet branch doesn't exist");
+        int bytes = b_Tau_idDeepTau2017v2p1VSjet_->GetEntry(index);
+        v_Tau_idDeepTau2017v2p1VSjet_ = vector<UChar_t>(Tau_idDeepTau2017v2p1VSjet_,Tau_idDeepTau2017v2p1VSjet_+bytes/sizeof(Tau_idDeepTau2017v2p1VSjet_[0]));
+        loaded_Tau_idDeepTau2017v2p1VSjet_ = true;
+    }
+    return v_Tau_idDeepTau2017v2p1VSjet_;
+}
+const vector<UChar_t> &Nano::Tau_idDeepTau2017v2p1VSmu() {
+    if (!loaded_Tau_idDeepTau2017v2p1VSmu_) {
+        if (!b_Tau_idDeepTau2017v2p1VSmu_) throw std::runtime_error("Tau_idDeepTau2017v2p1VSmu branch doesn't exist");
+        int bytes = b_Tau_idDeepTau2017v2p1VSmu_->GetEntry(index);
+        v_Tau_idDeepTau2017v2p1VSmu_ = vector<UChar_t>(Tau_idDeepTau2017v2p1VSmu_,Tau_idDeepTau2017v2p1VSmu_+bytes/sizeof(Tau_idDeepTau2017v2p1VSmu_[0]));
+        loaded_Tau_idDeepTau2017v2p1VSmu_ = true;
+    }
+    return v_Tau_idDeepTau2017v2p1VSmu_;
+}
 const vector<UChar_t> &Nano::Tau_idMVAnewDM2017v2() {
     if (!loaded_Tau_idMVAnewDM2017v2_) {
         if (!b_Tau_idMVAnewDM2017v2_) throw std::runtime_error("Tau_idMVAnewDM2017v2 branch doesn't exist");
@@ -16472,6 +16627,33 @@ const vector<int> &Nano::Tau_rawAntiEleCat2018() {
         loaded_Tau_rawAntiEleCat2018_ = true;
     }
     return v_Tau_rawAntiEleCat2018_;
+}
+const vector<float> &Nano::Tau_rawDeepTau2017v2p1VSe() {
+    if (!loaded_Tau_rawDeepTau2017v2p1VSe_) {
+        if (!b_Tau_rawDeepTau2017v2p1VSe_) throw std::runtime_error("Tau_rawDeepTau2017v2p1VSe branch doesn't exist");
+        int bytes = b_Tau_rawDeepTau2017v2p1VSe_->GetEntry(index);
+        v_Tau_rawDeepTau2017v2p1VSe_ = vector<float>(Tau_rawDeepTau2017v2p1VSe_,Tau_rawDeepTau2017v2p1VSe_+bytes/sizeof(Tau_rawDeepTau2017v2p1VSe_[0]));
+        loaded_Tau_rawDeepTau2017v2p1VSe_ = true;
+    }
+    return v_Tau_rawDeepTau2017v2p1VSe_;
+}
+const vector<float> &Nano::Tau_rawDeepTau2017v2p1VSjet() {
+    if (!loaded_Tau_rawDeepTau2017v2p1VSjet_) {
+        if (!b_Tau_rawDeepTau2017v2p1VSjet_) throw std::runtime_error("Tau_rawDeepTau2017v2p1VSjet branch doesn't exist");
+        int bytes = b_Tau_rawDeepTau2017v2p1VSjet_->GetEntry(index);
+        v_Tau_rawDeepTau2017v2p1VSjet_ = vector<float>(Tau_rawDeepTau2017v2p1VSjet_,Tau_rawDeepTau2017v2p1VSjet_+bytes/sizeof(Tau_rawDeepTau2017v2p1VSjet_[0]));
+        loaded_Tau_rawDeepTau2017v2p1VSjet_ = true;
+    }
+    return v_Tau_rawDeepTau2017v2p1VSjet_;
+}
+const vector<float> &Nano::Tau_rawDeepTau2017v2p1VSmu() {
+    if (!loaded_Tau_rawDeepTau2017v2p1VSmu_) {
+        if (!b_Tau_rawDeepTau2017v2p1VSmu_) throw std::runtime_error("Tau_rawDeepTau2017v2p1VSmu branch doesn't exist");
+        int bytes = b_Tau_rawDeepTau2017v2p1VSmu_->GetEntry(index);
+        v_Tau_rawDeepTau2017v2p1VSmu_ = vector<float>(Tau_rawDeepTau2017v2p1VSmu_,Tau_rawDeepTau2017v2p1VSmu_+bytes/sizeof(Tau_rawDeepTau2017v2p1VSmu_[0]));
+        loaded_Tau_rawDeepTau2017v2p1VSmu_ = true;
+    }
+    return v_Tau_rawDeepTau2017v2p1VSmu_;
 }
 const vector<float> &Nano::Tau_rawIso() {
     if (!loaded_Tau_rawIso_) {
@@ -16762,6 +16944,14 @@ const UInt_t &Nano::nFatJet() {
     }
     return nFatJet_;
 }
+const UInt_t &Nano::nFsrPhoton() {
+    if (!loaded_nFsrPhoton_) {
+        if (!b_nFsrPhoton_) throw std::runtime_error("nFsrPhoton branch doesn't exist");
+        b_nFsrPhoton_->GetEntry(index);
+        loaded_nFsrPhoton_ = true;
+    }
+    return nFsrPhoton_;
+}
 const UInt_t &Nano::nGenDressedLepton() {
     if (!loaded_nGenDressedLepton_) {
         if (!b_nGenDressedLepton_) throw std::runtime_error("nGenDressedLepton branch doesn't exist");
@@ -16939,24 +17129,7 @@ const UInt_t &Nano::run() {
     return run_;
 }
 
-const Int_t &Nano::year() {
-    return year_;
-}
-
-Bool_t Nano::hasGenBranches() {
-    if (b_GenPart_pt_)
-        return true;
-    else
-        return false;
-}
-
-const Bool_t &Nano::isData() {
-    return loaded_GenPart_pt_;
-}
-
 namespace tas {
-    const Int_t &year() { return nt.year(); }
-    const Bool_t &isData() { return nt.isData(); }
     const float &CaloMET_phi() { return nt.CaloMET_phi(); }
     const float &CaloMET_pt() { return nt.CaloMET_pt(); }
     const float &CaloMET_sumEt() { return nt.CaloMET_sumEt(); }
@@ -17029,12 +17202,16 @@ namespace tas {
     const vector<float> &Electron_sip3d() { return nt.Electron_sip3d(); }
     const vector<int> &Electron_tightCharge() { return nt.Electron_tightCharge(); }
     const vector<int> &Electron_vidNestedWPBitmap() { return nt.Electron_vidNestedWPBitmap(); }
+    const vector<int> &Electron_vidNestedWPBitmapHEEP() { return nt.Electron_vidNestedWPBitmapHEEP(); }
     const vector<float> &FatJet_area() { return nt.FatJet_area(); }
     const vector<float> &FatJet_btagCMVA() { return nt.FatJet_btagCMVA(); }
     const vector<float> &FatJet_btagCSVV2() { return nt.FatJet_btagCSVV2(); }
     const vector<float> &FatJet_btagDDBvL() { return nt.FatJet_btagDDBvL(); }
+    const vector<float> &FatJet_btagDDBvL_noMD() { return nt.FatJet_btagDDBvL_noMD(); }
     const vector<float> &FatJet_btagDDCvB() { return nt.FatJet_btagDDCvB(); }
+    const vector<float> &FatJet_btagDDCvB_noMD() { return nt.FatJet_btagDDCvB_noMD(); }
     const vector<float> &FatJet_btagDDCvL() { return nt.FatJet_btagDDCvL(); }
+    const vector<float> &FatJet_btagDDCvL_noMD() { return nt.FatJet_btagDDCvL_noMD(); }
     const vector<float> &FatJet_btagDeepB() { return nt.FatJet_btagDeepB(); }
     const vector<float> &FatJet_btagHbb() { return nt.FatJet_btagHbb(); }
     const vector<float> &FatJet_deepTagMD_H4qvsQCD() { return nt.FatJet_deepTagMD_H4qvsQCD(); }
@@ -17054,10 +17231,7 @@ namespace tas {
     const vector<float> &FatJet_deepTag_WvsQCD() { return nt.FatJet_deepTag_WvsQCD(); }
     const vector<float> &FatJet_deepTag_ZvsQCD() { return nt.FatJet_deepTag_ZvsQCD(); }
     const vector<float> &FatJet_eta() { return nt.FatJet_eta(); }
-    const vector<int> &FatJet_genJetAK8Idx() { return nt.FatJet_genJetAK8Idx(); }
     const vector<int> &FatJet_jetId() { return nt.FatJet_jetId(); }
-    const vector<UChar_t> &FatJet_nBHadrons() { return nt.FatJet_nBHadrons(); }
-    const vector<UChar_t> &FatJet_nCHadrons() { return nt.FatJet_nCHadrons(); }
     const vector<float> &FatJet_mass() { return nt.FatJet_mass(); }
     const vector<float> &FatJet_msoftdrop() { return nt.FatJet_msoftdrop(); }
     const vector<float> &FatJet_n2b1() { return nt.FatJet_n2b1(); }
@@ -17099,6 +17273,12 @@ namespace tas {
     const bool &Flag_trkPOG_logErrorTooManyClusters() { return nt.Flag_trkPOG_logErrorTooManyClusters(); }
     const bool &Flag_trkPOG_manystripclus53X() { return nt.Flag_trkPOG_manystripclus53X(); }
     const bool &Flag_trkPOG_toomanystripclus53X() { return nt.Flag_trkPOG_toomanystripclus53X(); }
+    const vector<float> &FsrPhoton_dROverEt2() { return nt.FsrPhoton_dROverEt2(); }
+    const vector<float> &FsrPhoton_eta() { return nt.FsrPhoton_eta(); }
+    const vector<int> &FsrPhoton_muonIdx() { return nt.FsrPhoton_muonIdx(); }
+    const vector<float> &FsrPhoton_phi() { return nt.FsrPhoton_phi(); }
+    const vector<float> &FsrPhoton_pt() { return nt.FsrPhoton_pt(); }
+    const vector<float> &FsrPhoton_relIso03() { return nt.FsrPhoton_relIso03(); }
     const vector<float> &GenDressedLepton_eta() { return nt.GenDressedLepton_eta(); }
     const vector<bool> &GenDressedLepton_hasTauAnc() { return nt.GenDressedLepton_hasTauAnc(); }
     const vector<float> &GenDressedLepton_mass() { return nt.GenDressedLepton_mass(); }
@@ -18224,6 +18404,7 @@ namespace tas {
     const vector<float> &Muon_dz() { return nt.Muon_dz(); }
     const vector<float> &Muon_dzErr() { return nt.Muon_dzErr(); }
     const vector<float> &Muon_eta() { return nt.Muon_eta(); }
+    const vector<int> &Muon_fsrPhotonIdx() { return nt.Muon_fsrPhotonIdx(); }
     const vector<UChar_t> &Muon_genPartFlav() { return nt.Muon_genPartFlav(); }
     const vector<int> &Muon_genPartIdx() { return nt.Muon_genPartIdx(); }
     const vector<UChar_t> &Muon_highPtId() { return nt.Muon_highPtId(); }
@@ -18324,6 +18505,8 @@ namespace tas {
     const vector<float> &SV_chi2() { return nt.SV_chi2(); }
     const vector<float> &SV_dlen() { return nt.SV_dlen(); }
     const vector<float> &SV_dlenSig() { return nt.SV_dlenSig(); }
+    const vector<float> &SV_dxy() { return nt.SV_dxy(); }
+    const vector<float> &SV_dxySig() { return nt.SV_dxySig(); }
     const vector<float> &SV_eta() { return nt.SV_eta(); }
     const vector<float> &SV_mass() { return nt.SV_mass(); }
     const vector<float> &SV_ndof() { return nt.SV_ndof(); }
@@ -18378,6 +18561,9 @@ namespace tas {
     const vector<UChar_t> &Tau_idAntiMu() { return nt.Tau_idAntiMu(); }
     const vector<bool> &Tau_idDecayMode() { return nt.Tau_idDecayMode(); }
     const vector<bool> &Tau_idDecayModeNewDMs() { return nt.Tau_idDecayModeNewDMs(); }
+    const vector<UChar_t> &Tau_idDeepTau2017v2p1VSe() { return nt.Tau_idDeepTau2017v2p1VSe(); }
+    const vector<UChar_t> &Tau_idDeepTau2017v2p1VSjet() { return nt.Tau_idDeepTau2017v2p1VSjet(); }
+    const vector<UChar_t> &Tau_idDeepTau2017v2p1VSmu() { return nt.Tau_idDeepTau2017v2p1VSmu(); }
     const vector<UChar_t> &Tau_idMVAnewDM2017v2() { return nt.Tau_idMVAnewDM2017v2(); }
     const vector<UChar_t> &Tau_idMVAoldDM() { return nt.Tau_idMVAoldDM(); }
     const vector<UChar_t> &Tau_idMVAoldDM2017v1() { return nt.Tau_idMVAoldDM2017v1(); }
@@ -18398,6 +18584,9 @@ namespace tas {
     const vector<float> &Tau_rawAntiEle2018() { return nt.Tau_rawAntiEle2018(); }
     const vector<int> &Tau_rawAntiEleCat() { return nt.Tau_rawAntiEleCat(); }
     const vector<int> &Tau_rawAntiEleCat2018() { return nt.Tau_rawAntiEleCat2018(); }
+    const vector<float> &Tau_rawDeepTau2017v2p1VSe() { return nt.Tau_rawDeepTau2017v2p1VSe(); }
+    const vector<float> &Tau_rawDeepTau2017v2p1VSjet() { return nt.Tau_rawDeepTau2017v2p1VSjet(); }
+    const vector<float> &Tau_rawDeepTau2017v2p1VSmu() { return nt.Tau_rawDeepTau2017v2p1VSmu(); }
     const vector<float> &Tau_rawIso() { return nt.Tau_rawIso(); }
     const vector<float> &Tau_rawIsodR03() { return nt.Tau_rawIsodR03(); }
     const vector<float> &Tau_rawMVAnewDM2017v2() { return nt.Tau_rawMVAnewDM2017v2(); }
@@ -18432,6 +18621,7 @@ namespace tas {
     const UInt_t &nCorrT1METJet() { return nt.nCorrT1METJet(); }
     const UInt_t &nElectron() { return nt.nElectron(); }
     const UInt_t &nFatJet() { return nt.nFatJet(); }
+    const UInt_t &nFsrPhoton() { return nt.nFsrPhoton(); }
     const UInt_t &nGenDressedLepton() { return nt.nGenDressedLepton(); }
     const UInt_t &nGenJet() { return nt.nGenJet(); }
     const UInt_t &nGenJetAK8() { return nt.nGenJetAK8(); }
@@ -18454,6 +18644,8 @@ namespace tas {
     const UInt_t &nTau() { return nt.nTau(); }
     const UInt_t &nTrigObj() { return nt.nTrigObj(); }
     const UInt_t &run() { return nt.run(); }
+    const Int_t &year() { return nt.year(); }
+    const Bool_t &isData() { return nt.isData(); }
     vector<float> GetVF(const string &name) {
         if (name == "CorrT1METJet_area") return nt.CorrT1METJet_area();
         else if (name == "CorrT1METJet_eta") return nt.CorrT1METJet_eta();
@@ -18496,8 +18688,11 @@ namespace tas {
         else if (name == "FatJet_btagCMVA") return nt.FatJet_btagCMVA();
         else if (name == "FatJet_btagCSVV2") return nt.FatJet_btagCSVV2();
         else if (name == "FatJet_btagDDBvL") return nt.FatJet_btagDDBvL();
+        else if (name == "FatJet_btagDDBvL_noMD") return nt.FatJet_btagDDBvL_noMD();
         else if (name == "FatJet_btagDDCvB") return nt.FatJet_btagDDCvB();
+        else if (name == "FatJet_btagDDCvB_noMD") return nt.FatJet_btagDDCvB_noMD();
         else if (name == "FatJet_btagDDCvL") return nt.FatJet_btagDDCvL();
+        else if (name == "FatJet_btagDDCvL_noMD") return nt.FatJet_btagDDCvL_noMD();
         else if (name == "FatJet_btagDeepB") return nt.FatJet_btagDeepB();
         else if (name == "FatJet_btagHbb") return nt.FatJet_btagHbb();
         else if (name == "FatJet_deepTagMD_H4qvsQCD") return nt.FatJet_deepTagMD_H4qvsQCD();
@@ -18528,6 +18723,11 @@ namespace tas {
         else if (name == "FatJet_tau2") return nt.FatJet_tau2();
         else if (name == "FatJet_tau3") return nt.FatJet_tau3();
         else if (name == "FatJet_tau4") return nt.FatJet_tau4();
+        else if (name == "FsrPhoton_dROverEt2") return nt.FsrPhoton_dROverEt2();
+        else if (name == "FsrPhoton_eta") return nt.FsrPhoton_eta();
+        else if (name == "FsrPhoton_phi") return nt.FsrPhoton_phi();
+        else if (name == "FsrPhoton_pt") return nt.FsrPhoton_pt();
+        else if (name == "FsrPhoton_relIso03") return nt.FsrPhoton_relIso03();
         else if (name == "GenDressedLepton_eta") return nt.GenDressedLepton_eta();
         else if (name == "GenDressedLepton_mass") return nt.GenDressedLepton_mass();
         else if (name == "GenDressedLepton_phi") return nt.GenDressedLepton_phi();
@@ -18629,6 +18829,8 @@ namespace tas {
         else if (name == "SV_chi2") return nt.SV_chi2();
         else if (name == "SV_dlen") return nt.SV_dlen();
         else if (name == "SV_dlenSig") return nt.SV_dlenSig();
+        else if (name == "SV_dxy") return nt.SV_dxy();
+        else if (name == "SV_dxySig") return nt.SV_dxySig();
         else if (name == "SV_eta") return nt.SV_eta();
         else if (name == "SV_mass") return nt.SV_mass();
         else if (name == "SV_ndof") return nt.SV_ndof();
@@ -18674,6 +18876,9 @@ namespace tas {
         else if (name == "Tau_puCorr") return nt.Tau_puCorr();
         else if (name == "Tau_rawAntiEle") return nt.Tau_rawAntiEle();
         else if (name == "Tau_rawAntiEle2018") return nt.Tau_rawAntiEle2018();
+        else if (name == "Tau_rawDeepTau2017v2p1VSe") return nt.Tau_rawDeepTau2017v2p1VSe();
+        else if (name == "Tau_rawDeepTau2017v2p1VSjet") return nt.Tau_rawDeepTau2017v2p1VSjet();
+        else if (name == "Tau_rawDeepTau2017v2p1VSmu") return nt.Tau_rawDeepTau2017v2p1VSmu();
         else if (name == "Tau_rawIso") return nt.Tau_rawIso();
         else if (name == "Tau_rawIsodR03") return nt.Tau_rawIsodR03();
         else if (name == "Tau_rawMVAnewDM2017v2") return nt.Tau_rawMVAnewDM2017v2();
@@ -18782,10 +18987,11 @@ namespace tas {
         else if (name == "Electron_photonIdx") return nt.Electron_photonIdx();
         else if (name == "Electron_tightCharge") return nt.Electron_tightCharge();
         else if (name == "Electron_vidNestedWPBitmap") return nt.Electron_vidNestedWPBitmap();
+        else if (name == "Electron_vidNestedWPBitmapHEEP") return nt.Electron_vidNestedWPBitmapHEEP();
         else if (name == "FatJet_jetId") return nt.FatJet_jetId();
-        else if (name == "FatJet_genJetAK8Idx") return nt.FatJet_genJetAK8Idx();
         else if (name == "FatJet_subJetIdx1") return nt.FatJet_subJetIdx1();
         else if (name == "FatJet_subJetIdx2") return nt.FatJet_subJetIdx2();
+        else if (name == "FsrPhoton_muonIdx") return nt.FsrPhoton_muonIdx();
         else if (name == "GenDressedLepton_pdgId") return nt.GenDressedLepton_pdgId();
         else if (name == "GenJetAK8_partonFlavour") return nt.GenJetAK8_partonFlavour();
         else if (name == "GenJet_partonFlavour") return nt.GenJet_partonFlavour();
@@ -18812,6 +19018,7 @@ namespace tas {
         else if (name == "Jet_puId") return nt.Jet_puId();
         else if (name == "LHEPart_pdgId") return nt.LHEPart_pdgId();
         else if (name == "Muon_charge") return nt.Muon_charge();
+        else if (name == "Muon_fsrPhotonIdx") return nt.Muon_fsrPhotonIdx();
         else if (name == "Muon_genPartIdx") return nt.Muon_genPartIdx();
         else if (name == "Muon_jetIdx") return nt.Muon_jetIdx();
         else if (name == "Muon_nStations") return nt.Muon_nStations();

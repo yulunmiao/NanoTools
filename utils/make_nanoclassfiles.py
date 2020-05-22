@@ -222,6 +222,9 @@ int ScanChain(TChain *ch) {{
         tree->SetCacheLearnEntries(10);
         {objectname}.Init(tree);
 
+        // Can also make custom formulas to eval (but dunno how slow this is)
+        TTreeFormula formula("f1", "MET_pt>50", tree);
+
         for( unsigned int event = 0; event < tree->GetEntriesFast(); ++event) {{
             {objectname}.GetEntry(event);
             tree->LoadTree(event);
@@ -234,6 +237,7 @@ int ScanChain(TChain *ch) {{
             // auto jets = {namespace}::Jet_p4(); if (jets.size() > 0) h1->Fill(jets[0].pt());
             // auto jetpts = {namespace}::Jet_pt(); if (jetpts.size() > 0) h1->Fill(jetpts[0]);
             // for (auto& s : {{"MET_pt", "CaloMET_pt", "GenMET_pt", "RawMET_pt", "TkMET_pt"}}) h1->Fill({namespace}::GetF(s));
+            // bool highmet = formula.EvalInstance();
             h1->Fill({namespace}::MET_pt());
 
         }} // Event loop

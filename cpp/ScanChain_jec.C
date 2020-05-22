@@ -85,7 +85,7 @@ int ScanChain(TChain *ch, int nevents_to_process=-1) {
             float rawmet = RawMET_pt();
             float nanomet = MET_pt();
             float recalct1met = getT1CHSMET(jetCorr).first;
-            debug(rawmet, nanomet, recalct1met)
+            debug(rawmet, nanomet, recalct1met);
 
             if (nevents_to_process > 0 and nEventsTotal > nevents_to_process) break;
         }

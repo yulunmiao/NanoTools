@@ -3023,11 +3023,11 @@ const Int_t &Nano::year() {
     return year_;
 }
 
-const Bool_t &Nano::isData() {
-    return loaded_GenPart_pt_;
+Bool_t Nano::isData() {
+    return !((bool)b_GenPart_pt_);
 }
 
-    
+
 
 void Nano::GetEntry(unsigned int idx) {
     index = idx;
@@ -18645,7 +18645,7 @@ namespace tas {
     const UInt_t &nTrigObj() { return nt.nTrigObj(); }
     const UInt_t &run() { return nt.run(); }
     const Int_t &year() { return nt.year(); }
-    const Bool_t &isData() { return nt.isData(); }
+    Bool_t isData() { return nt.isData(); }
     vector<float> GetVF(const string &name) {
         if (name == "CorrT1METJet_area") return nt.CorrT1METJet_area();
         else if (name == "CorrT1METJet_eta") return nt.CorrT1METJet_eta();

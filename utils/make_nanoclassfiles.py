@@ -281,7 +281,7 @@ def get_looper_doAll(ginfo):
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("filename", help="filename to make classfile on")
+    parser.add_argument("filename", help="filename(s) to make classfile on, separated by comman")
     parser.add_argument("-t", "--tree", help="treename (default: Events)", default="Events")
     parser.add_argument("-n", "--namespace", help="namespace (default: tas)", default="tas")
     parser.add_argument("-o", "--objectname", help="objectname (default: nt)", default="nt")
@@ -292,7 +292,7 @@ if __name__ == "__main__":
     parser.add_argument("-e", "--exclude", help="exclude branches matching patterns separated by , (e.g., \"HLT_*,*_pt\")", default="")
     args = parser.parse_args()
 
-    fname = os.path.abspath(args.filename.strip())
+    flist = [os.path.abspath(f) for f in args.filename.strip().split(',')]
     treename = args.tree
     classname = args.classname
     objectname = args.objectname
@@ -312,61 +312,66 @@ if __name__ == "__main__":
             "classname": classname,
             "namespace": namespace,
             "objectname": objectname,
-            "filename": os.path.abspath(fname),
-            "args": " ".join(sys.argv[1:]).replace(args.filename.strip(),fname),
+            "filename": ','.join(flist),
+            "args": " ".join(sys.argv[1:]).replace(args.filename.strip(),','.join(flist)),
             }
 
-    f = r.TFile(fname)
-    t = f.Get(treename)
-
     d_branch_info = {}
+    s_brnames = set()
 
-    branches = list(t.GetListOfBranches())
+    for fname in flist:
+        f = r.TFile(fname)
+        t = f.Get(treename)
 
-    for branch in branches:
-        title = branch.GetTitle()
-        name = branch.GetName()
+        branches = list(t.GetListOfBranches())
 
-        if filter_branches and name not in filter_branches: continue
-        if exclude_patterns:
-            if any(fnmatch.fnmatch(name,patt) for patt in exclude_patterns): continue
+        for branch in branches:
+            title = branch.GetTitle()
+            name = branch.GetName()
 
-        leaf = branch.GetLeaf(branch.GetName())
-        leaf_title = leaf.GetTitle()
-        is_array = "[" in leaf_title
-        # DECLARING ARRAY WITH TOO LITTLE SPACE WILL SEGFAULT SO NEED TO BE REALLY CAREFUL
-        # FIXME figure out better way. tripling is not a solution
-        # ndata = 3*leaf.GetNdata()
-        ndata = leaf.GetNdata()
-        collectionname = None
-        ndatamacroname = None
-        if is_array:
-            collectionname = leaf_title.split("_",1)[0].split("[",1)[0]
-            ndatamacroname = "N{}_MAX".format(collectionname.upper())
+            if name in s_brnames: continue
+            s_brnames.add(name)
 
-        typename = leaf.GetTypeName()
-        tmap = {
-                "Float_t": "float",
-                "Int_t": "int",
-                "Bool_t": "bool",
-                }
-        typename = tmap.get(typename,typename)
-        typename_novec = typename[:]
-        if is_array:
-            leaf_title = "{}[{}]".format(leaf_title.split("[")[0],ndata)
-            typename = "vector<{}>".format(typename)
+            if filter_branches and name not in filter_branches: continue
+            if exclude_patterns:
+                if any(fnmatch.fnmatch(name,patt) for patt in exclude_patterns): continue
 
-        d_branch_info[name] = {
-                "desc": title,
-                "name": name,
-                "is_array": is_array,
-                "typename": typename,
-                "typename_novec": typename_novec,
-                "ndata": ndata,
-                "leaf_title": leaf_title,
-                "collectionname": collectionname,
-                "ndatamacroname": ndatamacroname,
-                }
+            leaf = branch.GetLeaf(branch.GetName())
+            leaf_title = leaf.GetTitle()
+            is_array = "[" in leaf_title
+            # DECLARING ARRAY WITH TOO LITTLE SPACE WILL SEGFAULT SO NEED TO BE REALLY CAREFUL
+            # FIXME figure out better way. tripling is not a solution
+            # ndata = 3*leaf.GetNdata()
+            ndata = leaf.GetNdata()
+            collectionname = None
+            ndatamacroname = None
+            if is_array:
+                collectionname = leaf_title.split("_",1)[0].split("[",1)[0]
+                ndatamacroname = "N{}_MAX".format(collectionname.upper())
+
+            typename = leaf.GetTypeName()
+            tmap = {
+                    "Float_t": "float",
+                    "Int_t": "int",
+                    "Bool_t": "bool",
+                    }
+            typename = tmap.get(typename,typename)
+            typename_novec = typename[:]
+            if is_array:
+                leaf_title = "{}[{}]".format(leaf_title.split("[")[0],ndata)
+                typename = "vector<{}>".format(typename)
+
+            d_branch_info[name] = {
+                    "desc": title,
+                    "name": name,
+                    "is_array": is_array,
+                    "typename": typename,
+                    "typename_novec": typename_novec,
+                    "ndata": ndata,
+                    "leaf_title": leaf_title,
+                    "collectionname": collectionname,
+                    "ndatamacroname": ndatamacroname,
+                    }
 
     names = d_branch_info.keys()
     for_p4s = []

@@ -10,7 +10,7 @@ $(LIB): $(OBJECTS)
 %.o:	%.cc
 	$(CXX) $(CXXFLAGS) -c $< -o $@ -fno-var-tracking
 
-test:
+test: all
 	python Tools/unit_tests/tests.py
 
 all: $(LIB) 

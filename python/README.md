@@ -38,7 +38,6 @@ conda run --name pyrootenv pip install yahist
 
 ### Activate and use
 
-After
 ```
 conda activate pyrootenv
 python read_with_uproot.py

@@ -12,6 +12,11 @@ pip install uproot --user
 pip3 install uproot --user
 ```
 
+### Unit tests
+
+Unit tests of `NanoCORE/` are inside `NanoCORE/Tools/unit_tests/` and can be run with
+`make test` inside of `NanoCORE/`.
+
 ### Style
 
 We use `clang-format` based on LLVM style to format our code. To format the `ElectronSelections.cc` file in-place, do

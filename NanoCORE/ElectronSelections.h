@@ -1,11 +1,29 @@
 #ifndef ELECTRONSELECTIONS_H
 #define ELECTRONSELECTIONS_H
+#include "Base.h"
 #include "Nano.h"
 
-bool electronIDVBS(int elIdx, string id_name);
-float electronMvacut(float A, float B, float C, float pt);
-bool ifpassElectronMVAID(int iel, string id_name);
-bool isTriggerSafenoIso_v3(int iel);
-bool passElectronIso(double cut_miniiso, double cut_ptratio, double cut_ptrel, int iel);
+namespace SS {
+    enum ElectronMVAIDLevel {
+        vetoNoIso2018,
+        fakableNoIsoLooseMVA2018,
+        medium2018,
+        vetoNoIso2017,
+        fakableNoIsoLooseMVA2017,
+        medium2017,
+        vetoNoIso2016,
+        fakableNoIso2016,
+        fakableNoIsoLooseMVA2016,
+        mediumNoIso2016
+    };
+
+    bool electronID(int idx, IDLevel id_level, int year);
+    bool electron2016ID(int idx, IDLevel id_level);
+    bool electron2017ID(int idx, IDLevel id_level);
+    bool electron2018ID(int idx, IDLevel id_level);
+    bool passesElectronMVA(int idx, ElectronMVAIDLevel id_level, int year);
+}
+
+bool isTriggerSafeNoIso(int idx);
 
 #endif

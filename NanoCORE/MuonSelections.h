@@ -2,7 +2,11 @@
 #define MUONSELECTIONS_H
 #include "Nano.h"
 
-bool muonIDVBS(unsigned int imu, string id_name);
-bool passMuonIso(double cut_miniiso, double cut_ptratio, double cut_ptrel, int imu);
+namespace SS {
+    bool muonID(unsigned int idx, IDLevel id_level, int year);
+    bool muon2016ID(unsigned int idx, IDLevel id_level);
+    bool muon2017ID(unsigned int idx, IDLevel id_level);
+    bool muon2018ID(unsigned int idx, IDLevel id_level);
+}
 
 #endif

@@ -19,7 +19,8 @@ class CORETest(unittest.TestCase):
         filename = "root://redirector.t2.ucsd.edu///store/user/namin/nanoaod/TTJets_TuneCP5_13TeV-madgraphMLM-pythia8__RunIIAutumn18NanoAODv5-Nano1June2019_102X_upgrade2018_realistic_v19-v1/8E0C8306-DC0D-0548-BA7C-D0698140DF28.root"
         jecera = "Autumn18_V19_MC";
 
-        print(">>> Starting unit tests with\n\tfile={}\n\tjecera={}".format(filename, jecera))
+        file_and_jecera = "file={}\n\tjecera={}".format(filename, jecera)
+        print(">>> Starting unit tests with\n\t"+file_and_jecera)
 
         print(">>> Making TChain")
         ch = r.TChain("Events")
@@ -29,15 +30,28 @@ class CORETest(unittest.TestCase):
         corebase = os.path.join(thispath.rsplit("NanoCORE/",1)[0], "NanoCORE")
         r.gSystem.Load('{corebase}/NANO_CORE.so'.format(corebase=corebase))
         print(">>> Loading includes")
-        for include in ["Nano.cc", "SSSelections.cc", "MetSelections.cc", "Config.cc"]:
-            r.gInterpreter.ProcessLine('#include "{corebase}/{include}"'.format(corebase=corebase, include=include))
+        includes = [
+            "Nano.cc",
+            "SSSelections.cc",
+            "ElectronSelections.cc",
+            "MuonSelections.cc",
+            "MetSelections.cc",
+            "Config.cc"
+        ]
+        for include in includes:
+            cpp_include = '#include "{corebase}/{include}"'.format(
+                corebase=corebase, 
+                include=include
+            )
+            r.gInterpreter.ProcessLine(cpp_include)
 
         print(">>> Making jet corrector")
         p = dict(corebase=corebase, jecera=jecera)
         vs = r.std.vector("string")()
-        vs.push_back("{corebase}/Tools/jetcorr/data/{jecera}/{jecera}_L1FastJet_AK4PFchs.txt".format(**p))
-        vs.push_back("{corebase}/Tools/jetcorr/data/{jecera}/{jecera}_L2Relative_AK4PFchs.txt".format(**p))
-        vs.push_back("{corebase}/Tools/jetcorr/data/{jecera}/{jecera}_L3Absolute_AK4PFchs.txt".format(**p))
+        jetcorr_path = "{corebase}/Tools/jetcorr/data/{jecera}/{jecera}_"
+        vs.push_back((jetcorr_path+"L1FastJet_AK4PFchs.txt").format(**p))
+        vs.push_back((jetcorr_path+"L2Relative_AK4PFchs.txt").format(**p))
+        vs.push_back((jetcorr_path+"L3Absolute_AK4PFchs.txt").format(**p))
         from ROOT import makeJetCorrector
         jetcorr = makeJetCorrector(vs)
 
@@ -61,7 +75,14 @@ class CORETest(unittest.TestCase):
     def test_jec_subcorrections(self):
         self.jetcorr.setJetPtEtaARho(50., 1.1, 0.5, 25.)
         subcorrs = map(float, self.jetcorr.getSubCorrections())
-        self.assertEqual(vround(subcorrs), vround([0.9395483732223511, 1.0169354677200317, 1.0169354677200317]))
+        self.assertEqual(
+            vround(subcorrs), 
+            vround([
+                0.9395483732223511, 
+                1.0169354677200317, 
+                1.0169354677200317
+            ])
+        )
 
     def test_infer_year(self):
         self.assertEqual(self.nt.year(), 2018)
@@ -85,12 +106,22 @@ class CORETest(unittest.TestCase):
         self.assertEqual(passesMETfilters(self.nt.isData()), True)
 
     def test_electrons(self):
-        from ROOT import isGoodElectron
+        from ROOT import gconf, SS
         pts = list(self.nt.Electron_pt())
         nElectron = len(pts)
         self.assertEqual(nElectron, 1)
         self.assertEqual(vround(pts), vround([43.71261215209961]))
-        self.assertEqual(isGoodElectron(0), False)
+        self.assertEqual(SS.electronID(0, SS.IDtight, gconf.year), False)
+
+    def test_muons(self):
+        from ROOT import gconf, SS
+        self.nt.GetEntry(10)
+        pts = list(self.nt.Muon_pt())
+        nMuon = len(pts)
+        self.assertEqual(nMuon, 1)
+        self.assertEqual(vround(pts), vround([32.8664474487]))
+        self.assertEqual(SS.muonID(0, SS.IDtight, gconf.year), True)
+        self.nt.GetEntry(0)
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

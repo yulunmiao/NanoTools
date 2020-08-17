@@ -3,7 +3,7 @@
 
 using namespace tas;
 
-bool muonID(unsigned int idx, IDLevel id_level, int year) {
+bool muonID(unsigned int idx, SS::IDLevel id_level, int year) {
     // Common checks
     if (Muon_pt().at(idx) < 10.) { return false; }
     if (fabs(Muon_eta().at(idx)) > 2.4) { return false; }
@@ -30,17 +30,17 @@ bool muonID(unsigned int idx, IDLevel id_level, int year) {
     }
 }
 
-bool muon2016ID(unsigned int idx, IDLevel id_level) {
+bool muon2016ID(unsigned int idx, SS::IDLevel id_level) {
     // ID-specific checks
     switch (id_level) {
-    case (IDveto):
+    case (SS::IDveto):
         return true;
         break;
-    case (IDfakable):
+    case (SS::IDfakable):
         if (Muon_miniPFRelIso_all().at(idx) > 0.4) { return false; }
         return true;
         break;
-    case (IDtight):
+    case (SS::IDtight):
         if (!passesLeptonIso(idx, 13, 0.16, 0.76, 7.2)) { return false; }
         return true;
         break;
@@ -52,17 +52,17 @@ bool muon2016ID(unsigned int idx, IDLevel id_level) {
     return false;
 }
 
-bool muon2017ID(unsigned int idx, IDLevel id_level) {
+bool muon2017ID(unsigned int idx, SS::IDLevel id_level) {
     // ID-specific checks
     switch (id_level) {
-    case (IDveto):
+    case (SS::IDveto):
         return true;
         break;
-    case (IDfakable):
+    case (SS::IDfakable):
         if (Muon_miniPFRelIso_all().at(idx) > 0.4) { return false; }
         return true;
         break;
-    case (IDtight):
+    case (SS::IDtight):
         if (!passesLeptonIso(idx, 13, 0.11, 0.74, 6.8)) { return false; }
         return true;
         break;
@@ -74,18 +74,18 @@ bool muon2017ID(unsigned int idx, IDLevel id_level) {
     return false;
 }
 
-bool muon2018ID(unsigned int idx, IDLevel id_level) {
+bool muon2018ID(unsigned int idx, SS::IDLevel id_level) {
     // ID-specific checks
     switch (id_level) {
-    case (IDveto):
+    case (SS::IDveto):
         return true;
         break;
-    case (IDfakable):
+    case (SS::IDfakable):
         // Same as 2017 ID
         if (Muon_miniPFRelIso_all().at(idx) > 0.4) { return false; }
         return true;
         break;
-    case (IDtight):
+    case (SS::IDtight):
         // Same as 2017 ID
         if (!passesLeptonIso(idx, 13, 0.11, 0.74, 6.8)) { return false; }
         return true;

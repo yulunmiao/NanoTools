@@ -112,6 +112,13 @@ bool SS::electron2018ID(int idx, SS::IDLevel id_level) {
 
 
 bool SS::passesElectronMVA(int idx, SS::ElectronMVAIDLevel id_level, int year) {
+    // Define discriminant calculations
+    auto electronMVA94X = [](int idx_) {
+        float not_raw = Electron_mvaFall17V2noIso().at(idx_);
+        if (not_raw > 1.0 - 1.e-6) not_raw = 1.0 - 1.e-6;
+        if (not_raw < -1.0 + 1.e-6) not_raw = -1.0 + 1.e-6;
+        return -0.5 * log((2.0 / (not_raw + 1)) - 1.0);
+    };
     // Get MVA discriminant
     float disc;
     switch (year) {
@@ -122,12 +129,6 @@ bool SS::passesElectronMVA(int idx, SS::ElectronMVAIDLevel id_level, int year) {
         disc = Electron_mvaFall17V1noIso().at(idx);
         break;
     case (2018):
-        auto electronMVA94X = [](int idx) {
-            float not_raw = Electron_mvaFall17V2noIso().at(idx);
-            if (not_raw > 1.0 - 1.e-6) not_raw = 1.0 - 1.e-6;
-            if (not_raw < -1.0 + 1.e-6) not_raw = -1.0 + 1.e-6;
-            return -0.5 * log((2.0 / (not_raw + 1)) - 1.0);
-        }
         disc = electronMVA94X(idx);
         break;
     default:
@@ -143,7 +144,7 @@ bool SS::passesElectronMVA(int idx, SS::ElectronMVAIDLevel id_level, int year) {
         } else {
             return (A + (B - A) / 15 * (pt - 10));
         }
-    }
+    };
     auto electron2016MVACut = [](float A, float B, float C, float pt) {
         if (pt > 10) {
             float pt_min = 15;
@@ -153,7 +154,7 @@ bool SS::passesElectronMVA(int idx, SS::ElectronMVAIDLevel id_level, int year) {
         } else {
             return C;
         }
-    }
+    };
     // Calculate absolute value of supercluster eta
     float SC_absEta = fabs(Electron_eta().at(idx) + Electron_deltaEtaSC().at(idx));
     // Get "true" pt of the electron

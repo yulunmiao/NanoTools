@@ -3,7 +3,7 @@
 
 using namespace tas;
 
-bool SS::electronID(int idx, IDLevel id_level, int year) {
+bool SS::electronID(int idx, SS::IDLevel id_level, int year) {
     // Common checks
     if (Electron_pt().at(idx) < 10.) { return false; }
     if (!isTriggerSafeNoIso(idx)) { return false; }
@@ -17,13 +17,13 @@ bool SS::electronID(int idx, IDLevel id_level, int year) {
     // Year-specific checks
     switch (year) {
     case (2016):
-        return electron2016ID(idx, id_level);
+        return SS::electron2016ID(idx, id_level);
         break;
     case (2017):
-        return electron2017ID(idx, id_level);
+        return SS::electron2017ID(idx, id_level);
         break;
     case (2018):
-        return electron2018ID(idx, id_level);
+        return SS::electron2018ID(idx, id_level);
         break;
     default:
         throw std::runtime_error("ElectronSelections.cc: ERROR - invalid year");
@@ -32,22 +32,22 @@ bool SS::electronID(int idx, IDLevel id_level, int year) {
     }
 }
 
-bool SS::electron2016ID(int idx, IDLevel id_level) {
+bool SS::electron2016ID(int idx, SS::IDLevel id_level) {
     // Common checks
-    if (!passesElectronMVA(idx, vetoNoIso2016, 2016)) { return false; }
+    if (!passesElectronMVA(idx, SS::vetoNoIso2016, 2016)) { return false; }
     // ID-specific checks
     switch (id_level) {
-    case (IDveto):
+    case (SS::IDveto):
         return true;
         break;
-    case (IDfakable):
-        if (!passesElectronMVA(idx, fakableNoIsoLooseMVA2016, 2016)) { return false; }
+    case (SS::IDfakable):
+        if (!passesElectronMVA(idx, SS::fakableNoIsoLooseMVA2016, 2016)) { return false; }
         if (Electron_miniPFRelIso_all().at(idx) >= 0.4) { return false; }
         return true;
         break;
-    case (IDtight):
-        if (!passesElectronMVA(idx, fakableNoIso2016, 2016)) { return false; }
-        if (!passesElectronMVA(idx, mediumNoIso2016, 2016)) { return false; }
+    case (SS::IDtight):
+        if (!passesElectronMVA(idx, SS::fakableNoIso2016, 2016)) { return false; }
+        if (!passesElectronMVA(idx, SS::mediumNoIso2016, 2016)) { return false; }
         if (!passesLeptonIso(idx, 11, 0.12, 0.80, 7.2)) { return false; }
         return true;
         break;
@@ -58,21 +58,21 @@ bool SS::electron2016ID(int idx, IDLevel id_level) {
     }
 }
 
-bool SS::electron2017ID(int idx, IDLevel id_level) {
+bool SS::electron2017ID(int idx, SS::IDLevel id_level) {
     // Common checks
-    if (!passesElectronMVA(idx, vetoNoIso2017, 2017)) { return false; }
+    if (!passesElectronMVA(idx, SS::vetoNoIso2017, 2017)) { return false; }
     // ID-specific checks
     switch (id_level) {
-    case (IDveto):
+    case (SS::IDveto):
         return true;
         break;
-    case (IDfakable):
-        if (!passesElectronMVA(idx, fakableNoIsoLooseMVA2017, 2017)) { return false; }
+    case (SS::IDfakable):
+        if (!passesElectronMVA(idx, SS::fakableNoIsoLooseMVA2017, 2017)) { return false; }
         if (Electron_miniPFRelIso_all().at(idx) >= 0.4) { return false; }
         return true;
         break;
-    case (IDtight):
-        if (!passesElectronMVA(idx, medium2017, 2017)) { return false; }
+    case (SS::IDtight):
+        if (!passesElectronMVA(idx, SS::medium2017, 2017)) { return false; }
         if (!passesLeptonIso(idx, 11, 0.07, 0.78, 8.0)) { return false; }
         return true;
         break;
@@ -84,21 +84,21 @@ bool SS::electron2017ID(int idx, IDLevel id_level) {
     return false;
 }
 
-bool SS::electron2018ID(int idx, IDLevel id_level) {
+bool SS::electron2018ID(int idx, SS::IDLevel id_level) {
     // Common checks
-    if (!passesElectronMVA(idx, vetoNoIso2018, 2018)) { return false; }
+    if (!passesElectronMVA(idx, SS::vetoNoIso2018, 2018)) { return false; }
     // ID-specific checks
     switch (id_level) {
-    case (IDveto):
+    case (SS::IDveto):
         return true;
         break;
-    case (IDfakable):
-        if (!passesElectronMVA(idx, fakableNoIsoLooseMVA2018, 2018)) { return false; }
+    case (SS::IDfakable):
+        if (!passesElectronMVA(idx, SS::fakableNoIsoLooseMVA2018, 2018)) { return false; }
         if (Electron_miniPFRelIso_all().at(idx) >= 0.4) { return false; }
         return true;
         break;
-    case (IDtight):
-        if (!passesElectronMVA(idx, medium2018, 2018)) { return false; }
+    case (SS::IDtight):
+        if (!passesElectronMVA(idx, SS::medium2018, 2018)) { return false; }
         if (!passesLeptonIso(idx, 11, 0.07, 0.78, 8.0)) { return false; }
         return true;
         break;
@@ -111,7 +111,7 @@ bool SS::electron2018ID(int idx, IDLevel id_level) {
 }
 
 
-bool SS::passesElectronMVA(int idx, ElectronMVAIDLevel id_level, int year) {
+bool SS::passesElectronMVA(int idx, SS::ElectronMVAIDLevel id_level, int year) {
     // Get MVA discriminant
     float disc;
     switch (year) {
@@ -160,7 +160,7 @@ bool SS::passesElectronMVA(int idx, ElectronMVAIDLevel id_level, int year) {
     float pt = Electron_pt().at(idx);
     // Get MVA result (binned in |SC_eta|)
     switch (id_level) {
-    case (vetoNoIso2018):
+    case (SS::vetoNoIso2018):
         if (SC_absEta < 0.8) {
             if (disc <= electronMVACut(0.214, 1.204, 1.320, pt)) { return false; }
         }
@@ -172,7 +172,7 @@ bool SS::passesElectronMVA(int idx, ElectronMVAIDLevel id_level, int year) {
         }
         return true;
         break;
-    case (fakableNoIsoLooseMVA2018):
+    case (SS::fakableNoIsoLooseMVA2018):
         if (SC_absEta < 0.8) {
             if (disc <= electronMVACut(-1.036, -0.106, 0.053, pt)) { return false; }
         }
@@ -184,7 +184,7 @@ bool SS::passesElectronMVA(int idx, ElectronMVAIDLevel id_level, int year) {
         }
         return true;
         break;
-    case (medium2018):
+    case (SS::medium2018):
         if (SC_absEta < 0.8) {
             if (disc <= electronMVACut(2.597, 4.277, 2.597, pt)) { return false; }
         }
@@ -196,7 +196,7 @@ bool SS::passesElectronMVA(int idx, ElectronMVAIDLevel id_level, int year) {
         }
         return true;
         break;
-    case (vetoNoIso2017):
+    case (SS::vetoNoIso2017):
         if (SC_absEta < 0.8) {
             if (disc <= electronMVACut(-0.788, -0.64, 0.488, pt)) { return false; }
         }
@@ -208,7 +208,7 @@ bool SS::passesElectronMVA(int idx, ElectronMVAIDLevel id_level, int year) {
         }
         return true;
         break;
-    case (fakableNoIsoLooseMVA2017):
+    case (SS::fakableNoIsoLooseMVA2017):
         if (SC_absEta < 0.8) {
             if (disc <= electronMVACut(-0.93, -0.887, -0.135, pt)) { return false; }
         }
@@ -220,7 +220,7 @@ bool SS::passesElectronMVA(int idx, ElectronMVAIDLevel id_level, int year) {
         }
         return true;
         break;
-    case (medium2017):
+    case (SS::medium2017):
         if (SC_absEta < 0.8) {
             if (disc <= electronMVACut(0.2, 0.68, 0.2, pt)) { return false; }
         }
@@ -232,7 +232,7 @@ bool SS::passesElectronMVA(int idx, ElectronMVAIDLevel id_level, int year) {
         }
         return true;
         break;
-    case (vetoNoIso2016):
+    case (SS::vetoNoIso2016):
         if (SC_absEta < 0.8) {
             if (disc <= electron2016MVACut(-0.48, -0.85, -0.46, pt)) { return false; }
         }
@@ -244,7 +244,7 @@ bool SS::passesElectronMVA(int idx, ElectronMVAIDLevel id_level, int year) {
         }
         return true;
         break;
-    case (fakableNoIso2016):
+    case (SS::fakableNoIso2016):
         if (SC_absEta < 0.8) {
             if (disc <= electron2016MVACut(0.77, 0.52, 0.77, pt)) { return false; }
         }
@@ -256,7 +256,7 @@ bool SS::passesElectronMVA(int idx, ElectronMVAIDLevel id_level, int year) {
         }
         return true;
         break;
-    case (fakableNoIsoLooseMVA2016):
+    case (SS::fakableNoIsoLooseMVA2016):
         if (SC_absEta < 0.8) {
             if (disc <= electron2016MVACut(-0.86, -0.96, -0.3, pt)) { return false; }
         }
@@ -268,7 +268,7 @@ bool SS::passesElectronMVA(int idx, ElectronMVAIDLevel id_level, int year) {
         }
         return true;
         break;
-    case (mediumNoIso2016):
+    case (SS::mediumNoIso2016):
         if (SC_absEta < 0.8) {
             if (disc <= electron2016MVACut(0.77, 0.52, 0.77, pt)) { return false; }
         }

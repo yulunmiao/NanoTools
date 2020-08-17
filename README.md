@@ -1,16 +1,15 @@
 ### Environment & setup
 ```bash
 cd /cvmfs/cms.cern.ch/slc6_amd64_gcc700/cms/cmssw/CMSSW_10_2_9/ ; cmsenv ; cd -
-cd NanoCORE
-make -j8 # takes about 20 seconds
+git clone https://github.com/cmstas/NanoTools
+cd NanoTools/NanoCORE
+make test -j12
 ```
 
-### Python dependencies (if desired)
-```bash
-# install uproot with python2.7 and python3
-pip install uproot --user
-pip3 install uproot --user
-```
+### Unit tests
+
+Unit tests of `NanoCORE/` are inside `NanoCORE/Tools/unit_tests/` and can be run with
+`make test` inside of `NanoCORE/`.
 
 ### Style
 

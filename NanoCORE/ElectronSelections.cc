@@ -10,7 +10,7 @@ bool SS::electronID(int idx, SS::IDLevel id_level, int year) {
     if (fabs(Electron_eta().at(idx) + Electron_deltaEtaSC().at(idx)) > 2.5) { return false; }
     if (!Electron_convVeto().at(idx)) { return false; }
     if (int(Electron_lostHits().at(idx)) > 0) { return false; }
-    if (Electron_tightCharge().at(idx) == 0 || Electron_tightCharge().at(idx) == 1) { return false; }
+    if (Electron_tightCharge().at(idx) != 2) { return false; }
     if (fabs(Electron_dxy().at(idx)) >= 0.05) { return false; }
     if (fabs(Electron_dz().at(idx)) >= 0.1) { return false; }
     if (fabs(Electron_sip3d().at(idx)) >= 4) { return false; }

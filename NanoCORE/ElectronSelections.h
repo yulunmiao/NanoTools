@@ -17,11 +17,11 @@ namespace SS {
         mediumNoIso2016
     };
 
-    bool electronID(int idx, IDLevel id_level, int year);
-    bool electron2016ID(int idx, IDLevel id_level);
-    bool electron2017ID(int idx, IDLevel id_level);
-    bool electron2018ID(int idx, IDLevel id_level);
-    bool passesElectronMVA(int idx, ElectronMVAIDLevel id_level, int year);
+    bool electronID(int idx, SS::IDLevel id_level, int year);
+    bool electron2016ID(int idx, SS::IDLevel id_level);
+    bool electron2017ID(int idx, SS::IDLevel id_level);
+    bool electron2018ID(int idx, SS::IDLevel id_level);
+    bool passesElectronMVA(int idx, SS::ElectronMVAIDLevel id_level, int year);
 }
 
 bool isTriggerSafeNoIso(int idx);

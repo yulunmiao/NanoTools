@@ -275,12 +275,12 @@ void dumpLeptonProperties(Lepton lep) {
         std::cout << "  -- mva: " << Electron_mvaFall17V1noIso()[i] << std::endl;
         std::cout << "  -- lostHits: " << Electron_lostHits()[i] << std::endl;
         std::cout << "  -- miniRelIso: " << Electron_miniPFRelIso_all()[i] << std::endl;
-        std::cout << "  -- ptRatio: " << getPtRatio(11, i) << std::endl;
-        std::cout << "  -- ptRel: " << getPtRel(11, i) << std::endl;
+        std::cout << "  -- ptRatio: " << 1/(Electron_jetRelIso()[i] + 1) << std::endl;
+        std::cout << "  -- ptRel: " << Electron_jetPtRelv2()[i] << std::endl;
     } else {
         std::cout << "  -- miniRelIso: " << Muon_miniPFRelIso_all()[i] << std::endl;
-        std::cout << "  -- ptRatio: " << getPtRatio(13, i) << std::endl;
-        std::cout << "  -- ptRel: " << getPtRel(13, i) << std::endl;
+        std::cout << "  -- ptRatio: " << 1/(Muon_jetRelIso()[i] + 1) << std::endl;
+        std::cout << "  -- ptRel: " << Muon_jetPtRelv2()[i] << std::endl;
     }
 }
 
@@ -306,6 +306,6 @@ SS::IDLevel whichLeptonLevel(int id, int idx) {
             return SS::IDveto;
         }
     } else {
-        return IDdefault;
+        return SS::IDdefault;
     }
 }

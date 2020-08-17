@@ -35,7 +35,7 @@ struct Lepton {
     float phi_ = 0.;
     LorentzVector p4_;
     unsigned int idx_;
-    int idlevel_ = IDdefault;
+    int idlevel_ = SS::IDdefault;
 };
 typedef std::pair<Lepton, Lepton> Hyp;
 typedef std::vector<Lepton> Leptons;

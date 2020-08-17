@@ -3,7 +3,7 @@
 
 using namespace tas;
 
-bool muonID(unsigned int idx, SS::IDLevel id_level, int year) {
+bool SS::muonID(unsigned int idx, SS::IDLevel id_level, int year) {
     // Common checks
     if (Muon_pt().at(idx) < 10.) { return false; }
     if (fabs(Muon_eta().at(idx)) > 2.4) { return false; }
@@ -30,7 +30,7 @@ bool muonID(unsigned int idx, SS::IDLevel id_level, int year) {
     }
 }
 
-bool muon2016ID(unsigned int idx, SS::IDLevel id_level) {
+bool SS::muon2016ID(unsigned int idx, SS::IDLevel id_level) {
     // ID-specific checks
     switch (id_level) {
     case (SS::IDveto):
@@ -52,7 +52,7 @@ bool muon2016ID(unsigned int idx, SS::IDLevel id_level) {
     return false;
 }
 
-bool muon2017ID(unsigned int idx, SS::IDLevel id_level) {
+bool SS::muon2017ID(unsigned int idx, SS::IDLevel id_level) {
     // ID-specific checks
     switch (id_level) {
     case (SS::IDveto):
@@ -74,7 +74,7 @@ bool muon2017ID(unsigned int idx, SS::IDLevel id_level) {
     return false;
 }
 
-bool muon2018ID(unsigned int idx, SS::IDLevel id_level) {
+bool SS::muon2018ID(unsigned int idx, SS::IDLevel id_level) {
     // ID-specific checks
     switch (id_level) {
     case (SS::IDveto):

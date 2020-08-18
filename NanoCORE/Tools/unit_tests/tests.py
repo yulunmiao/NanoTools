@@ -16,7 +16,10 @@ class CORETest(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        filename = "root://redirector.t2.ucsd.edu///store/user/namin/nanoaod/TTJets_TuneCP5_13TeV-madgraphMLM-pythia8__RunIIAutumn18NanoAODv5-Nano1June2019_102X_upgrade2018_realistic_v19-v1/8E0C8306-DC0D-0548-BA7C-D0698140DF28.root"
+        thispath = os.path.abspath(__file__)
+        corebase = os.path.join(thispath.rsplit("NanoCORE/",1)[0], "NanoCORE")
+
+        filename = thispath.rsplit("/",1)[0] + "/files/TTJets_TuneCP5_13TeV-madgraphMLM-pythia8__RunIIAutumn18NanoAODv5_1000events.root"
         jecera = "Autumn18_V19_MC";
 
         file_and_jecera = "file={}\n\tjecera={}".format(filename, jecera)
@@ -26,8 +29,6 @@ class CORETest(unittest.TestCase):
         ch = r.TChain("Events")
         ch.Add(filename);
         print(">>> Loading shared library")
-        thispath = os.path.abspath(__file__)
-        corebase = os.path.join(thispath.rsplit("NanoCORE/",1)[0], "NanoCORE")
         r.gSystem.Load('{corebase}/NANO_CORE.so'.format(corebase=corebase))
         print(">>> Loading includes")
         includes = [
@@ -74,7 +75,7 @@ class CORETest(unittest.TestCase):
 
     def test_jec_subcorrections(self):
         self.jetcorr.setJetPtEtaARho(50., 1.1, 0.5, 25.)
-        subcorrs = map(float, self.jetcorr.getSubCorrections())
+        subcorrs = list(map(float, self.jetcorr.getSubCorrections()))
         self.assertEqual(
             vround(subcorrs), 
             vround([
@@ -107,6 +108,7 @@ class CORETest(unittest.TestCase):
 
     def test_electrons(self):
         from ROOT import gconf, SS
+        gconf.year = self.nt.year()
         pts = list(self.nt.Electron_pt())
         nElectron = len(pts)
         self.assertEqual(nElectron, 1)
@@ -115,6 +117,7 @@ class CORETest(unittest.TestCase):
 
     def test_muons(self):
         from ROOT import gconf, SS
+        gconf.year = self.nt.year()
         self.nt.GetEntry(10)
         pts = list(self.nt.Muon_pt())
         nMuon = len(pts)

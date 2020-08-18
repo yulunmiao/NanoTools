@@ -16,7 +16,10 @@ class CORETest(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        filename = "root://redirector.t2.ucsd.edu///store/user/namin/nanoaod/TTJets_TuneCP5_13TeV-madgraphMLM-pythia8__RunIIAutumn18NanoAODv5-Nano1June2019_102X_upgrade2018_realistic_v19-v1/8E0C8306-DC0D-0548-BA7C-D0698140DF28.root"
+        thispath = os.path.abspath(__file__)
+        corebase = os.path.join(thispath.rsplit("NanoCORE/",1)[0], "NanoCORE")
+
+        filename = thispath.rsplit("/",1)[0] + "/files/TTJets_TuneCP5_13TeV-madgraphMLM-pythia8__RunIIAutumn18NanoAODv5_1000events.root"
         jecera = "Autumn18_V19_MC";
 
         file_and_jecera = "file={}\n\tjecera={}".format(filename, jecera)
@@ -26,8 +29,6 @@ class CORETest(unittest.TestCase):
         ch = r.TChain("Events")
         ch.Add(filename);
         print(">>> Loading shared library")
-        thispath = os.path.abspath(__file__)
-        corebase = os.path.join(thispath.rsplit("NanoCORE/",1)[0], "NanoCORE")
         r.gSystem.Load('{corebase}/NANO_CORE.so'.format(corebase=corebase))
         print(">>> Loading includes")
         includes = [

@@ -74,7 +74,7 @@ class CORETest(unittest.TestCase):
 
     def test_jec_subcorrections(self):
         self.jetcorr.setJetPtEtaARho(50., 1.1, 0.5, 25.)
-        subcorrs = map(float, self.jetcorr.getSubCorrections())
+        subcorrs = list(map(float, self.jetcorr.getSubCorrections()))
         self.assertEqual(
             vround(subcorrs), 
             vround([
@@ -107,6 +107,7 @@ class CORETest(unittest.TestCase):
 
     def test_electrons(self):
         from ROOT import gconf, SS
+        gconf.year = self.nt.year()
         pts = list(self.nt.Electron_pt())
         nElectron = len(pts)
         self.assertEqual(nElectron, 1)
@@ -115,6 +116,7 @@ class CORETest(unittest.TestCase):
 
     def test_muons(self):
         from ROOT import gconf, SS
+        gconf.year = self.nt.year()
         self.nt.GetEntry(10)
         pts = list(self.nt.Muon_pt())
         nMuon = len(pts)

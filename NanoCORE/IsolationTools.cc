@@ -10,7 +10,7 @@ bool passesLeptonIso(unsigned int idx, int id, double mini_iso_cut, double pt_ra
         mini_iso = Electron_miniPFRelIso_all().at(idx);
         pt_ratio = 1 / (Electron_jetRelIso().at(idx) + 1);
         pt_rel = Electron_jetPtRelv2().at(idx);
-    } else if (abs(id == 13)) {
+    } else if (abs(id) == 13) {
         mini_iso = Muon_miniPFRelIso_all().at(idx);
         pt_ratio = 1 / (Muon_jetRelIso().at(idx) + 1);
         pt_rel = Muon_jetPtRelv2().at(idx);

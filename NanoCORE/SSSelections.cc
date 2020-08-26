@@ -109,7 +109,7 @@ std::pair<int, int> makesResonance(Leptons &leps, Lepton lep1, Lepton lep2, floa
         if ((iel == lep1.idx() && lep1.is_el()) || (iel == lep2.idx() && lep2.is_el())) continue;
         if (fabs(Electron_eta()[iel]) > 2.4) continue;
         if (fabs(Electron_pt()[iel]) < 7) continue;
-        if (!SS::electronID(iel, SS::IDveto, gconf.year)) continue;
+        if (!SS::electronID(iel, SS::IDveto, year())) continue;
         if (lep1.is_el() && (lep1.id() * Electron_pdgId()[iel] < 0) &&
             (fabs((lep1.p4() + Electron_p4()[iel]).M() - mass) < window)) {
             return {1, iel};
@@ -123,7 +123,7 @@ std::pair<int, int> makesResonance(Leptons &leps, Lepton lep1, Lepton lep2, floa
         if ((imu == lep1.idx() && lep1.is_mu()) || (imu == lep2.idx() && lep2.is_mu())) continue;
         if (fabs(Muon_eta()[imu]) > 2.4) continue;
         if (fabs(Muon_pt()[imu]) < 5) continue;
-        if (!SS::muonID(imu, SS::IDveto, gconf.year)) continue;
+        if (!SS::muonID(imu, SS::IDveto, year())) continue;
         if (lep1.is_mu() && (lep1.id() * Muon_pdgId()[imu] < 0) &&
             (fabs((lep1.p4() + Muon_p4()[imu]).M() - mass) < window)) {
             return {1, imu};
@@ -151,7 +151,7 @@ std::pair<int, Hyp> getBestHyp(Leptons &leptons, bool verbose) {
             auto &lep1 = leptons[i];
             auto &lep2 = leptons[j];
             if (verbose) {
-                cout << "I can read the gconf year. It's " << gconf.year << " ok?? Get off my back." << endl;
+                cout << "I can read the gconf year. It's " << year() << " ok?? Get off my back." << endl;
                 bool DEBUG_isss = lep1.charge() == lep2.charge();
                 auto DEBUG_z_result = makesResonance(leptons, lep1, lep2, 91., 15.);
                 auto DEBUG_gammastar_result = makesResonance(leptons, lep1, lep2, 0., 12.);
@@ -286,9 +286,9 @@ void dumpLeptonProperties(Lepton lep) {
 
 bool isLeptonLevel(SS::IDLevel idlevel, int id, int idx) {
     if (abs(id) == 11) {
-        return SS::electronID(idx, idlevel, gconf.year);
+        return SS::electronID(idx, idlevel, year());
     } else if (abs(id) == 13) {
-        return SS::muonID(idx, idlevel, gconf.year);
+        return SS::muonID(idx, idlevel, year());
     } else {
         return false;
     }

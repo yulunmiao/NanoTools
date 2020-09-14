@@ -11,6 +11,7 @@
 #include "Nano.h"
 
 using namespace std;
+using namespace tas;
 
 vector<int> GenPart_leptDaughters(int i){ 
     vector<int> lept_daughters;

@@ -1,8 +1,6 @@
 #include "MCTools.h"
 #include "Math/VectorUtil.h"
 
-using namespace tas;
-
 int dumpDocLines(){
     // Particle Database
     TDatabasePDG *pdg = new TDatabasePDG();

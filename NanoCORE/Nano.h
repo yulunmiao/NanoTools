@@ -57,6 +57,10 @@ class Nano {
 private:
 protected:
     unsigned int index;
+    float LHEWeight_mg_reweighting_[NLHEWEIGHT_MAX];
+    vector<float> v_LHEWeight_mg_reweighting_;
+    TBranch *b_LHEWeight_mg_reweighting_;
+    bool loaded_LHEWeight_mg_reweighting_;
     float CaloMET_phi_;
     TBranch *b_CaloMET_phi_;
     bool loaded_CaloMET_phi_;
@@ -7212,6 +7216,7 @@ public:
     void ParseYear(TTree *tree);
     void PrintUsage();
     void GetEntry(unsigned int idx);
+    const vector<float> &LHEWeight_mg_reweighting();
     const float &CaloMET_phi();
     const float &CaloMET_pt();
     const float &CaloMET_sumEt();
@@ -9465,6 +9470,7 @@ extern Nano nt;
 #endif
 
 namespace tas {
+    const vector<float> &LHEWeight_mg_reweighting(); // mg_reweighting
     const float &CaloMET_phi(); // phi
     const float &CaloMET_pt(); // pt
     const float &CaloMET_sumEt(); // scalar sum of Et

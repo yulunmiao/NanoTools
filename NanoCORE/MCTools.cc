@@ -43,7 +43,10 @@ GenPart::GenPart(int idx)
     mass = GenPart_mass().at(idx);
 }
 
-bool is_bad_copy(GenPart part) { return (part.pdg_id == GenPart_pdgId().at(part.daughters[0])); }
+bool is_bad_copy(GenPart part)
+{
+    return (part.pdg_id == GenPart_pdgId().at(part.daughters[0]));
+}
 
 vector<GenPart> get_GenParticles()
 {
@@ -57,21 +60,63 @@ vector<GenPart> get_GenParticles()
     // Make Corrections for Bad Copies
     for (size_t i = 0; i < particles.size(); i++)
     {
-        int m_id = particles[i].mother_idx;
+        int m_id = particles.at(i).mother_idx;
         if (m_id >= 0)
         {
-            if (is_bad_copy(particles[m_id]))
+            if (is_bad_copy(particles.at(m_id)))
             {
-                particles[i].mother_idx = particles[m_id].mother_idx;
-                for (size_t j = 0; j < particles[m_id].daughters.size(); j++)
+                particles.at(i).mother_idx = particles.at(m_id).mother_idx;
+                for (size_t j = 0; j < particles.at(m_id).daughters.size(); j++)
                 {
-                    particles[particles[m_id].mother_idx].daughters.push_back(
-                        particles[m_id].daughters[j]);
+                    std::cout <<  " particles.at(m_id).mother_idx: " << particles.at(m_id).mother_idx <<  std::endl;
+                    particles.at(particles.at(m_id).mother_idx).daughters.push_back(
+                        particles.at(m_id).daughters.at(j));
                 }
             }
         }
     }
     return particles;
+}
+
+void dumpGenParticleInfos(std::vector<int> filter_pdgid)
+{
+
+    // Header
+    cout << "                  " << "   pt    " << "  phi  " << "      eta   " << "    mass  " << "status " << "Mother_idx  " << "Mother  " << endl;
+    cout << "-------------------------------------------------------------------------------" << endl;
+
+    TDatabasePDG pdg;
+    for (unsigned int idx = 0; idx < GenPart_pdgId().size(); ++idx)
+    {
+        int pdg_id = GenPart_pdgId().at(idx);
+        if (std::find(filter_pdgid.begin(), filter_pdgid.end(), pdg_id) == filter_pdgid.end())
+            continue;
+        int is_last = (GenPart_statusFlags().at(idx) & (1 << 13)) == (1 << 13);
+        int is_fromHard = (GenPart_statusFlags().at(idx) & (1 << 8)) == (1 << 8);
+        std::vector<int> daughters = GenPart_daughters(idx);
+        int m_index = GenPart_genPartIdxMother().at(idx);
+        int status = GenPart_status().at(idx);
+        float pt = GenPart_pt().at(idx);
+        float eta = GenPart_eta().at(idx);
+        float phi = GenPart_phi().at(idx);
+        float mass = GenPart_mass().at(idx);
+        const char* particle = (abs(pdg_id) == 4124) ? "Lambda_c*" : pdg.GetParticle(pdg_id)->GetName();
+        const char* mother_particle = m_index < 0 ? "-" : (abs(GenPart_pdgId().at(m_index)) == 4124) ? "Lambda_c*" : pdg.GetParticle(GenPart_pdgId().at(m_index))->GetName();
+        cout << setw(4)  << left  <<                    idx                      << " "
+             << setw(10) << left  <<                    particle                 << " "
+             << setw(7)  << right << setprecision(4) << pt                       << "  "
+             << setw(7)  << right << setprecision(4) << phi                      << "  "
+             << setw(10) << right << setprecision(4) << eta                      << "  "
+             << setw(10) << right << setprecision(4) << mass                     << "  "
+             << setw(4)  << right <<                    status                   << "  "
+             << setw(10) << left  <<                    m_index                  << " "
+             << setw(10) << left  <<                    mother_particle          << ", daughters = ";
+        for (auto& daughter : daughters)
+        {
+            cout << setw(10) << left << ((abs(GenPart_pdgId().at(daughter)) == 4124) ? "Lambda_c*" : pdg.GetParticle(GenPart_pdgId().at(daughter))->GetName()) << " ";
+        }
+        cout << endl;
+    }
 }
 
 int dumpDocLines()
@@ -81,7 +126,7 @@ int dumpDocLines()
     vector<GenPart> genParticles = get_GenParticles();
 
     // Header
-    cout << "                  " << "   pt    " << "  phi  " << "      eta   " << "    mass  " << "status " << "Mother_idx  " << "Mother  " << endl;     
+    cout << "                  " << "   pt    " << "  phi  " << "      eta   " << "    mass  " << "status " << "Mother_idx  " << "Mother  " << endl;
     cout << "-------------------------------------------------------------------------------" << endl;
 
     // Loop over Gen Particles
@@ -100,8 +145,8 @@ int dumpDocLines()
              << setw(10) << right << setprecision(4) << mass                     << "  "
              << setw(4)  << right <<                    genParticles[j].status   << "  "
              << setw(10) << left  <<                    m_index                  << " "
-             << setw(10) << left  <<                    mother_particle          << " " 
-             << endl; 
+             << setw(10) << left  <<                    mother_particle          << " "
+             << endl;
     }
     delete pdg;
     return 0;

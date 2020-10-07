@@ -36,8 +36,11 @@ bool is_bad_copy(GenPart part);
 
 vector<GenPart> get_GenParticles();
 
-//Parentage functions
+// Printing information
+void dumpGenParticleInfos(std::vector<int> filter_pdgid=std::vector<int>());
 int dumpDocLines();
+
+//Parentage functions
 bool isFromSUSY(int id, int idx);
 bool isFromW(int id, int idx);
 bool isFromZ(int id, int idx);

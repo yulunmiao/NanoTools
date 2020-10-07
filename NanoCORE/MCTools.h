@@ -13,6 +13,13 @@
 using namespace std;
 using namespace tas;
 
+// Printing information
+// Non get_GenParticles() function dependent
+void dumpGenParticleInfos(std::vector<int> filter_pdgid=std::vector<int>());
+bool isFromBoson(int idx);
+bool isEMuFromMassiveGaugeBoson(int idx);
+bool isEMuFromTauFromMassiveGaugeBoson(int idx, int depth=0, bool foundTau=false);
+
 vector<int> GenPart_leptDaughters(int i);
 vector<int> GenPart_daughters(int i);
 
@@ -37,7 +44,6 @@ bool is_bad_copy(GenPart part);
 vector<GenPart> get_GenParticles();
 
 // Printing information
-void dumpGenParticleInfos(std::vector<int> filter_pdgid=std::vector<int>());
 int dumpDocLines();
 
 //Parentage functions

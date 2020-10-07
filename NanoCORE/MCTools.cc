@@ -68,7 +68,6 @@ vector<GenPart> get_GenParticles()
                 particles.at(i).mother_idx = particles.at(m_id).mother_idx;
                 for (size_t j = 0; j < particles.at(m_id).daughters.size(); j++)
                 {
-                    std::cout <<  " particles.at(m_id).mother_idx: " << particles.at(m_id).mother_idx <<  std::endl;
                     particles.at(particles.at(m_id).mother_idx).daughters.push_back(
                         particles.at(m_id).daughters.at(j));
                 }
@@ -78,19 +77,92 @@ vector<GenPart> get_GenParticles()
     return particles;
 }
 
+bool isFromBoson(int idx)
+{
+    int m_idx = GenPart_genPartIdxMother().at(idx);
+    if (m_idx < 0)
+    {
+        return false;
+    }
+    if (m_idx >= 0)
+    {
+        if (abs(GenPart_pdgId().at(m_idx)) == 23 or abs(GenPart_pdgId().at(m_idx)) == 24 or abs(GenPart_pdgId().at(m_idx)) == 25)
+            return true;
+        else
+            return isFromBoson(m_idx);
+    }
+}
+
+bool isEMuFromMassiveGaugeBoson(int idx)
+{
+    int m_idx = GenPart_genPartIdxMother().at(idx);
+    int pdg_id = GenPart_pdgId().at(idx);
+
+    if (not (abs(pdg_id) == 11 or abs(pdg_id) == 13))
+        return false;
+
+    if (m_idx < 0)
+    {
+        return false;
+    }
+    else
+    {
+        if (abs(GenPart_pdgId().at(m_idx)) == 23 or abs(GenPart_pdgId().at(m_idx)) == 24)
+            return true;
+        else
+            return isEMuFromMassiveGaugeBoson(m_idx);
+    }
+}
+
+bool isEMuFromTauFromMassiveGaugeBoson(int idx, int depth, bool foundTau)
+{
+    int m_idx = GenPart_genPartIdxMother().at(idx);
+    int pdg_id = GenPart_pdgId().at(idx);
+    if (depth == 0)
+    {
+        if (not (abs(pdg_id) == 11 or abs(pdg_id) == 13))
+            return false;
+    }
+    else
+    {
+        if (not (abs(pdg_id) == 11 or abs(pdg_id) == 13 or abs(pdg_id) == 15))
+            return false;
+    }
+
+    if (m_idx < 0)
+    {
+        return false;
+    }
+    else
+    {
+        int m_pdgid = GenPart_pdgId().at(m_idx);
+        if ((abs(m_pdgid) == 23 or abs(m_pdgid) == 24) and foundTau)
+        {
+            return true;
+        }
+        else
+        {
+            bool motherIsTau = abs(m_pdgid) == 15 ? true : false;
+            bool updateFoundTau = foundTau or motherIsTau;
+            return isEMuFromTauFromMassiveGaugeBoson(m_idx, depth+1, updateFoundTau);
+        }
+    }
+}
+
 void dumpGenParticleInfos(std::vector<int> filter_pdgid)
 {
 
     // Header
-    cout << "                  " << "   pt    " << "  phi  " << "      eta   " << "    mass  " << "status " << "Mother_idx  " << "Mother  " << endl;
+    cout << "                  " << "   pt    " << "  phi  " << "      eta   " << "    mass  " << "status " << "Mother_idx  " << "Mother  " << "boson_lep  " << endl;
     cout << "-------------------------------------------------------------------------------" << endl;
 
     TDatabasePDG pdg;
     for (unsigned int idx = 0; idx < GenPart_pdgId().size(); ++idx)
     {
         int pdg_id = GenPart_pdgId().at(idx);
-        if (std::find(filter_pdgid.begin(), filter_pdgid.end(), pdg_id) == filter_pdgid.end())
-            continue;
+        if (filter_pdgid.size() != 0)
+            if (std::find(filter_pdgid.begin(), filter_pdgid.end(), pdg_id) == filter_pdgid.end())
+                continue;
         int is_last = (GenPart_statusFlags().at(idx) & (1 << 13)) == (1 << 13);
         int is_fromHard = (GenPart_statusFlags().at(idx) & (1 << 8)) == (1 << 8);
         std::vector<int> daughters = GenPart_daughters(idx);
@@ -100,6 +172,7 @@ void dumpGenParticleInfos(std::vector<int> filter_pdgid)
         float eta = GenPart_eta().at(idx);
         float phi = GenPart_phi().at(idx);
         float mass = GenPart_mass().at(idx);
+        bool is_from_boson = isEMuFromTauFromMassiveGaugeBoson(idx) or isEMuFromMassiveGaugeBoson(idx);
         const char* particle = (abs(pdg_id) == 4124) ? "Lambda_c*" : pdg.GetParticle(pdg_id)->GetName();
         const char* mother_particle = m_index < 0 ? "-" : (abs(GenPart_pdgId().at(m_index)) == 4124) ? "Lambda_c*" : pdg.GetParticle(GenPart_pdgId().at(m_index))->GetName();
         cout << setw(4)  << left  <<                    idx                      << " "
@@ -110,7 +183,8 @@ void dumpGenParticleInfos(std::vector<int> filter_pdgid)
              << setw(10) << right << setprecision(4) << mass                     << "  "
              << setw(4)  << right <<                    status                   << "  "
              << setw(10) << left  <<                    m_index                  << " "
-             << setw(10) << left  <<                    mother_particle          << ", daughters = ";
+             << setw(10) << left  <<                    mother_particle          << " "
+             << setw(13) << left  <<                    is_from_boson            << ", daughters = ";
         for (auto& daughter : daughters)
         {
             cout << setw(10) << left << ((abs(GenPart_pdgId().at(daughter)) == 4124) ? "Lambda_c*" : pdg.GetParticle(GenPart_pdgId().at(daughter))->GetName()) << " ";

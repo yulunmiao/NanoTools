@@ -15,10 +15,15 @@ using namespace tas;
 
 // Printing information
 // Non get_GenParticles() function dependent
+void dumpGenParticleInfoHeader();
 void dumpGenParticleInfos(std::vector<int> filter_pdgid=std::vector<int>());
+void dumpGenParticleInfo(int idx);
 bool isFromBoson(int idx);
+bool isFromMassiveGaugeBoson(int idx);
 bool isEMuFromMassiveGaugeBoson(int idx);
 bool isEMuFromTauFromMassiveGaugeBoson(int idx, int depth=0, bool foundTau=false);
+bool isHadronicTauFromMassiveGaugeBoson(int idx);
+int idxOfMassiveGaugeBosonAncestor(int idx);
 
 vector<int> GenPart_leptDaughters(int i);
 vector<int> GenPart_daughters(int i);

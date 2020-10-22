@@ -84,12 +84,28 @@ bool isFromBoson(int idx)
     {
         return false;
     }
-    if (m_idx >= 0)
+    else
     {
         if (abs(GenPart_pdgId().at(m_idx)) == 23 or abs(GenPart_pdgId().at(m_idx)) == 24 or abs(GenPart_pdgId().at(m_idx)) == 25)
             return true;
         else
             return isFromBoson(m_idx);
+    }
+}
+
+bool isFromMassiveGaugeBoson(int idx)
+{
+    int m_idx = GenPart_genPartIdxMother().at(idx);
+    if (m_idx < 0)
+    {
+        return false;
+    }
+    else
+    {
+        if (abs(GenPart_pdgId().at(m_idx)) == 23 or abs(GenPart_pdgId().at(m_idx)) == 24)
+            return true;
+        else
+            return isFromMassiveGaugeBoson(m_idx);
     }
 }
 
@@ -149,48 +165,105 @@ bool isEMuFromTauFromMassiveGaugeBoson(int idx, int depth, bool foundTau)
     }
 }
 
+bool isHadronicTauFromMassiveGaugeBoson(int idx)
+{
+    int pdg_id = GenPart_pdgId().at(idx);
+    std::vector<int> daughter_idxs = GenPart_daughters(idx);
+
+    if (abs(pdg_id) != 15)
+        return false;
+
+    bool is_leptonic_decay = false;
+    bool tau_decayed = false;
+    for (auto& daughter_idx : daughter_idxs)
+    {
+        int daughter_pdg_id = GenPart_pdgId().at(daughter_idx);
+        if (abs(daughter_pdg_id) == 11 or abs(daughter_pdg_id) == 13)
+        {
+            is_leptonic_decay = true;
+        }
+        if (abs(daughter_pdg_id) == 16)
+        {
+            tau_decayed = true;
+        }
+    }
+
+    bool is_hadronic_tau = (tau_decayed and not is_leptonic_decay);
+
+    if (is_hadronic_tau)
+        return isFromMassiveGaugeBoson(idx);
+    else
+        return false;
+
+}
+
+int idxOfMassiveGaugeBosonAncestor(int idx)
+{
+    int m_idx = GenPart_genPartIdxMother().at(idx);
+    if (m_idx < 0)
+    {
+        return -1;
+    }
+    else
+    {
+        if (abs(GenPart_pdgId().at(m_idx)) == 23 or abs(GenPart_pdgId().at(m_idx)) == 24)
+            return m_idx;
+        else
+            return idxOfMassiveGaugeBosonAncestor(m_idx);
+    }
+}
+
 void dumpGenParticleInfos(std::vector<int> filter_pdgid)
 {
-
-    // Header
-    cout << "                  " << "   pt    " << "  phi  " << "      eta   " << "    mass  " << "status " << "Mother_idx  " << "Mother  " << "boson_lep  " << endl;
-    cout << "-------------------------------------------------------------------------------" << endl;
-
-    TDatabasePDG pdg;
+    dumpGenParticleInfoHeader();
     for (unsigned int idx = 0; idx < GenPart_pdgId().size(); ++idx)
     {
         int pdg_id = GenPart_pdgId().at(idx);
         if (filter_pdgid.size() != 0)
             if (std::find(filter_pdgid.begin(), filter_pdgid.end(), pdg_id) == filter_pdgid.end())
                 continue;
-        int is_last = (GenPart_statusFlags().at(idx) & (1 << 13)) == (1 << 13);
-        int is_fromHard = (GenPart_statusFlags().at(idx) & (1 << 8)) == (1 << 8);
-        std::vector<int> daughters = GenPart_daughters(idx);
-        int m_index = GenPart_genPartIdxMother().at(idx);
-        int status = GenPart_status().at(idx);
-        float pt = GenPart_pt().at(idx);
-        float eta = GenPart_eta().at(idx);
-        float phi = GenPart_phi().at(idx);
-        float mass = GenPart_mass().at(idx);
-        bool is_from_boson = isEMuFromTauFromMassiveGaugeBoson(idx) or isEMuFromMassiveGaugeBoson(idx);
-        const char* particle = (abs(pdg_id) == 4124) ? "Lambda_c*" : pdg.GetParticle(pdg_id)->GetName();
-        const char* mother_particle = m_index < 0 ? "-" : (abs(GenPart_pdgId().at(m_index)) == 4124) ? "Lambda_c*" : pdg.GetParticle(GenPart_pdgId().at(m_index))->GetName();
-        cout << setw(4)  << left  <<                    idx                      << " "
-             << setw(10) << left  <<                    particle                 << " "
-             << setw(7)  << right << setprecision(4) << pt                       << "  "
-             << setw(7)  << right << setprecision(4) << phi                      << "  "
-             << setw(10) << right << setprecision(4) << eta                      << "  "
-             << setw(10) << right << setprecision(4) << mass                     << "  "
-             << setw(4)  << right <<                    status                   << "  "
-             << setw(10) << left  <<                    m_index                  << " "
-             << setw(10) << left  <<                    mother_particle          << " "
-             << setw(13) << left  <<                    is_from_boson            << ", daughters = ";
-        for (auto& daughter : daughters)
-        {
-            cout << setw(10) << left << ((abs(GenPart_pdgId().at(daughter)) == 4124) ? "Lambda_c*" : pdg.GetParticle(GenPart_pdgId().at(daughter))->GetName()) << " ";
-        }
-        cout << endl;
+        dumpGenParticleInfo(idx);
     }
+}
+
+void dumpGenParticleInfoHeader()
+{
+    // Header
+    cout << "                  " << "   pt    " << "  phi  " << "      eta   " << "    mass  " << "status " << "Mother_idx  " << "Mother  " << "boson_lep  " << endl;
+    cout << "-------------------------------------------------------------------------------" << endl;
+}
+
+void dumpGenParticleInfo(int idx)
+{
+    TDatabasePDG pdg;
+    int pdg_id = GenPart_pdgId().at(idx);
+    // int is_last = (GenPart_statusFlags().at(idx) & (1 << 13)) == (1 << 13);
+    // int is_fromHard = (GenPart_statusFlags().at(idx) & (1 << 8)) == (1 << 8);
+    std::vector<int> daughters = GenPart_daughters(idx);
+    int m_index = GenPart_genPartIdxMother().at(idx);
+    int status = GenPart_status().at(idx);
+    float pt = GenPart_pt().at(idx);
+    float eta = GenPart_eta().at(idx);
+    float phi = GenPart_phi().at(idx);
+    float mass = GenPart_mass().at(idx);
+    bool is_from_boson = isEMuFromTauFromMassiveGaugeBoson(idx) or isEMuFromMassiveGaugeBoson(idx);
+    const char* particle = (abs(pdg_id) == 4124) ? "Lambda_c*" : pdg.GetParticle(pdg_id)->GetName();
+    const char* mother_particle = m_index < 0 ? "-" : (abs(GenPart_pdgId().at(m_index)) == 4124) ? "Lambda_c*" : pdg.GetParticle(GenPart_pdgId().at(m_index))->GetName();
+    cout << setw(4)  << left  <<                    idx                      << " "
+        << setw(10) << left  <<                    particle                 << " "
+        << setw(7)  << right << setprecision(4) << pt                       << "  "
+        << setw(7)  << right << setprecision(4) << phi                      << "  "
+        << setw(10) << right << setprecision(4) << eta                      << "  "
+        << setw(10) << right << setprecision(4) << mass                     << "  "
+        << setw(4)  << right <<                    status                   << "  "
+        << setw(10) << left  <<                    m_index                  << " "
+        << setw(10) << left  <<                    mother_particle          << " "
+        << setw(13) << left  <<                    is_from_boson            << ", daughters = ";
+    for (auto& daughter : daughters)
+    {
+        cout << setw(10) << left << ((abs(GenPart_pdgId().at(daughter)) == 4124) ? "Lambda_c*" : pdg.GetParticle(GenPart_pdgId().at(daughter))->GetName()) << " ";
+    }
+    cout << endl;
 }
 
 int dumpDocLines()

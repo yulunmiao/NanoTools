@@ -4,6 +4,7 @@
 #include "Base.h"
 
 SS::IDLevel whichLeptonLevel(int id, int idx);
+bool isLeptonLevel(SS::IDLevel idlevel, int id, int idx);
 
 struct Lepton {
     Lepton(int id = 0, unsigned int idx = 0) : id_(id), idx_(idx) {
@@ -50,11 +51,10 @@ template <typename T1, typename T2> std::ostream &operator<<(std::ostream &os, s
     return os << "(" << p.first << ", " << p.second << ")";
 }
 
-vector<Lepton> getLeptons();
+Leptons getLeptons();
 std::tuple<int, int, float> getJetInfo(vector<Lepton> &leps, int variation = 0);
 std::pair<int, int> makesResonance(Leptons &leps, Lepton lep1, Lepton lep2, float mass, float window);
 std::pair<int, Hyp> getBestHyp(vector<Lepton> &leptons, bool verbose);
-bool isLeptonLevel(SS::IDLevel idlevel, int id, int idx);
 void dumpLeptonProperties(Lepton lep);
 
 #endif

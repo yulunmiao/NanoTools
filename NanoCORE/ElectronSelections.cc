@@ -4,16 +4,26 @@
 using namespace tas;
 
 bool SS::electronID(int idx, SS::IDLevel id_level, int year) {
-    // Common checks
-    if (Electron_pt().at(idx) < 10.) { return false; }
+    // Common (across years and ID levels) checks
+    if (Electron_pt().at(idx) < 7.) { return false; }
     if (!isTriggerSafeNoIso(idx)) { return false; }
     if (fabs(Electron_eta().at(idx) + Electron_deltaEtaSC().at(idx)) > 2.5) { return false; }
     if (!Electron_convVeto().at(idx)) { return false; }
-    if (int(Electron_lostHits().at(idx)) > 0) { return false; }
-    if (Electron_tightCharge().at(idx) != 2) { return false; }
     if (fabs(Electron_dxy().at(idx)) >= 0.05) { return false; }
     if (fabs(Electron_dz().at(idx)) >= 0.1) { return false; }
-    if (fabs(Electron_sip3d().at(idx)) >= 4) { return false; }
+    if (int(Electron_lostHits().at(idx)) > 1) { return false; }
+    // Common (across years) checks
+    if (id_level < SS::IDtight) {
+        // Common (across years) veto and fakable(loose) checks
+        if (Electron_miniPFRelIso_all().at(idx) >= 0.4) { return false; }
+    } 
+    if (id_level > SS::IDveto) {
+        // Common (across years) fakable(loose) and tight checks
+        if (Electron_pt().at(idx) < 10.) { return false; }
+        if (Electron_tightCharge().at(idx) != 2) { return false; }
+        if (fabs(Electron_sip3d().at(idx)) >= 4) { return false; }
+        if (int(Electron_lostHits().at(idx)) > 0) { return false; }
+    }
     // Year-specific checks
     switch (year) {
     case (2016):
@@ -30,10 +40,11 @@ bool SS::electronID(int idx, SS::IDLevel id_level, int year) {
         return false;
         break;
     }
+    return false;
 }
 
 bool SS::electron2016ID(int idx, SS::IDLevel id_level) {
-    // Common checks
+    // Common (for 2016) checks
     if (!passesElectronMVA(idx, SS::vetoNoIso2016, 2016)) { return false; }
     // ID-specific checks
     switch (id_level) {
@@ -42,7 +53,6 @@ bool SS::electron2016ID(int idx, SS::IDLevel id_level) {
         break;
     case (SS::IDfakable):
         if (!passesElectronMVA(idx, SS::fakableNoIsoLooseMVA2016, 2016)) { return false; }
-        if (Electron_miniPFRelIso_all().at(idx) >= 0.4) { return false; }
         return true;
         break;
     case (SS::IDtight):
@@ -56,10 +66,11 @@ bool SS::electron2016ID(int idx, SS::IDLevel id_level) {
         return false;
         break;
     }
+    return false;
 }
 
 bool SS::electron2017ID(int idx, SS::IDLevel id_level) {
-    // Common checks
+    // Common (for 2017) checks
     if (!passesElectronMVA(idx, SS::vetoNoIso2017, 2017)) { return false; }
     // ID-specific checks
     switch (id_level) {
@@ -68,7 +79,6 @@ bool SS::electron2017ID(int idx, SS::IDLevel id_level) {
         break;
     case (SS::IDfakable):
         if (!passesElectronMVA(idx, SS::fakableNoIsoLooseMVA2017, 2017)) { return false; }
-        if (Electron_miniPFRelIso_all().at(idx) >= 0.4) { return false; }
         return true;
         break;
     case (SS::IDtight):
@@ -85,7 +95,7 @@ bool SS::electron2017ID(int idx, SS::IDLevel id_level) {
 }
 
 bool SS::electron2018ID(int idx, SS::IDLevel id_level) {
-    // Common checks
+    // Common (for 2018) checks
     if (!passesElectronMVA(idx, SS::vetoNoIso2018, 2018)) { return false; }
     // ID-specific checks
     switch (id_level) {
@@ -94,7 +104,6 @@ bool SS::electron2018ID(int idx, SS::IDLevel id_level) {
         break;
     case (SS::IDfakable):
         if (!passesElectronMVA(idx, SS::fakableNoIsoLooseMVA2018, 2018)) { return false; }
-        if (Electron_miniPFRelIso_all().at(idx) >= 0.4) { return false; }
         return true;
         break;
     case (SS::IDtight):
@@ -286,7 +295,6 @@ bool SS::passesElectronMVA(int idx, SS::ElectronMVAIDLevel id_level, int year) {
         return false;
         break;
     }
-
     return false;
 }
 

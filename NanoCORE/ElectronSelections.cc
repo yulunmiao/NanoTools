@@ -11,7 +11,7 @@ bool SS::electronID(int idx, SS::IDLevel id_level, int year) {
     if (!Electron_convVeto().at(idx)) { return false; }
     if (fabs(Electron_dxy().at(idx)) >= 0.05) { return false; }
     if (fabs(Electron_dz().at(idx)) >= 0.1) { return false; }
-    if (int(Electron_lostHits().at(idx)) > 0) { return false; }
+    if (int(Electron_lostHits().at(idx)) > 1) { return false; }
     // Common (across years) checks
     if (id_level < SS::IDtight) {
         // Common (across years) veto and fakable(loose) checks
@@ -22,6 +22,7 @@ bool SS::electronID(int idx, SS::IDLevel id_level, int year) {
         if (Electron_pt().at(idx) < 10.) { return false; }
         if (Electron_tightCharge().at(idx) != 2) { return false; }
         if (fabs(Electron_sip3d().at(idx)) >= 4) { return false; }
+        if (int(Electron_lostHits().at(idx)) > 0) { return false; }
     }
     // Year-specific checks
     switch (year) {
@@ -39,6 +40,7 @@ bool SS::electronID(int idx, SS::IDLevel id_level, int year) {
         return false;
         break;
     }
+    return false;
 }
 
 bool SS::electron2016ID(int idx, SS::IDLevel id_level) {
@@ -64,6 +66,7 @@ bool SS::electron2016ID(int idx, SS::IDLevel id_level) {
         return false;
         break;
     }
+    return false;
 }
 
 bool SS::electron2017ID(int idx, SS::IDLevel id_level) {
@@ -292,7 +295,6 @@ bool SS::passesElectronMVA(int idx, SS::ElectronMVAIDLevel id_level, int year) {
         return false;
         break;
     }
-
     return false;
 }
 

@@ -12,11 +12,7 @@ bool SS::electronID(int idx, SS::IDLevel id_level, int year) {
     if (fabs(Electron_dxy().at(idx)) >= 0.05) { return false; }
     if (fabs(Electron_dz().at(idx)) >= 0.1) { return false; }
     if (int(Electron_lostHits().at(idx)) > 1) { return false; }
-    // Common (across years) checks
-    if (id_level < SS::IDtight) {
-        // Common (across years) veto and fakable(loose) checks
-        if (Electron_miniPFRelIso_all().at(idx) >= 0.4) { return false; }
-    } 
+    if (Electron_miniPFRelIso_all().at(idx) >= 0.4) { return false; }
     if (id_level > SS::IDveto) {
         // Common (across years) fakable(loose) and tight checks
         if (Electron_pt().at(idx) < 10.) { return false; }

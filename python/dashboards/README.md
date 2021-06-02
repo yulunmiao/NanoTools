@@ -36,7 +36,7 @@ you only need to activate the environment.
 ### Initial setup
 
 Install after a fresh login to the computers (to prevent CMSSW interference).
-```
+```bash
 # download conda installer
 curl -O -L https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh -b 
@@ -48,9 +48,6 @@ bash Miniconda3-latest-Linux-x86_64.sh -b
 conda config --set auto_activate_base false
 conda config --add channels conda-forge
 
-# install package to tarball environments
-conda install --name base conda-pack -y
-
 # create environments with as much stuff from anaconda
 conda create --name analysisenv uproot pandas matplotlib jupyter numba graphviz
 
@@ -60,7 +57,7 @@ conda run --name analysisenv pip install yahist particle graphviz pydot dash plo
 
 ### Activate and use
 
-```
+```bash
 conda activate analysisenv
 python script.py
 ```

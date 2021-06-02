@@ -27,7 +27,30 @@ ssh -N -f -L localhost:$port:localhost:$port $host
 ```
 
 ### Preview
-<img src="images/nanogentree_preview.png" />
+<img src="images/nanogentree_preview.png" width="75%" />
+
+## Nanoexplorer
+
+This dashboard lets you enter a dataset pattern, then
+shows a list of matching dataset names. Select a dataset to see
+the files. Select a file to see the branches. Filter the branches and
+select a branch to plot a 1D histogram of it.
+
+### Usage
+
+In a conda environment on a uaf machine...
+```
+python nanoexplorer.py
+# take note of the port that is printed out
+# edit the variables below and execute the `ssh` command on your local computer
+port=11338
+host=uaf-10.t2.ucsd.edu
+ssh -N -f -L localhost:$port:localhost:$port $host
+# visit http://localhost:11338/nanoexplorer/ in your browser
+```
+
+### Preview
+<img src="images/nanoexplorer_preview.png" />
 
 ## Conda environment
 
@@ -50,7 +73,7 @@ conda config --set auto_activate_base false
 conda config --add channels conda-forge
 
 # create environments with as much stuff from anaconda
-conda create --name analysisenv uproot pandas matplotlib jupyter numba graphviz scipy iminuit
+conda create --name analysisenv uproot pandas matplotlib jupyter numba graphviz scipy iminuit uproot3 awkward
 
 # and then any install residual packages with pip
 conda run --name analysisenv pip install yahist particle graphviz pydot dash plotly

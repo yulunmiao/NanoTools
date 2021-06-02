@@ -18,7 +18,8 @@ can be included in the diagram as well.
 In a conda environment on a uaf machine...
 ```
 python nanogentree.py
-# take note of the port that is printed out and forward it to your local machine
+# take note of the port that is printed out
+# edit the variables below and execute the `ssh` command on your local computer
 port=11337
 host=uaf-10.t2.ucsd.edu
 ssh -N -f -L localhost:$port:localhost:$port $host
@@ -49,7 +50,7 @@ conda config --set auto_activate_base false
 conda config --add channels conda-forge
 
 # create environments with as much stuff from anaconda
-conda create --name analysisenv uproot pandas matplotlib jupyter numba graphviz
+conda create --name analysisenv uproot pandas matplotlib jupyter numba graphviz scipy iminuit
 
 # and then any install residual packages with pip
 conda run --name analysisenv pip install yahist particle graphviz pydot dash plotly

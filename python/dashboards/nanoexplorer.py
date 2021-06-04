@@ -228,4 +228,4 @@ def get_graphs(rows, derived_virtual_selected_rows):
     return [g_plot]
 
 if __name__ == '__main__':
-    app.run_server(host="0.0.0.0", port=11338, debug=True)
+    app.run_server(host="0.0.0.0", port=11338, debug=False)

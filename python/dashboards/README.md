@@ -29,7 +29,31 @@ ssh -N -f -L localhost:$port:localhost:$port $host
 ### Preview
 <img src="images/nanogentree_preview.png" width="75%" />
 
-## Nanoexplorer
+## NanoDisplay
+
+Similar to `NanoGENeology` in terms of inputs, but
+shows a simple event display of reco `Jet`, `Electron`,
+`Muon`, and `MET` objects. Only directions are meaningful
+because `plotly` has a mind of its own for the cone normalization, etc.
+
+### Usage
+
+In a conda environment on a uaf machine...
+```
+python nanodisplay.py
+# take note of the port that is printed out
+# edit the variables below and execute the `ssh` command on your local computer
+port=11339
+host=uaf-10.t2.ucsd.edu
+ssh -N -f -L localhost:$port:localhost:$port $host
+# visit http://localhost:11339/nanodisplay/ in your browser
+```
+
+### Preview
+<img src="images/nanodisplay_preview.png" />
+
+
+## NanoExplorer
 
 This dashboard lets you enter a dataset pattern, then
 shows a list of matching dataset names. Select a dataset to see

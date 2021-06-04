@@ -241,5 +241,5 @@ def get_image(filename, entry, modifiers):
 
 
 if __name__ == '__main__':
-    app.run_server(host="0.0.0.0", port=11337, debug=True)
+    app.run_server(host="0.0.0.0", port=11337, debug=False)
 

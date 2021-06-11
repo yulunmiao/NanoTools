@@ -362,7 +362,7 @@ bool ttH::isTriggerSafeNoIso(int idx) {
     // Calculate absolute value of supercluster eta
     float SC_absEta = fabs(Electron_eta().at(idx) + Electron_deltaEtaSC().at(idx));
     if (Electron_hoe().at(idx) >= 0.1) { return false; }
-    if (fabs(Electron_eInvMinusPInv().at(idx)) <= -0.4) { return false; }
+    if (Electron_eInvMinusPInv().at(idx) <= -0.4) { return false; }
     if (SC_absEta <= 1.479) {
         // Barrel
         if (Electron_sieie().at(idx) >= 0.011) { return false; }

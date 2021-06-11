@@ -316,11 +316,11 @@ bool SS::isTriggerSafeNoIso(int idx) {
 
 bool ttH::electronID(int idx, ttH::IDLevel id_level, int year) {
     // Common (across ID levels) checks
-    if (Electron_pt().at(idx) <= 7.) { return false; } // cone pt? FIXME if not!
+    if (Electron_pt().at(idx) <= 7.) { return false; }
     if (fabs(Electron_eta().at(idx) + Electron_deltaEtaSC().at(idx)) >= 2.5) { return false; }
     if (fabs(Electron_dxy().at(idx)) >= 0.05) { return false; }
     if (fabs(Electron_dz().at(idx)) >= 0.1) { return false; }
-    if (Electron_sip3d().at(idx) >= 8) { return false; } // d/sigma_d? FIXME if not!
+    if (Electron_sip3d().at(idx) >= 8) { return false; }
     if (Electron_miniPFRelIso_all().at(idx) >= 0.4) { return false; }
     if (int(Electron_lostHits().at(idx)) > 1) { return false; }
     if (!Electron_mvaFall17V2Iso_WPL().at(idx)) { return false; }

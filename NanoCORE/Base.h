@@ -12,4 +12,12 @@ namespace SS {
     };
 }
 
+namespace ttH {
+    enum IDLevel {
+        IDveto = 0, // for Z-veto
+        IDfakable = 1, // for fake background + jet cleaning
+        IDtight = 2 // for analysis
+    };
+}
+
 #endif

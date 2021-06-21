@@ -326,8 +326,11 @@ bool ttH::electronID(int idx, ttH::IDLevel id_level, int year) {
         if (!ttH::isTriggerSafeNoIso(idx)) { return false; }
         if (!Electron_convVeto().at(idx)) { return false; }
         if (int(Electron_lostHits().at(idx)) > 0) { return false; }
-        unsigned int jet_idx = Electron_jetIdx().at(idx);
-        if (Jet_btagDeepFlavB().at(jet_idx) >= gconf.WP_DeepFlav_medium) { return false; };
+        int jet_idx = Electron_jetIdx().at(idx); // jet_idx = -1 if no matched jet
+        if (jet_idx >= 0)
+        {
+            if (Jet_btagDeepFlavB().at(jet_idx) >= gconf.WP_DeepFlav_medium) { return false; };
+        }
         return true;
     }
     switch (id_level) {

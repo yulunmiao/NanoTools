@@ -113,8 +113,11 @@ bool ttH::muonID(unsigned int idx, ttH::IDLevel id_level, int year) {
     // Common fakable(loose) and tight checks
     if (id_level > ttH::IDveto) {
         if (Muon_pt().at(idx) <= 10.) { return false; }
-        unsigned int jet_idx = Muon_jetIdx().at(idx);
-        if (Jet_btagDeepFlavB().at(jet_idx) >= gconf.WP_DeepFlav_medium) { return false; };
+        int jet_idx = Muon_jetIdx().at(idx); // jet_idx = -1 if no matched jet
+        if (jet_idx >= 0)
+        {
+            if (Jet_btagDeepFlavB().at(jet_idx) >= gconf.WP_DeepFlav_medium) { return false; };
+        }
     }
     switch (id_level) {
     case (ttH::IDveto):

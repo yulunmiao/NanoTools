@@ -40,14 +40,11 @@ bool SS::muon2016ID(unsigned int idx, SS::IDLevel id_level) {
     // ID-specific checks
     switch (id_level) {
     case (SS::IDveto):
-        return true;
         break;
     case (SS::IDfakable):
-        return true;
         break;
     case (SS::IDtight):
         if (!passesLeptonIso(idx, 13, 0.16, 0.76, 7.2)) { return false; }
-        return true;
         break;
     default:
         throw std::runtime_error("MuonSelections.cc: ERROR - invalid ID level");
@@ -61,14 +58,11 @@ bool SS::muon2017ID(unsigned int idx, SS::IDLevel id_level) {
     // ID-specific checks
     switch (id_level) {
     case (SS::IDveto):
-        return true;
         break;
     case (SS::IDfakable):
-        return true;
         break;
     case (SS::IDtight):
         if (!passesLeptonIso(idx, 13, 0.11, 0.74, 6.8)) { return false; }
-        return true;
         break;
     default:
         throw std::runtime_error("MuonSelections.cc: ERROR - invalid ID level");
@@ -82,16 +76,13 @@ bool SS::muon2018ID(unsigned int idx, SS::IDLevel id_level) {
     // ID-specific checks
     switch (id_level) {
     case (SS::IDveto):
-        return true;
         break;
     case (SS::IDfakable):
         // Same as 2017 ID
-        return true;
         break;
     case (SS::IDtight):
         // Same as 2017 ID
         if (!passesLeptonIso(idx, 13, 0.11, 0.74, 6.8)) { return false; }
-        return true;
         break;
     default:
         throw std::runtime_error("MuonSelections.cc: ERROR - invalid ID level");
@@ -121,18 +112,15 @@ bool ttH::muonID(unsigned int idx, ttH::IDLevel id_level, int year) {
     }
     switch (id_level) {
     case (ttH::IDveto):
-        return true;
         break;
     case (ttH::IDfakable):
         if (Muon_mvaTTH().at(idx) <= 0.85) { 
             if (Muon_jetRelIso().at(idx) >= 0.5) { return false; }
         }
-        return true;
         break;
     case (ttH::IDtight):
         if (!Muon_mediumId().at(idx)) { return false; } // medium POG ID
         if (Muon_mvaTTH().at(idx) <= 0.85) { return false; }
-        return true;
         break;
     default:
         throw std::runtime_error("MuonSelections.cc: ERROR - invalid ID level");

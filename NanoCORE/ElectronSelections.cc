@@ -46,17 +46,14 @@ bool SS::electron2016ID(int idx, SS::IDLevel id_level) {
     // ID-specific checks
     switch (id_level) {
     case (SS::IDveto):
-        return true;
         break;
     case (SS::IDfakable):
         if (!passesElectronMVA(idx, SS::fakableNoIsoLooseMVA2016, 2016)) { return false; }
-        return true;
         break;
     case (SS::IDtight):
         if (!passesElectronMVA(idx, SS::fakableNoIso2016, 2016)) { return false; }
         if (!passesElectronMVA(idx, SS::mediumNoIso2016, 2016)) { return false; }
         if (!passesLeptonIso(idx, 11, 0.12, 0.80, 7.2)) { return false; }
-        return true;
         break;
     default:
         throw std::runtime_error("ElectronSelections.cc: ERROR - invalid ID level");
@@ -72,16 +69,13 @@ bool SS::electron2017ID(int idx, SS::IDLevel id_level) {
     // ID-specific checks
     switch (id_level) {
     case (SS::IDveto):
-        return true;
         break;
     case (SS::IDfakable):
         if (!passesElectronMVA(idx, SS::fakableNoIsoLooseMVA2017, 2017)) { return false; }
-        return true;
         break;
     case (SS::IDtight):
         if (!passesElectronMVA(idx, SS::medium2017, 2017)) { return false; }
         if (!passesLeptonIso(idx, 11, 0.07, 0.78, 8.0)) { return false; }
-        return true;
         break;
     default:
         throw std::runtime_error("ElectronSelections.cc: ERROR - invalid ID level");
@@ -97,16 +91,13 @@ bool SS::electron2018ID(int idx, SS::IDLevel id_level) {
     // ID-specific checks
     switch (id_level) {
     case (SS::IDveto):
-        return true;
         break;
     case (SS::IDfakable):
         if (!passesElectronMVA(idx, SS::fakableNoIsoLooseMVA2018, 2018)) { return false; }
-        return true;
         break;
     case (SS::IDtight):
         if (!passesElectronMVA(idx, SS::medium2018, 2018)) { return false; }
         if (!passesLeptonIso(idx, 11, 0.07, 0.78, 8.0)) { return false; }
-        return true;
         break;
     default:
         throw std::runtime_error("ElectronSelections.cc: ERROR - invalid ID level");
@@ -319,7 +310,7 @@ bool ttH::electronID(int idx, ttH::IDLevel id_level, int year) {
     if (Electron_sip3d().at(idx) >= 8) { return false; }
     if (Electron_miniPFRelIso_all().at(idx) >= 0.4) { return false; }
     if (int(Electron_lostHits().at(idx)) > 1) { return false; }
-    if (!Electron_mvaFall17V2Iso_WPL().at(idx)) { return false; }
+    if (!Electron_mvaFall17V2noIso_WPL().at(idx)) { return false; }
     // Common fakable(loose) and tight checks
     if (id_level > ttH::IDveto) {
         if (Electron_pt().at(idx) <= 10.) { return false; }
@@ -331,22 +322,18 @@ bool ttH::electronID(int idx, ttH::IDLevel id_level, int year) {
         {
             if (Jet_btagDeepFlavB().at(jet_idx) >= gconf.WP_DeepFlav_medium) { return false; };
         }
-        return true;
     }
     switch (id_level) {
     case (ttH::IDveto):
-        return true;
         break;
     case (ttH::IDfakable):
         if (Electron_mvaTTH().at(idx) <= 0.8) { 
-            if (!Electron_mvaFall17V2Iso_WP80().at(idx)) { return false; }
+            if (!Electron_mvaFall17V2noIso_WP80().at(idx)) { return false; }
             if (Electron_jetRelIso().at(idx) >= 0.7) { return false; }
         }
-        return true;
         break;
     case (ttH::IDtight):
         if (Electron_mvaTTH().at(idx) <= 0.8) { return false; }
-        return true;
         break;
     default:
         throw std::runtime_error("ElectronSelections.cc: ERROR - invalid ID level");

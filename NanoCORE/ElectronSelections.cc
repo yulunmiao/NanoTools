@@ -37,7 +37,6 @@ bool SS::electronID(int idx, SS::IDLevel id_level, int year) {
         return false;
         break;
     }
-    return false;
 }
 
 bool SS::electron2016ID(int idx, SS::IDLevel id_level) {
@@ -60,7 +59,7 @@ bool SS::electron2016ID(int idx, SS::IDLevel id_level) {
         return false;
         break;
     }
-    return false;
+    return true;
 }
 
 bool SS::electron2017ID(int idx, SS::IDLevel id_level) {
@@ -82,7 +81,7 @@ bool SS::electron2017ID(int idx, SS::IDLevel id_level) {
         return false;
         break;
     }
-    return false;
+    return true;
 }
 
 bool SS::electron2018ID(int idx, SS::IDLevel id_level) {
@@ -104,7 +103,7 @@ bool SS::electron2018ID(int idx, SS::IDLevel id_level) {
         return false;
         break;
     }
-    return false;
+    return true;
 }
 
 
@@ -168,7 +167,6 @@ bool SS::passesElectronMVA(int idx, SS::ElectronMVAIDLevel id_level, int year) {
         if (SC_absEta > 1.479) {
             if (disc <= electronMVACut(-0.918, -0.123, 0.362, pt)) { return false; }
         }
-        return true;
         break;
     case (SS::fakableNoIsoLooseMVA2018):
         if (SC_absEta < 0.8) {
@@ -180,7 +178,6 @@ bool SS::passesElectronMVA(int idx, SS::ElectronMVAIDLevel id_level, int year) {
         if (SC_absEta > 1.479) {
             if (disc <= electronMVACut(-2.091, -1.461, -0.956, pt)) { return false; }
         }
-        return true;
         break;
     case (SS::medium2018):
         if (SC_absEta < 0.8) {
@@ -192,7 +189,6 @@ bool SS::passesElectronMVA(int idx, SS::ElectronMVAIDLevel id_level, int year) {
         if (SC_absEta > 1.479) {
             if (disc <= electronMVACut(1.054, 2.359, 1.054, pt)) { return false; }
         }
-        return true;
         break;
     case (SS::vetoNoIso2017):
         if (SC_absEta < 0.8) {
@@ -204,7 +200,6 @@ bool SS::passesElectronMVA(int idx, SS::ElectronMVAIDLevel id_level, int year) {
         if (SC_absEta > 1.479) {
             if (disc <= electronMVACut(-0.81, -0.733, 0.176, pt)) { return false; }
         }
-        return true;
         break;
     case (SS::fakableNoIsoLooseMVA2017):
         if (SC_absEta < 0.8) {
@@ -216,7 +211,6 @@ bool SS::passesElectronMVA(int idx, SS::ElectronMVAIDLevel id_level, int year) {
         if (SC_absEta > 1.479) {
             if (disc <= electronMVACut(-0.942, -0.91, -0.470, pt)) { return false; }
         }
-        return true;
         break;
     case (SS::medium2017):
         if (SC_absEta < 0.8) {
@@ -228,7 +222,6 @@ bool SS::passesElectronMVA(int idx, SS::ElectronMVAIDLevel id_level, int year) {
         if (SC_absEta > 1.479) {
             if (disc <= electronMVACut(-0.1, 0.32, -0.1, pt)) { return false; }
         }
-        return true;
         break;
     case (SS::vetoNoIso2016):
         if (SC_absEta < 0.8) {
@@ -240,7 +233,6 @@ bool SS::passesElectronMVA(int idx, SS::ElectronMVAIDLevel id_level, int year) {
         if (SC_absEta > 1.479) {
             if (disc <= electron2016MVACut(-0.49, -0.83, -0.01, pt)) { return false; }
         }
-        return true;
         break;
     case (SS::fakableNoIso2016):
         if (SC_absEta < 0.8) {
@@ -252,7 +244,6 @@ bool SS::passesElectronMVA(int idx, SS::ElectronMVAIDLevel id_level, int year) {
         if (SC_absEta > 1.479) {
             if (disc <= electron2016MVACut(0.48, -0.01, 0.48, pt)) { return false; }
         }
-        return true;
         break;
     case (SS::fakableNoIsoLooseMVA2016):
         if (SC_absEta < 0.8) {
@@ -264,7 +255,6 @@ bool SS::passesElectronMVA(int idx, SS::ElectronMVAIDLevel id_level, int year) {
         if (SC_absEta > 1.479) {
             if (disc <= electron2016MVACut(-0.81, -0.95, -0.63, pt)) { return false; }
         }
-        return true;
         break;
     case (SS::mediumNoIso2016):
         if (SC_absEta < 0.8) {
@@ -276,14 +266,13 @@ bool SS::passesElectronMVA(int idx, SS::ElectronMVAIDLevel id_level, int year) {
         if (SC_absEta > 1.479) {
             if (disc <= electron2016MVACut(0.48, -0.01, 0.48, pt)) { return false; }
         }
-        return true;
         break;
     default:
         throw std::runtime_error("ElectronSelections.cc: ERROR - invalid MVA ID level");
         return false;
         break;
     }
-    return false;
+    return true;
 }
 
 bool SS::isTriggerSafeNoIso(int idx) {
@@ -327,7 +316,7 @@ bool ttH::electronID(int idx, ttH::IDLevel id_level, int year) {
     case (ttH::IDveto):
         break;
     case (ttH::IDfakable):
-        if (Electron_mvaTTH().at(idx) <= 0.8) { 
+        if (Electron_mvaTTH().at(idx) <= 0.8) {
             if (!Electron_mvaFall17V2noIso_WP80().at(idx)) { return false; }
             if (Electron_jetRelIso().at(idx) >= 0.7) { return false; }
         }

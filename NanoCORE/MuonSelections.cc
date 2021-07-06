@@ -51,7 +51,7 @@ bool SS::muon2016ID(unsigned int idx, SS::IDLevel id_level) {
         return false;
         break;
     }
-    return false;
+    return true;
 }
 
 bool SS::muon2017ID(unsigned int idx, SS::IDLevel id_level) {
@@ -69,7 +69,7 @@ bool SS::muon2017ID(unsigned int idx, SS::IDLevel id_level) {
         return false;
         break;
     }
-    return false;
+    return true;
 }
 
 bool SS::muon2018ID(unsigned int idx, SS::IDLevel id_level) {
@@ -89,7 +89,7 @@ bool SS::muon2018ID(unsigned int idx, SS::IDLevel id_level) {
         return false;
         break;
     }
-    return false;
+    return true;
 }
 
 bool ttH::muonID(unsigned int idx, ttH::IDLevel id_level, int year) {

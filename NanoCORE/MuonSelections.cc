@@ -98,7 +98,7 @@ bool ttH::muonID(unsigned int idx, ttH::IDLevel id_level, int year) {
     if (fabs(Muon_eta().at(idx)) >= 2.4) { return false; }
     if (fabs(Muon_dxy().at(idx)) >= 0.05) { return false; }
     if (fabs(Muon_dz().at(idx)) >= 0.1) { return false; }
-    if (Muon_sip3d().at(idx) >= 8) { return false; }
+    if (fabs(Muon_sip3d().at(idx)) >= 8) { return false; }
     if (Muon_miniPFRelIso_all().at(idx) >= 0.4) { return false; }
     if (!Muon_looseId().at(idx)) { return false; } // loose POG ID
     // Common fakable(loose) and tight checks

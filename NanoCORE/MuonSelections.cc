@@ -109,6 +109,7 @@ bool ttH::muonID(unsigned int idx, ttH::IDLevel id_level, int year) {
         {
             if (Jet_btagDeepFlavB().at(jet_idx) >= gconf.WP_DeepFlav_medium) { return false; };
         }
+        if (Muon_ptErr().at(idx) / Muon_pt().at(idx) >= 0.2) { return false; }
     }
     switch (id_level) {
     case (ttH::IDveto):

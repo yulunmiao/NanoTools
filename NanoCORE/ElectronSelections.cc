@@ -305,6 +305,7 @@ bool ttH::electronID(int idx, ttH::IDLevel id_level, int year) {
         if (Electron_pt().at(idx) <= 10.) { return false; }
         if (!ttH::isTriggerSafeNoIso(idx)) { return false; }
         if (!Electron_convVeto().at(idx)) { return false; }
+        if (Electron_tightCharge().at(idx) != 2) { return false; }
         if (int(Electron_lostHits().at(idx)) > 0) { return false; }
         int jet_idx = Electron_jetIdx().at(idx); // jet_idx = -1 if no matched jet
         if (jet_idx >= 0)
@@ -337,7 +338,7 @@ bool ttH::isTriggerSafeNoIso(int idx) {
     // Calculate absolute value of supercluster eta
     float SC_absEta = fabs(Electron_eta().at(idx) + Electron_deltaEtaSC().at(idx));
     if (Electron_hoe().at(idx) >= 0.1) { return false; }
-    if (Electron_eInvMinusPInv().at(idx) <= -0.4) { return false; }
+    if (Electron_eInvMinusPInv().at(idx) <= -0.04) { return false; }
     if (SC_absEta <= 1.479) {
         // Barrel
         if (Electron_sieie().at(idx) >= 0.011) { return false; }

@@ -159,7 +159,35 @@ void GlobalConfig::GetConfigs(int in_year) {
         WP_CSVv2_medium = 0.8838;
         WP_CSVv2_loose = 0.5803;
         fn_btagSF_CSVv2 = "CSVv2_94XSF_V2_B_F.csv";
-    } else if (year == 2018) {
+    } else if (year == 2018 and nanoAOD_ver >= 8) {
+        lumi = 59.97;
+
+        // https://twiki.cern.ch/twiki/bin/viewauth/CMS/JECDataMC#2018_Data
+        jecEraA = "Summer19UL18_RunA_V5_DATA";
+        jecEraB = "Summer19UL18_RunB_V5_DATA";
+        jecEraC = "Summer19UL18_RunC_V5_DATA";
+        jecEraD = "Summer19UL18_RunD_V5_DATA";
+        jecEraMC = "Summer19UL18_V5_MC";
+
+        // B-tag working points
+        // https://twiki.cern.ch/twiki/bin/view/CMS/BtagRecommendation106XUL18#AK4_b_tagging
+        // pfDeepFlavourJetTags:probb + probbb + problepb
+        WP_DeepFlav_tight = 0.7100;
+        WP_DeepFlav_medium = 0.2783;
+        WP_DeepFlav_loose = 0.0490;
+        fn_btagSF_DeepFlav = "DeepJet_106XUL18SF_WPonly.csv";
+
+        WP_DeepCSV_tight = 0.7665;
+        WP_DeepCSV_medium = 0.4168;
+        WP_DeepCSV_loose = 0.1208;
+        fn_btagSF_DeepCSV = "DeepCSV_106XUL18SF_WPonly.csv";
+
+        // No longer supported (set it to 999 to fail all)
+        WP_CSVv2_tight = 999; // CSVv2 is no longer supported for 2018
+        WP_CSVv2_medium = 999;
+        WP_CSVv2_loose = 999;
+        fn_btagSF_CSVv2 = "ERROR"; // not supported
+    } else if (year == 2018 and nanoAOD_ver < 8) {
         lumi = 59.97;
 
         jecEraA = "Autumn18_RunA_V8_DATA";

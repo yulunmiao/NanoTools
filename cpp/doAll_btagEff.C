@@ -22,8 +22,11 @@
     // ch->Add("root://cmsxrootd.fnal.gov//store/mc/RunIIFall17NanoAODv6/TTJets_SingleLeptFromT_TuneCP5_13TeV-madgraphMLM-pythia8/NANOAODSIM/PU2017_12Apr2018_Nano25Oct2019_ext_102X_mc2017_realistic_v7-v1/250000/5328123C-B5B1-7240-982C-91C22BFBFF59.root");
     // ch->Add("root://cmsxrootd.fnal.gov//store/mc/RunIIFall17NanoAODv6/TTJets_SingleLeptFromTbar_TuneCP5_13TeV-madgraphMLM-pythia8/NANOAODSIM/PU2017_12Apr2018_Nano25Oct2019_102X_mc2017_realistic_v7-v1/260000/E5F07826-B7B2-0C48-850C-63F68B5C9B99.root");
     // 2018 ttbar used for btagging efficiency calculation
-    ch->Add("root://cmsxrootd.fnal.gov//store/mc/RunIIAutumn18NanoAODv6/TTJets_SingleLeptFromT_TuneCP5_13TeV-madgraphMLM-pythia8/NANOAODSIM/Nano25Oct2019_102X_upgrade2018_realistic_v20-v1/230000/4DF0C80E-7E96-8046-B022-17F1DD9BF2C3.root");
-    ch->Add("root://cmsxrootd.fnal.gov//store/mc/RunIIAutumn18NanoAODv6/TTJets_SingleLeptFromTbar_TuneCP5_13TeV-madgraphMLM-pythia8/NANOAODSIM/Nano25Oct2019_102X_upgrade2018_realistic_v20-v1/250000/56218FD7-5EB4-4040-A53D-95C4416DFCF3.root");
+    // ch->Add("root://cmsxrootd.fnal.gov//store/mc/RunIIAutumn18NanoAODv6/TTJets_SingleLeptFromT_TuneCP5_13TeV-madgraphMLM-pythia8/NANOAODSIM/Nano25Oct2019_102X_upgrade2018_realistic_v20-v1/230000/4DF0C80E-7E96-8046-B022-17F1DD9BF2C3.root");
+    // ch->Add("root://cmsxrootd.fnal.gov//store/mc/RunIIAutumn18NanoAODv6/TTJets_SingleLeptFromTbar_TuneCP5_13TeV-madgraphMLM-pythia8/NANOAODSIM/Nano25Oct2019_102X_upgrade2018_realistic_v20-v1/250000/56218FD7-5EB4-4040-A53D-95C4416DFCF3.root");
+
+    // 2018 UL tt2l powheg btagging efficiency calculation
+    ch->Add("root://cmsxrootd.fnal.gov//store/mc/RunIISummer20UL18NanoAODv2/TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v15_L1v1-v1/40000/1190209A-BEEB-DB4F-9C2C-B7BB0C9E2F14.root");
 
     // ScanChain(ch, 15000);
     ScanChain(ch, -1);

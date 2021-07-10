@@ -4477,6 +4477,10 @@ void Nano::ParseYear(TTree* tree) {
     else if (full_file_path.Contains("RunIISummer20UL18")) year_ = 2018;
     else if (full_file_path.Contains("RunIISummer20UL17")) year_ = 2017;
     else if (full_file_path.Contains("RunIISummer20UL16")) year_ = 2016;
+    // Ultra-legacy
+    else if (full_file_path.Contains("RunIISummer19UL18")) year_ = 2018;
+    else if (full_file_path.Contains("RunIISummer19UL17")) year_ = 2017;
+    else if (full_file_path.Contains("RunIISummer19UL16")) year_ = 2016;
     // Data
     else if (full_file_path.Contains("Run2018")) year_ = 2018;
     else if (full_file_path.Contains("Run2017")) year_ = 2017;

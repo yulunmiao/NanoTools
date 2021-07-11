@@ -130,7 +130,36 @@ void GlobalConfig::GetConfigs(int in_year) {
         WP_CSVv2_medium = 0.8484;
         WP_CSVv2_loose = 0.5426;
         fn_btagSF_CSVv2 = "CSVv2_Moriond17_B_H.csv"; // not supported
-    } else if (year == 2017) {
+    } else if (year == 2017 and nanoAOD_ver >= 8) {
+        lumi = 41.529;
+
+        // https://twiki.cern.ch/twiki/bin/viewauth/CMS/JECDataMC#2017_Data
+        jecEraB = "Summer19UL17_RunB_V5_DATA";
+        jecEraC = "Summer19UL17_RunC_V5_DATA";
+        jecEraD = "Summer19UL17_RunD_V5_DATA";
+        jecEraE = "Summer19UL17_RunE_V5_DATA";
+        jecEraF = "Summer19UL17_RunF_V5_DATA";
+        // https://twiki.cern.ch/twiki/bin/viewauth/CMS/JECDataMC#Recommended_for_MC
+        jecEraMC = "Summer19UL17_V5_MC";
+
+        // B-tag working points
+        // https://twiki.cern.ch/twiki/bin/view/CMS/BtagRecommendation106XUL17
+
+        WP_DeepFlav_tight = 0.7476;
+        WP_DeepFlav_medium = 0.3040;
+        WP_DeepFlav_loose = 0.0532;
+        fn_btagSF_DeepFlav = "DeepJet_106XUL17SF_WPonly_V2p1.csv";
+
+        WP_DeepCSV_tight = 0.7738;
+        WP_DeepCSV_medium = 0.4506;
+        WP_DeepCSV_loose = 0.1355;
+        fn_btagSF_DeepCSV = "DeepCSV_106XUL17SF_WPonly_V2p1.csv";
+
+        WP_CSVv2_tight = 999;
+        WP_CSVv2_medium = 999;
+        WP_CSVv2_loose = 999;
+        fn_btagSF_CSVv2 = "ERROR";
+    } else if (year == 2017 and nanoAOD_ver < 8) {
         lumi = 41.529;
 
         jecEraB = "Fall17_17Nov2017B_V32_DATA";

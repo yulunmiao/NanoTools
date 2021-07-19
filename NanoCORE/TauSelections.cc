@@ -67,6 +67,12 @@ bool ttH::tauID(int idx, ttH::IDLevel id_level, int year)
     if (fabs(Tau_dz().at(idx)) >= 0.2) { return false; }
     if (fabs(Tau_eta().at(idx)) >= 2.3) { return false; }
     if (!Tau_idDecayModeNewDMs().at(idx)) { return false; }
+    if (id_level > ttH::IDveto)
+    {
+        // Reject two-prong decay modes
+        if (Tau_decayMode().at(idx) == 5) { return false; }
+        if (Tau_decayMode().at(idx) == 6) { return false; }
+    }
     switch(id_level) 
     {
     case (ttH::IDveto):

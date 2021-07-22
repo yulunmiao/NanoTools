@@ -102,7 +102,11 @@ int ScanChain(TChain *ch, int nevents_to_process=-1)
         nt.Init(tree);
 
         // Set up the NanoCORE's common configuration service tool
+        gconf.nanoAOD_ver = 8;
         gconf.GetConfigs(nt.year());
+
+        std::cout <<  " nt.year(): " << nt.year() <<  std::endl;
+        std::cout <<  " gconf.WP_DeepFlav_tight: " << gconf.WP_DeepFlav_tight <<  std::endl;
 
         for( unsigned int event = 0; event < tree->GetEntriesFast(); ++event)
         {
@@ -115,8 +119,101 @@ int ScanChain(TChain *ch, int nevents_to_process=-1)
 
             int njets = Jet_pt().size();
             debug(njets);
+
+            // Count njets in the b-tagging region
+            int n_btaggable_jets = 0;
             for (int i = 0; i < njets; i++)
             {
+                float pt = Jet_pt()[i];
+                float abseta = fabs(Jet_eta()[i]);
+                if (pt > 20 and abseta < 2.4)
+                {
+                    n_btaggable_jets++;
+                }
+            }
+
+            // Ensure we have at least two jets to tag
+            if (n_btaggable_jets < 2)
+                continue;
+
+            int idx_lead_bscore = -1;
+            int idx_subl_bscore = -1;
+            float lead_bscore = -1;
+            float subl_bscore = -1;
+            for (int i = 0; i < njets; i++)
+            {
+                float pt = Jet_pt()[i];
+                float abseta = fabs(Jet_eta()[i]);
+                float flavor = Jet_hadronFlavour()[i];
+                float btagscore = Jet_btagDeepFlavB()[i];
+
+                // First two are gonna get sorted first
+                if (idx_lead_bscore == -1 or idx_subl_bscore == -1)
+                {
+                    if (idx_lead_bscore == -1)
+                    {
+                        // Set the lead to current
+                        lead_bscore = btagscore;
+                        idx_lead_bscore = i;
+                    }
+                    else if (idx_subl_bscore == -1)
+                    {
+                        // If the previous one is subleading in bscore
+                        if (btagscore > lead_bscore)
+                        {
+                            // First move the lead to subl
+                            subl_bscore = lead_bscore;
+                            idx_subl_bscore = idx_lead_bscore;
+                            // Then set the lead to current
+                            lead_bscore = btagscore;
+                            idx_lead_bscore = i;
+                        }
+                        // Otherwise
+                        else
+                        {
+                            // Set the current to sublead
+                            subl_bscore = btagscore;
+                            idx_subl_bscore = i;
+                        }
+                    }
+                }
+                // Any third and more jets are handled differently
+                else
+                {
+                    // If the current is better than both
+                    if (btagscore > lead_bscore)
+                    {
+                        // First move the lead to subl
+                        subl_bscore = lead_bscore;
+                        idx_subl_bscore = idx_lead_bscore;
+                        // Then set the lead to current
+                        lead_bscore = btagscore;
+                        idx_lead_bscore = i;
+                    }
+                    // If the current is better than subleading
+                    else if (btagscore > subl_bscore)
+                    {
+                        // Set the current to sublead
+                        subl_bscore = btagscore;
+                        idx_subl_bscore = i;
+                    }
+                    // If the current is not better than neither
+                    else
+                    {
+                        // do nothing
+                    }
+                }
+
+            }
+
+            for (int i = 0; i < njets; i++)
+            {
+
+                if (i != idx_lead_bscore)
+                    continue;
+                // if (i != idx_subl_bscore)
+                //     continue;
+
                 float pt = Jet_pt()[i];
                 float abseta = fabs(Jet_eta()[i]);
                 float flavor = Jet_hadronFlavour()[i];

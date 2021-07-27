@@ -28,11 +28,11 @@ typedef ROOT::Math::LorentzVector<ROOT::Math::PtEtaPhiM4D<float> > LorentzVector
 #define NSOFTACTIVITYJET_MAX 21 // for SoftActivityJet_* collection
 #define NLHESCALEWEIGHT_MAX 3 // for LHEScaleWeight_* collection
 #define NCORRT1METJET_MAX 102 // for CorrT1METJet_* collection
-#define NMUON_MAX 30 // for Muon_* collection
+#define NMUON_MAX 90 // for Muon_* collection
 #define NGENJET_MAX 60 // for GenJet_* collection
 #define NPSWEIGHT_MAX 15 // for PSWeight_* collection
 #define NLHEPART_MAX 24 // for LHEPart_* collection
-#define NTAU_MAX 18 // for Tau_* collection
+#define NTAU_MAX 90 // for Tau_* collection
 #define NISOTRACK_MAX 21 // for IsoTrack_* collection
 #define NLHEPDFWEIGHT_MAX 3 // for LHEPdfWeight_* collection
 #define NFSRPHOTON_MAX 9 // for FsrPhoton_* collection
@@ -42,9 +42,9 @@ typedef ROOT::Math::LorentzVector<ROOT::Math::PtEtaPhiM4D<float> > LorentzVector
 #define NSUBGENJETAK8_MAX 42 // for SubGenJetAK8_* collection
 #define NGENVISTAU_MAX 9 // for GenVisTau_* collection
 #define NGENJETAK8_MAX 24 // for GenJetAK8_* collection
-#define NELECTRON_MAX 21 // for Electron_* collection
+#define NELECTRON_MAX 90 // for Electron_* collection
 #define NFATJET_MAX 18 // for FatJet_* collection
-#define NJET_MAX 81 // for Jet_* collection
+#define NJET_MAX 250 // for Jet_* collection
 #define NGENISOLATEDPHOTON_MAX 12 // for GenIsolatedPhoton_* collection
 #define NGENDRESSEDLEPTON_MAX 12 // for GenDressedLepton_* collection
 #define NGENPART_MAX 402 // for GenPart_* collection

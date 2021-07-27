@@ -76,19 +76,19 @@ bool ttH::tauID(int idx, ttH::IDLevel id_level, int year)
     switch(id_level) 
     {
     case (ttH::IDveto):
-        if (!passesDeepTau(idx, DeepTau::vvLoose, DeepTau::vsJets)) { return false; }
+        if (!passesDeepTau(idx, DeepTau::vLoose, DeepTau::vsJets)) { return false; }       // > VVLoose
         return true;
         break;
     case (ttH::IDfakable):
-        if (!passesDeepTau(idx, DeepTau::vvLoose, DeepTau::vsJets)) { return false; }
-        if (!passesDeepTau(idx, DeepTau::vLoose, DeepTau::vsMuons)) { return false; }
-        if (!passesDeepTau(idx, DeepTau::vvvLoose, DeepTau::vsElectrons)) { return false; }
+        if (!passesDeepTau(idx, DeepTau::vLoose, DeepTau::vsJets)) { return false; }       // > VVLoose
+        if (!passesDeepTau(idx, DeepTau::Loose, DeepTau::vsMuons)) { return false; }       // > VLoose
+        if (!passesDeepTau(idx, DeepTau::vvLoose, DeepTau::vsElectrons)) { return false; } // > VVVLoose
         return true;
         break;
     case (ttH::IDtight):
-        if (!passesDeepTau(idx, DeepTau::tight, DeepTau::vsJets)) { return false; }
-        if (!passesDeepTau(idx, DeepTau::vLoose, DeepTau::vsMuons)) { return false; }
-        if (!passesDeepTau(idx, DeepTau::vvvLoose, DeepTau::vsElectrons)) { return false; }
+        if (!passesDeepTau(idx, DeepTau::tight, DeepTau::vsJets)) { return false; }        // > Medium
+        if (!passesDeepTau(idx, DeepTau::Loose, DeepTau::vsMuons)) { return false; }       // > VLoose
+        if (!passesDeepTau(idx, DeepTau::vvLoose, DeepTau::vsElectrons)) { return false; } // > VVVLoose
         return true;
         break;
     default:

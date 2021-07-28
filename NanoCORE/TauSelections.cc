@@ -86,7 +86,7 @@ bool ttH::tauID(int idx, ttH::IDLevel id_level, int year)
         return true;
         break;
     case (ttH::IDtight):
-        if (!passesDeepTau(idx, DeepTau::tight, DeepTau::vsJets)) { return false; }        // > Medium
+        if (!passesDeepTau(idx, DeepTau::medium, DeepTau::vsJets)) { return false; }       // > Loose (ttH AN-19-111 1l+1tau channel ID)
         if (!passesDeepTau(idx, DeepTau::loose, DeepTau::vsMuons)) { return false; }       // > VLoose
         if (!passesDeepTau(idx, DeepTau::vvLoose, DeepTau::vsElectrons)) { return false; } // > VVVLoose
         return true;

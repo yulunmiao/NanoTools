@@ -4,7 +4,20 @@
 
 baseurl="https://raw.githubusercontent.com/cms-jet/JECDatabase/master/textFiles/"
 
-era="Summer16_07Aug2017_V11_MC"
+eras="
+Summer16_07Aug2017_V11_MC
+Summer19UL17_RunB_V5_DATA
+Summer19UL17_RunC_V5_DATA
+Summer19UL17_RunD_V5_DATA
+Summer19UL17_RunE_V5_DATA
+Summer19UL17_RunF_V5_DATA
+Summer19UL17_V5_MC
+Summer19UL18_RunA_V5_DATA
+Summer19UL18_RunB_V5_DATA
+Summer19UL18_RunC_V5_DATA
+Summer19UL18_RunD_V5_DATA
+Summer19UL18_V5_MC
+"
 
 jettypes="
 AK4PFchs
@@ -20,13 +33,15 @@ L3Absolute
 Uncertainty
 "
 
-mkdir -p $era
+for era in $eras; do
+    mkdir -p $era
 
-cd $era
-for jettype in $jettypes; do
-    for corrstr in $corrstrs; do
-        echo Executing: curl -s -L "$baseurl/$era/${era}_${corrstr}_${jettype}.txt"
-        curl -s -O -L "$baseurl/$era/${era}_${corrstr}_${jettype}.txt"
+    cd $era
+    for jettype in $jettypes; do
+        for corrstr in $corrstrs; do
+            echo Executing: curl -s -L "$baseurl/$era/${era}_${corrstr}_${jettype}.txt"
+            curl -s -O -L "$baseurl/$era/${era}_${corrstr}_${jettype}.txt"
+        done
     done
+    cd -
 done
-cd -

@@ -49,7 +49,7 @@ typedef ROOT::Math::LorentzVector<ROOT::Math::PtEtaPhiM4D<float> > LorentzVector
 #define NGENDRESSEDLEPTON_MAX 15 // for GenDressedLepton_* collection
 #define NGENPART_MAX 279 // for GenPart_* collection
 #define NPHOTON_MAX 27 // for Photon_* collection
-#define NLHEREWEIGHTINGWEIGHT_MAX 3 // for LHEReweightingWeight_* collection
+#define NLHEREWEIGHTINGWEIGHT_MAX 50 // for LHEReweightingWeight_* collection
 
 using namespace std;
 

@@ -5133,10 +5133,19 @@ void Nano::ParseYear(TTree* tree) {
     if (full_file_path.Contains("RunIIAutumn18NanoAOD")) year_ = 2018;
     else if (full_file_path.Contains("RunIIFall17NanoAOD")) year_ = 2017;
     else if (full_file_path.Contains("RunIISummer16NanoAOD")) year_ = 2016;
+    // Ultra-legacy
+    else if (full_file_path.Contains("RunIISummer20UL18")) year_ = 2018;
+    else if (full_file_path.Contains("RunIISummer20UL17")) year_ = 2017;
+    else if (full_file_path.Contains("RunIISummer20UL16")) year_ = 2016;
+    // Ultra-legacy
+    else if (full_file_path.Contains("RunIISummer19UL18")) year_ = 2018;
+    else if (full_file_path.Contains("RunIISummer19UL17")) year_ = 2017;
+    else if (full_file_path.Contains("RunIISummer19UL16")) year_ = 2016;
+    // Data
     else if (full_file_path.Contains("Run2018")) year_ = 2018;
     else if (full_file_path.Contains("Run2017")) year_ = 2017;
     else if (full_file_path.Contains("Run2016")) year_ = 2016;
-    else throw std::runtime_error("Nano::parseYear():: ERROR - Failed to recognize which year this NanoAOD is !\nPlease make sure the path has one of the following keywords:\n  2016: 'Run2016' or 'RunIISummer16NanoAOD'\n  2017: 'Run2017' or 'RunIIFall17NanoAOD'\n  2018: 'Run2018' or 'RunIIAutumn18NanoAOD'\nOR, use Nano::SetYear(int year) before Nano::Init()");
+    else throw std::runtime_error("Nano::parseYear():: ERROR - Failed to recognize which year this NanoAOD is !\nPlease make sure the path has one of the following keywords:\n  2016: 'Run2016' or 'RunIISummer16NanoAOD' or 'RunIISummer20UL16'\n  2017: 'Run2017' or 'RunIIFall17NanoAOD' or 'RunIISummer20UL17'\n  2018: 'Run2018' or 'RunIIAutumn18NanoAOD' or 'RunIISummer20UL18'\nOR, use Nano::SetYear(int year) before Nano::Init()");
 }
 
 const Int_t &Nano::year() {

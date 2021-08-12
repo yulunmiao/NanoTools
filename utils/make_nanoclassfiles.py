@@ -342,6 +342,7 @@ if __name__ == "__main__":
             # DECLARING ARRAY WITH TOO LITTLE SPACE WILL SEGFAULT SO NEED TO BE REALLY CAREFUL
             # FIXME figure out better way. tripling is not a solution
             # ndata = 3*leaf.GetNdata()
+            sys.exit("DECLARING ARRAY WITH TOO LITTLE SPACE WILL SEGFAULT SO NEED TO BE REALLY CAREFUL\nIF ONE REPLACES THE NanoCORE/Nano.h/cc USING THIS OTHER USERS WORK ON THE SETTING WILL GET OVERWRITTEN\nIF YOU HAVE ANY QUESTIONS PLEASE CONTACT PHILIP CHANG <philip@ucsd.edu>\n")
             ndata = leaf.GetNdata()
             collectionname = None
             ndatamacroname = None

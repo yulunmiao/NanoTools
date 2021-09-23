@@ -2,6 +2,8 @@
 Nano nt;
 
 void Nano::Init(TTree *tree) {
+    b_LHEWeight_mg_reweighting_ = tree->GetBranch("LHEWeight_mg_reweighting");
+    if (b_LHEWeight_mg_reweighting_) { b_LHEWeight_mg_reweighting_->SetAddress(&LHEWeight_mg_reweighting_); }
     b_CaloMET_phi_ = tree->GetBranch("CaloMET_phi");
     if (b_CaloMET_phi_) { b_CaloMET_phi_->SetAddress(&CaloMET_phi_); }
     b_CaloMET_pt_ = tree->GetBranch("CaloMET_pt");
@@ -7738,6 +7740,7 @@ void Nano::PrintUsage() {
 
 void Nano::GetEntry(unsigned int idx) {
     index = idx;
+    loaded_LHEWeight_mg_reweighting_ = false;
     loaded_CaloMET_phi_ = false;
     loaded_CaloMET_pt_ = false;
     loaded_CaloMET_sumEt_ = false;
@@ -10313,6 +10316,16 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_nTau_ = false;
     loaded_nTrigObj_ = false;
     loaded_run_ = false;
+}
+
+const vector<float> &Nano::LHEWeight_mg_reweighting() {
+    if (!loaded_LHEWeight_mg_reweighting_) {
+        if (!b_LHEWeight_mg_reweighting_) throw std::runtime_error("LHEWeight_mg_reweighting branch doesn't exist");
+        int bytes = b_LHEWeight_mg_reweighting_->GetEntry(index);
+        v_LHEWeight_mg_reweighting_ = vector<float>(LHEWeight_mg_reweighting_,LHEWeight_mg_reweighting_+bytes/sizeof(LHEWeight_mg_reweighting_[0]));
+        loaded_LHEWeight_mg_reweighting_ = true;
+    }
+    return v_LHEWeight_mg_reweighting_;
 }
 
 const float &Nano::CaloMET_phi() {

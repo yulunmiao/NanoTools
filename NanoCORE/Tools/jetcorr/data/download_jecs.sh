@@ -5,7 +5,10 @@
 baseurl="https://raw.githubusercontent.com/cms-jet/JECDatabase/master/textFiles/"
 
 eras="
-Summer16_07Aug2017_V11_MC
+Summer19UL16APV_RunBCDEF_V7_DATA
+Summer19UL16_RunFGH_V7_DATA
+Summer19UL16APV_V7_MC
+Summer19UL16_V7_MC
 Summer19UL17_RunB_V5_DATA
 Summer19UL17_RunC_V5_DATA
 Summer19UL17_RunD_V5_DATA

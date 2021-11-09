@@ -106,7 +106,73 @@ void GlobalConfig::GetConfigs(int in_year) {
         WP_CSVv2_loose = 0.5426;
         fn_btagSF_CSVv2 = "CSVv2_Moriond17_B_H.csv";
     }
-    if (year == 2016 && nanoAOD_ver >= 0) {
+    if (year == 2016 && nanoAOD_ver >= 8 and isAPV) {
+        lumi = 19.52;
+
+        jecEraB = jecEraC = jecEraD = "Summer19UL16APV_RunBCDEF_V7_DATA";
+        jecEraE = jecEraF = "Summer19UL16APV_RunBCDEF_V7_DATA";
+        jecEraG = jecEraH = "Summer19UL16APV_RunBCDEF_V7_DATA";
+        jecEraMC = "Summer19UL16APV_V7_MC";
+
+        //===========================================================================
+        // // B-tag working points
+        // WP_DeepFlav_tight = 999;
+        // WP_DeepFlav_medium = 999;
+        // WP_DeepFlav_loose = 999;
+        // fn_btagSF_DeepFlav = "TODO";
+
+        // WP_DeepCSV_tight = 999;
+        // WP_DeepCSV_medium = 999;
+        // WP_DeepCSV_loose = 999;
+        // fn_btagSF_DeepCSV = "TODO";
+
+        // WP_CSVv2_tight = 999;
+        // WP_CSVv2_medium = 999;
+        // WP_CSVv2_loose = 999;
+        // fn_btagSF_CSVv2 = "ERROR"; // not supported
+        //===========================================================================
+        // B-tag working points
+        // https://twiki.cern.ch/twiki/bin/view/CMS/BtagRecommendation106XUL16postVFP
+        /* NOTE Using 2016 non-APV as place holder! */ WP_DeepFlav_tight = 0.6377;
+        /* NOTE Using 2016 non-APV as place holder! */ WP_DeepFlav_medium = 0.2489;
+        /* NOTE Using 2016 non-APV as place holder! */ WP_DeepFlav_loose = 0.0480;
+        /* NOTE Using 2016 non-APV as place holder! */ fn_btagSF_DeepFlav = "DeepJet_106XUL16SF.csv";
+
+        /* NOTE Using 2016 non-APV as place holder! */ WP_DeepCSV_tight = 0.8767;
+        /* NOTE Using 2016 non-APV as place holder! */ WP_DeepCSV_medium = 0.5847;
+        /* NOTE Using 2016 non-APV as place holder! */ WP_DeepCSV_loose = 0.1918;
+        /* NOTE Using 2016 non-APV as place holder! */ fn_btagSF_DeepCSV = "DeepCSV_106XUL16SF.csv";
+
+        /* NOTE Using 2016 non-APV as place holder! */ WP_CSVv2_tight = 999; // not used
+        /* NOTE Using 2016 non-APV as place holder! */ WP_CSVv2_medium = 999; // not used
+        /* NOTE Using 2016 non-APV as place holder! */ WP_CSVv2_loose = 999; // not used
+        /* NOTE Using 2016 non-APV as place holder! */ fn_btagSF_CSVv2 = "ERROR"; // not supported
+        //===========================================================================
+    } else if (year == 2016 && nanoAOD_ver >= 8 and not isAPV) {
+        lumi = 16.81;
+
+        jecEraB = jecEraC = jecEraD = "Summer19UL16_RunBCDEFGH_Combined_V7_DATA";
+        jecEraE = jecEraF = "Summer19UL16_RunBCDEFGH_Combined_V7_DATA";
+        jecEraG = jecEraH = "Summer19UL16_RunBCDEFGH_Combined_V7_DATA";
+        jecEraMC = "Summer19UL16_V7_MC";
+
+        // B-tag working points
+        // https://twiki.cern.ch/twiki/bin/view/CMS/BtagRecommendation106XUL16postVFP
+        WP_DeepFlav_tight = 0.6377;
+        WP_DeepFlav_medium = 0.2489;
+        WP_DeepFlav_loose = 0.0480;
+        fn_btagSF_DeepFlav = "DeepJet_106XUL16SF.csv";
+
+        WP_DeepCSV_tight = 0.8767;
+        WP_DeepCSV_medium = 0.5847;
+        WP_DeepCSV_loose = 0.1918;
+        fn_btagSF_DeepCSV = "DeepCSV_106XUL16SF.csv";
+
+        WP_CSVv2_tight = 999; // not used
+        WP_CSVv2_medium = 999; // not used
+        WP_CSVv2_loose = 999; // not used
+        fn_btagSF_CSVv2 = "ERROR"; // not supported
+    } else if (year == 2016 && nanoAOD_ver >= 0) {
         lumi = 35.922;
 
         jecEraB = jecEraC = jecEraD = "Summer16_07Aug2017BCD_V11_DATA";
@@ -131,7 +197,7 @@ void GlobalConfig::GetConfigs(int in_year) {
         WP_CSVv2_loose = 0.5426;
         fn_btagSF_CSVv2 = "CSVv2_Moriond17_B_H.csv"; // not supported
     } else if (year == 2017 and nanoAOD_ver >= 8) {
-        lumi = 41.529;
+        lumi = 41.48;
 
         // https://twiki.cern.ch/twiki/bin/viewauth/CMS/JECDataMC#2017_Data
         jecEraB = "Summer19UL17_RunB_V5_DATA";
@@ -189,7 +255,7 @@ void GlobalConfig::GetConfigs(int in_year) {
         WP_CSVv2_loose = 0.5803;
         fn_btagSF_CSVv2 = "CSVv2_94XSF_V2_B_F.csv";
     } else if (year == 2018 and nanoAOD_ver >= 8) {
-        lumi = 59.97;
+        lumi = 59.83;
 
         // https://twiki.cern.ch/twiki/bin/viewauth/CMS/JECDataMC#2018_Data
         jecEraA = "Summer19UL18_RunA_V5_DATA";

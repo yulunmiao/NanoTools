@@ -15,6 +15,7 @@ class GlobalConfig {
   public:
     int year = 0;
     int nanoAOD_ver = 0; // 74, 80, 94, 101, ...
+    int isAPV = 0; // if isAPV=1 it is first part of 2016 (HIPM)
     bool is_data = false;
     bool is_signal = false;
     float lumi = 0;

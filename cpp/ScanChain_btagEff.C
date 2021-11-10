@@ -29,7 +29,7 @@ struct debugger { template<typename T> debugger& operator , (const T& v) { cerr<
 using namespace std;
 using namespace tas;
 
-int ScanChain(TChain *ch, int nevents_to_process=-1)
+int ScanChain(TChain *ch, int nevents_to_process=-1, int dolead=true)
 {
 
     int nEventsTotal = 0;
@@ -39,7 +39,11 @@ int ScanChain(TChain *ch, int nevents_to_process=-1)
     TIter fileIter(listOfFiles);
     tqdm bar;
 
-    TFile* eff_output = new TFile("eff.root", "recreate");
+    TFile* eff_output;
+    if (dolead)
+        eff_output = new TFile("eff_lead.root", "recreate");
+    else
+        eff_output = new TFile("eff_subl.root", "recreate");
 
     Double_t ptbins[18] = {20., 25., 30., 35., 40., 45., 50., 60., 70., 80., 90., 100., 120., 150., 200., 300., 400., 600.};
     Double_t etabins[8] = {0., 0.4, 0.8, 1.2, 1.6, 2., 2.4, 2.8};
@@ -209,10 +213,16 @@ int ScanChain(TChain *ch, int nevents_to_process=-1)
             for (int i = 0; i < njets; i++)
             {
 
-                if (i != idx_lead_bscore)
-                    continue;
-                // if (i != idx_subl_bscore)
-                //     continue;
+                if (dolead)
+                {
+                    if (i != idx_lead_bscore)
+                        continue;
+                }
+                else
+                {
+                    if (i != idx_subl_bscore)
+                        continue;
+                }
 
                 float pt = Jet_pt()[i];
                 float abseta = fabs(Jet_eta()[i]);

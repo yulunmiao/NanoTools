@@ -6,3 +6,4 @@
 *.so
 tags
 .gitignore
+NanoCORE/Tools/jetcorr/data/Summer*

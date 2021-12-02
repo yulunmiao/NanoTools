@@ -114,39 +114,22 @@ void GlobalConfig::GetConfigs(int in_year) {
         jecEraG = jecEraH = "Summer19UL16APV_RunBCDEF_V7_DATA";
         jecEraMC = "Summer19UL16APV_V7_MC";
 
-        //===========================================================================
-        // // B-tag working points
-        // WP_DeepFlav_tight = 999;
-        // WP_DeepFlav_medium = 999;
-        // WP_DeepFlav_loose = 999;
-        // fn_btagSF_DeepFlav = "TODO";
-
-        // WP_DeepCSV_tight = 999;
-        // WP_DeepCSV_medium = 999;
-        // WP_DeepCSV_loose = 999;
-        // fn_btagSF_DeepCSV = "TODO";
-
-        // WP_CSVv2_tight = 999;
-        // WP_CSVv2_medium = 999;
-        // WP_CSVv2_loose = 999;
-        // fn_btagSF_CSVv2 = "ERROR"; // not supported
-        //===========================================================================
         // B-tag working points
-        // https://twiki.cern.ch/twiki/bin/view/CMS/BtagRecommendation106XUL16postVFP
-        /* NOTE Using 2016 non-APV as place holder! */ WP_DeepFlav_tight = 0.6377;
-        /* NOTE Using 2016 non-APV as place holder! */ WP_DeepFlav_medium = 0.2489;
-        /* NOTE Using 2016 non-APV as place holder! */ WP_DeepFlav_loose = 0.0480;
-        /* NOTE Using 2016 non-APV as place holder! */ fn_btagSF_DeepFlav = "DeepJet_106XUL16SF.csv";
+        // https://twiki.cern.ch/twiki/bin/view/CMS/BtagRecommendation106XUL16preVFP
+        WP_DeepFlav_tight = 0.6502;
+        WP_DeepFlav_medium = 0.2598;
+        WP_DeepFlav_loose = 0.0508;
+        fn_btagSF_DeepFlav = "DeepJet_106XUL16preVFPSF_v1.csv";
 
-        /* NOTE Using 2016 non-APV as place holder! */ WP_DeepCSV_tight = 0.8767;
-        /* NOTE Using 2016 non-APV as place holder! */ WP_DeepCSV_medium = 0.5847;
-        /* NOTE Using 2016 non-APV as place holder! */ WP_DeepCSV_loose = 0.1918;
-        /* NOTE Using 2016 non-APV as place holder! */ fn_btagSF_DeepCSV = "DeepCSV_106XUL16SF.csv";
+        WP_DeepCSV_tight = 0.8819;
+        WP_DeepCSV_medium = 0.6001;
+        WP_DeepCSV_loose = 0.2027;
+        fn_btagSF_DeepCSV = "DeepCSV_106XUL16preVFPSF_v1.csv";
 
-        /* NOTE Using 2016 non-APV as place holder! */ WP_CSVv2_tight = 999; // not used
-        /* NOTE Using 2016 non-APV as place holder! */ WP_CSVv2_medium = 999; // not used
-        /* NOTE Using 2016 non-APV as place holder! */ WP_CSVv2_loose = 999; // not used
-        /* NOTE Using 2016 non-APV as place holder! */ fn_btagSF_CSVv2 = "ERROR"; // not supported
+        WP_CSVv2_tight = 999; // not used
+        WP_CSVv2_medium = 999; // not used
+        WP_CSVv2_loose = 999; // not used
+        fn_btagSF_CSVv2 = "ERROR"; // not supported
         //===========================================================================
     } else if (year == 2016 && nanoAOD_ver >= 8 and not isAPV) {
         lumi = 16.81;
@@ -161,12 +144,12 @@ void GlobalConfig::GetConfigs(int in_year) {
         WP_DeepFlav_tight = 0.6377;
         WP_DeepFlav_medium = 0.2489;
         WP_DeepFlav_loose = 0.0480;
-        fn_btagSF_DeepFlav = "DeepJet_106XUL16SF.csv";
+        fn_btagSF_DeepFlav = "DeepJet_106XUL16postVFPSF_v2.csv";
 
         WP_DeepCSV_tight = 0.8767;
         WP_DeepCSV_medium = 0.5847;
         WP_DeepCSV_loose = 0.1918;
-        fn_btagSF_DeepCSV = "DeepCSV_106XUL16SF.csv";
+        fn_btagSF_DeepCSV = "DeepCSV_106XUL16postVFPSF_v2.csv";
 
         WP_CSVv2_tight = 999; // not used
         WP_CSVv2_medium = 999; // not used

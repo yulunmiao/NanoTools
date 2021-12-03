@@ -29,7 +29,7 @@ struct debugger { template<typename T> debugger& operator , (const T& v) { cerr<
 using namespace std;
 using namespace tas;
 
-int ScanChain(TChain *ch, int nevents_to_process=-1, int dolead=true)
+int ScanChain(TChain *ch, int nevents_to_process=-1, int dolead=true, TString output_prefix="")
 {
 
     int nEventsTotal = 0;
@@ -41,9 +41,9 @@ int ScanChain(TChain *ch, int nevents_to_process=-1, int dolead=true)
 
     TFile* eff_output;
     if (dolead)
-        eff_output = new TFile("eff_lead.root", "recreate");
+        eff_output = new TFile(TString::Format("eff_%s_lead.root", output_prefix.Data()), "recreate");
     else
-        eff_output = new TFile("eff_subl.root", "recreate");
+        eff_output = new TFile(TString::Format("eff_%s_subl.root", output_prefix.Data()), "recreate");
 
     Double_t ptbins[18] = {20., 25., 30., 35., 40., 45., 50., 60., 70., 80., 90., 100., 120., 150., 200., 300., 400., 600.};
     Double_t etabins[8] = {0., 0.4, 0.8, 1.2, 1.6, 2., 2.4, 2.8};
@@ -108,6 +108,11 @@ int ScanChain(TChain *ch, int nevents_to_process=-1, int dolead=true)
         // Set up the NanoCORE's common configuration service tool
         gconf.nanoAOD_ver = 8;
         gconf.GetConfigs(nt.year());
+
+        if (TString(currentFile->GetTitle()).Contains("AODAPV"))
+            gconf.isAPV = true;
+        else
+            gconf.isAPV = false;
 
         std::cout <<  " nt.year(): " << nt.year() <<  std::endl;
         std::cout <<  " gconf.WP_DeepFlav_tight: " << gconf.WP_DeepFlav_tight <<  std::endl;

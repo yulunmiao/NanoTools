@@ -40,10 +40,12 @@ int ScanChain(TChain *ch, int nevents_to_process=-1, int dolead=true, TString ou
     tqdm bar;
 
     TFile* eff_output;
-    if (dolead)
+    if (dolead == 1)
         eff_output = new TFile(TString::Format("eff_%s_lead.root", output_prefix.Data()), "recreate");
-    else
+    else if (dolead == 2)
         eff_output = new TFile(TString::Format("eff_%s_subl.root", output_prefix.Data()), "recreate");
+    else
+        eff_output = new TFile(TString::Format("eff_%s.root", output_prefix.Data()), "recreate");
 
     Double_t ptbins[18] = {20., 25., 30., 35., 40., 45., 50., 60., 70., 80., 90., 100., 120., 150., 200., 300., 400., 600.};
     Double_t etabins[8] = {0., 0.4, 0.8, 1.2, 1.6, 2., 2.4, 2.8};
@@ -107,12 +109,12 @@ int ScanChain(TChain *ch, int nevents_to_process=-1, int dolead=true, TString ou
 
         // Set up the NanoCORE's common configuration service tool
         gconf.nanoAOD_ver = 8;
-        gconf.GetConfigs(nt.year());
 
         if (TString(currentFile->GetTitle()).Contains("AODAPV"))
             gconf.isAPV = true;
         else
             gconf.isAPV = false;
+        gconf.GetConfigs(nt.year());
 
         std::cout <<  " nt.year(): " << nt.year() <<  std::endl;
         std::cout <<  " gconf.WP_DeepFlav_tight: " << gconf.WP_DeepFlav_tight <<  std::endl;
@@ -218,12 +220,12 @@ int ScanChain(TChain *ch, int nevents_to_process=-1, int dolead=true, TString ou
             for (int i = 0; i < njets; i++)
             {
 
-                if (dolead)
+                if (dolead == 1)
                 {
                     if (i != idx_lead_bscore)
                         continue;
                 }
-                else
+                else if (dolead == 2)
                 {
                     if (i != idx_subl_bscore)
                         continue;

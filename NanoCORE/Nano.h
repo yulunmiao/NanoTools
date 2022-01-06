@@ -38,7 +38,7 @@ typedef ROOT::Math::LorentzVector<ROOT::Math::PtEtaPhiM4D<float> > LorentzVector
 #define NFSRPHOTON_MAX 9 // for FsrPhoton_* collection
 #define NOTHERPV_MAX 12 // for OtherPV_* collection
 #define NTRIGOBJ_MAX 117 // for TrigObj_* collection
-#define NSUBJET_MAX 27 // for SubJet_* collection
+#define NSUBJET_MAX 33 // for SubJet_* collection
 #define NSUBGENJETAK8_MAX 42 // for SubGenJetAK8_* collection
 #define NGENVISTAU_MAX 12 // for GenVisTau_* collection
 #define NGENJETAK8_MAX 24 // for GenJetAK8_* collection
@@ -50,7 +50,7 @@ typedef ROOT::Math::LorentzVector<ROOT::Math::PtEtaPhiM4D<float> > LorentzVector
 #define NGENPART_MAX 402 // for GenPart_* collection
 #define NPHOTON_MAX 27 // for Photon_* collection
 #define NLHEREWEIGHTINGWEIGHT_MAX 50 // for LHEReweightingWeight_* collection
-#define NLHEWEIGHT_MAX 200 // for LHEWeight_mg_reweighting collection
+#define NLHEWEIGHT_MAX 256 // for LHEWeight_mg_reweighting collection
 
 
 using namespace std;

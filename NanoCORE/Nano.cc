@@ -26,6 +26,50 @@ void Nano::Init(TTree *tree) {
     if (b_CorrT1METJet_phi_) { b_CorrT1METJet_phi_->SetAddress(&CorrT1METJet_phi_); }
     b_CorrT1METJet_rawPt_ = tree->GetBranch("CorrT1METJet_rawPt");
     if (b_CorrT1METJet_rawPt_) { b_CorrT1METJet_rawPt_->SetAddress(&CorrT1METJet_rawPt_); }
+    b_DeepMETResolutionTune_phi_ = tree->GetBranch("DeepMETResolutionTune_phi");
+    if (b_DeepMETResolutionTune_phi_) { b_DeepMETResolutionTune_phi_->SetAddress(&DeepMETResolutionTune_phi_); }
+    b_DeepMETResolutionTune_pt_ = tree->GetBranch("DeepMETResolutionTune_pt");
+    if (b_DeepMETResolutionTune_pt_) { b_DeepMETResolutionTune_pt_->SetAddress(&DeepMETResolutionTune_pt_); }
+    b_DeepMETResponseTune_phi_ = tree->GetBranch("DeepMETResponseTune_phi");
+    if (b_DeepMETResponseTune_phi_) { b_DeepMETResponseTune_phi_->SetAddress(&DeepMETResponseTune_phi_); }
+    b_DeepMETResponseTune_pt_ = tree->GetBranch("DeepMETResponseTune_pt");
+    if (b_DeepMETResponseTune_pt_) { b_DeepMETResponseTune_pt_->SetAddress(&DeepMETResponseTune_pt_); }
+    b_Electron_CutBased_LooseID_SF_ = tree->GetBranch("Electron_CutBased_LooseID_SF");
+    if (b_Electron_CutBased_LooseID_SF_) { b_Electron_CutBased_LooseID_SF_->SetAddress(&Electron_CutBased_LooseID_SF_); }
+    b_Electron_CutBased_LooseID_SFerr_ = tree->GetBranch("Electron_CutBased_LooseID_SFerr");
+    if (b_Electron_CutBased_LooseID_SFerr_) { b_Electron_CutBased_LooseID_SFerr_->SetAddress(&Electron_CutBased_LooseID_SFerr_); }
+    b_Electron_CutBased_MediumID_SF_ = tree->GetBranch("Electron_CutBased_MediumID_SF");
+    if (b_Electron_CutBased_MediumID_SF_) { b_Electron_CutBased_MediumID_SF_->SetAddress(&Electron_CutBased_MediumID_SF_); }
+    b_Electron_CutBased_MediumID_SFerr_ = tree->GetBranch("Electron_CutBased_MediumID_SFerr");
+    if (b_Electron_CutBased_MediumID_SFerr_) { b_Electron_CutBased_MediumID_SFerr_->SetAddress(&Electron_CutBased_MediumID_SFerr_); }
+    b_Electron_CutBased_TightID_SF_ = tree->GetBranch("Electron_CutBased_TightID_SF");
+    if (b_Electron_CutBased_TightID_SF_) { b_Electron_CutBased_TightID_SF_->SetAddress(&Electron_CutBased_TightID_SF_); }
+    b_Electron_CutBased_TightID_SFerr_ = tree->GetBranch("Electron_CutBased_TightID_SFerr");
+    if (b_Electron_CutBased_TightID_SFerr_) { b_Electron_CutBased_TightID_SFerr_->SetAddress(&Electron_CutBased_TightID_SFerr_); }
+    b_Electron_CutBased_VetoID_SF_ = tree->GetBranch("Electron_CutBased_VetoID_SF");
+    if (b_Electron_CutBased_VetoID_SF_) { b_Electron_CutBased_VetoID_SF_->SetAddress(&Electron_CutBased_VetoID_SF_); }
+    b_Electron_CutBased_VetoID_SFerr_ = tree->GetBranch("Electron_CutBased_VetoID_SFerr");
+    if (b_Electron_CutBased_VetoID_SFerr_) { b_Electron_CutBased_VetoID_SFerr_->SetAddress(&Electron_CutBased_VetoID_SFerr_); }
+    b_Electron_MVAFall17V2Iso_WP80_SF_ = tree->GetBranch("Electron_MVAFall17V2Iso_WP80_SF");
+    if (b_Electron_MVAFall17V2Iso_WP80_SF_) { b_Electron_MVAFall17V2Iso_WP80_SF_->SetAddress(&Electron_MVAFall17V2Iso_WP80_SF_); }
+    b_Electron_MVAFall17V2Iso_WP80_SFerr_ = tree->GetBranch("Electron_MVAFall17V2Iso_WP80_SFerr");
+    if (b_Electron_MVAFall17V2Iso_WP80_SFerr_) { b_Electron_MVAFall17V2Iso_WP80_SFerr_->SetAddress(&Electron_MVAFall17V2Iso_WP80_SFerr_); }
+    b_Electron_MVAFall17V2Iso_WP90_SF_ = tree->GetBranch("Electron_MVAFall17V2Iso_WP90_SF");
+    if (b_Electron_MVAFall17V2Iso_WP90_SF_) { b_Electron_MVAFall17V2Iso_WP90_SF_->SetAddress(&Electron_MVAFall17V2Iso_WP90_SF_); }
+    b_Electron_MVAFall17V2Iso_WP90_SFerr_ = tree->GetBranch("Electron_MVAFall17V2Iso_WP90_SFerr");
+    if (b_Electron_MVAFall17V2Iso_WP90_SFerr_) { b_Electron_MVAFall17V2Iso_WP90_SFerr_->SetAddress(&Electron_MVAFall17V2Iso_WP90_SFerr_); }
+    b_Electron_MVAFall17V2noIso_WP80_SF_ = tree->GetBranch("Electron_MVAFall17V2noIso_WP80_SF");
+    if (b_Electron_MVAFall17V2noIso_WP80_SF_) { b_Electron_MVAFall17V2noIso_WP80_SF_->SetAddress(&Electron_MVAFall17V2noIso_WP80_SF_); }
+    b_Electron_MVAFall17V2noIso_WP80_SFerr_ = tree->GetBranch("Electron_MVAFall17V2noIso_WP80_SFerr");
+    if (b_Electron_MVAFall17V2noIso_WP80_SFerr_) { b_Electron_MVAFall17V2noIso_WP80_SFerr_->SetAddress(&Electron_MVAFall17V2noIso_WP80_SFerr_); }
+    b_Electron_MVAFall17V2noIso_WP90_SF_ = tree->GetBranch("Electron_MVAFall17V2noIso_WP90_SF");
+    if (b_Electron_MVAFall17V2noIso_WP90_SF_) { b_Electron_MVAFall17V2noIso_WP90_SF_->SetAddress(&Electron_MVAFall17V2noIso_WP90_SF_); }
+    b_Electron_MVAFall17V2noIso_WP90_SFerr_ = tree->GetBranch("Electron_MVAFall17V2noIso_WP90_SFerr");
+    if (b_Electron_MVAFall17V2noIso_WP90_SFerr_) { b_Electron_MVAFall17V2noIso_WP90_SFerr_->SetAddress(&Electron_MVAFall17V2noIso_WP90_SFerr_); }
+    b_Electron_RECO_SF_ = tree->GetBranch("Electron_RECO_SF");
+    if (b_Electron_RECO_SF_) { b_Electron_RECO_SF_->SetAddress(&Electron_RECO_SF_); }
+    b_Electron_RECO_SFerr_ = tree->GetBranch("Electron_RECO_SFerr");
+    if (b_Electron_RECO_SFerr_) { b_Electron_RECO_SFerr_->SetAddress(&Electron_RECO_SFerr_); }
     b_Electron_charge_ = tree->GetBranch("Electron_charge");
     if (b_Electron_charge_) { b_Electron_charge_->SetAddress(&Electron_charge_); }
     b_Electron_cleanmask_ = tree->GetBranch("Electron_cleanmask");
@@ -44,6 +88,14 @@ void Nano::Init(TTree *tree) {
     if (b_Electron_cutBased_Spring15_) { b_Electron_cutBased_Spring15_->SetAddress(&Electron_cutBased_Spring15_); }
     b_Electron_cutBased_Sum16_ = tree->GetBranch("Electron_cutBased_Sum16");
     if (b_Electron_cutBased_Sum16_) { b_Electron_cutBased_Sum16_->SetAddress(&Electron_cutBased_Sum16_); }
+    b_Electron_dEscaleDown_ = tree->GetBranch("Electron_dEscaleDown");
+    if (b_Electron_dEscaleDown_) { b_Electron_dEscaleDown_->SetAddress(&Electron_dEscaleDown_); }
+    b_Electron_dEscaleUp_ = tree->GetBranch("Electron_dEscaleUp");
+    if (b_Electron_dEscaleUp_) { b_Electron_dEscaleUp_->SetAddress(&Electron_dEscaleUp_); }
+    b_Electron_dEsigmaDown_ = tree->GetBranch("Electron_dEsigmaDown");
+    if (b_Electron_dEsigmaDown_) { b_Electron_dEsigmaDown_->SetAddress(&Electron_dEsigmaDown_); }
+    b_Electron_dEsigmaUp_ = tree->GetBranch("Electron_dEsigmaUp");
+    if (b_Electron_dEsigmaUp_) { b_Electron_dEsigmaUp_->SetAddress(&Electron_dEsigmaUp_); }
     b_Electron_deltaEtaSC_ = tree->GetBranch("Electron_deltaEtaSC");
     if (b_Electron_deltaEtaSC_) { b_Electron_deltaEtaSC_->SetAddress(&Electron_deltaEtaSC_); }
     b_Electron_dr03EcalRecHitSumEt_ = tree->GetBranch("Electron_dr03EcalRecHitSumEt");
@@ -82,6 +134,8 @@ void Nano::Init(TTree *tree) {
     if (b_Electron_isPFcand_) { b_Electron_isPFcand_->SetAddress(&Electron_isPFcand_); }
     b_Electron_jetIdx_ = tree->GetBranch("Electron_jetIdx");
     if (b_Electron_jetIdx_) { b_Electron_jetIdx_->SetAddress(&Electron_jetIdx_); }
+    b_Electron_jetNDauCharged_ = tree->GetBranch("Electron_jetNDauCharged");
+    if (b_Electron_jetNDauCharged_) { b_Electron_jetNDauCharged_->SetAddress(&Electron_jetNDauCharged_); }
     b_Electron_jetPtRelv2_ = tree->GetBranch("Electron_jetPtRelv2");
     if (b_Electron_jetPtRelv2_) { b_Electron_jetPtRelv2_->SetAddress(&Electron_jetPtRelv2_); }
     b_Electron_jetRelIso_ = tree->GetBranch("Electron_jetRelIso");
@@ -178,20 +232,34 @@ void Nano::Init(TTree *tree) {
     if (b_FatJet_btagCSVV2_) { b_FatJet_btagCSVV2_->SetAddress(&FatJet_btagCSVV2_); }
     b_FatJet_btagDDBvL_ = tree->GetBranch("FatJet_btagDDBvL");
     if (b_FatJet_btagDDBvL_) { b_FatJet_btagDDBvL_->SetAddress(&FatJet_btagDDBvL_); }
+    b_FatJet_btagDDBvLV2_ = tree->GetBranch("FatJet_btagDDBvLV2");
+    if (b_FatJet_btagDDBvLV2_) { b_FatJet_btagDDBvLV2_->SetAddress(&FatJet_btagDDBvLV2_); }
     b_FatJet_btagDDBvL_noMD_ = tree->GetBranch("FatJet_btagDDBvL_noMD");
     if (b_FatJet_btagDDBvL_noMD_) { b_FatJet_btagDDBvL_noMD_->SetAddress(&FatJet_btagDDBvL_noMD_); }
     b_FatJet_btagDDCvB_ = tree->GetBranch("FatJet_btagDDCvB");
     if (b_FatJet_btagDDCvB_) { b_FatJet_btagDDCvB_->SetAddress(&FatJet_btagDDCvB_); }
+    b_FatJet_btagDDCvBV2_ = tree->GetBranch("FatJet_btagDDCvBV2");
+    if (b_FatJet_btagDDCvBV2_) { b_FatJet_btagDDCvBV2_->SetAddress(&FatJet_btagDDCvBV2_); }
     b_FatJet_btagDDCvB_noMD_ = tree->GetBranch("FatJet_btagDDCvB_noMD");
     if (b_FatJet_btagDDCvB_noMD_) { b_FatJet_btagDDCvB_noMD_->SetAddress(&FatJet_btagDDCvB_noMD_); }
     b_FatJet_btagDDCvL_ = tree->GetBranch("FatJet_btagDDCvL");
     if (b_FatJet_btagDDCvL_) { b_FatJet_btagDDCvL_->SetAddress(&FatJet_btagDDCvL_); }
+    b_FatJet_btagDDCvLV2_ = tree->GetBranch("FatJet_btagDDCvLV2");
+    if (b_FatJet_btagDDCvLV2_) { b_FatJet_btagDDCvLV2_->SetAddress(&FatJet_btagDDCvLV2_); }
     b_FatJet_btagDDCvL_noMD_ = tree->GetBranch("FatJet_btagDDCvL_noMD");
     if (b_FatJet_btagDDCvL_noMD_) { b_FatJet_btagDDCvL_noMD_->SetAddress(&FatJet_btagDDCvL_noMD_); }
     b_FatJet_btagDeepB_ = tree->GetBranch("FatJet_btagDeepB");
     if (b_FatJet_btagDeepB_) { b_FatJet_btagDeepB_->SetAddress(&FatJet_btagDeepB_); }
     b_FatJet_btagHbb_ = tree->GetBranch("FatJet_btagHbb");
     if (b_FatJet_btagHbb_) { b_FatJet_btagHbb_->SetAddress(&FatJet_btagHbb_); }
+    b_FatJet_corr_JEC_ = tree->GetBranch("FatJet_corr_JEC");
+    if (b_FatJet_corr_JEC_) { b_FatJet_corr_JEC_->SetAddress(&FatJet_corr_JEC_); }
+    b_FatJet_corr_JER_ = tree->GetBranch("FatJet_corr_JER");
+    if (b_FatJet_corr_JER_) { b_FatJet_corr_JER_->SetAddress(&FatJet_corr_JER_); }
+    b_FatJet_corr_JMR_ = tree->GetBranch("FatJet_corr_JMR");
+    if (b_FatJet_corr_JMR_) { b_FatJet_corr_JMR_->SetAddress(&FatJet_corr_JMR_); }
+    b_FatJet_corr_JMS_ = tree->GetBranch("FatJet_corr_JMS");
+    if (b_FatJet_corr_JMS_) { b_FatJet_corr_JMS_->SetAddress(&FatJet_corr_JMS_); }
     b_FatJet_deepTagMD_H4qvsQCD_ = tree->GetBranch("FatJet_deepTagMD_H4qvsQCD");
     if (b_FatJet_deepTagMD_H4qvsQCD_) { b_FatJet_deepTagMD_H4qvsQCD_->SetAddress(&FatJet_deepTagMD_H4qvsQCD_); }
     b_FatJet_deepTagMD_HbbvsQCD_ = tree->GetBranch("FatJet_deepTagMD_HbbvsQCD");
@@ -238,8 +306,68 @@ void Nano::Init(TTree *tree) {
     if (b_FatJet_lsf3_) { b_FatJet_lsf3_->SetAddress(&FatJet_lsf3_); }
     b_FatJet_mass_ = tree->GetBranch("FatJet_mass");
     if (b_FatJet_mass_) { b_FatJet_mass_->SetAddress(&FatJet_mass_); }
+    b_FatJet_mass_jerDown_ = tree->GetBranch("FatJet_mass_jerDown");
+    if (b_FatJet_mass_jerDown_) { b_FatJet_mass_jerDown_->SetAddress(&FatJet_mass_jerDown_); }
+    b_FatJet_mass_jerUp_ = tree->GetBranch("FatJet_mass_jerUp");
+    if (b_FatJet_mass_jerUp_) { b_FatJet_mass_jerUp_->SetAddress(&FatJet_mass_jerUp_); }
+    b_FatJet_mass_jesTotalDown_ = tree->GetBranch("FatJet_mass_jesTotalDown");
+    if (b_FatJet_mass_jesTotalDown_) { b_FatJet_mass_jesTotalDown_->SetAddress(&FatJet_mass_jesTotalDown_); }
+    b_FatJet_mass_jesTotalUp_ = tree->GetBranch("FatJet_mass_jesTotalUp");
+    if (b_FatJet_mass_jesTotalUp_) { b_FatJet_mass_jesTotalUp_->SetAddress(&FatJet_mass_jesTotalUp_); }
+    b_FatJet_mass_jmrDown_ = tree->GetBranch("FatJet_mass_jmrDown");
+    if (b_FatJet_mass_jmrDown_) { b_FatJet_mass_jmrDown_->SetAddress(&FatJet_mass_jmrDown_); }
+    b_FatJet_mass_jmrUp_ = tree->GetBranch("FatJet_mass_jmrUp");
+    if (b_FatJet_mass_jmrUp_) { b_FatJet_mass_jmrUp_->SetAddress(&FatJet_mass_jmrUp_); }
+    b_FatJet_mass_jmsDown_ = tree->GetBranch("FatJet_mass_jmsDown");
+    if (b_FatJet_mass_jmsDown_) { b_FatJet_mass_jmsDown_->SetAddress(&FatJet_mass_jmsDown_); }
+    b_FatJet_mass_jmsUp_ = tree->GetBranch("FatJet_mass_jmsUp");
+    if (b_FatJet_mass_jmsUp_) { b_FatJet_mass_jmsUp_->SetAddress(&FatJet_mass_jmsUp_); }
+    b_FatJet_mass_nom_ = tree->GetBranch("FatJet_mass_nom");
+    if (b_FatJet_mass_nom_) { b_FatJet_mass_nom_->SetAddress(&FatJet_mass_nom_); }
+    b_FatJet_mass_raw_ = tree->GetBranch("FatJet_mass_raw");
+    if (b_FatJet_mass_raw_) { b_FatJet_mass_raw_->SetAddress(&FatJet_mass_raw_); }
     b_FatJet_msoftdrop_ = tree->GetBranch("FatJet_msoftdrop");
     if (b_FatJet_msoftdrop_) { b_FatJet_msoftdrop_->SetAddress(&FatJet_msoftdrop_); }
+    b_FatJet_msoftdrop_corr_JMR_ = tree->GetBranch("FatJet_msoftdrop_corr_JMR");
+    if (b_FatJet_msoftdrop_corr_JMR_) { b_FatJet_msoftdrop_corr_JMR_->SetAddress(&FatJet_msoftdrop_corr_JMR_); }
+    b_FatJet_msoftdrop_corr_JMS_ = tree->GetBranch("FatJet_msoftdrop_corr_JMS");
+    if (b_FatJet_msoftdrop_corr_JMS_) { b_FatJet_msoftdrop_corr_JMS_->SetAddress(&FatJet_msoftdrop_corr_JMS_); }
+    b_FatJet_msoftdrop_corr_PUPPI_ = tree->GetBranch("FatJet_msoftdrop_corr_PUPPI");
+    if (b_FatJet_msoftdrop_corr_PUPPI_) { b_FatJet_msoftdrop_corr_PUPPI_->SetAddress(&FatJet_msoftdrop_corr_PUPPI_); }
+    b_FatJet_msoftdrop_jerDown_ = tree->GetBranch("FatJet_msoftdrop_jerDown");
+    if (b_FatJet_msoftdrop_jerDown_) { b_FatJet_msoftdrop_jerDown_->SetAddress(&FatJet_msoftdrop_jerDown_); }
+    b_FatJet_msoftdrop_jerUp_ = tree->GetBranch("FatJet_msoftdrop_jerUp");
+    if (b_FatJet_msoftdrop_jerUp_) { b_FatJet_msoftdrop_jerUp_->SetAddress(&FatJet_msoftdrop_jerUp_); }
+    b_FatJet_msoftdrop_jesTotalDown_ = tree->GetBranch("FatJet_msoftdrop_jesTotalDown");
+    if (b_FatJet_msoftdrop_jesTotalDown_) { b_FatJet_msoftdrop_jesTotalDown_->SetAddress(&FatJet_msoftdrop_jesTotalDown_); }
+    b_FatJet_msoftdrop_jesTotalUp_ = tree->GetBranch("FatJet_msoftdrop_jesTotalUp");
+    if (b_FatJet_msoftdrop_jesTotalUp_) { b_FatJet_msoftdrop_jesTotalUp_->SetAddress(&FatJet_msoftdrop_jesTotalUp_); }
+    b_FatJet_msoftdrop_jmrDown_ = tree->GetBranch("FatJet_msoftdrop_jmrDown");
+    if (b_FatJet_msoftdrop_jmrDown_) { b_FatJet_msoftdrop_jmrDown_->SetAddress(&FatJet_msoftdrop_jmrDown_); }
+    b_FatJet_msoftdrop_jmrUp_ = tree->GetBranch("FatJet_msoftdrop_jmrUp");
+    if (b_FatJet_msoftdrop_jmrUp_) { b_FatJet_msoftdrop_jmrUp_->SetAddress(&FatJet_msoftdrop_jmrUp_); }
+    b_FatJet_msoftdrop_jmsDown_ = tree->GetBranch("FatJet_msoftdrop_jmsDown");
+    if (b_FatJet_msoftdrop_jmsDown_) { b_FatJet_msoftdrop_jmsDown_->SetAddress(&FatJet_msoftdrop_jmsDown_); }
+    b_FatJet_msoftdrop_jmsUp_ = tree->GetBranch("FatJet_msoftdrop_jmsUp");
+    if (b_FatJet_msoftdrop_jmsUp_) { b_FatJet_msoftdrop_jmsUp_->SetAddress(&FatJet_msoftdrop_jmsUp_); }
+    b_FatJet_msoftdrop_nom_ = tree->GetBranch("FatJet_msoftdrop_nom");
+    if (b_FatJet_msoftdrop_nom_) { b_FatJet_msoftdrop_nom_->SetAddress(&FatJet_msoftdrop_nom_); }
+    b_FatJet_msoftdrop_raw_ = tree->GetBranch("FatJet_msoftdrop_raw");
+    if (b_FatJet_msoftdrop_raw_) { b_FatJet_msoftdrop_raw_->SetAddress(&FatJet_msoftdrop_raw_); }
+    b_FatJet_msoftdrop_tau21DDT_jerDown_ = tree->GetBranch("FatJet_msoftdrop_tau21DDT_jerDown");
+    if (b_FatJet_msoftdrop_tau21DDT_jerDown_) { b_FatJet_msoftdrop_tau21DDT_jerDown_->SetAddress(&FatJet_msoftdrop_tau21DDT_jerDown_); }
+    b_FatJet_msoftdrop_tau21DDT_jerUp_ = tree->GetBranch("FatJet_msoftdrop_tau21DDT_jerUp");
+    if (b_FatJet_msoftdrop_tau21DDT_jerUp_) { b_FatJet_msoftdrop_tau21DDT_jerUp_->SetAddress(&FatJet_msoftdrop_tau21DDT_jerUp_); }
+    b_FatJet_msoftdrop_tau21DDT_jmrDown_ = tree->GetBranch("FatJet_msoftdrop_tau21DDT_jmrDown");
+    if (b_FatJet_msoftdrop_tau21DDT_jmrDown_) { b_FatJet_msoftdrop_tau21DDT_jmrDown_->SetAddress(&FatJet_msoftdrop_tau21DDT_jmrDown_); }
+    b_FatJet_msoftdrop_tau21DDT_jmrUp_ = tree->GetBranch("FatJet_msoftdrop_tau21DDT_jmrUp");
+    if (b_FatJet_msoftdrop_tau21DDT_jmrUp_) { b_FatJet_msoftdrop_tau21DDT_jmrUp_->SetAddress(&FatJet_msoftdrop_tau21DDT_jmrUp_); }
+    b_FatJet_msoftdrop_tau21DDT_jmsDown_ = tree->GetBranch("FatJet_msoftdrop_tau21DDT_jmsDown");
+    if (b_FatJet_msoftdrop_tau21DDT_jmsDown_) { b_FatJet_msoftdrop_tau21DDT_jmsDown_->SetAddress(&FatJet_msoftdrop_tau21DDT_jmsDown_); }
+    b_FatJet_msoftdrop_tau21DDT_jmsUp_ = tree->GetBranch("FatJet_msoftdrop_tau21DDT_jmsUp");
+    if (b_FatJet_msoftdrop_tau21DDT_jmsUp_) { b_FatJet_msoftdrop_tau21DDT_jmsUp_->SetAddress(&FatJet_msoftdrop_tau21DDT_jmsUp_); }
+    b_FatJet_msoftdrop_tau21DDT_nom_ = tree->GetBranch("FatJet_msoftdrop_tau21DDT_nom");
+    if (b_FatJet_msoftdrop_tau21DDT_nom_) { b_FatJet_msoftdrop_tau21DDT_nom_->SetAddress(&FatJet_msoftdrop_tau21DDT_nom_); }
     b_FatJet_muonIdx3SJ_ = tree->GetBranch("FatJet_muonIdx3SJ");
     if (b_FatJet_muonIdx3SJ_) { b_FatJet_muonIdx3SJ_->SetAddress(&FatJet_muonIdx3SJ_); }
     b_FatJet_n2b1_ = tree->GetBranch("FatJet_n2b1");
@@ -250,10 +378,48 @@ void Nano::Init(TTree *tree) {
     if (b_FatJet_nBHadrons_) { b_FatJet_nBHadrons_->SetAddress(&FatJet_nBHadrons_); }
     b_FatJet_nCHadrons_ = tree->GetBranch("FatJet_nCHadrons");
     if (b_FatJet_nCHadrons_) { b_FatJet_nCHadrons_->SetAddress(&FatJet_nCHadrons_); }
+    b_FatJet_nConstituents_ = tree->GetBranch("FatJet_nConstituents");
+    if (b_FatJet_nConstituents_) { b_FatJet_nConstituents_->SetAddress(&FatJet_nConstituents_); }
+    b_FatJet_particleNetMD_QCD_ = tree->GetBranch("FatJet_particleNetMD_QCD");
+    if (b_FatJet_particleNetMD_QCD_) { b_FatJet_particleNetMD_QCD_->SetAddress(&FatJet_particleNetMD_QCD_); }
+    b_FatJet_particleNetMD_Xbb_ = tree->GetBranch("FatJet_particleNetMD_Xbb");
+    if (b_FatJet_particleNetMD_Xbb_) { b_FatJet_particleNetMD_Xbb_->SetAddress(&FatJet_particleNetMD_Xbb_); }
+    b_FatJet_particleNetMD_Xcc_ = tree->GetBranch("FatJet_particleNetMD_Xcc");
+    if (b_FatJet_particleNetMD_Xcc_) { b_FatJet_particleNetMD_Xcc_->SetAddress(&FatJet_particleNetMD_Xcc_); }
+    b_FatJet_particleNetMD_Xqq_ = tree->GetBranch("FatJet_particleNetMD_Xqq");
+    if (b_FatJet_particleNetMD_Xqq_) { b_FatJet_particleNetMD_Xqq_->SetAddress(&FatJet_particleNetMD_Xqq_); }
+    b_FatJet_particleNet_H4qvsQCD_ = tree->GetBranch("FatJet_particleNet_H4qvsQCD");
+    if (b_FatJet_particleNet_H4qvsQCD_) { b_FatJet_particleNet_H4qvsQCD_->SetAddress(&FatJet_particleNet_H4qvsQCD_); }
+    b_FatJet_particleNet_HbbvsQCD_ = tree->GetBranch("FatJet_particleNet_HbbvsQCD");
+    if (b_FatJet_particleNet_HbbvsQCD_) { b_FatJet_particleNet_HbbvsQCD_->SetAddress(&FatJet_particleNet_HbbvsQCD_); }
+    b_FatJet_particleNet_HccvsQCD_ = tree->GetBranch("FatJet_particleNet_HccvsQCD");
+    if (b_FatJet_particleNet_HccvsQCD_) { b_FatJet_particleNet_HccvsQCD_->SetAddress(&FatJet_particleNet_HccvsQCD_); }
+    b_FatJet_particleNet_QCD_ = tree->GetBranch("FatJet_particleNet_QCD");
+    if (b_FatJet_particleNet_QCD_) { b_FatJet_particleNet_QCD_->SetAddress(&FatJet_particleNet_QCD_); }
+    b_FatJet_particleNet_TvsQCD_ = tree->GetBranch("FatJet_particleNet_TvsQCD");
+    if (b_FatJet_particleNet_TvsQCD_) { b_FatJet_particleNet_TvsQCD_->SetAddress(&FatJet_particleNet_TvsQCD_); }
+    b_FatJet_particleNet_WvsQCD_ = tree->GetBranch("FatJet_particleNet_WvsQCD");
+    if (b_FatJet_particleNet_WvsQCD_) { b_FatJet_particleNet_WvsQCD_->SetAddress(&FatJet_particleNet_WvsQCD_); }
+    b_FatJet_particleNet_ZvsQCD_ = tree->GetBranch("FatJet_particleNet_ZvsQCD");
+    if (b_FatJet_particleNet_ZvsQCD_) { b_FatJet_particleNet_ZvsQCD_->SetAddress(&FatJet_particleNet_ZvsQCD_); }
+    b_FatJet_particleNet_mass_ = tree->GetBranch("FatJet_particleNet_mass");
+    if (b_FatJet_particleNet_mass_) { b_FatJet_particleNet_mass_->SetAddress(&FatJet_particleNet_mass_); }
     b_FatJet_phi_ = tree->GetBranch("FatJet_phi");
     if (b_FatJet_phi_) { b_FatJet_phi_->SetAddress(&FatJet_phi_); }
     b_FatJet_pt_ = tree->GetBranch("FatJet_pt");
     if (b_FatJet_pt_) { b_FatJet_pt_->SetAddress(&FatJet_pt_); }
+    b_FatJet_pt_jerDown_ = tree->GetBranch("FatJet_pt_jerDown");
+    if (b_FatJet_pt_jerDown_) { b_FatJet_pt_jerDown_->SetAddress(&FatJet_pt_jerDown_); }
+    b_FatJet_pt_jerUp_ = tree->GetBranch("FatJet_pt_jerUp");
+    if (b_FatJet_pt_jerUp_) { b_FatJet_pt_jerUp_->SetAddress(&FatJet_pt_jerUp_); }
+    b_FatJet_pt_jesTotalDown_ = tree->GetBranch("FatJet_pt_jesTotalDown");
+    if (b_FatJet_pt_jesTotalDown_) { b_FatJet_pt_jesTotalDown_->SetAddress(&FatJet_pt_jesTotalDown_); }
+    b_FatJet_pt_jesTotalUp_ = tree->GetBranch("FatJet_pt_jesTotalUp");
+    if (b_FatJet_pt_jesTotalUp_) { b_FatJet_pt_jesTotalUp_->SetAddress(&FatJet_pt_jesTotalUp_); }
+    b_FatJet_pt_nom_ = tree->GetBranch("FatJet_pt_nom");
+    if (b_FatJet_pt_nom_) { b_FatJet_pt_nom_->SetAddress(&FatJet_pt_nom_); }
+    b_FatJet_pt_raw_ = tree->GetBranch("FatJet_pt_raw");
+    if (b_FatJet_pt_raw_) { b_FatJet_pt_raw_->SetAddress(&FatJet_pt_raw_); }
     b_FatJet_rawFactor_ = tree->GetBranch("FatJet_rawFactor");
     if (b_FatJet_rawFactor_) { b_FatJet_rawFactor_->SetAddress(&FatJet_rawFactor_); }
     b_FatJet_subJetIdx1_ = tree->GetBranch("FatJet_subJetIdx1");
@@ -272,6 +438,8 @@ void Nano::Init(TTree *tree) {
     if (b_Flag_BadChargedCandidateFilter_) { b_Flag_BadChargedCandidateFilter_->SetAddress(&Flag_BadChargedCandidateFilter_); }
     b_Flag_BadChargedCandidateSummer16Filter_ = tree->GetBranch("Flag_BadChargedCandidateSummer16Filter");
     if (b_Flag_BadChargedCandidateSummer16Filter_) { b_Flag_BadChargedCandidateSummer16Filter_->SetAddress(&Flag_BadChargedCandidateSummer16Filter_); }
+    b_Flag_BadPFMuonDzFilter_ = tree->GetBranch("Flag_BadPFMuonDzFilter");
+    if (b_Flag_BadPFMuonDzFilter_) { b_Flag_BadPFMuonDzFilter_->SetAddress(&Flag_BadPFMuonDzFilter_); }
     b_Flag_BadPFMuonFilter_ = tree->GetBranch("Flag_BadPFMuonFilter");
     if (b_Flag_BadPFMuonFilter_) { b_Flag_BadPFMuonFilter_->SetAddress(&Flag_BadPFMuonFilter_); }
     b_Flag_BadPFMuonSummer16Filter_ = tree->GetBranch("Flag_BadPFMuonSummer16Filter");
@@ -312,6 +480,8 @@ void Nano::Init(TTree *tree) {
     if (b_Flag_goodVertices_) { b_Flag_goodVertices_->SetAddress(&Flag_goodVertices_); }
     b_Flag_hcalLaserEventFilter_ = tree->GetBranch("Flag_hcalLaserEventFilter");
     if (b_Flag_hcalLaserEventFilter_) { b_Flag_hcalLaserEventFilter_->SetAddress(&Flag_hcalLaserEventFilter_); }
+    b_Flag_hfNoisyHitsFilter_ = tree->GetBranch("Flag_hfNoisyHitsFilter");
+    if (b_Flag_hfNoisyHitsFilter_) { b_Flag_hfNoisyHitsFilter_->SetAddress(&Flag_hfNoisyHitsFilter_); }
     b_Flag_muonBadTrackFilter_ = tree->GetBranch("Flag_muonBadTrackFilter");
     if (b_Flag_muonBadTrackFilter_) { b_Flag_muonBadTrackFilter_->SetAddress(&Flag_muonBadTrackFilter_); }
     b_Flag_trkPOGFilters_ = tree->GetBranch("Flag_trkPOGFilters");
@@ -412,6 +582,14 @@ void Nano::Init(TTree *tree) {
     if (b_GenVisTau_pt_) { b_GenVisTau_pt_->SetAddress(&GenVisTau_pt_); }
     b_GenVisTau_status_ = tree->GetBranch("GenVisTau_status");
     if (b_GenVisTau_status_) { b_GenVisTau_status_->SetAddress(&GenVisTau_status_); }
+    b_GenVtx_t0_ = tree->GetBranch("GenVtx_t0");
+    if (b_GenVtx_t0_) { b_GenVtx_t0_->SetAddress(&GenVtx_t0_); }
+    b_GenVtx_x_ = tree->GetBranch("GenVtx_x");
+    if (b_GenVtx_x_) { b_GenVtx_x_->SetAddress(&GenVtx_x_); }
+    b_GenVtx_y_ = tree->GetBranch("GenVtx_y");
+    if (b_GenVtx_y_) { b_GenVtx_y_->SetAddress(&GenVtx_y_); }
+    b_GenVtx_z_ = tree->GetBranch("GenVtx_z");
+    if (b_GenVtx_z_) { b_GenVtx_z_->SetAddress(&GenVtx_z_); }
     b_Generator_binvar_ = tree->GetBranch("Generator_binvar");
     if (b_Generator_binvar_) { b_Generator_binvar_->SetAddress(&Generator_binvar_); }
     b_Generator_id1_ = tree->GetBranch("Generator_id1");
@@ -2882,6 +3060,8 @@ void Nano::Init(TTree *tree) {
     if (b_HTXS_stage_1_pTjet25_) { b_HTXS_stage_1_pTjet25_->SetAddress(&HTXS_stage_1_pTjet25_); }
     b_HTXS_stage_1_pTjet30_ = tree->GetBranch("HTXS_stage_1_pTjet30");
     if (b_HTXS_stage_1_pTjet30_) { b_HTXS_stage_1_pTjet30_->SetAddress(&HTXS_stage_1_pTjet30_); }
+    b_IsoTrack_charge_ = tree->GetBranch("IsoTrack_charge");
+    if (b_IsoTrack_charge_) { b_IsoTrack_charge_->SetAddress(&IsoTrack_charge_); }
     b_IsoTrack_dxy_ = tree->GetBranch("IsoTrack_dxy");
     if (b_IsoTrack_dxy_) { b_IsoTrack_dxy_->SetAddress(&IsoTrack_dxy_); }
     b_IsoTrack_dz_ = tree->GetBranch("IsoTrack_dz");
@@ -2924,10 +3104,20 @@ void Nano::Init(TTree *tree) {
     if (b_Jet_btagDeepB_) { b_Jet_btagDeepB_->SetAddress(&Jet_btagDeepB_); }
     b_Jet_btagDeepC_ = tree->GetBranch("Jet_btagDeepC");
     if (b_Jet_btagDeepC_) { b_Jet_btagDeepC_->SetAddress(&Jet_btagDeepC_); }
+    b_Jet_btagDeepCvB_ = tree->GetBranch("Jet_btagDeepCvB");
+    if (b_Jet_btagDeepCvB_) { b_Jet_btagDeepCvB_->SetAddress(&Jet_btagDeepCvB_); }
+    b_Jet_btagDeepCvL_ = tree->GetBranch("Jet_btagDeepCvL");
+    if (b_Jet_btagDeepCvL_) { b_Jet_btagDeepCvL_->SetAddress(&Jet_btagDeepCvL_); }
     b_Jet_btagDeepFlavB_ = tree->GetBranch("Jet_btagDeepFlavB");
     if (b_Jet_btagDeepFlavB_) { b_Jet_btagDeepFlavB_->SetAddress(&Jet_btagDeepFlavB_); }
     b_Jet_btagDeepFlavC_ = tree->GetBranch("Jet_btagDeepFlavC");
     if (b_Jet_btagDeepFlavC_) { b_Jet_btagDeepFlavC_->SetAddress(&Jet_btagDeepFlavC_); }
+    b_Jet_btagDeepFlavCvB_ = tree->GetBranch("Jet_btagDeepFlavCvB");
+    if (b_Jet_btagDeepFlavCvB_) { b_Jet_btagDeepFlavCvB_->SetAddress(&Jet_btagDeepFlavCvB_); }
+    b_Jet_btagDeepFlavCvL_ = tree->GetBranch("Jet_btagDeepFlavCvL");
+    if (b_Jet_btagDeepFlavCvL_) { b_Jet_btagDeepFlavCvL_->SetAddress(&Jet_btagDeepFlavCvL_); }
+    b_Jet_btagDeepFlavQG_ = tree->GetBranch("Jet_btagDeepFlavQG");
+    if (b_Jet_btagDeepFlavQG_) { b_Jet_btagDeepFlavQG_->SetAddress(&Jet_btagDeepFlavQG_); }
     b_Jet_cRegCorr_ = tree->GetBranch("Jet_cRegCorr");
     if (b_Jet_cRegCorr_) { b_Jet_cRegCorr_->SetAddress(&Jet_cRegCorr_); }
     b_Jet_cRegRes_ = tree->GetBranch("Jet_cRegRes");
@@ -2956,6 +3146,14 @@ void Nano::Init(TTree *tree) {
     if (b_Jet_genJetIdx_) { b_Jet_genJetIdx_->SetAddress(&Jet_genJetIdx_); }
     b_Jet_hadronFlavour_ = tree->GetBranch("Jet_hadronFlavour");
     if (b_Jet_hadronFlavour_) { b_Jet_hadronFlavour_->SetAddress(&Jet_hadronFlavour_); }
+    b_Jet_hfadjacentEtaStripsSize_ = tree->GetBranch("Jet_hfadjacentEtaStripsSize");
+    if (b_Jet_hfadjacentEtaStripsSize_) { b_Jet_hfadjacentEtaStripsSize_->SetAddress(&Jet_hfadjacentEtaStripsSize_); }
+    b_Jet_hfcentralEtaStripSize_ = tree->GetBranch("Jet_hfcentralEtaStripSize");
+    if (b_Jet_hfcentralEtaStripSize_) { b_Jet_hfcentralEtaStripSize_->SetAddress(&Jet_hfcentralEtaStripSize_); }
+    b_Jet_hfsigmaEtaEta_ = tree->GetBranch("Jet_hfsigmaEtaEta");
+    if (b_Jet_hfsigmaEtaEta_) { b_Jet_hfsigmaEtaEta_->SetAddress(&Jet_hfsigmaEtaEta_); }
+    b_Jet_hfsigmaPhiPhi_ = tree->GetBranch("Jet_hfsigmaPhiPhi");
+    if (b_Jet_hfsigmaPhiPhi_) { b_Jet_hfsigmaPhiPhi_->SetAddress(&Jet_hfsigmaPhiPhi_); }
     b_Jet_jetId_ = tree->GetBranch("Jet_jetId");
     if (b_Jet_jetId_) { b_Jet_jetId_->SetAddress(&Jet_jetId_); }
     b_Jet_mass_ = tree->GetBranch("Jet_mass");
@@ -2994,6 +3192,22 @@ void Nano::Init(TTree *tree) {
     if (b_Jet_rawFactor_) { b_Jet_rawFactor_->SetAddress(&Jet_rawFactor_); }
     b_L1PreFiringWeight_Dn_ = tree->GetBranch("L1PreFiringWeight_Dn");
     if (b_L1PreFiringWeight_Dn_) { b_L1PreFiringWeight_Dn_->SetAddress(&L1PreFiringWeight_Dn_); }
+    b_L1PreFiringWeight_ECAL_Dn_ = tree->GetBranch("L1PreFiringWeight_ECAL_Dn");
+    if (b_L1PreFiringWeight_ECAL_Dn_) { b_L1PreFiringWeight_ECAL_Dn_->SetAddress(&L1PreFiringWeight_ECAL_Dn_); }
+    b_L1PreFiringWeight_ECAL_Nom_ = tree->GetBranch("L1PreFiringWeight_ECAL_Nom");
+    if (b_L1PreFiringWeight_ECAL_Nom_) { b_L1PreFiringWeight_ECAL_Nom_->SetAddress(&L1PreFiringWeight_ECAL_Nom_); }
+    b_L1PreFiringWeight_ECAL_Up_ = tree->GetBranch("L1PreFiringWeight_ECAL_Up");
+    if (b_L1PreFiringWeight_ECAL_Up_) { b_L1PreFiringWeight_ECAL_Up_->SetAddress(&L1PreFiringWeight_ECAL_Up_); }
+    b_L1PreFiringWeight_Muon_Nom_ = tree->GetBranch("L1PreFiringWeight_Muon_Nom");
+    if (b_L1PreFiringWeight_Muon_Nom_) { b_L1PreFiringWeight_Muon_Nom_->SetAddress(&L1PreFiringWeight_Muon_Nom_); }
+    b_L1PreFiringWeight_Muon_StatDn_ = tree->GetBranch("L1PreFiringWeight_Muon_StatDn");
+    if (b_L1PreFiringWeight_Muon_StatDn_) { b_L1PreFiringWeight_Muon_StatDn_->SetAddress(&L1PreFiringWeight_Muon_StatDn_); }
+    b_L1PreFiringWeight_Muon_StatUp_ = tree->GetBranch("L1PreFiringWeight_Muon_StatUp");
+    if (b_L1PreFiringWeight_Muon_StatUp_) { b_L1PreFiringWeight_Muon_StatUp_->SetAddress(&L1PreFiringWeight_Muon_StatUp_); }
+    b_L1PreFiringWeight_Muon_SystDn_ = tree->GetBranch("L1PreFiringWeight_Muon_SystDn");
+    if (b_L1PreFiringWeight_Muon_SystDn_) { b_L1PreFiringWeight_Muon_SystDn_->SetAddress(&L1PreFiringWeight_Muon_SystDn_); }
+    b_L1PreFiringWeight_Muon_SystUp_ = tree->GetBranch("L1PreFiringWeight_Muon_SystUp");
+    if (b_L1PreFiringWeight_Muon_SystUp_) { b_L1PreFiringWeight_Muon_SystUp_->SetAddress(&L1PreFiringWeight_Muon_SystUp_); }
     b_L1PreFiringWeight_Nom_ = tree->GetBranch("L1PreFiringWeight_Nom");
     if (b_L1PreFiringWeight_Nom_) { b_L1PreFiringWeight_Nom_->SetAddress(&L1PreFiringWeight_Nom_); }
     b_L1PreFiringWeight_Up_ = tree->GetBranch("L1PreFiringWeight_Up");
@@ -3568,6 +3782,8 @@ void Nano::Init(TTree *tree) {
     if (b_L1_ETT2000_) { b_L1_ETT2000_->SetAddress(&L1_ETT2000_); }
     b_L1_ETT25_ = tree->GetBranch("L1_ETT25");
     if (b_L1_ETT25_) { b_L1_ETT25_->SetAddress(&L1_ETT25_); }
+    b_L1_ETT35_BptxAND_ = tree->GetBranch("L1_ETT35_BptxAND");
+    if (b_L1_ETT35_BptxAND_) { b_L1_ETT35_BptxAND_->SetAddress(&L1_ETT35_BptxAND_); }
     b_L1_ETT40_BptxAND_ = tree->GetBranch("L1_ETT40_BptxAND");
     if (b_L1_ETT40_BptxAND_) { b_L1_ETT40_BptxAND_->SetAddress(&L1_ETT40_BptxAND_); }
     b_L1_ETT50_BptxAND_ = tree->GetBranch("L1_ETT50_BptxAND");
@@ -4276,6 +4492,12 @@ void Nano::Init(TTree *tree) {
     if (b_L1_SingleJetC20_NotBptxOR_) { b_L1_SingleJetC20_NotBptxOR_->SetAddress(&L1_SingleJetC20_NotBptxOR_); }
     b_L1_SingleJetC20_NotBptxOR_3BX_ = tree->GetBranch("L1_SingleJetC20_NotBptxOR_3BX");
     if (b_L1_SingleJetC20_NotBptxOR_3BX_) { b_L1_SingleJetC20_NotBptxOR_3BX_->SetAddress(&L1_SingleJetC20_NotBptxOR_3BX_); }
+    b_L1_SingleJetC32_NotBptxOR_ = tree->GetBranch("L1_SingleJetC32_NotBptxOR");
+    if (b_L1_SingleJetC32_NotBptxOR_) { b_L1_SingleJetC32_NotBptxOR_->SetAddress(&L1_SingleJetC32_NotBptxOR_); }
+    b_L1_SingleJetC32_NotBptxOR_3BX_ = tree->GetBranch("L1_SingleJetC32_NotBptxOR_3BX");
+    if (b_L1_SingleJetC32_NotBptxOR_3BX_) { b_L1_SingleJetC32_NotBptxOR_3BX_->SetAddress(&L1_SingleJetC32_NotBptxOR_3BX_); }
+    b_L1_SingleJetC36_NotBptxOR_3BX_ = tree->GetBranch("L1_SingleJetC36_NotBptxOR_3BX");
+    if (b_L1_SingleJetC36_NotBptxOR_3BX_) { b_L1_SingleJetC36_NotBptxOR_3BX_->SetAddress(&L1_SingleJetC36_NotBptxOR_3BX_); }
     b_L1_SingleJetC40_NotBptxOR_3BX_ = tree->GetBranch("L1_SingleJetC40_NotBptxOR_3BX");
     if (b_L1_SingleJetC40_NotBptxOR_3BX_) { b_L1_SingleJetC40_NotBptxOR_3BX_->SetAddress(&L1_SingleJetC40_NotBptxOR_3BX_); }
     b_L1_SingleJetC40_NotBptxOR_5BX_ = tree->GetBranch("L1_SingleJetC40_NotBptxOR_5BX");
@@ -4502,6 +4724,8 @@ void Nano::Init(TTree *tree) {
     if (b_L1_UnpairedBunchBptxMinus_) { b_L1_UnpairedBunchBptxMinus_->SetAddress(&L1_UnpairedBunchBptxMinus_); }
     b_L1_UnpairedBunchBptxPlus_ = tree->GetBranch("L1_UnpairedBunchBptxPlus");
     if (b_L1_UnpairedBunchBptxPlus_) { b_L1_UnpairedBunchBptxPlus_->SetAddress(&L1_UnpairedBunchBptxPlus_); }
+    b_L1_UnprefireableEvent_ = tree->GetBranch("L1_UnprefireableEvent");
+    if (b_L1_UnprefireableEvent_) { b_L1_UnprefireableEvent_->SetAddress(&L1_UnprefireableEvent_); }
     b_L1_ZeroBias_ = tree->GetBranch("L1_ZeroBias");
     if (b_L1_ZeroBias_) { b_L1_ZeroBias_->SetAddress(&L1_ZeroBias_); }
     b_L1_ZeroBias_FirstCollidingBunch_ = tree->GetBranch("L1_ZeroBias_FirstCollidingBunch");
@@ -4556,6 +4780,64 @@ void Nano::Init(TTree *tree) {
     if (b_LHE_Nuds_) { b_LHE_Nuds_->SetAddress(&LHE_Nuds_); }
     b_LHE_Vpt_ = tree->GetBranch("LHE_Vpt");
     if (b_LHE_Vpt_) { b_LHE_Vpt_->SetAddress(&LHE_Vpt_); }
+    b_LowPtElectron_ID_ = tree->GetBranch("LowPtElectron_ID");
+    if (b_LowPtElectron_ID_) { b_LowPtElectron_ID_->SetAddress(&LowPtElectron_ID_); }
+    b_LowPtElectron_charge_ = tree->GetBranch("LowPtElectron_charge");
+    if (b_LowPtElectron_charge_) { b_LowPtElectron_charge_->SetAddress(&LowPtElectron_charge_); }
+    b_LowPtElectron_convVeto_ = tree->GetBranch("LowPtElectron_convVeto");
+    if (b_LowPtElectron_convVeto_) { b_LowPtElectron_convVeto_->SetAddress(&LowPtElectron_convVeto_); }
+    b_LowPtElectron_convVtxRadius_ = tree->GetBranch("LowPtElectron_convVtxRadius");
+    if (b_LowPtElectron_convVtxRadius_) { b_LowPtElectron_convVtxRadius_->SetAddress(&LowPtElectron_convVtxRadius_); }
+    b_LowPtElectron_convWP_ = tree->GetBranch("LowPtElectron_convWP");
+    if (b_LowPtElectron_convWP_) { b_LowPtElectron_convWP_->SetAddress(&LowPtElectron_convWP_); }
+    b_LowPtElectron_deltaEtaSC_ = tree->GetBranch("LowPtElectron_deltaEtaSC");
+    if (b_LowPtElectron_deltaEtaSC_) { b_LowPtElectron_deltaEtaSC_->SetAddress(&LowPtElectron_deltaEtaSC_); }
+    b_LowPtElectron_dxy_ = tree->GetBranch("LowPtElectron_dxy");
+    if (b_LowPtElectron_dxy_) { b_LowPtElectron_dxy_->SetAddress(&LowPtElectron_dxy_); }
+    b_LowPtElectron_dxyErr_ = tree->GetBranch("LowPtElectron_dxyErr");
+    if (b_LowPtElectron_dxyErr_) { b_LowPtElectron_dxyErr_->SetAddress(&LowPtElectron_dxyErr_); }
+    b_LowPtElectron_dz_ = tree->GetBranch("LowPtElectron_dz");
+    if (b_LowPtElectron_dz_) { b_LowPtElectron_dz_->SetAddress(&LowPtElectron_dz_); }
+    b_LowPtElectron_dzErr_ = tree->GetBranch("LowPtElectron_dzErr");
+    if (b_LowPtElectron_dzErr_) { b_LowPtElectron_dzErr_->SetAddress(&LowPtElectron_dzErr_); }
+    b_LowPtElectron_eInvMinusPInv_ = tree->GetBranch("LowPtElectron_eInvMinusPInv");
+    if (b_LowPtElectron_eInvMinusPInv_) { b_LowPtElectron_eInvMinusPInv_->SetAddress(&LowPtElectron_eInvMinusPInv_); }
+    b_LowPtElectron_embeddedID_ = tree->GetBranch("LowPtElectron_embeddedID");
+    if (b_LowPtElectron_embeddedID_) { b_LowPtElectron_embeddedID_->SetAddress(&LowPtElectron_embeddedID_); }
+    b_LowPtElectron_energyErr_ = tree->GetBranch("LowPtElectron_energyErr");
+    if (b_LowPtElectron_energyErr_) { b_LowPtElectron_energyErr_->SetAddress(&LowPtElectron_energyErr_); }
+    b_LowPtElectron_eta_ = tree->GetBranch("LowPtElectron_eta");
+    if (b_LowPtElectron_eta_) { b_LowPtElectron_eta_->SetAddress(&LowPtElectron_eta_); }
+    b_LowPtElectron_genPartFlav_ = tree->GetBranch("LowPtElectron_genPartFlav");
+    if (b_LowPtElectron_genPartFlav_) { b_LowPtElectron_genPartFlav_->SetAddress(&LowPtElectron_genPartFlav_); }
+    b_LowPtElectron_genPartIdx_ = tree->GetBranch("LowPtElectron_genPartIdx");
+    if (b_LowPtElectron_genPartIdx_) { b_LowPtElectron_genPartIdx_->SetAddress(&LowPtElectron_genPartIdx_); }
+    b_LowPtElectron_hoe_ = tree->GetBranch("LowPtElectron_hoe");
+    if (b_LowPtElectron_hoe_) { b_LowPtElectron_hoe_->SetAddress(&LowPtElectron_hoe_); }
+    b_LowPtElectron_lostHits_ = tree->GetBranch("LowPtElectron_lostHits");
+    if (b_LowPtElectron_lostHits_) { b_LowPtElectron_lostHits_->SetAddress(&LowPtElectron_lostHits_); }
+    b_LowPtElectron_mass_ = tree->GetBranch("LowPtElectron_mass");
+    if (b_LowPtElectron_mass_) { b_LowPtElectron_mass_->SetAddress(&LowPtElectron_mass_); }
+    b_LowPtElectron_miniPFRelIso_all_ = tree->GetBranch("LowPtElectron_miniPFRelIso_all");
+    if (b_LowPtElectron_miniPFRelIso_all_) { b_LowPtElectron_miniPFRelIso_all_->SetAddress(&LowPtElectron_miniPFRelIso_all_); }
+    b_LowPtElectron_miniPFRelIso_chg_ = tree->GetBranch("LowPtElectron_miniPFRelIso_chg");
+    if (b_LowPtElectron_miniPFRelIso_chg_) { b_LowPtElectron_miniPFRelIso_chg_->SetAddress(&LowPtElectron_miniPFRelIso_chg_); }
+    b_LowPtElectron_pdgId_ = tree->GetBranch("LowPtElectron_pdgId");
+    if (b_LowPtElectron_pdgId_) { b_LowPtElectron_pdgId_->SetAddress(&LowPtElectron_pdgId_); }
+    b_LowPtElectron_phi_ = tree->GetBranch("LowPtElectron_phi");
+    if (b_LowPtElectron_phi_) { b_LowPtElectron_phi_->SetAddress(&LowPtElectron_phi_); }
+    b_LowPtElectron_pt_ = tree->GetBranch("LowPtElectron_pt");
+    if (b_LowPtElectron_pt_) { b_LowPtElectron_pt_->SetAddress(&LowPtElectron_pt_); }
+    b_LowPtElectron_ptbiased_ = tree->GetBranch("LowPtElectron_ptbiased");
+    if (b_LowPtElectron_ptbiased_) { b_LowPtElectron_ptbiased_->SetAddress(&LowPtElectron_ptbiased_); }
+    b_LowPtElectron_r9_ = tree->GetBranch("LowPtElectron_r9");
+    if (b_LowPtElectron_r9_) { b_LowPtElectron_r9_->SetAddress(&LowPtElectron_r9_); }
+    b_LowPtElectron_scEtOverPt_ = tree->GetBranch("LowPtElectron_scEtOverPt");
+    if (b_LowPtElectron_scEtOverPt_) { b_LowPtElectron_scEtOverPt_->SetAddress(&LowPtElectron_scEtOverPt_); }
+    b_LowPtElectron_sieie_ = tree->GetBranch("LowPtElectron_sieie");
+    if (b_LowPtElectron_sieie_) { b_LowPtElectron_sieie_->SetAddress(&LowPtElectron_sieie_); }
+    b_LowPtElectron_unbiased_ = tree->GetBranch("LowPtElectron_unbiased");
+    if (b_LowPtElectron_unbiased_) { b_LowPtElectron_unbiased_->SetAddress(&LowPtElectron_unbiased_); }
     b_METFixEE2017_MetUnclustEnUpDeltaX_ = tree->GetBranch("METFixEE2017_MetUnclustEnUpDeltaX");
     if (b_METFixEE2017_MetUnclustEnUpDeltaX_) { b_METFixEE2017_MetUnclustEnUpDeltaX_->SetAddress(&METFixEE2017_MetUnclustEnUpDeltaX_); }
     b_METFixEE2017_MetUnclustEnUpDeltaY_ = tree->GetBranch("METFixEE2017_MetUnclustEnUpDeltaY");
@@ -4600,10 +4882,88 @@ void Nano::Init(TTree *tree) {
     if (b_MET_sumEt_) { b_MET_sumEt_->SetAddress(&MET_sumEt_); }
     b_MET_sumPtUnclustered_ = tree->GetBranch("MET_sumPtUnclustered");
     if (b_MET_sumPtUnclustered_) { b_MET_sumPtUnclustered_->SetAddress(&MET_sumPtUnclustered_); }
+    b_Muon_CutBased_HighPtID_SF_ = tree->GetBranch("Muon_CutBased_HighPtID_SF");
+    if (b_Muon_CutBased_HighPtID_SF_) { b_Muon_CutBased_HighPtID_SF_->SetAddress(&Muon_CutBased_HighPtID_SF_); }
+    b_Muon_CutBased_HighPtID_SFerr_ = tree->GetBranch("Muon_CutBased_HighPtID_SFerr");
+    if (b_Muon_CutBased_HighPtID_SFerr_) { b_Muon_CutBased_HighPtID_SFerr_->SetAddress(&Muon_CutBased_HighPtID_SFerr_); }
+    b_Muon_CutBased_LooseID_SF_ = tree->GetBranch("Muon_CutBased_LooseID_SF");
+    if (b_Muon_CutBased_LooseID_SF_) { b_Muon_CutBased_LooseID_SF_->SetAddress(&Muon_CutBased_LooseID_SF_); }
+    b_Muon_CutBased_LooseID_SFerr_ = tree->GetBranch("Muon_CutBased_LooseID_SFerr");
+    if (b_Muon_CutBased_LooseID_SFerr_) { b_Muon_CutBased_LooseID_SFerr_->SetAddress(&Muon_CutBased_LooseID_SFerr_); }
+    b_Muon_CutBased_MediumID_SF_ = tree->GetBranch("Muon_CutBased_MediumID_SF");
+    if (b_Muon_CutBased_MediumID_SF_) { b_Muon_CutBased_MediumID_SF_->SetAddress(&Muon_CutBased_MediumID_SF_); }
+    b_Muon_CutBased_MediumID_SFerr_ = tree->GetBranch("Muon_CutBased_MediumID_SFerr");
+    if (b_Muon_CutBased_MediumID_SFerr_) { b_Muon_CutBased_MediumID_SFerr_->SetAddress(&Muon_CutBased_MediumID_SFerr_); }
+    b_Muon_CutBased_MediumPromptID_SF_ = tree->GetBranch("Muon_CutBased_MediumPromptID_SF");
+    if (b_Muon_CutBased_MediumPromptID_SF_) { b_Muon_CutBased_MediumPromptID_SF_->SetAddress(&Muon_CutBased_MediumPromptID_SF_); }
+    b_Muon_CutBased_MediumPromptID_SFerr_ = tree->GetBranch("Muon_CutBased_MediumPromptID_SFerr");
+    if (b_Muon_CutBased_MediumPromptID_SFerr_) { b_Muon_CutBased_MediumPromptID_SFerr_->SetAddress(&Muon_CutBased_MediumPromptID_SFerr_); }
+    b_Muon_CutBased_SoftID_SF_ = tree->GetBranch("Muon_CutBased_SoftID_SF");
+    if (b_Muon_CutBased_SoftID_SF_) { b_Muon_CutBased_SoftID_SF_->SetAddress(&Muon_CutBased_SoftID_SF_); }
+    b_Muon_CutBased_SoftID_SFerr_ = tree->GetBranch("Muon_CutBased_SoftID_SFerr");
+    if (b_Muon_CutBased_SoftID_SFerr_) { b_Muon_CutBased_SoftID_SFerr_->SetAddress(&Muon_CutBased_SoftID_SFerr_); }
+    b_Muon_CutBased_TightID_SF_ = tree->GetBranch("Muon_CutBased_TightID_SF");
+    if (b_Muon_CutBased_TightID_SF_) { b_Muon_CutBased_TightID_SF_->SetAddress(&Muon_CutBased_TightID_SF_); }
+    b_Muon_CutBased_TightID_SFerr_ = tree->GetBranch("Muon_CutBased_TightID_SFerr");
+    if (b_Muon_CutBased_TightID_SFerr_) { b_Muon_CutBased_TightID_SFerr_->SetAddress(&Muon_CutBased_TightID_SFerr_); }
+    b_Muon_CutBased_TrkHighPtID_SF_ = tree->GetBranch("Muon_CutBased_TrkHighPtID_SF");
+    if (b_Muon_CutBased_TrkHighPtID_SF_) { b_Muon_CutBased_TrkHighPtID_SF_->SetAddress(&Muon_CutBased_TrkHighPtID_SF_); }
+    b_Muon_CutBased_TrkHighPtID_SFerr_ = tree->GetBranch("Muon_CutBased_TrkHighPtID_SFerr");
+    if (b_Muon_CutBased_TrkHighPtID_SFerr_) { b_Muon_CutBased_TrkHighPtID_SFerr_->SetAddress(&Muon_CutBased_TrkHighPtID_SFerr_); }
+    b_Muon_LooseRelIso_LooseID_SF_ = tree->GetBranch("Muon_LooseRelIso_LooseID_SF");
+    if (b_Muon_LooseRelIso_LooseID_SF_) { b_Muon_LooseRelIso_LooseID_SF_->SetAddress(&Muon_LooseRelIso_LooseID_SF_); }
+    b_Muon_LooseRelIso_LooseID_SFerr_ = tree->GetBranch("Muon_LooseRelIso_LooseID_SFerr");
+    if (b_Muon_LooseRelIso_LooseID_SFerr_) { b_Muon_LooseRelIso_LooseID_SFerr_->SetAddress(&Muon_LooseRelIso_LooseID_SFerr_); }
+    b_Muon_LooseRelIso_MediumID_SF_ = tree->GetBranch("Muon_LooseRelIso_MediumID_SF");
+    if (b_Muon_LooseRelIso_MediumID_SF_) { b_Muon_LooseRelIso_MediumID_SF_->SetAddress(&Muon_LooseRelIso_MediumID_SF_); }
+    b_Muon_LooseRelIso_MediumID_SFerr_ = tree->GetBranch("Muon_LooseRelIso_MediumID_SFerr");
+    if (b_Muon_LooseRelIso_MediumID_SFerr_) { b_Muon_LooseRelIso_MediumID_SFerr_->SetAddress(&Muon_LooseRelIso_MediumID_SFerr_); }
+    b_Muon_LooseRelIso_MediumPromptID_SF_ = tree->GetBranch("Muon_LooseRelIso_MediumPromptID_SF");
+    if (b_Muon_LooseRelIso_MediumPromptID_SF_) { b_Muon_LooseRelIso_MediumPromptID_SF_->SetAddress(&Muon_LooseRelIso_MediumPromptID_SF_); }
+    b_Muon_LooseRelIso_MediumPromptID_SFerr_ = tree->GetBranch("Muon_LooseRelIso_MediumPromptID_SFerr");
+    if (b_Muon_LooseRelIso_MediumPromptID_SFerr_) { b_Muon_LooseRelIso_MediumPromptID_SFerr_->SetAddress(&Muon_LooseRelIso_MediumPromptID_SFerr_); }
+    b_Muon_LooseRelIso_TightIDandIPCut_SF_ = tree->GetBranch("Muon_LooseRelIso_TightIDandIPCut_SF");
+    if (b_Muon_LooseRelIso_TightIDandIPCut_SF_) { b_Muon_LooseRelIso_TightIDandIPCut_SF_->SetAddress(&Muon_LooseRelIso_TightIDandIPCut_SF_); }
+    b_Muon_LooseRelIso_TightIDandIPCut_SFerr_ = tree->GetBranch("Muon_LooseRelIso_TightIDandIPCut_SFerr");
+    if (b_Muon_LooseRelIso_TightIDandIPCut_SFerr_) { b_Muon_LooseRelIso_TightIDandIPCut_SFerr_->SetAddress(&Muon_LooseRelIso_TightIDandIPCut_SFerr_); }
+    b_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_ = tree->GetBranch("Muon_LooseRelTkIso_HighPtIDandIPCut_SF");
+    if (b_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_) { b_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_->SetAddress(&Muon_LooseRelTkIso_HighPtIDandIPCut_SF_); }
+    b_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_ = tree->GetBranch("Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr");
+    if (b_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_) { b_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_->SetAddress(&Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_); }
+    b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_ = tree->GetBranch("Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF");
+    if (b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_) { b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_->SetAddress(&Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_); }
+    b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_ = tree->GetBranch("Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr");
+    if (b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_) { b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_->SetAddress(&Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_); }
+    b_Muon_TightRelIso_MediumID_SF_ = tree->GetBranch("Muon_TightRelIso_MediumID_SF");
+    if (b_Muon_TightRelIso_MediumID_SF_) { b_Muon_TightRelIso_MediumID_SF_->SetAddress(&Muon_TightRelIso_MediumID_SF_); }
+    b_Muon_TightRelIso_MediumID_SFerr_ = tree->GetBranch("Muon_TightRelIso_MediumID_SFerr");
+    if (b_Muon_TightRelIso_MediumID_SFerr_) { b_Muon_TightRelIso_MediumID_SFerr_->SetAddress(&Muon_TightRelIso_MediumID_SFerr_); }
+    b_Muon_TightRelIso_MediumPromptID_SF_ = tree->GetBranch("Muon_TightRelIso_MediumPromptID_SF");
+    if (b_Muon_TightRelIso_MediumPromptID_SF_) { b_Muon_TightRelIso_MediumPromptID_SF_->SetAddress(&Muon_TightRelIso_MediumPromptID_SF_); }
+    b_Muon_TightRelIso_MediumPromptID_SFerr_ = tree->GetBranch("Muon_TightRelIso_MediumPromptID_SFerr");
+    if (b_Muon_TightRelIso_MediumPromptID_SFerr_) { b_Muon_TightRelIso_MediumPromptID_SFerr_->SetAddress(&Muon_TightRelIso_MediumPromptID_SFerr_); }
+    b_Muon_TightRelIso_TightIDandIPCut_SF_ = tree->GetBranch("Muon_TightRelIso_TightIDandIPCut_SF");
+    if (b_Muon_TightRelIso_TightIDandIPCut_SF_) { b_Muon_TightRelIso_TightIDandIPCut_SF_->SetAddress(&Muon_TightRelIso_TightIDandIPCut_SF_); }
+    b_Muon_TightRelIso_TightIDandIPCut_SFerr_ = tree->GetBranch("Muon_TightRelIso_TightIDandIPCut_SFerr");
+    if (b_Muon_TightRelIso_TightIDandIPCut_SFerr_) { b_Muon_TightRelIso_TightIDandIPCut_SFerr_->SetAddress(&Muon_TightRelIso_TightIDandIPCut_SFerr_); }
+    b_Muon_TightRelTkIso_HighPtIDandIPCut_SF_ = tree->GetBranch("Muon_TightRelTkIso_HighPtIDandIPCut_SF");
+    if (b_Muon_TightRelTkIso_HighPtIDandIPCut_SF_) { b_Muon_TightRelTkIso_HighPtIDandIPCut_SF_->SetAddress(&Muon_TightRelTkIso_HighPtIDandIPCut_SF_); }
+    b_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_ = tree->GetBranch("Muon_TightRelTkIso_HighPtIDandIPCut_SFerr");
+    if (b_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_) { b_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_->SetAddress(&Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_); }
+    b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_ = tree->GetBranch("Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF");
+    if (b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_) { b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_->SetAddress(&Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_); }
+    b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_ = tree->GetBranch("Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr");
+    if (b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_) { b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_->SetAddress(&Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_); }
     b_Muon_charge_ = tree->GetBranch("Muon_charge");
     if (b_Muon_charge_) { b_Muon_charge_->SetAddress(&Muon_charge_); }
     b_Muon_cleanmask_ = tree->GetBranch("Muon_cleanmask");
     if (b_Muon_cleanmask_) { b_Muon_cleanmask_->SetAddress(&Muon_cleanmask_); }
+    b_Muon_correctedDown_pt_ = tree->GetBranch("Muon_correctedDown_pt");
+    if (b_Muon_correctedDown_pt_) { b_Muon_correctedDown_pt_->SetAddress(&Muon_correctedDown_pt_); }
+    b_Muon_correctedUp_pt_ = tree->GetBranch("Muon_correctedUp_pt");
+    if (b_Muon_correctedUp_pt_) { b_Muon_correctedUp_pt_->SetAddress(&Muon_correctedUp_pt_); }
+    b_Muon_corrected_pt_ = tree->GetBranch("Muon_corrected_pt");
+    if (b_Muon_corrected_pt_) { b_Muon_corrected_pt_->SetAddress(&Muon_corrected_pt_); }
     b_Muon_dxy_ = tree->GetBranch("Muon_dxy");
     if (b_Muon_dxy_) { b_Muon_dxy_->SetAddress(&Muon_dxy_); }
     b_Muon_dxyErr_ = tree->GetBranch("Muon_dxyErr");
@@ -4634,10 +4994,14 @@ void Nano::Init(TTree *tree) {
     if (b_Muon_isGlobal_) { b_Muon_isGlobal_->SetAddress(&Muon_isGlobal_); }
     b_Muon_isPFcand_ = tree->GetBranch("Muon_isPFcand");
     if (b_Muon_isPFcand_) { b_Muon_isPFcand_->SetAddress(&Muon_isPFcand_); }
+    b_Muon_isStandalone_ = tree->GetBranch("Muon_isStandalone");
+    if (b_Muon_isStandalone_) { b_Muon_isStandalone_->SetAddress(&Muon_isStandalone_); }
     b_Muon_isTracker_ = tree->GetBranch("Muon_isTracker");
     if (b_Muon_isTracker_) { b_Muon_isTracker_->SetAddress(&Muon_isTracker_); }
     b_Muon_jetIdx_ = tree->GetBranch("Muon_jetIdx");
     if (b_Muon_jetIdx_) { b_Muon_jetIdx_->SetAddress(&Muon_jetIdx_); }
+    b_Muon_jetNDauCharged_ = tree->GetBranch("Muon_jetNDauCharged");
+    if (b_Muon_jetNDauCharged_) { b_Muon_jetNDauCharged_->SetAddress(&Muon_jetNDauCharged_); }
     b_Muon_jetPtRelv2_ = tree->GetBranch("Muon_jetPtRelv2");
     if (b_Muon_jetPtRelv2_) { b_Muon_jetPtRelv2_->SetAddress(&Muon_jetPtRelv2_); }
     b_Muon_jetRelIso_ = tree->GetBranch("Muon_jetRelIso");
@@ -4662,6 +5026,8 @@ void Nano::Init(TTree *tree) {
     if (b_Muon_mvaId_) { b_Muon_mvaId_->SetAddress(&Muon_mvaId_); }
     b_Muon_mvaLowPt_ = tree->GetBranch("Muon_mvaLowPt");
     if (b_Muon_mvaLowPt_) { b_Muon_mvaLowPt_->SetAddress(&Muon_mvaLowPt_); }
+    b_Muon_mvaLowPtId_ = tree->GetBranch("Muon_mvaLowPtId");
+    if (b_Muon_mvaLowPtId_) { b_Muon_mvaLowPtId_->SetAddress(&Muon_mvaLowPtId_); }
     b_Muon_mvaTTH_ = tree->GetBranch("Muon_mvaTTH");
     if (b_Muon_mvaTTH_) { b_Muon_mvaTTH_->SetAddress(&Muon_mvaTTH_); }
     b_Muon_nStations_ = tree->GetBranch("Muon_nStations");
@@ -4684,6 +5050,8 @@ void Nano::Init(TTree *tree) {
     if (b_Muon_pt_) { b_Muon_pt_->SetAddress(&Muon_pt_); }
     b_Muon_ptErr_ = tree->GetBranch("Muon_ptErr");
     if (b_Muon_ptErr_) { b_Muon_ptErr_->SetAddress(&Muon_ptErr_); }
+    b_Muon_puppiIsoId_ = tree->GetBranch("Muon_puppiIsoId");
+    if (b_Muon_puppiIsoId_) { b_Muon_puppiIsoId_->SetAddress(&Muon_puppiIsoId_); }
     b_Muon_segmentComp_ = tree->GetBranch("Muon_segmentComp");
     if (b_Muon_segmentComp_) { b_Muon_segmentComp_->SetAddress(&Muon_segmentComp_); }
     b_Muon_sip3d_ = tree->GetBranch("Muon_sip3d");
@@ -4738,6 +5106,14 @@ void Nano::Init(TTree *tree) {
     if (b_Photon_cutBased_Fall17V1Bitmap_) { b_Photon_cutBased_Fall17V1Bitmap_->SetAddress(&Photon_cutBased_Fall17V1Bitmap_); }
     b_Photon_cutBased_Spring16V2p2_ = tree->GetBranch("Photon_cutBased_Spring16V2p2");
     if (b_Photon_cutBased_Spring16V2p2_) { b_Photon_cutBased_Spring16V2p2_->SetAddress(&Photon_cutBased_Spring16V2p2_); }
+    b_Photon_dEscaleDown_ = tree->GetBranch("Photon_dEscaleDown");
+    if (b_Photon_dEscaleDown_) { b_Photon_dEscaleDown_->SetAddress(&Photon_dEscaleDown_); }
+    b_Photon_dEscaleUp_ = tree->GetBranch("Photon_dEscaleUp");
+    if (b_Photon_dEscaleUp_) { b_Photon_dEscaleUp_->SetAddress(&Photon_dEscaleUp_); }
+    b_Photon_dEsigmaDown_ = tree->GetBranch("Photon_dEsigmaDown");
+    if (b_Photon_dEsigmaDown_) { b_Photon_dEsigmaDown_->SetAddress(&Photon_dEsigmaDown_); }
+    b_Photon_dEsigmaUp_ = tree->GetBranch("Photon_dEsigmaUp");
+    if (b_Photon_dEsigmaUp_) { b_Photon_dEsigmaUp_->SetAddress(&Photon_dEsigmaUp_); }
     b_Photon_eCorr_ = tree->GetBranch("Photon_eCorr");
     if (b_Photon_eCorr_) { b_Photon_eCorr_->SetAddress(&Photon_eCorr_); }
     b_Photon_electronIdx_ = tree->GetBranch("Photon_electronIdx");
@@ -4810,18 +5186,40 @@ void Nano::Init(TTree *tree) {
     if (b_Pileup_sumEOOT_) { b_Pileup_sumEOOT_->SetAddress(&Pileup_sumEOOT_); }
     b_Pileup_sumLOOT_ = tree->GetBranch("Pileup_sumLOOT");
     if (b_Pileup_sumLOOT_) { b_Pileup_sumLOOT_->SetAddress(&Pileup_sumLOOT_); }
+    b_PrefireWeight_ = tree->GetBranch("PrefireWeight");
+    if (b_PrefireWeight_) { b_PrefireWeight_->SetAddress(&PrefireWeight_); }
+    b_PrefireWeight_Down_ = tree->GetBranch("PrefireWeight_Down");
+    if (b_PrefireWeight_Down_) { b_PrefireWeight_Down_->SetAddress(&PrefireWeight_Down_); }
+    b_PrefireWeight_Up_ = tree->GetBranch("PrefireWeight_Up");
+    if (b_PrefireWeight_Up_) { b_PrefireWeight_Up_->SetAddress(&PrefireWeight_Up_); }
     b_PuppiMET_phi_ = tree->GetBranch("PuppiMET_phi");
     if (b_PuppiMET_phi_) { b_PuppiMET_phi_->SetAddress(&PuppiMET_phi_); }
+    b_PuppiMET_phiJERDown_ = tree->GetBranch("PuppiMET_phiJERDown");
+    if (b_PuppiMET_phiJERDown_) { b_PuppiMET_phiJERDown_->SetAddress(&PuppiMET_phiJERDown_); }
     b_PuppiMET_phiJERUp_ = tree->GetBranch("PuppiMET_phiJERUp");
     if (b_PuppiMET_phiJERUp_) { b_PuppiMET_phiJERUp_->SetAddress(&PuppiMET_phiJERUp_); }
+    b_PuppiMET_phiJESDown_ = tree->GetBranch("PuppiMET_phiJESDown");
+    if (b_PuppiMET_phiJESDown_) { b_PuppiMET_phiJESDown_->SetAddress(&PuppiMET_phiJESDown_); }
     b_PuppiMET_phiJESUp_ = tree->GetBranch("PuppiMET_phiJESUp");
     if (b_PuppiMET_phiJESUp_) { b_PuppiMET_phiJESUp_->SetAddress(&PuppiMET_phiJESUp_); }
+    b_PuppiMET_phiUnclusteredDown_ = tree->GetBranch("PuppiMET_phiUnclusteredDown");
+    if (b_PuppiMET_phiUnclusteredDown_) { b_PuppiMET_phiUnclusteredDown_->SetAddress(&PuppiMET_phiUnclusteredDown_); }
+    b_PuppiMET_phiUnclusteredUp_ = tree->GetBranch("PuppiMET_phiUnclusteredUp");
+    if (b_PuppiMET_phiUnclusteredUp_) { b_PuppiMET_phiUnclusteredUp_->SetAddress(&PuppiMET_phiUnclusteredUp_); }
     b_PuppiMET_pt_ = tree->GetBranch("PuppiMET_pt");
     if (b_PuppiMET_pt_) { b_PuppiMET_pt_->SetAddress(&PuppiMET_pt_); }
+    b_PuppiMET_ptJERDown_ = tree->GetBranch("PuppiMET_ptJERDown");
+    if (b_PuppiMET_ptJERDown_) { b_PuppiMET_ptJERDown_->SetAddress(&PuppiMET_ptJERDown_); }
     b_PuppiMET_ptJERUp_ = tree->GetBranch("PuppiMET_ptJERUp");
     if (b_PuppiMET_ptJERUp_) { b_PuppiMET_ptJERUp_->SetAddress(&PuppiMET_ptJERUp_); }
+    b_PuppiMET_ptJESDown_ = tree->GetBranch("PuppiMET_ptJESDown");
+    if (b_PuppiMET_ptJESDown_) { b_PuppiMET_ptJESDown_->SetAddress(&PuppiMET_ptJESDown_); }
     b_PuppiMET_ptJESUp_ = tree->GetBranch("PuppiMET_ptJESUp");
     if (b_PuppiMET_ptJESUp_) { b_PuppiMET_ptJESUp_->SetAddress(&PuppiMET_ptJESUp_); }
+    b_PuppiMET_ptUnclusteredDown_ = tree->GetBranch("PuppiMET_ptUnclusteredDown");
+    if (b_PuppiMET_ptUnclusteredDown_) { b_PuppiMET_ptUnclusteredDown_->SetAddress(&PuppiMET_ptUnclusteredDown_); }
+    b_PuppiMET_ptUnclusteredUp_ = tree->GetBranch("PuppiMET_ptUnclusteredUp");
+    if (b_PuppiMET_ptUnclusteredUp_) { b_PuppiMET_ptUnclusteredUp_->SetAddress(&PuppiMET_ptUnclusteredUp_); }
     b_PuppiMET_sumEt_ = tree->GetBranch("PuppiMET_sumEt");
     if (b_PuppiMET_sumEt_) { b_PuppiMET_sumEt_->SetAddress(&PuppiMET_sumEt_); }
     b_RawMET_phi_ = tree->GetBranch("RawMET_phi");
@@ -4836,6 +5234,8 @@ void Nano::Init(TTree *tree) {
     if (b_RawPuppiMET_pt_) { b_RawPuppiMET_pt_->SetAddress(&RawPuppiMET_pt_); }
     b_RawPuppiMET_sumEt_ = tree->GetBranch("RawPuppiMET_sumEt");
     if (b_RawPuppiMET_sumEt_) { b_RawPuppiMET_sumEt_->SetAddress(&RawPuppiMET_sumEt_); }
+    b_SV_charge_ = tree->GetBranch("SV_charge");
+    if (b_SV_charge_) { b_SV_charge_->SetAddress(&SV_charge_); }
     b_SV_chi2_ = tree->GetBranch("SV_chi2");
     if (b_SV_chi2_) { b_SV_chi2_->SetAddress(&SV_chi2_); }
     b_SV_dlen_ = tree->GetBranch("SV_dlen");
@@ -4852,6 +5252,8 @@ void Nano::Init(TTree *tree) {
     if (b_SV_mass_) { b_SV_mass_->SetAddress(&SV_mass_); }
     b_SV_ndof_ = tree->GetBranch("SV_ndof");
     if (b_SV_ndof_) { b_SV_ndof_->SetAddress(&SV_ndof_); }
+    b_SV_ntracks_ = tree->GetBranch("SV_ntracks");
+    if (b_SV_ntracks_) { b_SV_ntracks_->SetAddress(&SV_ntracks_); }
     b_SV_pAngle_ = tree->GetBranch("SV_pAngle");
     if (b_SV_pAngle_) { b_SV_pAngle_->SetAddress(&SV_pAngle_); }
     b_SV_phi_ = tree->GetBranch("SV_phi");
@@ -4900,6 +5302,8 @@ void Nano::Init(TTree *tree) {
     if (b_SubJet_btagDeepB_) { b_SubJet_btagDeepB_->SetAddress(&SubJet_btagDeepB_); }
     b_SubJet_eta_ = tree->GetBranch("SubJet_eta");
     if (b_SubJet_eta_) { b_SubJet_eta_->SetAddress(&SubJet_eta_); }
+    b_SubJet_hadronFlavour_ = tree->GetBranch("SubJet_hadronFlavour");
+    if (b_SubJet_hadronFlavour_) { b_SubJet_hadronFlavour_->SetAddress(&SubJet_hadronFlavour_); }
     b_SubJet_mass_ = tree->GetBranch("SubJet_mass");
     if (b_SubJet_mass_) { b_SubJet_mass_->SetAddress(&SubJet_mass_); }
     b_SubJet_n2b1_ = tree->GetBranch("SubJet_n2b1");
@@ -4946,12 +5350,16 @@ void Nano::Init(TTree *tree) {
     if (b_Tau_idAntiEle_) { b_Tau_idAntiEle_->SetAddress(&Tau_idAntiEle_); }
     b_Tau_idAntiEle2018_ = tree->GetBranch("Tau_idAntiEle2018");
     if (b_Tau_idAntiEle2018_) { b_Tau_idAntiEle2018_->SetAddress(&Tau_idAntiEle2018_); }
+    b_Tau_idAntiEleDeadECal_ = tree->GetBranch("Tau_idAntiEleDeadECal");
+    if (b_Tau_idAntiEleDeadECal_) { b_Tau_idAntiEleDeadECal_->SetAddress(&Tau_idAntiEleDeadECal_); }
     b_Tau_idAntiMu_ = tree->GetBranch("Tau_idAntiMu");
     if (b_Tau_idAntiMu_) { b_Tau_idAntiMu_->SetAddress(&Tau_idAntiMu_); }
     b_Tau_idDecayMode_ = tree->GetBranch("Tau_idDecayMode");
     if (b_Tau_idDecayMode_) { b_Tau_idDecayMode_->SetAddress(&Tau_idDecayMode_); }
     b_Tau_idDecayModeNewDMs_ = tree->GetBranch("Tau_idDecayModeNewDMs");
     if (b_Tau_idDecayModeNewDMs_) { b_Tau_idDecayModeNewDMs_->SetAddress(&Tau_idDecayModeNewDMs_); }
+    b_Tau_idDecayModeOldDMs_ = tree->GetBranch("Tau_idDecayModeOldDMs");
+    if (b_Tau_idDecayModeOldDMs_) { b_Tau_idDecayModeOldDMs_->SetAddress(&Tau_idDecayModeOldDMs_); }
     b_Tau_idDeepTau2017v2p1VSe_ = tree->GetBranch("Tau_idDeepTau2017v2p1VSe");
     if (b_Tau_idDeepTau2017v2p1VSe_) { b_Tau_idDeepTau2017v2p1VSe_->SetAddress(&Tau_idDeepTau2017v2p1VSe_); }
     b_Tau_idDeepTau2017v2p1VSjet_ = tree->GetBranch("Tau_idDeepTau2017v2p1VSjet");
@@ -5042,6 +5450,62 @@ void Nano::Init(TTree *tree) {
     if (b_TrigObj_phi_) { b_TrigObj_phi_->SetAddress(&TrigObj_phi_); }
     b_TrigObj_pt_ = tree->GetBranch("TrigObj_pt");
     if (b_TrigObj_pt_) { b_TrigObj_pt_->SetAddress(&TrigObj_pt_); }
+    b_boostedTau_charge_ = tree->GetBranch("boostedTau_charge");
+    if (b_boostedTau_charge_) { b_boostedTau_charge_->SetAddress(&boostedTau_charge_); }
+    b_boostedTau_chargedIso_ = tree->GetBranch("boostedTau_chargedIso");
+    if (b_boostedTau_chargedIso_) { b_boostedTau_chargedIso_->SetAddress(&boostedTau_chargedIso_); }
+    b_boostedTau_decayMode_ = tree->GetBranch("boostedTau_decayMode");
+    if (b_boostedTau_decayMode_) { b_boostedTau_decayMode_->SetAddress(&boostedTau_decayMode_); }
+    b_boostedTau_eta_ = tree->GetBranch("boostedTau_eta");
+    if (b_boostedTau_eta_) { b_boostedTau_eta_->SetAddress(&boostedTau_eta_); }
+    b_boostedTau_genPartFlav_ = tree->GetBranch("boostedTau_genPartFlav");
+    if (b_boostedTau_genPartFlav_) { b_boostedTau_genPartFlav_->SetAddress(&boostedTau_genPartFlav_); }
+    b_boostedTau_genPartIdx_ = tree->GetBranch("boostedTau_genPartIdx");
+    if (b_boostedTau_genPartIdx_) { b_boostedTau_genPartIdx_->SetAddress(&boostedTau_genPartIdx_); }
+    b_boostedTau_idAntiEle2018_ = tree->GetBranch("boostedTau_idAntiEle2018");
+    if (b_boostedTau_idAntiEle2018_) { b_boostedTau_idAntiEle2018_->SetAddress(&boostedTau_idAntiEle2018_); }
+    b_boostedTau_idAntiMu_ = tree->GetBranch("boostedTau_idAntiMu");
+    if (b_boostedTau_idAntiMu_) { b_boostedTau_idAntiMu_->SetAddress(&boostedTau_idAntiMu_); }
+    b_boostedTau_idMVAnewDM2017v2_ = tree->GetBranch("boostedTau_idMVAnewDM2017v2");
+    if (b_boostedTau_idMVAnewDM2017v2_) { b_boostedTau_idMVAnewDM2017v2_->SetAddress(&boostedTau_idMVAnewDM2017v2_); }
+    b_boostedTau_idMVAoldDM2017v2_ = tree->GetBranch("boostedTau_idMVAoldDM2017v2");
+    if (b_boostedTau_idMVAoldDM2017v2_) { b_boostedTau_idMVAoldDM2017v2_->SetAddress(&boostedTau_idMVAoldDM2017v2_); }
+    b_boostedTau_idMVAoldDMdR032017v2_ = tree->GetBranch("boostedTau_idMVAoldDMdR032017v2");
+    if (b_boostedTau_idMVAoldDMdR032017v2_) { b_boostedTau_idMVAoldDMdR032017v2_->SetAddress(&boostedTau_idMVAoldDMdR032017v2_); }
+    b_boostedTau_jetIdx_ = tree->GetBranch("boostedTau_jetIdx");
+    if (b_boostedTau_jetIdx_) { b_boostedTau_jetIdx_->SetAddress(&boostedTau_jetIdx_); }
+    b_boostedTau_leadTkDeltaEta_ = tree->GetBranch("boostedTau_leadTkDeltaEta");
+    if (b_boostedTau_leadTkDeltaEta_) { b_boostedTau_leadTkDeltaEta_->SetAddress(&boostedTau_leadTkDeltaEta_); }
+    b_boostedTau_leadTkDeltaPhi_ = tree->GetBranch("boostedTau_leadTkDeltaPhi");
+    if (b_boostedTau_leadTkDeltaPhi_) { b_boostedTau_leadTkDeltaPhi_->SetAddress(&boostedTau_leadTkDeltaPhi_); }
+    b_boostedTau_leadTkPtOverTauPt_ = tree->GetBranch("boostedTau_leadTkPtOverTauPt");
+    if (b_boostedTau_leadTkPtOverTauPt_) { b_boostedTau_leadTkPtOverTauPt_->SetAddress(&boostedTau_leadTkPtOverTauPt_); }
+    b_boostedTau_mass_ = tree->GetBranch("boostedTau_mass");
+    if (b_boostedTau_mass_) { b_boostedTau_mass_->SetAddress(&boostedTau_mass_); }
+    b_boostedTau_neutralIso_ = tree->GetBranch("boostedTau_neutralIso");
+    if (b_boostedTau_neutralIso_) { b_boostedTau_neutralIso_->SetAddress(&boostedTau_neutralIso_); }
+    b_boostedTau_phi_ = tree->GetBranch("boostedTau_phi");
+    if (b_boostedTau_phi_) { b_boostedTau_phi_->SetAddress(&boostedTau_phi_); }
+    b_boostedTau_photonsOutsideSignalCone_ = tree->GetBranch("boostedTau_photonsOutsideSignalCone");
+    if (b_boostedTau_photonsOutsideSignalCone_) { b_boostedTau_photonsOutsideSignalCone_->SetAddress(&boostedTau_photonsOutsideSignalCone_); }
+    b_boostedTau_pt_ = tree->GetBranch("boostedTau_pt");
+    if (b_boostedTau_pt_) { b_boostedTau_pt_->SetAddress(&boostedTau_pt_); }
+    b_boostedTau_puCorr_ = tree->GetBranch("boostedTau_puCorr");
+    if (b_boostedTau_puCorr_) { b_boostedTau_puCorr_->SetAddress(&boostedTau_puCorr_); }
+    b_boostedTau_rawAntiEle2018_ = tree->GetBranch("boostedTau_rawAntiEle2018");
+    if (b_boostedTau_rawAntiEle2018_) { b_boostedTau_rawAntiEle2018_->SetAddress(&boostedTau_rawAntiEle2018_); }
+    b_boostedTau_rawAntiEleCat2018_ = tree->GetBranch("boostedTau_rawAntiEleCat2018");
+    if (b_boostedTau_rawAntiEleCat2018_) { b_boostedTau_rawAntiEleCat2018_->SetAddress(&boostedTau_rawAntiEleCat2018_); }
+    b_boostedTau_rawIso_ = tree->GetBranch("boostedTau_rawIso");
+    if (b_boostedTau_rawIso_) { b_boostedTau_rawIso_->SetAddress(&boostedTau_rawIso_); }
+    b_boostedTau_rawIsodR03_ = tree->GetBranch("boostedTau_rawIsodR03");
+    if (b_boostedTau_rawIsodR03_) { b_boostedTau_rawIsodR03_->SetAddress(&boostedTau_rawIsodR03_); }
+    b_boostedTau_rawMVAnewDM2017v2_ = tree->GetBranch("boostedTau_rawMVAnewDM2017v2");
+    if (b_boostedTau_rawMVAnewDM2017v2_) { b_boostedTau_rawMVAnewDM2017v2_->SetAddress(&boostedTau_rawMVAnewDM2017v2_); }
+    b_boostedTau_rawMVAoldDM2017v2_ = tree->GetBranch("boostedTau_rawMVAoldDM2017v2");
+    if (b_boostedTau_rawMVAoldDM2017v2_) { b_boostedTau_rawMVAoldDM2017v2_->SetAddress(&boostedTau_rawMVAoldDM2017v2_); }
+    b_boostedTau_rawMVAoldDMdR032017v2_ = tree->GetBranch("boostedTau_rawMVAoldDMdR032017v2");
+    if (b_boostedTau_rawMVAoldDMdR032017v2_) { b_boostedTau_rawMVAoldDMdR032017v2_->SetAddress(&boostedTau_rawMVAoldDMdR032017v2_); }
     b_btagWeight_CMVA_ = tree->GetBranch("btagWeight_CMVA");
     if (b_btagWeight_CMVA_) { b_btagWeight_CMVA_->SetAddress(&btagWeight_CMVA_); }
     b_btagWeight_CSVV2_ = tree->GetBranch("btagWeight_CSVV2");
@@ -5100,6 +5564,8 @@ void Nano::Init(TTree *tree) {
     if (b_nLHEReweightingWeight_) { b_nLHEReweightingWeight_->SetAddress(&nLHEReweightingWeight_); }
     b_nLHEScaleWeight_ = tree->GetBranch("nLHEScaleWeight");
     if (b_nLHEScaleWeight_) { b_nLHEScaleWeight_->SetAddress(&nLHEScaleWeight_); }
+    b_nLowPtElectron_ = tree->GetBranch("nLowPtElectron");
+    if (b_nLowPtElectron_) { b_nLowPtElectron_->SetAddress(&nLowPtElectron_); }
     b_nMuon_ = tree->GetBranch("nMuon");
     if (b_nMuon_) { b_nMuon_->SetAddress(&nMuon_); }
     b_nOtherPV_ = tree->GetBranch("nOtherPV");
@@ -5120,6 +5586,14 @@ void Nano::Init(TTree *tree) {
     if (b_nTau_) { b_nTau_->SetAddress(&nTau_); }
     b_nTrigObj_ = tree->GetBranch("nTrigObj");
     if (b_nTrigObj_) { b_nTrigObj_->SetAddress(&nTrigObj_); }
+    b_nboostedTau_ = tree->GetBranch("nboostedTau");
+    if (b_nboostedTau_) { b_nboostedTau_->SetAddress(&nboostedTau_); }
+    b_puWeight_ = tree->GetBranch("puWeight");
+    if (b_puWeight_) { b_puWeight_->SetAddress(&puWeight_); }
+    b_puWeightDown_ = tree->GetBranch("puWeightDown");
+    if (b_puWeightDown_) { b_puWeightDown_->SetAddress(&puWeightDown_); }
+    b_puWeightUp_ = tree->GetBranch("puWeightUp");
+    if (b_puWeightUp_) { b_puWeightUp_->SetAddress(&puWeightUp_); }
     b_run_ = tree->GetBranch("run");
     if (b_run_) { b_run_->SetAddress(&run_); }
     ParseYear(tree);
@@ -5172,6 +5646,28 @@ void Nano::PrintUsage() {
     std::cout << "CorrT1METJet_muonSubtrFactor (uncached/cached calls): " << counter_uncached_CorrT1METJet_muonSubtrFactor_ << " / " << counter_cached_CorrT1METJet_muonSubtrFactor_ << std::endl;;
     std::cout << "CorrT1METJet_phi (uncached/cached calls): " << counter_uncached_CorrT1METJet_phi_ << " / " << counter_cached_CorrT1METJet_phi_ << std::endl;;
     std::cout << "CorrT1METJet_rawPt (uncached/cached calls): " << counter_uncached_CorrT1METJet_rawPt_ << " / " << counter_cached_CorrT1METJet_rawPt_ << std::endl;;
+    std::cout << "DeepMETResolutionTune_phi (uncached/cached calls): " << counter_uncached_DeepMETResolutionTune_phi_ << " / " << counter_cached_DeepMETResolutionTune_phi_ << std::endl;;
+    std::cout << "DeepMETResolutionTune_pt (uncached/cached calls): " << counter_uncached_DeepMETResolutionTune_pt_ << " / " << counter_cached_DeepMETResolutionTune_pt_ << std::endl;;
+    std::cout << "DeepMETResponseTune_phi (uncached/cached calls): " << counter_uncached_DeepMETResponseTune_phi_ << " / " << counter_cached_DeepMETResponseTune_phi_ << std::endl;;
+    std::cout << "DeepMETResponseTune_pt (uncached/cached calls): " << counter_uncached_DeepMETResponseTune_pt_ << " / " << counter_cached_DeepMETResponseTune_pt_ << std::endl;;
+    std::cout << "Electron_CutBased_LooseID_SF (uncached/cached calls): " << counter_uncached_Electron_CutBased_LooseID_SF_ << " / " << counter_cached_Electron_CutBased_LooseID_SF_ << std::endl;;
+    std::cout << "Electron_CutBased_LooseID_SFerr (uncached/cached calls): " << counter_uncached_Electron_CutBased_LooseID_SFerr_ << " / " << counter_cached_Electron_CutBased_LooseID_SFerr_ << std::endl;;
+    std::cout << "Electron_CutBased_MediumID_SF (uncached/cached calls): " << counter_uncached_Electron_CutBased_MediumID_SF_ << " / " << counter_cached_Electron_CutBased_MediumID_SF_ << std::endl;;
+    std::cout << "Electron_CutBased_MediumID_SFerr (uncached/cached calls): " << counter_uncached_Electron_CutBased_MediumID_SFerr_ << " / " << counter_cached_Electron_CutBased_MediumID_SFerr_ << std::endl;;
+    std::cout << "Electron_CutBased_TightID_SF (uncached/cached calls): " << counter_uncached_Electron_CutBased_TightID_SF_ << " / " << counter_cached_Electron_CutBased_TightID_SF_ << std::endl;;
+    std::cout << "Electron_CutBased_TightID_SFerr (uncached/cached calls): " << counter_uncached_Electron_CutBased_TightID_SFerr_ << " / " << counter_cached_Electron_CutBased_TightID_SFerr_ << std::endl;;
+    std::cout << "Electron_CutBased_VetoID_SF (uncached/cached calls): " << counter_uncached_Electron_CutBased_VetoID_SF_ << " / " << counter_cached_Electron_CutBased_VetoID_SF_ << std::endl;;
+    std::cout << "Electron_CutBased_VetoID_SFerr (uncached/cached calls): " << counter_uncached_Electron_CutBased_VetoID_SFerr_ << " / " << counter_cached_Electron_CutBased_VetoID_SFerr_ << std::endl;;
+    std::cout << "Electron_MVAFall17V2Iso_WP80_SF (uncached/cached calls): " << counter_uncached_Electron_MVAFall17V2Iso_WP80_SF_ << " / " << counter_cached_Electron_MVAFall17V2Iso_WP80_SF_ << std::endl;;
+    std::cout << "Electron_MVAFall17V2Iso_WP80_SFerr (uncached/cached calls): " << counter_uncached_Electron_MVAFall17V2Iso_WP80_SFerr_ << " / " << counter_cached_Electron_MVAFall17V2Iso_WP80_SFerr_ << std::endl;;
+    std::cout << "Electron_MVAFall17V2Iso_WP90_SF (uncached/cached calls): " << counter_uncached_Electron_MVAFall17V2Iso_WP90_SF_ << " / " << counter_cached_Electron_MVAFall17V2Iso_WP90_SF_ << std::endl;;
+    std::cout << "Electron_MVAFall17V2Iso_WP90_SFerr (uncached/cached calls): " << counter_uncached_Electron_MVAFall17V2Iso_WP90_SFerr_ << " / " << counter_cached_Electron_MVAFall17V2Iso_WP90_SFerr_ << std::endl;;
+    std::cout << "Electron_MVAFall17V2noIso_WP80_SF (uncached/cached calls): " << counter_uncached_Electron_MVAFall17V2noIso_WP80_SF_ << " / " << counter_cached_Electron_MVAFall17V2noIso_WP80_SF_ << std::endl;;
+    std::cout << "Electron_MVAFall17V2noIso_WP80_SFerr (uncached/cached calls): " << counter_uncached_Electron_MVAFall17V2noIso_WP80_SFerr_ << " / " << counter_cached_Electron_MVAFall17V2noIso_WP80_SFerr_ << std::endl;;
+    std::cout << "Electron_MVAFall17V2noIso_WP90_SF (uncached/cached calls): " << counter_uncached_Electron_MVAFall17V2noIso_WP90_SF_ << " / " << counter_cached_Electron_MVAFall17V2noIso_WP90_SF_ << std::endl;;
+    std::cout << "Electron_MVAFall17V2noIso_WP90_SFerr (uncached/cached calls): " << counter_uncached_Electron_MVAFall17V2noIso_WP90_SFerr_ << " / " << counter_cached_Electron_MVAFall17V2noIso_WP90_SFerr_ << std::endl;;
+    std::cout << "Electron_RECO_SF (uncached/cached calls): " << counter_uncached_Electron_RECO_SF_ << " / " << counter_cached_Electron_RECO_SF_ << std::endl;;
+    std::cout << "Electron_RECO_SFerr (uncached/cached calls): " << counter_uncached_Electron_RECO_SFerr_ << " / " << counter_cached_Electron_RECO_SFerr_ << std::endl;;
     std::cout << "Electron_charge (uncached/cached calls): " << counter_uncached_Electron_charge_ << " / " << counter_cached_Electron_charge_ << std::endl;;
     std::cout << "Electron_cleanmask (uncached/cached calls): " << counter_uncached_Electron_cleanmask_ << " / " << counter_cached_Electron_cleanmask_ << std::endl;;
     std::cout << "Electron_convVeto (uncached/cached calls): " << counter_uncached_Electron_convVeto_ << " / " << counter_cached_Electron_convVeto_ << std::endl;;
@@ -5181,6 +5677,10 @@ void Nano::PrintUsage() {
     std::cout << "Electron_cutBased_HLTPreSel (uncached/cached calls): " << counter_uncached_Electron_cutBased_HLTPreSel_ << " / " << counter_cached_Electron_cutBased_HLTPreSel_ << std::endl;;
     std::cout << "Electron_cutBased_Spring15 (uncached/cached calls): " << counter_uncached_Electron_cutBased_Spring15_ << " / " << counter_cached_Electron_cutBased_Spring15_ << std::endl;;
     std::cout << "Electron_cutBased_Sum16 (uncached/cached calls): " << counter_uncached_Electron_cutBased_Sum16_ << " / " << counter_cached_Electron_cutBased_Sum16_ << std::endl;;
+    std::cout << "Electron_dEscaleDown (uncached/cached calls): " << counter_uncached_Electron_dEscaleDown_ << " / " << counter_cached_Electron_dEscaleDown_ << std::endl;;
+    std::cout << "Electron_dEscaleUp (uncached/cached calls): " << counter_uncached_Electron_dEscaleUp_ << " / " << counter_cached_Electron_dEscaleUp_ << std::endl;;
+    std::cout << "Electron_dEsigmaDown (uncached/cached calls): " << counter_uncached_Electron_dEsigmaDown_ << " / " << counter_cached_Electron_dEsigmaDown_ << std::endl;;
+    std::cout << "Electron_dEsigmaUp (uncached/cached calls): " << counter_uncached_Electron_dEsigmaUp_ << " / " << counter_cached_Electron_dEsigmaUp_ << std::endl;;
     std::cout << "Electron_deltaEtaSC (uncached/cached calls): " << counter_uncached_Electron_deltaEtaSC_ << " / " << counter_cached_Electron_deltaEtaSC_ << std::endl;;
     std::cout << "Electron_dr03EcalRecHitSumEt (uncached/cached calls): " << counter_uncached_Electron_dr03EcalRecHitSumEt_ << " / " << counter_cached_Electron_dr03EcalRecHitSumEt_ << std::endl;;
     std::cout << "Electron_dr03HcalDepth1TowerSumEt (uncached/cached calls): " << counter_uncached_Electron_dr03HcalDepth1TowerSumEt_ << " / " << counter_cached_Electron_dr03HcalDepth1TowerSumEt_ << std::endl;;
@@ -5200,6 +5700,7 @@ void Nano::PrintUsage() {
     std::cout << "Electron_ip3d (uncached/cached calls): " << counter_uncached_Electron_ip3d_ << " / " << counter_cached_Electron_ip3d_ << std::endl;;
     std::cout << "Electron_isPFcand (uncached/cached calls): " << counter_uncached_Electron_isPFcand_ << " / " << counter_cached_Electron_isPFcand_ << std::endl;;
     std::cout << "Electron_jetIdx (uncached/cached calls): " << counter_uncached_Electron_jetIdx_ << " / " << counter_cached_Electron_jetIdx_ << std::endl;;
+    std::cout << "Electron_jetNDauCharged (uncached/cached calls): " << counter_uncached_Electron_jetNDauCharged_ << " / " << counter_cached_Electron_jetNDauCharged_ << std::endl;;
     std::cout << "Electron_jetPtRelv2 (uncached/cached calls): " << counter_uncached_Electron_jetPtRelv2_ << " / " << counter_cached_Electron_jetPtRelv2_ << std::endl;;
     std::cout << "Electron_jetRelIso (uncached/cached calls): " << counter_uncached_Electron_jetRelIso_ << " / " << counter_cached_Electron_jetRelIso_ << std::endl;;
     std::cout << "Electron_lostHits (uncached/cached calls): " << counter_uncached_Electron_lostHits_ << " / " << counter_cached_Electron_lostHits_ << std::endl;;
@@ -5249,13 +5750,20 @@ void Nano::PrintUsage() {
     std::cout << "FatJet_btagCMVA (uncached/cached calls): " << counter_uncached_FatJet_btagCMVA_ << " / " << counter_cached_FatJet_btagCMVA_ << std::endl;;
     std::cout << "FatJet_btagCSVV2 (uncached/cached calls): " << counter_uncached_FatJet_btagCSVV2_ << " / " << counter_cached_FatJet_btagCSVV2_ << std::endl;;
     std::cout << "FatJet_btagDDBvL (uncached/cached calls): " << counter_uncached_FatJet_btagDDBvL_ << " / " << counter_cached_FatJet_btagDDBvL_ << std::endl;;
+    std::cout << "FatJet_btagDDBvLV2 (uncached/cached calls): " << counter_uncached_FatJet_btagDDBvLV2_ << " / " << counter_cached_FatJet_btagDDBvLV2_ << std::endl;;
     std::cout << "FatJet_btagDDBvL_noMD (uncached/cached calls): " << counter_uncached_FatJet_btagDDBvL_noMD_ << " / " << counter_cached_FatJet_btagDDBvL_noMD_ << std::endl;;
     std::cout << "FatJet_btagDDCvB (uncached/cached calls): " << counter_uncached_FatJet_btagDDCvB_ << " / " << counter_cached_FatJet_btagDDCvB_ << std::endl;;
+    std::cout << "FatJet_btagDDCvBV2 (uncached/cached calls): " << counter_uncached_FatJet_btagDDCvBV2_ << " / " << counter_cached_FatJet_btagDDCvBV2_ << std::endl;;
     std::cout << "FatJet_btagDDCvB_noMD (uncached/cached calls): " << counter_uncached_FatJet_btagDDCvB_noMD_ << " / " << counter_cached_FatJet_btagDDCvB_noMD_ << std::endl;;
     std::cout << "FatJet_btagDDCvL (uncached/cached calls): " << counter_uncached_FatJet_btagDDCvL_ << " / " << counter_cached_FatJet_btagDDCvL_ << std::endl;;
+    std::cout << "FatJet_btagDDCvLV2 (uncached/cached calls): " << counter_uncached_FatJet_btagDDCvLV2_ << " / " << counter_cached_FatJet_btagDDCvLV2_ << std::endl;;
     std::cout << "FatJet_btagDDCvL_noMD (uncached/cached calls): " << counter_uncached_FatJet_btagDDCvL_noMD_ << " / " << counter_cached_FatJet_btagDDCvL_noMD_ << std::endl;;
     std::cout << "FatJet_btagDeepB (uncached/cached calls): " << counter_uncached_FatJet_btagDeepB_ << " / " << counter_cached_FatJet_btagDeepB_ << std::endl;;
     std::cout << "FatJet_btagHbb (uncached/cached calls): " << counter_uncached_FatJet_btagHbb_ << " / " << counter_cached_FatJet_btagHbb_ << std::endl;;
+    std::cout << "FatJet_corr_JEC (uncached/cached calls): " << counter_uncached_FatJet_corr_JEC_ << " / " << counter_cached_FatJet_corr_JEC_ << std::endl;;
+    std::cout << "FatJet_corr_JER (uncached/cached calls): " << counter_uncached_FatJet_corr_JER_ << " / " << counter_cached_FatJet_corr_JER_ << std::endl;;
+    std::cout << "FatJet_corr_JMR (uncached/cached calls): " << counter_uncached_FatJet_corr_JMR_ << " / " << counter_cached_FatJet_corr_JMR_ << std::endl;;
+    std::cout << "FatJet_corr_JMS (uncached/cached calls): " << counter_uncached_FatJet_corr_JMS_ << " / " << counter_cached_FatJet_corr_JMS_ << std::endl;;
     std::cout << "FatJet_deepTagMD_H4qvsQCD (uncached/cached calls): " << counter_uncached_FatJet_deepTagMD_H4qvsQCD_ << " / " << counter_cached_FatJet_deepTagMD_H4qvsQCD_ << std::endl;;
     std::cout << "FatJet_deepTagMD_HbbvsQCD (uncached/cached calls): " << counter_uncached_FatJet_deepTagMD_HbbvsQCD_ << " / " << counter_cached_FatJet_deepTagMD_HbbvsQCD_ << std::endl;;
     std::cout << "FatJet_deepTagMD_TvsQCD (uncached/cached calls): " << counter_uncached_FatJet_deepTagMD_TvsQCD_ << " / " << counter_cached_FatJet_deepTagMD_TvsQCD_ << std::endl;;
@@ -5279,15 +5787,64 @@ void Nano::PrintUsage() {
     std::cout << "FatJet_jetId (uncached/cached calls): " << counter_uncached_FatJet_jetId_ << " / " << counter_cached_FatJet_jetId_ << std::endl;;
     std::cout << "FatJet_lsf3 (uncached/cached calls): " << counter_uncached_FatJet_lsf3_ << " / " << counter_cached_FatJet_lsf3_ << std::endl;;
     std::cout << "FatJet_mass (uncached/cached calls): " << counter_uncached_FatJet_mass_ << " / " << counter_cached_FatJet_mass_ << std::endl;;
+    std::cout << "FatJet_mass_jerDown (uncached/cached calls): " << counter_uncached_FatJet_mass_jerDown_ << " / " << counter_cached_FatJet_mass_jerDown_ << std::endl;;
+    std::cout << "FatJet_mass_jerUp (uncached/cached calls): " << counter_uncached_FatJet_mass_jerUp_ << " / " << counter_cached_FatJet_mass_jerUp_ << std::endl;;
+    std::cout << "FatJet_mass_jesTotalDown (uncached/cached calls): " << counter_uncached_FatJet_mass_jesTotalDown_ << " / " << counter_cached_FatJet_mass_jesTotalDown_ << std::endl;;
+    std::cout << "FatJet_mass_jesTotalUp (uncached/cached calls): " << counter_uncached_FatJet_mass_jesTotalUp_ << " / " << counter_cached_FatJet_mass_jesTotalUp_ << std::endl;;
+    std::cout << "FatJet_mass_jmrDown (uncached/cached calls): " << counter_uncached_FatJet_mass_jmrDown_ << " / " << counter_cached_FatJet_mass_jmrDown_ << std::endl;;
+    std::cout << "FatJet_mass_jmrUp (uncached/cached calls): " << counter_uncached_FatJet_mass_jmrUp_ << " / " << counter_cached_FatJet_mass_jmrUp_ << std::endl;;
+    std::cout << "FatJet_mass_jmsDown (uncached/cached calls): " << counter_uncached_FatJet_mass_jmsDown_ << " / " << counter_cached_FatJet_mass_jmsDown_ << std::endl;;
+    std::cout << "FatJet_mass_jmsUp (uncached/cached calls): " << counter_uncached_FatJet_mass_jmsUp_ << " / " << counter_cached_FatJet_mass_jmsUp_ << std::endl;;
+    std::cout << "FatJet_mass_nom (uncached/cached calls): " << counter_uncached_FatJet_mass_nom_ << " / " << counter_cached_FatJet_mass_nom_ << std::endl;;
+    std::cout << "FatJet_mass_raw (uncached/cached calls): " << counter_uncached_FatJet_mass_raw_ << " / " << counter_cached_FatJet_mass_raw_ << std::endl;;
     std::cout << "FatJet_msoftdrop (uncached/cached calls): " << counter_uncached_FatJet_msoftdrop_ << " / " << counter_cached_FatJet_msoftdrop_ << std::endl;;
+    std::cout << "FatJet_msoftdrop_corr_JMR (uncached/cached calls): " << counter_uncached_FatJet_msoftdrop_corr_JMR_ << " / " << counter_cached_FatJet_msoftdrop_corr_JMR_ << std::endl;;
+    std::cout << "FatJet_msoftdrop_corr_JMS (uncached/cached calls): " << counter_uncached_FatJet_msoftdrop_corr_JMS_ << " / " << counter_cached_FatJet_msoftdrop_corr_JMS_ << std::endl;;
+    std::cout << "FatJet_msoftdrop_corr_PUPPI (uncached/cached calls): " << counter_uncached_FatJet_msoftdrop_corr_PUPPI_ << " / " << counter_cached_FatJet_msoftdrop_corr_PUPPI_ << std::endl;;
+    std::cout << "FatJet_msoftdrop_jerDown (uncached/cached calls): " << counter_uncached_FatJet_msoftdrop_jerDown_ << " / " << counter_cached_FatJet_msoftdrop_jerDown_ << std::endl;;
+    std::cout << "FatJet_msoftdrop_jerUp (uncached/cached calls): " << counter_uncached_FatJet_msoftdrop_jerUp_ << " / " << counter_cached_FatJet_msoftdrop_jerUp_ << std::endl;;
+    std::cout << "FatJet_msoftdrop_jesTotalDown (uncached/cached calls): " << counter_uncached_FatJet_msoftdrop_jesTotalDown_ << " / " << counter_cached_FatJet_msoftdrop_jesTotalDown_ << std::endl;;
+    std::cout << "FatJet_msoftdrop_jesTotalUp (uncached/cached calls): " << counter_uncached_FatJet_msoftdrop_jesTotalUp_ << " / " << counter_cached_FatJet_msoftdrop_jesTotalUp_ << std::endl;;
+    std::cout << "FatJet_msoftdrop_jmrDown (uncached/cached calls): " << counter_uncached_FatJet_msoftdrop_jmrDown_ << " / " << counter_cached_FatJet_msoftdrop_jmrDown_ << std::endl;;
+    std::cout << "FatJet_msoftdrop_jmrUp (uncached/cached calls): " << counter_uncached_FatJet_msoftdrop_jmrUp_ << " / " << counter_cached_FatJet_msoftdrop_jmrUp_ << std::endl;;
+    std::cout << "FatJet_msoftdrop_jmsDown (uncached/cached calls): " << counter_uncached_FatJet_msoftdrop_jmsDown_ << " / " << counter_cached_FatJet_msoftdrop_jmsDown_ << std::endl;;
+    std::cout << "FatJet_msoftdrop_jmsUp (uncached/cached calls): " << counter_uncached_FatJet_msoftdrop_jmsUp_ << " / " << counter_cached_FatJet_msoftdrop_jmsUp_ << std::endl;;
+    std::cout << "FatJet_msoftdrop_nom (uncached/cached calls): " << counter_uncached_FatJet_msoftdrop_nom_ << " / " << counter_cached_FatJet_msoftdrop_nom_ << std::endl;;
+    std::cout << "FatJet_msoftdrop_raw (uncached/cached calls): " << counter_uncached_FatJet_msoftdrop_raw_ << " / " << counter_cached_FatJet_msoftdrop_raw_ << std::endl;;
+    std::cout << "FatJet_msoftdrop_tau21DDT_jerDown (uncached/cached calls): " << counter_uncached_FatJet_msoftdrop_tau21DDT_jerDown_ << " / " << counter_cached_FatJet_msoftdrop_tau21DDT_jerDown_ << std::endl;;
+    std::cout << "FatJet_msoftdrop_tau21DDT_jerUp (uncached/cached calls): " << counter_uncached_FatJet_msoftdrop_tau21DDT_jerUp_ << " / " << counter_cached_FatJet_msoftdrop_tau21DDT_jerUp_ << std::endl;;
+    std::cout << "FatJet_msoftdrop_tau21DDT_jmrDown (uncached/cached calls): " << counter_uncached_FatJet_msoftdrop_tau21DDT_jmrDown_ << " / " << counter_cached_FatJet_msoftdrop_tau21DDT_jmrDown_ << std::endl;;
+    std::cout << "FatJet_msoftdrop_tau21DDT_jmrUp (uncached/cached calls): " << counter_uncached_FatJet_msoftdrop_tau21DDT_jmrUp_ << " / " << counter_cached_FatJet_msoftdrop_tau21DDT_jmrUp_ << std::endl;;
+    std::cout << "FatJet_msoftdrop_tau21DDT_jmsDown (uncached/cached calls): " << counter_uncached_FatJet_msoftdrop_tau21DDT_jmsDown_ << " / " << counter_cached_FatJet_msoftdrop_tau21DDT_jmsDown_ << std::endl;;
+    std::cout << "FatJet_msoftdrop_tau21DDT_jmsUp (uncached/cached calls): " << counter_uncached_FatJet_msoftdrop_tau21DDT_jmsUp_ << " / " << counter_cached_FatJet_msoftdrop_tau21DDT_jmsUp_ << std::endl;;
+    std::cout << "FatJet_msoftdrop_tau21DDT_nom (uncached/cached calls): " << counter_uncached_FatJet_msoftdrop_tau21DDT_nom_ << " / " << counter_cached_FatJet_msoftdrop_tau21DDT_nom_ << std::endl;;
     std::cout << "FatJet_muonIdx3SJ (uncached/cached calls): " << counter_uncached_FatJet_muonIdx3SJ_ << " / " << counter_cached_FatJet_muonIdx3SJ_ << std::endl;;
     std::cout << "FatJet_n2b1 (uncached/cached calls): " << counter_uncached_FatJet_n2b1_ << " / " << counter_cached_FatJet_n2b1_ << std::endl;;
     std::cout << "FatJet_n3b1 (uncached/cached calls): " << counter_uncached_FatJet_n3b1_ << " / " << counter_cached_FatJet_n3b1_ << std::endl;;
     std::cout << "FatJet_nBHadrons (uncached/cached calls): " << counter_uncached_FatJet_nBHadrons_ << " / " << counter_cached_FatJet_nBHadrons_ << std::endl;;
     std::cout << "FatJet_nCHadrons (uncached/cached calls): " << counter_uncached_FatJet_nCHadrons_ << " / " << counter_cached_FatJet_nCHadrons_ << std::endl;;
+    std::cout << "FatJet_nConstituents (uncached/cached calls): " << counter_uncached_FatJet_nConstituents_ << " / " << counter_cached_FatJet_nConstituents_ << std::endl;;
     std::cout << "FatJet_p4 (uncached/cached calls): " << counter_uncached_FatJet_p4_ << " / " << counter_cached_FatJet_p4_ << std::endl;;
+    std::cout << "FatJet_particleNetMD_QCD (uncached/cached calls): " << counter_uncached_FatJet_particleNetMD_QCD_ << " / " << counter_cached_FatJet_particleNetMD_QCD_ << std::endl;;
+    std::cout << "FatJet_particleNetMD_Xbb (uncached/cached calls): " << counter_uncached_FatJet_particleNetMD_Xbb_ << " / " << counter_cached_FatJet_particleNetMD_Xbb_ << std::endl;;
+    std::cout << "FatJet_particleNetMD_Xcc (uncached/cached calls): " << counter_uncached_FatJet_particleNetMD_Xcc_ << " / " << counter_cached_FatJet_particleNetMD_Xcc_ << std::endl;;
+    std::cout << "FatJet_particleNetMD_Xqq (uncached/cached calls): " << counter_uncached_FatJet_particleNetMD_Xqq_ << " / " << counter_cached_FatJet_particleNetMD_Xqq_ << std::endl;;
+    std::cout << "FatJet_particleNet_H4qvsQCD (uncached/cached calls): " << counter_uncached_FatJet_particleNet_H4qvsQCD_ << " / " << counter_cached_FatJet_particleNet_H4qvsQCD_ << std::endl;;
+    std::cout << "FatJet_particleNet_HbbvsQCD (uncached/cached calls): " << counter_uncached_FatJet_particleNet_HbbvsQCD_ << " / " << counter_cached_FatJet_particleNet_HbbvsQCD_ << std::endl;;
+    std::cout << "FatJet_particleNet_HccvsQCD (uncached/cached calls): " << counter_uncached_FatJet_particleNet_HccvsQCD_ << " / " << counter_cached_FatJet_particleNet_HccvsQCD_ << std::endl;;
+    std::cout << "FatJet_particleNet_QCD (uncached/cached calls): " << counter_uncached_FatJet_particleNet_QCD_ << " / " << counter_cached_FatJet_particleNet_QCD_ << std::endl;;
+    std::cout << "FatJet_particleNet_TvsQCD (uncached/cached calls): " << counter_uncached_FatJet_particleNet_TvsQCD_ << " / " << counter_cached_FatJet_particleNet_TvsQCD_ << std::endl;;
+    std::cout << "FatJet_particleNet_WvsQCD (uncached/cached calls): " << counter_uncached_FatJet_particleNet_WvsQCD_ << " / " << counter_cached_FatJet_particleNet_WvsQCD_ << std::endl;;
+    std::cout << "FatJet_particleNet_ZvsQCD (uncached/cached calls): " << counter_uncached_FatJet_particleNet_ZvsQCD_ << " / " << counter_cached_FatJet_particleNet_ZvsQCD_ << std::endl;;
+    std::cout << "FatJet_particleNet_mass (uncached/cached calls): " << counter_uncached_FatJet_particleNet_mass_ << " / " << counter_cached_FatJet_particleNet_mass_ << std::endl;;
     std::cout << "FatJet_phi (uncached/cached calls): " << counter_uncached_FatJet_phi_ << " / " << counter_cached_FatJet_phi_ << std::endl;;
     std::cout << "FatJet_pt (uncached/cached calls): " << counter_uncached_FatJet_pt_ << " / " << counter_cached_FatJet_pt_ << std::endl;;
+    std::cout << "FatJet_pt_jerDown (uncached/cached calls): " << counter_uncached_FatJet_pt_jerDown_ << " / " << counter_cached_FatJet_pt_jerDown_ << std::endl;;
+    std::cout << "FatJet_pt_jerUp (uncached/cached calls): " << counter_uncached_FatJet_pt_jerUp_ << " / " << counter_cached_FatJet_pt_jerUp_ << std::endl;;
+    std::cout << "FatJet_pt_jesTotalDown (uncached/cached calls): " << counter_uncached_FatJet_pt_jesTotalDown_ << " / " << counter_cached_FatJet_pt_jesTotalDown_ << std::endl;;
+    std::cout << "FatJet_pt_jesTotalUp (uncached/cached calls): " << counter_uncached_FatJet_pt_jesTotalUp_ << " / " << counter_cached_FatJet_pt_jesTotalUp_ << std::endl;;
+    std::cout << "FatJet_pt_nom (uncached/cached calls): " << counter_uncached_FatJet_pt_nom_ << " / " << counter_cached_FatJet_pt_nom_ << std::endl;;
+    std::cout << "FatJet_pt_raw (uncached/cached calls): " << counter_uncached_FatJet_pt_raw_ << " / " << counter_cached_FatJet_pt_raw_ << std::endl;;
     std::cout << "FatJet_rawFactor (uncached/cached calls): " << counter_uncached_FatJet_rawFactor_ << " / " << counter_cached_FatJet_rawFactor_ << std::endl;;
     std::cout << "FatJet_subJetIdx1 (uncached/cached calls): " << counter_uncached_FatJet_subJetIdx1_ << " / " << counter_cached_FatJet_subJetIdx1_ << std::endl;;
     std::cout << "FatJet_subJetIdx2 (uncached/cached calls): " << counter_uncached_FatJet_subJetIdx2_ << " / " << counter_cached_FatJet_subJetIdx2_ << std::endl;;
@@ -5297,6 +5854,7 @@ void Nano::PrintUsage() {
     std::cout << "FatJet_tau4 (uncached/cached calls): " << counter_uncached_FatJet_tau4_ << " / " << counter_cached_FatJet_tau4_ << std::endl;;
     std::cout << "Flag_BadChargedCandidateFilter (uncached/cached calls): " << counter_uncached_Flag_BadChargedCandidateFilter_ << " / " << counter_cached_Flag_BadChargedCandidateFilter_ << std::endl;;
     std::cout << "Flag_BadChargedCandidateSummer16Filter (uncached/cached calls): " << counter_uncached_Flag_BadChargedCandidateSummer16Filter_ << " / " << counter_cached_Flag_BadChargedCandidateSummer16Filter_ << std::endl;;
+    std::cout << "Flag_BadPFMuonDzFilter (uncached/cached calls): " << counter_uncached_Flag_BadPFMuonDzFilter_ << " / " << counter_cached_Flag_BadPFMuonDzFilter_ << std::endl;;
     std::cout << "Flag_BadPFMuonFilter (uncached/cached calls): " << counter_uncached_Flag_BadPFMuonFilter_ << " / " << counter_cached_Flag_BadPFMuonFilter_ << std::endl;;
     std::cout << "Flag_BadPFMuonSummer16Filter (uncached/cached calls): " << counter_uncached_Flag_BadPFMuonSummer16Filter_ << " / " << counter_cached_Flag_BadPFMuonSummer16Filter_ << std::endl;;
     std::cout << "Flag_CSCTightHalo2015Filter (uncached/cached calls): " << counter_uncached_Flag_CSCTightHalo2015Filter_ << " / " << counter_cached_Flag_CSCTightHalo2015Filter_ << std::endl;;
@@ -5317,6 +5875,7 @@ void Nano::PrintUsage() {
     std::cout << "Flag_globalTightHalo2016Filter (uncached/cached calls): " << counter_uncached_Flag_globalTightHalo2016Filter_ << " / " << counter_cached_Flag_globalTightHalo2016Filter_ << std::endl;;
     std::cout << "Flag_goodVertices (uncached/cached calls): " << counter_uncached_Flag_goodVertices_ << " / " << counter_cached_Flag_goodVertices_ << std::endl;;
     std::cout << "Flag_hcalLaserEventFilter (uncached/cached calls): " << counter_uncached_Flag_hcalLaserEventFilter_ << " / " << counter_cached_Flag_hcalLaserEventFilter_ << std::endl;;
+    std::cout << "Flag_hfNoisyHitsFilter (uncached/cached calls): " << counter_uncached_Flag_hfNoisyHitsFilter_ << " / " << counter_cached_Flag_hfNoisyHitsFilter_ << std::endl;;
     std::cout << "Flag_muonBadTrackFilter (uncached/cached calls): " << counter_uncached_Flag_muonBadTrackFilter_ << " / " << counter_cached_Flag_muonBadTrackFilter_ << std::endl;;
     std::cout << "Flag_trkPOGFilters (uncached/cached calls): " << counter_uncached_Flag_trkPOGFilters_ << " / " << counter_cached_Flag_trkPOGFilters_ << std::endl;;
     std::cout << "Flag_trkPOG_logErrorTooManyClusters (uncached/cached calls): " << counter_uncached_Flag_trkPOG_logErrorTooManyClusters_ << " / " << counter_cached_Flag_trkPOG_logErrorTooManyClusters_ << std::endl;;
@@ -5373,6 +5932,10 @@ void Nano::PrintUsage() {
     std::cout << "GenVisTau_phi (uncached/cached calls): " << counter_uncached_GenVisTau_phi_ << " / " << counter_cached_GenVisTau_phi_ << std::endl;;
     std::cout << "GenVisTau_pt (uncached/cached calls): " << counter_uncached_GenVisTau_pt_ << " / " << counter_cached_GenVisTau_pt_ << std::endl;;
     std::cout << "GenVisTau_status (uncached/cached calls): " << counter_uncached_GenVisTau_status_ << " / " << counter_cached_GenVisTau_status_ << std::endl;;
+    std::cout << "GenVtx_t0 (uncached/cached calls): " << counter_uncached_GenVtx_t0_ << " / " << counter_cached_GenVtx_t0_ << std::endl;;
+    std::cout << "GenVtx_x (uncached/cached calls): " << counter_uncached_GenVtx_x_ << " / " << counter_cached_GenVtx_x_ << std::endl;;
+    std::cout << "GenVtx_y (uncached/cached calls): " << counter_uncached_GenVtx_y_ << " / " << counter_cached_GenVtx_y_ << std::endl;;
+    std::cout << "GenVtx_z (uncached/cached calls): " << counter_uncached_GenVtx_z_ << " / " << counter_cached_GenVtx_z_ << std::endl;;
     std::cout << "Generator_binvar (uncached/cached calls): " << counter_uncached_Generator_binvar_ << " / " << counter_cached_Generator_binvar_ << std::endl;;
     std::cout << "Generator_id1 (uncached/cached calls): " << counter_uncached_Generator_id1_ << " / " << counter_cached_Generator_id1_ << std::endl;;
     std::cout << "Generator_id2 (uncached/cached calls): " << counter_uncached_Generator_id2_ << " / " << counter_cached_Generator_id2_ << std::endl;;
@@ -6608,6 +7171,7 @@ void Nano::PrintUsage() {
     std::cout << "HTXS_stage_0 (uncached/cached calls): " << counter_uncached_HTXS_stage_0_ << " / " << counter_cached_HTXS_stage_0_ << std::endl;;
     std::cout << "HTXS_stage_1_pTjet25 (uncached/cached calls): " << counter_uncached_HTXS_stage_1_pTjet25_ << " / " << counter_cached_HTXS_stage_1_pTjet25_ << std::endl;;
     std::cout << "HTXS_stage_1_pTjet30 (uncached/cached calls): " << counter_uncached_HTXS_stage_1_pTjet30_ << " / " << counter_cached_HTXS_stage_1_pTjet30_ << std::endl;;
+    std::cout << "IsoTrack_charge (uncached/cached calls): " << counter_uncached_IsoTrack_charge_ << " / " << counter_cached_IsoTrack_charge_ << std::endl;;
     std::cout << "IsoTrack_dxy (uncached/cached calls): " << counter_uncached_IsoTrack_dxy_ << " / " << counter_cached_IsoTrack_dxy_ << std::endl;;
     std::cout << "IsoTrack_dz (uncached/cached calls): " << counter_uncached_IsoTrack_dz_ << " / " << counter_cached_IsoTrack_dz_ << std::endl;;
     std::cout << "IsoTrack_eta (uncached/cached calls): " << counter_uncached_IsoTrack_eta_ << " / " << counter_cached_IsoTrack_eta_ << std::endl;;
@@ -6629,8 +7193,13 @@ void Nano::PrintUsage() {
     std::cout << "Jet_btagCSVV2 (uncached/cached calls): " << counter_uncached_Jet_btagCSVV2_ << " / " << counter_cached_Jet_btagCSVV2_ << std::endl;;
     std::cout << "Jet_btagDeepB (uncached/cached calls): " << counter_uncached_Jet_btagDeepB_ << " / " << counter_cached_Jet_btagDeepB_ << std::endl;;
     std::cout << "Jet_btagDeepC (uncached/cached calls): " << counter_uncached_Jet_btagDeepC_ << " / " << counter_cached_Jet_btagDeepC_ << std::endl;;
+    std::cout << "Jet_btagDeepCvB (uncached/cached calls): " << counter_uncached_Jet_btagDeepCvB_ << " / " << counter_cached_Jet_btagDeepCvB_ << std::endl;;
+    std::cout << "Jet_btagDeepCvL (uncached/cached calls): " << counter_uncached_Jet_btagDeepCvL_ << " / " << counter_cached_Jet_btagDeepCvL_ << std::endl;;
     std::cout << "Jet_btagDeepFlavB (uncached/cached calls): " << counter_uncached_Jet_btagDeepFlavB_ << " / " << counter_cached_Jet_btagDeepFlavB_ << std::endl;;
     std::cout << "Jet_btagDeepFlavC (uncached/cached calls): " << counter_uncached_Jet_btagDeepFlavC_ << " / " << counter_cached_Jet_btagDeepFlavC_ << std::endl;;
+    std::cout << "Jet_btagDeepFlavCvB (uncached/cached calls): " << counter_uncached_Jet_btagDeepFlavCvB_ << " / " << counter_cached_Jet_btagDeepFlavCvB_ << std::endl;;
+    std::cout << "Jet_btagDeepFlavCvL (uncached/cached calls): " << counter_uncached_Jet_btagDeepFlavCvL_ << " / " << counter_cached_Jet_btagDeepFlavCvL_ << std::endl;;
+    std::cout << "Jet_btagDeepFlavQG (uncached/cached calls): " << counter_uncached_Jet_btagDeepFlavQG_ << " / " << counter_cached_Jet_btagDeepFlavQG_ << std::endl;;
     std::cout << "Jet_cRegCorr (uncached/cached calls): " << counter_uncached_Jet_cRegCorr_ << " / " << counter_cached_Jet_cRegCorr_ << std::endl;;
     std::cout << "Jet_cRegRes (uncached/cached calls): " << counter_uncached_Jet_cRegRes_ << " / " << counter_cached_Jet_cRegRes_ << std::endl;;
     std::cout << "Jet_chEmEF (uncached/cached calls): " << counter_uncached_Jet_chEmEF_ << " / " << counter_cached_Jet_chEmEF_ << std::endl;;
@@ -6645,6 +7214,10 @@ void Nano::PrintUsage() {
     std::cout << "Jet_eta (uncached/cached calls): " << counter_uncached_Jet_eta_ << " / " << counter_cached_Jet_eta_ << std::endl;;
     std::cout << "Jet_genJetIdx (uncached/cached calls): " << counter_uncached_Jet_genJetIdx_ << " / " << counter_cached_Jet_genJetIdx_ << std::endl;;
     std::cout << "Jet_hadronFlavour (uncached/cached calls): " << counter_uncached_Jet_hadronFlavour_ << " / " << counter_cached_Jet_hadronFlavour_ << std::endl;;
+    std::cout << "Jet_hfadjacentEtaStripsSize (uncached/cached calls): " << counter_uncached_Jet_hfadjacentEtaStripsSize_ << " / " << counter_cached_Jet_hfadjacentEtaStripsSize_ << std::endl;;
+    std::cout << "Jet_hfcentralEtaStripSize (uncached/cached calls): " << counter_uncached_Jet_hfcentralEtaStripSize_ << " / " << counter_cached_Jet_hfcentralEtaStripSize_ << std::endl;;
+    std::cout << "Jet_hfsigmaEtaEta (uncached/cached calls): " << counter_uncached_Jet_hfsigmaEtaEta_ << " / " << counter_cached_Jet_hfsigmaEtaEta_ << std::endl;;
+    std::cout << "Jet_hfsigmaPhiPhi (uncached/cached calls): " << counter_uncached_Jet_hfsigmaPhiPhi_ << " / " << counter_cached_Jet_hfsigmaPhiPhi_ << std::endl;;
     std::cout << "Jet_jetId (uncached/cached calls): " << counter_uncached_Jet_jetId_ << " / " << counter_cached_Jet_jetId_ << std::endl;;
     std::cout << "Jet_mass (uncached/cached calls): " << counter_uncached_Jet_mass_ << " / " << counter_cached_Jet_mass_ << std::endl;;
     std::cout << "Jet_muEF (uncached/cached calls): " << counter_uncached_Jet_muEF_ << " / " << counter_cached_Jet_muEF_ << std::endl;;
@@ -6665,6 +7238,14 @@ void Nano::PrintUsage() {
     std::cout << "Jet_qgl (uncached/cached calls): " << counter_uncached_Jet_qgl_ << " / " << counter_cached_Jet_qgl_ << std::endl;;
     std::cout << "Jet_rawFactor (uncached/cached calls): " << counter_uncached_Jet_rawFactor_ << " / " << counter_cached_Jet_rawFactor_ << std::endl;;
     std::cout << "L1PreFiringWeight_Dn (uncached/cached calls): " << counter_uncached_L1PreFiringWeight_Dn_ << " / " << counter_cached_L1PreFiringWeight_Dn_ << std::endl;;
+    std::cout << "L1PreFiringWeight_ECAL_Dn (uncached/cached calls): " << counter_uncached_L1PreFiringWeight_ECAL_Dn_ << " / " << counter_cached_L1PreFiringWeight_ECAL_Dn_ << std::endl;;
+    std::cout << "L1PreFiringWeight_ECAL_Nom (uncached/cached calls): " << counter_uncached_L1PreFiringWeight_ECAL_Nom_ << " / " << counter_cached_L1PreFiringWeight_ECAL_Nom_ << std::endl;;
+    std::cout << "L1PreFiringWeight_ECAL_Up (uncached/cached calls): " << counter_uncached_L1PreFiringWeight_ECAL_Up_ << " / " << counter_cached_L1PreFiringWeight_ECAL_Up_ << std::endl;;
+    std::cout << "L1PreFiringWeight_Muon_Nom (uncached/cached calls): " << counter_uncached_L1PreFiringWeight_Muon_Nom_ << " / " << counter_cached_L1PreFiringWeight_Muon_Nom_ << std::endl;;
+    std::cout << "L1PreFiringWeight_Muon_StatDn (uncached/cached calls): " << counter_uncached_L1PreFiringWeight_Muon_StatDn_ << " / " << counter_cached_L1PreFiringWeight_Muon_StatDn_ << std::endl;;
+    std::cout << "L1PreFiringWeight_Muon_StatUp (uncached/cached calls): " << counter_uncached_L1PreFiringWeight_Muon_StatUp_ << " / " << counter_cached_L1PreFiringWeight_Muon_StatUp_ << std::endl;;
+    std::cout << "L1PreFiringWeight_Muon_SystDn (uncached/cached calls): " << counter_uncached_L1PreFiringWeight_Muon_SystDn_ << " / " << counter_cached_L1PreFiringWeight_Muon_SystDn_ << std::endl;;
+    std::cout << "L1PreFiringWeight_Muon_SystUp (uncached/cached calls): " << counter_uncached_L1PreFiringWeight_Muon_SystUp_ << " / " << counter_cached_L1PreFiringWeight_Muon_SystUp_ << std::endl;;
     std::cout << "L1PreFiringWeight_Nom (uncached/cached calls): " << counter_uncached_L1PreFiringWeight_Nom_ << " / " << counter_cached_L1PreFiringWeight_Nom_ << std::endl;;
     std::cout << "L1PreFiringWeight_Up (uncached/cached calls): " << counter_uncached_L1PreFiringWeight_Up_ << " / " << counter_cached_L1PreFiringWeight_Up_ << std::endl;;
     std::cout << "L1Reco_step (uncached/cached calls): " << counter_uncached_L1Reco_step_ << " / " << counter_cached_L1Reco_step_ << std::endl;;
@@ -6952,6 +7533,7 @@ void Nano::PrintUsage() {
     std::cout << "L1_ETT1600 (uncached/cached calls): " << counter_uncached_L1_ETT1600_ << " / " << counter_cached_L1_ETT1600_ << std::endl;;
     std::cout << "L1_ETT2000 (uncached/cached calls): " << counter_uncached_L1_ETT2000_ << " / " << counter_cached_L1_ETT2000_ << std::endl;;
     std::cout << "L1_ETT25 (uncached/cached calls): " << counter_uncached_L1_ETT25_ << " / " << counter_cached_L1_ETT25_ << std::endl;;
+    std::cout << "L1_ETT35_BptxAND (uncached/cached calls): " << counter_uncached_L1_ETT35_BptxAND_ << " / " << counter_cached_L1_ETT35_BptxAND_ << std::endl;;
     std::cout << "L1_ETT40_BptxAND (uncached/cached calls): " << counter_uncached_L1_ETT40_BptxAND_ << " / " << counter_cached_L1_ETT40_BptxAND_ << std::endl;;
     std::cout << "L1_ETT50_BptxAND (uncached/cached calls): " << counter_uncached_L1_ETT50_BptxAND_ << " / " << counter_cached_L1_ETT50_BptxAND_ << std::endl;;
     std::cout << "L1_ETT55_BptxAND (uncached/cached calls): " << counter_uncached_L1_ETT55_BptxAND_ << " / " << counter_cached_L1_ETT55_BptxAND_ << std::endl;;
@@ -7306,6 +7888,9 @@ void Nano::PrintUsage() {
     std::cout << "L1_SingleJet90er2p5 (uncached/cached calls): " << counter_uncached_L1_SingleJet90er2p5_ << " / " << counter_cached_L1_SingleJet90er2p5_ << std::endl;;
     std::cout << "L1_SingleJetC20_NotBptxOR (uncached/cached calls): " << counter_uncached_L1_SingleJetC20_NotBptxOR_ << " / " << counter_cached_L1_SingleJetC20_NotBptxOR_ << std::endl;;
     std::cout << "L1_SingleJetC20_NotBptxOR_3BX (uncached/cached calls): " << counter_uncached_L1_SingleJetC20_NotBptxOR_3BX_ << " / " << counter_cached_L1_SingleJetC20_NotBptxOR_3BX_ << std::endl;;
+    std::cout << "L1_SingleJetC32_NotBptxOR (uncached/cached calls): " << counter_uncached_L1_SingleJetC32_NotBptxOR_ << " / " << counter_cached_L1_SingleJetC32_NotBptxOR_ << std::endl;;
+    std::cout << "L1_SingleJetC32_NotBptxOR_3BX (uncached/cached calls): " << counter_uncached_L1_SingleJetC32_NotBptxOR_3BX_ << " / " << counter_cached_L1_SingleJetC32_NotBptxOR_3BX_ << std::endl;;
+    std::cout << "L1_SingleJetC36_NotBptxOR_3BX (uncached/cached calls): " << counter_uncached_L1_SingleJetC36_NotBptxOR_3BX_ << " / " << counter_cached_L1_SingleJetC36_NotBptxOR_3BX_ << std::endl;;
     std::cout << "L1_SingleJetC40_NotBptxOR_3BX (uncached/cached calls): " << counter_uncached_L1_SingleJetC40_NotBptxOR_3BX_ << " / " << counter_cached_L1_SingleJetC40_NotBptxOR_3BX_ << std::endl;;
     std::cout << "L1_SingleJetC40_NotBptxOR_5BX (uncached/cached calls): " << counter_uncached_L1_SingleJetC40_NotBptxOR_5BX_ << " / " << counter_cached_L1_SingleJetC40_NotBptxOR_5BX_ << std::endl;;
     std::cout << "L1_SingleLooseIsoEG28er1p5 (uncached/cached calls): " << counter_uncached_L1_SingleLooseIsoEG28er1p5_ << " / " << counter_cached_L1_SingleLooseIsoEG28er1p5_ << std::endl;;
@@ -7419,6 +8004,7 @@ void Nano::PrintUsage() {
     std::cout << "L1_TripleMu_5_5_3 (uncached/cached calls): " << counter_uncached_L1_TripleMu_5_5_3_ << " / " << counter_cached_L1_TripleMu_5_5_3_ << std::endl;;
     std::cout << "L1_UnpairedBunchBptxMinus (uncached/cached calls): " << counter_uncached_L1_UnpairedBunchBptxMinus_ << " / " << counter_cached_L1_UnpairedBunchBptxMinus_ << std::endl;;
     std::cout << "L1_UnpairedBunchBptxPlus (uncached/cached calls): " << counter_uncached_L1_UnpairedBunchBptxPlus_ << " / " << counter_cached_L1_UnpairedBunchBptxPlus_ << std::endl;;
+    std::cout << "L1_UnprefireableEvent (uncached/cached calls): " << counter_uncached_L1_UnprefireableEvent_ << " / " << counter_cached_L1_UnprefireableEvent_ << std::endl;;
     std::cout << "L1_ZeroBias (uncached/cached calls): " << counter_uncached_L1_ZeroBias_ << " / " << counter_cached_L1_ZeroBias_ << std::endl;;
     std::cout << "L1_ZeroBias_FirstCollidingBunch (uncached/cached calls): " << counter_uncached_L1_ZeroBias_FirstCollidingBunch_ << " / " << counter_cached_L1_ZeroBias_FirstCollidingBunch_ << std::endl;;
     std::cout << "L1_ZeroBias_copy (uncached/cached calls): " << counter_uncached_L1_ZeroBias_copy_ << " / " << counter_cached_L1_ZeroBias_copy_ << std::endl;;
@@ -7447,6 +8033,36 @@ void Nano::PrintUsage() {
     std::cout << "LHE_NpNLO (uncached/cached calls): " << counter_uncached_LHE_NpNLO_ << " / " << counter_cached_LHE_NpNLO_ << std::endl;;
     std::cout << "LHE_Nuds (uncached/cached calls): " << counter_uncached_LHE_Nuds_ << " / " << counter_cached_LHE_Nuds_ << std::endl;;
     std::cout << "LHE_Vpt (uncached/cached calls): " << counter_uncached_LHE_Vpt_ << " / " << counter_cached_LHE_Vpt_ << std::endl;;
+    std::cout << "LowPtElectron_ID (uncached/cached calls): " << counter_uncached_LowPtElectron_ID_ << " / " << counter_cached_LowPtElectron_ID_ << std::endl;;
+    std::cout << "LowPtElectron_charge (uncached/cached calls): " << counter_uncached_LowPtElectron_charge_ << " / " << counter_cached_LowPtElectron_charge_ << std::endl;;
+    std::cout << "LowPtElectron_convVeto (uncached/cached calls): " << counter_uncached_LowPtElectron_convVeto_ << " / " << counter_cached_LowPtElectron_convVeto_ << std::endl;;
+    std::cout << "LowPtElectron_convVtxRadius (uncached/cached calls): " << counter_uncached_LowPtElectron_convVtxRadius_ << " / " << counter_cached_LowPtElectron_convVtxRadius_ << std::endl;;
+    std::cout << "LowPtElectron_convWP (uncached/cached calls): " << counter_uncached_LowPtElectron_convWP_ << " / " << counter_cached_LowPtElectron_convWP_ << std::endl;;
+    std::cout << "LowPtElectron_deltaEtaSC (uncached/cached calls): " << counter_uncached_LowPtElectron_deltaEtaSC_ << " / " << counter_cached_LowPtElectron_deltaEtaSC_ << std::endl;;
+    std::cout << "LowPtElectron_dxy (uncached/cached calls): " << counter_uncached_LowPtElectron_dxy_ << " / " << counter_cached_LowPtElectron_dxy_ << std::endl;;
+    std::cout << "LowPtElectron_dxyErr (uncached/cached calls): " << counter_uncached_LowPtElectron_dxyErr_ << " / " << counter_cached_LowPtElectron_dxyErr_ << std::endl;;
+    std::cout << "LowPtElectron_dz (uncached/cached calls): " << counter_uncached_LowPtElectron_dz_ << " / " << counter_cached_LowPtElectron_dz_ << std::endl;;
+    std::cout << "LowPtElectron_dzErr (uncached/cached calls): " << counter_uncached_LowPtElectron_dzErr_ << " / " << counter_cached_LowPtElectron_dzErr_ << std::endl;;
+    std::cout << "LowPtElectron_eInvMinusPInv (uncached/cached calls): " << counter_uncached_LowPtElectron_eInvMinusPInv_ << " / " << counter_cached_LowPtElectron_eInvMinusPInv_ << std::endl;;
+    std::cout << "LowPtElectron_embeddedID (uncached/cached calls): " << counter_uncached_LowPtElectron_embeddedID_ << " / " << counter_cached_LowPtElectron_embeddedID_ << std::endl;;
+    std::cout << "LowPtElectron_energyErr (uncached/cached calls): " << counter_uncached_LowPtElectron_energyErr_ << " / " << counter_cached_LowPtElectron_energyErr_ << std::endl;;
+    std::cout << "LowPtElectron_eta (uncached/cached calls): " << counter_uncached_LowPtElectron_eta_ << " / " << counter_cached_LowPtElectron_eta_ << std::endl;;
+    std::cout << "LowPtElectron_genPartFlav (uncached/cached calls): " << counter_uncached_LowPtElectron_genPartFlav_ << " / " << counter_cached_LowPtElectron_genPartFlav_ << std::endl;;
+    std::cout << "LowPtElectron_genPartIdx (uncached/cached calls): " << counter_uncached_LowPtElectron_genPartIdx_ << " / " << counter_cached_LowPtElectron_genPartIdx_ << std::endl;;
+    std::cout << "LowPtElectron_hoe (uncached/cached calls): " << counter_uncached_LowPtElectron_hoe_ << " / " << counter_cached_LowPtElectron_hoe_ << std::endl;;
+    std::cout << "LowPtElectron_lostHits (uncached/cached calls): " << counter_uncached_LowPtElectron_lostHits_ << " / " << counter_cached_LowPtElectron_lostHits_ << std::endl;;
+    std::cout << "LowPtElectron_mass (uncached/cached calls): " << counter_uncached_LowPtElectron_mass_ << " / " << counter_cached_LowPtElectron_mass_ << std::endl;;
+    std::cout << "LowPtElectron_miniPFRelIso_all (uncached/cached calls): " << counter_uncached_LowPtElectron_miniPFRelIso_all_ << " / " << counter_cached_LowPtElectron_miniPFRelIso_all_ << std::endl;;
+    std::cout << "LowPtElectron_miniPFRelIso_chg (uncached/cached calls): " << counter_uncached_LowPtElectron_miniPFRelIso_chg_ << " / " << counter_cached_LowPtElectron_miniPFRelIso_chg_ << std::endl;;
+    std::cout << "LowPtElectron_p4 (uncached/cached calls): " << counter_uncached_LowPtElectron_p4_ << " / " << counter_cached_LowPtElectron_p4_ << std::endl;;
+    std::cout << "LowPtElectron_pdgId (uncached/cached calls): " << counter_uncached_LowPtElectron_pdgId_ << " / " << counter_cached_LowPtElectron_pdgId_ << std::endl;;
+    std::cout << "LowPtElectron_phi (uncached/cached calls): " << counter_uncached_LowPtElectron_phi_ << " / " << counter_cached_LowPtElectron_phi_ << std::endl;;
+    std::cout << "LowPtElectron_pt (uncached/cached calls): " << counter_uncached_LowPtElectron_pt_ << " / " << counter_cached_LowPtElectron_pt_ << std::endl;;
+    std::cout << "LowPtElectron_ptbiased (uncached/cached calls): " << counter_uncached_LowPtElectron_ptbiased_ << " / " << counter_cached_LowPtElectron_ptbiased_ << std::endl;;
+    std::cout << "LowPtElectron_r9 (uncached/cached calls): " << counter_uncached_LowPtElectron_r9_ << " / " << counter_cached_LowPtElectron_r9_ << std::endl;;
+    std::cout << "LowPtElectron_scEtOverPt (uncached/cached calls): " << counter_uncached_LowPtElectron_scEtOverPt_ << " / " << counter_cached_LowPtElectron_scEtOverPt_ << std::endl;;
+    std::cout << "LowPtElectron_sieie (uncached/cached calls): " << counter_uncached_LowPtElectron_sieie_ << " / " << counter_cached_LowPtElectron_sieie_ << std::endl;;
+    std::cout << "LowPtElectron_unbiased (uncached/cached calls): " << counter_uncached_LowPtElectron_unbiased_ << " / " << counter_cached_LowPtElectron_unbiased_ << std::endl;;
     std::cout << "METFixEE2017_MetUnclustEnUpDeltaX (uncached/cached calls): " << counter_uncached_METFixEE2017_MetUnclustEnUpDeltaX_ << " / " << counter_cached_METFixEE2017_MetUnclustEnUpDeltaX_ << std::endl;;
     std::cout << "METFixEE2017_MetUnclustEnUpDeltaY (uncached/cached calls): " << counter_uncached_METFixEE2017_MetUnclustEnUpDeltaY_ << " / " << counter_cached_METFixEE2017_MetUnclustEnUpDeltaY_ << std::endl;;
     std::cout << "METFixEE2017_covXX (uncached/cached calls): " << counter_uncached_METFixEE2017_covXX_ << " / " << counter_cached_METFixEE2017_covXX_ << std::endl;;
@@ -7469,8 +8085,47 @@ void Nano::PrintUsage() {
     std::cout << "MET_significance (uncached/cached calls): " << counter_uncached_MET_significance_ << " / " << counter_cached_MET_significance_ << std::endl;;
     std::cout << "MET_sumEt (uncached/cached calls): " << counter_uncached_MET_sumEt_ << " / " << counter_cached_MET_sumEt_ << std::endl;;
     std::cout << "MET_sumPtUnclustered (uncached/cached calls): " << counter_uncached_MET_sumPtUnclustered_ << " / " << counter_cached_MET_sumPtUnclustered_ << std::endl;;
+    std::cout << "Muon_CutBased_HighPtID_SF (uncached/cached calls): " << counter_uncached_Muon_CutBased_HighPtID_SF_ << " / " << counter_cached_Muon_CutBased_HighPtID_SF_ << std::endl;;
+    std::cout << "Muon_CutBased_HighPtID_SFerr (uncached/cached calls): " << counter_uncached_Muon_CutBased_HighPtID_SFerr_ << " / " << counter_cached_Muon_CutBased_HighPtID_SFerr_ << std::endl;;
+    std::cout << "Muon_CutBased_LooseID_SF (uncached/cached calls): " << counter_uncached_Muon_CutBased_LooseID_SF_ << " / " << counter_cached_Muon_CutBased_LooseID_SF_ << std::endl;;
+    std::cout << "Muon_CutBased_LooseID_SFerr (uncached/cached calls): " << counter_uncached_Muon_CutBased_LooseID_SFerr_ << " / " << counter_cached_Muon_CutBased_LooseID_SFerr_ << std::endl;;
+    std::cout << "Muon_CutBased_MediumID_SF (uncached/cached calls): " << counter_uncached_Muon_CutBased_MediumID_SF_ << " / " << counter_cached_Muon_CutBased_MediumID_SF_ << std::endl;;
+    std::cout << "Muon_CutBased_MediumID_SFerr (uncached/cached calls): " << counter_uncached_Muon_CutBased_MediumID_SFerr_ << " / " << counter_cached_Muon_CutBased_MediumID_SFerr_ << std::endl;;
+    std::cout << "Muon_CutBased_MediumPromptID_SF (uncached/cached calls): " << counter_uncached_Muon_CutBased_MediumPromptID_SF_ << " / " << counter_cached_Muon_CutBased_MediumPromptID_SF_ << std::endl;;
+    std::cout << "Muon_CutBased_MediumPromptID_SFerr (uncached/cached calls): " << counter_uncached_Muon_CutBased_MediumPromptID_SFerr_ << " / " << counter_cached_Muon_CutBased_MediumPromptID_SFerr_ << std::endl;;
+    std::cout << "Muon_CutBased_SoftID_SF (uncached/cached calls): " << counter_uncached_Muon_CutBased_SoftID_SF_ << " / " << counter_cached_Muon_CutBased_SoftID_SF_ << std::endl;;
+    std::cout << "Muon_CutBased_SoftID_SFerr (uncached/cached calls): " << counter_uncached_Muon_CutBased_SoftID_SFerr_ << " / " << counter_cached_Muon_CutBased_SoftID_SFerr_ << std::endl;;
+    std::cout << "Muon_CutBased_TightID_SF (uncached/cached calls): " << counter_uncached_Muon_CutBased_TightID_SF_ << " / " << counter_cached_Muon_CutBased_TightID_SF_ << std::endl;;
+    std::cout << "Muon_CutBased_TightID_SFerr (uncached/cached calls): " << counter_uncached_Muon_CutBased_TightID_SFerr_ << " / " << counter_cached_Muon_CutBased_TightID_SFerr_ << std::endl;;
+    std::cout << "Muon_CutBased_TrkHighPtID_SF (uncached/cached calls): " << counter_uncached_Muon_CutBased_TrkHighPtID_SF_ << " / " << counter_cached_Muon_CutBased_TrkHighPtID_SF_ << std::endl;;
+    std::cout << "Muon_CutBased_TrkHighPtID_SFerr (uncached/cached calls): " << counter_uncached_Muon_CutBased_TrkHighPtID_SFerr_ << " / " << counter_cached_Muon_CutBased_TrkHighPtID_SFerr_ << std::endl;;
+    std::cout << "Muon_LooseRelIso_LooseID_SF (uncached/cached calls): " << counter_uncached_Muon_LooseRelIso_LooseID_SF_ << " / " << counter_cached_Muon_LooseRelIso_LooseID_SF_ << std::endl;;
+    std::cout << "Muon_LooseRelIso_LooseID_SFerr (uncached/cached calls): " << counter_uncached_Muon_LooseRelIso_LooseID_SFerr_ << " / " << counter_cached_Muon_LooseRelIso_LooseID_SFerr_ << std::endl;;
+    std::cout << "Muon_LooseRelIso_MediumID_SF (uncached/cached calls): " << counter_uncached_Muon_LooseRelIso_MediumID_SF_ << " / " << counter_cached_Muon_LooseRelIso_MediumID_SF_ << std::endl;;
+    std::cout << "Muon_LooseRelIso_MediumID_SFerr (uncached/cached calls): " << counter_uncached_Muon_LooseRelIso_MediumID_SFerr_ << " / " << counter_cached_Muon_LooseRelIso_MediumID_SFerr_ << std::endl;;
+    std::cout << "Muon_LooseRelIso_MediumPromptID_SF (uncached/cached calls): " << counter_uncached_Muon_LooseRelIso_MediumPromptID_SF_ << " / " << counter_cached_Muon_LooseRelIso_MediumPromptID_SF_ << std::endl;;
+    std::cout << "Muon_LooseRelIso_MediumPromptID_SFerr (uncached/cached calls): " << counter_uncached_Muon_LooseRelIso_MediumPromptID_SFerr_ << " / " << counter_cached_Muon_LooseRelIso_MediumPromptID_SFerr_ << std::endl;;
+    std::cout << "Muon_LooseRelIso_TightIDandIPCut_SF (uncached/cached calls): " << counter_uncached_Muon_LooseRelIso_TightIDandIPCut_SF_ << " / " << counter_cached_Muon_LooseRelIso_TightIDandIPCut_SF_ << std::endl;;
+    std::cout << "Muon_LooseRelIso_TightIDandIPCut_SFerr (uncached/cached calls): " << counter_uncached_Muon_LooseRelIso_TightIDandIPCut_SFerr_ << " / " << counter_cached_Muon_LooseRelIso_TightIDandIPCut_SFerr_ << std::endl;;
+    std::cout << "Muon_LooseRelTkIso_HighPtIDandIPCut_SF (uncached/cached calls): " << counter_uncached_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_ << " / " << counter_cached_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_ << std::endl;;
+    std::cout << "Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr (uncached/cached calls): " << counter_uncached_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_ << " / " << counter_cached_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_ << std::endl;;
+    std::cout << "Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF (uncached/cached calls): " << counter_uncached_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_ << " / " << counter_cached_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_ << std::endl;;
+    std::cout << "Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr (uncached/cached calls): " << counter_uncached_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_ << " / " << counter_cached_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_ << std::endl;;
+    std::cout << "Muon_TightRelIso_MediumID_SF (uncached/cached calls): " << counter_uncached_Muon_TightRelIso_MediumID_SF_ << " / " << counter_cached_Muon_TightRelIso_MediumID_SF_ << std::endl;;
+    std::cout << "Muon_TightRelIso_MediumID_SFerr (uncached/cached calls): " << counter_uncached_Muon_TightRelIso_MediumID_SFerr_ << " / " << counter_cached_Muon_TightRelIso_MediumID_SFerr_ << std::endl;;
+    std::cout << "Muon_TightRelIso_MediumPromptID_SF (uncached/cached calls): " << counter_uncached_Muon_TightRelIso_MediumPromptID_SF_ << " / " << counter_cached_Muon_TightRelIso_MediumPromptID_SF_ << std::endl;;
+    std::cout << "Muon_TightRelIso_MediumPromptID_SFerr (uncached/cached calls): " << counter_uncached_Muon_TightRelIso_MediumPromptID_SFerr_ << " / " << counter_cached_Muon_TightRelIso_MediumPromptID_SFerr_ << std::endl;;
+    std::cout << "Muon_TightRelIso_TightIDandIPCut_SF (uncached/cached calls): " << counter_uncached_Muon_TightRelIso_TightIDandIPCut_SF_ << " / " << counter_cached_Muon_TightRelIso_TightIDandIPCut_SF_ << std::endl;;
+    std::cout << "Muon_TightRelIso_TightIDandIPCut_SFerr (uncached/cached calls): " << counter_uncached_Muon_TightRelIso_TightIDandIPCut_SFerr_ << " / " << counter_cached_Muon_TightRelIso_TightIDandIPCut_SFerr_ << std::endl;;
+    std::cout << "Muon_TightRelTkIso_HighPtIDandIPCut_SF (uncached/cached calls): " << counter_uncached_Muon_TightRelTkIso_HighPtIDandIPCut_SF_ << " / " << counter_cached_Muon_TightRelTkIso_HighPtIDandIPCut_SF_ << std::endl;;
+    std::cout << "Muon_TightRelTkIso_HighPtIDandIPCut_SFerr (uncached/cached calls): " << counter_uncached_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_ << " / " << counter_cached_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_ << std::endl;;
+    std::cout << "Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF (uncached/cached calls): " << counter_uncached_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_ << " / " << counter_cached_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_ << std::endl;;
+    std::cout << "Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr (uncached/cached calls): " << counter_uncached_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_ << " / " << counter_cached_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_ << std::endl;;
     std::cout << "Muon_charge (uncached/cached calls): " << counter_uncached_Muon_charge_ << " / " << counter_cached_Muon_charge_ << std::endl;;
     std::cout << "Muon_cleanmask (uncached/cached calls): " << counter_uncached_Muon_cleanmask_ << " / " << counter_cached_Muon_cleanmask_ << std::endl;;
+    std::cout << "Muon_correctedDown_pt (uncached/cached calls): " << counter_uncached_Muon_correctedDown_pt_ << " / " << counter_cached_Muon_correctedDown_pt_ << std::endl;;
+    std::cout << "Muon_correctedUp_pt (uncached/cached calls): " << counter_uncached_Muon_correctedUp_pt_ << " / " << counter_cached_Muon_correctedUp_pt_ << std::endl;;
+    std::cout << "Muon_corrected_pt (uncached/cached calls): " << counter_uncached_Muon_corrected_pt_ << " / " << counter_cached_Muon_corrected_pt_ << std::endl;;
     std::cout << "Muon_dxy (uncached/cached calls): " << counter_uncached_Muon_dxy_ << " / " << counter_cached_Muon_dxy_ << std::endl;;
     std::cout << "Muon_dxyErr (uncached/cached calls): " << counter_uncached_Muon_dxyErr_ << " / " << counter_cached_Muon_dxyErr_ << std::endl;;
     std::cout << "Muon_dxybs (uncached/cached calls): " << counter_uncached_Muon_dxybs_ << " / " << counter_cached_Muon_dxybs_ << std::endl;;
@@ -7486,8 +8141,10 @@ void Nano::PrintUsage() {
     std::cout << "Muon_ip3d (uncached/cached calls): " << counter_uncached_Muon_ip3d_ << " / " << counter_cached_Muon_ip3d_ << std::endl;;
     std::cout << "Muon_isGlobal (uncached/cached calls): " << counter_uncached_Muon_isGlobal_ << " / " << counter_cached_Muon_isGlobal_ << std::endl;;
     std::cout << "Muon_isPFcand (uncached/cached calls): " << counter_uncached_Muon_isPFcand_ << " / " << counter_cached_Muon_isPFcand_ << std::endl;;
+    std::cout << "Muon_isStandalone (uncached/cached calls): " << counter_uncached_Muon_isStandalone_ << " / " << counter_cached_Muon_isStandalone_ << std::endl;;
     std::cout << "Muon_isTracker (uncached/cached calls): " << counter_uncached_Muon_isTracker_ << " / " << counter_cached_Muon_isTracker_ << std::endl;;
     std::cout << "Muon_jetIdx (uncached/cached calls): " << counter_uncached_Muon_jetIdx_ << " / " << counter_cached_Muon_jetIdx_ << std::endl;;
+    std::cout << "Muon_jetNDauCharged (uncached/cached calls): " << counter_uncached_Muon_jetNDauCharged_ << " / " << counter_cached_Muon_jetNDauCharged_ << std::endl;;
     std::cout << "Muon_jetPtRelv2 (uncached/cached calls): " << counter_uncached_Muon_jetPtRelv2_ << " / " << counter_cached_Muon_jetPtRelv2_ << std::endl;;
     std::cout << "Muon_jetRelIso (uncached/cached calls): " << counter_uncached_Muon_jetRelIso_ << " / " << counter_cached_Muon_jetRelIso_ << std::endl;;
     std::cout << "Muon_looseId (uncached/cached calls): " << counter_uncached_Muon_looseId_ << " / " << counter_cached_Muon_looseId_ << std::endl;;
@@ -7500,6 +8157,7 @@ void Nano::PrintUsage() {
     std::cout << "Muon_multiIsoId (uncached/cached calls): " << counter_uncached_Muon_multiIsoId_ << " / " << counter_cached_Muon_multiIsoId_ << std::endl;;
     std::cout << "Muon_mvaId (uncached/cached calls): " << counter_uncached_Muon_mvaId_ << " / " << counter_cached_Muon_mvaId_ << std::endl;;
     std::cout << "Muon_mvaLowPt (uncached/cached calls): " << counter_uncached_Muon_mvaLowPt_ << " / " << counter_cached_Muon_mvaLowPt_ << std::endl;;
+    std::cout << "Muon_mvaLowPtId (uncached/cached calls): " << counter_uncached_Muon_mvaLowPtId_ << " / " << counter_cached_Muon_mvaLowPtId_ << std::endl;;
     std::cout << "Muon_mvaTTH (uncached/cached calls): " << counter_uncached_Muon_mvaTTH_ << " / " << counter_cached_Muon_mvaTTH_ << std::endl;;
     std::cout << "Muon_nStations (uncached/cached calls): " << counter_uncached_Muon_nStations_ << " / " << counter_cached_Muon_nStations_ << std::endl;;
     std::cout << "Muon_nTrackerLayers (uncached/cached calls): " << counter_uncached_Muon_nTrackerLayers_ << " / " << counter_cached_Muon_nTrackerLayers_ << std::endl;;
@@ -7512,6 +8170,7 @@ void Nano::PrintUsage() {
     std::cout << "Muon_phi (uncached/cached calls): " << counter_uncached_Muon_phi_ << " / " << counter_cached_Muon_phi_ << std::endl;;
     std::cout << "Muon_pt (uncached/cached calls): " << counter_uncached_Muon_pt_ << " / " << counter_cached_Muon_pt_ << std::endl;;
     std::cout << "Muon_ptErr (uncached/cached calls): " << counter_uncached_Muon_ptErr_ << " / " << counter_cached_Muon_ptErr_ << std::endl;;
+    std::cout << "Muon_puppiIsoId (uncached/cached calls): " << counter_uncached_Muon_puppiIsoId_ << " / " << counter_cached_Muon_puppiIsoId_ << std::endl;;
     std::cout << "Muon_segmentComp (uncached/cached calls): " << counter_uncached_Muon_segmentComp_ << " / " << counter_cached_Muon_segmentComp_ << std::endl;;
     std::cout << "Muon_sip3d (uncached/cached calls): " << counter_uncached_Muon_sip3d_ << " / " << counter_cached_Muon_sip3d_ << std::endl;;
     std::cout << "Muon_softId (uncached/cached calls): " << counter_uncached_Muon_softId_ << " / " << counter_cached_Muon_softId_ << std::endl;;
@@ -7539,6 +8198,10 @@ void Nano::PrintUsage() {
     std::cout << "Photon_cutBased (uncached/cached calls): " << counter_uncached_Photon_cutBased_ << " / " << counter_cached_Photon_cutBased_ << std::endl;;
     std::cout << "Photon_cutBased_Fall17V1Bitmap (uncached/cached calls): " << counter_uncached_Photon_cutBased_Fall17V1Bitmap_ << " / " << counter_cached_Photon_cutBased_Fall17V1Bitmap_ << std::endl;;
     std::cout << "Photon_cutBased_Spring16V2p2 (uncached/cached calls): " << counter_uncached_Photon_cutBased_Spring16V2p2_ << " / " << counter_cached_Photon_cutBased_Spring16V2p2_ << std::endl;;
+    std::cout << "Photon_dEscaleDown (uncached/cached calls): " << counter_uncached_Photon_dEscaleDown_ << " / " << counter_cached_Photon_dEscaleDown_ << std::endl;;
+    std::cout << "Photon_dEscaleUp (uncached/cached calls): " << counter_uncached_Photon_dEscaleUp_ << " / " << counter_cached_Photon_dEscaleUp_ << std::endl;;
+    std::cout << "Photon_dEsigmaDown (uncached/cached calls): " << counter_uncached_Photon_dEsigmaDown_ << " / " << counter_cached_Photon_dEsigmaDown_ << std::endl;;
+    std::cout << "Photon_dEsigmaUp (uncached/cached calls): " << counter_uncached_Photon_dEsigmaUp_ << " / " << counter_cached_Photon_dEsigmaUp_ << std::endl;;
     std::cout << "Photon_eCorr (uncached/cached calls): " << counter_uncached_Photon_eCorr_ << " / " << counter_cached_Photon_eCorr_ << std::endl;;
     std::cout << "Photon_electronIdx (uncached/cached calls): " << counter_uncached_Photon_electronIdx_ << " / " << counter_cached_Photon_electronIdx_ << std::endl;;
     std::cout << "Photon_electronVeto (uncached/cached calls): " << counter_uncached_Photon_electronVeto_ << " / " << counter_cached_Photon_electronVeto_ << std::endl;;
@@ -7576,12 +8239,23 @@ void Nano::PrintUsage() {
     std::cout << "Pileup_pudensity (uncached/cached calls): " << counter_uncached_Pileup_pudensity_ << " / " << counter_cached_Pileup_pudensity_ << std::endl;;
     std::cout << "Pileup_sumEOOT (uncached/cached calls): " << counter_uncached_Pileup_sumEOOT_ << " / " << counter_cached_Pileup_sumEOOT_ << std::endl;;
     std::cout << "Pileup_sumLOOT (uncached/cached calls): " << counter_uncached_Pileup_sumLOOT_ << " / " << counter_cached_Pileup_sumLOOT_ << std::endl;;
+    std::cout << "PrefireWeight (uncached/cached calls): " << counter_uncached_PrefireWeight_ << " / " << counter_cached_PrefireWeight_ << std::endl;;
+    std::cout << "PrefireWeight_Down (uncached/cached calls): " << counter_uncached_PrefireWeight_Down_ << " / " << counter_cached_PrefireWeight_Down_ << std::endl;;
+    std::cout << "PrefireWeight_Up (uncached/cached calls): " << counter_uncached_PrefireWeight_Up_ << " / " << counter_cached_PrefireWeight_Up_ << std::endl;;
     std::cout << "PuppiMET_phi (uncached/cached calls): " << counter_uncached_PuppiMET_phi_ << " / " << counter_cached_PuppiMET_phi_ << std::endl;;
+    std::cout << "PuppiMET_phiJERDown (uncached/cached calls): " << counter_uncached_PuppiMET_phiJERDown_ << " / " << counter_cached_PuppiMET_phiJERDown_ << std::endl;;
     std::cout << "PuppiMET_phiJERUp (uncached/cached calls): " << counter_uncached_PuppiMET_phiJERUp_ << " / " << counter_cached_PuppiMET_phiJERUp_ << std::endl;;
+    std::cout << "PuppiMET_phiJESDown (uncached/cached calls): " << counter_uncached_PuppiMET_phiJESDown_ << " / " << counter_cached_PuppiMET_phiJESDown_ << std::endl;;
     std::cout << "PuppiMET_phiJESUp (uncached/cached calls): " << counter_uncached_PuppiMET_phiJESUp_ << " / " << counter_cached_PuppiMET_phiJESUp_ << std::endl;;
+    std::cout << "PuppiMET_phiUnclusteredDown (uncached/cached calls): " << counter_uncached_PuppiMET_phiUnclusteredDown_ << " / " << counter_cached_PuppiMET_phiUnclusteredDown_ << std::endl;;
+    std::cout << "PuppiMET_phiUnclusteredUp (uncached/cached calls): " << counter_uncached_PuppiMET_phiUnclusteredUp_ << " / " << counter_cached_PuppiMET_phiUnclusteredUp_ << std::endl;;
     std::cout << "PuppiMET_pt (uncached/cached calls): " << counter_uncached_PuppiMET_pt_ << " / " << counter_cached_PuppiMET_pt_ << std::endl;;
+    std::cout << "PuppiMET_ptJERDown (uncached/cached calls): " << counter_uncached_PuppiMET_ptJERDown_ << " / " << counter_cached_PuppiMET_ptJERDown_ << std::endl;;
     std::cout << "PuppiMET_ptJERUp (uncached/cached calls): " << counter_uncached_PuppiMET_ptJERUp_ << " / " << counter_cached_PuppiMET_ptJERUp_ << std::endl;;
+    std::cout << "PuppiMET_ptJESDown (uncached/cached calls): " << counter_uncached_PuppiMET_ptJESDown_ << " / " << counter_cached_PuppiMET_ptJESDown_ << std::endl;;
     std::cout << "PuppiMET_ptJESUp (uncached/cached calls): " << counter_uncached_PuppiMET_ptJESUp_ << " / " << counter_cached_PuppiMET_ptJESUp_ << std::endl;;
+    std::cout << "PuppiMET_ptUnclusteredDown (uncached/cached calls): " << counter_uncached_PuppiMET_ptUnclusteredDown_ << " / " << counter_cached_PuppiMET_ptUnclusteredDown_ << std::endl;;
+    std::cout << "PuppiMET_ptUnclusteredUp (uncached/cached calls): " << counter_uncached_PuppiMET_ptUnclusteredUp_ << " / " << counter_cached_PuppiMET_ptUnclusteredUp_ << std::endl;;
     std::cout << "PuppiMET_sumEt (uncached/cached calls): " << counter_uncached_PuppiMET_sumEt_ << " / " << counter_cached_PuppiMET_sumEt_ << std::endl;;
     std::cout << "RawMET_phi (uncached/cached calls): " << counter_uncached_RawMET_phi_ << " / " << counter_cached_RawMET_phi_ << std::endl;;
     std::cout << "RawMET_pt (uncached/cached calls): " << counter_uncached_RawMET_pt_ << " / " << counter_cached_RawMET_pt_ << std::endl;;
@@ -7589,6 +8263,7 @@ void Nano::PrintUsage() {
     std::cout << "RawPuppiMET_phi (uncached/cached calls): " << counter_uncached_RawPuppiMET_phi_ << " / " << counter_cached_RawPuppiMET_phi_ << std::endl;;
     std::cout << "RawPuppiMET_pt (uncached/cached calls): " << counter_uncached_RawPuppiMET_pt_ << " / " << counter_cached_RawPuppiMET_pt_ << std::endl;;
     std::cout << "RawPuppiMET_sumEt (uncached/cached calls): " << counter_uncached_RawPuppiMET_sumEt_ << " / " << counter_cached_RawPuppiMET_sumEt_ << std::endl;;
+    std::cout << "SV_charge (uncached/cached calls): " << counter_uncached_SV_charge_ << " / " << counter_cached_SV_charge_ << std::endl;;
     std::cout << "SV_chi2 (uncached/cached calls): " << counter_uncached_SV_chi2_ << " / " << counter_cached_SV_chi2_ << std::endl;;
     std::cout << "SV_dlen (uncached/cached calls): " << counter_uncached_SV_dlen_ << " / " << counter_cached_SV_dlen_ << std::endl;;
     std::cout << "SV_dlenSig (uncached/cached calls): " << counter_uncached_SV_dlenSig_ << " / " << counter_cached_SV_dlenSig_ << std::endl;;
@@ -7597,6 +8272,7 @@ void Nano::PrintUsage() {
     std::cout << "SV_eta (uncached/cached calls): " << counter_uncached_SV_eta_ << " / " << counter_cached_SV_eta_ << std::endl;;
     std::cout << "SV_mass (uncached/cached calls): " << counter_uncached_SV_mass_ << " / " << counter_cached_SV_mass_ << std::endl;;
     std::cout << "SV_ndof (uncached/cached calls): " << counter_uncached_SV_ndof_ << " / " << counter_cached_SV_ndof_ << std::endl;;
+    std::cout << "SV_ntracks (uncached/cached calls): " << counter_uncached_SV_ntracks_ << " / " << counter_cached_SV_ntracks_ << std::endl;;
     std::cout << "SV_p4 (uncached/cached calls): " << counter_uncached_SV_p4_ << " / " << counter_cached_SV_p4_ << std::endl;;
     std::cout << "SV_pAngle (uncached/cached calls): " << counter_uncached_SV_pAngle_ << " / " << counter_cached_SV_pAngle_ << std::endl;;
     std::cout << "SV_phi (uncached/cached calls): " << counter_uncached_SV_phi_ << " / " << counter_cached_SV_phi_ << std::endl;;
@@ -7623,6 +8299,7 @@ void Nano::PrintUsage() {
     std::cout << "SubJet_btagCSVV2 (uncached/cached calls): " << counter_uncached_SubJet_btagCSVV2_ << " / " << counter_cached_SubJet_btagCSVV2_ << std::endl;;
     std::cout << "SubJet_btagDeepB (uncached/cached calls): " << counter_uncached_SubJet_btagDeepB_ << " / " << counter_cached_SubJet_btagDeepB_ << std::endl;;
     std::cout << "SubJet_eta (uncached/cached calls): " << counter_uncached_SubJet_eta_ << " / " << counter_cached_SubJet_eta_ << std::endl;;
+    std::cout << "SubJet_hadronFlavour (uncached/cached calls): " << counter_uncached_SubJet_hadronFlavour_ << " / " << counter_cached_SubJet_hadronFlavour_ << std::endl;;
     std::cout << "SubJet_mass (uncached/cached calls): " << counter_uncached_SubJet_mass_ << " / " << counter_cached_SubJet_mass_ << std::endl;;
     std::cout << "SubJet_n2b1 (uncached/cached calls): " << counter_uncached_SubJet_n2b1_ << " / " << counter_cached_SubJet_n2b1_ << std::endl;;
     std::cout << "SubJet_n3b1 (uncached/cached calls): " << counter_uncached_SubJet_n3b1_ << " / " << counter_cached_SubJet_n3b1_ << std::endl;;
@@ -7647,9 +8324,11 @@ void Nano::PrintUsage() {
     std::cout << "Tau_genPartIdx (uncached/cached calls): " << counter_uncached_Tau_genPartIdx_ << " / " << counter_cached_Tau_genPartIdx_ << std::endl;;
     std::cout << "Tau_idAntiEle (uncached/cached calls): " << counter_uncached_Tau_idAntiEle_ << " / " << counter_cached_Tau_idAntiEle_ << std::endl;;
     std::cout << "Tau_idAntiEle2018 (uncached/cached calls): " << counter_uncached_Tau_idAntiEle2018_ << " / " << counter_cached_Tau_idAntiEle2018_ << std::endl;;
+    std::cout << "Tau_idAntiEleDeadECal (uncached/cached calls): " << counter_uncached_Tau_idAntiEleDeadECal_ << " / " << counter_cached_Tau_idAntiEleDeadECal_ << std::endl;;
     std::cout << "Tau_idAntiMu (uncached/cached calls): " << counter_uncached_Tau_idAntiMu_ << " / " << counter_cached_Tau_idAntiMu_ << std::endl;;
     std::cout << "Tau_idDecayMode (uncached/cached calls): " << counter_uncached_Tau_idDecayMode_ << " / " << counter_cached_Tau_idDecayMode_ << std::endl;;
     std::cout << "Tau_idDecayModeNewDMs (uncached/cached calls): " << counter_uncached_Tau_idDecayModeNewDMs_ << " / " << counter_cached_Tau_idDecayModeNewDMs_ << std::endl;;
+    std::cout << "Tau_idDecayModeOldDMs (uncached/cached calls): " << counter_uncached_Tau_idDecayModeOldDMs_ << " / " << counter_cached_Tau_idDecayModeOldDMs_ << std::endl;;
     std::cout << "Tau_idDeepTau2017v2p1VSe (uncached/cached calls): " << counter_uncached_Tau_idDeepTau2017v2p1VSe_ << " / " << counter_cached_Tau_idDeepTau2017v2p1VSe_ << std::endl;;
     std::cout << "Tau_idDeepTau2017v2p1VSjet (uncached/cached calls): " << counter_uncached_Tau_idDeepTau2017v2p1VSjet_ << " / " << counter_cached_Tau_idDeepTau2017v2p1VSjet_ << std::endl;;
     std::cout << "Tau_idDeepTau2017v2p1VSmu (uncached/cached calls): " << counter_uncached_Tau_idDeepTau2017v2p1VSmu_ << " / " << counter_cached_Tau_idDeepTau2017v2p1VSmu_ << std::endl;;
@@ -7696,6 +8375,35 @@ void Nano::PrintUsage() {
     std::cout << "TrigObj_l2pt (uncached/cached calls): " << counter_uncached_TrigObj_l2pt_ << " / " << counter_cached_TrigObj_l2pt_ << std::endl;;
     std::cout << "TrigObj_phi (uncached/cached calls): " << counter_uncached_TrigObj_phi_ << " / " << counter_cached_TrigObj_phi_ << std::endl;;
     std::cout << "TrigObj_pt (uncached/cached calls): " << counter_uncached_TrigObj_pt_ << " / " << counter_cached_TrigObj_pt_ << std::endl;;
+    std::cout << "boostedTau_charge (uncached/cached calls): " << counter_uncached_boostedTau_charge_ << " / " << counter_cached_boostedTau_charge_ << std::endl;;
+    std::cout << "boostedTau_chargedIso (uncached/cached calls): " << counter_uncached_boostedTau_chargedIso_ << " / " << counter_cached_boostedTau_chargedIso_ << std::endl;;
+    std::cout << "boostedTau_decayMode (uncached/cached calls): " << counter_uncached_boostedTau_decayMode_ << " / " << counter_cached_boostedTau_decayMode_ << std::endl;;
+    std::cout << "boostedTau_eta (uncached/cached calls): " << counter_uncached_boostedTau_eta_ << " / " << counter_cached_boostedTau_eta_ << std::endl;;
+    std::cout << "boostedTau_genPartFlav (uncached/cached calls): " << counter_uncached_boostedTau_genPartFlav_ << " / " << counter_cached_boostedTau_genPartFlav_ << std::endl;;
+    std::cout << "boostedTau_genPartIdx (uncached/cached calls): " << counter_uncached_boostedTau_genPartIdx_ << " / " << counter_cached_boostedTau_genPartIdx_ << std::endl;;
+    std::cout << "boostedTau_idAntiEle2018 (uncached/cached calls): " << counter_uncached_boostedTau_idAntiEle2018_ << " / " << counter_cached_boostedTau_idAntiEle2018_ << std::endl;;
+    std::cout << "boostedTau_idAntiMu (uncached/cached calls): " << counter_uncached_boostedTau_idAntiMu_ << " / " << counter_cached_boostedTau_idAntiMu_ << std::endl;;
+    std::cout << "boostedTau_idMVAnewDM2017v2 (uncached/cached calls): " << counter_uncached_boostedTau_idMVAnewDM2017v2_ << " / " << counter_cached_boostedTau_idMVAnewDM2017v2_ << std::endl;;
+    std::cout << "boostedTau_idMVAoldDM2017v2 (uncached/cached calls): " << counter_uncached_boostedTau_idMVAoldDM2017v2_ << " / " << counter_cached_boostedTau_idMVAoldDM2017v2_ << std::endl;;
+    std::cout << "boostedTau_idMVAoldDMdR032017v2 (uncached/cached calls): " << counter_uncached_boostedTau_idMVAoldDMdR032017v2_ << " / " << counter_cached_boostedTau_idMVAoldDMdR032017v2_ << std::endl;;
+    std::cout << "boostedTau_jetIdx (uncached/cached calls): " << counter_uncached_boostedTau_jetIdx_ << " / " << counter_cached_boostedTau_jetIdx_ << std::endl;;
+    std::cout << "boostedTau_leadTkDeltaEta (uncached/cached calls): " << counter_uncached_boostedTau_leadTkDeltaEta_ << " / " << counter_cached_boostedTau_leadTkDeltaEta_ << std::endl;;
+    std::cout << "boostedTau_leadTkDeltaPhi (uncached/cached calls): " << counter_uncached_boostedTau_leadTkDeltaPhi_ << " / " << counter_cached_boostedTau_leadTkDeltaPhi_ << std::endl;;
+    std::cout << "boostedTau_leadTkPtOverTauPt (uncached/cached calls): " << counter_uncached_boostedTau_leadTkPtOverTauPt_ << " / " << counter_cached_boostedTau_leadTkPtOverTauPt_ << std::endl;;
+    std::cout << "boostedTau_mass (uncached/cached calls): " << counter_uncached_boostedTau_mass_ << " / " << counter_cached_boostedTau_mass_ << std::endl;;
+    std::cout << "boostedTau_neutralIso (uncached/cached calls): " << counter_uncached_boostedTau_neutralIso_ << " / " << counter_cached_boostedTau_neutralIso_ << std::endl;;
+    std::cout << "boostedTau_p4 (uncached/cached calls): " << counter_uncached_boostedTau_p4_ << " / " << counter_cached_boostedTau_p4_ << std::endl;;
+    std::cout << "boostedTau_phi (uncached/cached calls): " << counter_uncached_boostedTau_phi_ << " / " << counter_cached_boostedTau_phi_ << std::endl;;
+    std::cout << "boostedTau_photonsOutsideSignalCone (uncached/cached calls): " << counter_uncached_boostedTau_photonsOutsideSignalCone_ << " / " << counter_cached_boostedTau_photonsOutsideSignalCone_ << std::endl;;
+    std::cout << "boostedTau_pt (uncached/cached calls): " << counter_uncached_boostedTau_pt_ << " / " << counter_cached_boostedTau_pt_ << std::endl;;
+    std::cout << "boostedTau_puCorr (uncached/cached calls): " << counter_uncached_boostedTau_puCorr_ << " / " << counter_cached_boostedTau_puCorr_ << std::endl;;
+    std::cout << "boostedTau_rawAntiEle2018 (uncached/cached calls): " << counter_uncached_boostedTau_rawAntiEle2018_ << " / " << counter_cached_boostedTau_rawAntiEle2018_ << std::endl;;
+    std::cout << "boostedTau_rawAntiEleCat2018 (uncached/cached calls): " << counter_uncached_boostedTau_rawAntiEleCat2018_ << " / " << counter_cached_boostedTau_rawAntiEleCat2018_ << std::endl;;
+    std::cout << "boostedTau_rawIso (uncached/cached calls): " << counter_uncached_boostedTau_rawIso_ << " / " << counter_cached_boostedTau_rawIso_ << std::endl;;
+    std::cout << "boostedTau_rawIsodR03 (uncached/cached calls): " << counter_uncached_boostedTau_rawIsodR03_ << " / " << counter_cached_boostedTau_rawIsodR03_ << std::endl;;
+    std::cout << "boostedTau_rawMVAnewDM2017v2 (uncached/cached calls): " << counter_uncached_boostedTau_rawMVAnewDM2017v2_ << " / " << counter_cached_boostedTau_rawMVAnewDM2017v2_ << std::endl;;
+    std::cout << "boostedTau_rawMVAoldDM2017v2 (uncached/cached calls): " << counter_uncached_boostedTau_rawMVAoldDM2017v2_ << " / " << counter_cached_boostedTau_rawMVAoldDM2017v2_ << std::endl;;
+    std::cout << "boostedTau_rawMVAoldDMdR032017v2 (uncached/cached calls): " << counter_uncached_boostedTau_rawMVAoldDMdR032017v2_ << " / " << counter_cached_boostedTau_rawMVAoldDMdR032017v2_ << std::endl;;
     std::cout << "btagWeight_CMVA (uncached/cached calls): " << counter_uncached_btagWeight_CMVA_ << " / " << counter_cached_btagWeight_CMVA_ << std::endl;;
     std::cout << "btagWeight_CSVV2 (uncached/cached calls): " << counter_uncached_btagWeight_CSVV2_ << " / " << counter_cached_btagWeight_CSVV2_ << std::endl;;
     std::cout << "btagWeight_DeepCSVB (uncached/cached calls): " << counter_uncached_btagWeight_DeepCSVB_ << " / " << counter_cached_btagWeight_DeepCSVB_ << std::endl;;
@@ -7725,6 +8433,7 @@ void Nano::PrintUsage() {
     std::cout << "nLHEPdfWeight (uncached/cached calls): " << counter_uncached_nLHEPdfWeight_ << " / " << counter_cached_nLHEPdfWeight_ << std::endl;;
     std::cout << "nLHEReweightingWeight (uncached/cached calls): " << counter_uncached_nLHEReweightingWeight_ << " / " << counter_cached_nLHEReweightingWeight_ << std::endl;;
     std::cout << "nLHEScaleWeight (uncached/cached calls): " << counter_uncached_nLHEScaleWeight_ << " / " << counter_cached_nLHEScaleWeight_ << std::endl;;
+    std::cout << "nLowPtElectron (uncached/cached calls): " << counter_uncached_nLowPtElectron_ << " / " << counter_cached_nLowPtElectron_ << std::endl;;
     std::cout << "nMuon (uncached/cached calls): " << counter_uncached_nMuon_ << " / " << counter_cached_nMuon_ << std::endl;;
     std::cout << "nOtherPV (uncached/cached calls): " << counter_uncached_nOtherPV_ << " / " << counter_cached_nOtherPV_ << std::endl;;
     std::cout << "nPSWeight (uncached/cached calls): " << counter_uncached_nPSWeight_ << " / " << counter_cached_nPSWeight_ << std::endl;;
@@ -7735,6 +8444,10 @@ void Nano::PrintUsage() {
     std::cout << "nSubJet (uncached/cached calls): " << counter_uncached_nSubJet_ << " / " << counter_cached_nSubJet_ << std::endl;;
     std::cout << "nTau (uncached/cached calls): " << counter_uncached_nTau_ << " / " << counter_cached_nTau_ << std::endl;;
     std::cout << "nTrigObj (uncached/cached calls): " << counter_uncached_nTrigObj_ << " / " << counter_cached_nTrigObj_ << std::endl;;
+    std::cout << "nboostedTau (uncached/cached calls): " << counter_uncached_nboostedTau_ << " / " << counter_cached_nboostedTau_ << std::endl;;
+    std::cout << "puWeight (uncached/cached calls): " << counter_uncached_puWeight_ << " / " << counter_cached_puWeight_ << std::endl;;
+    std::cout << "puWeightDown (uncached/cached calls): " << counter_uncached_puWeightDown_ << " / " << counter_cached_puWeightDown_ << std::endl;;
+    std::cout << "puWeightUp (uncached/cached calls): " << counter_uncached_puWeightUp_ << " / " << counter_cached_puWeightUp_ << std::endl;;
     std::cout << "run (uncached/cached calls): " << counter_uncached_run_ << " / " << counter_cached_run_ << std::endl;;
 }
 
@@ -7752,6 +8465,28 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_CorrT1METJet_muonSubtrFactor_ = false;
     loaded_CorrT1METJet_phi_ = false;
     loaded_CorrT1METJet_rawPt_ = false;
+    loaded_DeepMETResolutionTune_phi_ = false;
+    loaded_DeepMETResolutionTune_pt_ = false;
+    loaded_DeepMETResponseTune_phi_ = false;
+    loaded_DeepMETResponseTune_pt_ = false;
+    loaded_Electron_CutBased_LooseID_SF_ = false;
+    loaded_Electron_CutBased_LooseID_SFerr_ = false;
+    loaded_Electron_CutBased_MediumID_SF_ = false;
+    loaded_Electron_CutBased_MediumID_SFerr_ = false;
+    loaded_Electron_CutBased_TightID_SF_ = false;
+    loaded_Electron_CutBased_TightID_SFerr_ = false;
+    loaded_Electron_CutBased_VetoID_SF_ = false;
+    loaded_Electron_CutBased_VetoID_SFerr_ = false;
+    loaded_Electron_MVAFall17V2Iso_WP80_SF_ = false;
+    loaded_Electron_MVAFall17V2Iso_WP80_SFerr_ = false;
+    loaded_Electron_MVAFall17V2Iso_WP90_SF_ = false;
+    loaded_Electron_MVAFall17V2Iso_WP90_SFerr_ = false;
+    loaded_Electron_MVAFall17V2noIso_WP80_SF_ = false;
+    loaded_Electron_MVAFall17V2noIso_WP80_SFerr_ = false;
+    loaded_Electron_MVAFall17V2noIso_WP90_SF_ = false;
+    loaded_Electron_MVAFall17V2noIso_WP90_SFerr_ = false;
+    loaded_Electron_RECO_SF_ = false;
+    loaded_Electron_RECO_SFerr_ = false;
     loaded_Electron_charge_ = false;
     loaded_Electron_cleanmask_ = false;
     loaded_Electron_convVeto_ = false;
@@ -7761,6 +8496,10 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_Electron_cutBased_HLTPreSel_ = false;
     loaded_Electron_cutBased_Spring15_ = false;
     loaded_Electron_cutBased_Sum16_ = false;
+    loaded_Electron_dEscaleDown_ = false;
+    loaded_Electron_dEscaleUp_ = false;
+    loaded_Electron_dEsigmaDown_ = false;
+    loaded_Electron_dEsigmaUp_ = false;
     loaded_Electron_deltaEtaSC_ = false;
     loaded_Electron_dr03EcalRecHitSumEt_ = false;
     loaded_Electron_dr03HcalDepth1TowerSumEt_ = false;
@@ -7780,6 +8519,7 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_Electron_ip3d_ = false;
     loaded_Electron_isPFcand_ = false;
     loaded_Electron_jetIdx_ = false;
+    loaded_Electron_jetNDauCharged_ = false;
     loaded_Electron_jetPtRelv2_ = false;
     loaded_Electron_jetRelIso_ = false;
     loaded_Electron_lostHits_ = false;
@@ -7829,13 +8569,20 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_FatJet_btagCMVA_ = false;
     loaded_FatJet_btagCSVV2_ = false;
     loaded_FatJet_btagDDBvL_ = false;
+    loaded_FatJet_btagDDBvLV2_ = false;
     loaded_FatJet_btagDDBvL_noMD_ = false;
     loaded_FatJet_btagDDCvB_ = false;
+    loaded_FatJet_btagDDCvBV2_ = false;
     loaded_FatJet_btagDDCvB_noMD_ = false;
     loaded_FatJet_btagDDCvL_ = false;
+    loaded_FatJet_btagDDCvLV2_ = false;
     loaded_FatJet_btagDDCvL_noMD_ = false;
     loaded_FatJet_btagDeepB_ = false;
     loaded_FatJet_btagHbb_ = false;
+    loaded_FatJet_corr_JEC_ = false;
+    loaded_FatJet_corr_JER_ = false;
+    loaded_FatJet_corr_JMR_ = false;
+    loaded_FatJet_corr_JMS_ = false;
     loaded_FatJet_deepTagMD_H4qvsQCD_ = false;
     loaded_FatJet_deepTagMD_HbbvsQCD_ = false;
     loaded_FatJet_deepTagMD_TvsQCD_ = false;
@@ -7859,15 +8606,64 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_FatJet_jetId_ = false;
     loaded_FatJet_lsf3_ = false;
     loaded_FatJet_mass_ = false;
+    loaded_FatJet_mass_jerDown_ = false;
+    loaded_FatJet_mass_jerUp_ = false;
+    loaded_FatJet_mass_jesTotalDown_ = false;
+    loaded_FatJet_mass_jesTotalUp_ = false;
+    loaded_FatJet_mass_jmrDown_ = false;
+    loaded_FatJet_mass_jmrUp_ = false;
+    loaded_FatJet_mass_jmsDown_ = false;
+    loaded_FatJet_mass_jmsUp_ = false;
+    loaded_FatJet_mass_nom_ = false;
+    loaded_FatJet_mass_raw_ = false;
     loaded_FatJet_msoftdrop_ = false;
+    loaded_FatJet_msoftdrop_corr_JMR_ = false;
+    loaded_FatJet_msoftdrop_corr_JMS_ = false;
+    loaded_FatJet_msoftdrop_corr_PUPPI_ = false;
+    loaded_FatJet_msoftdrop_jerDown_ = false;
+    loaded_FatJet_msoftdrop_jerUp_ = false;
+    loaded_FatJet_msoftdrop_jesTotalDown_ = false;
+    loaded_FatJet_msoftdrop_jesTotalUp_ = false;
+    loaded_FatJet_msoftdrop_jmrDown_ = false;
+    loaded_FatJet_msoftdrop_jmrUp_ = false;
+    loaded_FatJet_msoftdrop_jmsDown_ = false;
+    loaded_FatJet_msoftdrop_jmsUp_ = false;
+    loaded_FatJet_msoftdrop_nom_ = false;
+    loaded_FatJet_msoftdrop_raw_ = false;
+    loaded_FatJet_msoftdrop_tau21DDT_jerDown_ = false;
+    loaded_FatJet_msoftdrop_tau21DDT_jerUp_ = false;
+    loaded_FatJet_msoftdrop_tau21DDT_jmrDown_ = false;
+    loaded_FatJet_msoftdrop_tau21DDT_jmrUp_ = false;
+    loaded_FatJet_msoftdrop_tau21DDT_jmsDown_ = false;
+    loaded_FatJet_msoftdrop_tau21DDT_jmsUp_ = false;
+    loaded_FatJet_msoftdrop_tau21DDT_nom_ = false;
     loaded_FatJet_muonIdx3SJ_ = false;
     loaded_FatJet_n2b1_ = false;
     loaded_FatJet_n3b1_ = false;
     loaded_FatJet_nBHadrons_ = false;
     loaded_FatJet_nCHadrons_ = false;
+    loaded_FatJet_nConstituents_ = false;
     loaded_FatJet_p4_ = false;
+    loaded_FatJet_particleNetMD_QCD_ = false;
+    loaded_FatJet_particleNetMD_Xbb_ = false;
+    loaded_FatJet_particleNetMD_Xcc_ = false;
+    loaded_FatJet_particleNetMD_Xqq_ = false;
+    loaded_FatJet_particleNet_H4qvsQCD_ = false;
+    loaded_FatJet_particleNet_HbbvsQCD_ = false;
+    loaded_FatJet_particleNet_HccvsQCD_ = false;
+    loaded_FatJet_particleNet_QCD_ = false;
+    loaded_FatJet_particleNet_TvsQCD_ = false;
+    loaded_FatJet_particleNet_WvsQCD_ = false;
+    loaded_FatJet_particleNet_ZvsQCD_ = false;
+    loaded_FatJet_particleNet_mass_ = false;
     loaded_FatJet_phi_ = false;
     loaded_FatJet_pt_ = false;
+    loaded_FatJet_pt_jerDown_ = false;
+    loaded_FatJet_pt_jerUp_ = false;
+    loaded_FatJet_pt_jesTotalDown_ = false;
+    loaded_FatJet_pt_jesTotalUp_ = false;
+    loaded_FatJet_pt_nom_ = false;
+    loaded_FatJet_pt_raw_ = false;
     loaded_FatJet_rawFactor_ = false;
     loaded_FatJet_subJetIdx1_ = false;
     loaded_FatJet_subJetIdx2_ = false;
@@ -7877,6 +8673,7 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_FatJet_tau4_ = false;
     loaded_Flag_BadChargedCandidateFilter_ = false;
     loaded_Flag_BadChargedCandidateSummer16Filter_ = false;
+    loaded_Flag_BadPFMuonDzFilter_ = false;
     loaded_Flag_BadPFMuonFilter_ = false;
     loaded_Flag_BadPFMuonSummer16Filter_ = false;
     loaded_Flag_CSCTightHalo2015Filter_ = false;
@@ -7897,6 +8694,7 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_Flag_globalTightHalo2016Filter_ = false;
     loaded_Flag_goodVertices_ = false;
     loaded_Flag_hcalLaserEventFilter_ = false;
+    loaded_Flag_hfNoisyHitsFilter_ = false;
     loaded_Flag_muonBadTrackFilter_ = false;
     loaded_Flag_trkPOGFilters_ = false;
     loaded_Flag_trkPOG_logErrorTooManyClusters_ = false;
@@ -7953,6 +8751,10 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_GenVisTau_phi_ = false;
     loaded_GenVisTau_pt_ = false;
     loaded_GenVisTau_status_ = false;
+    loaded_GenVtx_t0_ = false;
+    loaded_GenVtx_x_ = false;
+    loaded_GenVtx_y_ = false;
+    loaded_GenVtx_z_ = false;
     loaded_Generator_binvar_ = false;
     loaded_Generator_id1_ = false;
     loaded_Generator_id2_ = false;
@@ -9188,6 +9990,7 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_HTXS_stage_0_ = false;
     loaded_HTXS_stage_1_pTjet25_ = false;
     loaded_HTXS_stage_1_pTjet30_ = false;
+    loaded_IsoTrack_charge_ = false;
     loaded_IsoTrack_dxy_ = false;
     loaded_IsoTrack_dz_ = false;
     loaded_IsoTrack_eta_ = false;
@@ -9209,8 +10012,13 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_Jet_btagCSVV2_ = false;
     loaded_Jet_btagDeepB_ = false;
     loaded_Jet_btagDeepC_ = false;
+    loaded_Jet_btagDeepCvB_ = false;
+    loaded_Jet_btagDeepCvL_ = false;
     loaded_Jet_btagDeepFlavB_ = false;
     loaded_Jet_btagDeepFlavC_ = false;
+    loaded_Jet_btagDeepFlavCvB_ = false;
+    loaded_Jet_btagDeepFlavCvL_ = false;
+    loaded_Jet_btagDeepFlavQG_ = false;
     loaded_Jet_cRegCorr_ = false;
     loaded_Jet_cRegRes_ = false;
     loaded_Jet_chEmEF_ = false;
@@ -9225,6 +10033,10 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_Jet_eta_ = false;
     loaded_Jet_genJetIdx_ = false;
     loaded_Jet_hadronFlavour_ = false;
+    loaded_Jet_hfadjacentEtaStripsSize_ = false;
+    loaded_Jet_hfcentralEtaStripSize_ = false;
+    loaded_Jet_hfsigmaEtaEta_ = false;
+    loaded_Jet_hfsigmaPhiPhi_ = false;
     loaded_Jet_jetId_ = false;
     loaded_Jet_mass_ = false;
     loaded_Jet_muEF_ = false;
@@ -9245,6 +10057,14 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_Jet_qgl_ = false;
     loaded_Jet_rawFactor_ = false;
     loaded_L1PreFiringWeight_Dn_ = false;
+    loaded_L1PreFiringWeight_ECAL_Dn_ = false;
+    loaded_L1PreFiringWeight_ECAL_Nom_ = false;
+    loaded_L1PreFiringWeight_ECAL_Up_ = false;
+    loaded_L1PreFiringWeight_Muon_Nom_ = false;
+    loaded_L1PreFiringWeight_Muon_StatDn_ = false;
+    loaded_L1PreFiringWeight_Muon_StatUp_ = false;
+    loaded_L1PreFiringWeight_Muon_SystDn_ = false;
+    loaded_L1PreFiringWeight_Muon_SystUp_ = false;
     loaded_L1PreFiringWeight_Nom_ = false;
     loaded_L1PreFiringWeight_Up_ = false;
     loaded_L1Reco_step_ = false;
@@ -9532,6 +10352,7 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_L1_ETT1600_ = false;
     loaded_L1_ETT2000_ = false;
     loaded_L1_ETT25_ = false;
+    loaded_L1_ETT35_BptxAND_ = false;
     loaded_L1_ETT40_BptxAND_ = false;
     loaded_L1_ETT50_BptxAND_ = false;
     loaded_L1_ETT55_BptxAND_ = false;
@@ -9886,6 +10707,9 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_L1_SingleJet90er2p5_ = false;
     loaded_L1_SingleJetC20_NotBptxOR_ = false;
     loaded_L1_SingleJetC20_NotBptxOR_3BX_ = false;
+    loaded_L1_SingleJetC32_NotBptxOR_ = false;
+    loaded_L1_SingleJetC32_NotBptxOR_3BX_ = false;
+    loaded_L1_SingleJetC36_NotBptxOR_3BX_ = false;
     loaded_L1_SingleJetC40_NotBptxOR_3BX_ = false;
     loaded_L1_SingleJetC40_NotBptxOR_5BX_ = false;
     loaded_L1_SingleLooseIsoEG28er1p5_ = false;
@@ -9999,6 +10823,7 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_L1_TripleMu_5_5_3_ = false;
     loaded_L1_UnpairedBunchBptxMinus_ = false;
     loaded_L1_UnpairedBunchBptxPlus_ = false;
+    loaded_L1_UnprefireableEvent_ = false;
     loaded_L1_ZeroBias_ = false;
     loaded_L1_ZeroBias_FirstCollidingBunch_ = false;
     loaded_L1_ZeroBias_copy_ = false;
@@ -10027,6 +10852,36 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_LHE_NpNLO_ = false;
     loaded_LHE_Nuds_ = false;
     loaded_LHE_Vpt_ = false;
+    loaded_LowPtElectron_ID_ = false;
+    loaded_LowPtElectron_charge_ = false;
+    loaded_LowPtElectron_convVeto_ = false;
+    loaded_LowPtElectron_convVtxRadius_ = false;
+    loaded_LowPtElectron_convWP_ = false;
+    loaded_LowPtElectron_deltaEtaSC_ = false;
+    loaded_LowPtElectron_dxy_ = false;
+    loaded_LowPtElectron_dxyErr_ = false;
+    loaded_LowPtElectron_dz_ = false;
+    loaded_LowPtElectron_dzErr_ = false;
+    loaded_LowPtElectron_eInvMinusPInv_ = false;
+    loaded_LowPtElectron_embeddedID_ = false;
+    loaded_LowPtElectron_energyErr_ = false;
+    loaded_LowPtElectron_eta_ = false;
+    loaded_LowPtElectron_genPartFlav_ = false;
+    loaded_LowPtElectron_genPartIdx_ = false;
+    loaded_LowPtElectron_hoe_ = false;
+    loaded_LowPtElectron_lostHits_ = false;
+    loaded_LowPtElectron_mass_ = false;
+    loaded_LowPtElectron_miniPFRelIso_all_ = false;
+    loaded_LowPtElectron_miniPFRelIso_chg_ = false;
+    loaded_LowPtElectron_p4_ = false;
+    loaded_LowPtElectron_pdgId_ = false;
+    loaded_LowPtElectron_phi_ = false;
+    loaded_LowPtElectron_pt_ = false;
+    loaded_LowPtElectron_ptbiased_ = false;
+    loaded_LowPtElectron_r9_ = false;
+    loaded_LowPtElectron_scEtOverPt_ = false;
+    loaded_LowPtElectron_sieie_ = false;
+    loaded_LowPtElectron_unbiased_ = false;
     loaded_METFixEE2017_MetUnclustEnUpDeltaX_ = false;
     loaded_METFixEE2017_MetUnclustEnUpDeltaY_ = false;
     loaded_METFixEE2017_covXX_ = false;
@@ -10049,8 +10904,47 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_MET_significance_ = false;
     loaded_MET_sumEt_ = false;
     loaded_MET_sumPtUnclustered_ = false;
+    loaded_Muon_CutBased_HighPtID_SF_ = false;
+    loaded_Muon_CutBased_HighPtID_SFerr_ = false;
+    loaded_Muon_CutBased_LooseID_SF_ = false;
+    loaded_Muon_CutBased_LooseID_SFerr_ = false;
+    loaded_Muon_CutBased_MediumID_SF_ = false;
+    loaded_Muon_CutBased_MediumID_SFerr_ = false;
+    loaded_Muon_CutBased_MediumPromptID_SF_ = false;
+    loaded_Muon_CutBased_MediumPromptID_SFerr_ = false;
+    loaded_Muon_CutBased_SoftID_SF_ = false;
+    loaded_Muon_CutBased_SoftID_SFerr_ = false;
+    loaded_Muon_CutBased_TightID_SF_ = false;
+    loaded_Muon_CutBased_TightID_SFerr_ = false;
+    loaded_Muon_CutBased_TrkHighPtID_SF_ = false;
+    loaded_Muon_CutBased_TrkHighPtID_SFerr_ = false;
+    loaded_Muon_LooseRelIso_LooseID_SF_ = false;
+    loaded_Muon_LooseRelIso_LooseID_SFerr_ = false;
+    loaded_Muon_LooseRelIso_MediumID_SF_ = false;
+    loaded_Muon_LooseRelIso_MediumID_SFerr_ = false;
+    loaded_Muon_LooseRelIso_MediumPromptID_SF_ = false;
+    loaded_Muon_LooseRelIso_MediumPromptID_SFerr_ = false;
+    loaded_Muon_LooseRelIso_TightIDandIPCut_SF_ = false;
+    loaded_Muon_LooseRelIso_TightIDandIPCut_SFerr_ = false;
+    loaded_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_ = false;
+    loaded_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_ = false;
+    loaded_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_ = false;
+    loaded_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_ = false;
+    loaded_Muon_TightRelIso_MediumID_SF_ = false;
+    loaded_Muon_TightRelIso_MediumID_SFerr_ = false;
+    loaded_Muon_TightRelIso_MediumPromptID_SF_ = false;
+    loaded_Muon_TightRelIso_MediumPromptID_SFerr_ = false;
+    loaded_Muon_TightRelIso_TightIDandIPCut_SF_ = false;
+    loaded_Muon_TightRelIso_TightIDandIPCut_SFerr_ = false;
+    loaded_Muon_TightRelTkIso_HighPtIDandIPCut_SF_ = false;
+    loaded_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_ = false;
+    loaded_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_ = false;
+    loaded_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_ = false;
     loaded_Muon_charge_ = false;
     loaded_Muon_cleanmask_ = false;
+    loaded_Muon_correctedDown_pt_ = false;
+    loaded_Muon_correctedUp_pt_ = false;
+    loaded_Muon_corrected_pt_ = false;
     loaded_Muon_dxy_ = false;
     loaded_Muon_dxyErr_ = false;
     loaded_Muon_dxybs_ = false;
@@ -10066,8 +10960,10 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_Muon_ip3d_ = false;
     loaded_Muon_isGlobal_ = false;
     loaded_Muon_isPFcand_ = false;
+    loaded_Muon_isStandalone_ = false;
     loaded_Muon_isTracker_ = false;
     loaded_Muon_jetIdx_ = false;
+    loaded_Muon_jetNDauCharged_ = false;
     loaded_Muon_jetPtRelv2_ = false;
     loaded_Muon_jetRelIso_ = false;
     loaded_Muon_looseId_ = false;
@@ -10080,6 +10976,7 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_Muon_multiIsoId_ = false;
     loaded_Muon_mvaId_ = false;
     loaded_Muon_mvaLowPt_ = false;
+    loaded_Muon_mvaLowPtId_ = false;
     loaded_Muon_mvaTTH_ = false;
     loaded_Muon_nStations_ = false;
     loaded_Muon_nTrackerLayers_ = false;
@@ -10092,6 +10989,7 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_Muon_phi_ = false;
     loaded_Muon_pt_ = false;
     loaded_Muon_ptErr_ = false;
+    loaded_Muon_puppiIsoId_ = false;
     loaded_Muon_segmentComp_ = false;
     loaded_Muon_sip3d_ = false;
     loaded_Muon_softId_ = false;
@@ -10119,6 +11017,10 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_Photon_cutBased_ = false;
     loaded_Photon_cutBased_Fall17V1Bitmap_ = false;
     loaded_Photon_cutBased_Spring16V2p2_ = false;
+    loaded_Photon_dEscaleDown_ = false;
+    loaded_Photon_dEscaleUp_ = false;
+    loaded_Photon_dEsigmaDown_ = false;
+    loaded_Photon_dEsigmaUp_ = false;
     loaded_Photon_eCorr_ = false;
     loaded_Photon_electronIdx_ = false;
     loaded_Photon_electronVeto_ = false;
@@ -10156,12 +11058,23 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_Pileup_pudensity_ = false;
     loaded_Pileup_sumEOOT_ = false;
     loaded_Pileup_sumLOOT_ = false;
+    loaded_PrefireWeight_ = false;
+    loaded_PrefireWeight_Down_ = false;
+    loaded_PrefireWeight_Up_ = false;
     loaded_PuppiMET_phi_ = false;
+    loaded_PuppiMET_phiJERDown_ = false;
     loaded_PuppiMET_phiJERUp_ = false;
+    loaded_PuppiMET_phiJESDown_ = false;
     loaded_PuppiMET_phiJESUp_ = false;
+    loaded_PuppiMET_phiUnclusteredDown_ = false;
+    loaded_PuppiMET_phiUnclusteredUp_ = false;
     loaded_PuppiMET_pt_ = false;
+    loaded_PuppiMET_ptJERDown_ = false;
     loaded_PuppiMET_ptJERUp_ = false;
+    loaded_PuppiMET_ptJESDown_ = false;
     loaded_PuppiMET_ptJESUp_ = false;
+    loaded_PuppiMET_ptUnclusteredDown_ = false;
+    loaded_PuppiMET_ptUnclusteredUp_ = false;
     loaded_PuppiMET_sumEt_ = false;
     loaded_RawMET_phi_ = false;
     loaded_RawMET_pt_ = false;
@@ -10169,6 +11082,7 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_RawPuppiMET_phi_ = false;
     loaded_RawPuppiMET_pt_ = false;
     loaded_RawPuppiMET_sumEt_ = false;
+    loaded_SV_charge_ = false;
     loaded_SV_chi2_ = false;
     loaded_SV_dlen_ = false;
     loaded_SV_dlenSig_ = false;
@@ -10177,6 +11091,7 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_SV_eta_ = false;
     loaded_SV_mass_ = false;
     loaded_SV_ndof_ = false;
+    loaded_SV_ntracks_ = false;
     loaded_SV_p4_ = false;
     loaded_SV_pAngle_ = false;
     loaded_SV_phi_ = false;
@@ -10203,6 +11118,7 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_SubJet_btagCSVV2_ = false;
     loaded_SubJet_btagDeepB_ = false;
     loaded_SubJet_eta_ = false;
+    loaded_SubJet_hadronFlavour_ = false;
     loaded_SubJet_mass_ = false;
     loaded_SubJet_n2b1_ = false;
     loaded_SubJet_n3b1_ = false;
@@ -10227,9 +11143,11 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_Tau_genPartIdx_ = false;
     loaded_Tau_idAntiEle_ = false;
     loaded_Tau_idAntiEle2018_ = false;
+    loaded_Tau_idAntiEleDeadECal_ = false;
     loaded_Tau_idAntiMu_ = false;
     loaded_Tau_idDecayMode_ = false;
     loaded_Tau_idDecayModeNewDMs_ = false;
+    loaded_Tau_idDecayModeOldDMs_ = false;
     loaded_Tau_idDeepTau2017v2p1VSe_ = false;
     loaded_Tau_idDeepTau2017v2p1VSjet_ = false;
     loaded_Tau_idDeepTau2017v2p1VSmu_ = false;
@@ -10276,6 +11194,35 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_TrigObj_l2pt_ = false;
     loaded_TrigObj_phi_ = false;
     loaded_TrigObj_pt_ = false;
+    loaded_boostedTau_charge_ = false;
+    loaded_boostedTau_chargedIso_ = false;
+    loaded_boostedTau_decayMode_ = false;
+    loaded_boostedTau_eta_ = false;
+    loaded_boostedTau_genPartFlav_ = false;
+    loaded_boostedTau_genPartIdx_ = false;
+    loaded_boostedTau_idAntiEle2018_ = false;
+    loaded_boostedTau_idAntiMu_ = false;
+    loaded_boostedTau_idMVAnewDM2017v2_ = false;
+    loaded_boostedTau_idMVAoldDM2017v2_ = false;
+    loaded_boostedTau_idMVAoldDMdR032017v2_ = false;
+    loaded_boostedTau_jetIdx_ = false;
+    loaded_boostedTau_leadTkDeltaEta_ = false;
+    loaded_boostedTau_leadTkDeltaPhi_ = false;
+    loaded_boostedTau_leadTkPtOverTauPt_ = false;
+    loaded_boostedTau_mass_ = false;
+    loaded_boostedTau_neutralIso_ = false;
+    loaded_boostedTau_p4_ = false;
+    loaded_boostedTau_phi_ = false;
+    loaded_boostedTau_photonsOutsideSignalCone_ = false;
+    loaded_boostedTau_pt_ = false;
+    loaded_boostedTau_puCorr_ = false;
+    loaded_boostedTau_rawAntiEle2018_ = false;
+    loaded_boostedTau_rawAntiEleCat2018_ = false;
+    loaded_boostedTau_rawIso_ = false;
+    loaded_boostedTau_rawIsodR03_ = false;
+    loaded_boostedTau_rawMVAnewDM2017v2_ = false;
+    loaded_boostedTau_rawMVAoldDM2017v2_ = false;
+    loaded_boostedTau_rawMVAoldDMdR032017v2_ = false;
     loaded_btagWeight_CMVA_ = false;
     loaded_btagWeight_CSVV2_ = false;
     loaded_btagWeight_DeepCSVB_ = false;
@@ -10305,6 +11252,7 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_nLHEPdfWeight_ = false;
     loaded_nLHEReweightingWeight_ = false;
     loaded_nLHEScaleWeight_ = false;
+    loaded_nLowPtElectron_ = false;
     loaded_nMuon_ = false;
     loaded_nOtherPV_ = false;
     loaded_nPSWeight_ = false;
@@ -10315,6 +11263,10 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_nSubJet_ = false;
     loaded_nTau_ = false;
     loaded_nTrigObj_ = false;
+    loaded_nboostedTau_ = false;
+    loaded_puWeight_ = false;
+    loaded_puWeightDown_ = false;
+    loaded_puWeightUp_ = false;
     loaded_run_ = false;
 }
 
@@ -10443,6 +11395,244 @@ const vector<float> &Nano::CorrT1METJet_rawPt() {
     }
     return v_CorrT1METJet_rawPt_;
 }
+const float &Nano::DeepMETResolutionTune_phi() {
+    if (!loaded_DeepMETResolutionTune_phi_) counter_uncached_DeepMETResolutionTune_phi_++;
+    else counter_cached_DeepMETResolutionTune_phi_++;
+    if (!loaded_DeepMETResolutionTune_phi_) {
+        if (!b_DeepMETResolutionTune_phi_) throw std::runtime_error("DeepMETResolutionTune_phi branch doesn't exist");
+        b_DeepMETResolutionTune_phi_->GetEntry(index);
+        loaded_DeepMETResolutionTune_phi_ = true;
+    }
+    return DeepMETResolutionTune_phi_;
+}
+const float &Nano::DeepMETResolutionTune_pt() {
+    if (!loaded_DeepMETResolutionTune_pt_) counter_uncached_DeepMETResolutionTune_pt_++;
+    else counter_cached_DeepMETResolutionTune_pt_++;
+    if (!loaded_DeepMETResolutionTune_pt_) {
+        if (!b_DeepMETResolutionTune_pt_) throw std::runtime_error("DeepMETResolutionTune_pt branch doesn't exist");
+        b_DeepMETResolutionTune_pt_->GetEntry(index);
+        loaded_DeepMETResolutionTune_pt_ = true;
+    }
+    return DeepMETResolutionTune_pt_;
+}
+const float &Nano::DeepMETResponseTune_phi() {
+    if (!loaded_DeepMETResponseTune_phi_) counter_uncached_DeepMETResponseTune_phi_++;
+    else counter_cached_DeepMETResponseTune_phi_++;
+    if (!loaded_DeepMETResponseTune_phi_) {
+        if (!b_DeepMETResponseTune_phi_) throw std::runtime_error("DeepMETResponseTune_phi branch doesn't exist");
+        b_DeepMETResponseTune_phi_->GetEntry(index);
+        loaded_DeepMETResponseTune_phi_ = true;
+    }
+    return DeepMETResponseTune_phi_;
+}
+const float &Nano::DeepMETResponseTune_pt() {
+    if (!loaded_DeepMETResponseTune_pt_) counter_uncached_DeepMETResponseTune_pt_++;
+    else counter_cached_DeepMETResponseTune_pt_++;
+    if (!loaded_DeepMETResponseTune_pt_) {
+        if (!b_DeepMETResponseTune_pt_) throw std::runtime_error("DeepMETResponseTune_pt branch doesn't exist");
+        b_DeepMETResponseTune_pt_->GetEntry(index);
+        loaded_DeepMETResponseTune_pt_ = true;
+    }
+    return DeepMETResponseTune_pt_;
+}
+const vector<float> &Nano::Electron_CutBased_LooseID_SF() {
+    if (!loaded_Electron_CutBased_LooseID_SF_) counter_uncached_Electron_CutBased_LooseID_SF_++;
+    else counter_cached_Electron_CutBased_LooseID_SF_++;
+    if (!loaded_Electron_CutBased_LooseID_SF_) {
+        if (!b_Electron_CutBased_LooseID_SF_) throw std::runtime_error("Electron_CutBased_LooseID_SF branch doesn't exist");
+        int bytes = b_Electron_CutBased_LooseID_SF_->GetEntry(index);
+        v_Electron_CutBased_LooseID_SF_ = vector<float>(Electron_CutBased_LooseID_SF_,Electron_CutBased_LooseID_SF_+bytes/sizeof(Electron_CutBased_LooseID_SF_[0]));
+        loaded_Electron_CutBased_LooseID_SF_ = true;
+    }
+    return v_Electron_CutBased_LooseID_SF_;
+}
+const vector<float> &Nano::Electron_CutBased_LooseID_SFerr() {
+    if (!loaded_Electron_CutBased_LooseID_SFerr_) counter_uncached_Electron_CutBased_LooseID_SFerr_++;
+    else counter_cached_Electron_CutBased_LooseID_SFerr_++;
+    if (!loaded_Electron_CutBased_LooseID_SFerr_) {
+        if (!b_Electron_CutBased_LooseID_SFerr_) throw std::runtime_error("Electron_CutBased_LooseID_SFerr branch doesn't exist");
+        int bytes = b_Electron_CutBased_LooseID_SFerr_->GetEntry(index);
+        v_Electron_CutBased_LooseID_SFerr_ = vector<float>(Electron_CutBased_LooseID_SFerr_,Electron_CutBased_LooseID_SFerr_+bytes/sizeof(Electron_CutBased_LooseID_SFerr_[0]));
+        loaded_Electron_CutBased_LooseID_SFerr_ = true;
+    }
+    return v_Electron_CutBased_LooseID_SFerr_;
+}
+const vector<float> &Nano::Electron_CutBased_MediumID_SF() {
+    if (!loaded_Electron_CutBased_MediumID_SF_) counter_uncached_Electron_CutBased_MediumID_SF_++;
+    else counter_cached_Electron_CutBased_MediumID_SF_++;
+    if (!loaded_Electron_CutBased_MediumID_SF_) {
+        if (!b_Electron_CutBased_MediumID_SF_) throw std::runtime_error("Electron_CutBased_MediumID_SF branch doesn't exist");
+        int bytes = b_Electron_CutBased_MediumID_SF_->GetEntry(index);
+        v_Electron_CutBased_MediumID_SF_ = vector<float>(Electron_CutBased_MediumID_SF_,Electron_CutBased_MediumID_SF_+bytes/sizeof(Electron_CutBased_MediumID_SF_[0]));
+        loaded_Electron_CutBased_MediumID_SF_ = true;
+    }
+    return v_Electron_CutBased_MediumID_SF_;
+}
+const vector<float> &Nano::Electron_CutBased_MediumID_SFerr() {
+    if (!loaded_Electron_CutBased_MediumID_SFerr_) counter_uncached_Electron_CutBased_MediumID_SFerr_++;
+    else counter_cached_Electron_CutBased_MediumID_SFerr_++;
+    if (!loaded_Electron_CutBased_MediumID_SFerr_) {
+        if (!b_Electron_CutBased_MediumID_SFerr_) throw std::runtime_error("Electron_CutBased_MediumID_SFerr branch doesn't exist");
+        int bytes = b_Electron_CutBased_MediumID_SFerr_->GetEntry(index);
+        v_Electron_CutBased_MediumID_SFerr_ = vector<float>(Electron_CutBased_MediumID_SFerr_,Electron_CutBased_MediumID_SFerr_+bytes/sizeof(Electron_CutBased_MediumID_SFerr_[0]));
+        loaded_Electron_CutBased_MediumID_SFerr_ = true;
+    }
+    return v_Electron_CutBased_MediumID_SFerr_;
+}
+const vector<float> &Nano::Electron_CutBased_TightID_SF() {
+    if (!loaded_Electron_CutBased_TightID_SF_) counter_uncached_Electron_CutBased_TightID_SF_++;
+    else counter_cached_Electron_CutBased_TightID_SF_++;
+    if (!loaded_Electron_CutBased_TightID_SF_) {
+        if (!b_Electron_CutBased_TightID_SF_) throw std::runtime_error("Electron_CutBased_TightID_SF branch doesn't exist");
+        int bytes = b_Electron_CutBased_TightID_SF_->GetEntry(index);
+        v_Electron_CutBased_TightID_SF_ = vector<float>(Electron_CutBased_TightID_SF_,Electron_CutBased_TightID_SF_+bytes/sizeof(Electron_CutBased_TightID_SF_[0]));
+        loaded_Electron_CutBased_TightID_SF_ = true;
+    }
+    return v_Electron_CutBased_TightID_SF_;
+}
+const vector<float> &Nano::Electron_CutBased_TightID_SFerr() {
+    if (!loaded_Electron_CutBased_TightID_SFerr_) counter_uncached_Electron_CutBased_TightID_SFerr_++;
+    else counter_cached_Electron_CutBased_TightID_SFerr_++;
+    if (!loaded_Electron_CutBased_TightID_SFerr_) {
+        if (!b_Electron_CutBased_TightID_SFerr_) throw std::runtime_error("Electron_CutBased_TightID_SFerr branch doesn't exist");
+        int bytes = b_Electron_CutBased_TightID_SFerr_->GetEntry(index);
+        v_Electron_CutBased_TightID_SFerr_ = vector<float>(Electron_CutBased_TightID_SFerr_,Electron_CutBased_TightID_SFerr_+bytes/sizeof(Electron_CutBased_TightID_SFerr_[0]));
+        loaded_Electron_CutBased_TightID_SFerr_ = true;
+    }
+    return v_Electron_CutBased_TightID_SFerr_;
+}
+const vector<float> &Nano::Electron_CutBased_VetoID_SF() {
+    if (!loaded_Electron_CutBased_VetoID_SF_) counter_uncached_Electron_CutBased_VetoID_SF_++;
+    else counter_cached_Electron_CutBased_VetoID_SF_++;
+    if (!loaded_Electron_CutBased_VetoID_SF_) {
+        if (!b_Electron_CutBased_VetoID_SF_) throw std::runtime_error("Electron_CutBased_VetoID_SF branch doesn't exist");
+        int bytes = b_Electron_CutBased_VetoID_SF_->GetEntry(index);
+        v_Electron_CutBased_VetoID_SF_ = vector<float>(Electron_CutBased_VetoID_SF_,Electron_CutBased_VetoID_SF_+bytes/sizeof(Electron_CutBased_VetoID_SF_[0]));
+        loaded_Electron_CutBased_VetoID_SF_ = true;
+    }
+    return v_Electron_CutBased_VetoID_SF_;
+}
+const vector<float> &Nano::Electron_CutBased_VetoID_SFerr() {
+    if (!loaded_Electron_CutBased_VetoID_SFerr_) counter_uncached_Electron_CutBased_VetoID_SFerr_++;
+    else counter_cached_Electron_CutBased_VetoID_SFerr_++;
+    if (!loaded_Electron_CutBased_VetoID_SFerr_) {
+        if (!b_Electron_CutBased_VetoID_SFerr_) throw std::runtime_error("Electron_CutBased_VetoID_SFerr branch doesn't exist");
+        int bytes = b_Electron_CutBased_VetoID_SFerr_->GetEntry(index);
+        v_Electron_CutBased_VetoID_SFerr_ = vector<float>(Electron_CutBased_VetoID_SFerr_,Electron_CutBased_VetoID_SFerr_+bytes/sizeof(Electron_CutBased_VetoID_SFerr_[0]));
+        loaded_Electron_CutBased_VetoID_SFerr_ = true;
+    }
+    return v_Electron_CutBased_VetoID_SFerr_;
+}
+const vector<float> &Nano::Electron_MVAFall17V2Iso_WP80_SF() {
+    if (!loaded_Electron_MVAFall17V2Iso_WP80_SF_) counter_uncached_Electron_MVAFall17V2Iso_WP80_SF_++;
+    else counter_cached_Electron_MVAFall17V2Iso_WP80_SF_++;
+    if (!loaded_Electron_MVAFall17V2Iso_WP80_SF_) {
+        if (!b_Electron_MVAFall17V2Iso_WP80_SF_) throw std::runtime_error("Electron_MVAFall17V2Iso_WP80_SF branch doesn't exist");
+        int bytes = b_Electron_MVAFall17V2Iso_WP80_SF_->GetEntry(index);
+        v_Electron_MVAFall17V2Iso_WP80_SF_ = vector<float>(Electron_MVAFall17V2Iso_WP80_SF_,Electron_MVAFall17V2Iso_WP80_SF_+bytes/sizeof(Electron_MVAFall17V2Iso_WP80_SF_[0]));
+        loaded_Electron_MVAFall17V2Iso_WP80_SF_ = true;
+    }
+    return v_Electron_MVAFall17V2Iso_WP80_SF_;
+}
+const vector<float> &Nano::Electron_MVAFall17V2Iso_WP80_SFerr() {
+    if (!loaded_Electron_MVAFall17V2Iso_WP80_SFerr_) counter_uncached_Electron_MVAFall17V2Iso_WP80_SFerr_++;
+    else counter_cached_Electron_MVAFall17V2Iso_WP80_SFerr_++;
+    if (!loaded_Electron_MVAFall17V2Iso_WP80_SFerr_) {
+        if (!b_Electron_MVAFall17V2Iso_WP80_SFerr_) throw std::runtime_error("Electron_MVAFall17V2Iso_WP80_SFerr branch doesn't exist");
+        int bytes = b_Electron_MVAFall17V2Iso_WP80_SFerr_->GetEntry(index);
+        v_Electron_MVAFall17V2Iso_WP80_SFerr_ = vector<float>(Electron_MVAFall17V2Iso_WP80_SFerr_,Electron_MVAFall17V2Iso_WP80_SFerr_+bytes/sizeof(Electron_MVAFall17V2Iso_WP80_SFerr_[0]));
+        loaded_Electron_MVAFall17V2Iso_WP80_SFerr_ = true;
+    }
+    return v_Electron_MVAFall17V2Iso_WP80_SFerr_;
+}
+const vector<float> &Nano::Electron_MVAFall17V2Iso_WP90_SF() {
+    if (!loaded_Electron_MVAFall17V2Iso_WP90_SF_) counter_uncached_Electron_MVAFall17V2Iso_WP90_SF_++;
+    else counter_cached_Electron_MVAFall17V2Iso_WP90_SF_++;
+    if (!loaded_Electron_MVAFall17V2Iso_WP90_SF_) {
+        if (!b_Electron_MVAFall17V2Iso_WP90_SF_) throw std::runtime_error("Electron_MVAFall17V2Iso_WP90_SF branch doesn't exist");
+        int bytes = b_Electron_MVAFall17V2Iso_WP90_SF_->GetEntry(index);
+        v_Electron_MVAFall17V2Iso_WP90_SF_ = vector<float>(Electron_MVAFall17V2Iso_WP90_SF_,Electron_MVAFall17V2Iso_WP90_SF_+bytes/sizeof(Electron_MVAFall17V2Iso_WP90_SF_[0]));
+        loaded_Electron_MVAFall17V2Iso_WP90_SF_ = true;
+    }
+    return v_Electron_MVAFall17V2Iso_WP90_SF_;
+}
+const vector<float> &Nano::Electron_MVAFall17V2Iso_WP90_SFerr() {
+    if (!loaded_Electron_MVAFall17V2Iso_WP90_SFerr_) counter_uncached_Electron_MVAFall17V2Iso_WP90_SFerr_++;
+    else counter_cached_Electron_MVAFall17V2Iso_WP90_SFerr_++;
+    if (!loaded_Electron_MVAFall17V2Iso_WP90_SFerr_) {
+        if (!b_Electron_MVAFall17V2Iso_WP90_SFerr_) throw std::runtime_error("Electron_MVAFall17V2Iso_WP90_SFerr branch doesn't exist");
+        int bytes = b_Electron_MVAFall17V2Iso_WP90_SFerr_->GetEntry(index);
+        v_Electron_MVAFall17V2Iso_WP90_SFerr_ = vector<float>(Electron_MVAFall17V2Iso_WP90_SFerr_,Electron_MVAFall17V2Iso_WP90_SFerr_+bytes/sizeof(Electron_MVAFall17V2Iso_WP90_SFerr_[0]));
+        loaded_Electron_MVAFall17V2Iso_WP90_SFerr_ = true;
+    }
+    return v_Electron_MVAFall17V2Iso_WP90_SFerr_;
+}
+const vector<float> &Nano::Electron_MVAFall17V2noIso_WP80_SF() {
+    if (!loaded_Electron_MVAFall17V2noIso_WP80_SF_) counter_uncached_Electron_MVAFall17V2noIso_WP80_SF_++;
+    else counter_cached_Electron_MVAFall17V2noIso_WP80_SF_++;
+    if (!loaded_Electron_MVAFall17V2noIso_WP80_SF_) {
+        if (!b_Electron_MVAFall17V2noIso_WP80_SF_) throw std::runtime_error("Electron_MVAFall17V2noIso_WP80_SF branch doesn't exist");
+        int bytes = b_Electron_MVAFall17V2noIso_WP80_SF_->GetEntry(index);
+        v_Electron_MVAFall17V2noIso_WP80_SF_ = vector<float>(Electron_MVAFall17V2noIso_WP80_SF_,Electron_MVAFall17V2noIso_WP80_SF_+bytes/sizeof(Electron_MVAFall17V2noIso_WP80_SF_[0]));
+        loaded_Electron_MVAFall17V2noIso_WP80_SF_ = true;
+    }
+    return v_Electron_MVAFall17V2noIso_WP80_SF_;
+}
+const vector<float> &Nano::Electron_MVAFall17V2noIso_WP80_SFerr() {
+    if (!loaded_Electron_MVAFall17V2noIso_WP80_SFerr_) counter_uncached_Electron_MVAFall17V2noIso_WP80_SFerr_++;
+    else counter_cached_Electron_MVAFall17V2noIso_WP80_SFerr_++;
+    if (!loaded_Electron_MVAFall17V2noIso_WP80_SFerr_) {
+        if (!b_Electron_MVAFall17V2noIso_WP80_SFerr_) throw std::runtime_error("Electron_MVAFall17V2noIso_WP80_SFerr branch doesn't exist");
+        int bytes = b_Electron_MVAFall17V2noIso_WP80_SFerr_->GetEntry(index);
+        v_Electron_MVAFall17V2noIso_WP80_SFerr_ = vector<float>(Electron_MVAFall17V2noIso_WP80_SFerr_,Electron_MVAFall17V2noIso_WP80_SFerr_+bytes/sizeof(Electron_MVAFall17V2noIso_WP80_SFerr_[0]));
+        loaded_Electron_MVAFall17V2noIso_WP80_SFerr_ = true;
+    }
+    return v_Electron_MVAFall17V2noIso_WP80_SFerr_;
+}
+const vector<float> &Nano::Electron_MVAFall17V2noIso_WP90_SF() {
+    if (!loaded_Electron_MVAFall17V2noIso_WP90_SF_) counter_uncached_Electron_MVAFall17V2noIso_WP90_SF_++;
+    else counter_cached_Electron_MVAFall17V2noIso_WP90_SF_++;
+    if (!loaded_Electron_MVAFall17V2noIso_WP90_SF_) {
+        if (!b_Electron_MVAFall17V2noIso_WP90_SF_) throw std::runtime_error("Electron_MVAFall17V2noIso_WP90_SF branch doesn't exist");
+        int bytes = b_Electron_MVAFall17V2noIso_WP90_SF_->GetEntry(index);
+        v_Electron_MVAFall17V2noIso_WP90_SF_ = vector<float>(Electron_MVAFall17V2noIso_WP90_SF_,Electron_MVAFall17V2noIso_WP90_SF_+bytes/sizeof(Electron_MVAFall17V2noIso_WP90_SF_[0]));
+        loaded_Electron_MVAFall17V2noIso_WP90_SF_ = true;
+    }
+    return v_Electron_MVAFall17V2noIso_WP90_SF_;
+}
+const vector<float> &Nano::Electron_MVAFall17V2noIso_WP90_SFerr() {
+    if (!loaded_Electron_MVAFall17V2noIso_WP90_SFerr_) counter_uncached_Electron_MVAFall17V2noIso_WP90_SFerr_++;
+    else counter_cached_Electron_MVAFall17V2noIso_WP90_SFerr_++;
+    if (!loaded_Electron_MVAFall17V2noIso_WP90_SFerr_) {
+        if (!b_Electron_MVAFall17V2noIso_WP90_SFerr_) throw std::runtime_error("Electron_MVAFall17V2noIso_WP90_SFerr branch doesn't exist");
+        int bytes = b_Electron_MVAFall17V2noIso_WP90_SFerr_->GetEntry(index);
+        v_Electron_MVAFall17V2noIso_WP90_SFerr_ = vector<float>(Electron_MVAFall17V2noIso_WP90_SFerr_,Electron_MVAFall17V2noIso_WP90_SFerr_+bytes/sizeof(Electron_MVAFall17V2noIso_WP90_SFerr_[0]));
+        loaded_Electron_MVAFall17V2noIso_WP90_SFerr_ = true;
+    }
+    return v_Electron_MVAFall17V2noIso_WP90_SFerr_;
+}
+const vector<float> &Nano::Electron_RECO_SF() {
+    if (!loaded_Electron_RECO_SF_) counter_uncached_Electron_RECO_SF_++;
+    else counter_cached_Electron_RECO_SF_++;
+    if (!loaded_Electron_RECO_SF_) {
+        if (!b_Electron_RECO_SF_) throw std::runtime_error("Electron_RECO_SF branch doesn't exist");
+        int bytes = b_Electron_RECO_SF_->GetEntry(index);
+        v_Electron_RECO_SF_ = vector<float>(Electron_RECO_SF_,Electron_RECO_SF_+bytes/sizeof(Electron_RECO_SF_[0]));
+        loaded_Electron_RECO_SF_ = true;
+    }
+    return v_Electron_RECO_SF_;
+}
+const vector<float> &Nano::Electron_RECO_SFerr() {
+    if (!loaded_Electron_RECO_SFerr_) counter_uncached_Electron_RECO_SFerr_++;
+    else counter_cached_Electron_RECO_SFerr_++;
+    if (!loaded_Electron_RECO_SFerr_) {
+        if (!b_Electron_RECO_SFerr_) throw std::runtime_error("Electron_RECO_SFerr branch doesn't exist");
+        int bytes = b_Electron_RECO_SFerr_->GetEntry(index);
+        v_Electron_RECO_SFerr_ = vector<float>(Electron_RECO_SFerr_,Electron_RECO_SFerr_+bytes/sizeof(Electron_RECO_SFerr_[0]));
+        loaded_Electron_RECO_SFerr_ = true;
+    }
+    return v_Electron_RECO_SFerr_;
+}
 const vector<int> &Nano::Electron_charge() {
     if (!loaded_Electron_charge_) counter_uncached_Electron_charge_++;
     else counter_cached_Electron_charge_++;
@@ -10541,6 +11731,50 @@ const vector<int> &Nano::Electron_cutBased_Sum16() {
         loaded_Electron_cutBased_Sum16_ = true;
     }
     return v_Electron_cutBased_Sum16_;
+}
+const vector<float> &Nano::Electron_dEscaleDown() {
+    if (!loaded_Electron_dEscaleDown_) counter_uncached_Electron_dEscaleDown_++;
+    else counter_cached_Electron_dEscaleDown_++;
+    if (!loaded_Electron_dEscaleDown_) {
+        if (!b_Electron_dEscaleDown_) throw std::runtime_error("Electron_dEscaleDown branch doesn't exist");
+        int bytes = b_Electron_dEscaleDown_->GetEntry(index);
+        v_Electron_dEscaleDown_ = vector<float>(Electron_dEscaleDown_,Electron_dEscaleDown_+bytes/sizeof(Electron_dEscaleDown_[0]));
+        loaded_Electron_dEscaleDown_ = true;
+    }
+    return v_Electron_dEscaleDown_;
+}
+const vector<float> &Nano::Electron_dEscaleUp() {
+    if (!loaded_Electron_dEscaleUp_) counter_uncached_Electron_dEscaleUp_++;
+    else counter_cached_Electron_dEscaleUp_++;
+    if (!loaded_Electron_dEscaleUp_) {
+        if (!b_Electron_dEscaleUp_) throw std::runtime_error("Electron_dEscaleUp branch doesn't exist");
+        int bytes = b_Electron_dEscaleUp_->GetEntry(index);
+        v_Electron_dEscaleUp_ = vector<float>(Electron_dEscaleUp_,Electron_dEscaleUp_+bytes/sizeof(Electron_dEscaleUp_[0]));
+        loaded_Electron_dEscaleUp_ = true;
+    }
+    return v_Electron_dEscaleUp_;
+}
+const vector<float> &Nano::Electron_dEsigmaDown() {
+    if (!loaded_Electron_dEsigmaDown_) counter_uncached_Electron_dEsigmaDown_++;
+    else counter_cached_Electron_dEsigmaDown_++;
+    if (!loaded_Electron_dEsigmaDown_) {
+        if (!b_Electron_dEsigmaDown_) throw std::runtime_error("Electron_dEsigmaDown branch doesn't exist");
+        int bytes = b_Electron_dEsigmaDown_->GetEntry(index);
+        v_Electron_dEsigmaDown_ = vector<float>(Electron_dEsigmaDown_,Electron_dEsigmaDown_+bytes/sizeof(Electron_dEsigmaDown_[0]));
+        loaded_Electron_dEsigmaDown_ = true;
+    }
+    return v_Electron_dEsigmaDown_;
+}
+const vector<float> &Nano::Electron_dEsigmaUp() {
+    if (!loaded_Electron_dEsigmaUp_) counter_uncached_Electron_dEsigmaUp_++;
+    else counter_cached_Electron_dEsigmaUp_++;
+    if (!loaded_Electron_dEsigmaUp_) {
+        if (!b_Electron_dEsigmaUp_) throw std::runtime_error("Electron_dEsigmaUp branch doesn't exist");
+        int bytes = b_Electron_dEsigmaUp_->GetEntry(index);
+        v_Electron_dEsigmaUp_ = vector<float>(Electron_dEsigmaUp_,Electron_dEsigmaUp_+bytes/sizeof(Electron_dEsigmaUp_[0]));
+        loaded_Electron_dEsigmaUp_ = true;
+    }
+    return v_Electron_dEsigmaUp_;
 }
 const vector<float> &Nano::Electron_deltaEtaSC() {
     if (!loaded_Electron_deltaEtaSC_) counter_uncached_Electron_deltaEtaSC_++;
@@ -10750,6 +11984,17 @@ const vector<int> &Nano::Electron_jetIdx() {
         loaded_Electron_jetIdx_ = true;
     }
     return v_Electron_jetIdx_;
+}
+const vector<UChar_t> &Nano::Electron_jetNDauCharged() {
+    if (!loaded_Electron_jetNDauCharged_) counter_uncached_Electron_jetNDauCharged_++;
+    else counter_cached_Electron_jetNDauCharged_++;
+    if (!loaded_Electron_jetNDauCharged_) {
+        if (!b_Electron_jetNDauCharged_) throw std::runtime_error("Electron_jetNDauCharged branch doesn't exist");
+        int bytes = b_Electron_jetNDauCharged_->GetEntry(index);
+        v_Electron_jetNDauCharged_ = vector<UChar_t>(Electron_jetNDauCharged_,Electron_jetNDauCharged_+bytes/sizeof(Electron_jetNDauCharged_[0]));
+        loaded_Electron_jetNDauCharged_ = true;
+    }
+    return v_Electron_jetNDauCharged_;
 }
 const vector<float> &Nano::Electron_jetPtRelv2() {
     if (!loaded_Electron_jetPtRelv2_) counter_uncached_Electron_jetPtRelv2_++;
@@ -11295,6 +12540,17 @@ const vector<float> &Nano::FatJet_btagDDBvL() {
     }
     return v_FatJet_btagDDBvL_;
 }
+const vector<float> &Nano::FatJet_btagDDBvLV2() {
+    if (!loaded_FatJet_btagDDBvLV2_) counter_uncached_FatJet_btagDDBvLV2_++;
+    else counter_cached_FatJet_btagDDBvLV2_++;
+    if (!loaded_FatJet_btagDDBvLV2_) {
+        if (!b_FatJet_btagDDBvLV2_) throw std::runtime_error("FatJet_btagDDBvLV2 branch doesn't exist");
+        int bytes = b_FatJet_btagDDBvLV2_->GetEntry(index);
+        v_FatJet_btagDDBvLV2_ = vector<float>(FatJet_btagDDBvLV2_,FatJet_btagDDBvLV2_+bytes/sizeof(FatJet_btagDDBvLV2_[0]));
+        loaded_FatJet_btagDDBvLV2_ = true;
+    }
+    return v_FatJet_btagDDBvLV2_;
+}
 const vector<float> &Nano::FatJet_btagDDBvL_noMD() {
     if (!loaded_FatJet_btagDDBvL_noMD_) counter_uncached_FatJet_btagDDBvL_noMD_++;
     else counter_cached_FatJet_btagDDBvL_noMD_++;
@@ -11317,6 +12573,17 @@ const vector<float> &Nano::FatJet_btagDDCvB() {
     }
     return v_FatJet_btagDDCvB_;
 }
+const vector<float> &Nano::FatJet_btagDDCvBV2() {
+    if (!loaded_FatJet_btagDDCvBV2_) counter_uncached_FatJet_btagDDCvBV2_++;
+    else counter_cached_FatJet_btagDDCvBV2_++;
+    if (!loaded_FatJet_btagDDCvBV2_) {
+        if (!b_FatJet_btagDDCvBV2_) throw std::runtime_error("FatJet_btagDDCvBV2 branch doesn't exist");
+        int bytes = b_FatJet_btagDDCvBV2_->GetEntry(index);
+        v_FatJet_btagDDCvBV2_ = vector<float>(FatJet_btagDDCvBV2_,FatJet_btagDDCvBV2_+bytes/sizeof(FatJet_btagDDCvBV2_[0]));
+        loaded_FatJet_btagDDCvBV2_ = true;
+    }
+    return v_FatJet_btagDDCvBV2_;
+}
 const vector<float> &Nano::FatJet_btagDDCvB_noMD() {
     if (!loaded_FatJet_btagDDCvB_noMD_) counter_uncached_FatJet_btagDDCvB_noMD_++;
     else counter_cached_FatJet_btagDDCvB_noMD_++;
@@ -11338,6 +12605,17 @@ const vector<float> &Nano::FatJet_btagDDCvL() {
         loaded_FatJet_btagDDCvL_ = true;
     }
     return v_FatJet_btagDDCvL_;
+}
+const vector<float> &Nano::FatJet_btagDDCvLV2() {
+    if (!loaded_FatJet_btagDDCvLV2_) counter_uncached_FatJet_btagDDCvLV2_++;
+    else counter_cached_FatJet_btagDDCvLV2_++;
+    if (!loaded_FatJet_btagDDCvLV2_) {
+        if (!b_FatJet_btagDDCvLV2_) throw std::runtime_error("FatJet_btagDDCvLV2 branch doesn't exist");
+        int bytes = b_FatJet_btagDDCvLV2_->GetEntry(index);
+        v_FatJet_btagDDCvLV2_ = vector<float>(FatJet_btagDDCvLV2_,FatJet_btagDDCvLV2_+bytes/sizeof(FatJet_btagDDCvLV2_[0]));
+        loaded_FatJet_btagDDCvLV2_ = true;
+    }
+    return v_FatJet_btagDDCvLV2_;
 }
 const vector<float> &Nano::FatJet_btagDDCvL_noMD() {
     if (!loaded_FatJet_btagDDCvL_noMD_) counter_uncached_FatJet_btagDDCvL_noMD_++;
@@ -11371,6 +12649,50 @@ const vector<float> &Nano::FatJet_btagHbb() {
         loaded_FatJet_btagHbb_ = true;
     }
     return v_FatJet_btagHbb_;
+}
+const vector<float> &Nano::FatJet_corr_JEC() {
+    if (!loaded_FatJet_corr_JEC_) counter_uncached_FatJet_corr_JEC_++;
+    else counter_cached_FatJet_corr_JEC_++;
+    if (!loaded_FatJet_corr_JEC_) {
+        if (!b_FatJet_corr_JEC_) throw std::runtime_error("FatJet_corr_JEC branch doesn't exist");
+        int bytes = b_FatJet_corr_JEC_->GetEntry(index);
+        v_FatJet_corr_JEC_ = vector<float>(FatJet_corr_JEC_,FatJet_corr_JEC_+bytes/sizeof(FatJet_corr_JEC_[0]));
+        loaded_FatJet_corr_JEC_ = true;
+    }
+    return v_FatJet_corr_JEC_;
+}
+const vector<float> &Nano::FatJet_corr_JER() {
+    if (!loaded_FatJet_corr_JER_) counter_uncached_FatJet_corr_JER_++;
+    else counter_cached_FatJet_corr_JER_++;
+    if (!loaded_FatJet_corr_JER_) {
+        if (!b_FatJet_corr_JER_) throw std::runtime_error("FatJet_corr_JER branch doesn't exist");
+        int bytes = b_FatJet_corr_JER_->GetEntry(index);
+        v_FatJet_corr_JER_ = vector<float>(FatJet_corr_JER_,FatJet_corr_JER_+bytes/sizeof(FatJet_corr_JER_[0]));
+        loaded_FatJet_corr_JER_ = true;
+    }
+    return v_FatJet_corr_JER_;
+}
+const vector<float> &Nano::FatJet_corr_JMR() {
+    if (!loaded_FatJet_corr_JMR_) counter_uncached_FatJet_corr_JMR_++;
+    else counter_cached_FatJet_corr_JMR_++;
+    if (!loaded_FatJet_corr_JMR_) {
+        if (!b_FatJet_corr_JMR_) throw std::runtime_error("FatJet_corr_JMR branch doesn't exist");
+        int bytes = b_FatJet_corr_JMR_->GetEntry(index);
+        v_FatJet_corr_JMR_ = vector<float>(FatJet_corr_JMR_,FatJet_corr_JMR_+bytes/sizeof(FatJet_corr_JMR_[0]));
+        loaded_FatJet_corr_JMR_ = true;
+    }
+    return v_FatJet_corr_JMR_;
+}
+const vector<float> &Nano::FatJet_corr_JMS() {
+    if (!loaded_FatJet_corr_JMS_) counter_uncached_FatJet_corr_JMS_++;
+    else counter_cached_FatJet_corr_JMS_++;
+    if (!loaded_FatJet_corr_JMS_) {
+        if (!b_FatJet_corr_JMS_) throw std::runtime_error("FatJet_corr_JMS branch doesn't exist");
+        int bytes = b_FatJet_corr_JMS_->GetEntry(index);
+        v_FatJet_corr_JMS_ = vector<float>(FatJet_corr_JMS_,FatJet_corr_JMS_+bytes/sizeof(FatJet_corr_JMS_[0]));
+        loaded_FatJet_corr_JMS_ = true;
+    }
+    return v_FatJet_corr_JMS_;
 }
 const vector<float> &Nano::FatJet_deepTagMD_H4qvsQCD() {
     if (!loaded_FatJet_deepTagMD_H4qvsQCD_) counter_uncached_FatJet_deepTagMD_H4qvsQCD_++;
@@ -11625,6 +12947,116 @@ const vector<float> &Nano::FatJet_mass() {
     }
     return v_FatJet_mass_;
 }
+const vector<float> &Nano::FatJet_mass_jerDown() {
+    if (!loaded_FatJet_mass_jerDown_) counter_uncached_FatJet_mass_jerDown_++;
+    else counter_cached_FatJet_mass_jerDown_++;
+    if (!loaded_FatJet_mass_jerDown_) {
+        if (!b_FatJet_mass_jerDown_) throw std::runtime_error("FatJet_mass_jerDown branch doesn't exist");
+        int bytes = b_FatJet_mass_jerDown_->GetEntry(index);
+        v_FatJet_mass_jerDown_ = vector<float>(FatJet_mass_jerDown_,FatJet_mass_jerDown_+bytes/sizeof(FatJet_mass_jerDown_[0]));
+        loaded_FatJet_mass_jerDown_ = true;
+    }
+    return v_FatJet_mass_jerDown_;
+}
+const vector<float> &Nano::FatJet_mass_jerUp() {
+    if (!loaded_FatJet_mass_jerUp_) counter_uncached_FatJet_mass_jerUp_++;
+    else counter_cached_FatJet_mass_jerUp_++;
+    if (!loaded_FatJet_mass_jerUp_) {
+        if (!b_FatJet_mass_jerUp_) throw std::runtime_error("FatJet_mass_jerUp branch doesn't exist");
+        int bytes = b_FatJet_mass_jerUp_->GetEntry(index);
+        v_FatJet_mass_jerUp_ = vector<float>(FatJet_mass_jerUp_,FatJet_mass_jerUp_+bytes/sizeof(FatJet_mass_jerUp_[0]));
+        loaded_FatJet_mass_jerUp_ = true;
+    }
+    return v_FatJet_mass_jerUp_;
+}
+const vector<float> &Nano::FatJet_mass_jesTotalDown() {
+    if (!loaded_FatJet_mass_jesTotalDown_) counter_uncached_FatJet_mass_jesTotalDown_++;
+    else counter_cached_FatJet_mass_jesTotalDown_++;
+    if (!loaded_FatJet_mass_jesTotalDown_) {
+        if (!b_FatJet_mass_jesTotalDown_) throw std::runtime_error("FatJet_mass_jesTotalDown branch doesn't exist");
+        int bytes = b_FatJet_mass_jesTotalDown_->GetEntry(index);
+        v_FatJet_mass_jesTotalDown_ = vector<float>(FatJet_mass_jesTotalDown_,FatJet_mass_jesTotalDown_+bytes/sizeof(FatJet_mass_jesTotalDown_[0]));
+        loaded_FatJet_mass_jesTotalDown_ = true;
+    }
+    return v_FatJet_mass_jesTotalDown_;
+}
+const vector<float> &Nano::FatJet_mass_jesTotalUp() {
+    if (!loaded_FatJet_mass_jesTotalUp_) counter_uncached_FatJet_mass_jesTotalUp_++;
+    else counter_cached_FatJet_mass_jesTotalUp_++;
+    if (!loaded_FatJet_mass_jesTotalUp_) {
+        if (!b_FatJet_mass_jesTotalUp_) throw std::runtime_error("FatJet_mass_jesTotalUp branch doesn't exist");
+        int bytes = b_FatJet_mass_jesTotalUp_->GetEntry(index);
+        v_FatJet_mass_jesTotalUp_ = vector<float>(FatJet_mass_jesTotalUp_,FatJet_mass_jesTotalUp_+bytes/sizeof(FatJet_mass_jesTotalUp_[0]));
+        loaded_FatJet_mass_jesTotalUp_ = true;
+    }
+    return v_FatJet_mass_jesTotalUp_;
+}
+const vector<float> &Nano::FatJet_mass_jmrDown() {
+    if (!loaded_FatJet_mass_jmrDown_) counter_uncached_FatJet_mass_jmrDown_++;
+    else counter_cached_FatJet_mass_jmrDown_++;
+    if (!loaded_FatJet_mass_jmrDown_) {
+        if (!b_FatJet_mass_jmrDown_) throw std::runtime_error("FatJet_mass_jmrDown branch doesn't exist");
+        int bytes = b_FatJet_mass_jmrDown_->GetEntry(index);
+        v_FatJet_mass_jmrDown_ = vector<float>(FatJet_mass_jmrDown_,FatJet_mass_jmrDown_+bytes/sizeof(FatJet_mass_jmrDown_[0]));
+        loaded_FatJet_mass_jmrDown_ = true;
+    }
+    return v_FatJet_mass_jmrDown_;
+}
+const vector<float> &Nano::FatJet_mass_jmrUp() {
+    if (!loaded_FatJet_mass_jmrUp_) counter_uncached_FatJet_mass_jmrUp_++;
+    else counter_cached_FatJet_mass_jmrUp_++;
+    if (!loaded_FatJet_mass_jmrUp_) {
+        if (!b_FatJet_mass_jmrUp_) throw std::runtime_error("FatJet_mass_jmrUp branch doesn't exist");
+        int bytes = b_FatJet_mass_jmrUp_->GetEntry(index);
+        v_FatJet_mass_jmrUp_ = vector<float>(FatJet_mass_jmrUp_,FatJet_mass_jmrUp_+bytes/sizeof(FatJet_mass_jmrUp_[0]));
+        loaded_FatJet_mass_jmrUp_ = true;
+    }
+    return v_FatJet_mass_jmrUp_;
+}
+const vector<float> &Nano::FatJet_mass_jmsDown() {
+    if (!loaded_FatJet_mass_jmsDown_) counter_uncached_FatJet_mass_jmsDown_++;
+    else counter_cached_FatJet_mass_jmsDown_++;
+    if (!loaded_FatJet_mass_jmsDown_) {
+        if (!b_FatJet_mass_jmsDown_) throw std::runtime_error("FatJet_mass_jmsDown branch doesn't exist");
+        int bytes = b_FatJet_mass_jmsDown_->GetEntry(index);
+        v_FatJet_mass_jmsDown_ = vector<float>(FatJet_mass_jmsDown_,FatJet_mass_jmsDown_+bytes/sizeof(FatJet_mass_jmsDown_[0]));
+        loaded_FatJet_mass_jmsDown_ = true;
+    }
+    return v_FatJet_mass_jmsDown_;
+}
+const vector<float> &Nano::FatJet_mass_jmsUp() {
+    if (!loaded_FatJet_mass_jmsUp_) counter_uncached_FatJet_mass_jmsUp_++;
+    else counter_cached_FatJet_mass_jmsUp_++;
+    if (!loaded_FatJet_mass_jmsUp_) {
+        if (!b_FatJet_mass_jmsUp_) throw std::runtime_error("FatJet_mass_jmsUp branch doesn't exist");
+        int bytes = b_FatJet_mass_jmsUp_->GetEntry(index);
+        v_FatJet_mass_jmsUp_ = vector<float>(FatJet_mass_jmsUp_,FatJet_mass_jmsUp_+bytes/sizeof(FatJet_mass_jmsUp_[0]));
+        loaded_FatJet_mass_jmsUp_ = true;
+    }
+    return v_FatJet_mass_jmsUp_;
+}
+const vector<float> &Nano::FatJet_mass_nom() {
+    if (!loaded_FatJet_mass_nom_) counter_uncached_FatJet_mass_nom_++;
+    else counter_cached_FatJet_mass_nom_++;
+    if (!loaded_FatJet_mass_nom_) {
+        if (!b_FatJet_mass_nom_) throw std::runtime_error("FatJet_mass_nom branch doesn't exist");
+        int bytes = b_FatJet_mass_nom_->GetEntry(index);
+        v_FatJet_mass_nom_ = vector<float>(FatJet_mass_nom_,FatJet_mass_nom_+bytes/sizeof(FatJet_mass_nom_[0]));
+        loaded_FatJet_mass_nom_ = true;
+    }
+    return v_FatJet_mass_nom_;
+}
+const vector<float> &Nano::FatJet_mass_raw() {
+    if (!loaded_FatJet_mass_raw_) counter_uncached_FatJet_mass_raw_++;
+    else counter_cached_FatJet_mass_raw_++;
+    if (!loaded_FatJet_mass_raw_) {
+        if (!b_FatJet_mass_raw_) throw std::runtime_error("FatJet_mass_raw branch doesn't exist");
+        int bytes = b_FatJet_mass_raw_->GetEntry(index);
+        v_FatJet_mass_raw_ = vector<float>(FatJet_mass_raw_,FatJet_mass_raw_+bytes/sizeof(FatJet_mass_raw_[0]));
+        loaded_FatJet_mass_raw_ = true;
+    }
+    return v_FatJet_mass_raw_;
+}
 const vector<float> &Nano::FatJet_msoftdrop() {
     if (!loaded_FatJet_msoftdrop_) counter_uncached_FatJet_msoftdrop_++;
     else counter_cached_FatJet_msoftdrop_++;
@@ -11635,6 +13067,226 @@ const vector<float> &Nano::FatJet_msoftdrop() {
         loaded_FatJet_msoftdrop_ = true;
     }
     return v_FatJet_msoftdrop_;
+}
+const vector<float> &Nano::FatJet_msoftdrop_corr_JMR() {
+    if (!loaded_FatJet_msoftdrop_corr_JMR_) counter_uncached_FatJet_msoftdrop_corr_JMR_++;
+    else counter_cached_FatJet_msoftdrop_corr_JMR_++;
+    if (!loaded_FatJet_msoftdrop_corr_JMR_) {
+        if (!b_FatJet_msoftdrop_corr_JMR_) throw std::runtime_error("FatJet_msoftdrop_corr_JMR branch doesn't exist");
+        int bytes = b_FatJet_msoftdrop_corr_JMR_->GetEntry(index);
+        v_FatJet_msoftdrop_corr_JMR_ = vector<float>(FatJet_msoftdrop_corr_JMR_,FatJet_msoftdrop_corr_JMR_+bytes/sizeof(FatJet_msoftdrop_corr_JMR_[0]));
+        loaded_FatJet_msoftdrop_corr_JMR_ = true;
+    }
+    return v_FatJet_msoftdrop_corr_JMR_;
+}
+const vector<float> &Nano::FatJet_msoftdrop_corr_JMS() {
+    if (!loaded_FatJet_msoftdrop_corr_JMS_) counter_uncached_FatJet_msoftdrop_corr_JMS_++;
+    else counter_cached_FatJet_msoftdrop_corr_JMS_++;
+    if (!loaded_FatJet_msoftdrop_corr_JMS_) {
+        if (!b_FatJet_msoftdrop_corr_JMS_) throw std::runtime_error("FatJet_msoftdrop_corr_JMS branch doesn't exist");
+        int bytes = b_FatJet_msoftdrop_corr_JMS_->GetEntry(index);
+        v_FatJet_msoftdrop_corr_JMS_ = vector<float>(FatJet_msoftdrop_corr_JMS_,FatJet_msoftdrop_corr_JMS_+bytes/sizeof(FatJet_msoftdrop_corr_JMS_[0]));
+        loaded_FatJet_msoftdrop_corr_JMS_ = true;
+    }
+    return v_FatJet_msoftdrop_corr_JMS_;
+}
+const vector<float> &Nano::FatJet_msoftdrop_corr_PUPPI() {
+    if (!loaded_FatJet_msoftdrop_corr_PUPPI_) counter_uncached_FatJet_msoftdrop_corr_PUPPI_++;
+    else counter_cached_FatJet_msoftdrop_corr_PUPPI_++;
+    if (!loaded_FatJet_msoftdrop_corr_PUPPI_) {
+        if (!b_FatJet_msoftdrop_corr_PUPPI_) throw std::runtime_error("FatJet_msoftdrop_corr_PUPPI branch doesn't exist");
+        int bytes = b_FatJet_msoftdrop_corr_PUPPI_->GetEntry(index);
+        v_FatJet_msoftdrop_corr_PUPPI_ = vector<float>(FatJet_msoftdrop_corr_PUPPI_,FatJet_msoftdrop_corr_PUPPI_+bytes/sizeof(FatJet_msoftdrop_corr_PUPPI_[0]));
+        loaded_FatJet_msoftdrop_corr_PUPPI_ = true;
+    }
+    return v_FatJet_msoftdrop_corr_PUPPI_;
+}
+const vector<float> &Nano::FatJet_msoftdrop_jerDown() {
+    if (!loaded_FatJet_msoftdrop_jerDown_) counter_uncached_FatJet_msoftdrop_jerDown_++;
+    else counter_cached_FatJet_msoftdrop_jerDown_++;
+    if (!loaded_FatJet_msoftdrop_jerDown_) {
+        if (!b_FatJet_msoftdrop_jerDown_) throw std::runtime_error("FatJet_msoftdrop_jerDown branch doesn't exist");
+        int bytes = b_FatJet_msoftdrop_jerDown_->GetEntry(index);
+        v_FatJet_msoftdrop_jerDown_ = vector<float>(FatJet_msoftdrop_jerDown_,FatJet_msoftdrop_jerDown_+bytes/sizeof(FatJet_msoftdrop_jerDown_[0]));
+        loaded_FatJet_msoftdrop_jerDown_ = true;
+    }
+    return v_FatJet_msoftdrop_jerDown_;
+}
+const vector<float> &Nano::FatJet_msoftdrop_jerUp() {
+    if (!loaded_FatJet_msoftdrop_jerUp_) counter_uncached_FatJet_msoftdrop_jerUp_++;
+    else counter_cached_FatJet_msoftdrop_jerUp_++;
+    if (!loaded_FatJet_msoftdrop_jerUp_) {
+        if (!b_FatJet_msoftdrop_jerUp_) throw std::runtime_error("FatJet_msoftdrop_jerUp branch doesn't exist");
+        int bytes = b_FatJet_msoftdrop_jerUp_->GetEntry(index);
+        v_FatJet_msoftdrop_jerUp_ = vector<float>(FatJet_msoftdrop_jerUp_,FatJet_msoftdrop_jerUp_+bytes/sizeof(FatJet_msoftdrop_jerUp_[0]));
+        loaded_FatJet_msoftdrop_jerUp_ = true;
+    }
+    return v_FatJet_msoftdrop_jerUp_;
+}
+const vector<float> &Nano::FatJet_msoftdrop_jesTotalDown() {
+    if (!loaded_FatJet_msoftdrop_jesTotalDown_) counter_uncached_FatJet_msoftdrop_jesTotalDown_++;
+    else counter_cached_FatJet_msoftdrop_jesTotalDown_++;
+    if (!loaded_FatJet_msoftdrop_jesTotalDown_) {
+        if (!b_FatJet_msoftdrop_jesTotalDown_) throw std::runtime_error("FatJet_msoftdrop_jesTotalDown branch doesn't exist");
+        int bytes = b_FatJet_msoftdrop_jesTotalDown_->GetEntry(index);
+        v_FatJet_msoftdrop_jesTotalDown_ = vector<float>(FatJet_msoftdrop_jesTotalDown_,FatJet_msoftdrop_jesTotalDown_+bytes/sizeof(FatJet_msoftdrop_jesTotalDown_[0]));
+        loaded_FatJet_msoftdrop_jesTotalDown_ = true;
+    }
+    return v_FatJet_msoftdrop_jesTotalDown_;
+}
+const vector<float> &Nano::FatJet_msoftdrop_jesTotalUp() {
+    if (!loaded_FatJet_msoftdrop_jesTotalUp_) counter_uncached_FatJet_msoftdrop_jesTotalUp_++;
+    else counter_cached_FatJet_msoftdrop_jesTotalUp_++;
+    if (!loaded_FatJet_msoftdrop_jesTotalUp_) {
+        if (!b_FatJet_msoftdrop_jesTotalUp_) throw std::runtime_error("FatJet_msoftdrop_jesTotalUp branch doesn't exist");
+        int bytes = b_FatJet_msoftdrop_jesTotalUp_->GetEntry(index);
+        v_FatJet_msoftdrop_jesTotalUp_ = vector<float>(FatJet_msoftdrop_jesTotalUp_,FatJet_msoftdrop_jesTotalUp_+bytes/sizeof(FatJet_msoftdrop_jesTotalUp_[0]));
+        loaded_FatJet_msoftdrop_jesTotalUp_ = true;
+    }
+    return v_FatJet_msoftdrop_jesTotalUp_;
+}
+const vector<float> &Nano::FatJet_msoftdrop_jmrDown() {
+    if (!loaded_FatJet_msoftdrop_jmrDown_) counter_uncached_FatJet_msoftdrop_jmrDown_++;
+    else counter_cached_FatJet_msoftdrop_jmrDown_++;
+    if (!loaded_FatJet_msoftdrop_jmrDown_) {
+        if (!b_FatJet_msoftdrop_jmrDown_) throw std::runtime_error("FatJet_msoftdrop_jmrDown branch doesn't exist");
+        int bytes = b_FatJet_msoftdrop_jmrDown_->GetEntry(index);
+        v_FatJet_msoftdrop_jmrDown_ = vector<float>(FatJet_msoftdrop_jmrDown_,FatJet_msoftdrop_jmrDown_+bytes/sizeof(FatJet_msoftdrop_jmrDown_[0]));
+        loaded_FatJet_msoftdrop_jmrDown_ = true;
+    }
+    return v_FatJet_msoftdrop_jmrDown_;
+}
+const vector<float> &Nano::FatJet_msoftdrop_jmrUp() {
+    if (!loaded_FatJet_msoftdrop_jmrUp_) counter_uncached_FatJet_msoftdrop_jmrUp_++;
+    else counter_cached_FatJet_msoftdrop_jmrUp_++;
+    if (!loaded_FatJet_msoftdrop_jmrUp_) {
+        if (!b_FatJet_msoftdrop_jmrUp_) throw std::runtime_error("FatJet_msoftdrop_jmrUp branch doesn't exist");
+        int bytes = b_FatJet_msoftdrop_jmrUp_->GetEntry(index);
+        v_FatJet_msoftdrop_jmrUp_ = vector<float>(FatJet_msoftdrop_jmrUp_,FatJet_msoftdrop_jmrUp_+bytes/sizeof(FatJet_msoftdrop_jmrUp_[0]));
+        loaded_FatJet_msoftdrop_jmrUp_ = true;
+    }
+    return v_FatJet_msoftdrop_jmrUp_;
+}
+const vector<float> &Nano::FatJet_msoftdrop_jmsDown() {
+    if (!loaded_FatJet_msoftdrop_jmsDown_) counter_uncached_FatJet_msoftdrop_jmsDown_++;
+    else counter_cached_FatJet_msoftdrop_jmsDown_++;
+    if (!loaded_FatJet_msoftdrop_jmsDown_) {
+        if (!b_FatJet_msoftdrop_jmsDown_) throw std::runtime_error("FatJet_msoftdrop_jmsDown branch doesn't exist");
+        int bytes = b_FatJet_msoftdrop_jmsDown_->GetEntry(index);
+        v_FatJet_msoftdrop_jmsDown_ = vector<float>(FatJet_msoftdrop_jmsDown_,FatJet_msoftdrop_jmsDown_+bytes/sizeof(FatJet_msoftdrop_jmsDown_[0]));
+        loaded_FatJet_msoftdrop_jmsDown_ = true;
+    }
+    return v_FatJet_msoftdrop_jmsDown_;
+}
+const vector<float> &Nano::FatJet_msoftdrop_jmsUp() {
+    if (!loaded_FatJet_msoftdrop_jmsUp_) counter_uncached_FatJet_msoftdrop_jmsUp_++;
+    else counter_cached_FatJet_msoftdrop_jmsUp_++;
+    if (!loaded_FatJet_msoftdrop_jmsUp_) {
+        if (!b_FatJet_msoftdrop_jmsUp_) throw std::runtime_error("FatJet_msoftdrop_jmsUp branch doesn't exist");
+        int bytes = b_FatJet_msoftdrop_jmsUp_->GetEntry(index);
+        v_FatJet_msoftdrop_jmsUp_ = vector<float>(FatJet_msoftdrop_jmsUp_,FatJet_msoftdrop_jmsUp_+bytes/sizeof(FatJet_msoftdrop_jmsUp_[0]));
+        loaded_FatJet_msoftdrop_jmsUp_ = true;
+    }
+    return v_FatJet_msoftdrop_jmsUp_;
+}
+const vector<float> &Nano::FatJet_msoftdrop_nom() {
+    if (!loaded_FatJet_msoftdrop_nom_) counter_uncached_FatJet_msoftdrop_nom_++;
+    else counter_cached_FatJet_msoftdrop_nom_++;
+    if (!loaded_FatJet_msoftdrop_nom_) {
+        if (!b_FatJet_msoftdrop_nom_) throw std::runtime_error("FatJet_msoftdrop_nom branch doesn't exist");
+        int bytes = b_FatJet_msoftdrop_nom_->GetEntry(index);
+        v_FatJet_msoftdrop_nom_ = vector<float>(FatJet_msoftdrop_nom_,FatJet_msoftdrop_nom_+bytes/sizeof(FatJet_msoftdrop_nom_[0]));
+        loaded_FatJet_msoftdrop_nom_ = true;
+    }
+    return v_FatJet_msoftdrop_nom_;
+}
+const vector<float> &Nano::FatJet_msoftdrop_raw() {
+    if (!loaded_FatJet_msoftdrop_raw_) counter_uncached_FatJet_msoftdrop_raw_++;
+    else counter_cached_FatJet_msoftdrop_raw_++;
+    if (!loaded_FatJet_msoftdrop_raw_) {
+        if (!b_FatJet_msoftdrop_raw_) throw std::runtime_error("FatJet_msoftdrop_raw branch doesn't exist");
+        int bytes = b_FatJet_msoftdrop_raw_->GetEntry(index);
+        v_FatJet_msoftdrop_raw_ = vector<float>(FatJet_msoftdrop_raw_,FatJet_msoftdrop_raw_+bytes/sizeof(FatJet_msoftdrop_raw_[0]));
+        loaded_FatJet_msoftdrop_raw_ = true;
+    }
+    return v_FatJet_msoftdrop_raw_;
+}
+const vector<float> &Nano::FatJet_msoftdrop_tau21DDT_jerDown() {
+    if (!loaded_FatJet_msoftdrop_tau21DDT_jerDown_) counter_uncached_FatJet_msoftdrop_tau21DDT_jerDown_++;
+    else counter_cached_FatJet_msoftdrop_tau21DDT_jerDown_++;
+    if (!loaded_FatJet_msoftdrop_tau21DDT_jerDown_) {
+        if (!b_FatJet_msoftdrop_tau21DDT_jerDown_) throw std::runtime_error("FatJet_msoftdrop_tau21DDT_jerDown branch doesn't exist");
+        int bytes = b_FatJet_msoftdrop_tau21DDT_jerDown_->GetEntry(index);
+        v_FatJet_msoftdrop_tau21DDT_jerDown_ = vector<float>(FatJet_msoftdrop_tau21DDT_jerDown_,FatJet_msoftdrop_tau21DDT_jerDown_+bytes/sizeof(FatJet_msoftdrop_tau21DDT_jerDown_[0]));
+        loaded_FatJet_msoftdrop_tau21DDT_jerDown_ = true;
+    }
+    return v_FatJet_msoftdrop_tau21DDT_jerDown_;
+}
+const vector<float> &Nano::FatJet_msoftdrop_tau21DDT_jerUp() {
+    if (!loaded_FatJet_msoftdrop_tau21DDT_jerUp_) counter_uncached_FatJet_msoftdrop_tau21DDT_jerUp_++;
+    else counter_cached_FatJet_msoftdrop_tau21DDT_jerUp_++;
+    if (!loaded_FatJet_msoftdrop_tau21DDT_jerUp_) {
+        if (!b_FatJet_msoftdrop_tau21DDT_jerUp_) throw std::runtime_error("FatJet_msoftdrop_tau21DDT_jerUp branch doesn't exist");
+        int bytes = b_FatJet_msoftdrop_tau21DDT_jerUp_->GetEntry(index);
+        v_FatJet_msoftdrop_tau21DDT_jerUp_ = vector<float>(FatJet_msoftdrop_tau21DDT_jerUp_,FatJet_msoftdrop_tau21DDT_jerUp_+bytes/sizeof(FatJet_msoftdrop_tau21DDT_jerUp_[0]));
+        loaded_FatJet_msoftdrop_tau21DDT_jerUp_ = true;
+    }
+    return v_FatJet_msoftdrop_tau21DDT_jerUp_;
+}
+const vector<float> &Nano::FatJet_msoftdrop_tau21DDT_jmrDown() {
+    if (!loaded_FatJet_msoftdrop_tau21DDT_jmrDown_) counter_uncached_FatJet_msoftdrop_tau21DDT_jmrDown_++;
+    else counter_cached_FatJet_msoftdrop_tau21DDT_jmrDown_++;
+    if (!loaded_FatJet_msoftdrop_tau21DDT_jmrDown_) {
+        if (!b_FatJet_msoftdrop_tau21DDT_jmrDown_) throw std::runtime_error("FatJet_msoftdrop_tau21DDT_jmrDown branch doesn't exist");
+        int bytes = b_FatJet_msoftdrop_tau21DDT_jmrDown_->GetEntry(index);
+        v_FatJet_msoftdrop_tau21DDT_jmrDown_ = vector<float>(FatJet_msoftdrop_tau21DDT_jmrDown_,FatJet_msoftdrop_tau21DDT_jmrDown_+bytes/sizeof(FatJet_msoftdrop_tau21DDT_jmrDown_[0]));
+        loaded_FatJet_msoftdrop_tau21DDT_jmrDown_ = true;
+    }
+    return v_FatJet_msoftdrop_tau21DDT_jmrDown_;
+}
+const vector<float> &Nano::FatJet_msoftdrop_tau21DDT_jmrUp() {
+    if (!loaded_FatJet_msoftdrop_tau21DDT_jmrUp_) counter_uncached_FatJet_msoftdrop_tau21DDT_jmrUp_++;
+    else counter_cached_FatJet_msoftdrop_tau21DDT_jmrUp_++;
+    if (!loaded_FatJet_msoftdrop_tau21DDT_jmrUp_) {
+        if (!b_FatJet_msoftdrop_tau21DDT_jmrUp_) throw std::runtime_error("FatJet_msoftdrop_tau21DDT_jmrUp branch doesn't exist");
+        int bytes = b_FatJet_msoftdrop_tau21DDT_jmrUp_->GetEntry(index);
+        v_FatJet_msoftdrop_tau21DDT_jmrUp_ = vector<float>(FatJet_msoftdrop_tau21DDT_jmrUp_,FatJet_msoftdrop_tau21DDT_jmrUp_+bytes/sizeof(FatJet_msoftdrop_tau21DDT_jmrUp_[0]));
+        loaded_FatJet_msoftdrop_tau21DDT_jmrUp_ = true;
+    }
+    return v_FatJet_msoftdrop_tau21DDT_jmrUp_;
+}
+const vector<float> &Nano::FatJet_msoftdrop_tau21DDT_jmsDown() {
+    if (!loaded_FatJet_msoftdrop_tau21DDT_jmsDown_) counter_uncached_FatJet_msoftdrop_tau21DDT_jmsDown_++;
+    else counter_cached_FatJet_msoftdrop_tau21DDT_jmsDown_++;
+    if (!loaded_FatJet_msoftdrop_tau21DDT_jmsDown_) {
+        if (!b_FatJet_msoftdrop_tau21DDT_jmsDown_) throw std::runtime_error("FatJet_msoftdrop_tau21DDT_jmsDown branch doesn't exist");
+        int bytes = b_FatJet_msoftdrop_tau21DDT_jmsDown_->GetEntry(index);
+        v_FatJet_msoftdrop_tau21DDT_jmsDown_ = vector<float>(FatJet_msoftdrop_tau21DDT_jmsDown_,FatJet_msoftdrop_tau21DDT_jmsDown_+bytes/sizeof(FatJet_msoftdrop_tau21DDT_jmsDown_[0]));
+        loaded_FatJet_msoftdrop_tau21DDT_jmsDown_ = true;
+    }
+    return v_FatJet_msoftdrop_tau21DDT_jmsDown_;
+}
+const vector<float> &Nano::FatJet_msoftdrop_tau21DDT_jmsUp() {
+    if (!loaded_FatJet_msoftdrop_tau21DDT_jmsUp_) counter_uncached_FatJet_msoftdrop_tau21DDT_jmsUp_++;
+    else counter_cached_FatJet_msoftdrop_tau21DDT_jmsUp_++;
+    if (!loaded_FatJet_msoftdrop_tau21DDT_jmsUp_) {
+        if (!b_FatJet_msoftdrop_tau21DDT_jmsUp_) throw std::runtime_error("FatJet_msoftdrop_tau21DDT_jmsUp branch doesn't exist");
+        int bytes = b_FatJet_msoftdrop_tau21DDT_jmsUp_->GetEntry(index);
+        v_FatJet_msoftdrop_tau21DDT_jmsUp_ = vector<float>(FatJet_msoftdrop_tau21DDT_jmsUp_,FatJet_msoftdrop_tau21DDT_jmsUp_+bytes/sizeof(FatJet_msoftdrop_tau21DDT_jmsUp_[0]));
+        loaded_FatJet_msoftdrop_tau21DDT_jmsUp_ = true;
+    }
+    return v_FatJet_msoftdrop_tau21DDT_jmsUp_;
+}
+const vector<float> &Nano::FatJet_msoftdrop_tau21DDT_nom() {
+    if (!loaded_FatJet_msoftdrop_tau21DDT_nom_) counter_uncached_FatJet_msoftdrop_tau21DDT_nom_++;
+    else counter_cached_FatJet_msoftdrop_tau21DDT_nom_++;
+    if (!loaded_FatJet_msoftdrop_tau21DDT_nom_) {
+        if (!b_FatJet_msoftdrop_tau21DDT_nom_) throw std::runtime_error("FatJet_msoftdrop_tau21DDT_nom branch doesn't exist");
+        int bytes = b_FatJet_msoftdrop_tau21DDT_nom_->GetEntry(index);
+        v_FatJet_msoftdrop_tau21DDT_nom_ = vector<float>(FatJet_msoftdrop_tau21DDT_nom_,FatJet_msoftdrop_tau21DDT_nom_+bytes/sizeof(FatJet_msoftdrop_tau21DDT_nom_[0]));
+        loaded_FatJet_msoftdrop_tau21DDT_nom_ = true;
+    }
+    return v_FatJet_msoftdrop_tau21DDT_nom_;
 }
 const vector<int> &Nano::FatJet_muonIdx3SJ() {
     if (!loaded_FatJet_muonIdx3SJ_) counter_uncached_FatJet_muonIdx3SJ_++;
@@ -11691,6 +13343,17 @@ const vector<UChar_t> &Nano::FatJet_nCHadrons() {
     }
     return v_FatJet_nCHadrons_;
 }
+const vector<UChar_t> &Nano::FatJet_nConstituents() {
+    if (!loaded_FatJet_nConstituents_) counter_uncached_FatJet_nConstituents_++;
+    else counter_cached_FatJet_nConstituents_++;
+    if (!loaded_FatJet_nConstituents_) {
+        if (!b_FatJet_nConstituents_) throw std::runtime_error("FatJet_nConstituents branch doesn't exist");
+        int bytes = b_FatJet_nConstituents_->GetEntry(index);
+        v_FatJet_nConstituents_ = vector<UChar_t>(FatJet_nConstituents_,FatJet_nConstituents_+bytes/sizeof(FatJet_nConstituents_[0]));
+        loaded_FatJet_nConstituents_ = true;
+    }
+    return v_FatJet_nConstituents_;
+}
 const vector<LorentzVector> &Nano::FatJet_p4() {
     if (!loaded_FatJet_p4_) counter_uncached_FatJet_p4_++;
     else counter_cached_FatJet_p4_++;
@@ -11706,6 +13369,138 @@ const vector<LorentzVector> &Nano::FatJet_p4() {
         loaded_FatJet_p4_ = true;
     }
     return v_FatJet_p4_;
+}
+const vector<float> &Nano::FatJet_particleNetMD_QCD() {
+    if (!loaded_FatJet_particleNetMD_QCD_) counter_uncached_FatJet_particleNetMD_QCD_++;
+    else counter_cached_FatJet_particleNetMD_QCD_++;
+    if (!loaded_FatJet_particleNetMD_QCD_) {
+        if (!b_FatJet_particleNetMD_QCD_) throw std::runtime_error("FatJet_particleNetMD_QCD branch doesn't exist");
+        int bytes = b_FatJet_particleNetMD_QCD_->GetEntry(index);
+        v_FatJet_particleNetMD_QCD_ = vector<float>(FatJet_particleNetMD_QCD_,FatJet_particleNetMD_QCD_+bytes/sizeof(FatJet_particleNetMD_QCD_[0]));
+        loaded_FatJet_particleNetMD_QCD_ = true;
+    }
+    return v_FatJet_particleNetMD_QCD_;
+}
+const vector<float> &Nano::FatJet_particleNetMD_Xbb() {
+    if (!loaded_FatJet_particleNetMD_Xbb_) counter_uncached_FatJet_particleNetMD_Xbb_++;
+    else counter_cached_FatJet_particleNetMD_Xbb_++;
+    if (!loaded_FatJet_particleNetMD_Xbb_) {
+        if (!b_FatJet_particleNetMD_Xbb_) throw std::runtime_error("FatJet_particleNetMD_Xbb branch doesn't exist");
+        int bytes = b_FatJet_particleNetMD_Xbb_->GetEntry(index);
+        v_FatJet_particleNetMD_Xbb_ = vector<float>(FatJet_particleNetMD_Xbb_,FatJet_particleNetMD_Xbb_+bytes/sizeof(FatJet_particleNetMD_Xbb_[0]));
+        loaded_FatJet_particleNetMD_Xbb_ = true;
+    }
+    return v_FatJet_particleNetMD_Xbb_;
+}
+const vector<float> &Nano::FatJet_particleNetMD_Xcc() {
+    if (!loaded_FatJet_particleNetMD_Xcc_) counter_uncached_FatJet_particleNetMD_Xcc_++;
+    else counter_cached_FatJet_particleNetMD_Xcc_++;
+    if (!loaded_FatJet_particleNetMD_Xcc_) {
+        if (!b_FatJet_particleNetMD_Xcc_) throw std::runtime_error("FatJet_particleNetMD_Xcc branch doesn't exist");
+        int bytes = b_FatJet_particleNetMD_Xcc_->GetEntry(index);
+        v_FatJet_particleNetMD_Xcc_ = vector<float>(FatJet_particleNetMD_Xcc_,FatJet_particleNetMD_Xcc_+bytes/sizeof(FatJet_particleNetMD_Xcc_[0]));
+        loaded_FatJet_particleNetMD_Xcc_ = true;
+    }
+    return v_FatJet_particleNetMD_Xcc_;
+}
+const vector<float> &Nano::FatJet_particleNetMD_Xqq() {
+    if (!loaded_FatJet_particleNetMD_Xqq_) counter_uncached_FatJet_particleNetMD_Xqq_++;
+    else counter_cached_FatJet_particleNetMD_Xqq_++;
+    if (!loaded_FatJet_particleNetMD_Xqq_) {
+        if (!b_FatJet_particleNetMD_Xqq_) throw std::runtime_error("FatJet_particleNetMD_Xqq branch doesn't exist");
+        int bytes = b_FatJet_particleNetMD_Xqq_->GetEntry(index);
+        v_FatJet_particleNetMD_Xqq_ = vector<float>(FatJet_particleNetMD_Xqq_,FatJet_particleNetMD_Xqq_+bytes/sizeof(FatJet_particleNetMD_Xqq_[0]));
+        loaded_FatJet_particleNetMD_Xqq_ = true;
+    }
+    return v_FatJet_particleNetMD_Xqq_;
+}
+const vector<float> &Nano::FatJet_particleNet_H4qvsQCD() {
+    if (!loaded_FatJet_particleNet_H4qvsQCD_) counter_uncached_FatJet_particleNet_H4qvsQCD_++;
+    else counter_cached_FatJet_particleNet_H4qvsQCD_++;
+    if (!loaded_FatJet_particleNet_H4qvsQCD_) {
+        if (!b_FatJet_particleNet_H4qvsQCD_) throw std::runtime_error("FatJet_particleNet_H4qvsQCD branch doesn't exist");
+        int bytes = b_FatJet_particleNet_H4qvsQCD_->GetEntry(index);
+        v_FatJet_particleNet_H4qvsQCD_ = vector<float>(FatJet_particleNet_H4qvsQCD_,FatJet_particleNet_H4qvsQCD_+bytes/sizeof(FatJet_particleNet_H4qvsQCD_[0]));
+        loaded_FatJet_particleNet_H4qvsQCD_ = true;
+    }
+    return v_FatJet_particleNet_H4qvsQCD_;
+}
+const vector<float> &Nano::FatJet_particleNet_HbbvsQCD() {
+    if (!loaded_FatJet_particleNet_HbbvsQCD_) counter_uncached_FatJet_particleNet_HbbvsQCD_++;
+    else counter_cached_FatJet_particleNet_HbbvsQCD_++;
+    if (!loaded_FatJet_particleNet_HbbvsQCD_) {
+        if (!b_FatJet_particleNet_HbbvsQCD_) throw std::runtime_error("FatJet_particleNet_HbbvsQCD branch doesn't exist");
+        int bytes = b_FatJet_particleNet_HbbvsQCD_->GetEntry(index);
+        v_FatJet_particleNet_HbbvsQCD_ = vector<float>(FatJet_particleNet_HbbvsQCD_,FatJet_particleNet_HbbvsQCD_+bytes/sizeof(FatJet_particleNet_HbbvsQCD_[0]));
+        loaded_FatJet_particleNet_HbbvsQCD_ = true;
+    }
+    return v_FatJet_particleNet_HbbvsQCD_;
+}
+const vector<float> &Nano::FatJet_particleNet_HccvsQCD() {
+    if (!loaded_FatJet_particleNet_HccvsQCD_) counter_uncached_FatJet_particleNet_HccvsQCD_++;
+    else counter_cached_FatJet_particleNet_HccvsQCD_++;
+    if (!loaded_FatJet_particleNet_HccvsQCD_) {
+        if (!b_FatJet_particleNet_HccvsQCD_) throw std::runtime_error("FatJet_particleNet_HccvsQCD branch doesn't exist");
+        int bytes = b_FatJet_particleNet_HccvsQCD_->GetEntry(index);
+        v_FatJet_particleNet_HccvsQCD_ = vector<float>(FatJet_particleNet_HccvsQCD_,FatJet_particleNet_HccvsQCD_+bytes/sizeof(FatJet_particleNet_HccvsQCD_[0]));
+        loaded_FatJet_particleNet_HccvsQCD_ = true;
+    }
+    return v_FatJet_particleNet_HccvsQCD_;
+}
+const vector<float> &Nano::FatJet_particleNet_QCD() {
+    if (!loaded_FatJet_particleNet_QCD_) counter_uncached_FatJet_particleNet_QCD_++;
+    else counter_cached_FatJet_particleNet_QCD_++;
+    if (!loaded_FatJet_particleNet_QCD_) {
+        if (!b_FatJet_particleNet_QCD_) throw std::runtime_error("FatJet_particleNet_QCD branch doesn't exist");
+        int bytes = b_FatJet_particleNet_QCD_->GetEntry(index);
+        v_FatJet_particleNet_QCD_ = vector<float>(FatJet_particleNet_QCD_,FatJet_particleNet_QCD_+bytes/sizeof(FatJet_particleNet_QCD_[0]));
+        loaded_FatJet_particleNet_QCD_ = true;
+    }
+    return v_FatJet_particleNet_QCD_;
+}
+const vector<float> &Nano::FatJet_particleNet_TvsQCD() {
+    if (!loaded_FatJet_particleNet_TvsQCD_) counter_uncached_FatJet_particleNet_TvsQCD_++;
+    else counter_cached_FatJet_particleNet_TvsQCD_++;
+    if (!loaded_FatJet_particleNet_TvsQCD_) {
+        if (!b_FatJet_particleNet_TvsQCD_) throw std::runtime_error("FatJet_particleNet_TvsQCD branch doesn't exist");
+        int bytes = b_FatJet_particleNet_TvsQCD_->GetEntry(index);
+        v_FatJet_particleNet_TvsQCD_ = vector<float>(FatJet_particleNet_TvsQCD_,FatJet_particleNet_TvsQCD_+bytes/sizeof(FatJet_particleNet_TvsQCD_[0]));
+        loaded_FatJet_particleNet_TvsQCD_ = true;
+    }
+    return v_FatJet_particleNet_TvsQCD_;
+}
+const vector<float> &Nano::FatJet_particleNet_WvsQCD() {
+    if (!loaded_FatJet_particleNet_WvsQCD_) counter_uncached_FatJet_particleNet_WvsQCD_++;
+    else counter_cached_FatJet_particleNet_WvsQCD_++;
+    if (!loaded_FatJet_particleNet_WvsQCD_) {
+        if (!b_FatJet_particleNet_WvsQCD_) throw std::runtime_error("FatJet_particleNet_WvsQCD branch doesn't exist");
+        int bytes = b_FatJet_particleNet_WvsQCD_->GetEntry(index);
+        v_FatJet_particleNet_WvsQCD_ = vector<float>(FatJet_particleNet_WvsQCD_,FatJet_particleNet_WvsQCD_+bytes/sizeof(FatJet_particleNet_WvsQCD_[0]));
+        loaded_FatJet_particleNet_WvsQCD_ = true;
+    }
+    return v_FatJet_particleNet_WvsQCD_;
+}
+const vector<float> &Nano::FatJet_particleNet_ZvsQCD() {
+    if (!loaded_FatJet_particleNet_ZvsQCD_) counter_uncached_FatJet_particleNet_ZvsQCD_++;
+    else counter_cached_FatJet_particleNet_ZvsQCD_++;
+    if (!loaded_FatJet_particleNet_ZvsQCD_) {
+        if (!b_FatJet_particleNet_ZvsQCD_) throw std::runtime_error("FatJet_particleNet_ZvsQCD branch doesn't exist");
+        int bytes = b_FatJet_particleNet_ZvsQCD_->GetEntry(index);
+        v_FatJet_particleNet_ZvsQCD_ = vector<float>(FatJet_particleNet_ZvsQCD_,FatJet_particleNet_ZvsQCD_+bytes/sizeof(FatJet_particleNet_ZvsQCD_[0]));
+        loaded_FatJet_particleNet_ZvsQCD_ = true;
+    }
+    return v_FatJet_particleNet_ZvsQCD_;
+}
+const vector<float> &Nano::FatJet_particleNet_mass() {
+    if (!loaded_FatJet_particleNet_mass_) counter_uncached_FatJet_particleNet_mass_++;
+    else counter_cached_FatJet_particleNet_mass_++;
+    if (!loaded_FatJet_particleNet_mass_) {
+        if (!b_FatJet_particleNet_mass_) throw std::runtime_error("FatJet_particleNet_mass branch doesn't exist");
+        int bytes = b_FatJet_particleNet_mass_->GetEntry(index);
+        v_FatJet_particleNet_mass_ = vector<float>(FatJet_particleNet_mass_,FatJet_particleNet_mass_+bytes/sizeof(FatJet_particleNet_mass_[0]));
+        loaded_FatJet_particleNet_mass_ = true;
+    }
+    return v_FatJet_particleNet_mass_;
 }
 const vector<float> &Nano::FatJet_phi() {
     if (!loaded_FatJet_phi_) counter_uncached_FatJet_phi_++;
@@ -11728,6 +13523,72 @@ const vector<float> &Nano::FatJet_pt() {
         loaded_FatJet_pt_ = true;
     }
     return v_FatJet_pt_;
+}
+const vector<float> &Nano::FatJet_pt_jerDown() {
+    if (!loaded_FatJet_pt_jerDown_) counter_uncached_FatJet_pt_jerDown_++;
+    else counter_cached_FatJet_pt_jerDown_++;
+    if (!loaded_FatJet_pt_jerDown_) {
+        if (!b_FatJet_pt_jerDown_) throw std::runtime_error("FatJet_pt_jerDown branch doesn't exist");
+        int bytes = b_FatJet_pt_jerDown_->GetEntry(index);
+        v_FatJet_pt_jerDown_ = vector<float>(FatJet_pt_jerDown_,FatJet_pt_jerDown_+bytes/sizeof(FatJet_pt_jerDown_[0]));
+        loaded_FatJet_pt_jerDown_ = true;
+    }
+    return v_FatJet_pt_jerDown_;
+}
+const vector<float> &Nano::FatJet_pt_jerUp() {
+    if (!loaded_FatJet_pt_jerUp_) counter_uncached_FatJet_pt_jerUp_++;
+    else counter_cached_FatJet_pt_jerUp_++;
+    if (!loaded_FatJet_pt_jerUp_) {
+        if (!b_FatJet_pt_jerUp_) throw std::runtime_error("FatJet_pt_jerUp branch doesn't exist");
+        int bytes = b_FatJet_pt_jerUp_->GetEntry(index);
+        v_FatJet_pt_jerUp_ = vector<float>(FatJet_pt_jerUp_,FatJet_pt_jerUp_+bytes/sizeof(FatJet_pt_jerUp_[0]));
+        loaded_FatJet_pt_jerUp_ = true;
+    }
+    return v_FatJet_pt_jerUp_;
+}
+const vector<float> &Nano::FatJet_pt_jesTotalDown() {
+    if (!loaded_FatJet_pt_jesTotalDown_) counter_uncached_FatJet_pt_jesTotalDown_++;
+    else counter_cached_FatJet_pt_jesTotalDown_++;
+    if (!loaded_FatJet_pt_jesTotalDown_) {
+        if (!b_FatJet_pt_jesTotalDown_) throw std::runtime_error("FatJet_pt_jesTotalDown branch doesn't exist");
+        int bytes = b_FatJet_pt_jesTotalDown_->GetEntry(index);
+        v_FatJet_pt_jesTotalDown_ = vector<float>(FatJet_pt_jesTotalDown_,FatJet_pt_jesTotalDown_+bytes/sizeof(FatJet_pt_jesTotalDown_[0]));
+        loaded_FatJet_pt_jesTotalDown_ = true;
+    }
+    return v_FatJet_pt_jesTotalDown_;
+}
+const vector<float> &Nano::FatJet_pt_jesTotalUp() {
+    if (!loaded_FatJet_pt_jesTotalUp_) counter_uncached_FatJet_pt_jesTotalUp_++;
+    else counter_cached_FatJet_pt_jesTotalUp_++;
+    if (!loaded_FatJet_pt_jesTotalUp_) {
+        if (!b_FatJet_pt_jesTotalUp_) throw std::runtime_error("FatJet_pt_jesTotalUp branch doesn't exist");
+        int bytes = b_FatJet_pt_jesTotalUp_->GetEntry(index);
+        v_FatJet_pt_jesTotalUp_ = vector<float>(FatJet_pt_jesTotalUp_,FatJet_pt_jesTotalUp_+bytes/sizeof(FatJet_pt_jesTotalUp_[0]));
+        loaded_FatJet_pt_jesTotalUp_ = true;
+    }
+    return v_FatJet_pt_jesTotalUp_;
+}
+const vector<float> &Nano::FatJet_pt_nom() {
+    if (!loaded_FatJet_pt_nom_) counter_uncached_FatJet_pt_nom_++;
+    else counter_cached_FatJet_pt_nom_++;
+    if (!loaded_FatJet_pt_nom_) {
+        if (!b_FatJet_pt_nom_) throw std::runtime_error("FatJet_pt_nom branch doesn't exist");
+        int bytes = b_FatJet_pt_nom_->GetEntry(index);
+        v_FatJet_pt_nom_ = vector<float>(FatJet_pt_nom_,FatJet_pt_nom_+bytes/sizeof(FatJet_pt_nom_[0]));
+        loaded_FatJet_pt_nom_ = true;
+    }
+    return v_FatJet_pt_nom_;
+}
+const vector<float> &Nano::FatJet_pt_raw() {
+    if (!loaded_FatJet_pt_raw_) counter_uncached_FatJet_pt_raw_++;
+    else counter_cached_FatJet_pt_raw_++;
+    if (!loaded_FatJet_pt_raw_) {
+        if (!b_FatJet_pt_raw_) throw std::runtime_error("FatJet_pt_raw branch doesn't exist");
+        int bytes = b_FatJet_pt_raw_->GetEntry(index);
+        v_FatJet_pt_raw_ = vector<float>(FatJet_pt_raw_,FatJet_pt_raw_+bytes/sizeof(FatJet_pt_raw_[0]));
+        loaded_FatJet_pt_raw_ = true;
+    }
+    return v_FatJet_pt_raw_;
 }
 const vector<float> &Nano::FatJet_rawFactor() {
     if (!loaded_FatJet_rawFactor_) counter_uncached_FatJet_rawFactor_++;
@@ -11825,6 +13686,16 @@ const bool &Nano::Flag_BadChargedCandidateSummer16Filter() {
         loaded_Flag_BadChargedCandidateSummer16Filter_ = true;
     }
     return Flag_BadChargedCandidateSummer16Filter_;
+}
+const bool &Nano::Flag_BadPFMuonDzFilter() {
+    if (!loaded_Flag_BadPFMuonDzFilter_) counter_uncached_Flag_BadPFMuonDzFilter_++;
+    else counter_cached_Flag_BadPFMuonDzFilter_++;
+    if (!loaded_Flag_BadPFMuonDzFilter_) {
+        if (!b_Flag_BadPFMuonDzFilter_) throw std::runtime_error("Flag_BadPFMuonDzFilter branch doesn't exist");
+        b_Flag_BadPFMuonDzFilter_->GetEntry(index);
+        loaded_Flag_BadPFMuonDzFilter_ = true;
+    }
+    return Flag_BadPFMuonDzFilter_;
 }
 const bool &Nano::Flag_BadPFMuonFilter() {
     if (!loaded_Flag_BadPFMuonFilter_) counter_uncached_Flag_BadPFMuonFilter_++;
@@ -12025,6 +13896,16 @@ const bool &Nano::Flag_hcalLaserEventFilter() {
         loaded_Flag_hcalLaserEventFilter_ = true;
     }
     return Flag_hcalLaserEventFilter_;
+}
+const bool &Nano::Flag_hfNoisyHitsFilter() {
+    if (!loaded_Flag_hfNoisyHitsFilter_) counter_uncached_Flag_hfNoisyHitsFilter_++;
+    else counter_cached_Flag_hfNoisyHitsFilter_++;
+    if (!loaded_Flag_hfNoisyHitsFilter_) {
+        if (!b_Flag_hfNoisyHitsFilter_) throw std::runtime_error("Flag_hfNoisyHitsFilter branch doesn't exist");
+        b_Flag_hfNoisyHitsFilter_->GetEntry(index);
+        loaded_Flag_hfNoisyHitsFilter_ = true;
+    }
+    return Flag_hfNoisyHitsFilter_;
 }
 const bool &Nano::Flag_muonBadTrackFilter() {
     if (!loaded_Flag_muonBadTrackFilter_) counter_uncached_Flag_muonBadTrackFilter_++;
@@ -12664,6 +14545,46 @@ const vector<int> &Nano::GenVisTau_status() {
         loaded_GenVisTau_status_ = true;
     }
     return v_GenVisTau_status_;
+}
+const float &Nano::GenVtx_t0() {
+    if (!loaded_GenVtx_t0_) counter_uncached_GenVtx_t0_++;
+    else counter_cached_GenVtx_t0_++;
+    if (!loaded_GenVtx_t0_) {
+        if (!b_GenVtx_t0_) throw std::runtime_error("GenVtx_t0 branch doesn't exist");
+        b_GenVtx_t0_->GetEntry(index);
+        loaded_GenVtx_t0_ = true;
+    }
+    return GenVtx_t0_;
+}
+const float &Nano::GenVtx_x() {
+    if (!loaded_GenVtx_x_) counter_uncached_GenVtx_x_++;
+    else counter_cached_GenVtx_x_++;
+    if (!loaded_GenVtx_x_) {
+        if (!b_GenVtx_x_) throw std::runtime_error("GenVtx_x branch doesn't exist");
+        b_GenVtx_x_->GetEntry(index);
+        loaded_GenVtx_x_ = true;
+    }
+    return GenVtx_x_;
+}
+const float &Nano::GenVtx_y() {
+    if (!loaded_GenVtx_y_) counter_uncached_GenVtx_y_++;
+    else counter_cached_GenVtx_y_++;
+    if (!loaded_GenVtx_y_) {
+        if (!b_GenVtx_y_) throw std::runtime_error("GenVtx_y branch doesn't exist");
+        b_GenVtx_y_->GetEntry(index);
+        loaded_GenVtx_y_ = true;
+    }
+    return GenVtx_y_;
+}
+const float &Nano::GenVtx_z() {
+    if (!loaded_GenVtx_z_) counter_uncached_GenVtx_z_++;
+    else counter_cached_GenVtx_z_++;
+    if (!loaded_GenVtx_z_) {
+        if (!b_GenVtx_z_) throw std::runtime_error("GenVtx_z branch doesn't exist");
+        b_GenVtx_z_->GetEntry(index);
+        loaded_GenVtx_z_ = true;
+    }
+    return GenVtx_z_;
 }
 const float &Nano::Generator_binvar() {
     if (!loaded_Generator_binvar_) counter_uncached_Generator_binvar_++;
@@ -25015,6 +26936,17 @@ const int &Nano::HTXS_stage_1_pTjet30() {
     }
     return HTXS_stage_1_pTjet30_;
 }
+const vector<int> &Nano::IsoTrack_charge() {
+    if (!loaded_IsoTrack_charge_) counter_uncached_IsoTrack_charge_++;
+    else counter_cached_IsoTrack_charge_++;
+    if (!loaded_IsoTrack_charge_) {
+        if (!b_IsoTrack_charge_) throw std::runtime_error("IsoTrack_charge branch doesn't exist");
+        int bytes = b_IsoTrack_charge_->GetEntry(index);
+        v_IsoTrack_charge_ = vector<int>(IsoTrack_charge_,IsoTrack_charge_+bytes/sizeof(IsoTrack_charge_[0]));
+        loaded_IsoTrack_charge_ = true;
+    }
+    return v_IsoTrack_charge_;
+}
 const vector<float> &Nano::IsoTrack_dxy() {
     if (!loaded_IsoTrack_dxy_) counter_uncached_IsoTrack_dxy_++;
     else counter_cached_IsoTrack_dxy_++;
@@ -25246,6 +27178,28 @@ const vector<float> &Nano::Jet_btagDeepC() {
     }
     return v_Jet_btagDeepC_;
 }
+const vector<float> &Nano::Jet_btagDeepCvB() {
+    if (!loaded_Jet_btagDeepCvB_) counter_uncached_Jet_btagDeepCvB_++;
+    else counter_cached_Jet_btagDeepCvB_++;
+    if (!loaded_Jet_btagDeepCvB_) {
+        if (!b_Jet_btagDeepCvB_) throw std::runtime_error("Jet_btagDeepCvB branch doesn't exist");
+        int bytes = b_Jet_btagDeepCvB_->GetEntry(index);
+        v_Jet_btagDeepCvB_ = vector<float>(Jet_btagDeepCvB_,Jet_btagDeepCvB_+bytes/sizeof(Jet_btagDeepCvB_[0]));
+        loaded_Jet_btagDeepCvB_ = true;
+    }
+    return v_Jet_btagDeepCvB_;
+}
+const vector<float> &Nano::Jet_btagDeepCvL() {
+    if (!loaded_Jet_btagDeepCvL_) counter_uncached_Jet_btagDeepCvL_++;
+    else counter_cached_Jet_btagDeepCvL_++;
+    if (!loaded_Jet_btagDeepCvL_) {
+        if (!b_Jet_btagDeepCvL_) throw std::runtime_error("Jet_btagDeepCvL branch doesn't exist");
+        int bytes = b_Jet_btagDeepCvL_->GetEntry(index);
+        v_Jet_btagDeepCvL_ = vector<float>(Jet_btagDeepCvL_,Jet_btagDeepCvL_+bytes/sizeof(Jet_btagDeepCvL_[0]));
+        loaded_Jet_btagDeepCvL_ = true;
+    }
+    return v_Jet_btagDeepCvL_;
+}
 const vector<float> &Nano::Jet_btagDeepFlavB() {
     if (!loaded_Jet_btagDeepFlavB_) counter_uncached_Jet_btagDeepFlavB_++;
     else counter_cached_Jet_btagDeepFlavB_++;
@@ -25267,6 +27221,39 @@ const vector<float> &Nano::Jet_btagDeepFlavC() {
         loaded_Jet_btagDeepFlavC_ = true;
     }
     return v_Jet_btagDeepFlavC_;
+}
+const vector<float> &Nano::Jet_btagDeepFlavCvB() {
+    if (!loaded_Jet_btagDeepFlavCvB_) counter_uncached_Jet_btagDeepFlavCvB_++;
+    else counter_cached_Jet_btagDeepFlavCvB_++;
+    if (!loaded_Jet_btagDeepFlavCvB_) {
+        if (!b_Jet_btagDeepFlavCvB_) throw std::runtime_error("Jet_btagDeepFlavCvB branch doesn't exist");
+        int bytes = b_Jet_btagDeepFlavCvB_->GetEntry(index);
+        v_Jet_btagDeepFlavCvB_ = vector<float>(Jet_btagDeepFlavCvB_,Jet_btagDeepFlavCvB_+bytes/sizeof(Jet_btagDeepFlavCvB_[0]));
+        loaded_Jet_btagDeepFlavCvB_ = true;
+    }
+    return v_Jet_btagDeepFlavCvB_;
+}
+const vector<float> &Nano::Jet_btagDeepFlavCvL() {
+    if (!loaded_Jet_btagDeepFlavCvL_) counter_uncached_Jet_btagDeepFlavCvL_++;
+    else counter_cached_Jet_btagDeepFlavCvL_++;
+    if (!loaded_Jet_btagDeepFlavCvL_) {
+        if (!b_Jet_btagDeepFlavCvL_) throw std::runtime_error("Jet_btagDeepFlavCvL branch doesn't exist");
+        int bytes = b_Jet_btagDeepFlavCvL_->GetEntry(index);
+        v_Jet_btagDeepFlavCvL_ = vector<float>(Jet_btagDeepFlavCvL_,Jet_btagDeepFlavCvL_+bytes/sizeof(Jet_btagDeepFlavCvL_[0]));
+        loaded_Jet_btagDeepFlavCvL_ = true;
+    }
+    return v_Jet_btagDeepFlavCvL_;
+}
+const vector<float> &Nano::Jet_btagDeepFlavQG() {
+    if (!loaded_Jet_btagDeepFlavQG_) counter_uncached_Jet_btagDeepFlavQG_++;
+    else counter_cached_Jet_btagDeepFlavQG_++;
+    if (!loaded_Jet_btagDeepFlavQG_) {
+        if (!b_Jet_btagDeepFlavQG_) throw std::runtime_error("Jet_btagDeepFlavQG branch doesn't exist");
+        int bytes = b_Jet_btagDeepFlavQG_->GetEntry(index);
+        v_Jet_btagDeepFlavQG_ = vector<float>(Jet_btagDeepFlavQG_,Jet_btagDeepFlavQG_+bytes/sizeof(Jet_btagDeepFlavQG_[0]));
+        loaded_Jet_btagDeepFlavQG_ = true;
+    }
+    return v_Jet_btagDeepFlavQG_;
 }
 const vector<float> &Nano::Jet_cRegCorr() {
     if (!loaded_Jet_cRegCorr_) counter_uncached_Jet_cRegCorr_++;
@@ -25421,6 +27408,50 @@ const vector<int> &Nano::Jet_hadronFlavour() {
         loaded_Jet_hadronFlavour_ = true;
     }
     return v_Jet_hadronFlavour_;
+}
+const vector<int> &Nano::Jet_hfadjacentEtaStripsSize() {
+    if (!loaded_Jet_hfadjacentEtaStripsSize_) counter_uncached_Jet_hfadjacentEtaStripsSize_++;
+    else counter_cached_Jet_hfadjacentEtaStripsSize_++;
+    if (!loaded_Jet_hfadjacentEtaStripsSize_) {
+        if (!b_Jet_hfadjacentEtaStripsSize_) throw std::runtime_error("Jet_hfadjacentEtaStripsSize branch doesn't exist");
+        int bytes = b_Jet_hfadjacentEtaStripsSize_->GetEntry(index);
+        v_Jet_hfadjacentEtaStripsSize_ = vector<int>(Jet_hfadjacentEtaStripsSize_,Jet_hfadjacentEtaStripsSize_+bytes/sizeof(Jet_hfadjacentEtaStripsSize_[0]));
+        loaded_Jet_hfadjacentEtaStripsSize_ = true;
+    }
+    return v_Jet_hfadjacentEtaStripsSize_;
+}
+const vector<int> &Nano::Jet_hfcentralEtaStripSize() {
+    if (!loaded_Jet_hfcentralEtaStripSize_) counter_uncached_Jet_hfcentralEtaStripSize_++;
+    else counter_cached_Jet_hfcentralEtaStripSize_++;
+    if (!loaded_Jet_hfcentralEtaStripSize_) {
+        if (!b_Jet_hfcentralEtaStripSize_) throw std::runtime_error("Jet_hfcentralEtaStripSize branch doesn't exist");
+        int bytes = b_Jet_hfcentralEtaStripSize_->GetEntry(index);
+        v_Jet_hfcentralEtaStripSize_ = vector<int>(Jet_hfcentralEtaStripSize_,Jet_hfcentralEtaStripSize_+bytes/sizeof(Jet_hfcentralEtaStripSize_[0]));
+        loaded_Jet_hfcentralEtaStripSize_ = true;
+    }
+    return v_Jet_hfcentralEtaStripSize_;
+}
+const vector<float> &Nano::Jet_hfsigmaEtaEta() {
+    if (!loaded_Jet_hfsigmaEtaEta_) counter_uncached_Jet_hfsigmaEtaEta_++;
+    else counter_cached_Jet_hfsigmaEtaEta_++;
+    if (!loaded_Jet_hfsigmaEtaEta_) {
+        if (!b_Jet_hfsigmaEtaEta_) throw std::runtime_error("Jet_hfsigmaEtaEta branch doesn't exist");
+        int bytes = b_Jet_hfsigmaEtaEta_->GetEntry(index);
+        v_Jet_hfsigmaEtaEta_ = vector<float>(Jet_hfsigmaEtaEta_,Jet_hfsigmaEtaEta_+bytes/sizeof(Jet_hfsigmaEtaEta_[0]));
+        loaded_Jet_hfsigmaEtaEta_ = true;
+    }
+    return v_Jet_hfsigmaEtaEta_;
+}
+const vector<float> &Nano::Jet_hfsigmaPhiPhi() {
+    if (!loaded_Jet_hfsigmaPhiPhi_) counter_uncached_Jet_hfsigmaPhiPhi_++;
+    else counter_cached_Jet_hfsigmaPhiPhi_++;
+    if (!loaded_Jet_hfsigmaPhiPhi_) {
+        if (!b_Jet_hfsigmaPhiPhi_) throw std::runtime_error("Jet_hfsigmaPhiPhi branch doesn't exist");
+        int bytes = b_Jet_hfsigmaPhiPhi_->GetEntry(index);
+        v_Jet_hfsigmaPhiPhi_ = vector<float>(Jet_hfsigmaPhiPhi_,Jet_hfsigmaPhiPhi_+bytes/sizeof(Jet_hfsigmaPhiPhi_[0]));
+        loaded_Jet_hfsigmaPhiPhi_ = true;
+    }
+    return v_Jet_hfsigmaPhiPhi_;
 }
 const vector<int> &Nano::Jet_jetId() {
     if (!loaded_Jet_jetId_) counter_uncached_Jet_jetId_++;
@@ -25645,6 +27676,86 @@ const float &Nano::L1PreFiringWeight_Dn() {
         loaded_L1PreFiringWeight_Dn_ = true;
     }
     return L1PreFiringWeight_Dn_;
+}
+const float &Nano::L1PreFiringWeight_ECAL_Dn() {
+    if (!loaded_L1PreFiringWeight_ECAL_Dn_) counter_uncached_L1PreFiringWeight_ECAL_Dn_++;
+    else counter_cached_L1PreFiringWeight_ECAL_Dn_++;
+    if (!loaded_L1PreFiringWeight_ECAL_Dn_) {
+        if (!b_L1PreFiringWeight_ECAL_Dn_) throw std::runtime_error("L1PreFiringWeight_ECAL_Dn branch doesn't exist");
+        b_L1PreFiringWeight_ECAL_Dn_->GetEntry(index);
+        loaded_L1PreFiringWeight_ECAL_Dn_ = true;
+    }
+    return L1PreFiringWeight_ECAL_Dn_;
+}
+const float &Nano::L1PreFiringWeight_ECAL_Nom() {
+    if (!loaded_L1PreFiringWeight_ECAL_Nom_) counter_uncached_L1PreFiringWeight_ECAL_Nom_++;
+    else counter_cached_L1PreFiringWeight_ECAL_Nom_++;
+    if (!loaded_L1PreFiringWeight_ECAL_Nom_) {
+        if (!b_L1PreFiringWeight_ECAL_Nom_) throw std::runtime_error("L1PreFiringWeight_ECAL_Nom branch doesn't exist");
+        b_L1PreFiringWeight_ECAL_Nom_->GetEntry(index);
+        loaded_L1PreFiringWeight_ECAL_Nom_ = true;
+    }
+    return L1PreFiringWeight_ECAL_Nom_;
+}
+const float &Nano::L1PreFiringWeight_ECAL_Up() {
+    if (!loaded_L1PreFiringWeight_ECAL_Up_) counter_uncached_L1PreFiringWeight_ECAL_Up_++;
+    else counter_cached_L1PreFiringWeight_ECAL_Up_++;
+    if (!loaded_L1PreFiringWeight_ECAL_Up_) {
+        if (!b_L1PreFiringWeight_ECAL_Up_) throw std::runtime_error("L1PreFiringWeight_ECAL_Up branch doesn't exist");
+        b_L1PreFiringWeight_ECAL_Up_->GetEntry(index);
+        loaded_L1PreFiringWeight_ECAL_Up_ = true;
+    }
+    return L1PreFiringWeight_ECAL_Up_;
+}
+const float &Nano::L1PreFiringWeight_Muon_Nom() {
+    if (!loaded_L1PreFiringWeight_Muon_Nom_) counter_uncached_L1PreFiringWeight_Muon_Nom_++;
+    else counter_cached_L1PreFiringWeight_Muon_Nom_++;
+    if (!loaded_L1PreFiringWeight_Muon_Nom_) {
+        if (!b_L1PreFiringWeight_Muon_Nom_) throw std::runtime_error("L1PreFiringWeight_Muon_Nom branch doesn't exist");
+        b_L1PreFiringWeight_Muon_Nom_->GetEntry(index);
+        loaded_L1PreFiringWeight_Muon_Nom_ = true;
+    }
+    return L1PreFiringWeight_Muon_Nom_;
+}
+const float &Nano::L1PreFiringWeight_Muon_StatDn() {
+    if (!loaded_L1PreFiringWeight_Muon_StatDn_) counter_uncached_L1PreFiringWeight_Muon_StatDn_++;
+    else counter_cached_L1PreFiringWeight_Muon_StatDn_++;
+    if (!loaded_L1PreFiringWeight_Muon_StatDn_) {
+        if (!b_L1PreFiringWeight_Muon_StatDn_) throw std::runtime_error("L1PreFiringWeight_Muon_StatDn branch doesn't exist");
+        b_L1PreFiringWeight_Muon_StatDn_->GetEntry(index);
+        loaded_L1PreFiringWeight_Muon_StatDn_ = true;
+    }
+    return L1PreFiringWeight_Muon_StatDn_;
+}
+const float &Nano::L1PreFiringWeight_Muon_StatUp() {
+    if (!loaded_L1PreFiringWeight_Muon_StatUp_) counter_uncached_L1PreFiringWeight_Muon_StatUp_++;
+    else counter_cached_L1PreFiringWeight_Muon_StatUp_++;
+    if (!loaded_L1PreFiringWeight_Muon_StatUp_) {
+        if (!b_L1PreFiringWeight_Muon_StatUp_) throw std::runtime_error("L1PreFiringWeight_Muon_StatUp branch doesn't exist");
+        b_L1PreFiringWeight_Muon_StatUp_->GetEntry(index);
+        loaded_L1PreFiringWeight_Muon_StatUp_ = true;
+    }
+    return L1PreFiringWeight_Muon_StatUp_;
+}
+const float &Nano::L1PreFiringWeight_Muon_SystDn() {
+    if (!loaded_L1PreFiringWeight_Muon_SystDn_) counter_uncached_L1PreFiringWeight_Muon_SystDn_++;
+    else counter_cached_L1PreFiringWeight_Muon_SystDn_++;
+    if (!loaded_L1PreFiringWeight_Muon_SystDn_) {
+        if (!b_L1PreFiringWeight_Muon_SystDn_) throw std::runtime_error("L1PreFiringWeight_Muon_SystDn branch doesn't exist");
+        b_L1PreFiringWeight_Muon_SystDn_->GetEntry(index);
+        loaded_L1PreFiringWeight_Muon_SystDn_ = true;
+    }
+    return L1PreFiringWeight_Muon_SystDn_;
+}
+const float &Nano::L1PreFiringWeight_Muon_SystUp() {
+    if (!loaded_L1PreFiringWeight_Muon_SystUp_) counter_uncached_L1PreFiringWeight_Muon_SystUp_++;
+    else counter_cached_L1PreFiringWeight_Muon_SystUp_++;
+    if (!loaded_L1PreFiringWeight_Muon_SystUp_) {
+        if (!b_L1PreFiringWeight_Muon_SystUp_) throw std::runtime_error("L1PreFiringWeight_Muon_SystUp branch doesn't exist");
+        b_L1PreFiringWeight_Muon_SystUp_->GetEntry(index);
+        loaded_L1PreFiringWeight_Muon_SystUp_ = true;
+    }
+    return L1PreFiringWeight_Muon_SystUp_;
 }
 const float &Nano::L1PreFiringWeight_Nom() {
     if (!loaded_L1PreFiringWeight_Nom_) counter_uncached_L1PreFiringWeight_Nom_++;
@@ -28515,6 +30626,16 @@ const bool &Nano::L1_ETT25() {
         loaded_L1_ETT25_ = true;
     }
     return L1_ETT25_;
+}
+const bool &Nano::L1_ETT35_BptxAND() {
+    if (!loaded_L1_ETT35_BptxAND_) counter_uncached_L1_ETT35_BptxAND_++;
+    else counter_cached_L1_ETT35_BptxAND_++;
+    if (!loaded_L1_ETT35_BptxAND_) {
+        if (!b_L1_ETT35_BptxAND_) throw std::runtime_error("L1_ETT35_BptxAND branch doesn't exist");
+        b_L1_ETT35_BptxAND_->GetEntry(index);
+        loaded_L1_ETT35_BptxAND_ = true;
+    }
+    return L1_ETT35_BptxAND_;
 }
 const bool &Nano::L1_ETT40_BptxAND() {
     if (!loaded_L1_ETT40_BptxAND_) counter_uncached_L1_ETT40_BptxAND_++;
@@ -32056,6 +34177,36 @@ const bool &Nano::L1_SingleJetC20_NotBptxOR_3BX() {
     }
     return L1_SingleJetC20_NotBptxOR_3BX_;
 }
+const bool &Nano::L1_SingleJetC32_NotBptxOR() {
+    if (!loaded_L1_SingleJetC32_NotBptxOR_) counter_uncached_L1_SingleJetC32_NotBptxOR_++;
+    else counter_cached_L1_SingleJetC32_NotBptxOR_++;
+    if (!loaded_L1_SingleJetC32_NotBptxOR_) {
+        if (!b_L1_SingleJetC32_NotBptxOR_) throw std::runtime_error("L1_SingleJetC32_NotBptxOR branch doesn't exist");
+        b_L1_SingleJetC32_NotBptxOR_->GetEntry(index);
+        loaded_L1_SingleJetC32_NotBptxOR_ = true;
+    }
+    return L1_SingleJetC32_NotBptxOR_;
+}
+const bool &Nano::L1_SingleJetC32_NotBptxOR_3BX() {
+    if (!loaded_L1_SingleJetC32_NotBptxOR_3BX_) counter_uncached_L1_SingleJetC32_NotBptxOR_3BX_++;
+    else counter_cached_L1_SingleJetC32_NotBptxOR_3BX_++;
+    if (!loaded_L1_SingleJetC32_NotBptxOR_3BX_) {
+        if (!b_L1_SingleJetC32_NotBptxOR_3BX_) throw std::runtime_error("L1_SingleJetC32_NotBptxOR_3BX branch doesn't exist");
+        b_L1_SingleJetC32_NotBptxOR_3BX_->GetEntry(index);
+        loaded_L1_SingleJetC32_NotBptxOR_3BX_ = true;
+    }
+    return L1_SingleJetC32_NotBptxOR_3BX_;
+}
+const bool &Nano::L1_SingleJetC36_NotBptxOR_3BX() {
+    if (!loaded_L1_SingleJetC36_NotBptxOR_3BX_) counter_uncached_L1_SingleJetC36_NotBptxOR_3BX_++;
+    else counter_cached_L1_SingleJetC36_NotBptxOR_3BX_++;
+    if (!loaded_L1_SingleJetC36_NotBptxOR_3BX_) {
+        if (!b_L1_SingleJetC36_NotBptxOR_3BX_) throw std::runtime_error("L1_SingleJetC36_NotBptxOR_3BX branch doesn't exist");
+        b_L1_SingleJetC36_NotBptxOR_3BX_->GetEntry(index);
+        loaded_L1_SingleJetC36_NotBptxOR_3BX_ = true;
+    }
+    return L1_SingleJetC36_NotBptxOR_3BX_;
+}
 const bool &Nano::L1_SingleJetC40_NotBptxOR_3BX() {
     if (!loaded_L1_SingleJetC40_NotBptxOR_3BX_) counter_uncached_L1_SingleJetC40_NotBptxOR_3BX_++;
     else counter_cached_L1_SingleJetC40_NotBptxOR_3BX_++;
@@ -33186,6 +35337,16 @@ const bool &Nano::L1_UnpairedBunchBptxPlus() {
     }
     return L1_UnpairedBunchBptxPlus_;
 }
+const bool &Nano::L1_UnprefireableEvent() {
+    if (!loaded_L1_UnprefireableEvent_) counter_uncached_L1_UnprefireableEvent_++;
+    else counter_cached_L1_UnprefireableEvent_++;
+    if (!loaded_L1_UnprefireableEvent_) {
+        if (!b_L1_UnprefireableEvent_) throw std::runtime_error("L1_UnprefireableEvent branch doesn't exist");
+        b_L1_UnprefireableEvent_->GetEntry(index);
+        loaded_L1_UnprefireableEvent_ = true;
+    }
+    return L1_UnprefireableEvent_;
+}
 const bool &Nano::L1_ZeroBias() {
     if (!loaded_L1_ZeroBias_) counter_uncached_L1_ZeroBias_++;
     else counter_cached_L1_ZeroBias_++;
@@ -33483,6 +35644,341 @@ const float &Nano::LHE_Vpt() {
     }
     return LHE_Vpt_;
 }
+const vector<float> &Nano::LowPtElectron_ID() {
+    if (!loaded_LowPtElectron_ID_) counter_uncached_LowPtElectron_ID_++;
+    else counter_cached_LowPtElectron_ID_++;
+    if (!loaded_LowPtElectron_ID_) {
+        if (!b_LowPtElectron_ID_) throw std::runtime_error("LowPtElectron_ID branch doesn't exist");
+        int bytes = b_LowPtElectron_ID_->GetEntry(index);
+        v_LowPtElectron_ID_ = vector<float>(LowPtElectron_ID_,LowPtElectron_ID_+bytes/sizeof(LowPtElectron_ID_[0]));
+        loaded_LowPtElectron_ID_ = true;
+    }
+    return v_LowPtElectron_ID_;
+}
+const vector<int> &Nano::LowPtElectron_charge() {
+    if (!loaded_LowPtElectron_charge_) counter_uncached_LowPtElectron_charge_++;
+    else counter_cached_LowPtElectron_charge_++;
+    if (!loaded_LowPtElectron_charge_) {
+        if (!b_LowPtElectron_charge_) throw std::runtime_error("LowPtElectron_charge branch doesn't exist");
+        int bytes = b_LowPtElectron_charge_->GetEntry(index);
+        v_LowPtElectron_charge_ = vector<int>(LowPtElectron_charge_,LowPtElectron_charge_+bytes/sizeof(LowPtElectron_charge_[0]));
+        loaded_LowPtElectron_charge_ = true;
+    }
+    return v_LowPtElectron_charge_;
+}
+const vector<bool> &Nano::LowPtElectron_convVeto() {
+    if (!loaded_LowPtElectron_convVeto_) counter_uncached_LowPtElectron_convVeto_++;
+    else counter_cached_LowPtElectron_convVeto_++;
+    if (!loaded_LowPtElectron_convVeto_) {
+        if (!b_LowPtElectron_convVeto_) throw std::runtime_error("LowPtElectron_convVeto branch doesn't exist");
+        int bytes = b_LowPtElectron_convVeto_->GetEntry(index);
+        v_LowPtElectron_convVeto_ = vector<bool>(LowPtElectron_convVeto_,LowPtElectron_convVeto_+bytes/sizeof(LowPtElectron_convVeto_[0]));
+        loaded_LowPtElectron_convVeto_ = true;
+    }
+    return v_LowPtElectron_convVeto_;
+}
+const vector<float> &Nano::LowPtElectron_convVtxRadius() {
+    if (!loaded_LowPtElectron_convVtxRadius_) counter_uncached_LowPtElectron_convVtxRadius_++;
+    else counter_cached_LowPtElectron_convVtxRadius_++;
+    if (!loaded_LowPtElectron_convVtxRadius_) {
+        if (!b_LowPtElectron_convVtxRadius_) throw std::runtime_error("LowPtElectron_convVtxRadius branch doesn't exist");
+        int bytes = b_LowPtElectron_convVtxRadius_->GetEntry(index);
+        v_LowPtElectron_convVtxRadius_ = vector<float>(LowPtElectron_convVtxRadius_,LowPtElectron_convVtxRadius_+bytes/sizeof(LowPtElectron_convVtxRadius_[0]));
+        loaded_LowPtElectron_convVtxRadius_ = true;
+    }
+    return v_LowPtElectron_convVtxRadius_;
+}
+const vector<int> &Nano::LowPtElectron_convWP() {
+    if (!loaded_LowPtElectron_convWP_) counter_uncached_LowPtElectron_convWP_++;
+    else counter_cached_LowPtElectron_convWP_++;
+    if (!loaded_LowPtElectron_convWP_) {
+        if (!b_LowPtElectron_convWP_) throw std::runtime_error("LowPtElectron_convWP branch doesn't exist");
+        int bytes = b_LowPtElectron_convWP_->GetEntry(index);
+        v_LowPtElectron_convWP_ = vector<int>(LowPtElectron_convWP_,LowPtElectron_convWP_+bytes/sizeof(LowPtElectron_convWP_[0]));
+        loaded_LowPtElectron_convWP_ = true;
+    }
+    return v_LowPtElectron_convWP_;
+}
+const vector<float> &Nano::LowPtElectron_deltaEtaSC() {
+    if (!loaded_LowPtElectron_deltaEtaSC_) counter_uncached_LowPtElectron_deltaEtaSC_++;
+    else counter_cached_LowPtElectron_deltaEtaSC_++;
+    if (!loaded_LowPtElectron_deltaEtaSC_) {
+        if (!b_LowPtElectron_deltaEtaSC_) throw std::runtime_error("LowPtElectron_deltaEtaSC branch doesn't exist");
+        int bytes = b_LowPtElectron_deltaEtaSC_->GetEntry(index);
+        v_LowPtElectron_deltaEtaSC_ = vector<float>(LowPtElectron_deltaEtaSC_,LowPtElectron_deltaEtaSC_+bytes/sizeof(LowPtElectron_deltaEtaSC_[0]));
+        loaded_LowPtElectron_deltaEtaSC_ = true;
+    }
+    return v_LowPtElectron_deltaEtaSC_;
+}
+const vector<float> &Nano::LowPtElectron_dxy() {
+    if (!loaded_LowPtElectron_dxy_) counter_uncached_LowPtElectron_dxy_++;
+    else counter_cached_LowPtElectron_dxy_++;
+    if (!loaded_LowPtElectron_dxy_) {
+        if (!b_LowPtElectron_dxy_) throw std::runtime_error("LowPtElectron_dxy branch doesn't exist");
+        int bytes = b_LowPtElectron_dxy_->GetEntry(index);
+        v_LowPtElectron_dxy_ = vector<float>(LowPtElectron_dxy_,LowPtElectron_dxy_+bytes/sizeof(LowPtElectron_dxy_[0]));
+        loaded_LowPtElectron_dxy_ = true;
+    }
+    return v_LowPtElectron_dxy_;
+}
+const vector<float> &Nano::LowPtElectron_dxyErr() {
+    if (!loaded_LowPtElectron_dxyErr_) counter_uncached_LowPtElectron_dxyErr_++;
+    else counter_cached_LowPtElectron_dxyErr_++;
+    if (!loaded_LowPtElectron_dxyErr_) {
+        if (!b_LowPtElectron_dxyErr_) throw std::runtime_error("LowPtElectron_dxyErr branch doesn't exist");
+        int bytes = b_LowPtElectron_dxyErr_->GetEntry(index);
+        v_LowPtElectron_dxyErr_ = vector<float>(LowPtElectron_dxyErr_,LowPtElectron_dxyErr_+bytes/sizeof(LowPtElectron_dxyErr_[0]));
+        loaded_LowPtElectron_dxyErr_ = true;
+    }
+    return v_LowPtElectron_dxyErr_;
+}
+const vector<float> &Nano::LowPtElectron_dz() {
+    if (!loaded_LowPtElectron_dz_) counter_uncached_LowPtElectron_dz_++;
+    else counter_cached_LowPtElectron_dz_++;
+    if (!loaded_LowPtElectron_dz_) {
+        if (!b_LowPtElectron_dz_) throw std::runtime_error("LowPtElectron_dz branch doesn't exist");
+        int bytes = b_LowPtElectron_dz_->GetEntry(index);
+        v_LowPtElectron_dz_ = vector<float>(LowPtElectron_dz_,LowPtElectron_dz_+bytes/sizeof(LowPtElectron_dz_[0]));
+        loaded_LowPtElectron_dz_ = true;
+    }
+    return v_LowPtElectron_dz_;
+}
+const vector<float> &Nano::LowPtElectron_dzErr() {
+    if (!loaded_LowPtElectron_dzErr_) counter_uncached_LowPtElectron_dzErr_++;
+    else counter_cached_LowPtElectron_dzErr_++;
+    if (!loaded_LowPtElectron_dzErr_) {
+        if (!b_LowPtElectron_dzErr_) throw std::runtime_error("LowPtElectron_dzErr branch doesn't exist");
+        int bytes = b_LowPtElectron_dzErr_->GetEntry(index);
+        v_LowPtElectron_dzErr_ = vector<float>(LowPtElectron_dzErr_,LowPtElectron_dzErr_+bytes/sizeof(LowPtElectron_dzErr_[0]));
+        loaded_LowPtElectron_dzErr_ = true;
+    }
+    return v_LowPtElectron_dzErr_;
+}
+const vector<float> &Nano::LowPtElectron_eInvMinusPInv() {
+    if (!loaded_LowPtElectron_eInvMinusPInv_) counter_uncached_LowPtElectron_eInvMinusPInv_++;
+    else counter_cached_LowPtElectron_eInvMinusPInv_++;
+    if (!loaded_LowPtElectron_eInvMinusPInv_) {
+        if (!b_LowPtElectron_eInvMinusPInv_) throw std::runtime_error("LowPtElectron_eInvMinusPInv branch doesn't exist");
+        int bytes = b_LowPtElectron_eInvMinusPInv_->GetEntry(index);
+        v_LowPtElectron_eInvMinusPInv_ = vector<float>(LowPtElectron_eInvMinusPInv_,LowPtElectron_eInvMinusPInv_+bytes/sizeof(LowPtElectron_eInvMinusPInv_[0]));
+        loaded_LowPtElectron_eInvMinusPInv_ = true;
+    }
+    return v_LowPtElectron_eInvMinusPInv_;
+}
+const vector<float> &Nano::LowPtElectron_embeddedID() {
+    if (!loaded_LowPtElectron_embeddedID_) counter_uncached_LowPtElectron_embeddedID_++;
+    else counter_cached_LowPtElectron_embeddedID_++;
+    if (!loaded_LowPtElectron_embeddedID_) {
+        if (!b_LowPtElectron_embeddedID_) throw std::runtime_error("LowPtElectron_embeddedID branch doesn't exist");
+        int bytes = b_LowPtElectron_embeddedID_->GetEntry(index);
+        v_LowPtElectron_embeddedID_ = vector<float>(LowPtElectron_embeddedID_,LowPtElectron_embeddedID_+bytes/sizeof(LowPtElectron_embeddedID_[0]));
+        loaded_LowPtElectron_embeddedID_ = true;
+    }
+    return v_LowPtElectron_embeddedID_;
+}
+const vector<float> &Nano::LowPtElectron_energyErr() {
+    if (!loaded_LowPtElectron_energyErr_) counter_uncached_LowPtElectron_energyErr_++;
+    else counter_cached_LowPtElectron_energyErr_++;
+    if (!loaded_LowPtElectron_energyErr_) {
+        if (!b_LowPtElectron_energyErr_) throw std::runtime_error("LowPtElectron_energyErr branch doesn't exist");
+        int bytes = b_LowPtElectron_energyErr_->GetEntry(index);
+        v_LowPtElectron_energyErr_ = vector<float>(LowPtElectron_energyErr_,LowPtElectron_energyErr_+bytes/sizeof(LowPtElectron_energyErr_[0]));
+        loaded_LowPtElectron_energyErr_ = true;
+    }
+    return v_LowPtElectron_energyErr_;
+}
+const vector<float> &Nano::LowPtElectron_eta() {
+    if (!loaded_LowPtElectron_eta_) counter_uncached_LowPtElectron_eta_++;
+    else counter_cached_LowPtElectron_eta_++;
+    if (!loaded_LowPtElectron_eta_) {
+        if (!b_LowPtElectron_eta_) throw std::runtime_error("LowPtElectron_eta branch doesn't exist");
+        int bytes = b_LowPtElectron_eta_->GetEntry(index);
+        v_LowPtElectron_eta_ = vector<float>(LowPtElectron_eta_,LowPtElectron_eta_+bytes/sizeof(LowPtElectron_eta_[0]));
+        loaded_LowPtElectron_eta_ = true;
+    }
+    return v_LowPtElectron_eta_;
+}
+const vector<UChar_t> &Nano::LowPtElectron_genPartFlav() {
+    if (!loaded_LowPtElectron_genPartFlav_) counter_uncached_LowPtElectron_genPartFlav_++;
+    else counter_cached_LowPtElectron_genPartFlav_++;
+    if (!loaded_LowPtElectron_genPartFlav_) {
+        if (!b_LowPtElectron_genPartFlav_) throw std::runtime_error("LowPtElectron_genPartFlav branch doesn't exist");
+        int bytes = b_LowPtElectron_genPartFlav_->GetEntry(index);
+        v_LowPtElectron_genPartFlav_ = vector<UChar_t>(LowPtElectron_genPartFlav_,LowPtElectron_genPartFlav_+bytes/sizeof(LowPtElectron_genPartFlav_[0]));
+        loaded_LowPtElectron_genPartFlav_ = true;
+    }
+    return v_LowPtElectron_genPartFlav_;
+}
+const vector<int> &Nano::LowPtElectron_genPartIdx() {
+    if (!loaded_LowPtElectron_genPartIdx_) counter_uncached_LowPtElectron_genPartIdx_++;
+    else counter_cached_LowPtElectron_genPartIdx_++;
+    if (!loaded_LowPtElectron_genPartIdx_) {
+        if (!b_LowPtElectron_genPartIdx_) throw std::runtime_error("LowPtElectron_genPartIdx branch doesn't exist");
+        int bytes = b_LowPtElectron_genPartIdx_->GetEntry(index);
+        v_LowPtElectron_genPartIdx_ = vector<int>(LowPtElectron_genPartIdx_,LowPtElectron_genPartIdx_+bytes/sizeof(LowPtElectron_genPartIdx_[0]));
+        loaded_LowPtElectron_genPartIdx_ = true;
+    }
+    return v_LowPtElectron_genPartIdx_;
+}
+const vector<float> &Nano::LowPtElectron_hoe() {
+    if (!loaded_LowPtElectron_hoe_) counter_uncached_LowPtElectron_hoe_++;
+    else counter_cached_LowPtElectron_hoe_++;
+    if (!loaded_LowPtElectron_hoe_) {
+        if (!b_LowPtElectron_hoe_) throw std::runtime_error("LowPtElectron_hoe branch doesn't exist");
+        int bytes = b_LowPtElectron_hoe_->GetEntry(index);
+        v_LowPtElectron_hoe_ = vector<float>(LowPtElectron_hoe_,LowPtElectron_hoe_+bytes/sizeof(LowPtElectron_hoe_[0]));
+        loaded_LowPtElectron_hoe_ = true;
+    }
+    return v_LowPtElectron_hoe_;
+}
+const vector<UChar_t> &Nano::LowPtElectron_lostHits() {
+    if (!loaded_LowPtElectron_lostHits_) counter_uncached_LowPtElectron_lostHits_++;
+    else counter_cached_LowPtElectron_lostHits_++;
+    if (!loaded_LowPtElectron_lostHits_) {
+        if (!b_LowPtElectron_lostHits_) throw std::runtime_error("LowPtElectron_lostHits branch doesn't exist");
+        int bytes = b_LowPtElectron_lostHits_->GetEntry(index);
+        v_LowPtElectron_lostHits_ = vector<UChar_t>(LowPtElectron_lostHits_,LowPtElectron_lostHits_+bytes/sizeof(LowPtElectron_lostHits_[0]));
+        loaded_LowPtElectron_lostHits_ = true;
+    }
+    return v_LowPtElectron_lostHits_;
+}
+const vector<float> &Nano::LowPtElectron_mass() {
+    if (!loaded_LowPtElectron_mass_) counter_uncached_LowPtElectron_mass_++;
+    else counter_cached_LowPtElectron_mass_++;
+    if (!loaded_LowPtElectron_mass_) {
+        if (!b_LowPtElectron_mass_) throw std::runtime_error("LowPtElectron_mass branch doesn't exist");
+        int bytes = b_LowPtElectron_mass_->GetEntry(index);
+        v_LowPtElectron_mass_ = vector<float>(LowPtElectron_mass_,LowPtElectron_mass_+bytes/sizeof(LowPtElectron_mass_[0]));
+        loaded_LowPtElectron_mass_ = true;
+    }
+    return v_LowPtElectron_mass_;
+}
+const vector<float> &Nano::LowPtElectron_miniPFRelIso_all() {
+    if (!loaded_LowPtElectron_miniPFRelIso_all_) counter_uncached_LowPtElectron_miniPFRelIso_all_++;
+    else counter_cached_LowPtElectron_miniPFRelIso_all_++;
+    if (!loaded_LowPtElectron_miniPFRelIso_all_) {
+        if (!b_LowPtElectron_miniPFRelIso_all_) throw std::runtime_error("LowPtElectron_miniPFRelIso_all branch doesn't exist");
+        int bytes = b_LowPtElectron_miniPFRelIso_all_->GetEntry(index);
+        v_LowPtElectron_miniPFRelIso_all_ = vector<float>(LowPtElectron_miniPFRelIso_all_,LowPtElectron_miniPFRelIso_all_+bytes/sizeof(LowPtElectron_miniPFRelIso_all_[0]));
+        loaded_LowPtElectron_miniPFRelIso_all_ = true;
+    }
+    return v_LowPtElectron_miniPFRelIso_all_;
+}
+const vector<float> &Nano::LowPtElectron_miniPFRelIso_chg() {
+    if (!loaded_LowPtElectron_miniPFRelIso_chg_) counter_uncached_LowPtElectron_miniPFRelIso_chg_++;
+    else counter_cached_LowPtElectron_miniPFRelIso_chg_++;
+    if (!loaded_LowPtElectron_miniPFRelIso_chg_) {
+        if (!b_LowPtElectron_miniPFRelIso_chg_) throw std::runtime_error("LowPtElectron_miniPFRelIso_chg branch doesn't exist");
+        int bytes = b_LowPtElectron_miniPFRelIso_chg_->GetEntry(index);
+        v_LowPtElectron_miniPFRelIso_chg_ = vector<float>(LowPtElectron_miniPFRelIso_chg_,LowPtElectron_miniPFRelIso_chg_+bytes/sizeof(LowPtElectron_miniPFRelIso_chg_[0]));
+        loaded_LowPtElectron_miniPFRelIso_chg_ = true;
+    }
+    return v_LowPtElectron_miniPFRelIso_chg_;
+}
+const vector<LorentzVector> &Nano::LowPtElectron_p4() {
+    if (!loaded_LowPtElectron_p4_) counter_uncached_LowPtElectron_p4_++;
+    else counter_cached_LowPtElectron_p4_++;
+    if (!loaded_LowPtElectron_p4_) {
+        v_LowPtElectron_p4_.clear();
+        vector<float> pts = Nano::LowPtElectron_pt();
+        vector<float> etas = Nano::LowPtElectron_eta();
+        vector<float> phis = Nano::LowPtElectron_phi();
+        vector<float> masses = Nano::LowPtElectron_mass();
+        for (unsigned int i=0; i < pts.size(); i++) {
+            v_LowPtElectron_p4_.push_back(LorentzVector(pts[i],etas[i],phis[i],masses[i]));
+        }
+        loaded_LowPtElectron_p4_ = true;
+    }
+    return v_LowPtElectron_p4_;
+}
+const vector<int> &Nano::LowPtElectron_pdgId() {
+    if (!loaded_LowPtElectron_pdgId_) counter_uncached_LowPtElectron_pdgId_++;
+    else counter_cached_LowPtElectron_pdgId_++;
+    if (!loaded_LowPtElectron_pdgId_) {
+        if (!b_LowPtElectron_pdgId_) throw std::runtime_error("LowPtElectron_pdgId branch doesn't exist");
+        int bytes = b_LowPtElectron_pdgId_->GetEntry(index);
+        v_LowPtElectron_pdgId_ = vector<int>(LowPtElectron_pdgId_,LowPtElectron_pdgId_+bytes/sizeof(LowPtElectron_pdgId_[0]));
+        loaded_LowPtElectron_pdgId_ = true;
+    }
+    return v_LowPtElectron_pdgId_;
+}
+const vector<float> &Nano::LowPtElectron_phi() {
+    if (!loaded_LowPtElectron_phi_) counter_uncached_LowPtElectron_phi_++;
+    else counter_cached_LowPtElectron_phi_++;
+    if (!loaded_LowPtElectron_phi_) {
+        if (!b_LowPtElectron_phi_) throw std::runtime_error("LowPtElectron_phi branch doesn't exist");
+        int bytes = b_LowPtElectron_phi_->GetEntry(index);
+        v_LowPtElectron_phi_ = vector<float>(LowPtElectron_phi_,LowPtElectron_phi_+bytes/sizeof(LowPtElectron_phi_[0]));
+        loaded_LowPtElectron_phi_ = true;
+    }
+    return v_LowPtElectron_phi_;
+}
+const vector<float> &Nano::LowPtElectron_pt() {
+    if (!loaded_LowPtElectron_pt_) counter_uncached_LowPtElectron_pt_++;
+    else counter_cached_LowPtElectron_pt_++;
+    if (!loaded_LowPtElectron_pt_) {
+        if (!b_LowPtElectron_pt_) throw std::runtime_error("LowPtElectron_pt branch doesn't exist");
+        int bytes = b_LowPtElectron_pt_->GetEntry(index);
+        v_LowPtElectron_pt_ = vector<float>(LowPtElectron_pt_,LowPtElectron_pt_+bytes/sizeof(LowPtElectron_pt_[0]));
+        loaded_LowPtElectron_pt_ = true;
+    }
+    return v_LowPtElectron_pt_;
+}
+const vector<float> &Nano::LowPtElectron_ptbiased() {
+    if (!loaded_LowPtElectron_ptbiased_) counter_uncached_LowPtElectron_ptbiased_++;
+    else counter_cached_LowPtElectron_ptbiased_++;
+    if (!loaded_LowPtElectron_ptbiased_) {
+        if (!b_LowPtElectron_ptbiased_) throw std::runtime_error("LowPtElectron_ptbiased branch doesn't exist");
+        int bytes = b_LowPtElectron_ptbiased_->GetEntry(index);
+        v_LowPtElectron_ptbiased_ = vector<float>(LowPtElectron_ptbiased_,LowPtElectron_ptbiased_+bytes/sizeof(LowPtElectron_ptbiased_[0]));
+        loaded_LowPtElectron_ptbiased_ = true;
+    }
+    return v_LowPtElectron_ptbiased_;
+}
+const vector<float> &Nano::LowPtElectron_r9() {
+    if (!loaded_LowPtElectron_r9_) counter_uncached_LowPtElectron_r9_++;
+    else counter_cached_LowPtElectron_r9_++;
+    if (!loaded_LowPtElectron_r9_) {
+        if (!b_LowPtElectron_r9_) throw std::runtime_error("LowPtElectron_r9 branch doesn't exist");
+        int bytes = b_LowPtElectron_r9_->GetEntry(index);
+        v_LowPtElectron_r9_ = vector<float>(LowPtElectron_r9_,LowPtElectron_r9_+bytes/sizeof(LowPtElectron_r9_[0]));
+        loaded_LowPtElectron_r9_ = true;
+    }
+    return v_LowPtElectron_r9_;
+}
+const vector<float> &Nano::LowPtElectron_scEtOverPt() {
+    if (!loaded_LowPtElectron_scEtOverPt_) counter_uncached_LowPtElectron_scEtOverPt_++;
+    else counter_cached_LowPtElectron_scEtOverPt_++;
+    if (!loaded_LowPtElectron_scEtOverPt_) {
+        if (!b_LowPtElectron_scEtOverPt_) throw std::runtime_error("LowPtElectron_scEtOverPt branch doesn't exist");
+        int bytes = b_LowPtElectron_scEtOverPt_->GetEntry(index);
+        v_LowPtElectron_scEtOverPt_ = vector<float>(LowPtElectron_scEtOverPt_,LowPtElectron_scEtOverPt_+bytes/sizeof(LowPtElectron_scEtOverPt_[0]));
+        loaded_LowPtElectron_scEtOverPt_ = true;
+    }
+    return v_LowPtElectron_scEtOverPt_;
+}
+const vector<float> &Nano::LowPtElectron_sieie() {
+    if (!loaded_LowPtElectron_sieie_) counter_uncached_LowPtElectron_sieie_++;
+    else counter_cached_LowPtElectron_sieie_++;
+    if (!loaded_LowPtElectron_sieie_) {
+        if (!b_LowPtElectron_sieie_) throw std::runtime_error("LowPtElectron_sieie branch doesn't exist");
+        int bytes = b_LowPtElectron_sieie_->GetEntry(index);
+        v_LowPtElectron_sieie_ = vector<float>(LowPtElectron_sieie_,LowPtElectron_sieie_+bytes/sizeof(LowPtElectron_sieie_[0]));
+        loaded_LowPtElectron_sieie_ = true;
+    }
+    return v_LowPtElectron_sieie_;
+}
+const vector<float> &Nano::LowPtElectron_unbiased() {
+    if (!loaded_LowPtElectron_unbiased_) counter_uncached_LowPtElectron_unbiased_++;
+    else counter_cached_LowPtElectron_unbiased_++;
+    if (!loaded_LowPtElectron_unbiased_) {
+        if (!b_LowPtElectron_unbiased_) throw std::runtime_error("LowPtElectron_unbiased branch doesn't exist");
+        int bytes = b_LowPtElectron_unbiased_->GetEntry(index);
+        v_LowPtElectron_unbiased_ = vector<float>(LowPtElectron_unbiased_,LowPtElectron_unbiased_+bytes/sizeof(LowPtElectron_unbiased_[0]));
+        loaded_LowPtElectron_unbiased_ = true;
+    }
+    return v_LowPtElectron_unbiased_;
+}
 const float &Nano::METFixEE2017_MetUnclustEnUpDeltaX() {
     if (!loaded_METFixEE2017_MetUnclustEnUpDeltaX_) counter_uncached_METFixEE2017_MetUnclustEnUpDeltaX_++;
     else counter_cached_METFixEE2017_MetUnclustEnUpDeltaX_++;
@@ -33703,6 +36199,402 @@ const float &Nano::MET_sumPtUnclustered() {
     }
     return MET_sumPtUnclustered_;
 }
+const vector<float> &Nano::Muon_CutBased_HighPtID_SF() {
+    if (!loaded_Muon_CutBased_HighPtID_SF_) counter_uncached_Muon_CutBased_HighPtID_SF_++;
+    else counter_cached_Muon_CutBased_HighPtID_SF_++;
+    if (!loaded_Muon_CutBased_HighPtID_SF_) {
+        if (!b_Muon_CutBased_HighPtID_SF_) throw std::runtime_error("Muon_CutBased_HighPtID_SF branch doesn't exist");
+        int bytes = b_Muon_CutBased_HighPtID_SF_->GetEntry(index);
+        v_Muon_CutBased_HighPtID_SF_ = vector<float>(Muon_CutBased_HighPtID_SF_,Muon_CutBased_HighPtID_SF_+bytes/sizeof(Muon_CutBased_HighPtID_SF_[0]));
+        loaded_Muon_CutBased_HighPtID_SF_ = true;
+    }
+    return v_Muon_CutBased_HighPtID_SF_;
+}
+const vector<float> &Nano::Muon_CutBased_HighPtID_SFerr() {
+    if (!loaded_Muon_CutBased_HighPtID_SFerr_) counter_uncached_Muon_CutBased_HighPtID_SFerr_++;
+    else counter_cached_Muon_CutBased_HighPtID_SFerr_++;
+    if (!loaded_Muon_CutBased_HighPtID_SFerr_) {
+        if (!b_Muon_CutBased_HighPtID_SFerr_) throw std::runtime_error("Muon_CutBased_HighPtID_SFerr branch doesn't exist");
+        int bytes = b_Muon_CutBased_HighPtID_SFerr_->GetEntry(index);
+        v_Muon_CutBased_HighPtID_SFerr_ = vector<float>(Muon_CutBased_HighPtID_SFerr_,Muon_CutBased_HighPtID_SFerr_+bytes/sizeof(Muon_CutBased_HighPtID_SFerr_[0]));
+        loaded_Muon_CutBased_HighPtID_SFerr_ = true;
+    }
+    return v_Muon_CutBased_HighPtID_SFerr_;
+}
+const vector<float> &Nano::Muon_CutBased_LooseID_SF() {
+    if (!loaded_Muon_CutBased_LooseID_SF_) counter_uncached_Muon_CutBased_LooseID_SF_++;
+    else counter_cached_Muon_CutBased_LooseID_SF_++;
+    if (!loaded_Muon_CutBased_LooseID_SF_) {
+        if (!b_Muon_CutBased_LooseID_SF_) throw std::runtime_error("Muon_CutBased_LooseID_SF branch doesn't exist");
+        int bytes = b_Muon_CutBased_LooseID_SF_->GetEntry(index);
+        v_Muon_CutBased_LooseID_SF_ = vector<float>(Muon_CutBased_LooseID_SF_,Muon_CutBased_LooseID_SF_+bytes/sizeof(Muon_CutBased_LooseID_SF_[0]));
+        loaded_Muon_CutBased_LooseID_SF_ = true;
+    }
+    return v_Muon_CutBased_LooseID_SF_;
+}
+const vector<float> &Nano::Muon_CutBased_LooseID_SFerr() {
+    if (!loaded_Muon_CutBased_LooseID_SFerr_) counter_uncached_Muon_CutBased_LooseID_SFerr_++;
+    else counter_cached_Muon_CutBased_LooseID_SFerr_++;
+    if (!loaded_Muon_CutBased_LooseID_SFerr_) {
+        if (!b_Muon_CutBased_LooseID_SFerr_) throw std::runtime_error("Muon_CutBased_LooseID_SFerr branch doesn't exist");
+        int bytes = b_Muon_CutBased_LooseID_SFerr_->GetEntry(index);
+        v_Muon_CutBased_LooseID_SFerr_ = vector<float>(Muon_CutBased_LooseID_SFerr_,Muon_CutBased_LooseID_SFerr_+bytes/sizeof(Muon_CutBased_LooseID_SFerr_[0]));
+        loaded_Muon_CutBased_LooseID_SFerr_ = true;
+    }
+    return v_Muon_CutBased_LooseID_SFerr_;
+}
+const vector<float> &Nano::Muon_CutBased_MediumID_SF() {
+    if (!loaded_Muon_CutBased_MediumID_SF_) counter_uncached_Muon_CutBased_MediumID_SF_++;
+    else counter_cached_Muon_CutBased_MediumID_SF_++;
+    if (!loaded_Muon_CutBased_MediumID_SF_) {
+        if (!b_Muon_CutBased_MediumID_SF_) throw std::runtime_error("Muon_CutBased_MediumID_SF branch doesn't exist");
+        int bytes = b_Muon_CutBased_MediumID_SF_->GetEntry(index);
+        v_Muon_CutBased_MediumID_SF_ = vector<float>(Muon_CutBased_MediumID_SF_,Muon_CutBased_MediumID_SF_+bytes/sizeof(Muon_CutBased_MediumID_SF_[0]));
+        loaded_Muon_CutBased_MediumID_SF_ = true;
+    }
+    return v_Muon_CutBased_MediumID_SF_;
+}
+const vector<float> &Nano::Muon_CutBased_MediumID_SFerr() {
+    if (!loaded_Muon_CutBased_MediumID_SFerr_) counter_uncached_Muon_CutBased_MediumID_SFerr_++;
+    else counter_cached_Muon_CutBased_MediumID_SFerr_++;
+    if (!loaded_Muon_CutBased_MediumID_SFerr_) {
+        if (!b_Muon_CutBased_MediumID_SFerr_) throw std::runtime_error("Muon_CutBased_MediumID_SFerr branch doesn't exist");
+        int bytes = b_Muon_CutBased_MediumID_SFerr_->GetEntry(index);
+        v_Muon_CutBased_MediumID_SFerr_ = vector<float>(Muon_CutBased_MediumID_SFerr_,Muon_CutBased_MediumID_SFerr_+bytes/sizeof(Muon_CutBased_MediumID_SFerr_[0]));
+        loaded_Muon_CutBased_MediumID_SFerr_ = true;
+    }
+    return v_Muon_CutBased_MediumID_SFerr_;
+}
+const vector<float> &Nano::Muon_CutBased_MediumPromptID_SF() {
+    if (!loaded_Muon_CutBased_MediumPromptID_SF_) counter_uncached_Muon_CutBased_MediumPromptID_SF_++;
+    else counter_cached_Muon_CutBased_MediumPromptID_SF_++;
+    if (!loaded_Muon_CutBased_MediumPromptID_SF_) {
+        if (!b_Muon_CutBased_MediumPromptID_SF_) throw std::runtime_error("Muon_CutBased_MediumPromptID_SF branch doesn't exist");
+        int bytes = b_Muon_CutBased_MediumPromptID_SF_->GetEntry(index);
+        v_Muon_CutBased_MediumPromptID_SF_ = vector<float>(Muon_CutBased_MediumPromptID_SF_,Muon_CutBased_MediumPromptID_SF_+bytes/sizeof(Muon_CutBased_MediumPromptID_SF_[0]));
+        loaded_Muon_CutBased_MediumPromptID_SF_ = true;
+    }
+    return v_Muon_CutBased_MediumPromptID_SF_;
+}
+const vector<float> &Nano::Muon_CutBased_MediumPromptID_SFerr() {
+    if (!loaded_Muon_CutBased_MediumPromptID_SFerr_) counter_uncached_Muon_CutBased_MediumPromptID_SFerr_++;
+    else counter_cached_Muon_CutBased_MediumPromptID_SFerr_++;
+    if (!loaded_Muon_CutBased_MediumPromptID_SFerr_) {
+        if (!b_Muon_CutBased_MediumPromptID_SFerr_) throw std::runtime_error("Muon_CutBased_MediumPromptID_SFerr branch doesn't exist");
+        int bytes = b_Muon_CutBased_MediumPromptID_SFerr_->GetEntry(index);
+        v_Muon_CutBased_MediumPromptID_SFerr_ = vector<float>(Muon_CutBased_MediumPromptID_SFerr_,Muon_CutBased_MediumPromptID_SFerr_+bytes/sizeof(Muon_CutBased_MediumPromptID_SFerr_[0]));
+        loaded_Muon_CutBased_MediumPromptID_SFerr_ = true;
+    }
+    return v_Muon_CutBased_MediumPromptID_SFerr_;
+}
+const vector<float> &Nano::Muon_CutBased_SoftID_SF() {
+    if (!loaded_Muon_CutBased_SoftID_SF_) counter_uncached_Muon_CutBased_SoftID_SF_++;
+    else counter_cached_Muon_CutBased_SoftID_SF_++;
+    if (!loaded_Muon_CutBased_SoftID_SF_) {
+        if (!b_Muon_CutBased_SoftID_SF_) throw std::runtime_error("Muon_CutBased_SoftID_SF branch doesn't exist");
+        int bytes = b_Muon_CutBased_SoftID_SF_->GetEntry(index);
+        v_Muon_CutBased_SoftID_SF_ = vector<float>(Muon_CutBased_SoftID_SF_,Muon_CutBased_SoftID_SF_+bytes/sizeof(Muon_CutBased_SoftID_SF_[0]));
+        loaded_Muon_CutBased_SoftID_SF_ = true;
+    }
+    return v_Muon_CutBased_SoftID_SF_;
+}
+const vector<float> &Nano::Muon_CutBased_SoftID_SFerr() {
+    if (!loaded_Muon_CutBased_SoftID_SFerr_) counter_uncached_Muon_CutBased_SoftID_SFerr_++;
+    else counter_cached_Muon_CutBased_SoftID_SFerr_++;
+    if (!loaded_Muon_CutBased_SoftID_SFerr_) {
+        if (!b_Muon_CutBased_SoftID_SFerr_) throw std::runtime_error("Muon_CutBased_SoftID_SFerr branch doesn't exist");
+        int bytes = b_Muon_CutBased_SoftID_SFerr_->GetEntry(index);
+        v_Muon_CutBased_SoftID_SFerr_ = vector<float>(Muon_CutBased_SoftID_SFerr_,Muon_CutBased_SoftID_SFerr_+bytes/sizeof(Muon_CutBased_SoftID_SFerr_[0]));
+        loaded_Muon_CutBased_SoftID_SFerr_ = true;
+    }
+    return v_Muon_CutBased_SoftID_SFerr_;
+}
+const vector<float> &Nano::Muon_CutBased_TightID_SF() {
+    if (!loaded_Muon_CutBased_TightID_SF_) counter_uncached_Muon_CutBased_TightID_SF_++;
+    else counter_cached_Muon_CutBased_TightID_SF_++;
+    if (!loaded_Muon_CutBased_TightID_SF_) {
+        if (!b_Muon_CutBased_TightID_SF_) throw std::runtime_error("Muon_CutBased_TightID_SF branch doesn't exist");
+        int bytes = b_Muon_CutBased_TightID_SF_->GetEntry(index);
+        v_Muon_CutBased_TightID_SF_ = vector<float>(Muon_CutBased_TightID_SF_,Muon_CutBased_TightID_SF_+bytes/sizeof(Muon_CutBased_TightID_SF_[0]));
+        loaded_Muon_CutBased_TightID_SF_ = true;
+    }
+    return v_Muon_CutBased_TightID_SF_;
+}
+const vector<float> &Nano::Muon_CutBased_TightID_SFerr() {
+    if (!loaded_Muon_CutBased_TightID_SFerr_) counter_uncached_Muon_CutBased_TightID_SFerr_++;
+    else counter_cached_Muon_CutBased_TightID_SFerr_++;
+    if (!loaded_Muon_CutBased_TightID_SFerr_) {
+        if (!b_Muon_CutBased_TightID_SFerr_) throw std::runtime_error("Muon_CutBased_TightID_SFerr branch doesn't exist");
+        int bytes = b_Muon_CutBased_TightID_SFerr_->GetEntry(index);
+        v_Muon_CutBased_TightID_SFerr_ = vector<float>(Muon_CutBased_TightID_SFerr_,Muon_CutBased_TightID_SFerr_+bytes/sizeof(Muon_CutBased_TightID_SFerr_[0]));
+        loaded_Muon_CutBased_TightID_SFerr_ = true;
+    }
+    return v_Muon_CutBased_TightID_SFerr_;
+}
+const vector<float> &Nano::Muon_CutBased_TrkHighPtID_SF() {
+    if (!loaded_Muon_CutBased_TrkHighPtID_SF_) counter_uncached_Muon_CutBased_TrkHighPtID_SF_++;
+    else counter_cached_Muon_CutBased_TrkHighPtID_SF_++;
+    if (!loaded_Muon_CutBased_TrkHighPtID_SF_) {
+        if (!b_Muon_CutBased_TrkHighPtID_SF_) throw std::runtime_error("Muon_CutBased_TrkHighPtID_SF branch doesn't exist");
+        int bytes = b_Muon_CutBased_TrkHighPtID_SF_->GetEntry(index);
+        v_Muon_CutBased_TrkHighPtID_SF_ = vector<float>(Muon_CutBased_TrkHighPtID_SF_,Muon_CutBased_TrkHighPtID_SF_+bytes/sizeof(Muon_CutBased_TrkHighPtID_SF_[0]));
+        loaded_Muon_CutBased_TrkHighPtID_SF_ = true;
+    }
+    return v_Muon_CutBased_TrkHighPtID_SF_;
+}
+const vector<float> &Nano::Muon_CutBased_TrkHighPtID_SFerr() {
+    if (!loaded_Muon_CutBased_TrkHighPtID_SFerr_) counter_uncached_Muon_CutBased_TrkHighPtID_SFerr_++;
+    else counter_cached_Muon_CutBased_TrkHighPtID_SFerr_++;
+    if (!loaded_Muon_CutBased_TrkHighPtID_SFerr_) {
+        if (!b_Muon_CutBased_TrkHighPtID_SFerr_) throw std::runtime_error("Muon_CutBased_TrkHighPtID_SFerr branch doesn't exist");
+        int bytes = b_Muon_CutBased_TrkHighPtID_SFerr_->GetEntry(index);
+        v_Muon_CutBased_TrkHighPtID_SFerr_ = vector<float>(Muon_CutBased_TrkHighPtID_SFerr_,Muon_CutBased_TrkHighPtID_SFerr_+bytes/sizeof(Muon_CutBased_TrkHighPtID_SFerr_[0]));
+        loaded_Muon_CutBased_TrkHighPtID_SFerr_ = true;
+    }
+    return v_Muon_CutBased_TrkHighPtID_SFerr_;
+}
+const vector<float> &Nano::Muon_LooseRelIso_LooseID_SF() {
+    if (!loaded_Muon_LooseRelIso_LooseID_SF_) counter_uncached_Muon_LooseRelIso_LooseID_SF_++;
+    else counter_cached_Muon_LooseRelIso_LooseID_SF_++;
+    if (!loaded_Muon_LooseRelIso_LooseID_SF_) {
+        if (!b_Muon_LooseRelIso_LooseID_SF_) throw std::runtime_error("Muon_LooseRelIso_LooseID_SF branch doesn't exist");
+        int bytes = b_Muon_LooseRelIso_LooseID_SF_->GetEntry(index);
+        v_Muon_LooseRelIso_LooseID_SF_ = vector<float>(Muon_LooseRelIso_LooseID_SF_,Muon_LooseRelIso_LooseID_SF_+bytes/sizeof(Muon_LooseRelIso_LooseID_SF_[0]));
+        loaded_Muon_LooseRelIso_LooseID_SF_ = true;
+    }
+    return v_Muon_LooseRelIso_LooseID_SF_;
+}
+const vector<float> &Nano::Muon_LooseRelIso_LooseID_SFerr() {
+    if (!loaded_Muon_LooseRelIso_LooseID_SFerr_) counter_uncached_Muon_LooseRelIso_LooseID_SFerr_++;
+    else counter_cached_Muon_LooseRelIso_LooseID_SFerr_++;
+    if (!loaded_Muon_LooseRelIso_LooseID_SFerr_) {
+        if (!b_Muon_LooseRelIso_LooseID_SFerr_) throw std::runtime_error("Muon_LooseRelIso_LooseID_SFerr branch doesn't exist");
+        int bytes = b_Muon_LooseRelIso_LooseID_SFerr_->GetEntry(index);
+        v_Muon_LooseRelIso_LooseID_SFerr_ = vector<float>(Muon_LooseRelIso_LooseID_SFerr_,Muon_LooseRelIso_LooseID_SFerr_+bytes/sizeof(Muon_LooseRelIso_LooseID_SFerr_[0]));
+        loaded_Muon_LooseRelIso_LooseID_SFerr_ = true;
+    }
+    return v_Muon_LooseRelIso_LooseID_SFerr_;
+}
+const vector<float> &Nano::Muon_LooseRelIso_MediumID_SF() {
+    if (!loaded_Muon_LooseRelIso_MediumID_SF_) counter_uncached_Muon_LooseRelIso_MediumID_SF_++;
+    else counter_cached_Muon_LooseRelIso_MediumID_SF_++;
+    if (!loaded_Muon_LooseRelIso_MediumID_SF_) {
+        if (!b_Muon_LooseRelIso_MediumID_SF_) throw std::runtime_error("Muon_LooseRelIso_MediumID_SF branch doesn't exist");
+        int bytes = b_Muon_LooseRelIso_MediumID_SF_->GetEntry(index);
+        v_Muon_LooseRelIso_MediumID_SF_ = vector<float>(Muon_LooseRelIso_MediumID_SF_,Muon_LooseRelIso_MediumID_SF_+bytes/sizeof(Muon_LooseRelIso_MediumID_SF_[0]));
+        loaded_Muon_LooseRelIso_MediumID_SF_ = true;
+    }
+    return v_Muon_LooseRelIso_MediumID_SF_;
+}
+const vector<float> &Nano::Muon_LooseRelIso_MediumID_SFerr() {
+    if (!loaded_Muon_LooseRelIso_MediumID_SFerr_) counter_uncached_Muon_LooseRelIso_MediumID_SFerr_++;
+    else counter_cached_Muon_LooseRelIso_MediumID_SFerr_++;
+    if (!loaded_Muon_LooseRelIso_MediumID_SFerr_) {
+        if (!b_Muon_LooseRelIso_MediumID_SFerr_) throw std::runtime_error("Muon_LooseRelIso_MediumID_SFerr branch doesn't exist");
+        int bytes = b_Muon_LooseRelIso_MediumID_SFerr_->GetEntry(index);
+        v_Muon_LooseRelIso_MediumID_SFerr_ = vector<float>(Muon_LooseRelIso_MediumID_SFerr_,Muon_LooseRelIso_MediumID_SFerr_+bytes/sizeof(Muon_LooseRelIso_MediumID_SFerr_[0]));
+        loaded_Muon_LooseRelIso_MediumID_SFerr_ = true;
+    }
+    return v_Muon_LooseRelIso_MediumID_SFerr_;
+}
+const vector<float> &Nano::Muon_LooseRelIso_MediumPromptID_SF() {
+    if (!loaded_Muon_LooseRelIso_MediumPromptID_SF_) counter_uncached_Muon_LooseRelIso_MediumPromptID_SF_++;
+    else counter_cached_Muon_LooseRelIso_MediumPromptID_SF_++;
+    if (!loaded_Muon_LooseRelIso_MediumPromptID_SF_) {
+        if (!b_Muon_LooseRelIso_MediumPromptID_SF_) throw std::runtime_error("Muon_LooseRelIso_MediumPromptID_SF branch doesn't exist");
+        int bytes = b_Muon_LooseRelIso_MediumPromptID_SF_->GetEntry(index);
+        v_Muon_LooseRelIso_MediumPromptID_SF_ = vector<float>(Muon_LooseRelIso_MediumPromptID_SF_,Muon_LooseRelIso_MediumPromptID_SF_+bytes/sizeof(Muon_LooseRelIso_MediumPromptID_SF_[0]));
+        loaded_Muon_LooseRelIso_MediumPromptID_SF_ = true;
+    }
+    return v_Muon_LooseRelIso_MediumPromptID_SF_;
+}
+const vector<float> &Nano::Muon_LooseRelIso_MediumPromptID_SFerr() {
+    if (!loaded_Muon_LooseRelIso_MediumPromptID_SFerr_) counter_uncached_Muon_LooseRelIso_MediumPromptID_SFerr_++;
+    else counter_cached_Muon_LooseRelIso_MediumPromptID_SFerr_++;
+    if (!loaded_Muon_LooseRelIso_MediumPromptID_SFerr_) {
+        if (!b_Muon_LooseRelIso_MediumPromptID_SFerr_) throw std::runtime_error("Muon_LooseRelIso_MediumPromptID_SFerr branch doesn't exist");
+        int bytes = b_Muon_LooseRelIso_MediumPromptID_SFerr_->GetEntry(index);
+        v_Muon_LooseRelIso_MediumPromptID_SFerr_ = vector<float>(Muon_LooseRelIso_MediumPromptID_SFerr_,Muon_LooseRelIso_MediumPromptID_SFerr_+bytes/sizeof(Muon_LooseRelIso_MediumPromptID_SFerr_[0]));
+        loaded_Muon_LooseRelIso_MediumPromptID_SFerr_ = true;
+    }
+    return v_Muon_LooseRelIso_MediumPromptID_SFerr_;
+}
+const vector<float> &Nano::Muon_LooseRelIso_TightIDandIPCut_SF() {
+    if (!loaded_Muon_LooseRelIso_TightIDandIPCut_SF_) counter_uncached_Muon_LooseRelIso_TightIDandIPCut_SF_++;
+    else counter_cached_Muon_LooseRelIso_TightIDandIPCut_SF_++;
+    if (!loaded_Muon_LooseRelIso_TightIDandIPCut_SF_) {
+        if (!b_Muon_LooseRelIso_TightIDandIPCut_SF_) throw std::runtime_error("Muon_LooseRelIso_TightIDandIPCut_SF branch doesn't exist");
+        int bytes = b_Muon_LooseRelIso_TightIDandIPCut_SF_->GetEntry(index);
+        v_Muon_LooseRelIso_TightIDandIPCut_SF_ = vector<float>(Muon_LooseRelIso_TightIDandIPCut_SF_,Muon_LooseRelIso_TightIDandIPCut_SF_+bytes/sizeof(Muon_LooseRelIso_TightIDandIPCut_SF_[0]));
+        loaded_Muon_LooseRelIso_TightIDandIPCut_SF_ = true;
+    }
+    return v_Muon_LooseRelIso_TightIDandIPCut_SF_;
+}
+const vector<float> &Nano::Muon_LooseRelIso_TightIDandIPCut_SFerr() {
+    if (!loaded_Muon_LooseRelIso_TightIDandIPCut_SFerr_) counter_uncached_Muon_LooseRelIso_TightIDandIPCut_SFerr_++;
+    else counter_cached_Muon_LooseRelIso_TightIDandIPCut_SFerr_++;
+    if (!loaded_Muon_LooseRelIso_TightIDandIPCut_SFerr_) {
+        if (!b_Muon_LooseRelIso_TightIDandIPCut_SFerr_) throw std::runtime_error("Muon_LooseRelIso_TightIDandIPCut_SFerr branch doesn't exist");
+        int bytes = b_Muon_LooseRelIso_TightIDandIPCut_SFerr_->GetEntry(index);
+        v_Muon_LooseRelIso_TightIDandIPCut_SFerr_ = vector<float>(Muon_LooseRelIso_TightIDandIPCut_SFerr_,Muon_LooseRelIso_TightIDandIPCut_SFerr_+bytes/sizeof(Muon_LooseRelIso_TightIDandIPCut_SFerr_[0]));
+        loaded_Muon_LooseRelIso_TightIDandIPCut_SFerr_ = true;
+    }
+    return v_Muon_LooseRelIso_TightIDandIPCut_SFerr_;
+}
+const vector<float> &Nano::Muon_LooseRelTkIso_HighPtIDandIPCut_SF() {
+    if (!loaded_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_) counter_uncached_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_++;
+    else counter_cached_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_++;
+    if (!loaded_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_) {
+        if (!b_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_) throw std::runtime_error("Muon_LooseRelTkIso_HighPtIDandIPCut_SF branch doesn't exist");
+        int bytes = b_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_->GetEntry(index);
+        v_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_ = vector<float>(Muon_LooseRelTkIso_HighPtIDandIPCut_SF_,Muon_LooseRelTkIso_HighPtIDandIPCut_SF_+bytes/sizeof(Muon_LooseRelTkIso_HighPtIDandIPCut_SF_[0]));
+        loaded_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_ = true;
+    }
+    return v_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_;
+}
+const vector<float> &Nano::Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr() {
+    if (!loaded_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_) counter_uncached_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_++;
+    else counter_cached_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_++;
+    if (!loaded_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_) {
+        if (!b_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_) throw std::runtime_error("Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr branch doesn't exist");
+        int bytes = b_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_->GetEntry(index);
+        v_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_ = vector<float>(Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_,Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_+bytes/sizeof(Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_[0]));
+        loaded_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_ = true;
+    }
+    return v_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_;
+}
+const vector<float> &Nano::Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF() {
+    if (!loaded_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_) counter_uncached_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_++;
+    else counter_cached_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_++;
+    if (!loaded_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_) {
+        if (!b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_) throw std::runtime_error("Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF branch doesn't exist");
+        int bytes = b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_->GetEntry(index);
+        v_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_ = vector<float>(Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_,Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_+bytes/sizeof(Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_[0]));
+        loaded_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_ = true;
+    }
+    return v_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_;
+}
+const vector<float> &Nano::Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr() {
+    if (!loaded_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_) counter_uncached_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_++;
+    else counter_cached_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_++;
+    if (!loaded_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_) {
+        if (!b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_) throw std::runtime_error("Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr branch doesn't exist");
+        int bytes = b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_->GetEntry(index);
+        v_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_ = vector<float>(Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_,Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_+bytes/sizeof(Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_[0]));
+        loaded_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_ = true;
+    }
+    return v_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_;
+}
+const vector<float> &Nano::Muon_TightRelIso_MediumID_SF() {
+    if (!loaded_Muon_TightRelIso_MediumID_SF_) counter_uncached_Muon_TightRelIso_MediumID_SF_++;
+    else counter_cached_Muon_TightRelIso_MediumID_SF_++;
+    if (!loaded_Muon_TightRelIso_MediumID_SF_) {
+        if (!b_Muon_TightRelIso_MediumID_SF_) throw std::runtime_error("Muon_TightRelIso_MediumID_SF branch doesn't exist");
+        int bytes = b_Muon_TightRelIso_MediumID_SF_->GetEntry(index);
+        v_Muon_TightRelIso_MediumID_SF_ = vector<float>(Muon_TightRelIso_MediumID_SF_,Muon_TightRelIso_MediumID_SF_+bytes/sizeof(Muon_TightRelIso_MediumID_SF_[0]));
+        loaded_Muon_TightRelIso_MediumID_SF_ = true;
+    }
+    return v_Muon_TightRelIso_MediumID_SF_;
+}
+const vector<float> &Nano::Muon_TightRelIso_MediumID_SFerr() {
+    if (!loaded_Muon_TightRelIso_MediumID_SFerr_) counter_uncached_Muon_TightRelIso_MediumID_SFerr_++;
+    else counter_cached_Muon_TightRelIso_MediumID_SFerr_++;
+    if (!loaded_Muon_TightRelIso_MediumID_SFerr_) {
+        if (!b_Muon_TightRelIso_MediumID_SFerr_) throw std::runtime_error("Muon_TightRelIso_MediumID_SFerr branch doesn't exist");
+        int bytes = b_Muon_TightRelIso_MediumID_SFerr_->GetEntry(index);
+        v_Muon_TightRelIso_MediumID_SFerr_ = vector<float>(Muon_TightRelIso_MediumID_SFerr_,Muon_TightRelIso_MediumID_SFerr_+bytes/sizeof(Muon_TightRelIso_MediumID_SFerr_[0]));
+        loaded_Muon_TightRelIso_MediumID_SFerr_ = true;
+    }
+    return v_Muon_TightRelIso_MediumID_SFerr_;
+}
+const vector<float> &Nano::Muon_TightRelIso_MediumPromptID_SF() {
+    if (!loaded_Muon_TightRelIso_MediumPromptID_SF_) counter_uncached_Muon_TightRelIso_MediumPromptID_SF_++;
+    else counter_cached_Muon_TightRelIso_MediumPromptID_SF_++;
+    if (!loaded_Muon_TightRelIso_MediumPromptID_SF_) {
+        if (!b_Muon_TightRelIso_MediumPromptID_SF_) throw std::runtime_error("Muon_TightRelIso_MediumPromptID_SF branch doesn't exist");
+        int bytes = b_Muon_TightRelIso_MediumPromptID_SF_->GetEntry(index);
+        v_Muon_TightRelIso_MediumPromptID_SF_ = vector<float>(Muon_TightRelIso_MediumPromptID_SF_,Muon_TightRelIso_MediumPromptID_SF_+bytes/sizeof(Muon_TightRelIso_MediumPromptID_SF_[0]));
+        loaded_Muon_TightRelIso_MediumPromptID_SF_ = true;
+    }
+    return v_Muon_TightRelIso_MediumPromptID_SF_;
+}
+const vector<float> &Nano::Muon_TightRelIso_MediumPromptID_SFerr() {
+    if (!loaded_Muon_TightRelIso_MediumPromptID_SFerr_) counter_uncached_Muon_TightRelIso_MediumPromptID_SFerr_++;
+    else counter_cached_Muon_TightRelIso_MediumPromptID_SFerr_++;
+    if (!loaded_Muon_TightRelIso_MediumPromptID_SFerr_) {
+        if (!b_Muon_TightRelIso_MediumPromptID_SFerr_) throw std::runtime_error("Muon_TightRelIso_MediumPromptID_SFerr branch doesn't exist");
+        int bytes = b_Muon_TightRelIso_MediumPromptID_SFerr_->GetEntry(index);
+        v_Muon_TightRelIso_MediumPromptID_SFerr_ = vector<float>(Muon_TightRelIso_MediumPromptID_SFerr_,Muon_TightRelIso_MediumPromptID_SFerr_+bytes/sizeof(Muon_TightRelIso_MediumPromptID_SFerr_[0]));
+        loaded_Muon_TightRelIso_MediumPromptID_SFerr_ = true;
+    }
+    return v_Muon_TightRelIso_MediumPromptID_SFerr_;
+}
+const vector<float> &Nano::Muon_TightRelIso_TightIDandIPCut_SF() {
+    if (!loaded_Muon_TightRelIso_TightIDandIPCut_SF_) counter_uncached_Muon_TightRelIso_TightIDandIPCut_SF_++;
+    else counter_cached_Muon_TightRelIso_TightIDandIPCut_SF_++;
+    if (!loaded_Muon_TightRelIso_TightIDandIPCut_SF_) {
+        if (!b_Muon_TightRelIso_TightIDandIPCut_SF_) throw std::runtime_error("Muon_TightRelIso_TightIDandIPCut_SF branch doesn't exist");
+        int bytes = b_Muon_TightRelIso_TightIDandIPCut_SF_->GetEntry(index);
+        v_Muon_TightRelIso_TightIDandIPCut_SF_ = vector<float>(Muon_TightRelIso_TightIDandIPCut_SF_,Muon_TightRelIso_TightIDandIPCut_SF_+bytes/sizeof(Muon_TightRelIso_TightIDandIPCut_SF_[0]));
+        loaded_Muon_TightRelIso_TightIDandIPCut_SF_ = true;
+    }
+    return v_Muon_TightRelIso_TightIDandIPCut_SF_;
+}
+const vector<float> &Nano::Muon_TightRelIso_TightIDandIPCut_SFerr() {
+    if (!loaded_Muon_TightRelIso_TightIDandIPCut_SFerr_) counter_uncached_Muon_TightRelIso_TightIDandIPCut_SFerr_++;
+    else counter_cached_Muon_TightRelIso_TightIDandIPCut_SFerr_++;
+    if (!loaded_Muon_TightRelIso_TightIDandIPCut_SFerr_) {
+        if (!b_Muon_TightRelIso_TightIDandIPCut_SFerr_) throw std::runtime_error("Muon_TightRelIso_TightIDandIPCut_SFerr branch doesn't exist");
+        int bytes = b_Muon_TightRelIso_TightIDandIPCut_SFerr_->GetEntry(index);
+        v_Muon_TightRelIso_TightIDandIPCut_SFerr_ = vector<float>(Muon_TightRelIso_TightIDandIPCut_SFerr_,Muon_TightRelIso_TightIDandIPCut_SFerr_+bytes/sizeof(Muon_TightRelIso_TightIDandIPCut_SFerr_[0]));
+        loaded_Muon_TightRelIso_TightIDandIPCut_SFerr_ = true;
+    }
+    return v_Muon_TightRelIso_TightIDandIPCut_SFerr_;
+}
+const vector<float> &Nano::Muon_TightRelTkIso_HighPtIDandIPCut_SF() {
+    if (!loaded_Muon_TightRelTkIso_HighPtIDandIPCut_SF_) counter_uncached_Muon_TightRelTkIso_HighPtIDandIPCut_SF_++;
+    else counter_cached_Muon_TightRelTkIso_HighPtIDandIPCut_SF_++;
+    if (!loaded_Muon_TightRelTkIso_HighPtIDandIPCut_SF_) {
+        if (!b_Muon_TightRelTkIso_HighPtIDandIPCut_SF_) throw std::runtime_error("Muon_TightRelTkIso_HighPtIDandIPCut_SF branch doesn't exist");
+        int bytes = b_Muon_TightRelTkIso_HighPtIDandIPCut_SF_->GetEntry(index);
+        v_Muon_TightRelTkIso_HighPtIDandIPCut_SF_ = vector<float>(Muon_TightRelTkIso_HighPtIDandIPCut_SF_,Muon_TightRelTkIso_HighPtIDandIPCut_SF_+bytes/sizeof(Muon_TightRelTkIso_HighPtIDandIPCut_SF_[0]));
+        loaded_Muon_TightRelTkIso_HighPtIDandIPCut_SF_ = true;
+    }
+    return v_Muon_TightRelTkIso_HighPtIDandIPCut_SF_;
+}
+const vector<float> &Nano::Muon_TightRelTkIso_HighPtIDandIPCut_SFerr() {
+    if (!loaded_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_) counter_uncached_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_++;
+    else counter_cached_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_++;
+    if (!loaded_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_) {
+        if (!b_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_) throw std::runtime_error("Muon_TightRelTkIso_HighPtIDandIPCut_SFerr branch doesn't exist");
+        int bytes = b_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_->GetEntry(index);
+        v_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_ = vector<float>(Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_,Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_+bytes/sizeof(Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_[0]));
+        loaded_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_ = true;
+    }
+    return v_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_;
+}
+const vector<float> &Nano::Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF() {
+    if (!loaded_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_) counter_uncached_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_++;
+    else counter_cached_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_++;
+    if (!loaded_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_) {
+        if (!b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_) throw std::runtime_error("Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF branch doesn't exist");
+        int bytes = b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_->GetEntry(index);
+        v_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_ = vector<float>(Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_,Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_+bytes/sizeof(Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_[0]));
+        loaded_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_ = true;
+    }
+    return v_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_;
+}
+const vector<float> &Nano::Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr() {
+    if (!loaded_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_) counter_uncached_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_++;
+    else counter_cached_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_++;
+    if (!loaded_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_) {
+        if (!b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_) throw std::runtime_error("Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr branch doesn't exist");
+        int bytes = b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_->GetEntry(index);
+        v_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_ = vector<float>(Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_,Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_+bytes/sizeof(Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_[0]));
+        loaded_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_ = true;
+    }
+    return v_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_;
+}
 const vector<int> &Nano::Muon_charge() {
     if (!loaded_Muon_charge_) counter_uncached_Muon_charge_++;
     else counter_cached_Muon_charge_++;
@@ -33724,6 +36616,39 @@ const vector<UChar_t> &Nano::Muon_cleanmask() {
         loaded_Muon_cleanmask_ = true;
     }
     return v_Muon_cleanmask_;
+}
+const vector<float> &Nano::Muon_correctedDown_pt() {
+    if (!loaded_Muon_correctedDown_pt_) counter_uncached_Muon_correctedDown_pt_++;
+    else counter_cached_Muon_correctedDown_pt_++;
+    if (!loaded_Muon_correctedDown_pt_) {
+        if (!b_Muon_correctedDown_pt_) throw std::runtime_error("Muon_correctedDown_pt branch doesn't exist");
+        int bytes = b_Muon_correctedDown_pt_->GetEntry(index);
+        v_Muon_correctedDown_pt_ = vector<float>(Muon_correctedDown_pt_,Muon_correctedDown_pt_+bytes/sizeof(Muon_correctedDown_pt_[0]));
+        loaded_Muon_correctedDown_pt_ = true;
+    }
+    return v_Muon_correctedDown_pt_;
+}
+const vector<float> &Nano::Muon_correctedUp_pt() {
+    if (!loaded_Muon_correctedUp_pt_) counter_uncached_Muon_correctedUp_pt_++;
+    else counter_cached_Muon_correctedUp_pt_++;
+    if (!loaded_Muon_correctedUp_pt_) {
+        if (!b_Muon_correctedUp_pt_) throw std::runtime_error("Muon_correctedUp_pt branch doesn't exist");
+        int bytes = b_Muon_correctedUp_pt_->GetEntry(index);
+        v_Muon_correctedUp_pt_ = vector<float>(Muon_correctedUp_pt_,Muon_correctedUp_pt_+bytes/sizeof(Muon_correctedUp_pt_[0]));
+        loaded_Muon_correctedUp_pt_ = true;
+    }
+    return v_Muon_correctedUp_pt_;
+}
+const vector<float> &Nano::Muon_corrected_pt() {
+    if (!loaded_Muon_corrected_pt_) counter_uncached_Muon_corrected_pt_++;
+    else counter_cached_Muon_corrected_pt_++;
+    if (!loaded_Muon_corrected_pt_) {
+        if (!b_Muon_corrected_pt_) throw std::runtime_error("Muon_corrected_pt branch doesn't exist");
+        int bytes = b_Muon_corrected_pt_->GetEntry(index);
+        v_Muon_corrected_pt_ = vector<float>(Muon_corrected_pt_,Muon_corrected_pt_+bytes/sizeof(Muon_corrected_pt_[0]));
+        loaded_Muon_corrected_pt_ = true;
+    }
+    return v_Muon_corrected_pt_;
 }
 const vector<float> &Nano::Muon_dxy() {
     if (!loaded_Muon_dxy_) counter_uncached_Muon_dxy_++;
@@ -33890,6 +36815,17 @@ const vector<bool> &Nano::Muon_isPFcand() {
     }
     return v_Muon_isPFcand_;
 }
+const vector<bool> &Nano::Muon_isStandalone() {
+    if (!loaded_Muon_isStandalone_) counter_uncached_Muon_isStandalone_++;
+    else counter_cached_Muon_isStandalone_++;
+    if (!loaded_Muon_isStandalone_) {
+        if (!b_Muon_isStandalone_) throw std::runtime_error("Muon_isStandalone branch doesn't exist");
+        int bytes = b_Muon_isStandalone_->GetEntry(index);
+        v_Muon_isStandalone_ = vector<bool>(Muon_isStandalone_,Muon_isStandalone_+bytes/sizeof(Muon_isStandalone_[0]));
+        loaded_Muon_isStandalone_ = true;
+    }
+    return v_Muon_isStandalone_;
+}
 const vector<bool> &Nano::Muon_isTracker() {
     if (!loaded_Muon_isTracker_) counter_uncached_Muon_isTracker_++;
     else counter_cached_Muon_isTracker_++;
@@ -33911,6 +36847,17 @@ const vector<int> &Nano::Muon_jetIdx() {
         loaded_Muon_jetIdx_ = true;
     }
     return v_Muon_jetIdx_;
+}
+const vector<UChar_t> &Nano::Muon_jetNDauCharged() {
+    if (!loaded_Muon_jetNDauCharged_) counter_uncached_Muon_jetNDauCharged_++;
+    else counter_cached_Muon_jetNDauCharged_++;
+    if (!loaded_Muon_jetNDauCharged_) {
+        if (!b_Muon_jetNDauCharged_) throw std::runtime_error("Muon_jetNDauCharged branch doesn't exist");
+        int bytes = b_Muon_jetNDauCharged_->GetEntry(index);
+        v_Muon_jetNDauCharged_ = vector<UChar_t>(Muon_jetNDauCharged_,Muon_jetNDauCharged_+bytes/sizeof(Muon_jetNDauCharged_[0]));
+        loaded_Muon_jetNDauCharged_ = true;
+    }
+    return v_Muon_jetNDauCharged_;
 }
 const vector<float> &Nano::Muon_jetPtRelv2() {
     if (!loaded_Muon_jetPtRelv2_) counter_uncached_Muon_jetPtRelv2_++;
@@ -34043,6 +36990,17 @@ const vector<float> &Nano::Muon_mvaLowPt() {
         loaded_Muon_mvaLowPt_ = true;
     }
     return v_Muon_mvaLowPt_;
+}
+const vector<UChar_t> &Nano::Muon_mvaLowPtId() {
+    if (!loaded_Muon_mvaLowPtId_) counter_uncached_Muon_mvaLowPtId_++;
+    else counter_cached_Muon_mvaLowPtId_++;
+    if (!loaded_Muon_mvaLowPtId_) {
+        if (!b_Muon_mvaLowPtId_) throw std::runtime_error("Muon_mvaLowPtId branch doesn't exist");
+        int bytes = b_Muon_mvaLowPtId_->GetEntry(index);
+        v_Muon_mvaLowPtId_ = vector<UChar_t>(Muon_mvaLowPtId_,Muon_mvaLowPtId_+bytes/sizeof(Muon_mvaLowPtId_[0]));
+        loaded_Muon_mvaLowPtId_ = true;
+    }
+    return v_Muon_mvaLowPtId_;
 }
 const vector<float> &Nano::Muon_mvaTTH() {
     if (!loaded_Muon_mvaTTH_) counter_uncached_Muon_mvaTTH_++;
@@ -34180,6 +37138,17 @@ const vector<float> &Nano::Muon_ptErr() {
         loaded_Muon_ptErr_ = true;
     }
     return v_Muon_ptErr_;
+}
+const vector<UChar_t> &Nano::Muon_puppiIsoId() {
+    if (!loaded_Muon_puppiIsoId_) counter_uncached_Muon_puppiIsoId_++;
+    else counter_cached_Muon_puppiIsoId_++;
+    if (!loaded_Muon_puppiIsoId_) {
+        if (!b_Muon_puppiIsoId_) throw std::runtime_error("Muon_puppiIsoId branch doesn't exist");
+        int bytes = b_Muon_puppiIsoId_->GetEntry(index);
+        v_Muon_puppiIsoId_ = vector<UChar_t>(Muon_puppiIsoId_,Muon_puppiIsoId_+bytes/sizeof(Muon_puppiIsoId_[0]));
+        loaded_Muon_puppiIsoId_ = true;
+    }
+    return v_Muon_puppiIsoId_;
 }
 const vector<float> &Nano::Muon_segmentComp() {
     if (!loaded_Muon_segmentComp_) counter_uncached_Muon_segmentComp_++;
@@ -34469,6 +37438,50 @@ const vector<int> &Nano::Photon_cutBased_Spring16V2p2() {
         loaded_Photon_cutBased_Spring16V2p2_ = true;
     }
     return v_Photon_cutBased_Spring16V2p2_;
+}
+const vector<float> &Nano::Photon_dEscaleDown() {
+    if (!loaded_Photon_dEscaleDown_) counter_uncached_Photon_dEscaleDown_++;
+    else counter_cached_Photon_dEscaleDown_++;
+    if (!loaded_Photon_dEscaleDown_) {
+        if (!b_Photon_dEscaleDown_) throw std::runtime_error("Photon_dEscaleDown branch doesn't exist");
+        int bytes = b_Photon_dEscaleDown_->GetEntry(index);
+        v_Photon_dEscaleDown_ = vector<float>(Photon_dEscaleDown_,Photon_dEscaleDown_+bytes/sizeof(Photon_dEscaleDown_[0]));
+        loaded_Photon_dEscaleDown_ = true;
+    }
+    return v_Photon_dEscaleDown_;
+}
+const vector<float> &Nano::Photon_dEscaleUp() {
+    if (!loaded_Photon_dEscaleUp_) counter_uncached_Photon_dEscaleUp_++;
+    else counter_cached_Photon_dEscaleUp_++;
+    if (!loaded_Photon_dEscaleUp_) {
+        if (!b_Photon_dEscaleUp_) throw std::runtime_error("Photon_dEscaleUp branch doesn't exist");
+        int bytes = b_Photon_dEscaleUp_->GetEntry(index);
+        v_Photon_dEscaleUp_ = vector<float>(Photon_dEscaleUp_,Photon_dEscaleUp_+bytes/sizeof(Photon_dEscaleUp_[0]));
+        loaded_Photon_dEscaleUp_ = true;
+    }
+    return v_Photon_dEscaleUp_;
+}
+const vector<float> &Nano::Photon_dEsigmaDown() {
+    if (!loaded_Photon_dEsigmaDown_) counter_uncached_Photon_dEsigmaDown_++;
+    else counter_cached_Photon_dEsigmaDown_++;
+    if (!loaded_Photon_dEsigmaDown_) {
+        if (!b_Photon_dEsigmaDown_) throw std::runtime_error("Photon_dEsigmaDown branch doesn't exist");
+        int bytes = b_Photon_dEsigmaDown_->GetEntry(index);
+        v_Photon_dEsigmaDown_ = vector<float>(Photon_dEsigmaDown_,Photon_dEsigmaDown_+bytes/sizeof(Photon_dEsigmaDown_[0]));
+        loaded_Photon_dEsigmaDown_ = true;
+    }
+    return v_Photon_dEsigmaDown_;
+}
+const vector<float> &Nano::Photon_dEsigmaUp() {
+    if (!loaded_Photon_dEsigmaUp_) counter_uncached_Photon_dEsigmaUp_++;
+    else counter_cached_Photon_dEsigmaUp_++;
+    if (!loaded_Photon_dEsigmaUp_) {
+        if (!b_Photon_dEsigmaUp_) throw std::runtime_error("Photon_dEsigmaUp branch doesn't exist");
+        int bytes = b_Photon_dEsigmaUp_->GetEntry(index);
+        v_Photon_dEsigmaUp_ = vector<float>(Photon_dEsigmaUp_,Photon_dEsigmaUp_+bytes/sizeof(Photon_dEsigmaUp_[0]));
+        loaded_Photon_dEsigmaUp_ = true;
+    }
+    return v_Photon_dEsigmaUp_;
 }
 const vector<float> &Nano::Photon_eCorr() {
     if (!loaded_Photon_eCorr_) counter_uncached_Photon_eCorr_++;
@@ -34876,6 +37889,36 @@ const int &Nano::Pileup_sumLOOT() {
     }
     return Pileup_sumLOOT_;
 }
+const float &Nano::PrefireWeight() {
+    if (!loaded_PrefireWeight_) counter_uncached_PrefireWeight_++;
+    else counter_cached_PrefireWeight_++;
+    if (!loaded_PrefireWeight_) {
+        if (!b_PrefireWeight_) throw std::runtime_error("PrefireWeight branch doesn't exist");
+        b_PrefireWeight_->GetEntry(index);
+        loaded_PrefireWeight_ = true;
+    }
+    return PrefireWeight_;
+}
+const float &Nano::PrefireWeight_Down() {
+    if (!loaded_PrefireWeight_Down_) counter_uncached_PrefireWeight_Down_++;
+    else counter_cached_PrefireWeight_Down_++;
+    if (!loaded_PrefireWeight_Down_) {
+        if (!b_PrefireWeight_Down_) throw std::runtime_error("PrefireWeight_Down branch doesn't exist");
+        b_PrefireWeight_Down_->GetEntry(index);
+        loaded_PrefireWeight_Down_ = true;
+    }
+    return PrefireWeight_Down_;
+}
+const float &Nano::PrefireWeight_Up() {
+    if (!loaded_PrefireWeight_Up_) counter_uncached_PrefireWeight_Up_++;
+    else counter_cached_PrefireWeight_Up_++;
+    if (!loaded_PrefireWeight_Up_) {
+        if (!b_PrefireWeight_Up_) throw std::runtime_error("PrefireWeight_Up branch doesn't exist");
+        b_PrefireWeight_Up_->GetEntry(index);
+        loaded_PrefireWeight_Up_ = true;
+    }
+    return PrefireWeight_Up_;
+}
 const float &Nano::PuppiMET_phi() {
     if (!loaded_PuppiMET_phi_) counter_uncached_PuppiMET_phi_++;
     else counter_cached_PuppiMET_phi_++;
@@ -34885,6 +37928,16 @@ const float &Nano::PuppiMET_phi() {
         loaded_PuppiMET_phi_ = true;
     }
     return PuppiMET_phi_;
+}
+const float &Nano::PuppiMET_phiJERDown() {
+    if (!loaded_PuppiMET_phiJERDown_) counter_uncached_PuppiMET_phiJERDown_++;
+    else counter_cached_PuppiMET_phiJERDown_++;
+    if (!loaded_PuppiMET_phiJERDown_) {
+        if (!b_PuppiMET_phiJERDown_) throw std::runtime_error("PuppiMET_phiJERDown branch doesn't exist");
+        b_PuppiMET_phiJERDown_->GetEntry(index);
+        loaded_PuppiMET_phiJERDown_ = true;
+    }
+    return PuppiMET_phiJERDown_;
 }
 const float &Nano::PuppiMET_phiJERUp() {
     if (!loaded_PuppiMET_phiJERUp_) counter_uncached_PuppiMET_phiJERUp_++;
@@ -34896,6 +37949,16 @@ const float &Nano::PuppiMET_phiJERUp() {
     }
     return PuppiMET_phiJERUp_;
 }
+const float &Nano::PuppiMET_phiJESDown() {
+    if (!loaded_PuppiMET_phiJESDown_) counter_uncached_PuppiMET_phiJESDown_++;
+    else counter_cached_PuppiMET_phiJESDown_++;
+    if (!loaded_PuppiMET_phiJESDown_) {
+        if (!b_PuppiMET_phiJESDown_) throw std::runtime_error("PuppiMET_phiJESDown branch doesn't exist");
+        b_PuppiMET_phiJESDown_->GetEntry(index);
+        loaded_PuppiMET_phiJESDown_ = true;
+    }
+    return PuppiMET_phiJESDown_;
+}
 const float &Nano::PuppiMET_phiJESUp() {
     if (!loaded_PuppiMET_phiJESUp_) counter_uncached_PuppiMET_phiJESUp_++;
     else counter_cached_PuppiMET_phiJESUp_++;
@@ -34905,6 +37968,26 @@ const float &Nano::PuppiMET_phiJESUp() {
         loaded_PuppiMET_phiJESUp_ = true;
     }
     return PuppiMET_phiJESUp_;
+}
+const float &Nano::PuppiMET_phiUnclusteredDown() {
+    if (!loaded_PuppiMET_phiUnclusteredDown_) counter_uncached_PuppiMET_phiUnclusteredDown_++;
+    else counter_cached_PuppiMET_phiUnclusteredDown_++;
+    if (!loaded_PuppiMET_phiUnclusteredDown_) {
+        if (!b_PuppiMET_phiUnclusteredDown_) throw std::runtime_error("PuppiMET_phiUnclusteredDown branch doesn't exist");
+        b_PuppiMET_phiUnclusteredDown_->GetEntry(index);
+        loaded_PuppiMET_phiUnclusteredDown_ = true;
+    }
+    return PuppiMET_phiUnclusteredDown_;
+}
+const float &Nano::PuppiMET_phiUnclusteredUp() {
+    if (!loaded_PuppiMET_phiUnclusteredUp_) counter_uncached_PuppiMET_phiUnclusteredUp_++;
+    else counter_cached_PuppiMET_phiUnclusteredUp_++;
+    if (!loaded_PuppiMET_phiUnclusteredUp_) {
+        if (!b_PuppiMET_phiUnclusteredUp_) throw std::runtime_error("PuppiMET_phiUnclusteredUp branch doesn't exist");
+        b_PuppiMET_phiUnclusteredUp_->GetEntry(index);
+        loaded_PuppiMET_phiUnclusteredUp_ = true;
+    }
+    return PuppiMET_phiUnclusteredUp_;
 }
 const float &Nano::PuppiMET_pt() {
     if (!loaded_PuppiMET_pt_) counter_uncached_PuppiMET_pt_++;
@@ -34916,6 +37999,16 @@ const float &Nano::PuppiMET_pt() {
     }
     return PuppiMET_pt_;
 }
+const float &Nano::PuppiMET_ptJERDown() {
+    if (!loaded_PuppiMET_ptJERDown_) counter_uncached_PuppiMET_ptJERDown_++;
+    else counter_cached_PuppiMET_ptJERDown_++;
+    if (!loaded_PuppiMET_ptJERDown_) {
+        if (!b_PuppiMET_ptJERDown_) throw std::runtime_error("PuppiMET_ptJERDown branch doesn't exist");
+        b_PuppiMET_ptJERDown_->GetEntry(index);
+        loaded_PuppiMET_ptJERDown_ = true;
+    }
+    return PuppiMET_ptJERDown_;
+}
 const float &Nano::PuppiMET_ptJERUp() {
     if (!loaded_PuppiMET_ptJERUp_) counter_uncached_PuppiMET_ptJERUp_++;
     else counter_cached_PuppiMET_ptJERUp_++;
@@ -34926,6 +38019,16 @@ const float &Nano::PuppiMET_ptJERUp() {
     }
     return PuppiMET_ptJERUp_;
 }
+const float &Nano::PuppiMET_ptJESDown() {
+    if (!loaded_PuppiMET_ptJESDown_) counter_uncached_PuppiMET_ptJESDown_++;
+    else counter_cached_PuppiMET_ptJESDown_++;
+    if (!loaded_PuppiMET_ptJESDown_) {
+        if (!b_PuppiMET_ptJESDown_) throw std::runtime_error("PuppiMET_ptJESDown branch doesn't exist");
+        b_PuppiMET_ptJESDown_->GetEntry(index);
+        loaded_PuppiMET_ptJESDown_ = true;
+    }
+    return PuppiMET_ptJESDown_;
+}
 const float &Nano::PuppiMET_ptJESUp() {
     if (!loaded_PuppiMET_ptJESUp_) counter_uncached_PuppiMET_ptJESUp_++;
     else counter_cached_PuppiMET_ptJESUp_++;
@@ -34935,6 +38038,26 @@ const float &Nano::PuppiMET_ptJESUp() {
         loaded_PuppiMET_ptJESUp_ = true;
     }
     return PuppiMET_ptJESUp_;
+}
+const float &Nano::PuppiMET_ptUnclusteredDown() {
+    if (!loaded_PuppiMET_ptUnclusteredDown_) counter_uncached_PuppiMET_ptUnclusteredDown_++;
+    else counter_cached_PuppiMET_ptUnclusteredDown_++;
+    if (!loaded_PuppiMET_ptUnclusteredDown_) {
+        if (!b_PuppiMET_ptUnclusteredDown_) throw std::runtime_error("PuppiMET_ptUnclusteredDown branch doesn't exist");
+        b_PuppiMET_ptUnclusteredDown_->GetEntry(index);
+        loaded_PuppiMET_ptUnclusteredDown_ = true;
+    }
+    return PuppiMET_ptUnclusteredDown_;
+}
+const float &Nano::PuppiMET_ptUnclusteredUp() {
+    if (!loaded_PuppiMET_ptUnclusteredUp_) counter_uncached_PuppiMET_ptUnclusteredUp_++;
+    else counter_cached_PuppiMET_ptUnclusteredUp_++;
+    if (!loaded_PuppiMET_ptUnclusteredUp_) {
+        if (!b_PuppiMET_ptUnclusteredUp_) throw std::runtime_error("PuppiMET_ptUnclusteredUp branch doesn't exist");
+        b_PuppiMET_ptUnclusteredUp_->GetEntry(index);
+        loaded_PuppiMET_ptUnclusteredUp_ = true;
+    }
+    return PuppiMET_ptUnclusteredUp_;
 }
 const float &Nano::PuppiMET_sumEt() {
     if (!loaded_PuppiMET_sumEt_) counter_uncached_PuppiMET_sumEt_++;
@@ -35005,6 +38128,17 @@ const float &Nano::RawPuppiMET_sumEt() {
         loaded_RawPuppiMET_sumEt_ = true;
     }
     return RawPuppiMET_sumEt_;
+}
+const vector<int> &Nano::SV_charge() {
+    if (!loaded_SV_charge_) counter_uncached_SV_charge_++;
+    else counter_cached_SV_charge_++;
+    if (!loaded_SV_charge_) {
+        if (!b_SV_charge_) throw std::runtime_error("SV_charge branch doesn't exist");
+        int bytes = b_SV_charge_->GetEntry(index);
+        v_SV_charge_ = vector<int>(SV_charge_,SV_charge_+bytes/sizeof(SV_charge_[0]));
+        loaded_SV_charge_ = true;
+    }
+    return v_SV_charge_;
 }
 const vector<float> &Nano::SV_chi2() {
     if (!loaded_SV_chi2_) counter_uncached_SV_chi2_++;
@@ -35093,6 +38227,17 @@ const vector<float> &Nano::SV_ndof() {
         loaded_SV_ndof_ = true;
     }
     return v_SV_ndof_;
+}
+const vector<UChar_t> &Nano::SV_ntracks() {
+    if (!loaded_SV_ntracks_) counter_uncached_SV_ntracks_++;
+    else counter_cached_SV_ntracks_++;
+    if (!loaded_SV_ntracks_) {
+        if (!b_SV_ntracks_) throw std::runtime_error("SV_ntracks branch doesn't exist");
+        int bytes = b_SV_ntracks_->GetEntry(index);
+        v_SV_ntracks_ = vector<UChar_t>(SV_ntracks_,SV_ntracks_+bytes/sizeof(SV_ntracks_[0]));
+        loaded_SV_ntracks_ = true;
+    }
+    return v_SV_ntracks_;
 }
 const vector<LorentzVector> &Nano::SV_p4() {
     if (!loaded_SV_p4_) counter_uncached_SV_p4_++;
@@ -35383,6 +38528,17 @@ const vector<float> &Nano::SubJet_eta() {
     }
     return v_SubJet_eta_;
 }
+const vector<int> &Nano::SubJet_hadronFlavour() {
+    if (!loaded_SubJet_hadronFlavour_) counter_uncached_SubJet_hadronFlavour_++;
+    else counter_cached_SubJet_hadronFlavour_++;
+    if (!loaded_SubJet_hadronFlavour_) {
+        if (!b_SubJet_hadronFlavour_) throw std::runtime_error("SubJet_hadronFlavour branch doesn't exist");
+        int bytes = b_SubJet_hadronFlavour_->GetEntry(index);
+        v_SubJet_hadronFlavour_ = vector<int>(SubJet_hadronFlavour_,SubJet_hadronFlavour_+bytes/sizeof(SubJet_hadronFlavour_[0]));
+        loaded_SubJet_hadronFlavour_ = true;
+    }
+    return v_SubJet_hadronFlavour_;
+}
 const vector<float> &Nano::SubJet_mass() {
     if (!loaded_SubJet_mass_) counter_uncached_SubJet_mass_++;
     else counter_cached_SubJet_mass_++;
@@ -35652,6 +38808,17 @@ const vector<UChar_t> &Nano::Tau_idAntiEle2018() {
     }
     return v_Tau_idAntiEle2018_;
 }
+const vector<bool> &Nano::Tau_idAntiEleDeadECal() {
+    if (!loaded_Tau_idAntiEleDeadECal_) counter_uncached_Tau_idAntiEleDeadECal_++;
+    else counter_cached_Tau_idAntiEleDeadECal_++;
+    if (!loaded_Tau_idAntiEleDeadECal_) {
+        if (!b_Tau_idAntiEleDeadECal_) throw std::runtime_error("Tau_idAntiEleDeadECal branch doesn't exist");
+        int bytes = b_Tau_idAntiEleDeadECal_->GetEntry(index);
+        v_Tau_idAntiEleDeadECal_ = vector<bool>(Tau_idAntiEleDeadECal_,Tau_idAntiEleDeadECal_+bytes/sizeof(Tau_idAntiEleDeadECal_[0]));
+        loaded_Tau_idAntiEleDeadECal_ = true;
+    }
+    return v_Tau_idAntiEleDeadECal_;
+}
 const vector<UChar_t> &Nano::Tau_idAntiMu() {
     if (!loaded_Tau_idAntiMu_) counter_uncached_Tau_idAntiMu_++;
     else counter_cached_Tau_idAntiMu_++;
@@ -35684,6 +38851,17 @@ const vector<bool> &Nano::Tau_idDecayModeNewDMs() {
         loaded_Tau_idDecayModeNewDMs_ = true;
     }
     return v_Tau_idDecayModeNewDMs_;
+}
+const vector<bool> &Nano::Tau_idDecayModeOldDMs() {
+    if (!loaded_Tau_idDecayModeOldDMs_) counter_uncached_Tau_idDecayModeOldDMs_++;
+    else counter_cached_Tau_idDecayModeOldDMs_++;
+    if (!loaded_Tau_idDecayModeOldDMs_) {
+        if (!b_Tau_idDecayModeOldDMs_) throw std::runtime_error("Tau_idDecayModeOldDMs branch doesn't exist");
+        int bytes = b_Tau_idDecayModeOldDMs_->GetEntry(index);
+        v_Tau_idDecayModeOldDMs_ = vector<bool>(Tau_idDecayModeOldDMs_,Tau_idDecayModeOldDMs_+bytes/sizeof(Tau_idDecayModeOldDMs_[0]));
+        loaded_Tau_idDecayModeOldDMs_ = true;
+    }
+    return v_Tau_idDecayModeOldDMs_;
 }
 const vector<UChar_t> &Nano::Tau_idDeepTau2017v2p1VSe() {
     if (!loaded_Tau_idDeepTau2017v2p1VSe_) counter_uncached_Tau_idDeepTau2017v2p1VSe_++;
@@ -36193,6 +39371,330 @@ const vector<float> &Nano::TrigObj_pt() {
     }
     return v_TrigObj_pt_;
 }
+const vector<int> &Nano::boostedTau_charge() {
+    if (!loaded_boostedTau_charge_) counter_uncached_boostedTau_charge_++;
+    else counter_cached_boostedTau_charge_++;
+    if (!loaded_boostedTau_charge_) {
+        if (!b_boostedTau_charge_) throw std::runtime_error("boostedTau_charge branch doesn't exist");
+        int bytes = b_boostedTau_charge_->GetEntry(index);
+        v_boostedTau_charge_ = vector<int>(boostedTau_charge_,boostedTau_charge_+bytes/sizeof(boostedTau_charge_[0]));
+        loaded_boostedTau_charge_ = true;
+    }
+    return v_boostedTau_charge_;
+}
+const vector<float> &Nano::boostedTau_chargedIso() {
+    if (!loaded_boostedTau_chargedIso_) counter_uncached_boostedTau_chargedIso_++;
+    else counter_cached_boostedTau_chargedIso_++;
+    if (!loaded_boostedTau_chargedIso_) {
+        if (!b_boostedTau_chargedIso_) throw std::runtime_error("boostedTau_chargedIso branch doesn't exist");
+        int bytes = b_boostedTau_chargedIso_->GetEntry(index);
+        v_boostedTau_chargedIso_ = vector<float>(boostedTau_chargedIso_,boostedTau_chargedIso_+bytes/sizeof(boostedTau_chargedIso_[0]));
+        loaded_boostedTau_chargedIso_ = true;
+    }
+    return v_boostedTau_chargedIso_;
+}
+const vector<int> &Nano::boostedTau_decayMode() {
+    if (!loaded_boostedTau_decayMode_) counter_uncached_boostedTau_decayMode_++;
+    else counter_cached_boostedTau_decayMode_++;
+    if (!loaded_boostedTau_decayMode_) {
+        if (!b_boostedTau_decayMode_) throw std::runtime_error("boostedTau_decayMode branch doesn't exist");
+        int bytes = b_boostedTau_decayMode_->GetEntry(index);
+        v_boostedTau_decayMode_ = vector<int>(boostedTau_decayMode_,boostedTau_decayMode_+bytes/sizeof(boostedTau_decayMode_[0]));
+        loaded_boostedTau_decayMode_ = true;
+    }
+    return v_boostedTau_decayMode_;
+}
+const vector<float> &Nano::boostedTau_eta() {
+    if (!loaded_boostedTau_eta_) counter_uncached_boostedTau_eta_++;
+    else counter_cached_boostedTau_eta_++;
+    if (!loaded_boostedTau_eta_) {
+        if (!b_boostedTau_eta_) throw std::runtime_error("boostedTau_eta branch doesn't exist");
+        int bytes = b_boostedTau_eta_->GetEntry(index);
+        v_boostedTau_eta_ = vector<float>(boostedTau_eta_,boostedTau_eta_+bytes/sizeof(boostedTau_eta_[0]));
+        loaded_boostedTau_eta_ = true;
+    }
+    return v_boostedTau_eta_;
+}
+const vector<UChar_t> &Nano::boostedTau_genPartFlav() {
+    if (!loaded_boostedTau_genPartFlav_) counter_uncached_boostedTau_genPartFlav_++;
+    else counter_cached_boostedTau_genPartFlav_++;
+    if (!loaded_boostedTau_genPartFlav_) {
+        if (!b_boostedTau_genPartFlav_) throw std::runtime_error("boostedTau_genPartFlav branch doesn't exist");
+        int bytes = b_boostedTau_genPartFlav_->GetEntry(index);
+        v_boostedTau_genPartFlav_ = vector<UChar_t>(boostedTau_genPartFlav_,boostedTau_genPartFlav_+bytes/sizeof(boostedTau_genPartFlav_[0]));
+        loaded_boostedTau_genPartFlav_ = true;
+    }
+    return v_boostedTau_genPartFlav_;
+}
+const vector<int> &Nano::boostedTau_genPartIdx() {
+    if (!loaded_boostedTau_genPartIdx_) counter_uncached_boostedTau_genPartIdx_++;
+    else counter_cached_boostedTau_genPartIdx_++;
+    if (!loaded_boostedTau_genPartIdx_) {
+        if (!b_boostedTau_genPartIdx_) throw std::runtime_error("boostedTau_genPartIdx branch doesn't exist");
+        int bytes = b_boostedTau_genPartIdx_->GetEntry(index);
+        v_boostedTau_genPartIdx_ = vector<int>(boostedTau_genPartIdx_,boostedTau_genPartIdx_+bytes/sizeof(boostedTau_genPartIdx_[0]));
+        loaded_boostedTau_genPartIdx_ = true;
+    }
+    return v_boostedTau_genPartIdx_;
+}
+const vector<UChar_t> &Nano::boostedTau_idAntiEle2018() {
+    if (!loaded_boostedTau_idAntiEle2018_) counter_uncached_boostedTau_idAntiEle2018_++;
+    else counter_cached_boostedTau_idAntiEle2018_++;
+    if (!loaded_boostedTau_idAntiEle2018_) {
+        if (!b_boostedTau_idAntiEle2018_) throw std::runtime_error("boostedTau_idAntiEle2018 branch doesn't exist");
+        int bytes = b_boostedTau_idAntiEle2018_->GetEntry(index);
+        v_boostedTau_idAntiEle2018_ = vector<UChar_t>(boostedTau_idAntiEle2018_,boostedTau_idAntiEle2018_+bytes/sizeof(boostedTau_idAntiEle2018_[0]));
+        loaded_boostedTau_idAntiEle2018_ = true;
+    }
+    return v_boostedTau_idAntiEle2018_;
+}
+const vector<UChar_t> &Nano::boostedTau_idAntiMu() {
+    if (!loaded_boostedTau_idAntiMu_) counter_uncached_boostedTau_idAntiMu_++;
+    else counter_cached_boostedTau_idAntiMu_++;
+    if (!loaded_boostedTau_idAntiMu_) {
+        if (!b_boostedTau_idAntiMu_) throw std::runtime_error("boostedTau_idAntiMu branch doesn't exist");
+        int bytes = b_boostedTau_idAntiMu_->GetEntry(index);
+        v_boostedTau_idAntiMu_ = vector<UChar_t>(boostedTau_idAntiMu_,boostedTau_idAntiMu_+bytes/sizeof(boostedTau_idAntiMu_[0]));
+        loaded_boostedTau_idAntiMu_ = true;
+    }
+    return v_boostedTau_idAntiMu_;
+}
+const vector<UChar_t> &Nano::boostedTau_idMVAnewDM2017v2() {
+    if (!loaded_boostedTau_idMVAnewDM2017v2_) counter_uncached_boostedTau_idMVAnewDM2017v2_++;
+    else counter_cached_boostedTau_idMVAnewDM2017v2_++;
+    if (!loaded_boostedTau_idMVAnewDM2017v2_) {
+        if (!b_boostedTau_idMVAnewDM2017v2_) throw std::runtime_error("boostedTau_idMVAnewDM2017v2 branch doesn't exist");
+        int bytes = b_boostedTau_idMVAnewDM2017v2_->GetEntry(index);
+        v_boostedTau_idMVAnewDM2017v2_ = vector<UChar_t>(boostedTau_idMVAnewDM2017v2_,boostedTau_idMVAnewDM2017v2_+bytes/sizeof(boostedTau_idMVAnewDM2017v2_[0]));
+        loaded_boostedTau_idMVAnewDM2017v2_ = true;
+    }
+    return v_boostedTau_idMVAnewDM2017v2_;
+}
+const vector<UChar_t> &Nano::boostedTau_idMVAoldDM2017v2() {
+    if (!loaded_boostedTau_idMVAoldDM2017v2_) counter_uncached_boostedTau_idMVAoldDM2017v2_++;
+    else counter_cached_boostedTau_idMVAoldDM2017v2_++;
+    if (!loaded_boostedTau_idMVAoldDM2017v2_) {
+        if (!b_boostedTau_idMVAoldDM2017v2_) throw std::runtime_error("boostedTau_idMVAoldDM2017v2 branch doesn't exist");
+        int bytes = b_boostedTau_idMVAoldDM2017v2_->GetEntry(index);
+        v_boostedTau_idMVAoldDM2017v2_ = vector<UChar_t>(boostedTau_idMVAoldDM2017v2_,boostedTau_idMVAoldDM2017v2_+bytes/sizeof(boostedTau_idMVAoldDM2017v2_[0]));
+        loaded_boostedTau_idMVAoldDM2017v2_ = true;
+    }
+    return v_boostedTau_idMVAoldDM2017v2_;
+}
+const vector<UChar_t> &Nano::boostedTau_idMVAoldDMdR032017v2() {
+    if (!loaded_boostedTau_idMVAoldDMdR032017v2_) counter_uncached_boostedTau_idMVAoldDMdR032017v2_++;
+    else counter_cached_boostedTau_idMVAoldDMdR032017v2_++;
+    if (!loaded_boostedTau_idMVAoldDMdR032017v2_) {
+        if (!b_boostedTau_idMVAoldDMdR032017v2_) throw std::runtime_error("boostedTau_idMVAoldDMdR032017v2 branch doesn't exist");
+        int bytes = b_boostedTau_idMVAoldDMdR032017v2_->GetEntry(index);
+        v_boostedTau_idMVAoldDMdR032017v2_ = vector<UChar_t>(boostedTau_idMVAoldDMdR032017v2_,boostedTau_idMVAoldDMdR032017v2_+bytes/sizeof(boostedTau_idMVAoldDMdR032017v2_[0]));
+        loaded_boostedTau_idMVAoldDMdR032017v2_ = true;
+    }
+    return v_boostedTau_idMVAoldDMdR032017v2_;
+}
+const vector<int> &Nano::boostedTau_jetIdx() {
+    if (!loaded_boostedTau_jetIdx_) counter_uncached_boostedTau_jetIdx_++;
+    else counter_cached_boostedTau_jetIdx_++;
+    if (!loaded_boostedTau_jetIdx_) {
+        if (!b_boostedTau_jetIdx_) throw std::runtime_error("boostedTau_jetIdx branch doesn't exist");
+        int bytes = b_boostedTau_jetIdx_->GetEntry(index);
+        v_boostedTau_jetIdx_ = vector<int>(boostedTau_jetIdx_,boostedTau_jetIdx_+bytes/sizeof(boostedTau_jetIdx_[0]));
+        loaded_boostedTau_jetIdx_ = true;
+    }
+    return v_boostedTau_jetIdx_;
+}
+const vector<float> &Nano::boostedTau_leadTkDeltaEta() {
+    if (!loaded_boostedTau_leadTkDeltaEta_) counter_uncached_boostedTau_leadTkDeltaEta_++;
+    else counter_cached_boostedTau_leadTkDeltaEta_++;
+    if (!loaded_boostedTau_leadTkDeltaEta_) {
+        if (!b_boostedTau_leadTkDeltaEta_) throw std::runtime_error("boostedTau_leadTkDeltaEta branch doesn't exist");
+        int bytes = b_boostedTau_leadTkDeltaEta_->GetEntry(index);
+        v_boostedTau_leadTkDeltaEta_ = vector<float>(boostedTau_leadTkDeltaEta_,boostedTau_leadTkDeltaEta_+bytes/sizeof(boostedTau_leadTkDeltaEta_[0]));
+        loaded_boostedTau_leadTkDeltaEta_ = true;
+    }
+    return v_boostedTau_leadTkDeltaEta_;
+}
+const vector<float> &Nano::boostedTau_leadTkDeltaPhi() {
+    if (!loaded_boostedTau_leadTkDeltaPhi_) counter_uncached_boostedTau_leadTkDeltaPhi_++;
+    else counter_cached_boostedTau_leadTkDeltaPhi_++;
+    if (!loaded_boostedTau_leadTkDeltaPhi_) {
+        if (!b_boostedTau_leadTkDeltaPhi_) throw std::runtime_error("boostedTau_leadTkDeltaPhi branch doesn't exist");
+        int bytes = b_boostedTau_leadTkDeltaPhi_->GetEntry(index);
+        v_boostedTau_leadTkDeltaPhi_ = vector<float>(boostedTau_leadTkDeltaPhi_,boostedTau_leadTkDeltaPhi_+bytes/sizeof(boostedTau_leadTkDeltaPhi_[0]));
+        loaded_boostedTau_leadTkDeltaPhi_ = true;
+    }
+    return v_boostedTau_leadTkDeltaPhi_;
+}
+const vector<float> &Nano::boostedTau_leadTkPtOverTauPt() {
+    if (!loaded_boostedTau_leadTkPtOverTauPt_) counter_uncached_boostedTau_leadTkPtOverTauPt_++;
+    else counter_cached_boostedTau_leadTkPtOverTauPt_++;
+    if (!loaded_boostedTau_leadTkPtOverTauPt_) {
+        if (!b_boostedTau_leadTkPtOverTauPt_) throw std::runtime_error("boostedTau_leadTkPtOverTauPt branch doesn't exist");
+        int bytes = b_boostedTau_leadTkPtOverTauPt_->GetEntry(index);
+        v_boostedTau_leadTkPtOverTauPt_ = vector<float>(boostedTau_leadTkPtOverTauPt_,boostedTau_leadTkPtOverTauPt_+bytes/sizeof(boostedTau_leadTkPtOverTauPt_[0]));
+        loaded_boostedTau_leadTkPtOverTauPt_ = true;
+    }
+    return v_boostedTau_leadTkPtOverTauPt_;
+}
+const vector<float> &Nano::boostedTau_mass() {
+    if (!loaded_boostedTau_mass_) counter_uncached_boostedTau_mass_++;
+    else counter_cached_boostedTau_mass_++;
+    if (!loaded_boostedTau_mass_) {
+        if (!b_boostedTau_mass_) throw std::runtime_error("boostedTau_mass branch doesn't exist");
+        int bytes = b_boostedTau_mass_->GetEntry(index);
+        v_boostedTau_mass_ = vector<float>(boostedTau_mass_,boostedTau_mass_+bytes/sizeof(boostedTau_mass_[0]));
+        loaded_boostedTau_mass_ = true;
+    }
+    return v_boostedTau_mass_;
+}
+const vector<float> &Nano::boostedTau_neutralIso() {
+    if (!loaded_boostedTau_neutralIso_) counter_uncached_boostedTau_neutralIso_++;
+    else counter_cached_boostedTau_neutralIso_++;
+    if (!loaded_boostedTau_neutralIso_) {
+        if (!b_boostedTau_neutralIso_) throw std::runtime_error("boostedTau_neutralIso branch doesn't exist");
+        int bytes = b_boostedTau_neutralIso_->GetEntry(index);
+        v_boostedTau_neutralIso_ = vector<float>(boostedTau_neutralIso_,boostedTau_neutralIso_+bytes/sizeof(boostedTau_neutralIso_[0]));
+        loaded_boostedTau_neutralIso_ = true;
+    }
+    return v_boostedTau_neutralIso_;
+}
+const vector<LorentzVector> &Nano::boostedTau_p4() {
+    if (!loaded_boostedTau_p4_) counter_uncached_boostedTau_p4_++;
+    else counter_cached_boostedTau_p4_++;
+    if (!loaded_boostedTau_p4_) {
+        v_boostedTau_p4_.clear();
+        vector<float> pts = Nano::boostedTau_pt();
+        vector<float> etas = Nano::boostedTau_eta();
+        vector<float> phis = Nano::boostedTau_phi();
+        vector<float> masses = Nano::boostedTau_mass();
+        for (unsigned int i=0; i < pts.size(); i++) {
+            v_boostedTau_p4_.push_back(LorentzVector(pts[i],etas[i],phis[i],masses[i]));
+        }
+        loaded_boostedTau_p4_ = true;
+    }
+    return v_boostedTau_p4_;
+}
+const vector<float> &Nano::boostedTau_phi() {
+    if (!loaded_boostedTau_phi_) counter_uncached_boostedTau_phi_++;
+    else counter_cached_boostedTau_phi_++;
+    if (!loaded_boostedTau_phi_) {
+        if (!b_boostedTau_phi_) throw std::runtime_error("boostedTau_phi branch doesn't exist");
+        int bytes = b_boostedTau_phi_->GetEntry(index);
+        v_boostedTau_phi_ = vector<float>(boostedTau_phi_,boostedTau_phi_+bytes/sizeof(boostedTau_phi_[0]));
+        loaded_boostedTau_phi_ = true;
+    }
+    return v_boostedTau_phi_;
+}
+const vector<float> &Nano::boostedTau_photonsOutsideSignalCone() {
+    if (!loaded_boostedTau_photonsOutsideSignalCone_) counter_uncached_boostedTau_photonsOutsideSignalCone_++;
+    else counter_cached_boostedTau_photonsOutsideSignalCone_++;
+    if (!loaded_boostedTau_photonsOutsideSignalCone_) {
+        if (!b_boostedTau_photonsOutsideSignalCone_) throw std::runtime_error("boostedTau_photonsOutsideSignalCone branch doesn't exist");
+        int bytes = b_boostedTau_photonsOutsideSignalCone_->GetEntry(index);
+        v_boostedTau_photonsOutsideSignalCone_ = vector<float>(boostedTau_photonsOutsideSignalCone_,boostedTau_photonsOutsideSignalCone_+bytes/sizeof(boostedTau_photonsOutsideSignalCone_[0]));
+        loaded_boostedTau_photonsOutsideSignalCone_ = true;
+    }
+    return v_boostedTau_photonsOutsideSignalCone_;
+}
+const vector<float> &Nano::boostedTau_pt() {
+    if (!loaded_boostedTau_pt_) counter_uncached_boostedTau_pt_++;
+    else counter_cached_boostedTau_pt_++;
+    if (!loaded_boostedTau_pt_) {
+        if (!b_boostedTau_pt_) throw std::runtime_error("boostedTau_pt branch doesn't exist");
+        int bytes = b_boostedTau_pt_->GetEntry(index);
+        v_boostedTau_pt_ = vector<float>(boostedTau_pt_,boostedTau_pt_+bytes/sizeof(boostedTau_pt_[0]));
+        loaded_boostedTau_pt_ = true;
+    }
+    return v_boostedTau_pt_;
+}
+const vector<float> &Nano::boostedTau_puCorr() {
+    if (!loaded_boostedTau_puCorr_) counter_uncached_boostedTau_puCorr_++;
+    else counter_cached_boostedTau_puCorr_++;
+    if (!loaded_boostedTau_puCorr_) {
+        if (!b_boostedTau_puCorr_) throw std::runtime_error("boostedTau_puCorr branch doesn't exist");
+        int bytes = b_boostedTau_puCorr_->GetEntry(index);
+        v_boostedTau_puCorr_ = vector<float>(boostedTau_puCorr_,boostedTau_puCorr_+bytes/sizeof(boostedTau_puCorr_[0]));
+        loaded_boostedTau_puCorr_ = true;
+    }
+    return v_boostedTau_puCorr_;
+}
+const vector<float> &Nano::boostedTau_rawAntiEle2018() {
+    if (!loaded_boostedTau_rawAntiEle2018_) counter_uncached_boostedTau_rawAntiEle2018_++;
+    else counter_cached_boostedTau_rawAntiEle2018_++;
+    if (!loaded_boostedTau_rawAntiEle2018_) {
+        if (!b_boostedTau_rawAntiEle2018_) throw std::runtime_error("boostedTau_rawAntiEle2018 branch doesn't exist");
+        int bytes = b_boostedTau_rawAntiEle2018_->GetEntry(index);
+        v_boostedTau_rawAntiEle2018_ = vector<float>(boostedTau_rawAntiEle2018_,boostedTau_rawAntiEle2018_+bytes/sizeof(boostedTau_rawAntiEle2018_[0]));
+        loaded_boostedTau_rawAntiEle2018_ = true;
+    }
+    return v_boostedTau_rawAntiEle2018_;
+}
+const vector<int> &Nano::boostedTau_rawAntiEleCat2018() {
+    if (!loaded_boostedTau_rawAntiEleCat2018_) counter_uncached_boostedTau_rawAntiEleCat2018_++;
+    else counter_cached_boostedTau_rawAntiEleCat2018_++;
+    if (!loaded_boostedTau_rawAntiEleCat2018_) {
+        if (!b_boostedTau_rawAntiEleCat2018_) throw std::runtime_error("boostedTau_rawAntiEleCat2018 branch doesn't exist");
+        int bytes = b_boostedTau_rawAntiEleCat2018_->GetEntry(index);
+        v_boostedTau_rawAntiEleCat2018_ = vector<int>(boostedTau_rawAntiEleCat2018_,boostedTau_rawAntiEleCat2018_+bytes/sizeof(boostedTau_rawAntiEleCat2018_[0]));
+        loaded_boostedTau_rawAntiEleCat2018_ = true;
+    }
+    return v_boostedTau_rawAntiEleCat2018_;
+}
+const vector<float> &Nano::boostedTau_rawIso() {
+    if (!loaded_boostedTau_rawIso_) counter_uncached_boostedTau_rawIso_++;
+    else counter_cached_boostedTau_rawIso_++;
+    if (!loaded_boostedTau_rawIso_) {
+        if (!b_boostedTau_rawIso_) throw std::runtime_error("boostedTau_rawIso branch doesn't exist");
+        int bytes = b_boostedTau_rawIso_->GetEntry(index);
+        v_boostedTau_rawIso_ = vector<float>(boostedTau_rawIso_,boostedTau_rawIso_+bytes/sizeof(boostedTau_rawIso_[0]));
+        loaded_boostedTau_rawIso_ = true;
+    }
+    return v_boostedTau_rawIso_;
+}
+const vector<float> &Nano::boostedTau_rawIsodR03() {
+    if (!loaded_boostedTau_rawIsodR03_) counter_uncached_boostedTau_rawIsodR03_++;
+    else counter_cached_boostedTau_rawIsodR03_++;
+    if (!loaded_boostedTau_rawIsodR03_) {
+        if (!b_boostedTau_rawIsodR03_) throw std::runtime_error("boostedTau_rawIsodR03 branch doesn't exist");
+        int bytes = b_boostedTau_rawIsodR03_->GetEntry(index);
+        v_boostedTau_rawIsodR03_ = vector<float>(boostedTau_rawIsodR03_,boostedTau_rawIsodR03_+bytes/sizeof(boostedTau_rawIsodR03_[0]));
+        loaded_boostedTau_rawIsodR03_ = true;
+    }
+    return v_boostedTau_rawIsodR03_;
+}
+const vector<float> &Nano::boostedTau_rawMVAnewDM2017v2() {
+    if (!loaded_boostedTau_rawMVAnewDM2017v2_) counter_uncached_boostedTau_rawMVAnewDM2017v2_++;
+    else counter_cached_boostedTau_rawMVAnewDM2017v2_++;
+    if (!loaded_boostedTau_rawMVAnewDM2017v2_) {
+        if (!b_boostedTau_rawMVAnewDM2017v2_) throw std::runtime_error("boostedTau_rawMVAnewDM2017v2 branch doesn't exist");
+        int bytes = b_boostedTau_rawMVAnewDM2017v2_->GetEntry(index);
+        v_boostedTau_rawMVAnewDM2017v2_ = vector<float>(boostedTau_rawMVAnewDM2017v2_,boostedTau_rawMVAnewDM2017v2_+bytes/sizeof(boostedTau_rawMVAnewDM2017v2_[0]));
+        loaded_boostedTau_rawMVAnewDM2017v2_ = true;
+    }
+    return v_boostedTau_rawMVAnewDM2017v2_;
+}
+const vector<float> &Nano::boostedTau_rawMVAoldDM2017v2() {
+    if (!loaded_boostedTau_rawMVAoldDM2017v2_) counter_uncached_boostedTau_rawMVAoldDM2017v2_++;
+    else counter_cached_boostedTau_rawMVAoldDM2017v2_++;
+    if (!loaded_boostedTau_rawMVAoldDM2017v2_) {
+        if (!b_boostedTau_rawMVAoldDM2017v2_) throw std::runtime_error("boostedTau_rawMVAoldDM2017v2 branch doesn't exist");
+        int bytes = b_boostedTau_rawMVAoldDM2017v2_->GetEntry(index);
+        v_boostedTau_rawMVAoldDM2017v2_ = vector<float>(boostedTau_rawMVAoldDM2017v2_,boostedTau_rawMVAoldDM2017v2_+bytes/sizeof(boostedTau_rawMVAoldDM2017v2_[0]));
+        loaded_boostedTau_rawMVAoldDM2017v2_ = true;
+    }
+    return v_boostedTau_rawMVAoldDM2017v2_;
+}
+const vector<float> &Nano::boostedTau_rawMVAoldDMdR032017v2() {
+    if (!loaded_boostedTau_rawMVAoldDMdR032017v2_) counter_uncached_boostedTau_rawMVAoldDMdR032017v2_++;
+    else counter_cached_boostedTau_rawMVAoldDMdR032017v2_++;
+    if (!loaded_boostedTau_rawMVAoldDMdR032017v2_) {
+        if (!b_boostedTau_rawMVAoldDMdR032017v2_) throw std::runtime_error("boostedTau_rawMVAoldDMdR032017v2 branch doesn't exist");
+        int bytes = b_boostedTau_rawMVAoldDMdR032017v2_->GetEntry(index);
+        v_boostedTau_rawMVAoldDMdR032017v2_ = vector<float>(boostedTau_rawMVAoldDMdR032017v2_,boostedTau_rawMVAoldDMdR032017v2_+bytes/sizeof(boostedTau_rawMVAoldDMdR032017v2_[0]));
+        loaded_boostedTau_rawMVAoldDMdR032017v2_ = true;
+    }
+    return v_boostedTau_rawMVAoldDMdR032017v2_;
+}
 const float &Nano::btagWeight_CMVA() {
     if (!loaded_btagWeight_CMVA_) counter_uncached_btagWeight_CMVA_++;
     else counter_cached_btagWeight_CMVA_++;
@@ -36483,6 +39985,16 @@ const UInt_t &Nano::nLHEScaleWeight() {
     }
     return nLHEScaleWeight_;
 }
+const UInt_t &Nano::nLowPtElectron() {
+    if (!loaded_nLowPtElectron_) counter_uncached_nLowPtElectron_++;
+    else counter_cached_nLowPtElectron_++;
+    if (!loaded_nLowPtElectron_) {
+        if (!b_nLowPtElectron_) throw std::runtime_error("nLowPtElectron branch doesn't exist");
+        b_nLowPtElectron_->GetEntry(index);
+        loaded_nLowPtElectron_ = true;
+    }
+    return nLowPtElectron_;
+}
 const UInt_t &Nano::nMuon() {
     if (!loaded_nMuon_) counter_uncached_nMuon_++;
     else counter_cached_nMuon_++;
@@ -36583,6 +40095,46 @@ const UInt_t &Nano::nTrigObj() {
     }
     return nTrigObj_;
 }
+const UInt_t &Nano::nboostedTau() {
+    if (!loaded_nboostedTau_) counter_uncached_nboostedTau_++;
+    else counter_cached_nboostedTau_++;
+    if (!loaded_nboostedTau_) {
+        if (!b_nboostedTau_) throw std::runtime_error("nboostedTau branch doesn't exist");
+        b_nboostedTau_->GetEntry(index);
+        loaded_nboostedTau_ = true;
+    }
+    return nboostedTau_;
+}
+const float &Nano::puWeight() {
+    if (!loaded_puWeight_) counter_uncached_puWeight_++;
+    else counter_cached_puWeight_++;
+    if (!loaded_puWeight_) {
+        if (!b_puWeight_) throw std::runtime_error("puWeight branch doesn't exist");
+        b_puWeight_->GetEntry(index);
+        loaded_puWeight_ = true;
+    }
+    return puWeight_;
+}
+const float &Nano::puWeightDown() {
+    if (!loaded_puWeightDown_) counter_uncached_puWeightDown_++;
+    else counter_cached_puWeightDown_++;
+    if (!loaded_puWeightDown_) {
+        if (!b_puWeightDown_) throw std::runtime_error("puWeightDown branch doesn't exist");
+        b_puWeightDown_->GetEntry(index);
+        loaded_puWeightDown_ = true;
+    }
+    return puWeightDown_;
+}
+const float &Nano::puWeightUp() {
+    if (!loaded_puWeightUp_) counter_uncached_puWeightUp_++;
+    else counter_cached_puWeightUp_++;
+    if (!loaded_puWeightUp_) {
+        if (!b_puWeightUp_) throw std::runtime_error("puWeightUp branch doesn't exist");
+        b_puWeightUp_->GetEntry(index);
+        loaded_puWeightUp_ = true;
+    }
+    return puWeightUp_;
+}
 const UInt_t &Nano::run() {
     if (!loaded_run_) counter_uncached_run_++;
     else counter_cached_run_++;
@@ -36606,6 +40158,28 @@ namespace tas {
     const vector<float> &CorrT1METJet_muonSubtrFactor() { return nt.CorrT1METJet_muonSubtrFactor(); }
     const vector<float> &CorrT1METJet_phi() { return nt.CorrT1METJet_phi(); }
     const vector<float> &CorrT1METJet_rawPt() { return nt.CorrT1METJet_rawPt(); }
+    const float &DeepMETResolutionTune_phi() { return nt.DeepMETResolutionTune_phi(); }
+    const float &DeepMETResolutionTune_pt() { return nt.DeepMETResolutionTune_pt(); }
+    const float &DeepMETResponseTune_phi() { return nt.DeepMETResponseTune_phi(); }
+    const float &DeepMETResponseTune_pt() { return nt.DeepMETResponseTune_pt(); }
+    const vector<float> &Electron_CutBased_LooseID_SF() { return nt.Electron_CutBased_LooseID_SF(); }
+    const vector<float> &Electron_CutBased_LooseID_SFerr() { return nt.Electron_CutBased_LooseID_SFerr(); }
+    const vector<float> &Electron_CutBased_MediumID_SF() { return nt.Electron_CutBased_MediumID_SF(); }
+    const vector<float> &Electron_CutBased_MediumID_SFerr() { return nt.Electron_CutBased_MediumID_SFerr(); }
+    const vector<float> &Electron_CutBased_TightID_SF() { return nt.Electron_CutBased_TightID_SF(); }
+    const vector<float> &Electron_CutBased_TightID_SFerr() { return nt.Electron_CutBased_TightID_SFerr(); }
+    const vector<float> &Electron_CutBased_VetoID_SF() { return nt.Electron_CutBased_VetoID_SF(); }
+    const vector<float> &Electron_CutBased_VetoID_SFerr() { return nt.Electron_CutBased_VetoID_SFerr(); }
+    const vector<float> &Electron_MVAFall17V2Iso_WP80_SF() { return nt.Electron_MVAFall17V2Iso_WP80_SF(); }
+    const vector<float> &Electron_MVAFall17V2Iso_WP80_SFerr() { return nt.Electron_MVAFall17V2Iso_WP80_SFerr(); }
+    const vector<float> &Electron_MVAFall17V2Iso_WP90_SF() { return nt.Electron_MVAFall17V2Iso_WP90_SF(); }
+    const vector<float> &Electron_MVAFall17V2Iso_WP90_SFerr() { return nt.Electron_MVAFall17V2Iso_WP90_SFerr(); }
+    const vector<float> &Electron_MVAFall17V2noIso_WP80_SF() { return nt.Electron_MVAFall17V2noIso_WP80_SF(); }
+    const vector<float> &Electron_MVAFall17V2noIso_WP80_SFerr() { return nt.Electron_MVAFall17V2noIso_WP80_SFerr(); }
+    const vector<float> &Electron_MVAFall17V2noIso_WP90_SF() { return nt.Electron_MVAFall17V2noIso_WP90_SF(); }
+    const vector<float> &Electron_MVAFall17V2noIso_WP90_SFerr() { return nt.Electron_MVAFall17V2noIso_WP90_SFerr(); }
+    const vector<float> &Electron_RECO_SF() { return nt.Electron_RECO_SF(); }
+    const vector<float> &Electron_RECO_SFerr() { return nt.Electron_RECO_SFerr(); }
     const vector<int> &Electron_charge() { return nt.Electron_charge(); }
     const vector<UChar_t> &Electron_cleanmask() { return nt.Electron_cleanmask(); }
     const vector<bool> &Electron_convVeto() { return nt.Electron_convVeto(); }
@@ -36615,6 +40189,10 @@ namespace tas {
     const vector<int> &Electron_cutBased_HLTPreSel() { return nt.Electron_cutBased_HLTPreSel(); }
     const vector<int> &Electron_cutBased_Spring15() { return nt.Electron_cutBased_Spring15(); }
     const vector<int> &Electron_cutBased_Sum16() { return nt.Electron_cutBased_Sum16(); }
+    const vector<float> &Electron_dEscaleDown() { return nt.Electron_dEscaleDown(); }
+    const vector<float> &Electron_dEscaleUp() { return nt.Electron_dEscaleUp(); }
+    const vector<float> &Electron_dEsigmaDown() { return nt.Electron_dEsigmaDown(); }
+    const vector<float> &Electron_dEsigmaUp() { return nt.Electron_dEsigmaUp(); }
     const vector<float> &Electron_deltaEtaSC() { return nt.Electron_deltaEtaSC(); }
     const vector<float> &Electron_dr03EcalRecHitSumEt() { return nt.Electron_dr03EcalRecHitSumEt(); }
     const vector<float> &Electron_dr03HcalDepth1TowerSumEt() { return nt.Electron_dr03HcalDepth1TowerSumEt(); }
@@ -36634,6 +40212,7 @@ namespace tas {
     const vector<float> &Electron_ip3d() { return nt.Electron_ip3d(); }
     const vector<bool> &Electron_isPFcand() { return nt.Electron_isPFcand(); }
     const vector<int> &Electron_jetIdx() { return nt.Electron_jetIdx(); }
+    const vector<UChar_t> &Electron_jetNDauCharged() { return nt.Electron_jetNDauCharged(); }
     const vector<float> &Electron_jetPtRelv2() { return nt.Electron_jetPtRelv2(); }
     const vector<float> &Electron_jetRelIso() { return nt.Electron_jetRelIso(); }
     const vector<UChar_t> &Electron_lostHits() { return nt.Electron_lostHits(); }
@@ -36683,13 +40262,20 @@ namespace tas {
     const vector<float> &FatJet_btagCMVA() { return nt.FatJet_btagCMVA(); }
     const vector<float> &FatJet_btagCSVV2() { return nt.FatJet_btagCSVV2(); }
     const vector<float> &FatJet_btagDDBvL() { return nt.FatJet_btagDDBvL(); }
+    const vector<float> &FatJet_btagDDBvLV2() { return nt.FatJet_btagDDBvLV2(); }
     const vector<float> &FatJet_btagDDBvL_noMD() { return nt.FatJet_btagDDBvL_noMD(); }
     const vector<float> &FatJet_btagDDCvB() { return nt.FatJet_btagDDCvB(); }
+    const vector<float> &FatJet_btagDDCvBV2() { return nt.FatJet_btagDDCvBV2(); }
     const vector<float> &FatJet_btagDDCvB_noMD() { return nt.FatJet_btagDDCvB_noMD(); }
     const vector<float> &FatJet_btagDDCvL() { return nt.FatJet_btagDDCvL(); }
+    const vector<float> &FatJet_btagDDCvLV2() { return nt.FatJet_btagDDCvLV2(); }
     const vector<float> &FatJet_btagDDCvL_noMD() { return nt.FatJet_btagDDCvL_noMD(); }
     const vector<float> &FatJet_btagDeepB() { return nt.FatJet_btagDeepB(); }
     const vector<float> &FatJet_btagHbb() { return nt.FatJet_btagHbb(); }
+    const vector<float> &FatJet_corr_JEC() { return nt.FatJet_corr_JEC(); }
+    const vector<float> &FatJet_corr_JER() { return nt.FatJet_corr_JER(); }
+    const vector<float> &FatJet_corr_JMR() { return nt.FatJet_corr_JMR(); }
+    const vector<float> &FatJet_corr_JMS() { return nt.FatJet_corr_JMS(); }
     const vector<float> &FatJet_deepTagMD_H4qvsQCD() { return nt.FatJet_deepTagMD_H4qvsQCD(); }
     const vector<float> &FatJet_deepTagMD_HbbvsQCD() { return nt.FatJet_deepTagMD_HbbvsQCD(); }
     const vector<float> &FatJet_deepTagMD_TvsQCD() { return nt.FatJet_deepTagMD_TvsQCD(); }
@@ -36713,15 +40299,64 @@ namespace tas {
     const vector<int> &FatJet_jetId() { return nt.FatJet_jetId(); }
     const vector<float> &FatJet_lsf3() { return nt.FatJet_lsf3(); }
     const vector<float> &FatJet_mass() { return nt.FatJet_mass(); }
+    const vector<float> &FatJet_mass_jerDown() { return nt.FatJet_mass_jerDown(); }
+    const vector<float> &FatJet_mass_jerUp() { return nt.FatJet_mass_jerUp(); }
+    const vector<float> &FatJet_mass_jesTotalDown() { return nt.FatJet_mass_jesTotalDown(); }
+    const vector<float> &FatJet_mass_jesTotalUp() { return nt.FatJet_mass_jesTotalUp(); }
+    const vector<float> &FatJet_mass_jmrDown() { return nt.FatJet_mass_jmrDown(); }
+    const vector<float> &FatJet_mass_jmrUp() { return nt.FatJet_mass_jmrUp(); }
+    const vector<float> &FatJet_mass_jmsDown() { return nt.FatJet_mass_jmsDown(); }
+    const vector<float> &FatJet_mass_jmsUp() { return nt.FatJet_mass_jmsUp(); }
+    const vector<float> &FatJet_mass_nom() { return nt.FatJet_mass_nom(); }
+    const vector<float> &FatJet_mass_raw() { return nt.FatJet_mass_raw(); }
     const vector<float> &FatJet_msoftdrop() { return nt.FatJet_msoftdrop(); }
+    const vector<float> &FatJet_msoftdrop_corr_JMR() { return nt.FatJet_msoftdrop_corr_JMR(); }
+    const vector<float> &FatJet_msoftdrop_corr_JMS() { return nt.FatJet_msoftdrop_corr_JMS(); }
+    const vector<float> &FatJet_msoftdrop_corr_PUPPI() { return nt.FatJet_msoftdrop_corr_PUPPI(); }
+    const vector<float> &FatJet_msoftdrop_jerDown() { return nt.FatJet_msoftdrop_jerDown(); }
+    const vector<float> &FatJet_msoftdrop_jerUp() { return nt.FatJet_msoftdrop_jerUp(); }
+    const vector<float> &FatJet_msoftdrop_jesTotalDown() { return nt.FatJet_msoftdrop_jesTotalDown(); }
+    const vector<float> &FatJet_msoftdrop_jesTotalUp() { return nt.FatJet_msoftdrop_jesTotalUp(); }
+    const vector<float> &FatJet_msoftdrop_jmrDown() { return nt.FatJet_msoftdrop_jmrDown(); }
+    const vector<float> &FatJet_msoftdrop_jmrUp() { return nt.FatJet_msoftdrop_jmrUp(); }
+    const vector<float> &FatJet_msoftdrop_jmsDown() { return nt.FatJet_msoftdrop_jmsDown(); }
+    const vector<float> &FatJet_msoftdrop_jmsUp() { return nt.FatJet_msoftdrop_jmsUp(); }
+    const vector<float> &FatJet_msoftdrop_nom() { return nt.FatJet_msoftdrop_nom(); }
+    const vector<float> &FatJet_msoftdrop_raw() { return nt.FatJet_msoftdrop_raw(); }
+    const vector<float> &FatJet_msoftdrop_tau21DDT_jerDown() { return nt.FatJet_msoftdrop_tau21DDT_jerDown(); }
+    const vector<float> &FatJet_msoftdrop_tau21DDT_jerUp() { return nt.FatJet_msoftdrop_tau21DDT_jerUp(); }
+    const vector<float> &FatJet_msoftdrop_tau21DDT_jmrDown() { return nt.FatJet_msoftdrop_tau21DDT_jmrDown(); }
+    const vector<float> &FatJet_msoftdrop_tau21DDT_jmrUp() { return nt.FatJet_msoftdrop_tau21DDT_jmrUp(); }
+    const vector<float> &FatJet_msoftdrop_tau21DDT_jmsDown() { return nt.FatJet_msoftdrop_tau21DDT_jmsDown(); }
+    const vector<float> &FatJet_msoftdrop_tau21DDT_jmsUp() { return nt.FatJet_msoftdrop_tau21DDT_jmsUp(); }
+    const vector<float> &FatJet_msoftdrop_tau21DDT_nom() { return nt.FatJet_msoftdrop_tau21DDT_nom(); }
     const vector<int> &FatJet_muonIdx3SJ() { return nt.FatJet_muonIdx3SJ(); }
     const vector<float> &FatJet_n2b1() { return nt.FatJet_n2b1(); }
     const vector<float> &FatJet_n3b1() { return nt.FatJet_n3b1(); }
     const vector<UChar_t> &FatJet_nBHadrons() { return nt.FatJet_nBHadrons(); }
     const vector<UChar_t> &FatJet_nCHadrons() { return nt.FatJet_nCHadrons(); }
+    const vector<UChar_t> &FatJet_nConstituents() { return nt.FatJet_nConstituents(); }
     const vector<LorentzVector> &FatJet_p4() { return nt.FatJet_p4(); }
+    const vector<float> &FatJet_particleNetMD_QCD() { return nt.FatJet_particleNetMD_QCD(); }
+    const vector<float> &FatJet_particleNetMD_Xbb() { return nt.FatJet_particleNetMD_Xbb(); }
+    const vector<float> &FatJet_particleNetMD_Xcc() { return nt.FatJet_particleNetMD_Xcc(); }
+    const vector<float> &FatJet_particleNetMD_Xqq() { return nt.FatJet_particleNetMD_Xqq(); }
+    const vector<float> &FatJet_particleNet_H4qvsQCD() { return nt.FatJet_particleNet_H4qvsQCD(); }
+    const vector<float> &FatJet_particleNet_HbbvsQCD() { return nt.FatJet_particleNet_HbbvsQCD(); }
+    const vector<float> &FatJet_particleNet_HccvsQCD() { return nt.FatJet_particleNet_HccvsQCD(); }
+    const vector<float> &FatJet_particleNet_QCD() { return nt.FatJet_particleNet_QCD(); }
+    const vector<float> &FatJet_particleNet_TvsQCD() { return nt.FatJet_particleNet_TvsQCD(); }
+    const vector<float> &FatJet_particleNet_WvsQCD() { return nt.FatJet_particleNet_WvsQCD(); }
+    const vector<float> &FatJet_particleNet_ZvsQCD() { return nt.FatJet_particleNet_ZvsQCD(); }
+    const vector<float> &FatJet_particleNet_mass() { return nt.FatJet_particleNet_mass(); }
     const vector<float> &FatJet_phi() { return nt.FatJet_phi(); }
     const vector<float> &FatJet_pt() { return nt.FatJet_pt(); }
+    const vector<float> &FatJet_pt_jerDown() { return nt.FatJet_pt_jerDown(); }
+    const vector<float> &FatJet_pt_jerUp() { return nt.FatJet_pt_jerUp(); }
+    const vector<float> &FatJet_pt_jesTotalDown() { return nt.FatJet_pt_jesTotalDown(); }
+    const vector<float> &FatJet_pt_jesTotalUp() { return nt.FatJet_pt_jesTotalUp(); }
+    const vector<float> &FatJet_pt_nom() { return nt.FatJet_pt_nom(); }
+    const vector<float> &FatJet_pt_raw() { return nt.FatJet_pt_raw(); }
     const vector<float> &FatJet_rawFactor() { return nt.FatJet_rawFactor(); }
     const vector<int> &FatJet_subJetIdx1() { return nt.FatJet_subJetIdx1(); }
     const vector<int> &FatJet_subJetIdx2() { return nt.FatJet_subJetIdx2(); }
@@ -36731,6 +40366,7 @@ namespace tas {
     const vector<float> &FatJet_tau4() { return nt.FatJet_tau4(); }
     const bool &Flag_BadChargedCandidateFilter() { return nt.Flag_BadChargedCandidateFilter(); }
     const bool &Flag_BadChargedCandidateSummer16Filter() { return nt.Flag_BadChargedCandidateSummer16Filter(); }
+    const bool &Flag_BadPFMuonDzFilter() { return nt.Flag_BadPFMuonDzFilter(); }
     const bool &Flag_BadPFMuonFilter() { return nt.Flag_BadPFMuonFilter(); }
     const bool &Flag_BadPFMuonSummer16Filter() { return nt.Flag_BadPFMuonSummer16Filter(); }
     const bool &Flag_CSCTightHalo2015Filter() { return nt.Flag_CSCTightHalo2015Filter(); }
@@ -36751,6 +40387,7 @@ namespace tas {
     const bool &Flag_globalTightHalo2016Filter() { return nt.Flag_globalTightHalo2016Filter(); }
     const bool &Flag_goodVertices() { return nt.Flag_goodVertices(); }
     const bool &Flag_hcalLaserEventFilter() { return nt.Flag_hcalLaserEventFilter(); }
+    const bool &Flag_hfNoisyHitsFilter() { return nt.Flag_hfNoisyHitsFilter(); }
     const bool &Flag_muonBadTrackFilter() { return nt.Flag_muonBadTrackFilter(); }
     const bool &Flag_trkPOGFilters() { return nt.Flag_trkPOGFilters(); }
     const bool &Flag_trkPOG_logErrorTooManyClusters() { return nt.Flag_trkPOG_logErrorTooManyClusters(); }
@@ -36807,6 +40444,10 @@ namespace tas {
     const vector<float> &GenVisTau_phi() { return nt.GenVisTau_phi(); }
     const vector<float> &GenVisTau_pt() { return nt.GenVisTau_pt(); }
     const vector<int> &GenVisTau_status() { return nt.GenVisTau_status(); }
+    const float &GenVtx_t0() { return nt.GenVtx_t0(); }
+    const float &GenVtx_x() { return nt.GenVtx_x(); }
+    const float &GenVtx_y() { return nt.GenVtx_y(); }
+    const float &GenVtx_z() { return nt.GenVtx_z(); }
     const float &Generator_binvar() { return nt.Generator_binvar(); }
     const int &Generator_id1() { return nt.Generator_id1(); }
     const int &Generator_id2() { return nt.Generator_id2(); }
@@ -38042,6 +41683,7 @@ namespace tas {
     const int &HTXS_stage_0() { return nt.HTXS_stage_0(); }
     const int &HTXS_stage_1_pTjet25() { return nt.HTXS_stage_1_pTjet25(); }
     const int &HTXS_stage_1_pTjet30() { return nt.HTXS_stage_1_pTjet30(); }
+    const vector<int> &IsoTrack_charge() { return nt.IsoTrack_charge(); }
     const vector<float> &IsoTrack_dxy() { return nt.IsoTrack_dxy(); }
     const vector<float> &IsoTrack_dz() { return nt.IsoTrack_dz(); }
     const vector<float> &IsoTrack_eta() { return nt.IsoTrack_eta(); }
@@ -38063,8 +41705,13 @@ namespace tas {
     const vector<float> &Jet_btagCSVV2() { return nt.Jet_btagCSVV2(); }
     const vector<float> &Jet_btagDeepB() { return nt.Jet_btagDeepB(); }
     const vector<float> &Jet_btagDeepC() { return nt.Jet_btagDeepC(); }
+    const vector<float> &Jet_btagDeepCvB() { return nt.Jet_btagDeepCvB(); }
+    const vector<float> &Jet_btagDeepCvL() { return nt.Jet_btagDeepCvL(); }
     const vector<float> &Jet_btagDeepFlavB() { return nt.Jet_btagDeepFlavB(); }
     const vector<float> &Jet_btagDeepFlavC() { return nt.Jet_btagDeepFlavC(); }
+    const vector<float> &Jet_btagDeepFlavCvB() { return nt.Jet_btagDeepFlavCvB(); }
+    const vector<float> &Jet_btagDeepFlavCvL() { return nt.Jet_btagDeepFlavCvL(); }
+    const vector<float> &Jet_btagDeepFlavQG() { return nt.Jet_btagDeepFlavQG(); }
     const vector<float> &Jet_cRegCorr() { return nt.Jet_cRegCorr(); }
     const vector<float> &Jet_cRegRes() { return nt.Jet_cRegRes(); }
     const vector<float> &Jet_chEmEF() { return nt.Jet_chEmEF(); }
@@ -38079,6 +41726,10 @@ namespace tas {
     const vector<float> &Jet_eta() { return nt.Jet_eta(); }
     const vector<int> &Jet_genJetIdx() { return nt.Jet_genJetIdx(); }
     const vector<int> &Jet_hadronFlavour() { return nt.Jet_hadronFlavour(); }
+    const vector<int> &Jet_hfadjacentEtaStripsSize() { return nt.Jet_hfadjacentEtaStripsSize(); }
+    const vector<int> &Jet_hfcentralEtaStripSize() { return nt.Jet_hfcentralEtaStripSize(); }
+    const vector<float> &Jet_hfsigmaEtaEta() { return nt.Jet_hfsigmaEtaEta(); }
+    const vector<float> &Jet_hfsigmaPhiPhi() { return nt.Jet_hfsigmaPhiPhi(); }
     const vector<int> &Jet_jetId() { return nt.Jet_jetId(); }
     const vector<float> &Jet_mass() { return nt.Jet_mass(); }
     const vector<float> &Jet_muEF() { return nt.Jet_muEF(); }
@@ -38099,6 +41750,14 @@ namespace tas {
     const vector<float> &Jet_qgl() { return nt.Jet_qgl(); }
     const vector<float> &Jet_rawFactor() { return nt.Jet_rawFactor(); }
     const float &L1PreFiringWeight_Dn() { return nt.L1PreFiringWeight_Dn(); }
+    const float &L1PreFiringWeight_ECAL_Dn() { return nt.L1PreFiringWeight_ECAL_Dn(); }
+    const float &L1PreFiringWeight_ECAL_Nom() { return nt.L1PreFiringWeight_ECAL_Nom(); }
+    const float &L1PreFiringWeight_ECAL_Up() { return nt.L1PreFiringWeight_ECAL_Up(); }
+    const float &L1PreFiringWeight_Muon_Nom() { return nt.L1PreFiringWeight_Muon_Nom(); }
+    const float &L1PreFiringWeight_Muon_StatDn() { return nt.L1PreFiringWeight_Muon_StatDn(); }
+    const float &L1PreFiringWeight_Muon_StatUp() { return nt.L1PreFiringWeight_Muon_StatUp(); }
+    const float &L1PreFiringWeight_Muon_SystDn() { return nt.L1PreFiringWeight_Muon_SystDn(); }
+    const float &L1PreFiringWeight_Muon_SystUp() { return nt.L1PreFiringWeight_Muon_SystUp(); }
     const float &L1PreFiringWeight_Nom() { return nt.L1PreFiringWeight_Nom(); }
     const float &L1PreFiringWeight_Up() { return nt.L1PreFiringWeight_Up(); }
     const bool &L1Reco_step() { return nt.L1Reco_step(); }
@@ -38386,6 +42045,7 @@ namespace tas {
     const bool &L1_ETT1600() { return nt.L1_ETT1600(); }
     const bool &L1_ETT2000() { return nt.L1_ETT2000(); }
     const bool &L1_ETT25() { return nt.L1_ETT25(); }
+    const bool &L1_ETT35_BptxAND() { return nt.L1_ETT35_BptxAND(); }
     const bool &L1_ETT40_BptxAND() { return nt.L1_ETT40_BptxAND(); }
     const bool &L1_ETT50_BptxAND() { return nt.L1_ETT50_BptxAND(); }
     const bool &L1_ETT55_BptxAND() { return nt.L1_ETT55_BptxAND(); }
@@ -38740,6 +42400,9 @@ namespace tas {
     const bool &L1_SingleJet90er2p5() { return nt.L1_SingleJet90er2p5(); }
     const bool &L1_SingleJetC20_NotBptxOR() { return nt.L1_SingleJetC20_NotBptxOR(); }
     const bool &L1_SingleJetC20_NotBptxOR_3BX() { return nt.L1_SingleJetC20_NotBptxOR_3BX(); }
+    const bool &L1_SingleJetC32_NotBptxOR() { return nt.L1_SingleJetC32_NotBptxOR(); }
+    const bool &L1_SingleJetC32_NotBptxOR_3BX() { return nt.L1_SingleJetC32_NotBptxOR_3BX(); }
+    const bool &L1_SingleJetC36_NotBptxOR_3BX() { return nt.L1_SingleJetC36_NotBptxOR_3BX(); }
     const bool &L1_SingleJetC40_NotBptxOR_3BX() { return nt.L1_SingleJetC40_NotBptxOR_3BX(); }
     const bool &L1_SingleJetC40_NotBptxOR_5BX() { return nt.L1_SingleJetC40_NotBptxOR_5BX(); }
     const bool &L1_SingleLooseIsoEG28er1p5() { return nt.L1_SingleLooseIsoEG28er1p5(); }
@@ -38853,6 +42516,7 @@ namespace tas {
     const bool &L1_TripleMu_5_5_3() { return nt.L1_TripleMu_5_5_3(); }
     const bool &L1_UnpairedBunchBptxMinus() { return nt.L1_UnpairedBunchBptxMinus(); }
     const bool &L1_UnpairedBunchBptxPlus() { return nt.L1_UnpairedBunchBptxPlus(); }
+    const bool &L1_UnprefireableEvent() { return nt.L1_UnprefireableEvent(); }
     const bool &L1_ZeroBias() { return nt.L1_ZeroBias(); }
     const bool &L1_ZeroBias_FirstCollidingBunch() { return nt.L1_ZeroBias_FirstCollidingBunch(); }
     const bool &L1_ZeroBias_copy() { return nt.L1_ZeroBias_copy(); }
@@ -38881,6 +42545,36 @@ namespace tas {
     const UChar_t &LHE_NpNLO() { return nt.LHE_NpNLO(); }
     const UChar_t &LHE_Nuds() { return nt.LHE_Nuds(); }
     const float &LHE_Vpt() { return nt.LHE_Vpt(); }
+    const vector<float> &LowPtElectron_ID() { return nt.LowPtElectron_ID(); }
+    const vector<int> &LowPtElectron_charge() { return nt.LowPtElectron_charge(); }
+    const vector<bool> &LowPtElectron_convVeto() { return nt.LowPtElectron_convVeto(); }
+    const vector<float> &LowPtElectron_convVtxRadius() { return nt.LowPtElectron_convVtxRadius(); }
+    const vector<int> &LowPtElectron_convWP() { return nt.LowPtElectron_convWP(); }
+    const vector<float> &LowPtElectron_deltaEtaSC() { return nt.LowPtElectron_deltaEtaSC(); }
+    const vector<float> &LowPtElectron_dxy() { return nt.LowPtElectron_dxy(); }
+    const vector<float> &LowPtElectron_dxyErr() { return nt.LowPtElectron_dxyErr(); }
+    const vector<float> &LowPtElectron_dz() { return nt.LowPtElectron_dz(); }
+    const vector<float> &LowPtElectron_dzErr() { return nt.LowPtElectron_dzErr(); }
+    const vector<float> &LowPtElectron_eInvMinusPInv() { return nt.LowPtElectron_eInvMinusPInv(); }
+    const vector<float> &LowPtElectron_embeddedID() { return nt.LowPtElectron_embeddedID(); }
+    const vector<float> &LowPtElectron_energyErr() { return nt.LowPtElectron_energyErr(); }
+    const vector<float> &LowPtElectron_eta() { return nt.LowPtElectron_eta(); }
+    const vector<UChar_t> &LowPtElectron_genPartFlav() { return nt.LowPtElectron_genPartFlav(); }
+    const vector<int> &LowPtElectron_genPartIdx() { return nt.LowPtElectron_genPartIdx(); }
+    const vector<float> &LowPtElectron_hoe() { return nt.LowPtElectron_hoe(); }
+    const vector<UChar_t> &LowPtElectron_lostHits() { return nt.LowPtElectron_lostHits(); }
+    const vector<float> &LowPtElectron_mass() { return nt.LowPtElectron_mass(); }
+    const vector<float> &LowPtElectron_miniPFRelIso_all() { return nt.LowPtElectron_miniPFRelIso_all(); }
+    const vector<float> &LowPtElectron_miniPFRelIso_chg() { return nt.LowPtElectron_miniPFRelIso_chg(); }
+    const vector<LorentzVector> &LowPtElectron_p4() { return nt.LowPtElectron_p4(); }
+    const vector<int> &LowPtElectron_pdgId() { return nt.LowPtElectron_pdgId(); }
+    const vector<float> &LowPtElectron_phi() { return nt.LowPtElectron_phi(); }
+    const vector<float> &LowPtElectron_pt() { return nt.LowPtElectron_pt(); }
+    const vector<float> &LowPtElectron_ptbiased() { return nt.LowPtElectron_ptbiased(); }
+    const vector<float> &LowPtElectron_r9() { return nt.LowPtElectron_r9(); }
+    const vector<float> &LowPtElectron_scEtOverPt() { return nt.LowPtElectron_scEtOverPt(); }
+    const vector<float> &LowPtElectron_sieie() { return nt.LowPtElectron_sieie(); }
+    const vector<float> &LowPtElectron_unbiased() { return nt.LowPtElectron_unbiased(); }
     const float &METFixEE2017_MetUnclustEnUpDeltaX() { return nt.METFixEE2017_MetUnclustEnUpDeltaX(); }
     const float &METFixEE2017_MetUnclustEnUpDeltaY() { return nt.METFixEE2017_MetUnclustEnUpDeltaY(); }
     const float &METFixEE2017_covXX() { return nt.METFixEE2017_covXX(); }
@@ -38903,8 +42597,47 @@ namespace tas {
     const float &MET_significance() { return nt.MET_significance(); }
     const float &MET_sumEt() { return nt.MET_sumEt(); }
     const float &MET_sumPtUnclustered() { return nt.MET_sumPtUnclustered(); }
+    const vector<float> &Muon_CutBased_HighPtID_SF() { return nt.Muon_CutBased_HighPtID_SF(); }
+    const vector<float> &Muon_CutBased_HighPtID_SFerr() { return nt.Muon_CutBased_HighPtID_SFerr(); }
+    const vector<float> &Muon_CutBased_LooseID_SF() { return nt.Muon_CutBased_LooseID_SF(); }
+    const vector<float> &Muon_CutBased_LooseID_SFerr() { return nt.Muon_CutBased_LooseID_SFerr(); }
+    const vector<float> &Muon_CutBased_MediumID_SF() { return nt.Muon_CutBased_MediumID_SF(); }
+    const vector<float> &Muon_CutBased_MediumID_SFerr() { return nt.Muon_CutBased_MediumID_SFerr(); }
+    const vector<float> &Muon_CutBased_MediumPromptID_SF() { return nt.Muon_CutBased_MediumPromptID_SF(); }
+    const vector<float> &Muon_CutBased_MediumPromptID_SFerr() { return nt.Muon_CutBased_MediumPromptID_SFerr(); }
+    const vector<float> &Muon_CutBased_SoftID_SF() { return nt.Muon_CutBased_SoftID_SF(); }
+    const vector<float> &Muon_CutBased_SoftID_SFerr() { return nt.Muon_CutBased_SoftID_SFerr(); }
+    const vector<float> &Muon_CutBased_TightID_SF() { return nt.Muon_CutBased_TightID_SF(); }
+    const vector<float> &Muon_CutBased_TightID_SFerr() { return nt.Muon_CutBased_TightID_SFerr(); }
+    const vector<float> &Muon_CutBased_TrkHighPtID_SF() { return nt.Muon_CutBased_TrkHighPtID_SF(); }
+    const vector<float> &Muon_CutBased_TrkHighPtID_SFerr() { return nt.Muon_CutBased_TrkHighPtID_SFerr(); }
+    const vector<float> &Muon_LooseRelIso_LooseID_SF() { return nt.Muon_LooseRelIso_LooseID_SF(); }
+    const vector<float> &Muon_LooseRelIso_LooseID_SFerr() { return nt.Muon_LooseRelIso_LooseID_SFerr(); }
+    const vector<float> &Muon_LooseRelIso_MediumID_SF() { return nt.Muon_LooseRelIso_MediumID_SF(); }
+    const vector<float> &Muon_LooseRelIso_MediumID_SFerr() { return nt.Muon_LooseRelIso_MediumID_SFerr(); }
+    const vector<float> &Muon_LooseRelIso_MediumPromptID_SF() { return nt.Muon_LooseRelIso_MediumPromptID_SF(); }
+    const vector<float> &Muon_LooseRelIso_MediumPromptID_SFerr() { return nt.Muon_LooseRelIso_MediumPromptID_SFerr(); }
+    const vector<float> &Muon_LooseRelIso_TightIDandIPCut_SF() { return nt.Muon_LooseRelIso_TightIDandIPCut_SF(); }
+    const vector<float> &Muon_LooseRelIso_TightIDandIPCut_SFerr() { return nt.Muon_LooseRelIso_TightIDandIPCut_SFerr(); }
+    const vector<float> &Muon_LooseRelTkIso_HighPtIDandIPCut_SF() { return nt.Muon_LooseRelTkIso_HighPtIDandIPCut_SF(); }
+    const vector<float> &Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr() { return nt.Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr(); }
+    const vector<float> &Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF() { return nt.Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF(); }
+    const vector<float> &Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr() { return nt.Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr(); }
+    const vector<float> &Muon_TightRelIso_MediumID_SF() { return nt.Muon_TightRelIso_MediumID_SF(); }
+    const vector<float> &Muon_TightRelIso_MediumID_SFerr() { return nt.Muon_TightRelIso_MediumID_SFerr(); }
+    const vector<float> &Muon_TightRelIso_MediumPromptID_SF() { return nt.Muon_TightRelIso_MediumPromptID_SF(); }
+    const vector<float> &Muon_TightRelIso_MediumPromptID_SFerr() { return nt.Muon_TightRelIso_MediumPromptID_SFerr(); }
+    const vector<float> &Muon_TightRelIso_TightIDandIPCut_SF() { return nt.Muon_TightRelIso_TightIDandIPCut_SF(); }
+    const vector<float> &Muon_TightRelIso_TightIDandIPCut_SFerr() { return nt.Muon_TightRelIso_TightIDandIPCut_SFerr(); }
+    const vector<float> &Muon_TightRelTkIso_HighPtIDandIPCut_SF() { return nt.Muon_TightRelTkIso_HighPtIDandIPCut_SF(); }
+    const vector<float> &Muon_TightRelTkIso_HighPtIDandIPCut_SFerr() { return nt.Muon_TightRelTkIso_HighPtIDandIPCut_SFerr(); }
+    const vector<float> &Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF() { return nt.Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF(); }
+    const vector<float> &Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr() { return nt.Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr(); }
     const vector<int> &Muon_charge() { return nt.Muon_charge(); }
     const vector<UChar_t> &Muon_cleanmask() { return nt.Muon_cleanmask(); }
+    const vector<float> &Muon_correctedDown_pt() { return nt.Muon_correctedDown_pt(); }
+    const vector<float> &Muon_correctedUp_pt() { return nt.Muon_correctedUp_pt(); }
+    const vector<float> &Muon_corrected_pt() { return nt.Muon_corrected_pt(); }
     const vector<float> &Muon_dxy() { return nt.Muon_dxy(); }
     const vector<float> &Muon_dxyErr() { return nt.Muon_dxyErr(); }
     const vector<float> &Muon_dxybs() { return nt.Muon_dxybs(); }
@@ -38920,8 +42653,10 @@ namespace tas {
     const vector<float> &Muon_ip3d() { return nt.Muon_ip3d(); }
     const vector<bool> &Muon_isGlobal() { return nt.Muon_isGlobal(); }
     const vector<bool> &Muon_isPFcand() { return nt.Muon_isPFcand(); }
+    const vector<bool> &Muon_isStandalone() { return nt.Muon_isStandalone(); }
     const vector<bool> &Muon_isTracker() { return nt.Muon_isTracker(); }
     const vector<int> &Muon_jetIdx() { return nt.Muon_jetIdx(); }
+    const vector<UChar_t> &Muon_jetNDauCharged() { return nt.Muon_jetNDauCharged(); }
     const vector<float> &Muon_jetPtRelv2() { return nt.Muon_jetPtRelv2(); }
     const vector<float> &Muon_jetRelIso() { return nt.Muon_jetRelIso(); }
     const vector<bool> &Muon_looseId() { return nt.Muon_looseId(); }
@@ -38934,6 +42669,7 @@ namespace tas {
     const vector<UChar_t> &Muon_multiIsoId() { return nt.Muon_multiIsoId(); }
     const vector<UChar_t> &Muon_mvaId() { return nt.Muon_mvaId(); }
     const vector<float> &Muon_mvaLowPt() { return nt.Muon_mvaLowPt(); }
+    const vector<UChar_t> &Muon_mvaLowPtId() { return nt.Muon_mvaLowPtId(); }
     const vector<float> &Muon_mvaTTH() { return nt.Muon_mvaTTH(); }
     const vector<int> &Muon_nStations() { return nt.Muon_nStations(); }
     const vector<int> &Muon_nTrackerLayers() { return nt.Muon_nTrackerLayers(); }
@@ -38946,6 +42682,7 @@ namespace tas {
     const vector<float> &Muon_phi() { return nt.Muon_phi(); }
     const vector<float> &Muon_pt() { return nt.Muon_pt(); }
     const vector<float> &Muon_ptErr() { return nt.Muon_ptErr(); }
+    const vector<UChar_t> &Muon_puppiIsoId() { return nt.Muon_puppiIsoId(); }
     const vector<float> &Muon_segmentComp() { return nt.Muon_segmentComp(); }
     const vector<float> &Muon_sip3d() { return nt.Muon_sip3d(); }
     const vector<bool> &Muon_softId() { return nt.Muon_softId(); }
@@ -38973,6 +42710,10 @@ namespace tas {
     const vector<int> &Photon_cutBased() { return nt.Photon_cutBased(); }
     const vector<int> &Photon_cutBased_Fall17V1Bitmap() { return nt.Photon_cutBased_Fall17V1Bitmap(); }
     const vector<int> &Photon_cutBased_Spring16V2p2() { return nt.Photon_cutBased_Spring16V2p2(); }
+    const vector<float> &Photon_dEscaleDown() { return nt.Photon_dEscaleDown(); }
+    const vector<float> &Photon_dEscaleUp() { return nt.Photon_dEscaleUp(); }
+    const vector<float> &Photon_dEsigmaDown() { return nt.Photon_dEsigmaDown(); }
+    const vector<float> &Photon_dEsigmaUp() { return nt.Photon_dEsigmaUp(); }
     const vector<float> &Photon_eCorr() { return nt.Photon_eCorr(); }
     const vector<int> &Photon_electronIdx() { return nt.Photon_electronIdx(); }
     const vector<bool> &Photon_electronVeto() { return nt.Photon_electronVeto(); }
@@ -39010,12 +42751,23 @@ namespace tas {
     const float &Pileup_pudensity() { return nt.Pileup_pudensity(); }
     const int &Pileup_sumEOOT() { return nt.Pileup_sumEOOT(); }
     const int &Pileup_sumLOOT() { return nt.Pileup_sumLOOT(); }
+    const float &PrefireWeight() { return nt.PrefireWeight(); }
+    const float &PrefireWeight_Down() { return nt.PrefireWeight_Down(); }
+    const float &PrefireWeight_Up() { return nt.PrefireWeight_Up(); }
     const float &PuppiMET_phi() { return nt.PuppiMET_phi(); }
+    const float &PuppiMET_phiJERDown() { return nt.PuppiMET_phiJERDown(); }
     const float &PuppiMET_phiJERUp() { return nt.PuppiMET_phiJERUp(); }
+    const float &PuppiMET_phiJESDown() { return nt.PuppiMET_phiJESDown(); }
     const float &PuppiMET_phiJESUp() { return nt.PuppiMET_phiJESUp(); }
+    const float &PuppiMET_phiUnclusteredDown() { return nt.PuppiMET_phiUnclusteredDown(); }
+    const float &PuppiMET_phiUnclusteredUp() { return nt.PuppiMET_phiUnclusteredUp(); }
     const float &PuppiMET_pt() { return nt.PuppiMET_pt(); }
+    const float &PuppiMET_ptJERDown() { return nt.PuppiMET_ptJERDown(); }
     const float &PuppiMET_ptJERUp() { return nt.PuppiMET_ptJERUp(); }
+    const float &PuppiMET_ptJESDown() { return nt.PuppiMET_ptJESDown(); }
     const float &PuppiMET_ptJESUp() { return nt.PuppiMET_ptJESUp(); }
+    const float &PuppiMET_ptUnclusteredDown() { return nt.PuppiMET_ptUnclusteredDown(); }
+    const float &PuppiMET_ptUnclusteredUp() { return nt.PuppiMET_ptUnclusteredUp(); }
     const float &PuppiMET_sumEt() { return nt.PuppiMET_sumEt(); }
     const float &RawMET_phi() { return nt.RawMET_phi(); }
     const float &RawMET_pt() { return nt.RawMET_pt(); }
@@ -39023,6 +42775,7 @@ namespace tas {
     const float &RawPuppiMET_phi() { return nt.RawPuppiMET_phi(); }
     const float &RawPuppiMET_pt() { return nt.RawPuppiMET_pt(); }
     const float &RawPuppiMET_sumEt() { return nt.RawPuppiMET_sumEt(); }
+    const vector<int> &SV_charge() { return nt.SV_charge(); }
     const vector<float> &SV_chi2() { return nt.SV_chi2(); }
     const vector<float> &SV_dlen() { return nt.SV_dlen(); }
     const vector<float> &SV_dlenSig() { return nt.SV_dlenSig(); }
@@ -39031,6 +42784,7 @@ namespace tas {
     const vector<float> &SV_eta() { return nt.SV_eta(); }
     const vector<float> &SV_mass() { return nt.SV_mass(); }
     const vector<float> &SV_ndof() { return nt.SV_ndof(); }
+    const vector<UChar_t> &SV_ntracks() { return nt.SV_ntracks(); }
     const vector<LorentzVector> &SV_p4() { return nt.SV_p4(); }
     const vector<float> &SV_pAngle() { return nt.SV_pAngle(); }
     const vector<float> &SV_phi() { return nt.SV_phi(); }
@@ -39057,6 +42811,7 @@ namespace tas {
     const vector<float> &SubJet_btagCSVV2() { return nt.SubJet_btagCSVV2(); }
     const vector<float> &SubJet_btagDeepB() { return nt.SubJet_btagDeepB(); }
     const vector<float> &SubJet_eta() { return nt.SubJet_eta(); }
+    const vector<int> &SubJet_hadronFlavour() { return nt.SubJet_hadronFlavour(); }
     const vector<float> &SubJet_mass() { return nt.SubJet_mass(); }
     const vector<float> &SubJet_n2b1() { return nt.SubJet_n2b1(); }
     const vector<float> &SubJet_n3b1() { return nt.SubJet_n3b1(); }
@@ -39081,9 +42836,11 @@ namespace tas {
     const vector<int> &Tau_genPartIdx() { return nt.Tau_genPartIdx(); }
     const vector<UChar_t> &Tau_idAntiEle() { return nt.Tau_idAntiEle(); }
     const vector<UChar_t> &Tau_idAntiEle2018() { return nt.Tau_idAntiEle2018(); }
+    const vector<bool> &Tau_idAntiEleDeadECal() { return nt.Tau_idAntiEleDeadECal(); }
     const vector<UChar_t> &Tau_idAntiMu() { return nt.Tau_idAntiMu(); }
     const vector<bool> &Tau_idDecayMode() { return nt.Tau_idDecayMode(); }
     const vector<bool> &Tau_idDecayModeNewDMs() { return nt.Tau_idDecayModeNewDMs(); }
+    const vector<bool> &Tau_idDecayModeOldDMs() { return nt.Tau_idDecayModeOldDMs(); }
     const vector<UChar_t> &Tau_idDeepTau2017v2p1VSe() { return nt.Tau_idDeepTau2017v2p1VSe(); }
     const vector<UChar_t> &Tau_idDeepTau2017v2p1VSjet() { return nt.Tau_idDeepTau2017v2p1VSjet(); }
     const vector<UChar_t> &Tau_idDeepTau2017v2p1VSmu() { return nt.Tau_idDeepTau2017v2p1VSmu(); }
@@ -39130,6 +42887,35 @@ namespace tas {
     const vector<float> &TrigObj_l2pt() { return nt.TrigObj_l2pt(); }
     const vector<float> &TrigObj_phi() { return nt.TrigObj_phi(); }
     const vector<float> &TrigObj_pt() { return nt.TrigObj_pt(); }
+    const vector<int> &boostedTau_charge() { return nt.boostedTau_charge(); }
+    const vector<float> &boostedTau_chargedIso() { return nt.boostedTau_chargedIso(); }
+    const vector<int> &boostedTau_decayMode() { return nt.boostedTau_decayMode(); }
+    const vector<float> &boostedTau_eta() { return nt.boostedTau_eta(); }
+    const vector<UChar_t> &boostedTau_genPartFlav() { return nt.boostedTau_genPartFlav(); }
+    const vector<int> &boostedTau_genPartIdx() { return nt.boostedTau_genPartIdx(); }
+    const vector<UChar_t> &boostedTau_idAntiEle2018() { return nt.boostedTau_idAntiEle2018(); }
+    const vector<UChar_t> &boostedTau_idAntiMu() { return nt.boostedTau_idAntiMu(); }
+    const vector<UChar_t> &boostedTau_idMVAnewDM2017v2() { return nt.boostedTau_idMVAnewDM2017v2(); }
+    const vector<UChar_t> &boostedTau_idMVAoldDM2017v2() { return nt.boostedTau_idMVAoldDM2017v2(); }
+    const vector<UChar_t> &boostedTau_idMVAoldDMdR032017v2() { return nt.boostedTau_idMVAoldDMdR032017v2(); }
+    const vector<int> &boostedTau_jetIdx() { return nt.boostedTau_jetIdx(); }
+    const vector<float> &boostedTau_leadTkDeltaEta() { return nt.boostedTau_leadTkDeltaEta(); }
+    const vector<float> &boostedTau_leadTkDeltaPhi() { return nt.boostedTau_leadTkDeltaPhi(); }
+    const vector<float> &boostedTau_leadTkPtOverTauPt() { return nt.boostedTau_leadTkPtOverTauPt(); }
+    const vector<float> &boostedTau_mass() { return nt.boostedTau_mass(); }
+    const vector<float> &boostedTau_neutralIso() { return nt.boostedTau_neutralIso(); }
+    const vector<LorentzVector> &boostedTau_p4() { return nt.boostedTau_p4(); }
+    const vector<float> &boostedTau_phi() { return nt.boostedTau_phi(); }
+    const vector<float> &boostedTau_photonsOutsideSignalCone() { return nt.boostedTau_photonsOutsideSignalCone(); }
+    const vector<float> &boostedTau_pt() { return nt.boostedTau_pt(); }
+    const vector<float> &boostedTau_puCorr() { return nt.boostedTau_puCorr(); }
+    const vector<float> &boostedTau_rawAntiEle2018() { return nt.boostedTau_rawAntiEle2018(); }
+    const vector<int> &boostedTau_rawAntiEleCat2018() { return nt.boostedTau_rawAntiEleCat2018(); }
+    const vector<float> &boostedTau_rawIso() { return nt.boostedTau_rawIso(); }
+    const vector<float> &boostedTau_rawIsodR03() { return nt.boostedTau_rawIsodR03(); }
+    const vector<float> &boostedTau_rawMVAnewDM2017v2() { return nt.boostedTau_rawMVAnewDM2017v2(); }
+    const vector<float> &boostedTau_rawMVAoldDM2017v2() { return nt.boostedTau_rawMVAoldDM2017v2(); }
+    const vector<float> &boostedTau_rawMVAoldDMdR032017v2() { return nt.boostedTau_rawMVAoldDMdR032017v2(); }
     const float &btagWeight_CMVA() { return nt.btagWeight_CMVA(); }
     const float &btagWeight_CSVV2() { return nt.btagWeight_CSVV2(); }
     const float &btagWeight_DeepCSVB() { return nt.btagWeight_DeepCSVB(); }
@@ -39159,6 +42945,7 @@ namespace tas {
     const UInt_t &nLHEPdfWeight() { return nt.nLHEPdfWeight(); }
     const UInt_t &nLHEReweightingWeight() { return nt.nLHEReweightingWeight(); }
     const UInt_t &nLHEScaleWeight() { return nt.nLHEScaleWeight(); }
+    const UInt_t &nLowPtElectron() { return nt.nLowPtElectron(); }
     const UInt_t &nMuon() { return nt.nMuon(); }
     const UInt_t &nOtherPV() { return nt.nOtherPV(); }
     const UInt_t &nPSWeight() { return nt.nPSWeight(); }
@@ -39169,6 +42956,10 @@ namespace tas {
     const UInt_t &nSubJet() { return nt.nSubJet(); }
     const UInt_t &nTau() { return nt.nTau(); }
     const UInt_t &nTrigObj() { return nt.nTrigObj(); }
+    const UInt_t &nboostedTau() { return nt.nboostedTau(); }
+    const float &puWeight() { return nt.puWeight(); }
+    const float &puWeightDown() { return nt.puWeightDown(); }
+    const float &puWeightUp() { return nt.puWeightUp(); }
     const UInt_t &run() { return nt.run(); }
     const Int_t &year() { return nt.year(); }
     Bool_t isData() { return nt.isData(); }
@@ -39178,6 +42969,28 @@ namespace tas {
         else if (name == "CorrT1METJet_muonSubtrFactor") return nt.CorrT1METJet_muonSubtrFactor();
         else if (name == "CorrT1METJet_phi") return nt.CorrT1METJet_phi();
         else if (name == "CorrT1METJet_rawPt") return nt.CorrT1METJet_rawPt();
+        else if (name == "Electron_CutBased_LooseID_SF") return nt.Electron_CutBased_LooseID_SF();
+        else if (name == "Electron_CutBased_LooseID_SFerr") return nt.Electron_CutBased_LooseID_SFerr();
+        else if (name == "Electron_CutBased_MediumID_SF") return nt.Electron_CutBased_MediumID_SF();
+        else if (name == "Electron_CutBased_MediumID_SFerr") return nt.Electron_CutBased_MediumID_SFerr();
+        else if (name == "Electron_CutBased_TightID_SF") return nt.Electron_CutBased_TightID_SF();
+        else if (name == "Electron_CutBased_TightID_SFerr") return nt.Electron_CutBased_TightID_SFerr();
+        else if (name == "Electron_CutBased_VetoID_SF") return nt.Electron_CutBased_VetoID_SF();
+        else if (name == "Electron_CutBased_VetoID_SFerr") return nt.Electron_CutBased_VetoID_SFerr();
+        else if (name == "Electron_MVAFall17V2Iso_WP80_SF") return nt.Electron_MVAFall17V2Iso_WP80_SF();
+        else if (name == "Electron_MVAFall17V2Iso_WP80_SFerr") return nt.Electron_MVAFall17V2Iso_WP80_SFerr();
+        else if (name == "Electron_MVAFall17V2Iso_WP90_SF") return nt.Electron_MVAFall17V2Iso_WP90_SF();
+        else if (name == "Electron_MVAFall17V2Iso_WP90_SFerr") return nt.Electron_MVAFall17V2Iso_WP90_SFerr();
+        else if (name == "Electron_MVAFall17V2noIso_WP80_SF") return nt.Electron_MVAFall17V2noIso_WP80_SF();
+        else if (name == "Electron_MVAFall17V2noIso_WP80_SFerr") return nt.Electron_MVAFall17V2noIso_WP80_SFerr();
+        else if (name == "Electron_MVAFall17V2noIso_WP90_SF") return nt.Electron_MVAFall17V2noIso_WP90_SF();
+        else if (name == "Electron_MVAFall17V2noIso_WP90_SFerr") return nt.Electron_MVAFall17V2noIso_WP90_SFerr();
+        else if (name == "Electron_RECO_SF") return nt.Electron_RECO_SF();
+        else if (name == "Electron_RECO_SFerr") return nt.Electron_RECO_SFerr();
+        else if (name == "Electron_dEscaleDown") return nt.Electron_dEscaleDown();
+        else if (name == "Electron_dEscaleUp") return nt.Electron_dEscaleUp();
+        else if (name == "Electron_dEsigmaDown") return nt.Electron_dEsigmaDown();
+        else if (name == "Electron_dEsigmaUp") return nt.Electron_dEsigmaUp();
         else if (name == "Electron_deltaEtaSC") return nt.Electron_deltaEtaSC();
         else if (name == "Electron_dr03EcalRecHitSumEt") return nt.Electron_dr03EcalRecHitSumEt();
         else if (name == "Electron_dr03HcalDepth1TowerSumEt") return nt.Electron_dr03HcalDepth1TowerSumEt();
@@ -39217,13 +43030,20 @@ namespace tas {
         else if (name == "FatJet_btagCMVA") return nt.FatJet_btagCMVA();
         else if (name == "FatJet_btagCSVV2") return nt.FatJet_btagCSVV2();
         else if (name == "FatJet_btagDDBvL") return nt.FatJet_btagDDBvL();
+        else if (name == "FatJet_btagDDBvLV2") return nt.FatJet_btagDDBvLV2();
         else if (name == "FatJet_btagDDBvL_noMD") return nt.FatJet_btagDDBvL_noMD();
         else if (name == "FatJet_btagDDCvB") return nt.FatJet_btagDDCvB();
+        else if (name == "FatJet_btagDDCvBV2") return nt.FatJet_btagDDCvBV2();
         else if (name == "FatJet_btagDDCvB_noMD") return nt.FatJet_btagDDCvB_noMD();
         else if (name == "FatJet_btagDDCvL") return nt.FatJet_btagDDCvL();
+        else if (name == "FatJet_btagDDCvLV2") return nt.FatJet_btagDDCvLV2();
         else if (name == "FatJet_btagDDCvL_noMD") return nt.FatJet_btagDDCvL_noMD();
         else if (name == "FatJet_btagDeepB") return nt.FatJet_btagDeepB();
         else if (name == "FatJet_btagHbb") return nt.FatJet_btagHbb();
+        else if (name == "FatJet_corr_JEC") return nt.FatJet_corr_JEC();
+        else if (name == "FatJet_corr_JER") return nt.FatJet_corr_JER();
+        else if (name == "FatJet_corr_JMR") return nt.FatJet_corr_JMR();
+        else if (name == "FatJet_corr_JMS") return nt.FatJet_corr_JMS();
         else if (name == "FatJet_deepTagMD_H4qvsQCD") return nt.FatJet_deepTagMD_H4qvsQCD();
         else if (name == "FatJet_deepTagMD_HbbvsQCD") return nt.FatJet_deepTagMD_HbbvsQCD();
         else if (name == "FatJet_deepTagMD_TvsQCD") return nt.FatJet_deepTagMD_TvsQCD();
@@ -39243,11 +43063,59 @@ namespace tas {
         else if (name == "FatJet_eta") return nt.FatJet_eta();
         else if (name == "FatJet_lsf3") return nt.FatJet_lsf3();
         else if (name == "FatJet_mass") return nt.FatJet_mass();
+        else if (name == "FatJet_mass_jerDown") return nt.FatJet_mass_jerDown();
+        else if (name == "FatJet_mass_jerUp") return nt.FatJet_mass_jerUp();
+        else if (name == "FatJet_mass_jesTotalDown") return nt.FatJet_mass_jesTotalDown();
+        else if (name == "FatJet_mass_jesTotalUp") return nt.FatJet_mass_jesTotalUp();
+        else if (name == "FatJet_mass_jmrDown") return nt.FatJet_mass_jmrDown();
+        else if (name == "FatJet_mass_jmrUp") return nt.FatJet_mass_jmrUp();
+        else if (name == "FatJet_mass_jmsDown") return nt.FatJet_mass_jmsDown();
+        else if (name == "FatJet_mass_jmsUp") return nt.FatJet_mass_jmsUp();
+        else if (name == "FatJet_mass_nom") return nt.FatJet_mass_nom();
+        else if (name == "FatJet_mass_raw") return nt.FatJet_mass_raw();
         else if (name == "FatJet_msoftdrop") return nt.FatJet_msoftdrop();
+        else if (name == "FatJet_msoftdrop_corr_JMR") return nt.FatJet_msoftdrop_corr_JMR();
+        else if (name == "FatJet_msoftdrop_corr_JMS") return nt.FatJet_msoftdrop_corr_JMS();
+        else if (name == "FatJet_msoftdrop_corr_PUPPI") return nt.FatJet_msoftdrop_corr_PUPPI();
+        else if (name == "FatJet_msoftdrop_jerDown") return nt.FatJet_msoftdrop_jerDown();
+        else if (name == "FatJet_msoftdrop_jerUp") return nt.FatJet_msoftdrop_jerUp();
+        else if (name == "FatJet_msoftdrop_jesTotalDown") return nt.FatJet_msoftdrop_jesTotalDown();
+        else if (name == "FatJet_msoftdrop_jesTotalUp") return nt.FatJet_msoftdrop_jesTotalUp();
+        else if (name == "FatJet_msoftdrop_jmrDown") return nt.FatJet_msoftdrop_jmrDown();
+        else if (name == "FatJet_msoftdrop_jmrUp") return nt.FatJet_msoftdrop_jmrUp();
+        else if (name == "FatJet_msoftdrop_jmsDown") return nt.FatJet_msoftdrop_jmsDown();
+        else if (name == "FatJet_msoftdrop_jmsUp") return nt.FatJet_msoftdrop_jmsUp();
+        else if (name == "FatJet_msoftdrop_nom") return nt.FatJet_msoftdrop_nom();
+        else if (name == "FatJet_msoftdrop_raw") return nt.FatJet_msoftdrop_raw();
+        else if (name == "FatJet_msoftdrop_tau21DDT_jerDown") return nt.FatJet_msoftdrop_tau21DDT_jerDown();
+        else if (name == "FatJet_msoftdrop_tau21DDT_jerUp") return nt.FatJet_msoftdrop_tau21DDT_jerUp();
+        else if (name == "FatJet_msoftdrop_tau21DDT_jmrDown") return nt.FatJet_msoftdrop_tau21DDT_jmrDown();
+        else if (name == "FatJet_msoftdrop_tau21DDT_jmrUp") return nt.FatJet_msoftdrop_tau21DDT_jmrUp();
+        else if (name == "FatJet_msoftdrop_tau21DDT_jmsDown") return nt.FatJet_msoftdrop_tau21DDT_jmsDown();
+        else if (name == "FatJet_msoftdrop_tau21DDT_jmsUp") return nt.FatJet_msoftdrop_tau21DDT_jmsUp();
+        else if (name == "FatJet_msoftdrop_tau21DDT_nom") return nt.FatJet_msoftdrop_tau21DDT_nom();
         else if (name == "FatJet_n2b1") return nt.FatJet_n2b1();
         else if (name == "FatJet_n3b1") return nt.FatJet_n3b1();
+        else if (name == "FatJet_particleNetMD_QCD") return nt.FatJet_particleNetMD_QCD();
+        else if (name == "FatJet_particleNetMD_Xbb") return nt.FatJet_particleNetMD_Xbb();
+        else if (name == "FatJet_particleNetMD_Xcc") return nt.FatJet_particleNetMD_Xcc();
+        else if (name == "FatJet_particleNetMD_Xqq") return nt.FatJet_particleNetMD_Xqq();
+        else if (name == "FatJet_particleNet_H4qvsQCD") return nt.FatJet_particleNet_H4qvsQCD();
+        else if (name == "FatJet_particleNet_HbbvsQCD") return nt.FatJet_particleNet_HbbvsQCD();
+        else if (name == "FatJet_particleNet_HccvsQCD") return nt.FatJet_particleNet_HccvsQCD();
+        else if (name == "FatJet_particleNet_QCD") return nt.FatJet_particleNet_QCD();
+        else if (name == "FatJet_particleNet_TvsQCD") return nt.FatJet_particleNet_TvsQCD();
+        else if (name == "FatJet_particleNet_WvsQCD") return nt.FatJet_particleNet_WvsQCD();
+        else if (name == "FatJet_particleNet_ZvsQCD") return nt.FatJet_particleNet_ZvsQCD();
+        else if (name == "FatJet_particleNet_mass") return nt.FatJet_particleNet_mass();
         else if (name == "FatJet_phi") return nt.FatJet_phi();
         else if (name == "FatJet_pt") return nt.FatJet_pt();
+        else if (name == "FatJet_pt_jerDown") return nt.FatJet_pt_jerDown();
+        else if (name == "FatJet_pt_jerUp") return nt.FatJet_pt_jerUp();
+        else if (name == "FatJet_pt_jesTotalDown") return nt.FatJet_pt_jesTotalDown();
+        else if (name == "FatJet_pt_jesTotalUp") return nt.FatJet_pt_jesTotalUp();
+        else if (name == "FatJet_pt_nom") return nt.FatJet_pt_nom();
+        else if (name == "FatJet_pt_raw") return nt.FatJet_pt_raw();
         else if (name == "FatJet_rawFactor") return nt.FatJet_rawFactor();
         else if (name == "FatJet_tau1") return nt.FatJet_tau1();
         else if (name == "FatJet_tau2") return nt.FatJet_tau2();
@@ -39298,8 +43166,13 @@ namespace tas {
         else if (name == "Jet_btagCSVV2") return nt.Jet_btagCSVV2();
         else if (name == "Jet_btagDeepB") return nt.Jet_btagDeepB();
         else if (name == "Jet_btagDeepC") return nt.Jet_btagDeepC();
+        else if (name == "Jet_btagDeepCvB") return nt.Jet_btagDeepCvB();
+        else if (name == "Jet_btagDeepCvL") return nt.Jet_btagDeepCvL();
         else if (name == "Jet_btagDeepFlavB") return nt.Jet_btagDeepFlavB();
         else if (name == "Jet_btagDeepFlavC") return nt.Jet_btagDeepFlavC();
+        else if (name == "Jet_btagDeepFlavCvB") return nt.Jet_btagDeepFlavCvB();
+        else if (name == "Jet_btagDeepFlavCvL") return nt.Jet_btagDeepFlavCvL();
+        else if (name == "Jet_btagDeepFlavQG") return nt.Jet_btagDeepFlavQG();
         else if (name == "Jet_cRegCorr") return nt.Jet_cRegCorr();
         else if (name == "Jet_cRegRes") return nt.Jet_cRegRes();
         else if (name == "Jet_chEmEF") return nt.Jet_chEmEF();
@@ -39309,6 +43182,8 @@ namespace tas {
         else if (name == "Jet_chFPV3EF") return nt.Jet_chFPV3EF();
         else if (name == "Jet_chHEF") return nt.Jet_chHEF();
         else if (name == "Jet_eta") return nt.Jet_eta();
+        else if (name == "Jet_hfsigmaEtaEta") return nt.Jet_hfsigmaEtaEta();
+        else if (name == "Jet_hfsigmaPhiPhi") return nt.Jet_hfsigmaPhiPhi();
         else if (name == "Jet_mass") return nt.Jet_mass();
         else if (name == "Jet_muEF") return nt.Jet_muEF();
         else if (name == "Jet_muonSubtrFactor") return nt.Jet_muonSubtrFactor();
@@ -39327,6 +43202,67 @@ namespace tas {
         else if (name == "LHEPdfWeight") return nt.LHEPdfWeight();
         else if (name == "LHEReweightingWeight") return nt.LHEReweightingWeight();
         else if (name == "LHEScaleWeight") return nt.LHEScaleWeight();
+        else if (name == "LowPtElectron_ID") return nt.LowPtElectron_ID();
+        else if (name == "LowPtElectron_convVtxRadius") return nt.LowPtElectron_convVtxRadius();
+        else if (name == "LowPtElectron_deltaEtaSC") return nt.LowPtElectron_deltaEtaSC();
+        else if (name == "LowPtElectron_dxy") return nt.LowPtElectron_dxy();
+        else if (name == "LowPtElectron_dxyErr") return nt.LowPtElectron_dxyErr();
+        else if (name == "LowPtElectron_dz") return nt.LowPtElectron_dz();
+        else if (name == "LowPtElectron_dzErr") return nt.LowPtElectron_dzErr();
+        else if (name == "LowPtElectron_eInvMinusPInv") return nt.LowPtElectron_eInvMinusPInv();
+        else if (name == "LowPtElectron_embeddedID") return nt.LowPtElectron_embeddedID();
+        else if (name == "LowPtElectron_energyErr") return nt.LowPtElectron_energyErr();
+        else if (name == "LowPtElectron_eta") return nt.LowPtElectron_eta();
+        else if (name == "LowPtElectron_hoe") return nt.LowPtElectron_hoe();
+        else if (name == "LowPtElectron_mass") return nt.LowPtElectron_mass();
+        else if (name == "LowPtElectron_miniPFRelIso_all") return nt.LowPtElectron_miniPFRelIso_all();
+        else if (name == "LowPtElectron_miniPFRelIso_chg") return nt.LowPtElectron_miniPFRelIso_chg();
+        else if (name == "LowPtElectron_phi") return nt.LowPtElectron_phi();
+        else if (name == "LowPtElectron_pt") return nt.LowPtElectron_pt();
+        else if (name == "LowPtElectron_ptbiased") return nt.LowPtElectron_ptbiased();
+        else if (name == "LowPtElectron_r9") return nt.LowPtElectron_r9();
+        else if (name == "LowPtElectron_scEtOverPt") return nt.LowPtElectron_scEtOverPt();
+        else if (name == "LowPtElectron_sieie") return nt.LowPtElectron_sieie();
+        else if (name == "LowPtElectron_unbiased") return nt.LowPtElectron_unbiased();
+        else if (name == "Muon_CutBased_HighPtID_SF") return nt.Muon_CutBased_HighPtID_SF();
+        else if (name == "Muon_CutBased_HighPtID_SFerr") return nt.Muon_CutBased_HighPtID_SFerr();
+        else if (name == "Muon_CutBased_LooseID_SF") return nt.Muon_CutBased_LooseID_SF();
+        else if (name == "Muon_CutBased_LooseID_SFerr") return nt.Muon_CutBased_LooseID_SFerr();
+        else if (name == "Muon_CutBased_MediumID_SF") return nt.Muon_CutBased_MediumID_SF();
+        else if (name == "Muon_CutBased_MediumID_SFerr") return nt.Muon_CutBased_MediumID_SFerr();
+        else if (name == "Muon_CutBased_MediumPromptID_SF") return nt.Muon_CutBased_MediumPromptID_SF();
+        else if (name == "Muon_CutBased_MediumPromptID_SFerr") return nt.Muon_CutBased_MediumPromptID_SFerr();
+        else if (name == "Muon_CutBased_SoftID_SF") return nt.Muon_CutBased_SoftID_SF();
+        else if (name == "Muon_CutBased_SoftID_SFerr") return nt.Muon_CutBased_SoftID_SFerr();
+        else if (name == "Muon_CutBased_TightID_SF") return nt.Muon_CutBased_TightID_SF();
+        else if (name == "Muon_CutBased_TightID_SFerr") return nt.Muon_CutBased_TightID_SFerr();
+        else if (name == "Muon_CutBased_TrkHighPtID_SF") return nt.Muon_CutBased_TrkHighPtID_SF();
+        else if (name == "Muon_CutBased_TrkHighPtID_SFerr") return nt.Muon_CutBased_TrkHighPtID_SFerr();
+        else if (name == "Muon_LooseRelIso_LooseID_SF") return nt.Muon_LooseRelIso_LooseID_SF();
+        else if (name == "Muon_LooseRelIso_LooseID_SFerr") return nt.Muon_LooseRelIso_LooseID_SFerr();
+        else if (name == "Muon_LooseRelIso_MediumID_SF") return nt.Muon_LooseRelIso_MediumID_SF();
+        else if (name == "Muon_LooseRelIso_MediumID_SFerr") return nt.Muon_LooseRelIso_MediumID_SFerr();
+        else if (name == "Muon_LooseRelIso_MediumPromptID_SF") return nt.Muon_LooseRelIso_MediumPromptID_SF();
+        else if (name == "Muon_LooseRelIso_MediumPromptID_SFerr") return nt.Muon_LooseRelIso_MediumPromptID_SFerr();
+        else if (name == "Muon_LooseRelIso_TightIDandIPCut_SF") return nt.Muon_LooseRelIso_TightIDandIPCut_SF();
+        else if (name == "Muon_LooseRelIso_TightIDandIPCut_SFerr") return nt.Muon_LooseRelIso_TightIDandIPCut_SFerr();
+        else if (name == "Muon_LooseRelTkIso_HighPtIDandIPCut_SF") return nt.Muon_LooseRelTkIso_HighPtIDandIPCut_SF();
+        else if (name == "Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr") return nt.Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr();
+        else if (name == "Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF") return nt.Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF();
+        else if (name == "Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr") return nt.Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr();
+        else if (name == "Muon_TightRelIso_MediumID_SF") return nt.Muon_TightRelIso_MediumID_SF();
+        else if (name == "Muon_TightRelIso_MediumID_SFerr") return nt.Muon_TightRelIso_MediumID_SFerr();
+        else if (name == "Muon_TightRelIso_MediumPromptID_SF") return nt.Muon_TightRelIso_MediumPromptID_SF();
+        else if (name == "Muon_TightRelIso_MediumPromptID_SFerr") return nt.Muon_TightRelIso_MediumPromptID_SFerr();
+        else if (name == "Muon_TightRelIso_TightIDandIPCut_SF") return nt.Muon_TightRelIso_TightIDandIPCut_SF();
+        else if (name == "Muon_TightRelIso_TightIDandIPCut_SFerr") return nt.Muon_TightRelIso_TightIDandIPCut_SFerr();
+        else if (name == "Muon_TightRelTkIso_HighPtIDandIPCut_SF") return nt.Muon_TightRelTkIso_HighPtIDandIPCut_SF();
+        else if (name == "Muon_TightRelTkIso_HighPtIDandIPCut_SFerr") return nt.Muon_TightRelTkIso_HighPtIDandIPCut_SFerr();
+        else if (name == "Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF") return nt.Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF();
+        else if (name == "Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr") return nt.Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr();
+        else if (name == "Muon_correctedDown_pt") return nt.Muon_correctedDown_pt();
+        else if (name == "Muon_correctedUp_pt") return nt.Muon_correctedUp_pt();
+        else if (name == "Muon_corrected_pt") return nt.Muon_corrected_pt();
         else if (name == "Muon_dxy") return nt.Muon_dxy();
         else if (name == "Muon_dxyErr") return nt.Muon_dxyErr();
         else if (name == "Muon_dxybs") return nt.Muon_dxybs();
@@ -39355,6 +43291,10 @@ namespace tas {
         else if (name == "OtherPV_z") return nt.OtherPV_z();
         else if (name == "PSWeight") return nt.PSWeight();
         else if (name == "Photon_chargedHadronIso") return nt.Photon_chargedHadronIso();
+        else if (name == "Photon_dEscaleDown") return nt.Photon_dEscaleDown();
+        else if (name == "Photon_dEscaleUp") return nt.Photon_dEscaleUp();
+        else if (name == "Photon_dEsigmaDown") return nt.Photon_dEsigmaDown();
+        else if (name == "Photon_dEsigmaUp") return nt.Photon_dEsigmaUp();
         else if (name == "Photon_eCorr") return nt.Photon_eCorr();
         else if (name == "Photon_energyErr") return nt.Photon_energyErr();
         else if (name == "Photon_eta") return nt.Photon_eta();
@@ -39436,6 +43376,23 @@ namespace tas {
         else if (name == "TrigObj_l1pt_2") return nt.TrigObj_l1pt_2();
         else if (name == "TrigObj_l2pt") return nt.TrigObj_l2pt();
         else if (name == "TrigObj_phi") return nt.TrigObj_phi();
+        else if (name == "TrigObj_pt") return nt.TrigObj_pt();
+        else if (name == "boostedTau_chargedIso") return nt.boostedTau_chargedIso();
+        else if (name == "boostedTau_eta") return nt.boostedTau_eta();
+        else if (name == "boostedTau_leadTkDeltaEta") return nt.boostedTau_leadTkDeltaEta();
+        else if (name == "boostedTau_leadTkDeltaPhi") return nt.boostedTau_leadTkDeltaPhi();
+        else if (name == "boostedTau_leadTkPtOverTauPt") return nt.boostedTau_leadTkPtOverTauPt();
+        else if (name == "boostedTau_mass") return nt.boostedTau_mass();
+        else if (name == "boostedTau_neutralIso") return nt.boostedTau_neutralIso();
+        else if (name == "boostedTau_phi") return nt.boostedTau_phi();
+        else if (name == "boostedTau_photonsOutsideSignalCone") return nt.boostedTau_photonsOutsideSignalCone();
+        else if (name == "boostedTau_pt") return nt.boostedTau_pt();
+        else if (name == "boostedTau_puCorr") return nt.boostedTau_puCorr();
+        else if (name == "boostedTau_rawAntiEle2018") return nt.boostedTau_rawAntiEle2018();
+        else if (name == "boostedTau_rawIso") return nt.boostedTau_rawIso();
+        else if (name == "boostedTau_rawIsodR03") return nt.boostedTau_rawIsodR03();
+        else if (name == "boostedTau_rawMVAnewDM2017v2") return nt.boostedTau_rawMVAnewDM2017v2();
+        else if (name == "boostedTau_rawMVAoldDM2017v2") return nt.boostedTau_rawMVAoldDM2017v2();
         return vector<float>();
     }
     int GetI(const string &name) {
@@ -39469,8 +43426,16 @@ namespace tas {
         else if (name == "ChsMET_phi") return nt.ChsMET_phi();
         else if (name == "ChsMET_pt") return nt.ChsMET_pt();
         else if (name == "ChsMET_sumEt") return nt.ChsMET_sumEt();
+        else if (name == "DeepMETResolutionTune_phi") return nt.DeepMETResolutionTune_phi();
+        else if (name == "DeepMETResolutionTune_pt") return nt.DeepMETResolutionTune_pt();
+        else if (name == "DeepMETResponseTune_phi") return nt.DeepMETResponseTune_phi();
+        else if (name == "DeepMETResponseTune_pt") return nt.DeepMETResponseTune_pt();
         else if (name == "GenMET_phi") return nt.GenMET_phi();
         else if (name == "GenMET_pt") return nt.GenMET_pt();
+        else if (name == "GenVtx_t0") return nt.GenVtx_t0();
+        else if (name == "GenVtx_x") return nt.GenVtx_x();
+        else if (name == "GenVtx_y") return nt.GenVtx_y();
+        else if (name == "GenVtx_z") return nt.GenVtx_z();
         else if (name == "Generator_binvar") return nt.Generator_binvar();
         else if (name == "Generator_scalePDF") return nt.Generator_scalePDF();
         else if (name == "Generator_weight") return nt.Generator_weight();
@@ -39481,6 +43446,14 @@ namespace tas {
         else if (name == "HTXS_Higgs_pt") return nt.HTXS_Higgs_pt();
         else if (name == "HTXS_Higgs_y") return nt.HTXS_Higgs_y();
         else if (name == "L1PreFiringWeight_Dn") return nt.L1PreFiringWeight_Dn();
+        else if (name == "L1PreFiringWeight_ECAL_Dn") return nt.L1PreFiringWeight_ECAL_Dn();
+        else if (name == "L1PreFiringWeight_ECAL_Nom") return nt.L1PreFiringWeight_ECAL_Nom();
+        else if (name == "L1PreFiringWeight_ECAL_Up") return nt.L1PreFiringWeight_ECAL_Up();
+        else if (name == "L1PreFiringWeight_Muon_Nom") return nt.L1PreFiringWeight_Muon_Nom();
+        else if (name == "L1PreFiringWeight_Muon_StatDn") return nt.L1PreFiringWeight_Muon_StatDn();
+        else if (name == "L1PreFiringWeight_Muon_StatUp") return nt.L1PreFiringWeight_Muon_StatUp();
+        else if (name == "L1PreFiringWeight_Muon_SystDn") return nt.L1PreFiringWeight_Muon_SystDn();
+        else if (name == "L1PreFiringWeight_Muon_SystUp") return nt.L1PreFiringWeight_Muon_SystUp();
         else if (name == "L1PreFiringWeight_Nom") return nt.L1PreFiringWeight_Nom();
         else if (name == "L1PreFiringWeight_Up") return nt.L1PreFiringWeight_Up();
         else if (name == "LHEWeight_originalXWGTUP") return nt.LHEWeight_originalXWGTUP();
@@ -39519,12 +43492,23 @@ namespace tas {
         else if (name == "Pileup_gpudensity") return nt.Pileup_gpudensity();
         else if (name == "Pileup_nTrueInt") return nt.Pileup_nTrueInt();
         else if (name == "Pileup_pudensity") return nt.Pileup_pudensity();
+        else if (name == "PrefireWeight") return nt.PrefireWeight();
+        else if (name == "PrefireWeight_Down") return nt.PrefireWeight_Down();
+        else if (name == "PrefireWeight_Up") return nt.PrefireWeight_Up();
         else if (name == "PuppiMET_phi") return nt.PuppiMET_phi();
+        else if (name == "PuppiMET_phiJERDown") return nt.PuppiMET_phiJERDown();
         else if (name == "PuppiMET_phiJERUp") return nt.PuppiMET_phiJERUp();
+        else if (name == "PuppiMET_phiJESDown") return nt.PuppiMET_phiJESDown();
         else if (name == "PuppiMET_phiJESUp") return nt.PuppiMET_phiJESUp();
+        else if (name == "PuppiMET_phiUnclusteredDown") return nt.PuppiMET_phiUnclusteredDown();
+        else if (name == "PuppiMET_phiUnclusteredUp") return nt.PuppiMET_phiUnclusteredUp();
         else if (name == "PuppiMET_pt") return nt.PuppiMET_pt();
+        else if (name == "PuppiMET_ptJERDown") return nt.PuppiMET_ptJERDown();
         else if (name == "PuppiMET_ptJERUp") return nt.PuppiMET_ptJERUp();
+        else if (name == "PuppiMET_ptJESDown") return nt.PuppiMET_ptJESDown();
         else if (name == "PuppiMET_ptJESUp") return nt.PuppiMET_ptJESUp();
+        else if (name == "PuppiMET_ptUnclusteredDown") return nt.PuppiMET_ptUnclusteredDown();
+        else if (name == "PuppiMET_ptUnclusteredUp") return nt.PuppiMET_ptUnclusteredUp();
         else if (name == "PuppiMET_sumEt") return nt.PuppiMET_sumEt();
         else if (name == "RawMET_phi") return nt.RawMET_phi();
         else if (name == "RawMET_pt") return nt.RawMET_pt();
@@ -39548,6 +43532,9 @@ namespace tas {
         else if (name == "fixedGridRhoFastjetCentralCalo") return nt.fixedGridRhoFastjetCentralCalo();
         else if (name == "fixedGridRhoFastjetCentralChargedPileUp") return nt.fixedGridRhoFastjetCentralChargedPileUp();
         else if (name == "fixedGridRhoFastjetCentralNeutral") return nt.fixedGridRhoFastjetCentralNeutral();
+        else if (name == "genWeight") return nt.genWeight();
+        else if (name == "puWeight") return nt.puWeight();
+        else if (name == "puWeightDown") return nt.puWeightDown();
         return float();
     }
     vector<int> GetVI(const string &name) {
@@ -39584,12 +43571,15 @@ namespace tas {
         else if (name == "GenVisTau_charge") return nt.GenVisTau_charge();
         else if (name == "GenVisTau_genPartIdxMother") return nt.GenVisTau_genPartIdxMother();
         else if (name == "GenVisTau_status") return nt.GenVisTau_status();
+        else if (name == "IsoTrack_charge") return nt.IsoTrack_charge();
         else if (name == "IsoTrack_fromPV") return nt.IsoTrack_fromPV();
         else if (name == "IsoTrack_pdgId") return nt.IsoTrack_pdgId();
         else if (name == "Jet_electronIdx1") return nt.Jet_electronIdx1();
         else if (name == "Jet_electronIdx2") return nt.Jet_electronIdx2();
         else if (name == "Jet_genJetIdx") return nt.Jet_genJetIdx();
         else if (name == "Jet_hadronFlavour") return nt.Jet_hadronFlavour();
+        else if (name == "Jet_hfadjacentEtaStripsSize") return nt.Jet_hfadjacentEtaStripsSize();
+        else if (name == "Jet_hfcentralEtaStripSize") return nt.Jet_hfcentralEtaStripSize();
         else if (name == "Jet_jetId") return nt.Jet_jetId();
         else if (name == "Jet_muonIdx1") return nt.Jet_muonIdx1();
         else if (name == "Jet_muonIdx2") return nt.Jet_muonIdx2();
@@ -39601,6 +43591,10 @@ namespace tas {
         else if (name == "LHEPart_pdgId") return nt.LHEPart_pdgId();
         else if (name == "LHEPart_spin") return nt.LHEPart_spin();
         else if (name == "LHEPart_status") return nt.LHEPart_status();
+        else if (name == "LowPtElectron_charge") return nt.LowPtElectron_charge();
+        else if (name == "LowPtElectron_convWP") return nt.LowPtElectron_convWP();
+        else if (name == "LowPtElectron_genPartIdx") return nt.LowPtElectron_genPartIdx();
+        else if (name == "LowPtElectron_pdgId") return nt.LowPtElectron_pdgId();
         else if (name == "Muon_charge") return nt.Muon_charge();
         else if (name == "Muon_fsrPhotonIdx") return nt.Muon_fsrPhotonIdx();
         else if (name == "Muon_genPartIdx") return nt.Muon_genPartIdx();
@@ -39619,6 +43613,8 @@ namespace tas {
         else if (name == "Photon_pdgId") return nt.Photon_pdgId();
         else if (name == "Photon_vidNestedWPBitmap") return nt.Photon_vidNestedWPBitmap();
         else if (name == "Photon_vidNestedWPBitmap_Spring16V2p2") return nt.Photon_vidNestedWPBitmap_Spring16V2p2();
+        else if (name == "SV_charge") return nt.SV_charge();
+        else if (name == "SubJet_hadronFlavour") return nt.SubJet_hadronFlavour();
         else if (name == "Tau_charge") return nt.Tau_charge();
         else if (name == "Tau_decayMode") return nt.Tau_decayMode();
         else if (name == "Tau_genPartIdx") return nt.Tau_genPartIdx();
@@ -39628,6 +43624,11 @@ namespace tas {
         else if (name == "TrigObj_filterBits") return nt.TrigObj_filterBits();
         else if (name == "TrigObj_id") return nt.TrigObj_id();
         else if (name == "TrigObj_l1charge") return nt.TrigObj_l1charge();
+        else if (name == "TrigObj_l1iso") return nt.TrigObj_l1iso();
+        else if (name == "boostedTau_charge") return nt.boostedTau_charge();
+        else if (name == "boostedTau_decayMode") return nt.boostedTau_decayMode();
+        else if (name == "boostedTau_genPartIdx") return nt.boostedTau_genPartIdx();
+        else if (name == "boostedTau_jetIdx") return nt.boostedTau_jetIdx();
         return vector<int>();
     }
     vector<LorentzVector> GetVLV(const string &name) {
@@ -39641,16 +43642,19 @@ namespace tas {
         else if (name == "GenVisTau_p4") return nt.GenVisTau_p4();
         else if (name == "Jet_p4") return nt.Jet_p4();
         else if (name == "LHEPart_p4") return nt.LHEPart_p4();
+        else if (name == "LowPtElectron_p4") return nt.LowPtElectron_p4();
         else if (name == "Muon_p4") return nt.Muon_p4();
         else if (name == "Photon_p4") return nt.Photon_p4();
         else if (name == "SV_p4") return nt.SV_p4();
         else if (name == "SubGenJetAK8_p4") return nt.SubGenJetAK8_p4();
         else if (name == "SubJet_p4") return nt.SubJet_p4();
+        else if (name == "Tau_p4") return nt.Tau_p4();
         return vector<LorentzVector>();
     }
     bool GetB(const string &name) {
         if (name == "Flag_BadChargedCandidateFilter") return nt.Flag_BadChargedCandidateFilter();
         else if (name == "Flag_BadChargedCandidateSummer16Filter") return nt.Flag_BadChargedCandidateSummer16Filter();
+        else if (name == "Flag_BadPFMuonDzFilter") return nt.Flag_BadPFMuonDzFilter();
         else if (name == "Flag_BadPFMuonFilter") return nt.Flag_BadPFMuonFilter();
         else if (name == "Flag_BadPFMuonSummer16Filter") return nt.Flag_BadPFMuonSummer16Filter();
         else if (name == "Flag_CSCTightHalo2015Filter") return nt.Flag_CSCTightHalo2015Filter();
@@ -39671,6 +43675,7 @@ namespace tas {
         else if (name == "Flag_globalTightHalo2016Filter") return nt.Flag_globalTightHalo2016Filter();
         else if (name == "Flag_goodVertices") return nt.Flag_goodVertices();
         else if (name == "Flag_hcalLaserEventFilter") return nt.Flag_hcalLaserEventFilter();
+        else if (name == "Flag_hfNoisyHitsFilter") return nt.Flag_hfNoisyHitsFilter();
         else if (name == "Flag_muonBadTrackFilter") return nt.Flag_muonBadTrackFilter();
         else if (name == "Flag_trkPOGFilters") return nt.Flag_trkPOGFilters();
         else if (name == "Flag_trkPOG_logErrorTooManyClusters") return nt.Flag_trkPOG_logErrorTooManyClusters();
@@ -41172,6 +45177,7 @@ namespace tas {
         else if (name == "L1_ETT1600") return nt.L1_ETT1600();
         else if (name == "L1_ETT2000") return nt.L1_ETT2000();
         else if (name == "L1_ETT25") return nt.L1_ETT25();
+        else if (name == "L1_ETT35_BptxAND") return nt.L1_ETT35_BptxAND();
         else if (name == "L1_ETT40_BptxAND") return nt.L1_ETT40_BptxAND();
         else if (name == "L1_ETT50_BptxAND") return nt.L1_ETT50_BptxAND();
         else if (name == "L1_ETT55_BptxAND") return nt.L1_ETT55_BptxAND();
@@ -41526,6 +45532,9 @@ namespace tas {
         else if (name == "L1_SingleJet90er2p5") return nt.L1_SingleJet90er2p5();
         else if (name == "L1_SingleJetC20_NotBptxOR") return nt.L1_SingleJetC20_NotBptxOR();
         else if (name == "L1_SingleJetC20_NotBptxOR_3BX") return nt.L1_SingleJetC20_NotBptxOR_3BX();
+        else if (name == "L1_SingleJetC32_NotBptxOR") return nt.L1_SingleJetC32_NotBptxOR();
+        else if (name == "L1_SingleJetC32_NotBptxOR_3BX") return nt.L1_SingleJetC32_NotBptxOR_3BX();
+        else if (name == "L1_SingleJetC36_NotBptxOR_3BX") return nt.L1_SingleJetC36_NotBptxOR_3BX();
         else if (name == "L1_SingleJetC40_NotBptxOR_3BX") return nt.L1_SingleJetC40_NotBptxOR_3BX();
         else if (name == "L1_SingleJetC40_NotBptxOR_5BX") return nt.L1_SingleJetC40_NotBptxOR_5BX();
         else if (name == "L1_SingleLooseIsoEG28er1p5") return nt.L1_SingleLooseIsoEG28er1p5();
@@ -41639,6 +45648,7 @@ namespace tas {
         else if (name == "L1_TripleMu_5_5_3") return nt.L1_TripleMu_5_5_3();
         else if (name == "L1_UnpairedBunchBptxMinus") return nt.L1_UnpairedBunchBptxMinus();
         else if (name == "L1_UnpairedBunchBptxPlus") return nt.L1_UnpairedBunchBptxPlus();
+        else if (name == "L1_UnprefireableEvent") return nt.L1_UnprefireableEvent();
         else if (name == "L1_ZeroBias") return nt.L1_ZeroBias();
         else if (name == "L1_ZeroBias_FirstCollidingBunch") return nt.L1_ZeroBias_FirstCollidingBunch();
         else if (name == "L1_ZeroBias_copy") return nt.L1_ZeroBias_copy();
@@ -41667,10 +45677,12 @@ namespace tas {
         else if (name == "IsoTrack_isFromLostTrack") return nt.IsoTrack_isFromLostTrack();
         else if (name == "IsoTrack_isHighPurityTrack") return nt.IsoTrack_isHighPurityTrack();
         else if (name == "IsoTrack_isPFcand") return nt.IsoTrack_isPFcand();
+        else if (name == "LowPtElectron_convVeto") return nt.LowPtElectron_convVeto();
         else if (name == "Muon_highPurity") return nt.Muon_highPurity();
         else if (name == "Muon_inTimeMuon") return nt.Muon_inTimeMuon();
         else if (name == "Muon_isGlobal") return nt.Muon_isGlobal();
         else if (name == "Muon_isPFcand") return nt.Muon_isPFcand();
+        else if (name == "Muon_isStandalone") return nt.Muon_isStandalone();
         else if (name == "Muon_isTracker") return nt.Muon_isTracker();
         else if (name == "Muon_looseId") return nt.Muon_looseId();
         else if (name == "Muon_mediumId") return nt.Muon_mediumId();
@@ -41685,7 +45697,9 @@ namespace tas {
         else if (name == "Photon_mvaID_WP80") return nt.Photon_mvaID_WP80();
         else if (name == "Photon_mvaID_WP90") return nt.Photon_mvaID_WP90();
         else if (name == "Photon_pixelSeed") return nt.Photon_pixelSeed();
+        else if (name == "Tau_idAntiEleDeadECal") return nt.Tau_idAntiEleDeadECal();
         else if (name == "Tau_idDecayMode") return nt.Tau_idDecayMode();
+        else if (name == "Tau_idDecayModeNewDMs") return nt.Tau_idDecayModeNewDMs();
         return vector<bool>();
     }
 }

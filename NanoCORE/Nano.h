@@ -1,5 +1,5 @@
 // -*- C++ -*-
-// Generated with args: -t Events -n tas -c Nano -o nt --profiling /hadoop/cms/store/user/hmei/nanoaod_runII/HHggtautau/HHggtautau_Era2018_private_v2_20201005/test_nanoaod_1.root,/hadoop/cms/store/user/hmei/nanoaod_runII/HHggtautau/HHggtautau_Era2017_private_v0.1_20201117/test_nanoaod_31.root,/hadoop/cms/store/user/hmei/nanoaod_runII/HHggtautau/HHggtautau_Era2016_private_v0.1_20201117/test_nanoaod_412.root,/hadoop/cms/store/user/sicheng/NanoAOD/mc2018_v7/ZGTo2NuG_PtG-130_TuneCP5_13TeV-amcatnloFXFX-pythia8__RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/28A39133-C103-D743-80ED-8274F3B44754.root,/hadoop/cms/store/user/sicheng/NanoAOD/mc2016_v7/ZGTo2NuG_PtG-130_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8__RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1/62466AA2-182A-3746-BAFA-8D875E05BA90.root
+// Generated with args: -t Events -n tas -c Nano -o nt --profiling /hadoop/cms/store/user/hmei/nanoaod_runII/HHggtautau/HHggtautau_Era2018_private_v2_20201005/test_nanoaod_1.root,/hadoop/cms/store/user/hmei/nanoaod_runII/HHggtautau/HHggtautau_Era2017_private_v0.1_20201117/test_nanoaod_31.root,/hadoop/cms/store/user/hmei/nanoaod_runII/HHggtautau/HHggtautau_Era2016_private_v0.1_20201117/test_nanoaod_412.root,/hadoop/cms/store/user/sicheng/NanoAOD/mc2018_v7/ZGTo2NuG_PtG-130_TuneCP5_13TeV-amcatnloFXFX-pythia8__RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/28A39133-C103-D743-80ED-8274F3B44754.root,/hadoop/cms/store/user/sicheng/NanoAOD/mc2016_v7/ZGTo2NuG_PtG-130_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8__RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1/62466AA2-182A-3746-BAFA-8D875E05BA90.root,/home/users/phchang/work/vvv/VVVNanoLooper/WWW/2D39FA0B-A11E-0141-BBFC-AA943F862EB7_out.root
 #ifndef Nano_H
 #define Nano_H
 #include "Math/LorentzVector.h"
@@ -24,18 +24,20 @@ typedef ROOT::Math::LorentzVector<ROOT::Math::PtEtaPhiM4D<float> > LorentzVector
 #define makeP4(Collection, idx) LorentzVector(Collection##_pt[idx],Collection##_eta[idx],Collection##_phi[idx],Collection##_mass[idx]);
 #define RANGE(a, b) unsigned a=0; a<b; a++
 
-#define NSV_MAX 21 // for SV_* collection
+#define NSV_MAX 24 // for SV_* collection
 #define NSOFTACTIVITYJET_MAX 21 // for SoftActivityJet_* collection
 #define NLHESCALEWEIGHT_MAX 30 // for LHEScaleWeight_* collection
 #define NCORRT1METJET_MAX 102 // for CorrT1METJet_* collection
 #define NMUON_MAX 90 // for Muon_* collection
 #define NGENJET_MAX 60 // for GenJet_* collection
 #define NPSWEIGHT_MAX 15 // for PSWeight_* collection
+#define NBOOSTEDTAU_MAX 12 // for boostedTau_* collection
 #define NLHEPART_MAX 24 // for LHEPart_* collection
 #define NTAU_MAX 90 // for Tau_* collection
-#define NISOTRACK_MAX 21 // for IsoTrack_* collection
+#define NISOTRACK_MAX 33 // for IsoTrack_* collection
 #define NLHEPDFWEIGHT_MAX 312 // for LHEPdfWeight_* collection
 #define NFSRPHOTON_MAX 9 // for FsrPhoton_* collection
+#define NLOWPTELECTRON_MAX 18 // for LowPtElectron_* collection
 #define NOTHERPV_MAX 12 // for OtherPV_* collection
 #define NTRIGOBJ_MAX 117 // for TrigObj_* collection
 #define NSUBJET_MAX 33 // for SubJet_* collection
@@ -123,6 +125,134 @@ protected:
     bool loaded_CorrT1METJet_rawPt_;
     unsigned int counter_cached_CorrT1METJet_rawPt_;
     unsigned int counter_uncached_CorrT1METJet_rawPt_;
+    float DeepMETResolutionTune_phi_;
+    TBranch *b_DeepMETResolutionTune_phi_;
+    bool loaded_DeepMETResolutionTune_phi_;
+    unsigned int counter_cached_DeepMETResolutionTune_phi_;
+    unsigned int counter_uncached_DeepMETResolutionTune_phi_;
+    float DeepMETResolutionTune_pt_;
+    TBranch *b_DeepMETResolutionTune_pt_;
+    bool loaded_DeepMETResolutionTune_pt_;
+    unsigned int counter_cached_DeepMETResolutionTune_pt_;
+    unsigned int counter_uncached_DeepMETResolutionTune_pt_;
+    float DeepMETResponseTune_phi_;
+    TBranch *b_DeepMETResponseTune_phi_;
+    bool loaded_DeepMETResponseTune_phi_;
+    unsigned int counter_cached_DeepMETResponseTune_phi_;
+    unsigned int counter_uncached_DeepMETResponseTune_phi_;
+    float DeepMETResponseTune_pt_;
+    TBranch *b_DeepMETResponseTune_pt_;
+    bool loaded_DeepMETResponseTune_pt_;
+    unsigned int counter_cached_DeepMETResponseTune_pt_;
+    unsigned int counter_uncached_DeepMETResponseTune_pt_;
+    float Electron_CutBased_LooseID_SF_[NELECTRON_MAX];
+    vector<float> v_Electron_CutBased_LooseID_SF_;
+    TBranch *b_Electron_CutBased_LooseID_SF_;
+    bool loaded_Electron_CutBased_LooseID_SF_;
+    unsigned int counter_cached_Electron_CutBased_LooseID_SF_;
+    unsigned int counter_uncached_Electron_CutBased_LooseID_SF_;
+    float Electron_CutBased_LooseID_SFerr_[NELECTRON_MAX];
+    vector<float> v_Electron_CutBased_LooseID_SFerr_;
+    TBranch *b_Electron_CutBased_LooseID_SFerr_;
+    bool loaded_Electron_CutBased_LooseID_SFerr_;
+    unsigned int counter_cached_Electron_CutBased_LooseID_SFerr_;
+    unsigned int counter_uncached_Electron_CutBased_LooseID_SFerr_;
+    float Electron_CutBased_MediumID_SF_[NELECTRON_MAX];
+    vector<float> v_Electron_CutBased_MediumID_SF_;
+    TBranch *b_Electron_CutBased_MediumID_SF_;
+    bool loaded_Electron_CutBased_MediumID_SF_;
+    unsigned int counter_cached_Electron_CutBased_MediumID_SF_;
+    unsigned int counter_uncached_Electron_CutBased_MediumID_SF_;
+    float Electron_CutBased_MediumID_SFerr_[NELECTRON_MAX];
+    vector<float> v_Electron_CutBased_MediumID_SFerr_;
+    TBranch *b_Electron_CutBased_MediumID_SFerr_;
+    bool loaded_Electron_CutBased_MediumID_SFerr_;
+    unsigned int counter_cached_Electron_CutBased_MediumID_SFerr_;
+    unsigned int counter_uncached_Electron_CutBased_MediumID_SFerr_;
+    float Electron_CutBased_TightID_SF_[NELECTRON_MAX];
+    vector<float> v_Electron_CutBased_TightID_SF_;
+    TBranch *b_Electron_CutBased_TightID_SF_;
+    bool loaded_Electron_CutBased_TightID_SF_;
+    unsigned int counter_cached_Electron_CutBased_TightID_SF_;
+    unsigned int counter_uncached_Electron_CutBased_TightID_SF_;
+    float Electron_CutBased_TightID_SFerr_[NELECTRON_MAX];
+    vector<float> v_Electron_CutBased_TightID_SFerr_;
+    TBranch *b_Electron_CutBased_TightID_SFerr_;
+    bool loaded_Electron_CutBased_TightID_SFerr_;
+    unsigned int counter_cached_Electron_CutBased_TightID_SFerr_;
+    unsigned int counter_uncached_Electron_CutBased_TightID_SFerr_;
+    float Electron_CutBased_VetoID_SF_[NELECTRON_MAX];
+    vector<float> v_Electron_CutBased_VetoID_SF_;
+    TBranch *b_Electron_CutBased_VetoID_SF_;
+    bool loaded_Electron_CutBased_VetoID_SF_;
+    unsigned int counter_cached_Electron_CutBased_VetoID_SF_;
+    unsigned int counter_uncached_Electron_CutBased_VetoID_SF_;
+    float Electron_CutBased_VetoID_SFerr_[NELECTRON_MAX];
+    vector<float> v_Electron_CutBased_VetoID_SFerr_;
+    TBranch *b_Electron_CutBased_VetoID_SFerr_;
+    bool loaded_Electron_CutBased_VetoID_SFerr_;
+    unsigned int counter_cached_Electron_CutBased_VetoID_SFerr_;
+    unsigned int counter_uncached_Electron_CutBased_VetoID_SFerr_;
+    float Electron_MVAFall17V2Iso_WP80_SF_[NELECTRON_MAX];
+    vector<float> v_Electron_MVAFall17V2Iso_WP80_SF_;
+    TBranch *b_Electron_MVAFall17V2Iso_WP80_SF_;
+    bool loaded_Electron_MVAFall17V2Iso_WP80_SF_;
+    unsigned int counter_cached_Electron_MVAFall17V2Iso_WP80_SF_;
+    unsigned int counter_uncached_Electron_MVAFall17V2Iso_WP80_SF_;
+    float Electron_MVAFall17V2Iso_WP80_SFerr_[NELECTRON_MAX];
+    vector<float> v_Electron_MVAFall17V2Iso_WP80_SFerr_;
+    TBranch *b_Electron_MVAFall17V2Iso_WP80_SFerr_;
+    bool loaded_Electron_MVAFall17V2Iso_WP80_SFerr_;
+    unsigned int counter_cached_Electron_MVAFall17V2Iso_WP80_SFerr_;
+    unsigned int counter_uncached_Electron_MVAFall17V2Iso_WP80_SFerr_;
+    float Electron_MVAFall17V2Iso_WP90_SF_[NELECTRON_MAX];
+    vector<float> v_Electron_MVAFall17V2Iso_WP90_SF_;
+    TBranch *b_Electron_MVAFall17V2Iso_WP90_SF_;
+    bool loaded_Electron_MVAFall17V2Iso_WP90_SF_;
+    unsigned int counter_cached_Electron_MVAFall17V2Iso_WP90_SF_;
+    unsigned int counter_uncached_Electron_MVAFall17V2Iso_WP90_SF_;
+    float Electron_MVAFall17V2Iso_WP90_SFerr_[NELECTRON_MAX];
+    vector<float> v_Electron_MVAFall17V2Iso_WP90_SFerr_;
+    TBranch *b_Electron_MVAFall17V2Iso_WP90_SFerr_;
+    bool loaded_Electron_MVAFall17V2Iso_WP90_SFerr_;
+    unsigned int counter_cached_Electron_MVAFall17V2Iso_WP90_SFerr_;
+    unsigned int counter_uncached_Electron_MVAFall17V2Iso_WP90_SFerr_;
+    float Electron_MVAFall17V2noIso_WP80_SF_[NELECTRON_MAX];
+    vector<float> v_Electron_MVAFall17V2noIso_WP80_SF_;
+    TBranch *b_Electron_MVAFall17V2noIso_WP80_SF_;
+    bool loaded_Electron_MVAFall17V2noIso_WP80_SF_;
+    unsigned int counter_cached_Electron_MVAFall17V2noIso_WP80_SF_;
+    unsigned int counter_uncached_Electron_MVAFall17V2noIso_WP80_SF_;
+    float Electron_MVAFall17V2noIso_WP80_SFerr_[NELECTRON_MAX];
+    vector<float> v_Electron_MVAFall17V2noIso_WP80_SFerr_;
+    TBranch *b_Electron_MVAFall17V2noIso_WP80_SFerr_;
+    bool loaded_Electron_MVAFall17V2noIso_WP80_SFerr_;
+    unsigned int counter_cached_Electron_MVAFall17V2noIso_WP80_SFerr_;
+    unsigned int counter_uncached_Electron_MVAFall17V2noIso_WP80_SFerr_;
+    float Electron_MVAFall17V2noIso_WP90_SF_[NELECTRON_MAX];
+    vector<float> v_Electron_MVAFall17V2noIso_WP90_SF_;
+    TBranch *b_Electron_MVAFall17V2noIso_WP90_SF_;
+    bool loaded_Electron_MVAFall17V2noIso_WP90_SF_;
+    unsigned int counter_cached_Electron_MVAFall17V2noIso_WP90_SF_;
+    unsigned int counter_uncached_Electron_MVAFall17V2noIso_WP90_SF_;
+    float Electron_MVAFall17V2noIso_WP90_SFerr_[NELECTRON_MAX];
+    vector<float> v_Electron_MVAFall17V2noIso_WP90_SFerr_;
+    TBranch *b_Electron_MVAFall17V2noIso_WP90_SFerr_;
+    bool loaded_Electron_MVAFall17V2noIso_WP90_SFerr_;
+    unsigned int counter_cached_Electron_MVAFall17V2noIso_WP90_SFerr_;
+    unsigned int counter_uncached_Electron_MVAFall17V2noIso_WP90_SFerr_;
+    float Electron_RECO_SF_[NELECTRON_MAX];
+    vector<float> v_Electron_RECO_SF_;
+    TBranch *b_Electron_RECO_SF_;
+    bool loaded_Electron_RECO_SF_;
+    unsigned int counter_cached_Electron_RECO_SF_;
+    unsigned int counter_uncached_Electron_RECO_SF_;
+    float Electron_RECO_SFerr_[NELECTRON_MAX];
+    vector<float> v_Electron_RECO_SFerr_;
+    TBranch *b_Electron_RECO_SFerr_;
+    bool loaded_Electron_RECO_SFerr_;
+    unsigned int counter_cached_Electron_RECO_SFerr_;
+    unsigned int counter_uncached_Electron_RECO_SFerr_;
     int Electron_charge_[NELECTRON_MAX];
     vector<int> v_Electron_charge_;
     TBranch *b_Electron_charge_;
@@ -177,6 +307,30 @@ protected:
     bool loaded_Electron_cutBased_Sum16_;
     unsigned int counter_cached_Electron_cutBased_Sum16_;
     unsigned int counter_uncached_Electron_cutBased_Sum16_;
+    float Electron_dEscaleDown_[NELECTRON_MAX];
+    vector<float> v_Electron_dEscaleDown_;
+    TBranch *b_Electron_dEscaleDown_;
+    bool loaded_Electron_dEscaleDown_;
+    unsigned int counter_cached_Electron_dEscaleDown_;
+    unsigned int counter_uncached_Electron_dEscaleDown_;
+    float Electron_dEscaleUp_[NELECTRON_MAX];
+    vector<float> v_Electron_dEscaleUp_;
+    TBranch *b_Electron_dEscaleUp_;
+    bool loaded_Electron_dEscaleUp_;
+    unsigned int counter_cached_Electron_dEscaleUp_;
+    unsigned int counter_uncached_Electron_dEscaleUp_;
+    float Electron_dEsigmaDown_[NELECTRON_MAX];
+    vector<float> v_Electron_dEsigmaDown_;
+    TBranch *b_Electron_dEsigmaDown_;
+    bool loaded_Electron_dEsigmaDown_;
+    unsigned int counter_cached_Electron_dEsigmaDown_;
+    unsigned int counter_uncached_Electron_dEsigmaDown_;
+    float Electron_dEsigmaUp_[NELECTRON_MAX];
+    vector<float> v_Electron_dEsigmaUp_;
+    TBranch *b_Electron_dEsigmaUp_;
+    bool loaded_Electron_dEsigmaUp_;
+    unsigned int counter_cached_Electron_dEsigmaUp_;
+    unsigned int counter_uncached_Electron_dEsigmaUp_;
     float Electron_deltaEtaSC_[NELECTRON_MAX];
     vector<float> v_Electron_deltaEtaSC_;
     TBranch *b_Electron_deltaEtaSC_;
@@ -291,6 +445,12 @@ protected:
     bool loaded_Electron_jetIdx_;
     unsigned int counter_cached_Electron_jetIdx_;
     unsigned int counter_uncached_Electron_jetIdx_;
+    UChar_t Electron_jetNDauCharged_[NELECTRON_MAX];
+    vector<UChar_t> v_Electron_jetNDauCharged_;
+    TBranch *b_Electron_jetNDauCharged_;
+    bool loaded_Electron_jetNDauCharged_;
+    unsigned int counter_cached_Electron_jetNDauCharged_;
+    unsigned int counter_uncached_Electron_jetNDauCharged_;
     float Electron_jetPtRelv2_[NELECTRON_MAX];
     vector<float> v_Electron_jetPtRelv2_;
     TBranch *b_Electron_jetPtRelv2_;
@@ -584,6 +744,12 @@ protected:
     bool loaded_FatJet_btagDDBvL_;
     unsigned int counter_cached_FatJet_btagDDBvL_;
     unsigned int counter_uncached_FatJet_btagDDBvL_;
+    float FatJet_btagDDBvLV2_[NFATJET_MAX];
+    vector<float> v_FatJet_btagDDBvLV2_;
+    TBranch *b_FatJet_btagDDBvLV2_;
+    bool loaded_FatJet_btagDDBvLV2_;
+    unsigned int counter_cached_FatJet_btagDDBvLV2_;
+    unsigned int counter_uncached_FatJet_btagDDBvLV2_;
     float FatJet_btagDDBvL_noMD_[NFATJET_MAX];
     vector<float> v_FatJet_btagDDBvL_noMD_;
     TBranch *b_FatJet_btagDDBvL_noMD_;
@@ -596,6 +762,12 @@ protected:
     bool loaded_FatJet_btagDDCvB_;
     unsigned int counter_cached_FatJet_btagDDCvB_;
     unsigned int counter_uncached_FatJet_btagDDCvB_;
+    float FatJet_btagDDCvBV2_[NFATJET_MAX];
+    vector<float> v_FatJet_btagDDCvBV2_;
+    TBranch *b_FatJet_btagDDCvBV2_;
+    bool loaded_FatJet_btagDDCvBV2_;
+    unsigned int counter_cached_FatJet_btagDDCvBV2_;
+    unsigned int counter_uncached_FatJet_btagDDCvBV2_;
     float FatJet_btagDDCvB_noMD_[NFATJET_MAX];
     vector<float> v_FatJet_btagDDCvB_noMD_;
     TBranch *b_FatJet_btagDDCvB_noMD_;
@@ -608,6 +780,12 @@ protected:
     bool loaded_FatJet_btagDDCvL_;
     unsigned int counter_cached_FatJet_btagDDCvL_;
     unsigned int counter_uncached_FatJet_btagDDCvL_;
+    float FatJet_btagDDCvLV2_[NFATJET_MAX];
+    vector<float> v_FatJet_btagDDCvLV2_;
+    TBranch *b_FatJet_btagDDCvLV2_;
+    bool loaded_FatJet_btagDDCvLV2_;
+    unsigned int counter_cached_FatJet_btagDDCvLV2_;
+    unsigned int counter_uncached_FatJet_btagDDCvLV2_;
     float FatJet_btagDDCvL_noMD_[NFATJET_MAX];
     vector<float> v_FatJet_btagDDCvL_noMD_;
     TBranch *b_FatJet_btagDDCvL_noMD_;
@@ -626,6 +804,30 @@ protected:
     bool loaded_FatJet_btagHbb_;
     unsigned int counter_cached_FatJet_btagHbb_;
     unsigned int counter_uncached_FatJet_btagHbb_;
+    float FatJet_corr_JEC_[NFATJET_MAX];
+    vector<float> v_FatJet_corr_JEC_;
+    TBranch *b_FatJet_corr_JEC_;
+    bool loaded_FatJet_corr_JEC_;
+    unsigned int counter_cached_FatJet_corr_JEC_;
+    unsigned int counter_uncached_FatJet_corr_JEC_;
+    float FatJet_corr_JER_[NFATJET_MAX];
+    vector<float> v_FatJet_corr_JER_;
+    TBranch *b_FatJet_corr_JER_;
+    bool loaded_FatJet_corr_JER_;
+    unsigned int counter_cached_FatJet_corr_JER_;
+    unsigned int counter_uncached_FatJet_corr_JER_;
+    float FatJet_corr_JMR_[NFATJET_MAX];
+    vector<float> v_FatJet_corr_JMR_;
+    TBranch *b_FatJet_corr_JMR_;
+    bool loaded_FatJet_corr_JMR_;
+    unsigned int counter_cached_FatJet_corr_JMR_;
+    unsigned int counter_uncached_FatJet_corr_JMR_;
+    float FatJet_corr_JMS_[NFATJET_MAX];
+    vector<float> v_FatJet_corr_JMS_;
+    TBranch *b_FatJet_corr_JMS_;
+    bool loaded_FatJet_corr_JMS_;
+    unsigned int counter_cached_FatJet_corr_JMS_;
+    unsigned int counter_uncached_FatJet_corr_JMS_;
     float FatJet_deepTagMD_H4qvsQCD_[NFATJET_MAX];
     vector<float> v_FatJet_deepTagMD_H4qvsQCD_;
     TBranch *b_FatJet_deepTagMD_H4qvsQCD_;
@@ -764,12 +966,192 @@ protected:
     bool loaded_FatJet_mass_;
     unsigned int counter_cached_FatJet_mass_;
     unsigned int counter_uncached_FatJet_mass_;
+    float FatJet_mass_jerDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jerDown_;
+    TBranch *b_FatJet_mass_jerDown_;
+    bool loaded_FatJet_mass_jerDown_;
+    unsigned int counter_cached_FatJet_mass_jerDown_;
+    unsigned int counter_uncached_FatJet_mass_jerDown_;
+    float FatJet_mass_jerUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jerUp_;
+    TBranch *b_FatJet_mass_jerUp_;
+    bool loaded_FatJet_mass_jerUp_;
+    unsigned int counter_cached_FatJet_mass_jerUp_;
+    unsigned int counter_uncached_FatJet_mass_jerUp_;
+    float FatJet_mass_jesTotalDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesTotalDown_;
+    TBranch *b_FatJet_mass_jesTotalDown_;
+    bool loaded_FatJet_mass_jesTotalDown_;
+    unsigned int counter_cached_FatJet_mass_jesTotalDown_;
+    unsigned int counter_uncached_FatJet_mass_jesTotalDown_;
+    float FatJet_mass_jesTotalUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesTotalUp_;
+    TBranch *b_FatJet_mass_jesTotalUp_;
+    bool loaded_FatJet_mass_jesTotalUp_;
+    unsigned int counter_cached_FatJet_mass_jesTotalUp_;
+    unsigned int counter_uncached_FatJet_mass_jesTotalUp_;
+    float FatJet_mass_jmrDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jmrDown_;
+    TBranch *b_FatJet_mass_jmrDown_;
+    bool loaded_FatJet_mass_jmrDown_;
+    unsigned int counter_cached_FatJet_mass_jmrDown_;
+    unsigned int counter_uncached_FatJet_mass_jmrDown_;
+    float FatJet_mass_jmrUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jmrUp_;
+    TBranch *b_FatJet_mass_jmrUp_;
+    bool loaded_FatJet_mass_jmrUp_;
+    unsigned int counter_cached_FatJet_mass_jmrUp_;
+    unsigned int counter_uncached_FatJet_mass_jmrUp_;
+    float FatJet_mass_jmsDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jmsDown_;
+    TBranch *b_FatJet_mass_jmsDown_;
+    bool loaded_FatJet_mass_jmsDown_;
+    unsigned int counter_cached_FatJet_mass_jmsDown_;
+    unsigned int counter_uncached_FatJet_mass_jmsDown_;
+    float FatJet_mass_jmsUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jmsUp_;
+    TBranch *b_FatJet_mass_jmsUp_;
+    bool loaded_FatJet_mass_jmsUp_;
+    unsigned int counter_cached_FatJet_mass_jmsUp_;
+    unsigned int counter_uncached_FatJet_mass_jmsUp_;
+    float FatJet_mass_nom_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_nom_;
+    TBranch *b_FatJet_mass_nom_;
+    bool loaded_FatJet_mass_nom_;
+    unsigned int counter_cached_FatJet_mass_nom_;
+    unsigned int counter_uncached_FatJet_mass_nom_;
+    float FatJet_mass_raw_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_raw_;
+    TBranch *b_FatJet_mass_raw_;
+    bool loaded_FatJet_mass_raw_;
+    unsigned int counter_cached_FatJet_mass_raw_;
+    unsigned int counter_uncached_FatJet_mass_raw_;
     float FatJet_msoftdrop_[NFATJET_MAX];
     vector<float> v_FatJet_msoftdrop_;
     TBranch *b_FatJet_msoftdrop_;
     bool loaded_FatJet_msoftdrop_;
     unsigned int counter_cached_FatJet_msoftdrop_;
     unsigned int counter_uncached_FatJet_msoftdrop_;
+    float FatJet_msoftdrop_corr_JMR_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_corr_JMR_;
+    TBranch *b_FatJet_msoftdrop_corr_JMR_;
+    bool loaded_FatJet_msoftdrop_corr_JMR_;
+    unsigned int counter_cached_FatJet_msoftdrop_corr_JMR_;
+    unsigned int counter_uncached_FatJet_msoftdrop_corr_JMR_;
+    float FatJet_msoftdrop_corr_JMS_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_corr_JMS_;
+    TBranch *b_FatJet_msoftdrop_corr_JMS_;
+    bool loaded_FatJet_msoftdrop_corr_JMS_;
+    unsigned int counter_cached_FatJet_msoftdrop_corr_JMS_;
+    unsigned int counter_uncached_FatJet_msoftdrop_corr_JMS_;
+    float FatJet_msoftdrop_corr_PUPPI_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_corr_PUPPI_;
+    TBranch *b_FatJet_msoftdrop_corr_PUPPI_;
+    bool loaded_FatJet_msoftdrop_corr_PUPPI_;
+    unsigned int counter_cached_FatJet_msoftdrop_corr_PUPPI_;
+    unsigned int counter_uncached_FatJet_msoftdrop_corr_PUPPI_;
+    float FatJet_msoftdrop_jerDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jerDown_;
+    TBranch *b_FatJet_msoftdrop_jerDown_;
+    bool loaded_FatJet_msoftdrop_jerDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jerDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jerDown_;
+    float FatJet_msoftdrop_jerUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jerUp_;
+    TBranch *b_FatJet_msoftdrop_jerUp_;
+    bool loaded_FatJet_msoftdrop_jerUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jerUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jerUp_;
+    float FatJet_msoftdrop_jesTotalDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesTotalDown_;
+    TBranch *b_FatJet_msoftdrop_jesTotalDown_;
+    bool loaded_FatJet_msoftdrop_jesTotalDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesTotalDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesTotalDown_;
+    float FatJet_msoftdrop_jesTotalUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesTotalUp_;
+    TBranch *b_FatJet_msoftdrop_jesTotalUp_;
+    bool loaded_FatJet_msoftdrop_jesTotalUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesTotalUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesTotalUp_;
+    float FatJet_msoftdrop_jmrDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jmrDown_;
+    TBranch *b_FatJet_msoftdrop_jmrDown_;
+    bool loaded_FatJet_msoftdrop_jmrDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jmrDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jmrDown_;
+    float FatJet_msoftdrop_jmrUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jmrUp_;
+    TBranch *b_FatJet_msoftdrop_jmrUp_;
+    bool loaded_FatJet_msoftdrop_jmrUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jmrUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jmrUp_;
+    float FatJet_msoftdrop_jmsDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jmsDown_;
+    TBranch *b_FatJet_msoftdrop_jmsDown_;
+    bool loaded_FatJet_msoftdrop_jmsDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jmsDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jmsDown_;
+    float FatJet_msoftdrop_jmsUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jmsUp_;
+    TBranch *b_FatJet_msoftdrop_jmsUp_;
+    bool loaded_FatJet_msoftdrop_jmsUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jmsUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jmsUp_;
+    float FatJet_msoftdrop_nom_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_nom_;
+    TBranch *b_FatJet_msoftdrop_nom_;
+    bool loaded_FatJet_msoftdrop_nom_;
+    unsigned int counter_cached_FatJet_msoftdrop_nom_;
+    unsigned int counter_uncached_FatJet_msoftdrop_nom_;
+    float FatJet_msoftdrop_raw_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_raw_;
+    TBranch *b_FatJet_msoftdrop_raw_;
+    bool loaded_FatJet_msoftdrop_raw_;
+    unsigned int counter_cached_FatJet_msoftdrop_raw_;
+    unsigned int counter_uncached_FatJet_msoftdrop_raw_;
+    float FatJet_msoftdrop_tau21DDT_jerDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_tau21DDT_jerDown_;
+    TBranch *b_FatJet_msoftdrop_tau21DDT_jerDown_;
+    bool loaded_FatJet_msoftdrop_tau21DDT_jerDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_tau21DDT_jerDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_tau21DDT_jerDown_;
+    float FatJet_msoftdrop_tau21DDT_jerUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_tau21DDT_jerUp_;
+    TBranch *b_FatJet_msoftdrop_tau21DDT_jerUp_;
+    bool loaded_FatJet_msoftdrop_tau21DDT_jerUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_tau21DDT_jerUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_tau21DDT_jerUp_;
+    float FatJet_msoftdrop_tau21DDT_jmrDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_tau21DDT_jmrDown_;
+    TBranch *b_FatJet_msoftdrop_tau21DDT_jmrDown_;
+    bool loaded_FatJet_msoftdrop_tau21DDT_jmrDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_tau21DDT_jmrDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_tau21DDT_jmrDown_;
+    float FatJet_msoftdrop_tau21DDT_jmrUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_tau21DDT_jmrUp_;
+    TBranch *b_FatJet_msoftdrop_tau21DDT_jmrUp_;
+    bool loaded_FatJet_msoftdrop_tau21DDT_jmrUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_tau21DDT_jmrUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_tau21DDT_jmrUp_;
+    float FatJet_msoftdrop_tau21DDT_jmsDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_tau21DDT_jmsDown_;
+    TBranch *b_FatJet_msoftdrop_tau21DDT_jmsDown_;
+    bool loaded_FatJet_msoftdrop_tau21DDT_jmsDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_tau21DDT_jmsDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_tau21DDT_jmsDown_;
+    float FatJet_msoftdrop_tau21DDT_jmsUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_tau21DDT_jmsUp_;
+    TBranch *b_FatJet_msoftdrop_tau21DDT_jmsUp_;
+    bool loaded_FatJet_msoftdrop_tau21DDT_jmsUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_tau21DDT_jmsUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_tau21DDT_jmsUp_;
+    float FatJet_msoftdrop_tau21DDT_nom_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_tau21DDT_nom_;
+    TBranch *b_FatJet_msoftdrop_tau21DDT_nom_;
+    bool loaded_FatJet_msoftdrop_tau21DDT_nom_;
+    unsigned int counter_cached_FatJet_msoftdrop_tau21DDT_nom_;
+    unsigned int counter_uncached_FatJet_msoftdrop_tau21DDT_nom_;
     int FatJet_muonIdx3SJ_[NFATJET_MAX];
     vector<int> v_FatJet_muonIdx3SJ_;
     TBranch *b_FatJet_muonIdx3SJ_;
@@ -800,11 +1182,89 @@ protected:
     bool loaded_FatJet_nCHadrons_;
     unsigned int counter_cached_FatJet_nCHadrons_;
     unsigned int counter_uncached_FatJet_nCHadrons_;
+    UChar_t FatJet_nConstituents_[NFATJET_MAX];
+    vector<UChar_t> v_FatJet_nConstituents_;
+    TBranch *b_FatJet_nConstituents_;
+    bool loaded_FatJet_nConstituents_;
+    unsigned int counter_cached_FatJet_nConstituents_;
+    unsigned int counter_uncached_FatJet_nConstituents_;
     vector<LorentzVector> v_FatJet_p4_;
     TBranch *b_FatJet_p4_;
     bool loaded_FatJet_p4_;
     unsigned int counter_cached_FatJet_p4_;
     unsigned int counter_uncached_FatJet_p4_;
+    float FatJet_particleNetMD_QCD_[NFATJET_MAX];
+    vector<float> v_FatJet_particleNetMD_QCD_;
+    TBranch *b_FatJet_particleNetMD_QCD_;
+    bool loaded_FatJet_particleNetMD_QCD_;
+    unsigned int counter_cached_FatJet_particleNetMD_QCD_;
+    unsigned int counter_uncached_FatJet_particleNetMD_QCD_;
+    float FatJet_particleNetMD_Xbb_[NFATJET_MAX];
+    vector<float> v_FatJet_particleNetMD_Xbb_;
+    TBranch *b_FatJet_particleNetMD_Xbb_;
+    bool loaded_FatJet_particleNetMD_Xbb_;
+    unsigned int counter_cached_FatJet_particleNetMD_Xbb_;
+    unsigned int counter_uncached_FatJet_particleNetMD_Xbb_;
+    float FatJet_particleNetMD_Xcc_[NFATJET_MAX];
+    vector<float> v_FatJet_particleNetMD_Xcc_;
+    TBranch *b_FatJet_particleNetMD_Xcc_;
+    bool loaded_FatJet_particleNetMD_Xcc_;
+    unsigned int counter_cached_FatJet_particleNetMD_Xcc_;
+    unsigned int counter_uncached_FatJet_particleNetMD_Xcc_;
+    float FatJet_particleNetMD_Xqq_[NFATJET_MAX];
+    vector<float> v_FatJet_particleNetMD_Xqq_;
+    TBranch *b_FatJet_particleNetMD_Xqq_;
+    bool loaded_FatJet_particleNetMD_Xqq_;
+    unsigned int counter_cached_FatJet_particleNetMD_Xqq_;
+    unsigned int counter_uncached_FatJet_particleNetMD_Xqq_;
+    float FatJet_particleNet_H4qvsQCD_[NFATJET_MAX];
+    vector<float> v_FatJet_particleNet_H4qvsQCD_;
+    TBranch *b_FatJet_particleNet_H4qvsQCD_;
+    bool loaded_FatJet_particleNet_H4qvsQCD_;
+    unsigned int counter_cached_FatJet_particleNet_H4qvsQCD_;
+    unsigned int counter_uncached_FatJet_particleNet_H4qvsQCD_;
+    float FatJet_particleNet_HbbvsQCD_[NFATJET_MAX];
+    vector<float> v_FatJet_particleNet_HbbvsQCD_;
+    TBranch *b_FatJet_particleNet_HbbvsQCD_;
+    bool loaded_FatJet_particleNet_HbbvsQCD_;
+    unsigned int counter_cached_FatJet_particleNet_HbbvsQCD_;
+    unsigned int counter_uncached_FatJet_particleNet_HbbvsQCD_;
+    float FatJet_particleNet_HccvsQCD_[NFATJET_MAX];
+    vector<float> v_FatJet_particleNet_HccvsQCD_;
+    TBranch *b_FatJet_particleNet_HccvsQCD_;
+    bool loaded_FatJet_particleNet_HccvsQCD_;
+    unsigned int counter_cached_FatJet_particleNet_HccvsQCD_;
+    unsigned int counter_uncached_FatJet_particleNet_HccvsQCD_;
+    float FatJet_particleNet_QCD_[NFATJET_MAX];
+    vector<float> v_FatJet_particleNet_QCD_;
+    TBranch *b_FatJet_particleNet_QCD_;
+    bool loaded_FatJet_particleNet_QCD_;
+    unsigned int counter_cached_FatJet_particleNet_QCD_;
+    unsigned int counter_uncached_FatJet_particleNet_QCD_;
+    float FatJet_particleNet_TvsQCD_[NFATJET_MAX];
+    vector<float> v_FatJet_particleNet_TvsQCD_;
+    TBranch *b_FatJet_particleNet_TvsQCD_;
+    bool loaded_FatJet_particleNet_TvsQCD_;
+    unsigned int counter_cached_FatJet_particleNet_TvsQCD_;
+    unsigned int counter_uncached_FatJet_particleNet_TvsQCD_;
+    float FatJet_particleNet_WvsQCD_[NFATJET_MAX];
+    vector<float> v_FatJet_particleNet_WvsQCD_;
+    TBranch *b_FatJet_particleNet_WvsQCD_;
+    bool loaded_FatJet_particleNet_WvsQCD_;
+    unsigned int counter_cached_FatJet_particleNet_WvsQCD_;
+    unsigned int counter_uncached_FatJet_particleNet_WvsQCD_;
+    float FatJet_particleNet_ZvsQCD_[NFATJET_MAX];
+    vector<float> v_FatJet_particleNet_ZvsQCD_;
+    TBranch *b_FatJet_particleNet_ZvsQCD_;
+    bool loaded_FatJet_particleNet_ZvsQCD_;
+    unsigned int counter_cached_FatJet_particleNet_ZvsQCD_;
+    unsigned int counter_uncached_FatJet_particleNet_ZvsQCD_;
+    float FatJet_particleNet_mass_[NFATJET_MAX];
+    vector<float> v_FatJet_particleNet_mass_;
+    TBranch *b_FatJet_particleNet_mass_;
+    bool loaded_FatJet_particleNet_mass_;
+    unsigned int counter_cached_FatJet_particleNet_mass_;
+    unsigned int counter_uncached_FatJet_particleNet_mass_;
     float FatJet_phi_[NFATJET_MAX];
     vector<float> v_FatJet_phi_;
     TBranch *b_FatJet_phi_;
@@ -817,6 +1277,42 @@ protected:
     bool loaded_FatJet_pt_;
     unsigned int counter_cached_FatJet_pt_;
     unsigned int counter_uncached_FatJet_pt_;
+    float FatJet_pt_jerDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jerDown_;
+    TBranch *b_FatJet_pt_jerDown_;
+    bool loaded_FatJet_pt_jerDown_;
+    unsigned int counter_cached_FatJet_pt_jerDown_;
+    unsigned int counter_uncached_FatJet_pt_jerDown_;
+    float FatJet_pt_jerUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jerUp_;
+    TBranch *b_FatJet_pt_jerUp_;
+    bool loaded_FatJet_pt_jerUp_;
+    unsigned int counter_cached_FatJet_pt_jerUp_;
+    unsigned int counter_uncached_FatJet_pt_jerUp_;
+    float FatJet_pt_jesTotalDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesTotalDown_;
+    TBranch *b_FatJet_pt_jesTotalDown_;
+    bool loaded_FatJet_pt_jesTotalDown_;
+    unsigned int counter_cached_FatJet_pt_jesTotalDown_;
+    unsigned int counter_uncached_FatJet_pt_jesTotalDown_;
+    float FatJet_pt_jesTotalUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesTotalUp_;
+    TBranch *b_FatJet_pt_jesTotalUp_;
+    bool loaded_FatJet_pt_jesTotalUp_;
+    unsigned int counter_cached_FatJet_pt_jesTotalUp_;
+    unsigned int counter_uncached_FatJet_pt_jesTotalUp_;
+    float FatJet_pt_nom_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_nom_;
+    TBranch *b_FatJet_pt_nom_;
+    bool loaded_FatJet_pt_nom_;
+    unsigned int counter_cached_FatJet_pt_nom_;
+    unsigned int counter_uncached_FatJet_pt_nom_;
+    float FatJet_pt_raw_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_raw_;
+    TBranch *b_FatJet_pt_raw_;
+    bool loaded_FatJet_pt_raw_;
+    unsigned int counter_cached_FatJet_pt_raw_;
+    unsigned int counter_uncached_FatJet_pt_raw_;
     float FatJet_rawFactor_[NFATJET_MAX];
     vector<float> v_FatJet_rawFactor_;
     TBranch *b_FatJet_rawFactor_;
@@ -869,6 +1365,11 @@ protected:
     bool loaded_Flag_BadChargedCandidateSummer16Filter_;
     unsigned int counter_cached_Flag_BadChargedCandidateSummer16Filter_;
     unsigned int counter_uncached_Flag_BadChargedCandidateSummer16Filter_;
+    bool Flag_BadPFMuonDzFilter_;
+    TBranch *b_Flag_BadPFMuonDzFilter_;
+    bool loaded_Flag_BadPFMuonDzFilter_;
+    unsigned int counter_cached_Flag_BadPFMuonDzFilter_;
+    unsigned int counter_uncached_Flag_BadPFMuonDzFilter_;
     bool Flag_BadPFMuonFilter_;
     TBranch *b_Flag_BadPFMuonFilter_;
     bool loaded_Flag_BadPFMuonFilter_;
@@ -969,6 +1470,11 @@ protected:
     bool loaded_Flag_hcalLaserEventFilter_;
     unsigned int counter_cached_Flag_hcalLaserEventFilter_;
     unsigned int counter_uncached_Flag_hcalLaserEventFilter_;
+    bool Flag_hfNoisyHitsFilter_;
+    TBranch *b_Flag_hfNoisyHitsFilter_;
+    bool loaded_Flag_hfNoisyHitsFilter_;
+    unsigned int counter_cached_Flag_hfNoisyHitsFilter_;
+    unsigned int counter_uncached_Flag_hfNoisyHitsFilter_;
     bool Flag_muonBadTrackFilter_;
     TBranch *b_Flag_muonBadTrackFilter_;
     bool loaded_Flag_muonBadTrackFilter_;
@@ -1292,6 +1798,26 @@ protected:
     bool loaded_GenVisTau_status_;
     unsigned int counter_cached_GenVisTau_status_;
     unsigned int counter_uncached_GenVisTau_status_;
+    float GenVtx_t0_;
+    TBranch *b_GenVtx_t0_;
+    bool loaded_GenVtx_t0_;
+    unsigned int counter_cached_GenVtx_t0_;
+    unsigned int counter_uncached_GenVtx_t0_;
+    float GenVtx_x_;
+    TBranch *b_GenVtx_x_;
+    bool loaded_GenVtx_x_;
+    unsigned int counter_cached_GenVtx_x_;
+    unsigned int counter_uncached_GenVtx_x_;
+    float GenVtx_y_;
+    TBranch *b_GenVtx_y_;
+    bool loaded_GenVtx_y_;
+    unsigned int counter_cached_GenVtx_y_;
+    unsigned int counter_uncached_GenVtx_y_;
+    float GenVtx_z_;
+    TBranch *b_GenVtx_z_;
+    bool loaded_GenVtx_z_;
+    unsigned int counter_cached_GenVtx_z_;
+    unsigned int counter_uncached_GenVtx_z_;
     float Generator_binvar_;
     TBranch *b_Generator_binvar_;
     bool loaded_Generator_binvar_;
@@ -7467,6 +7993,12 @@ protected:
     bool loaded_HTXS_stage_1_pTjet30_;
     unsigned int counter_cached_HTXS_stage_1_pTjet30_;
     unsigned int counter_uncached_HTXS_stage_1_pTjet30_;
+    int IsoTrack_charge_[NISOTRACK_MAX];
+    vector<int> v_IsoTrack_charge_;
+    TBranch *b_IsoTrack_charge_;
+    bool loaded_IsoTrack_charge_;
+    unsigned int counter_cached_IsoTrack_charge_;
+    unsigned int counter_uncached_IsoTrack_charge_;
     float IsoTrack_dxy_[NISOTRACK_MAX];
     vector<float> v_IsoTrack_dxy_;
     TBranch *b_IsoTrack_dxy_;
@@ -7593,6 +8125,18 @@ protected:
     bool loaded_Jet_btagDeepC_;
     unsigned int counter_cached_Jet_btagDeepC_;
     unsigned int counter_uncached_Jet_btagDeepC_;
+    float Jet_btagDeepCvB_[NJET_MAX];
+    vector<float> v_Jet_btagDeepCvB_;
+    TBranch *b_Jet_btagDeepCvB_;
+    bool loaded_Jet_btagDeepCvB_;
+    unsigned int counter_cached_Jet_btagDeepCvB_;
+    unsigned int counter_uncached_Jet_btagDeepCvB_;
+    float Jet_btagDeepCvL_[NJET_MAX];
+    vector<float> v_Jet_btagDeepCvL_;
+    TBranch *b_Jet_btagDeepCvL_;
+    bool loaded_Jet_btagDeepCvL_;
+    unsigned int counter_cached_Jet_btagDeepCvL_;
+    unsigned int counter_uncached_Jet_btagDeepCvL_;
     float Jet_btagDeepFlavB_[NJET_MAX];
     vector<float> v_Jet_btagDeepFlavB_;
     TBranch *b_Jet_btagDeepFlavB_;
@@ -7605,6 +8149,24 @@ protected:
     bool loaded_Jet_btagDeepFlavC_;
     unsigned int counter_cached_Jet_btagDeepFlavC_;
     unsigned int counter_uncached_Jet_btagDeepFlavC_;
+    float Jet_btagDeepFlavCvB_[NJET_MAX];
+    vector<float> v_Jet_btagDeepFlavCvB_;
+    TBranch *b_Jet_btagDeepFlavCvB_;
+    bool loaded_Jet_btagDeepFlavCvB_;
+    unsigned int counter_cached_Jet_btagDeepFlavCvB_;
+    unsigned int counter_uncached_Jet_btagDeepFlavCvB_;
+    float Jet_btagDeepFlavCvL_[NJET_MAX];
+    vector<float> v_Jet_btagDeepFlavCvL_;
+    TBranch *b_Jet_btagDeepFlavCvL_;
+    bool loaded_Jet_btagDeepFlavCvL_;
+    unsigned int counter_cached_Jet_btagDeepFlavCvL_;
+    unsigned int counter_uncached_Jet_btagDeepFlavCvL_;
+    float Jet_btagDeepFlavQG_[NJET_MAX];
+    vector<float> v_Jet_btagDeepFlavQG_;
+    TBranch *b_Jet_btagDeepFlavQG_;
+    bool loaded_Jet_btagDeepFlavQG_;
+    unsigned int counter_cached_Jet_btagDeepFlavQG_;
+    unsigned int counter_uncached_Jet_btagDeepFlavQG_;
     float Jet_cRegCorr_[NJET_MAX];
     vector<float> v_Jet_cRegCorr_;
     TBranch *b_Jet_cRegCorr_;
@@ -7689,6 +8251,30 @@ protected:
     bool loaded_Jet_hadronFlavour_;
     unsigned int counter_cached_Jet_hadronFlavour_;
     unsigned int counter_uncached_Jet_hadronFlavour_;
+    int Jet_hfadjacentEtaStripsSize_[NJET_MAX];
+    vector<int> v_Jet_hfadjacentEtaStripsSize_;
+    TBranch *b_Jet_hfadjacentEtaStripsSize_;
+    bool loaded_Jet_hfadjacentEtaStripsSize_;
+    unsigned int counter_cached_Jet_hfadjacentEtaStripsSize_;
+    unsigned int counter_uncached_Jet_hfadjacentEtaStripsSize_;
+    int Jet_hfcentralEtaStripSize_[NJET_MAX];
+    vector<int> v_Jet_hfcentralEtaStripSize_;
+    TBranch *b_Jet_hfcentralEtaStripSize_;
+    bool loaded_Jet_hfcentralEtaStripSize_;
+    unsigned int counter_cached_Jet_hfcentralEtaStripSize_;
+    unsigned int counter_uncached_Jet_hfcentralEtaStripSize_;
+    float Jet_hfsigmaEtaEta_[NJET_MAX];
+    vector<float> v_Jet_hfsigmaEtaEta_;
+    TBranch *b_Jet_hfsigmaEtaEta_;
+    bool loaded_Jet_hfsigmaEtaEta_;
+    unsigned int counter_cached_Jet_hfsigmaEtaEta_;
+    unsigned int counter_uncached_Jet_hfsigmaEtaEta_;
+    float Jet_hfsigmaPhiPhi_[NJET_MAX];
+    vector<float> v_Jet_hfsigmaPhiPhi_;
+    TBranch *b_Jet_hfsigmaPhiPhi_;
+    bool loaded_Jet_hfsigmaPhiPhi_;
+    unsigned int counter_cached_Jet_hfsigmaPhiPhi_;
+    unsigned int counter_uncached_Jet_hfsigmaPhiPhi_;
     int Jet_jetId_[NJET_MAX];
     vector<int> v_Jet_jetId_;
     TBranch *b_Jet_jetId_;
@@ -7807,6 +8393,46 @@ protected:
     bool loaded_L1PreFiringWeight_Dn_;
     unsigned int counter_cached_L1PreFiringWeight_Dn_;
     unsigned int counter_uncached_L1PreFiringWeight_Dn_;
+    float L1PreFiringWeight_ECAL_Dn_;
+    TBranch *b_L1PreFiringWeight_ECAL_Dn_;
+    bool loaded_L1PreFiringWeight_ECAL_Dn_;
+    unsigned int counter_cached_L1PreFiringWeight_ECAL_Dn_;
+    unsigned int counter_uncached_L1PreFiringWeight_ECAL_Dn_;
+    float L1PreFiringWeight_ECAL_Nom_;
+    TBranch *b_L1PreFiringWeight_ECAL_Nom_;
+    bool loaded_L1PreFiringWeight_ECAL_Nom_;
+    unsigned int counter_cached_L1PreFiringWeight_ECAL_Nom_;
+    unsigned int counter_uncached_L1PreFiringWeight_ECAL_Nom_;
+    float L1PreFiringWeight_ECAL_Up_;
+    TBranch *b_L1PreFiringWeight_ECAL_Up_;
+    bool loaded_L1PreFiringWeight_ECAL_Up_;
+    unsigned int counter_cached_L1PreFiringWeight_ECAL_Up_;
+    unsigned int counter_uncached_L1PreFiringWeight_ECAL_Up_;
+    float L1PreFiringWeight_Muon_Nom_;
+    TBranch *b_L1PreFiringWeight_Muon_Nom_;
+    bool loaded_L1PreFiringWeight_Muon_Nom_;
+    unsigned int counter_cached_L1PreFiringWeight_Muon_Nom_;
+    unsigned int counter_uncached_L1PreFiringWeight_Muon_Nom_;
+    float L1PreFiringWeight_Muon_StatDn_;
+    TBranch *b_L1PreFiringWeight_Muon_StatDn_;
+    bool loaded_L1PreFiringWeight_Muon_StatDn_;
+    unsigned int counter_cached_L1PreFiringWeight_Muon_StatDn_;
+    unsigned int counter_uncached_L1PreFiringWeight_Muon_StatDn_;
+    float L1PreFiringWeight_Muon_StatUp_;
+    TBranch *b_L1PreFiringWeight_Muon_StatUp_;
+    bool loaded_L1PreFiringWeight_Muon_StatUp_;
+    unsigned int counter_cached_L1PreFiringWeight_Muon_StatUp_;
+    unsigned int counter_uncached_L1PreFiringWeight_Muon_StatUp_;
+    float L1PreFiringWeight_Muon_SystDn_;
+    TBranch *b_L1PreFiringWeight_Muon_SystDn_;
+    bool loaded_L1PreFiringWeight_Muon_SystDn_;
+    unsigned int counter_cached_L1PreFiringWeight_Muon_SystDn_;
+    unsigned int counter_uncached_L1PreFiringWeight_Muon_SystDn_;
+    float L1PreFiringWeight_Muon_SystUp_;
+    TBranch *b_L1PreFiringWeight_Muon_SystUp_;
+    bool loaded_L1PreFiringWeight_Muon_SystUp_;
+    unsigned int counter_cached_L1PreFiringWeight_Muon_SystUp_;
+    unsigned int counter_uncached_L1PreFiringWeight_Muon_SystUp_;
     float L1PreFiringWeight_Nom_;
     TBranch *b_L1PreFiringWeight_Nom_;
     bool loaded_L1PreFiringWeight_Nom_;
@@ -9242,6 +9868,11 @@ protected:
     bool loaded_L1_ETT25_;
     unsigned int counter_cached_L1_ETT25_;
     unsigned int counter_uncached_L1_ETT25_;
+    bool L1_ETT35_BptxAND_;
+    TBranch *b_L1_ETT35_BptxAND_;
+    bool loaded_L1_ETT35_BptxAND_;
+    unsigned int counter_cached_L1_ETT35_BptxAND_;
+    unsigned int counter_uncached_L1_ETT35_BptxAND_;
     bool L1_ETT40_BptxAND_;
     TBranch *b_L1_ETT40_BptxAND_;
     bool loaded_L1_ETT40_BptxAND_;
@@ -11012,6 +11643,21 @@ protected:
     bool loaded_L1_SingleJetC20_NotBptxOR_3BX_;
     unsigned int counter_cached_L1_SingleJetC20_NotBptxOR_3BX_;
     unsigned int counter_uncached_L1_SingleJetC20_NotBptxOR_3BX_;
+    bool L1_SingleJetC32_NotBptxOR_;
+    TBranch *b_L1_SingleJetC32_NotBptxOR_;
+    bool loaded_L1_SingleJetC32_NotBptxOR_;
+    unsigned int counter_cached_L1_SingleJetC32_NotBptxOR_;
+    unsigned int counter_uncached_L1_SingleJetC32_NotBptxOR_;
+    bool L1_SingleJetC32_NotBptxOR_3BX_;
+    TBranch *b_L1_SingleJetC32_NotBptxOR_3BX_;
+    bool loaded_L1_SingleJetC32_NotBptxOR_3BX_;
+    unsigned int counter_cached_L1_SingleJetC32_NotBptxOR_3BX_;
+    unsigned int counter_uncached_L1_SingleJetC32_NotBptxOR_3BX_;
+    bool L1_SingleJetC36_NotBptxOR_3BX_;
+    TBranch *b_L1_SingleJetC36_NotBptxOR_3BX_;
+    bool loaded_L1_SingleJetC36_NotBptxOR_3BX_;
+    unsigned int counter_cached_L1_SingleJetC36_NotBptxOR_3BX_;
+    unsigned int counter_uncached_L1_SingleJetC36_NotBptxOR_3BX_;
     bool L1_SingleJetC40_NotBptxOR_3BX_;
     TBranch *b_L1_SingleJetC40_NotBptxOR_3BX_;
     bool loaded_L1_SingleJetC40_NotBptxOR_3BX_;
@@ -11577,6 +12223,11 @@ protected:
     bool loaded_L1_UnpairedBunchBptxPlus_;
     unsigned int counter_cached_L1_UnpairedBunchBptxPlus_;
     unsigned int counter_uncached_L1_UnpairedBunchBptxPlus_;
+    bool L1_UnprefireableEvent_;
+    TBranch *b_L1_UnprefireableEvent_;
+    bool loaded_L1_UnprefireableEvent_;
+    unsigned int counter_cached_L1_UnprefireableEvent_;
+    unsigned int counter_uncached_L1_UnprefireableEvent_;
     bool L1_ZeroBias_;
     TBranch *b_L1_ZeroBias_;
     bool loaded_L1_ZeroBias_;
@@ -11728,6 +12379,185 @@ protected:
     bool loaded_LHE_Vpt_;
     unsigned int counter_cached_LHE_Vpt_;
     unsigned int counter_uncached_LHE_Vpt_;
+    float LowPtElectron_ID_[NLOWPTELECTRON_MAX];
+    vector<float> v_LowPtElectron_ID_;
+    TBranch *b_LowPtElectron_ID_;
+    bool loaded_LowPtElectron_ID_;
+    unsigned int counter_cached_LowPtElectron_ID_;
+    unsigned int counter_uncached_LowPtElectron_ID_;
+    int LowPtElectron_charge_[NLOWPTELECTRON_MAX];
+    vector<int> v_LowPtElectron_charge_;
+    TBranch *b_LowPtElectron_charge_;
+    bool loaded_LowPtElectron_charge_;
+    unsigned int counter_cached_LowPtElectron_charge_;
+    unsigned int counter_uncached_LowPtElectron_charge_;
+    bool LowPtElectron_convVeto_[NLOWPTELECTRON_MAX];
+    vector<bool> v_LowPtElectron_convVeto_;
+    TBranch *b_LowPtElectron_convVeto_;
+    bool loaded_LowPtElectron_convVeto_;
+    unsigned int counter_cached_LowPtElectron_convVeto_;
+    unsigned int counter_uncached_LowPtElectron_convVeto_;
+    float LowPtElectron_convVtxRadius_[NLOWPTELECTRON_MAX];
+    vector<float> v_LowPtElectron_convVtxRadius_;
+    TBranch *b_LowPtElectron_convVtxRadius_;
+    bool loaded_LowPtElectron_convVtxRadius_;
+    unsigned int counter_cached_LowPtElectron_convVtxRadius_;
+    unsigned int counter_uncached_LowPtElectron_convVtxRadius_;
+    int LowPtElectron_convWP_[NLOWPTELECTRON_MAX];
+    vector<int> v_LowPtElectron_convWP_;
+    TBranch *b_LowPtElectron_convWP_;
+    bool loaded_LowPtElectron_convWP_;
+    unsigned int counter_cached_LowPtElectron_convWP_;
+    unsigned int counter_uncached_LowPtElectron_convWP_;
+    float LowPtElectron_deltaEtaSC_[NLOWPTELECTRON_MAX];
+    vector<float> v_LowPtElectron_deltaEtaSC_;
+    TBranch *b_LowPtElectron_deltaEtaSC_;
+    bool loaded_LowPtElectron_deltaEtaSC_;
+    unsigned int counter_cached_LowPtElectron_deltaEtaSC_;
+    unsigned int counter_uncached_LowPtElectron_deltaEtaSC_;
+    float LowPtElectron_dxy_[NLOWPTELECTRON_MAX];
+    vector<float> v_LowPtElectron_dxy_;
+    TBranch *b_LowPtElectron_dxy_;
+    bool loaded_LowPtElectron_dxy_;
+    unsigned int counter_cached_LowPtElectron_dxy_;
+    unsigned int counter_uncached_LowPtElectron_dxy_;
+    float LowPtElectron_dxyErr_[NLOWPTELECTRON_MAX];
+    vector<float> v_LowPtElectron_dxyErr_;
+    TBranch *b_LowPtElectron_dxyErr_;
+    bool loaded_LowPtElectron_dxyErr_;
+    unsigned int counter_cached_LowPtElectron_dxyErr_;
+    unsigned int counter_uncached_LowPtElectron_dxyErr_;
+    float LowPtElectron_dz_[NLOWPTELECTRON_MAX];
+    vector<float> v_LowPtElectron_dz_;
+    TBranch *b_LowPtElectron_dz_;
+    bool loaded_LowPtElectron_dz_;
+    unsigned int counter_cached_LowPtElectron_dz_;
+    unsigned int counter_uncached_LowPtElectron_dz_;
+    float LowPtElectron_dzErr_[NLOWPTELECTRON_MAX];
+    vector<float> v_LowPtElectron_dzErr_;
+    TBranch *b_LowPtElectron_dzErr_;
+    bool loaded_LowPtElectron_dzErr_;
+    unsigned int counter_cached_LowPtElectron_dzErr_;
+    unsigned int counter_uncached_LowPtElectron_dzErr_;
+    float LowPtElectron_eInvMinusPInv_[NLOWPTELECTRON_MAX];
+    vector<float> v_LowPtElectron_eInvMinusPInv_;
+    TBranch *b_LowPtElectron_eInvMinusPInv_;
+    bool loaded_LowPtElectron_eInvMinusPInv_;
+    unsigned int counter_cached_LowPtElectron_eInvMinusPInv_;
+    unsigned int counter_uncached_LowPtElectron_eInvMinusPInv_;
+    float LowPtElectron_embeddedID_[NLOWPTELECTRON_MAX];
+    vector<float> v_LowPtElectron_embeddedID_;
+    TBranch *b_LowPtElectron_embeddedID_;
+    bool loaded_LowPtElectron_embeddedID_;
+    unsigned int counter_cached_LowPtElectron_embeddedID_;
+    unsigned int counter_uncached_LowPtElectron_embeddedID_;
+    float LowPtElectron_energyErr_[NLOWPTELECTRON_MAX];
+    vector<float> v_LowPtElectron_energyErr_;
+    TBranch *b_LowPtElectron_energyErr_;
+    bool loaded_LowPtElectron_energyErr_;
+    unsigned int counter_cached_LowPtElectron_energyErr_;
+    unsigned int counter_uncached_LowPtElectron_energyErr_;
+    float LowPtElectron_eta_[NLOWPTELECTRON_MAX];
+    vector<float> v_LowPtElectron_eta_;
+    TBranch *b_LowPtElectron_eta_;
+    bool loaded_LowPtElectron_eta_;
+    unsigned int counter_cached_LowPtElectron_eta_;
+    unsigned int counter_uncached_LowPtElectron_eta_;
+    UChar_t LowPtElectron_genPartFlav_[NLOWPTELECTRON_MAX];
+    vector<UChar_t> v_LowPtElectron_genPartFlav_;
+    TBranch *b_LowPtElectron_genPartFlav_;
+    bool loaded_LowPtElectron_genPartFlav_;
+    unsigned int counter_cached_LowPtElectron_genPartFlav_;
+    unsigned int counter_uncached_LowPtElectron_genPartFlav_;
+    int LowPtElectron_genPartIdx_[NLOWPTELECTRON_MAX];
+    vector<int> v_LowPtElectron_genPartIdx_;
+    TBranch *b_LowPtElectron_genPartIdx_;
+    bool loaded_LowPtElectron_genPartIdx_;
+    unsigned int counter_cached_LowPtElectron_genPartIdx_;
+    unsigned int counter_uncached_LowPtElectron_genPartIdx_;
+    float LowPtElectron_hoe_[NLOWPTELECTRON_MAX];
+    vector<float> v_LowPtElectron_hoe_;
+    TBranch *b_LowPtElectron_hoe_;
+    bool loaded_LowPtElectron_hoe_;
+    unsigned int counter_cached_LowPtElectron_hoe_;
+    unsigned int counter_uncached_LowPtElectron_hoe_;
+    UChar_t LowPtElectron_lostHits_[NLOWPTELECTRON_MAX];
+    vector<UChar_t> v_LowPtElectron_lostHits_;
+    TBranch *b_LowPtElectron_lostHits_;
+    bool loaded_LowPtElectron_lostHits_;
+    unsigned int counter_cached_LowPtElectron_lostHits_;
+    unsigned int counter_uncached_LowPtElectron_lostHits_;
+    float LowPtElectron_mass_[NLOWPTELECTRON_MAX];
+    vector<float> v_LowPtElectron_mass_;
+    TBranch *b_LowPtElectron_mass_;
+    bool loaded_LowPtElectron_mass_;
+    unsigned int counter_cached_LowPtElectron_mass_;
+    unsigned int counter_uncached_LowPtElectron_mass_;
+    float LowPtElectron_miniPFRelIso_all_[NLOWPTELECTRON_MAX];
+    vector<float> v_LowPtElectron_miniPFRelIso_all_;
+    TBranch *b_LowPtElectron_miniPFRelIso_all_;
+    bool loaded_LowPtElectron_miniPFRelIso_all_;
+    unsigned int counter_cached_LowPtElectron_miniPFRelIso_all_;
+    unsigned int counter_uncached_LowPtElectron_miniPFRelIso_all_;
+    float LowPtElectron_miniPFRelIso_chg_[NLOWPTELECTRON_MAX];
+    vector<float> v_LowPtElectron_miniPFRelIso_chg_;
+    TBranch *b_LowPtElectron_miniPFRelIso_chg_;
+    bool loaded_LowPtElectron_miniPFRelIso_chg_;
+    unsigned int counter_cached_LowPtElectron_miniPFRelIso_chg_;
+    unsigned int counter_uncached_LowPtElectron_miniPFRelIso_chg_;
+    vector<LorentzVector> v_LowPtElectron_p4_;
+    TBranch *b_LowPtElectron_p4_;
+    bool loaded_LowPtElectron_p4_;
+    unsigned int counter_cached_LowPtElectron_p4_;
+    unsigned int counter_uncached_LowPtElectron_p4_;
+    int LowPtElectron_pdgId_[NLOWPTELECTRON_MAX];
+    vector<int> v_LowPtElectron_pdgId_;
+    TBranch *b_LowPtElectron_pdgId_;
+    bool loaded_LowPtElectron_pdgId_;
+    unsigned int counter_cached_LowPtElectron_pdgId_;
+    unsigned int counter_uncached_LowPtElectron_pdgId_;
+    float LowPtElectron_phi_[NLOWPTELECTRON_MAX];
+    vector<float> v_LowPtElectron_phi_;
+    TBranch *b_LowPtElectron_phi_;
+    bool loaded_LowPtElectron_phi_;
+    unsigned int counter_cached_LowPtElectron_phi_;
+    unsigned int counter_uncached_LowPtElectron_phi_;
+    float LowPtElectron_pt_[NLOWPTELECTRON_MAX];
+    vector<float> v_LowPtElectron_pt_;
+    TBranch *b_LowPtElectron_pt_;
+    bool loaded_LowPtElectron_pt_;
+    unsigned int counter_cached_LowPtElectron_pt_;
+    unsigned int counter_uncached_LowPtElectron_pt_;
+    float LowPtElectron_ptbiased_[NLOWPTELECTRON_MAX];
+    vector<float> v_LowPtElectron_ptbiased_;
+    TBranch *b_LowPtElectron_ptbiased_;
+    bool loaded_LowPtElectron_ptbiased_;
+    unsigned int counter_cached_LowPtElectron_ptbiased_;
+    unsigned int counter_uncached_LowPtElectron_ptbiased_;
+    float LowPtElectron_r9_[NLOWPTELECTRON_MAX];
+    vector<float> v_LowPtElectron_r9_;
+    TBranch *b_LowPtElectron_r9_;
+    bool loaded_LowPtElectron_r9_;
+    unsigned int counter_cached_LowPtElectron_r9_;
+    unsigned int counter_uncached_LowPtElectron_r9_;
+    float LowPtElectron_scEtOverPt_[NLOWPTELECTRON_MAX];
+    vector<float> v_LowPtElectron_scEtOverPt_;
+    TBranch *b_LowPtElectron_scEtOverPt_;
+    bool loaded_LowPtElectron_scEtOverPt_;
+    unsigned int counter_cached_LowPtElectron_scEtOverPt_;
+    unsigned int counter_uncached_LowPtElectron_scEtOverPt_;
+    float LowPtElectron_sieie_[NLOWPTELECTRON_MAX];
+    vector<float> v_LowPtElectron_sieie_;
+    TBranch *b_LowPtElectron_sieie_;
+    bool loaded_LowPtElectron_sieie_;
+    unsigned int counter_cached_LowPtElectron_sieie_;
+    unsigned int counter_uncached_LowPtElectron_sieie_;
+    float LowPtElectron_unbiased_[NLOWPTELECTRON_MAX];
+    vector<float> v_LowPtElectron_unbiased_;
+    TBranch *b_LowPtElectron_unbiased_;
+    bool loaded_LowPtElectron_unbiased_;
+    unsigned int counter_cached_LowPtElectron_unbiased_;
+    unsigned int counter_uncached_LowPtElectron_unbiased_;
     float METFixEE2017_MetUnclustEnUpDeltaX_;
     TBranch *b_METFixEE2017_MetUnclustEnUpDeltaX_;
     bool loaded_METFixEE2017_MetUnclustEnUpDeltaX_;
@@ -11838,6 +12668,222 @@ protected:
     bool loaded_MET_sumPtUnclustered_;
     unsigned int counter_cached_MET_sumPtUnclustered_;
     unsigned int counter_uncached_MET_sumPtUnclustered_;
+    float Muon_CutBased_HighPtID_SF_[NMUON_MAX];
+    vector<float> v_Muon_CutBased_HighPtID_SF_;
+    TBranch *b_Muon_CutBased_HighPtID_SF_;
+    bool loaded_Muon_CutBased_HighPtID_SF_;
+    unsigned int counter_cached_Muon_CutBased_HighPtID_SF_;
+    unsigned int counter_uncached_Muon_CutBased_HighPtID_SF_;
+    float Muon_CutBased_HighPtID_SFerr_[NMUON_MAX];
+    vector<float> v_Muon_CutBased_HighPtID_SFerr_;
+    TBranch *b_Muon_CutBased_HighPtID_SFerr_;
+    bool loaded_Muon_CutBased_HighPtID_SFerr_;
+    unsigned int counter_cached_Muon_CutBased_HighPtID_SFerr_;
+    unsigned int counter_uncached_Muon_CutBased_HighPtID_SFerr_;
+    float Muon_CutBased_LooseID_SF_[NMUON_MAX];
+    vector<float> v_Muon_CutBased_LooseID_SF_;
+    TBranch *b_Muon_CutBased_LooseID_SF_;
+    bool loaded_Muon_CutBased_LooseID_SF_;
+    unsigned int counter_cached_Muon_CutBased_LooseID_SF_;
+    unsigned int counter_uncached_Muon_CutBased_LooseID_SF_;
+    float Muon_CutBased_LooseID_SFerr_[NMUON_MAX];
+    vector<float> v_Muon_CutBased_LooseID_SFerr_;
+    TBranch *b_Muon_CutBased_LooseID_SFerr_;
+    bool loaded_Muon_CutBased_LooseID_SFerr_;
+    unsigned int counter_cached_Muon_CutBased_LooseID_SFerr_;
+    unsigned int counter_uncached_Muon_CutBased_LooseID_SFerr_;
+    float Muon_CutBased_MediumID_SF_[NMUON_MAX];
+    vector<float> v_Muon_CutBased_MediumID_SF_;
+    TBranch *b_Muon_CutBased_MediumID_SF_;
+    bool loaded_Muon_CutBased_MediumID_SF_;
+    unsigned int counter_cached_Muon_CutBased_MediumID_SF_;
+    unsigned int counter_uncached_Muon_CutBased_MediumID_SF_;
+    float Muon_CutBased_MediumID_SFerr_[NMUON_MAX];
+    vector<float> v_Muon_CutBased_MediumID_SFerr_;
+    TBranch *b_Muon_CutBased_MediumID_SFerr_;
+    bool loaded_Muon_CutBased_MediumID_SFerr_;
+    unsigned int counter_cached_Muon_CutBased_MediumID_SFerr_;
+    unsigned int counter_uncached_Muon_CutBased_MediumID_SFerr_;
+    float Muon_CutBased_MediumPromptID_SF_[NMUON_MAX];
+    vector<float> v_Muon_CutBased_MediumPromptID_SF_;
+    TBranch *b_Muon_CutBased_MediumPromptID_SF_;
+    bool loaded_Muon_CutBased_MediumPromptID_SF_;
+    unsigned int counter_cached_Muon_CutBased_MediumPromptID_SF_;
+    unsigned int counter_uncached_Muon_CutBased_MediumPromptID_SF_;
+    float Muon_CutBased_MediumPromptID_SFerr_[NMUON_MAX];
+    vector<float> v_Muon_CutBased_MediumPromptID_SFerr_;
+    TBranch *b_Muon_CutBased_MediumPromptID_SFerr_;
+    bool loaded_Muon_CutBased_MediumPromptID_SFerr_;
+    unsigned int counter_cached_Muon_CutBased_MediumPromptID_SFerr_;
+    unsigned int counter_uncached_Muon_CutBased_MediumPromptID_SFerr_;
+    float Muon_CutBased_SoftID_SF_[NMUON_MAX];
+    vector<float> v_Muon_CutBased_SoftID_SF_;
+    TBranch *b_Muon_CutBased_SoftID_SF_;
+    bool loaded_Muon_CutBased_SoftID_SF_;
+    unsigned int counter_cached_Muon_CutBased_SoftID_SF_;
+    unsigned int counter_uncached_Muon_CutBased_SoftID_SF_;
+    float Muon_CutBased_SoftID_SFerr_[NMUON_MAX];
+    vector<float> v_Muon_CutBased_SoftID_SFerr_;
+    TBranch *b_Muon_CutBased_SoftID_SFerr_;
+    bool loaded_Muon_CutBased_SoftID_SFerr_;
+    unsigned int counter_cached_Muon_CutBased_SoftID_SFerr_;
+    unsigned int counter_uncached_Muon_CutBased_SoftID_SFerr_;
+    float Muon_CutBased_TightID_SF_[NMUON_MAX];
+    vector<float> v_Muon_CutBased_TightID_SF_;
+    TBranch *b_Muon_CutBased_TightID_SF_;
+    bool loaded_Muon_CutBased_TightID_SF_;
+    unsigned int counter_cached_Muon_CutBased_TightID_SF_;
+    unsigned int counter_uncached_Muon_CutBased_TightID_SF_;
+    float Muon_CutBased_TightID_SFerr_[NMUON_MAX];
+    vector<float> v_Muon_CutBased_TightID_SFerr_;
+    TBranch *b_Muon_CutBased_TightID_SFerr_;
+    bool loaded_Muon_CutBased_TightID_SFerr_;
+    unsigned int counter_cached_Muon_CutBased_TightID_SFerr_;
+    unsigned int counter_uncached_Muon_CutBased_TightID_SFerr_;
+    float Muon_CutBased_TrkHighPtID_SF_[NMUON_MAX];
+    vector<float> v_Muon_CutBased_TrkHighPtID_SF_;
+    TBranch *b_Muon_CutBased_TrkHighPtID_SF_;
+    bool loaded_Muon_CutBased_TrkHighPtID_SF_;
+    unsigned int counter_cached_Muon_CutBased_TrkHighPtID_SF_;
+    unsigned int counter_uncached_Muon_CutBased_TrkHighPtID_SF_;
+    float Muon_CutBased_TrkHighPtID_SFerr_[NMUON_MAX];
+    vector<float> v_Muon_CutBased_TrkHighPtID_SFerr_;
+    TBranch *b_Muon_CutBased_TrkHighPtID_SFerr_;
+    bool loaded_Muon_CutBased_TrkHighPtID_SFerr_;
+    unsigned int counter_cached_Muon_CutBased_TrkHighPtID_SFerr_;
+    unsigned int counter_uncached_Muon_CutBased_TrkHighPtID_SFerr_;
+    float Muon_LooseRelIso_LooseID_SF_[NMUON_MAX];
+    vector<float> v_Muon_LooseRelIso_LooseID_SF_;
+    TBranch *b_Muon_LooseRelIso_LooseID_SF_;
+    bool loaded_Muon_LooseRelIso_LooseID_SF_;
+    unsigned int counter_cached_Muon_LooseRelIso_LooseID_SF_;
+    unsigned int counter_uncached_Muon_LooseRelIso_LooseID_SF_;
+    float Muon_LooseRelIso_LooseID_SFerr_[NMUON_MAX];
+    vector<float> v_Muon_LooseRelIso_LooseID_SFerr_;
+    TBranch *b_Muon_LooseRelIso_LooseID_SFerr_;
+    bool loaded_Muon_LooseRelIso_LooseID_SFerr_;
+    unsigned int counter_cached_Muon_LooseRelIso_LooseID_SFerr_;
+    unsigned int counter_uncached_Muon_LooseRelIso_LooseID_SFerr_;
+    float Muon_LooseRelIso_MediumID_SF_[NMUON_MAX];
+    vector<float> v_Muon_LooseRelIso_MediumID_SF_;
+    TBranch *b_Muon_LooseRelIso_MediumID_SF_;
+    bool loaded_Muon_LooseRelIso_MediumID_SF_;
+    unsigned int counter_cached_Muon_LooseRelIso_MediumID_SF_;
+    unsigned int counter_uncached_Muon_LooseRelIso_MediumID_SF_;
+    float Muon_LooseRelIso_MediumID_SFerr_[NMUON_MAX];
+    vector<float> v_Muon_LooseRelIso_MediumID_SFerr_;
+    TBranch *b_Muon_LooseRelIso_MediumID_SFerr_;
+    bool loaded_Muon_LooseRelIso_MediumID_SFerr_;
+    unsigned int counter_cached_Muon_LooseRelIso_MediumID_SFerr_;
+    unsigned int counter_uncached_Muon_LooseRelIso_MediumID_SFerr_;
+    float Muon_LooseRelIso_MediumPromptID_SF_[NMUON_MAX];
+    vector<float> v_Muon_LooseRelIso_MediumPromptID_SF_;
+    TBranch *b_Muon_LooseRelIso_MediumPromptID_SF_;
+    bool loaded_Muon_LooseRelIso_MediumPromptID_SF_;
+    unsigned int counter_cached_Muon_LooseRelIso_MediumPromptID_SF_;
+    unsigned int counter_uncached_Muon_LooseRelIso_MediumPromptID_SF_;
+    float Muon_LooseRelIso_MediumPromptID_SFerr_[NMUON_MAX];
+    vector<float> v_Muon_LooseRelIso_MediumPromptID_SFerr_;
+    TBranch *b_Muon_LooseRelIso_MediumPromptID_SFerr_;
+    bool loaded_Muon_LooseRelIso_MediumPromptID_SFerr_;
+    unsigned int counter_cached_Muon_LooseRelIso_MediumPromptID_SFerr_;
+    unsigned int counter_uncached_Muon_LooseRelIso_MediumPromptID_SFerr_;
+    float Muon_LooseRelIso_TightIDandIPCut_SF_[NMUON_MAX];
+    vector<float> v_Muon_LooseRelIso_TightIDandIPCut_SF_;
+    TBranch *b_Muon_LooseRelIso_TightIDandIPCut_SF_;
+    bool loaded_Muon_LooseRelIso_TightIDandIPCut_SF_;
+    unsigned int counter_cached_Muon_LooseRelIso_TightIDandIPCut_SF_;
+    unsigned int counter_uncached_Muon_LooseRelIso_TightIDandIPCut_SF_;
+    float Muon_LooseRelIso_TightIDandIPCut_SFerr_[NMUON_MAX];
+    vector<float> v_Muon_LooseRelIso_TightIDandIPCut_SFerr_;
+    TBranch *b_Muon_LooseRelIso_TightIDandIPCut_SFerr_;
+    bool loaded_Muon_LooseRelIso_TightIDandIPCut_SFerr_;
+    unsigned int counter_cached_Muon_LooseRelIso_TightIDandIPCut_SFerr_;
+    unsigned int counter_uncached_Muon_LooseRelIso_TightIDandIPCut_SFerr_;
+    float Muon_LooseRelTkIso_HighPtIDandIPCut_SF_[NMUON_MAX];
+    vector<float> v_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_;
+    TBranch *b_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_;
+    bool loaded_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_;
+    unsigned int counter_cached_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_;
+    unsigned int counter_uncached_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_;
+    float Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_[NMUON_MAX];
+    vector<float> v_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_;
+    TBranch *b_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_;
+    bool loaded_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_;
+    unsigned int counter_cached_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_;
+    unsigned int counter_uncached_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_;
+    float Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_[NMUON_MAX];
+    vector<float> v_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_;
+    TBranch *b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_;
+    bool loaded_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_;
+    unsigned int counter_cached_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_;
+    unsigned int counter_uncached_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_;
+    float Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_[NMUON_MAX];
+    vector<float> v_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_;
+    TBranch *b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_;
+    bool loaded_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_;
+    unsigned int counter_cached_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_;
+    unsigned int counter_uncached_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_;
+    float Muon_TightRelIso_MediumID_SF_[NMUON_MAX];
+    vector<float> v_Muon_TightRelIso_MediumID_SF_;
+    TBranch *b_Muon_TightRelIso_MediumID_SF_;
+    bool loaded_Muon_TightRelIso_MediumID_SF_;
+    unsigned int counter_cached_Muon_TightRelIso_MediumID_SF_;
+    unsigned int counter_uncached_Muon_TightRelIso_MediumID_SF_;
+    float Muon_TightRelIso_MediumID_SFerr_[NMUON_MAX];
+    vector<float> v_Muon_TightRelIso_MediumID_SFerr_;
+    TBranch *b_Muon_TightRelIso_MediumID_SFerr_;
+    bool loaded_Muon_TightRelIso_MediumID_SFerr_;
+    unsigned int counter_cached_Muon_TightRelIso_MediumID_SFerr_;
+    unsigned int counter_uncached_Muon_TightRelIso_MediumID_SFerr_;
+    float Muon_TightRelIso_MediumPromptID_SF_[NMUON_MAX];
+    vector<float> v_Muon_TightRelIso_MediumPromptID_SF_;
+    TBranch *b_Muon_TightRelIso_MediumPromptID_SF_;
+    bool loaded_Muon_TightRelIso_MediumPromptID_SF_;
+    unsigned int counter_cached_Muon_TightRelIso_MediumPromptID_SF_;
+    unsigned int counter_uncached_Muon_TightRelIso_MediumPromptID_SF_;
+    float Muon_TightRelIso_MediumPromptID_SFerr_[NMUON_MAX];
+    vector<float> v_Muon_TightRelIso_MediumPromptID_SFerr_;
+    TBranch *b_Muon_TightRelIso_MediumPromptID_SFerr_;
+    bool loaded_Muon_TightRelIso_MediumPromptID_SFerr_;
+    unsigned int counter_cached_Muon_TightRelIso_MediumPromptID_SFerr_;
+    unsigned int counter_uncached_Muon_TightRelIso_MediumPromptID_SFerr_;
+    float Muon_TightRelIso_TightIDandIPCut_SF_[NMUON_MAX];
+    vector<float> v_Muon_TightRelIso_TightIDandIPCut_SF_;
+    TBranch *b_Muon_TightRelIso_TightIDandIPCut_SF_;
+    bool loaded_Muon_TightRelIso_TightIDandIPCut_SF_;
+    unsigned int counter_cached_Muon_TightRelIso_TightIDandIPCut_SF_;
+    unsigned int counter_uncached_Muon_TightRelIso_TightIDandIPCut_SF_;
+    float Muon_TightRelIso_TightIDandIPCut_SFerr_[NMUON_MAX];
+    vector<float> v_Muon_TightRelIso_TightIDandIPCut_SFerr_;
+    TBranch *b_Muon_TightRelIso_TightIDandIPCut_SFerr_;
+    bool loaded_Muon_TightRelIso_TightIDandIPCut_SFerr_;
+    unsigned int counter_cached_Muon_TightRelIso_TightIDandIPCut_SFerr_;
+    unsigned int counter_uncached_Muon_TightRelIso_TightIDandIPCut_SFerr_;
+    float Muon_TightRelTkIso_HighPtIDandIPCut_SF_[NMUON_MAX];
+    vector<float> v_Muon_TightRelTkIso_HighPtIDandIPCut_SF_;
+    TBranch *b_Muon_TightRelTkIso_HighPtIDandIPCut_SF_;
+    bool loaded_Muon_TightRelTkIso_HighPtIDandIPCut_SF_;
+    unsigned int counter_cached_Muon_TightRelTkIso_HighPtIDandIPCut_SF_;
+    unsigned int counter_uncached_Muon_TightRelTkIso_HighPtIDandIPCut_SF_;
+    float Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_[NMUON_MAX];
+    vector<float> v_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_;
+    TBranch *b_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_;
+    bool loaded_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_;
+    unsigned int counter_cached_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_;
+    unsigned int counter_uncached_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_;
+    float Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_[NMUON_MAX];
+    vector<float> v_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_;
+    TBranch *b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_;
+    bool loaded_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_;
+    unsigned int counter_cached_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_;
+    unsigned int counter_uncached_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_;
+    float Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_[NMUON_MAX];
+    vector<float> v_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_;
+    TBranch *b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_;
+    bool loaded_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_;
+    unsigned int counter_cached_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_;
+    unsigned int counter_uncached_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_;
     int Muon_charge_[NMUON_MAX];
     vector<int> v_Muon_charge_;
     TBranch *b_Muon_charge_;
@@ -11850,6 +12896,24 @@ protected:
     bool loaded_Muon_cleanmask_;
     unsigned int counter_cached_Muon_cleanmask_;
     unsigned int counter_uncached_Muon_cleanmask_;
+    float Muon_correctedDown_pt_[NMUON_MAX];
+    vector<float> v_Muon_correctedDown_pt_;
+    TBranch *b_Muon_correctedDown_pt_;
+    bool loaded_Muon_correctedDown_pt_;
+    unsigned int counter_cached_Muon_correctedDown_pt_;
+    unsigned int counter_uncached_Muon_correctedDown_pt_;
+    float Muon_correctedUp_pt_[NMUON_MAX];
+    vector<float> v_Muon_correctedUp_pt_;
+    TBranch *b_Muon_correctedUp_pt_;
+    bool loaded_Muon_correctedUp_pt_;
+    unsigned int counter_cached_Muon_correctedUp_pt_;
+    unsigned int counter_uncached_Muon_correctedUp_pt_;
+    float Muon_corrected_pt_[NMUON_MAX];
+    vector<float> v_Muon_corrected_pt_;
+    TBranch *b_Muon_corrected_pt_;
+    bool loaded_Muon_corrected_pt_;
+    unsigned int counter_cached_Muon_corrected_pt_;
+    unsigned int counter_uncached_Muon_corrected_pt_;
     float Muon_dxy_[NMUON_MAX];
     vector<float> v_Muon_dxy_;
     TBranch *b_Muon_dxy_;
@@ -11940,6 +13004,12 @@ protected:
     bool loaded_Muon_isPFcand_;
     unsigned int counter_cached_Muon_isPFcand_;
     unsigned int counter_uncached_Muon_isPFcand_;
+    bool Muon_isStandalone_[NMUON_MAX];
+    vector<bool> v_Muon_isStandalone_;
+    TBranch *b_Muon_isStandalone_;
+    bool loaded_Muon_isStandalone_;
+    unsigned int counter_cached_Muon_isStandalone_;
+    unsigned int counter_uncached_Muon_isStandalone_;
     bool Muon_isTracker_[NMUON_MAX];
     vector<bool> v_Muon_isTracker_;
     TBranch *b_Muon_isTracker_;
@@ -11952,6 +13022,12 @@ protected:
     bool loaded_Muon_jetIdx_;
     unsigned int counter_cached_Muon_jetIdx_;
     unsigned int counter_uncached_Muon_jetIdx_;
+    UChar_t Muon_jetNDauCharged_[NMUON_MAX];
+    vector<UChar_t> v_Muon_jetNDauCharged_;
+    TBranch *b_Muon_jetNDauCharged_;
+    bool loaded_Muon_jetNDauCharged_;
+    unsigned int counter_cached_Muon_jetNDauCharged_;
+    unsigned int counter_uncached_Muon_jetNDauCharged_;
     float Muon_jetPtRelv2_[NMUON_MAX];
     vector<float> v_Muon_jetPtRelv2_;
     TBranch *b_Muon_jetPtRelv2_;
@@ -12024,6 +13100,12 @@ protected:
     bool loaded_Muon_mvaLowPt_;
     unsigned int counter_cached_Muon_mvaLowPt_;
     unsigned int counter_uncached_Muon_mvaLowPt_;
+    UChar_t Muon_mvaLowPtId_[NMUON_MAX];
+    vector<UChar_t> v_Muon_mvaLowPtId_;
+    TBranch *b_Muon_mvaLowPtId_;
+    bool loaded_Muon_mvaLowPtId_;
+    unsigned int counter_cached_Muon_mvaLowPtId_;
+    unsigned int counter_uncached_Muon_mvaLowPtId_;
     float Muon_mvaTTH_[NMUON_MAX];
     vector<float> v_Muon_mvaTTH_;
     TBranch *b_Muon_mvaTTH_;
@@ -12095,6 +13177,12 @@ protected:
     bool loaded_Muon_ptErr_;
     unsigned int counter_cached_Muon_ptErr_;
     unsigned int counter_uncached_Muon_ptErr_;
+    UChar_t Muon_puppiIsoId_[NMUON_MAX];
+    vector<UChar_t> v_Muon_puppiIsoId_;
+    TBranch *b_Muon_puppiIsoId_;
+    bool loaded_Muon_puppiIsoId_;
+    unsigned int counter_cached_Muon_puppiIsoId_;
+    unsigned int counter_uncached_Muon_puppiIsoId_;
     float Muon_segmentComp_[NMUON_MAX];
     vector<float> v_Muon_segmentComp_;
     TBranch *b_Muon_segmentComp_;
@@ -12249,6 +13337,30 @@ protected:
     bool loaded_Photon_cutBased_Spring16V2p2_;
     unsigned int counter_cached_Photon_cutBased_Spring16V2p2_;
     unsigned int counter_uncached_Photon_cutBased_Spring16V2p2_;
+    float Photon_dEscaleDown_[NPHOTON_MAX];
+    vector<float> v_Photon_dEscaleDown_;
+    TBranch *b_Photon_dEscaleDown_;
+    bool loaded_Photon_dEscaleDown_;
+    unsigned int counter_cached_Photon_dEscaleDown_;
+    unsigned int counter_uncached_Photon_dEscaleDown_;
+    float Photon_dEscaleUp_[NPHOTON_MAX];
+    vector<float> v_Photon_dEscaleUp_;
+    TBranch *b_Photon_dEscaleUp_;
+    bool loaded_Photon_dEscaleUp_;
+    unsigned int counter_cached_Photon_dEscaleUp_;
+    unsigned int counter_uncached_Photon_dEscaleUp_;
+    float Photon_dEsigmaDown_[NPHOTON_MAX];
+    vector<float> v_Photon_dEsigmaDown_;
+    TBranch *b_Photon_dEsigmaDown_;
+    bool loaded_Photon_dEsigmaDown_;
+    unsigned int counter_cached_Photon_dEsigmaDown_;
+    unsigned int counter_uncached_Photon_dEsigmaDown_;
+    float Photon_dEsigmaUp_[NPHOTON_MAX];
+    vector<float> v_Photon_dEsigmaUp_;
+    TBranch *b_Photon_dEsigmaUp_;
+    bool loaded_Photon_dEsigmaUp_;
+    unsigned int counter_cached_Photon_dEsigmaUp_;
+    unsigned int counter_uncached_Photon_dEsigmaUp_;
     float Photon_eCorr_[NPHOTON_MAX];
     vector<float> v_Photon_eCorr_;
     TBranch *b_Photon_eCorr_;
@@ -12464,36 +13576,91 @@ protected:
     bool loaded_Pileup_sumLOOT_;
     unsigned int counter_cached_Pileup_sumLOOT_;
     unsigned int counter_uncached_Pileup_sumLOOT_;
+    float PrefireWeight_;
+    TBranch *b_PrefireWeight_;
+    bool loaded_PrefireWeight_;
+    unsigned int counter_cached_PrefireWeight_;
+    unsigned int counter_uncached_PrefireWeight_;
+    float PrefireWeight_Down_;
+    TBranch *b_PrefireWeight_Down_;
+    bool loaded_PrefireWeight_Down_;
+    unsigned int counter_cached_PrefireWeight_Down_;
+    unsigned int counter_uncached_PrefireWeight_Down_;
+    float PrefireWeight_Up_;
+    TBranch *b_PrefireWeight_Up_;
+    bool loaded_PrefireWeight_Up_;
+    unsigned int counter_cached_PrefireWeight_Up_;
+    unsigned int counter_uncached_PrefireWeight_Up_;
     float PuppiMET_phi_;
     TBranch *b_PuppiMET_phi_;
     bool loaded_PuppiMET_phi_;
     unsigned int counter_cached_PuppiMET_phi_;
     unsigned int counter_uncached_PuppiMET_phi_;
+    float PuppiMET_phiJERDown_;
+    TBranch *b_PuppiMET_phiJERDown_;
+    bool loaded_PuppiMET_phiJERDown_;
+    unsigned int counter_cached_PuppiMET_phiJERDown_;
+    unsigned int counter_uncached_PuppiMET_phiJERDown_;
     float PuppiMET_phiJERUp_;
     TBranch *b_PuppiMET_phiJERUp_;
     bool loaded_PuppiMET_phiJERUp_;
     unsigned int counter_cached_PuppiMET_phiJERUp_;
     unsigned int counter_uncached_PuppiMET_phiJERUp_;
+    float PuppiMET_phiJESDown_;
+    TBranch *b_PuppiMET_phiJESDown_;
+    bool loaded_PuppiMET_phiJESDown_;
+    unsigned int counter_cached_PuppiMET_phiJESDown_;
+    unsigned int counter_uncached_PuppiMET_phiJESDown_;
     float PuppiMET_phiJESUp_;
     TBranch *b_PuppiMET_phiJESUp_;
     bool loaded_PuppiMET_phiJESUp_;
     unsigned int counter_cached_PuppiMET_phiJESUp_;
     unsigned int counter_uncached_PuppiMET_phiJESUp_;
+    float PuppiMET_phiUnclusteredDown_;
+    TBranch *b_PuppiMET_phiUnclusteredDown_;
+    bool loaded_PuppiMET_phiUnclusteredDown_;
+    unsigned int counter_cached_PuppiMET_phiUnclusteredDown_;
+    unsigned int counter_uncached_PuppiMET_phiUnclusteredDown_;
+    float PuppiMET_phiUnclusteredUp_;
+    TBranch *b_PuppiMET_phiUnclusteredUp_;
+    bool loaded_PuppiMET_phiUnclusteredUp_;
+    unsigned int counter_cached_PuppiMET_phiUnclusteredUp_;
+    unsigned int counter_uncached_PuppiMET_phiUnclusteredUp_;
     float PuppiMET_pt_;
     TBranch *b_PuppiMET_pt_;
     bool loaded_PuppiMET_pt_;
     unsigned int counter_cached_PuppiMET_pt_;
     unsigned int counter_uncached_PuppiMET_pt_;
+    float PuppiMET_ptJERDown_;
+    TBranch *b_PuppiMET_ptJERDown_;
+    bool loaded_PuppiMET_ptJERDown_;
+    unsigned int counter_cached_PuppiMET_ptJERDown_;
+    unsigned int counter_uncached_PuppiMET_ptJERDown_;
     float PuppiMET_ptJERUp_;
     TBranch *b_PuppiMET_ptJERUp_;
     bool loaded_PuppiMET_ptJERUp_;
     unsigned int counter_cached_PuppiMET_ptJERUp_;
     unsigned int counter_uncached_PuppiMET_ptJERUp_;
+    float PuppiMET_ptJESDown_;
+    TBranch *b_PuppiMET_ptJESDown_;
+    bool loaded_PuppiMET_ptJESDown_;
+    unsigned int counter_cached_PuppiMET_ptJESDown_;
+    unsigned int counter_uncached_PuppiMET_ptJESDown_;
     float PuppiMET_ptJESUp_;
     TBranch *b_PuppiMET_ptJESUp_;
     bool loaded_PuppiMET_ptJESUp_;
     unsigned int counter_cached_PuppiMET_ptJESUp_;
     unsigned int counter_uncached_PuppiMET_ptJESUp_;
+    float PuppiMET_ptUnclusteredDown_;
+    TBranch *b_PuppiMET_ptUnclusteredDown_;
+    bool loaded_PuppiMET_ptUnclusteredDown_;
+    unsigned int counter_cached_PuppiMET_ptUnclusteredDown_;
+    unsigned int counter_uncached_PuppiMET_ptUnclusteredDown_;
+    float PuppiMET_ptUnclusteredUp_;
+    TBranch *b_PuppiMET_ptUnclusteredUp_;
+    bool loaded_PuppiMET_ptUnclusteredUp_;
+    unsigned int counter_cached_PuppiMET_ptUnclusteredUp_;
+    unsigned int counter_uncached_PuppiMET_ptUnclusteredUp_;
     float PuppiMET_sumEt_;
     TBranch *b_PuppiMET_sumEt_;
     bool loaded_PuppiMET_sumEt_;
@@ -12529,6 +13696,12 @@ protected:
     bool loaded_RawPuppiMET_sumEt_;
     unsigned int counter_cached_RawPuppiMET_sumEt_;
     unsigned int counter_uncached_RawPuppiMET_sumEt_;
+    int SV_charge_[NSV_MAX];
+    vector<int> v_SV_charge_;
+    TBranch *b_SV_charge_;
+    bool loaded_SV_charge_;
+    unsigned int counter_cached_SV_charge_;
+    unsigned int counter_uncached_SV_charge_;
     float SV_chi2_[NSV_MAX];
     vector<float> v_SV_chi2_;
     TBranch *b_SV_chi2_;
@@ -12577,6 +13750,12 @@ protected:
     bool loaded_SV_ndof_;
     unsigned int counter_cached_SV_ndof_;
     unsigned int counter_uncached_SV_ndof_;
+    UChar_t SV_ntracks_[NSV_MAX];
+    vector<UChar_t> v_SV_ntracks_;
+    TBranch *b_SV_ntracks_;
+    bool loaded_SV_ntracks_;
+    unsigned int counter_cached_SV_ntracks_;
+    unsigned int counter_uncached_SV_ntracks_;
     vector<LorentzVector> v_SV_p4_;
     TBranch *b_SV_p4_;
     bool loaded_SV_p4_;
@@ -12724,6 +13903,12 @@ protected:
     bool loaded_SubJet_eta_;
     unsigned int counter_cached_SubJet_eta_;
     unsigned int counter_uncached_SubJet_eta_;
+    int SubJet_hadronFlavour_[NSUBJET_MAX];
+    vector<int> v_SubJet_hadronFlavour_;
+    TBranch *b_SubJet_hadronFlavour_;
+    bool loaded_SubJet_hadronFlavour_;
+    unsigned int counter_cached_SubJet_hadronFlavour_;
+    unsigned int counter_uncached_SubJet_hadronFlavour_;
     float SubJet_mass_[NSUBJET_MAX];
     vector<float> v_SubJet_mass_;
     TBranch *b_SubJet_mass_;
@@ -12867,6 +14052,12 @@ protected:
     bool loaded_Tau_idAntiEle2018_;
     unsigned int counter_cached_Tau_idAntiEle2018_;
     unsigned int counter_uncached_Tau_idAntiEle2018_;
+    bool Tau_idAntiEleDeadECal_[NTAU_MAX];
+    vector<bool> v_Tau_idAntiEleDeadECal_;
+    TBranch *b_Tau_idAntiEleDeadECal_;
+    bool loaded_Tau_idAntiEleDeadECal_;
+    unsigned int counter_cached_Tau_idAntiEleDeadECal_;
+    unsigned int counter_uncached_Tau_idAntiEleDeadECal_;
     UChar_t Tau_idAntiMu_[NTAU_MAX];
     vector<UChar_t> v_Tau_idAntiMu_;
     TBranch *b_Tau_idAntiMu_;
@@ -12885,6 +14076,12 @@ protected:
     bool loaded_Tau_idDecayModeNewDMs_;
     unsigned int counter_cached_Tau_idDecayModeNewDMs_;
     unsigned int counter_uncached_Tau_idDecayModeNewDMs_;
+    bool Tau_idDecayModeOldDMs_[NTAU_MAX];
+    vector<bool> v_Tau_idDecayModeOldDMs_;
+    TBranch *b_Tau_idDecayModeOldDMs_;
+    bool loaded_Tau_idDecayModeOldDMs_;
+    unsigned int counter_cached_Tau_idDecayModeOldDMs_;
+    unsigned int counter_uncached_Tau_idDecayModeOldDMs_;
     UChar_t Tau_idDeepTau2017v2p1VSe_[NTAU_MAX];
     vector<UChar_t> v_Tau_idDeepTau2017v2p1VSe_;
     TBranch *b_Tau_idDeepTau2017v2p1VSe_;
@@ -13157,6 +14354,179 @@ protected:
     bool loaded_TrigObj_pt_;
     unsigned int counter_cached_TrigObj_pt_;
     unsigned int counter_uncached_TrigObj_pt_;
+    int boostedTau_charge_[NBOOSTEDTAU_MAX];
+    vector<int> v_boostedTau_charge_;
+    TBranch *b_boostedTau_charge_;
+    bool loaded_boostedTau_charge_;
+    unsigned int counter_cached_boostedTau_charge_;
+    unsigned int counter_uncached_boostedTau_charge_;
+    float boostedTau_chargedIso_[NBOOSTEDTAU_MAX];
+    vector<float> v_boostedTau_chargedIso_;
+    TBranch *b_boostedTau_chargedIso_;
+    bool loaded_boostedTau_chargedIso_;
+    unsigned int counter_cached_boostedTau_chargedIso_;
+    unsigned int counter_uncached_boostedTau_chargedIso_;
+    int boostedTau_decayMode_[NBOOSTEDTAU_MAX];
+    vector<int> v_boostedTau_decayMode_;
+    TBranch *b_boostedTau_decayMode_;
+    bool loaded_boostedTau_decayMode_;
+    unsigned int counter_cached_boostedTau_decayMode_;
+    unsigned int counter_uncached_boostedTau_decayMode_;
+    float boostedTau_eta_[NBOOSTEDTAU_MAX];
+    vector<float> v_boostedTau_eta_;
+    TBranch *b_boostedTau_eta_;
+    bool loaded_boostedTau_eta_;
+    unsigned int counter_cached_boostedTau_eta_;
+    unsigned int counter_uncached_boostedTau_eta_;
+    UChar_t boostedTau_genPartFlav_[NBOOSTEDTAU_MAX];
+    vector<UChar_t> v_boostedTau_genPartFlav_;
+    TBranch *b_boostedTau_genPartFlav_;
+    bool loaded_boostedTau_genPartFlav_;
+    unsigned int counter_cached_boostedTau_genPartFlav_;
+    unsigned int counter_uncached_boostedTau_genPartFlav_;
+    int boostedTau_genPartIdx_[NBOOSTEDTAU_MAX];
+    vector<int> v_boostedTau_genPartIdx_;
+    TBranch *b_boostedTau_genPartIdx_;
+    bool loaded_boostedTau_genPartIdx_;
+    unsigned int counter_cached_boostedTau_genPartIdx_;
+    unsigned int counter_uncached_boostedTau_genPartIdx_;
+    UChar_t boostedTau_idAntiEle2018_[NBOOSTEDTAU_MAX];
+    vector<UChar_t> v_boostedTau_idAntiEle2018_;
+    TBranch *b_boostedTau_idAntiEle2018_;
+    bool loaded_boostedTau_idAntiEle2018_;
+    unsigned int counter_cached_boostedTau_idAntiEle2018_;
+    unsigned int counter_uncached_boostedTau_idAntiEle2018_;
+    UChar_t boostedTau_idAntiMu_[NBOOSTEDTAU_MAX];
+    vector<UChar_t> v_boostedTau_idAntiMu_;
+    TBranch *b_boostedTau_idAntiMu_;
+    bool loaded_boostedTau_idAntiMu_;
+    unsigned int counter_cached_boostedTau_idAntiMu_;
+    unsigned int counter_uncached_boostedTau_idAntiMu_;
+    UChar_t boostedTau_idMVAnewDM2017v2_[NBOOSTEDTAU_MAX];
+    vector<UChar_t> v_boostedTau_idMVAnewDM2017v2_;
+    TBranch *b_boostedTau_idMVAnewDM2017v2_;
+    bool loaded_boostedTau_idMVAnewDM2017v2_;
+    unsigned int counter_cached_boostedTau_idMVAnewDM2017v2_;
+    unsigned int counter_uncached_boostedTau_idMVAnewDM2017v2_;
+    UChar_t boostedTau_idMVAoldDM2017v2_[NBOOSTEDTAU_MAX];
+    vector<UChar_t> v_boostedTau_idMVAoldDM2017v2_;
+    TBranch *b_boostedTau_idMVAoldDM2017v2_;
+    bool loaded_boostedTau_idMVAoldDM2017v2_;
+    unsigned int counter_cached_boostedTau_idMVAoldDM2017v2_;
+    unsigned int counter_uncached_boostedTau_idMVAoldDM2017v2_;
+    UChar_t boostedTau_idMVAoldDMdR032017v2_[NBOOSTEDTAU_MAX];
+    vector<UChar_t> v_boostedTau_idMVAoldDMdR032017v2_;
+    TBranch *b_boostedTau_idMVAoldDMdR032017v2_;
+    bool loaded_boostedTau_idMVAoldDMdR032017v2_;
+    unsigned int counter_cached_boostedTau_idMVAoldDMdR032017v2_;
+    unsigned int counter_uncached_boostedTau_idMVAoldDMdR032017v2_;
+    int boostedTau_jetIdx_[NBOOSTEDTAU_MAX];
+    vector<int> v_boostedTau_jetIdx_;
+    TBranch *b_boostedTau_jetIdx_;
+    bool loaded_boostedTau_jetIdx_;
+    unsigned int counter_cached_boostedTau_jetIdx_;
+    unsigned int counter_uncached_boostedTau_jetIdx_;
+    float boostedTau_leadTkDeltaEta_[NBOOSTEDTAU_MAX];
+    vector<float> v_boostedTau_leadTkDeltaEta_;
+    TBranch *b_boostedTau_leadTkDeltaEta_;
+    bool loaded_boostedTau_leadTkDeltaEta_;
+    unsigned int counter_cached_boostedTau_leadTkDeltaEta_;
+    unsigned int counter_uncached_boostedTau_leadTkDeltaEta_;
+    float boostedTau_leadTkDeltaPhi_[NBOOSTEDTAU_MAX];
+    vector<float> v_boostedTau_leadTkDeltaPhi_;
+    TBranch *b_boostedTau_leadTkDeltaPhi_;
+    bool loaded_boostedTau_leadTkDeltaPhi_;
+    unsigned int counter_cached_boostedTau_leadTkDeltaPhi_;
+    unsigned int counter_uncached_boostedTau_leadTkDeltaPhi_;
+    float boostedTau_leadTkPtOverTauPt_[NBOOSTEDTAU_MAX];
+    vector<float> v_boostedTau_leadTkPtOverTauPt_;
+    TBranch *b_boostedTau_leadTkPtOverTauPt_;
+    bool loaded_boostedTau_leadTkPtOverTauPt_;
+    unsigned int counter_cached_boostedTau_leadTkPtOverTauPt_;
+    unsigned int counter_uncached_boostedTau_leadTkPtOverTauPt_;
+    float boostedTau_mass_[NBOOSTEDTAU_MAX];
+    vector<float> v_boostedTau_mass_;
+    TBranch *b_boostedTau_mass_;
+    bool loaded_boostedTau_mass_;
+    unsigned int counter_cached_boostedTau_mass_;
+    unsigned int counter_uncached_boostedTau_mass_;
+    float boostedTau_neutralIso_[NBOOSTEDTAU_MAX];
+    vector<float> v_boostedTau_neutralIso_;
+    TBranch *b_boostedTau_neutralIso_;
+    bool loaded_boostedTau_neutralIso_;
+    unsigned int counter_cached_boostedTau_neutralIso_;
+    unsigned int counter_uncached_boostedTau_neutralIso_;
+    vector<LorentzVector> v_boostedTau_p4_;
+    TBranch *b_boostedTau_p4_;
+    bool loaded_boostedTau_p4_;
+    unsigned int counter_cached_boostedTau_p4_;
+    unsigned int counter_uncached_boostedTau_p4_;
+    float boostedTau_phi_[NBOOSTEDTAU_MAX];
+    vector<float> v_boostedTau_phi_;
+    TBranch *b_boostedTau_phi_;
+    bool loaded_boostedTau_phi_;
+    unsigned int counter_cached_boostedTau_phi_;
+    unsigned int counter_uncached_boostedTau_phi_;
+    float boostedTau_photonsOutsideSignalCone_[NBOOSTEDTAU_MAX];
+    vector<float> v_boostedTau_photonsOutsideSignalCone_;
+    TBranch *b_boostedTau_photonsOutsideSignalCone_;
+    bool loaded_boostedTau_photonsOutsideSignalCone_;
+    unsigned int counter_cached_boostedTau_photonsOutsideSignalCone_;
+    unsigned int counter_uncached_boostedTau_photonsOutsideSignalCone_;
+    float boostedTau_pt_[NBOOSTEDTAU_MAX];
+    vector<float> v_boostedTau_pt_;
+    TBranch *b_boostedTau_pt_;
+    bool loaded_boostedTau_pt_;
+    unsigned int counter_cached_boostedTau_pt_;
+    unsigned int counter_uncached_boostedTau_pt_;
+    float boostedTau_puCorr_[NBOOSTEDTAU_MAX];
+    vector<float> v_boostedTau_puCorr_;
+    TBranch *b_boostedTau_puCorr_;
+    bool loaded_boostedTau_puCorr_;
+    unsigned int counter_cached_boostedTau_puCorr_;
+    unsigned int counter_uncached_boostedTau_puCorr_;
+    float boostedTau_rawAntiEle2018_[NBOOSTEDTAU_MAX];
+    vector<float> v_boostedTau_rawAntiEle2018_;
+    TBranch *b_boostedTau_rawAntiEle2018_;
+    bool loaded_boostedTau_rawAntiEle2018_;
+    unsigned int counter_cached_boostedTau_rawAntiEle2018_;
+    unsigned int counter_uncached_boostedTau_rawAntiEle2018_;
+    int boostedTau_rawAntiEleCat2018_[NBOOSTEDTAU_MAX];
+    vector<int> v_boostedTau_rawAntiEleCat2018_;
+    TBranch *b_boostedTau_rawAntiEleCat2018_;
+    bool loaded_boostedTau_rawAntiEleCat2018_;
+    unsigned int counter_cached_boostedTau_rawAntiEleCat2018_;
+    unsigned int counter_uncached_boostedTau_rawAntiEleCat2018_;
+    float boostedTau_rawIso_[NBOOSTEDTAU_MAX];
+    vector<float> v_boostedTau_rawIso_;
+    TBranch *b_boostedTau_rawIso_;
+    bool loaded_boostedTau_rawIso_;
+    unsigned int counter_cached_boostedTau_rawIso_;
+    unsigned int counter_uncached_boostedTau_rawIso_;
+    float boostedTau_rawIsodR03_[NBOOSTEDTAU_MAX];
+    vector<float> v_boostedTau_rawIsodR03_;
+    TBranch *b_boostedTau_rawIsodR03_;
+    bool loaded_boostedTau_rawIsodR03_;
+    unsigned int counter_cached_boostedTau_rawIsodR03_;
+    unsigned int counter_uncached_boostedTau_rawIsodR03_;
+    float boostedTau_rawMVAnewDM2017v2_[NBOOSTEDTAU_MAX];
+    vector<float> v_boostedTau_rawMVAnewDM2017v2_;
+    TBranch *b_boostedTau_rawMVAnewDM2017v2_;
+    bool loaded_boostedTau_rawMVAnewDM2017v2_;
+    unsigned int counter_cached_boostedTau_rawMVAnewDM2017v2_;
+    unsigned int counter_uncached_boostedTau_rawMVAnewDM2017v2_;
+    float boostedTau_rawMVAoldDM2017v2_[NBOOSTEDTAU_MAX];
+    vector<float> v_boostedTau_rawMVAoldDM2017v2_;
+    TBranch *b_boostedTau_rawMVAoldDM2017v2_;
+    bool loaded_boostedTau_rawMVAoldDM2017v2_;
+    unsigned int counter_cached_boostedTau_rawMVAoldDM2017v2_;
+    unsigned int counter_uncached_boostedTau_rawMVAoldDM2017v2_;
+    float boostedTau_rawMVAoldDMdR032017v2_[NBOOSTEDTAU_MAX];
+    vector<float> v_boostedTau_rawMVAoldDMdR032017v2_;
+    TBranch *b_boostedTau_rawMVAoldDMdR032017v2_;
+    bool loaded_boostedTau_rawMVAoldDMdR032017v2_;
+    unsigned int counter_cached_boostedTau_rawMVAoldDMdR032017v2_;
+    unsigned int counter_uncached_boostedTau_rawMVAoldDMdR032017v2_;
     float btagWeight_CMVA_;
     TBranch *b_btagWeight_CMVA_;
     bool loaded_btagWeight_CMVA_;
@@ -13302,6 +14672,11 @@ protected:
     bool loaded_nLHEScaleWeight_;
     unsigned int counter_cached_nLHEScaleWeight_;
     unsigned int counter_uncached_nLHEScaleWeight_;
+    UInt_t nLowPtElectron_;
+    TBranch *b_nLowPtElectron_;
+    bool loaded_nLowPtElectron_;
+    unsigned int counter_cached_nLowPtElectron_;
+    unsigned int counter_uncached_nLowPtElectron_;
     UInt_t nMuon_;
     TBranch *b_nMuon_;
     bool loaded_nMuon_;
@@ -13352,6 +14727,26 @@ protected:
     bool loaded_nTrigObj_;
     unsigned int counter_cached_nTrigObj_;
     unsigned int counter_uncached_nTrigObj_;
+    UInt_t nboostedTau_;
+    TBranch *b_nboostedTau_;
+    bool loaded_nboostedTau_;
+    unsigned int counter_cached_nboostedTau_;
+    unsigned int counter_uncached_nboostedTau_;
+    float puWeight_;
+    TBranch *b_puWeight_;
+    bool loaded_puWeight_;
+    unsigned int counter_cached_puWeight_;
+    unsigned int counter_uncached_puWeight_;
+    float puWeightDown_;
+    TBranch *b_puWeightDown_;
+    bool loaded_puWeightDown_;
+    unsigned int counter_cached_puWeightDown_;
+    unsigned int counter_uncached_puWeightDown_;
+    float puWeightUp_;
+    TBranch *b_puWeightUp_;
+    bool loaded_puWeightUp_;
+    unsigned int counter_cached_puWeightUp_;
+    unsigned int counter_uncached_puWeightUp_;
     UInt_t run_;
     TBranch *b_run_;
     bool loaded_run_;
@@ -13376,6 +14771,28 @@ public:
     const vector<float> &CorrT1METJet_muonSubtrFactor();
     const vector<float> &CorrT1METJet_phi();
     const vector<float> &CorrT1METJet_rawPt();
+    const float &DeepMETResolutionTune_phi();
+    const float &DeepMETResolutionTune_pt();
+    const float &DeepMETResponseTune_phi();
+    const float &DeepMETResponseTune_pt();
+    const vector<float> &Electron_CutBased_LooseID_SF();
+    const vector<float> &Electron_CutBased_LooseID_SFerr();
+    const vector<float> &Electron_CutBased_MediumID_SF();
+    const vector<float> &Electron_CutBased_MediumID_SFerr();
+    const vector<float> &Electron_CutBased_TightID_SF();
+    const vector<float> &Electron_CutBased_TightID_SFerr();
+    const vector<float> &Electron_CutBased_VetoID_SF();
+    const vector<float> &Electron_CutBased_VetoID_SFerr();
+    const vector<float> &Electron_MVAFall17V2Iso_WP80_SF();
+    const vector<float> &Electron_MVAFall17V2Iso_WP80_SFerr();
+    const vector<float> &Electron_MVAFall17V2Iso_WP90_SF();
+    const vector<float> &Electron_MVAFall17V2Iso_WP90_SFerr();
+    const vector<float> &Electron_MVAFall17V2noIso_WP80_SF();
+    const vector<float> &Electron_MVAFall17V2noIso_WP80_SFerr();
+    const vector<float> &Electron_MVAFall17V2noIso_WP90_SF();
+    const vector<float> &Electron_MVAFall17V2noIso_WP90_SFerr();
+    const vector<float> &Electron_RECO_SF();
+    const vector<float> &Electron_RECO_SFerr();
     const vector<int> &Electron_charge();
     const vector<UChar_t> &Electron_cleanmask();
     const vector<bool> &Electron_convVeto();
@@ -13385,6 +14802,10 @@ public:
     const vector<int> &Electron_cutBased_HLTPreSel();
     const vector<int> &Electron_cutBased_Spring15();
     const vector<int> &Electron_cutBased_Sum16();
+    const vector<float> &Electron_dEscaleDown();
+    const vector<float> &Electron_dEscaleUp();
+    const vector<float> &Electron_dEsigmaDown();
+    const vector<float> &Electron_dEsigmaUp();
     const vector<float> &Electron_deltaEtaSC();
     const vector<float> &Electron_dr03EcalRecHitSumEt();
     const vector<float> &Electron_dr03HcalDepth1TowerSumEt();
@@ -13404,6 +14825,7 @@ public:
     const vector<float> &Electron_ip3d();
     const vector<bool> &Electron_isPFcand();
     const vector<int> &Electron_jetIdx();
+    const vector<UChar_t> &Electron_jetNDauCharged();
     const vector<float> &Electron_jetPtRelv2();
     const vector<float> &Electron_jetRelIso();
     const vector<UChar_t> &Electron_lostHits();
@@ -13453,13 +14875,20 @@ public:
     const vector<float> &FatJet_btagCMVA();
     const vector<float> &FatJet_btagCSVV2();
     const vector<float> &FatJet_btagDDBvL();
+    const vector<float> &FatJet_btagDDBvLV2();
     const vector<float> &FatJet_btagDDBvL_noMD();
     const vector<float> &FatJet_btagDDCvB();
+    const vector<float> &FatJet_btagDDCvBV2();
     const vector<float> &FatJet_btagDDCvB_noMD();
     const vector<float> &FatJet_btagDDCvL();
+    const vector<float> &FatJet_btagDDCvLV2();
     const vector<float> &FatJet_btagDDCvL_noMD();
     const vector<float> &FatJet_btagDeepB();
     const vector<float> &FatJet_btagHbb();
+    const vector<float> &FatJet_corr_JEC();
+    const vector<float> &FatJet_corr_JER();
+    const vector<float> &FatJet_corr_JMR();
+    const vector<float> &FatJet_corr_JMS();
     const vector<float> &FatJet_deepTagMD_H4qvsQCD();
     const vector<float> &FatJet_deepTagMD_HbbvsQCD();
     const vector<float> &FatJet_deepTagMD_TvsQCD();
@@ -13483,15 +14912,64 @@ public:
     const vector<int> &FatJet_jetId();
     const vector<float> &FatJet_lsf3();
     const vector<float> &FatJet_mass();
+    const vector<float> &FatJet_mass_jerDown();
+    const vector<float> &FatJet_mass_jerUp();
+    const vector<float> &FatJet_mass_jesTotalDown();
+    const vector<float> &FatJet_mass_jesTotalUp();
+    const vector<float> &FatJet_mass_jmrDown();
+    const vector<float> &FatJet_mass_jmrUp();
+    const vector<float> &FatJet_mass_jmsDown();
+    const vector<float> &FatJet_mass_jmsUp();
+    const vector<float> &FatJet_mass_nom();
+    const vector<float> &FatJet_mass_raw();
     const vector<float> &FatJet_msoftdrop();
+    const vector<float> &FatJet_msoftdrop_corr_JMR();
+    const vector<float> &FatJet_msoftdrop_corr_JMS();
+    const vector<float> &FatJet_msoftdrop_corr_PUPPI();
+    const vector<float> &FatJet_msoftdrop_jerDown();
+    const vector<float> &FatJet_msoftdrop_jerUp();
+    const vector<float> &FatJet_msoftdrop_jesTotalDown();
+    const vector<float> &FatJet_msoftdrop_jesTotalUp();
+    const vector<float> &FatJet_msoftdrop_jmrDown();
+    const vector<float> &FatJet_msoftdrop_jmrUp();
+    const vector<float> &FatJet_msoftdrop_jmsDown();
+    const vector<float> &FatJet_msoftdrop_jmsUp();
+    const vector<float> &FatJet_msoftdrop_nom();
+    const vector<float> &FatJet_msoftdrop_raw();
+    const vector<float> &FatJet_msoftdrop_tau21DDT_jerDown();
+    const vector<float> &FatJet_msoftdrop_tau21DDT_jerUp();
+    const vector<float> &FatJet_msoftdrop_tau21DDT_jmrDown();
+    const vector<float> &FatJet_msoftdrop_tau21DDT_jmrUp();
+    const vector<float> &FatJet_msoftdrop_tau21DDT_jmsDown();
+    const vector<float> &FatJet_msoftdrop_tau21DDT_jmsUp();
+    const vector<float> &FatJet_msoftdrop_tau21DDT_nom();
     const vector<int> &FatJet_muonIdx3SJ();
     const vector<float> &FatJet_n2b1();
     const vector<float> &FatJet_n3b1();
     const vector<UChar_t> &FatJet_nBHadrons();
     const vector<UChar_t> &FatJet_nCHadrons();
+    const vector<UChar_t> &FatJet_nConstituents();
     const vector<LorentzVector> &FatJet_p4();
+    const vector<float> &FatJet_particleNetMD_QCD();
+    const vector<float> &FatJet_particleNetMD_Xbb();
+    const vector<float> &FatJet_particleNetMD_Xcc();
+    const vector<float> &FatJet_particleNetMD_Xqq();
+    const vector<float> &FatJet_particleNet_H4qvsQCD();
+    const vector<float> &FatJet_particleNet_HbbvsQCD();
+    const vector<float> &FatJet_particleNet_HccvsQCD();
+    const vector<float> &FatJet_particleNet_QCD();
+    const vector<float> &FatJet_particleNet_TvsQCD();
+    const vector<float> &FatJet_particleNet_WvsQCD();
+    const vector<float> &FatJet_particleNet_ZvsQCD();
+    const vector<float> &FatJet_particleNet_mass();
     const vector<float> &FatJet_phi();
     const vector<float> &FatJet_pt();
+    const vector<float> &FatJet_pt_jerDown();
+    const vector<float> &FatJet_pt_jerUp();
+    const vector<float> &FatJet_pt_jesTotalDown();
+    const vector<float> &FatJet_pt_jesTotalUp();
+    const vector<float> &FatJet_pt_nom();
+    const vector<float> &FatJet_pt_raw();
     const vector<float> &FatJet_rawFactor();
     const vector<int> &FatJet_subJetIdx1();
     const vector<int> &FatJet_subJetIdx2();
@@ -13501,6 +14979,7 @@ public:
     const vector<float> &FatJet_tau4();
     const bool &Flag_BadChargedCandidateFilter();
     const bool &Flag_BadChargedCandidateSummer16Filter();
+    const bool &Flag_BadPFMuonDzFilter();
     const bool &Flag_BadPFMuonFilter();
     const bool &Flag_BadPFMuonSummer16Filter();
     const bool &Flag_CSCTightHalo2015Filter();
@@ -13521,6 +15000,7 @@ public:
     const bool &Flag_globalTightHalo2016Filter();
     const bool &Flag_goodVertices();
     const bool &Flag_hcalLaserEventFilter();
+    const bool &Flag_hfNoisyHitsFilter();
     const bool &Flag_muonBadTrackFilter();
     const bool &Flag_trkPOGFilters();
     const bool &Flag_trkPOG_logErrorTooManyClusters();
@@ -13577,6 +15057,10 @@ public:
     const vector<float> &GenVisTau_phi();
     const vector<float> &GenVisTau_pt();
     const vector<int> &GenVisTau_status();
+    const float &GenVtx_t0();
+    const float &GenVtx_x();
+    const float &GenVtx_y();
+    const float &GenVtx_z();
     const float &Generator_binvar();
     const int &Generator_id1();
     const int &Generator_id2();
@@ -14812,6 +16296,7 @@ public:
     const int &HTXS_stage_0();
     const int &HTXS_stage_1_pTjet25();
     const int &HTXS_stage_1_pTjet30();
+    const vector<int> &IsoTrack_charge();
     const vector<float> &IsoTrack_dxy();
     const vector<float> &IsoTrack_dz();
     const vector<float> &IsoTrack_eta();
@@ -14833,8 +16318,13 @@ public:
     const vector<float> &Jet_btagCSVV2();
     const vector<float> &Jet_btagDeepB();
     const vector<float> &Jet_btagDeepC();
+    const vector<float> &Jet_btagDeepCvB();
+    const vector<float> &Jet_btagDeepCvL();
     const vector<float> &Jet_btagDeepFlavB();
     const vector<float> &Jet_btagDeepFlavC();
+    const vector<float> &Jet_btagDeepFlavCvB();
+    const vector<float> &Jet_btagDeepFlavCvL();
+    const vector<float> &Jet_btagDeepFlavQG();
     const vector<float> &Jet_cRegCorr();
     const vector<float> &Jet_cRegRes();
     const vector<float> &Jet_chEmEF();
@@ -14849,6 +16339,10 @@ public:
     const vector<float> &Jet_eta();
     const vector<int> &Jet_genJetIdx();
     const vector<int> &Jet_hadronFlavour();
+    const vector<int> &Jet_hfadjacentEtaStripsSize();
+    const vector<int> &Jet_hfcentralEtaStripSize();
+    const vector<float> &Jet_hfsigmaEtaEta();
+    const vector<float> &Jet_hfsigmaPhiPhi();
     const vector<int> &Jet_jetId();
     const vector<float> &Jet_mass();
     const vector<float> &Jet_muEF();
@@ -14869,6 +16363,14 @@ public:
     const vector<float> &Jet_qgl();
     const vector<float> &Jet_rawFactor();
     const float &L1PreFiringWeight_Dn();
+    const float &L1PreFiringWeight_ECAL_Dn();
+    const float &L1PreFiringWeight_ECAL_Nom();
+    const float &L1PreFiringWeight_ECAL_Up();
+    const float &L1PreFiringWeight_Muon_Nom();
+    const float &L1PreFiringWeight_Muon_StatDn();
+    const float &L1PreFiringWeight_Muon_StatUp();
+    const float &L1PreFiringWeight_Muon_SystDn();
+    const float &L1PreFiringWeight_Muon_SystUp();
     const float &L1PreFiringWeight_Nom();
     const float &L1PreFiringWeight_Up();
     const bool &L1Reco_step();
@@ -15156,6 +16658,7 @@ public:
     const bool &L1_ETT1600();
     const bool &L1_ETT2000();
     const bool &L1_ETT25();
+    const bool &L1_ETT35_BptxAND();
     const bool &L1_ETT40_BptxAND();
     const bool &L1_ETT50_BptxAND();
     const bool &L1_ETT55_BptxAND();
@@ -15510,6 +17013,9 @@ public:
     const bool &L1_SingleJet90er2p5();
     const bool &L1_SingleJetC20_NotBptxOR();
     const bool &L1_SingleJetC20_NotBptxOR_3BX();
+    const bool &L1_SingleJetC32_NotBptxOR();
+    const bool &L1_SingleJetC32_NotBptxOR_3BX();
+    const bool &L1_SingleJetC36_NotBptxOR_3BX();
     const bool &L1_SingleJetC40_NotBptxOR_3BX();
     const bool &L1_SingleJetC40_NotBptxOR_5BX();
     const bool &L1_SingleLooseIsoEG28er1p5();
@@ -15623,6 +17129,7 @@ public:
     const bool &L1_TripleMu_5_5_3();
     const bool &L1_UnpairedBunchBptxMinus();
     const bool &L1_UnpairedBunchBptxPlus();
+    const bool &L1_UnprefireableEvent();
     const bool &L1_ZeroBias();
     const bool &L1_ZeroBias_FirstCollidingBunch();
     const bool &L1_ZeroBias_copy();
@@ -15651,6 +17158,36 @@ public:
     const UChar_t &LHE_NpNLO();
     const UChar_t &LHE_Nuds();
     const float &LHE_Vpt();
+    const vector<float> &LowPtElectron_ID();
+    const vector<int> &LowPtElectron_charge();
+    const vector<bool> &LowPtElectron_convVeto();
+    const vector<float> &LowPtElectron_convVtxRadius();
+    const vector<int> &LowPtElectron_convWP();
+    const vector<float> &LowPtElectron_deltaEtaSC();
+    const vector<float> &LowPtElectron_dxy();
+    const vector<float> &LowPtElectron_dxyErr();
+    const vector<float> &LowPtElectron_dz();
+    const vector<float> &LowPtElectron_dzErr();
+    const vector<float> &LowPtElectron_eInvMinusPInv();
+    const vector<float> &LowPtElectron_embeddedID();
+    const vector<float> &LowPtElectron_energyErr();
+    const vector<float> &LowPtElectron_eta();
+    const vector<UChar_t> &LowPtElectron_genPartFlav();
+    const vector<int> &LowPtElectron_genPartIdx();
+    const vector<float> &LowPtElectron_hoe();
+    const vector<UChar_t> &LowPtElectron_lostHits();
+    const vector<float> &LowPtElectron_mass();
+    const vector<float> &LowPtElectron_miniPFRelIso_all();
+    const vector<float> &LowPtElectron_miniPFRelIso_chg();
+    const vector<LorentzVector> &LowPtElectron_p4();
+    const vector<int> &LowPtElectron_pdgId();
+    const vector<float> &LowPtElectron_phi();
+    const vector<float> &LowPtElectron_pt();
+    const vector<float> &LowPtElectron_ptbiased();
+    const vector<float> &LowPtElectron_r9();
+    const vector<float> &LowPtElectron_scEtOverPt();
+    const vector<float> &LowPtElectron_sieie();
+    const vector<float> &LowPtElectron_unbiased();
     const float &METFixEE2017_MetUnclustEnUpDeltaX();
     const float &METFixEE2017_MetUnclustEnUpDeltaY();
     const float &METFixEE2017_covXX();
@@ -15673,8 +17210,47 @@ public:
     const float &MET_significance();
     const float &MET_sumEt();
     const float &MET_sumPtUnclustered();
+    const vector<float> &Muon_CutBased_HighPtID_SF();
+    const vector<float> &Muon_CutBased_HighPtID_SFerr();
+    const vector<float> &Muon_CutBased_LooseID_SF();
+    const vector<float> &Muon_CutBased_LooseID_SFerr();
+    const vector<float> &Muon_CutBased_MediumID_SF();
+    const vector<float> &Muon_CutBased_MediumID_SFerr();
+    const vector<float> &Muon_CutBased_MediumPromptID_SF();
+    const vector<float> &Muon_CutBased_MediumPromptID_SFerr();
+    const vector<float> &Muon_CutBased_SoftID_SF();
+    const vector<float> &Muon_CutBased_SoftID_SFerr();
+    const vector<float> &Muon_CutBased_TightID_SF();
+    const vector<float> &Muon_CutBased_TightID_SFerr();
+    const vector<float> &Muon_CutBased_TrkHighPtID_SF();
+    const vector<float> &Muon_CutBased_TrkHighPtID_SFerr();
+    const vector<float> &Muon_LooseRelIso_LooseID_SF();
+    const vector<float> &Muon_LooseRelIso_LooseID_SFerr();
+    const vector<float> &Muon_LooseRelIso_MediumID_SF();
+    const vector<float> &Muon_LooseRelIso_MediumID_SFerr();
+    const vector<float> &Muon_LooseRelIso_MediumPromptID_SF();
+    const vector<float> &Muon_LooseRelIso_MediumPromptID_SFerr();
+    const vector<float> &Muon_LooseRelIso_TightIDandIPCut_SF();
+    const vector<float> &Muon_LooseRelIso_TightIDandIPCut_SFerr();
+    const vector<float> &Muon_LooseRelTkIso_HighPtIDandIPCut_SF();
+    const vector<float> &Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr();
+    const vector<float> &Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF();
+    const vector<float> &Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr();
+    const vector<float> &Muon_TightRelIso_MediumID_SF();
+    const vector<float> &Muon_TightRelIso_MediumID_SFerr();
+    const vector<float> &Muon_TightRelIso_MediumPromptID_SF();
+    const vector<float> &Muon_TightRelIso_MediumPromptID_SFerr();
+    const vector<float> &Muon_TightRelIso_TightIDandIPCut_SF();
+    const vector<float> &Muon_TightRelIso_TightIDandIPCut_SFerr();
+    const vector<float> &Muon_TightRelTkIso_HighPtIDandIPCut_SF();
+    const vector<float> &Muon_TightRelTkIso_HighPtIDandIPCut_SFerr();
+    const vector<float> &Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF();
+    const vector<float> &Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr();
     const vector<int> &Muon_charge();
     const vector<UChar_t> &Muon_cleanmask();
+    const vector<float> &Muon_correctedDown_pt();
+    const vector<float> &Muon_correctedUp_pt();
+    const vector<float> &Muon_corrected_pt();
     const vector<float> &Muon_dxy();
     const vector<float> &Muon_dxyErr();
     const vector<float> &Muon_dxybs();
@@ -15690,8 +17266,10 @@ public:
     const vector<float> &Muon_ip3d();
     const vector<bool> &Muon_isGlobal();
     const vector<bool> &Muon_isPFcand();
+    const vector<bool> &Muon_isStandalone();
     const vector<bool> &Muon_isTracker();
     const vector<int> &Muon_jetIdx();
+    const vector<UChar_t> &Muon_jetNDauCharged();
     const vector<float> &Muon_jetPtRelv2();
     const vector<float> &Muon_jetRelIso();
     const vector<bool> &Muon_looseId();
@@ -15704,6 +17282,7 @@ public:
     const vector<UChar_t> &Muon_multiIsoId();
     const vector<UChar_t> &Muon_mvaId();
     const vector<float> &Muon_mvaLowPt();
+    const vector<UChar_t> &Muon_mvaLowPtId();
     const vector<float> &Muon_mvaTTH();
     const vector<int> &Muon_nStations();
     const vector<int> &Muon_nTrackerLayers();
@@ -15716,6 +17295,7 @@ public:
     const vector<float> &Muon_phi();
     const vector<float> &Muon_pt();
     const vector<float> &Muon_ptErr();
+    const vector<UChar_t> &Muon_puppiIsoId();
     const vector<float> &Muon_segmentComp();
     const vector<float> &Muon_sip3d();
     const vector<bool> &Muon_softId();
@@ -15743,6 +17323,10 @@ public:
     const vector<int> &Photon_cutBased();
     const vector<int> &Photon_cutBased_Fall17V1Bitmap();
     const vector<int> &Photon_cutBased_Spring16V2p2();
+    const vector<float> &Photon_dEscaleDown();
+    const vector<float> &Photon_dEscaleUp();
+    const vector<float> &Photon_dEsigmaDown();
+    const vector<float> &Photon_dEsigmaUp();
     const vector<float> &Photon_eCorr();
     const vector<int> &Photon_electronIdx();
     const vector<bool> &Photon_electronVeto();
@@ -15780,12 +17364,23 @@ public:
     const float &Pileup_pudensity();
     const int &Pileup_sumEOOT();
     const int &Pileup_sumLOOT();
+    const float &PrefireWeight();
+    const float &PrefireWeight_Down();
+    const float &PrefireWeight_Up();
     const float &PuppiMET_phi();
+    const float &PuppiMET_phiJERDown();
     const float &PuppiMET_phiJERUp();
+    const float &PuppiMET_phiJESDown();
     const float &PuppiMET_phiJESUp();
+    const float &PuppiMET_phiUnclusteredDown();
+    const float &PuppiMET_phiUnclusteredUp();
     const float &PuppiMET_pt();
+    const float &PuppiMET_ptJERDown();
     const float &PuppiMET_ptJERUp();
+    const float &PuppiMET_ptJESDown();
     const float &PuppiMET_ptJESUp();
+    const float &PuppiMET_ptUnclusteredDown();
+    const float &PuppiMET_ptUnclusteredUp();
     const float &PuppiMET_sumEt();
     const float &RawMET_phi();
     const float &RawMET_pt();
@@ -15793,6 +17388,7 @@ public:
     const float &RawPuppiMET_phi();
     const float &RawPuppiMET_pt();
     const float &RawPuppiMET_sumEt();
+    const vector<int> &SV_charge();
     const vector<float> &SV_chi2();
     const vector<float> &SV_dlen();
     const vector<float> &SV_dlenSig();
@@ -15801,6 +17397,7 @@ public:
     const vector<float> &SV_eta();
     const vector<float> &SV_mass();
     const vector<float> &SV_ndof();
+    const vector<UChar_t> &SV_ntracks();
     const vector<LorentzVector> &SV_p4();
     const vector<float> &SV_pAngle();
     const vector<float> &SV_phi();
@@ -15827,6 +17424,7 @@ public:
     const vector<float> &SubJet_btagCSVV2();
     const vector<float> &SubJet_btagDeepB();
     const vector<float> &SubJet_eta();
+    const vector<int> &SubJet_hadronFlavour();
     const vector<float> &SubJet_mass();
     const vector<float> &SubJet_n2b1();
     const vector<float> &SubJet_n3b1();
@@ -15851,9 +17449,11 @@ public:
     const vector<int> &Tau_genPartIdx();
     const vector<UChar_t> &Tau_idAntiEle();
     const vector<UChar_t> &Tau_idAntiEle2018();
+    const vector<bool> &Tau_idAntiEleDeadECal();
     const vector<UChar_t> &Tau_idAntiMu();
     const vector<bool> &Tau_idDecayMode();
     const vector<bool> &Tau_idDecayModeNewDMs();
+    const vector<bool> &Tau_idDecayModeOldDMs();
     const vector<UChar_t> &Tau_idDeepTau2017v2p1VSe();
     const vector<UChar_t> &Tau_idDeepTau2017v2p1VSjet();
     const vector<UChar_t> &Tau_idDeepTau2017v2p1VSmu();
@@ -15900,6 +17500,35 @@ public:
     const vector<float> &TrigObj_l2pt();
     const vector<float> &TrigObj_phi();
     const vector<float> &TrigObj_pt();
+    const vector<int> &boostedTau_charge();
+    const vector<float> &boostedTau_chargedIso();
+    const vector<int> &boostedTau_decayMode();
+    const vector<float> &boostedTau_eta();
+    const vector<UChar_t> &boostedTau_genPartFlav();
+    const vector<int> &boostedTau_genPartIdx();
+    const vector<UChar_t> &boostedTau_idAntiEle2018();
+    const vector<UChar_t> &boostedTau_idAntiMu();
+    const vector<UChar_t> &boostedTau_idMVAnewDM2017v2();
+    const vector<UChar_t> &boostedTau_idMVAoldDM2017v2();
+    const vector<UChar_t> &boostedTau_idMVAoldDMdR032017v2();
+    const vector<int> &boostedTau_jetIdx();
+    const vector<float> &boostedTau_leadTkDeltaEta();
+    const vector<float> &boostedTau_leadTkDeltaPhi();
+    const vector<float> &boostedTau_leadTkPtOverTauPt();
+    const vector<float> &boostedTau_mass();
+    const vector<float> &boostedTau_neutralIso();
+    const vector<LorentzVector> &boostedTau_p4();
+    const vector<float> &boostedTau_phi();
+    const vector<float> &boostedTau_photonsOutsideSignalCone();
+    const vector<float> &boostedTau_pt();
+    const vector<float> &boostedTau_puCorr();
+    const vector<float> &boostedTau_rawAntiEle2018();
+    const vector<int> &boostedTau_rawAntiEleCat2018();
+    const vector<float> &boostedTau_rawIso();
+    const vector<float> &boostedTau_rawIsodR03();
+    const vector<float> &boostedTau_rawMVAnewDM2017v2();
+    const vector<float> &boostedTau_rawMVAoldDM2017v2();
+    const vector<float> &boostedTau_rawMVAoldDMdR032017v2();
     const float &btagWeight_CMVA();
     const float &btagWeight_CSVV2();
     const float &btagWeight_DeepCSVB();
@@ -15929,6 +17558,7 @@ public:
     const UInt_t &nLHEPdfWeight();
     const UInt_t &nLHEReweightingWeight();
     const UInt_t &nLHEScaleWeight();
+    const UInt_t &nLowPtElectron();
     const UInt_t &nMuon();
     const UInt_t &nOtherPV();
     const UInt_t &nPSWeight();
@@ -15939,6 +17569,10 @@ public:
     const UInt_t &nSubJet();
     const UInt_t &nTau();
     const UInt_t &nTrigObj();
+    const UInt_t &nboostedTau();
+    const float &puWeight();
+    const float &puWeightDown();
+    const float &puWeightUp();
     const UInt_t &run();
     Bool_t isData();
     const Int_t &year();
@@ -15961,6 +17595,28 @@ namespace tas {
     const vector<float> &CorrT1METJet_muonSubtrFactor(); // 1-(muon-subtracted raw pt)/(raw pt)
     const vector<float> &CorrT1METJet_phi(); // phi
     const vector<float> &CorrT1METJet_rawPt(); // pt()*jecFactor('Uncorrected')
+    const float &DeepMETResolutionTune_phi(); // DeepmET ResolutionTune phi
+    const float &DeepMETResolutionTune_pt(); // DeepMET ResolutionTune pt
+    const float &DeepMETResponseTune_phi(); // DeepMET ResponseTune phi
+    const float &DeepMETResponseTune_pt(); // DeepMET ResponseTune pt
+    const vector<float> &Electron_CutBased_LooseID_SF(); // Electron_CutBased_LooseID_SF[nElectron]/F
+    const vector<float> &Electron_CutBased_LooseID_SFerr(); // Electron_CutBased_LooseID_SFerr[nElectron]/F
+    const vector<float> &Electron_CutBased_MediumID_SF(); // Electron_CutBased_MediumID_SF[nElectron]/F
+    const vector<float> &Electron_CutBased_MediumID_SFerr(); // Electron_CutBased_MediumID_SFerr[nElectron]/F
+    const vector<float> &Electron_CutBased_TightID_SF(); // Electron_CutBased_TightID_SF[nElectron]/F
+    const vector<float> &Electron_CutBased_TightID_SFerr(); // Electron_CutBased_TightID_SFerr[nElectron]/F
+    const vector<float> &Electron_CutBased_VetoID_SF(); // Electron_CutBased_VetoID_SF[nElectron]/F
+    const vector<float> &Electron_CutBased_VetoID_SFerr(); // Electron_CutBased_VetoID_SFerr[nElectron]/F
+    const vector<float> &Electron_MVAFall17V2Iso_WP80_SF(); // Electron_MVAFall17V2Iso_WP80_SF[nElectron]/F
+    const vector<float> &Electron_MVAFall17V2Iso_WP80_SFerr(); // Electron_MVAFall17V2Iso_WP80_SFerr[nElectron]/F
+    const vector<float> &Electron_MVAFall17V2Iso_WP90_SF(); // Electron_MVAFall17V2Iso_WP90_SF[nElectron]/F
+    const vector<float> &Electron_MVAFall17V2Iso_WP90_SFerr(); // Electron_MVAFall17V2Iso_WP90_SFerr[nElectron]/F
+    const vector<float> &Electron_MVAFall17V2noIso_WP80_SF(); // Electron_MVAFall17V2noIso_WP80_SF[nElectron]/F
+    const vector<float> &Electron_MVAFall17V2noIso_WP80_SFerr(); // Electron_MVAFall17V2noIso_WP80_SFerr[nElectron]/F
+    const vector<float> &Electron_MVAFall17V2noIso_WP90_SF(); // Electron_MVAFall17V2noIso_WP90_SF[nElectron]/F
+    const vector<float> &Electron_MVAFall17V2noIso_WP90_SFerr(); // Electron_MVAFall17V2noIso_WP90_SFerr[nElectron]/F
+    const vector<float> &Electron_RECO_SF(); // Electron_RECO_SF[nElectron]/F
+    const vector<float> &Electron_RECO_SFerr(); // Electron_RECO_SFerr[nElectron]/F
     const vector<int> &Electron_charge(); // electric charge
     const vector<UChar_t> &Electron_cleanmask(); // simple cleaning mask with priority to leptons
     const vector<bool> &Electron_convVeto(); // pass conversion veto
@@ -15970,6 +17626,10 @@ namespace tas {
     const vector<int> &Electron_cutBased_HLTPreSel(); // cut-based HLT pre-selection ID
     const vector<int> &Electron_cutBased_Spring15(); // cut-based Spring15 ID (0:fail, 1:veto, 2:loose, 3:medium, 4:tight)
     const vector<int> &Electron_cutBased_Sum16(); // cut-based Summer16 ID (0:fail, 1:veto, 2:loose, 3:medium, 4:tight)
+    const vector<float> &Electron_dEscaleDown(); // ecal energy scale shifted 1 sigma down (adding gain/stat/syst in quadrature)
+    const vector<float> &Electron_dEscaleUp(); // ecal energy scale shifted 1 sigma up(adding gain/stat/syst in quadrature)
+    const vector<float> &Electron_dEsigmaDown(); // ecal energy smearing value shifted 1 sigma up
+    const vector<float> &Electron_dEsigmaUp(); // ecal energy smearing value shifted 1 sigma up
     const vector<float> &Electron_deltaEtaSC(); // delta eta (SC,ele) with sign
     const vector<float> &Electron_dr03EcalRecHitSumEt(); // Non-PF Ecal isolation within a delta R cone of 0.3 with electron pt > 35 GeV
     const vector<float> &Electron_dr03HcalDepth1TowerSumEt(); // Non-PF Hcal isolation within a delta R cone of 0.3 with electron pt > 35 GeV
@@ -15989,6 +17649,7 @@ namespace tas {
     const vector<float> &Electron_ip3d(); // 3D impact parameter wrt first PV, in cm
     const vector<bool> &Electron_isPFcand(); // electron is PF candidate
     const vector<int> &Electron_jetIdx(); // index of the associated jet (-1 if none)
+    const vector<UChar_t> &Electron_jetNDauCharged(); // number of charged daughters of the closest jet
     const vector<float> &Electron_jetPtRelv2(); // Relative momentum of the lepton with respect to the closest jet after subtracting the lepton
     const vector<float> &Electron_jetRelIso(); // Relative isolation in matched jet (1/ptRatio-1, pfRelIso04_all if no matched jet)
     const vector<UChar_t> &Electron_lostHits(); // number of missing inner hits
@@ -16038,13 +17699,20 @@ namespace tas {
     const vector<float> &FatJet_btagCMVA(); // CMVA V2 btag discriminator
     const vector<float> &FatJet_btagCSVV2(); //  pfCombinedInclusiveSecondaryVertexV2 b-tag discriminator (aka CSVV2)
     const vector<float> &FatJet_btagDDBvL(); // DeepDoubleX (mass-decorrelated) discriminator for H(Z)->bb vs QCD
+    const vector<float> &FatJet_btagDDBvLV2(); // DeepDoubleX V2(mass-decorrelated) discriminator for H(Z)->bb vs QCD
     const vector<float> &FatJet_btagDDBvL_noMD(); // DeepDoubleX discriminator (no mass-decorrelation) for H(Z)->bb vs QCD
     const vector<float> &FatJet_btagDDCvB(); // DeepDoubleX (mass-decorrelated) discriminator for H(Z)->cc vs H(Z)->bb
+    const vector<float> &FatJet_btagDDCvBV2(); // DeepDoubleX V2 (mass-decorrelated) discriminator for H(Z)->cc vs H(Z)->bb
     const vector<float> &FatJet_btagDDCvB_noMD(); // DeepDoubleX discriminator (no mass-decorrelation) for H(Z)->cc vs H(Z)->bb
     const vector<float> &FatJet_btagDDCvL(); // DeepDoubleX (mass-decorrelated) discriminator for H(Z)->cc vs QCD
+    const vector<float> &FatJet_btagDDCvLV2(); // DeepDoubleX V2 (mass-decorrelated) discriminator for H(Z)->cc vs QCD
     const vector<float> &FatJet_btagDDCvL_noMD(); // DeepDoubleX discriminator (no mass-decorrelation) for H(Z)->cc vs QCD
     const vector<float> &FatJet_btagDeepB(); // DeepCSV b+bb tag discriminator
     const vector<float> &FatJet_btagHbb(); // Higgs to BB tagger discriminator
+    const vector<float> &FatJet_corr_JEC(); // FatJet_corr_JEC[nFatJet]/F
+    const vector<float> &FatJet_corr_JER(); // FatJet_corr_JER[nFatJet]/F
+    const vector<float> &FatJet_corr_JMR(); // FatJet_corr_JMR[nFatJet]/F
+    const vector<float> &FatJet_corr_JMS(); // FatJet_corr_JMS[nFatJet]/F
     const vector<float> &FatJet_deepTagMD_H4qvsQCD(); // Mass-decorrelated DeepBoostedJet tagger H->4q vs QCD discriminator
     const vector<float> &FatJet_deepTagMD_HbbvsQCD(); // Mass-decorrelated DeepBoostedJet tagger H->bb vs QCD discriminator
     const vector<float> &FatJet_deepTagMD_TvsQCD(); // Mass-decorrelated DeepBoostedJet tagger top vs QCD discriminator
@@ -16068,15 +17736,64 @@ namespace tas {
     const vector<int> &FatJet_jetId(); // Jet ID flags bit1 is loose (always false in 2017 since it does not exist), bit2 is tight, bit3 is tightLepVeto
     const vector<float> &FatJet_lsf3(); // Lepton Subjet Fraction (3 subjets)
     const vector<float> &FatJet_mass(); // mass
+    const vector<float> &FatJet_mass_jerDown(); // FatJet_mass_jerDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jerUp(); // FatJet_mass_jerUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesTotalDown(); // FatJet_mass_jesTotalDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesTotalUp(); // FatJet_mass_jesTotalUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jmrDown(); // FatJet_mass_jmrDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jmrUp(); // FatJet_mass_jmrUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jmsDown(); // FatJet_mass_jmsDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jmsUp(); // FatJet_mass_jmsUp[nFatJet]/F
+    const vector<float> &FatJet_mass_nom(); // FatJet_mass_nom[nFatJet]/F
+    const vector<float> &FatJet_mass_raw(); // FatJet_mass_raw[nFatJet]/F
     const vector<float> &FatJet_msoftdrop(); // Corrected soft drop mass with PUPPI
+    const vector<float> &FatJet_msoftdrop_corr_JMR(); // FatJet_msoftdrop_corr_JMR[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_corr_JMS(); // FatJet_msoftdrop_corr_JMS[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_corr_PUPPI(); // FatJet_msoftdrop_corr_PUPPI[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jerDown(); // FatJet_msoftdrop_jerDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jerUp(); // FatJet_msoftdrop_jerUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesTotalDown(); // FatJet_msoftdrop_jesTotalDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesTotalUp(); // FatJet_msoftdrop_jesTotalUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jmrDown(); // FatJet_msoftdrop_jmrDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jmrUp(); // FatJet_msoftdrop_jmrUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jmsDown(); // FatJet_msoftdrop_jmsDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jmsUp(); // FatJet_msoftdrop_jmsUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_nom(); // FatJet_msoftdrop_nom[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_raw(); // FatJet_msoftdrop_raw[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_tau21DDT_jerDown(); // FatJet_msoftdrop_tau21DDT_jerDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_tau21DDT_jerUp(); // FatJet_msoftdrop_tau21DDT_jerUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_tau21DDT_jmrDown(); // FatJet_msoftdrop_tau21DDT_jmrDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_tau21DDT_jmrUp(); // FatJet_msoftdrop_tau21DDT_jmrUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_tau21DDT_jmsDown(); // FatJet_msoftdrop_tau21DDT_jmsDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_tau21DDT_jmsUp(); // FatJet_msoftdrop_tau21DDT_jmsUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_tau21DDT_nom(); // FatJet_msoftdrop_tau21DDT_nom[nFatJet]/F
     const vector<int> &FatJet_muonIdx3SJ(); // index of muon matched to jet
     const vector<float> &FatJet_n2b1(); // N2 with beta=1
     const vector<float> &FatJet_n3b1(); // N3 with beta=1
     const vector<UChar_t> &FatJet_nBHadrons(); // number of b-hadrons
     const vector<UChar_t> &FatJet_nCHadrons(); // number of c-hadrons
+    const vector<UChar_t> &FatJet_nConstituents(); // Number of particles in the jet
     const vector<LorentzVector> &FatJet_p4(); // from FatJet_pt,eta,phi,mass
+    const vector<float> &FatJet_particleNetMD_QCD(); // Mass-decorrelated ParticleNet tagger raw QCD score
+    const vector<float> &FatJet_particleNetMD_Xbb(); // Mass-decorrelated ParticleNet tagger raw X->bb score. For X->bb vs QCD tagging, use Xbb/(Xbb+QCD)
+    const vector<float> &FatJet_particleNetMD_Xcc(); // Mass-decorrelated ParticleNet tagger raw X->cc score. For X->cc vs QCD tagging, use Xcc/(Xcc+QCD)
+    const vector<float> &FatJet_particleNetMD_Xqq(); // Mass-decorrelated ParticleNet tagger raw X->qq (uds) score. For X->qq vs QCD tagging, use Xqq/(Xqq+QCD). For W vs QCD tagging, use (Xcc+Xqq)/(Xcc+Xqq+QCD)
+    const vector<float> &FatJet_particleNet_H4qvsQCD(); // ParticleNet tagger H(->VV->qqqq) vs QCD discriminator
+    const vector<float> &FatJet_particleNet_HbbvsQCD(); // ParticleNet tagger H(->bb) vs QCD discriminator
+    const vector<float> &FatJet_particleNet_HccvsQCD(); // ParticleNet tagger H(->cc) vs QCD discriminator
+    const vector<float> &FatJet_particleNet_QCD(); // ParticleNet tagger QCD(bb,cc,b,c,others) sum
+    const vector<float> &FatJet_particleNet_TvsQCD(); // ParticleNet tagger top vs QCD discriminator
+    const vector<float> &FatJet_particleNet_WvsQCD(); // ParticleNet tagger W vs QCD discriminator
+    const vector<float> &FatJet_particleNet_ZvsQCD(); // ParticleNet tagger Z vs QCD discriminator
+    const vector<float> &FatJet_particleNet_mass(); // ParticleNet mass regression
     const vector<float> &FatJet_phi(); // phi
     const vector<float> &FatJet_pt(); // pt
+    const vector<float> &FatJet_pt_jerDown(); // FatJet_pt_jerDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jerUp(); // FatJet_pt_jerUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesTotalDown(); // FatJet_pt_jesTotalDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesTotalUp(); // FatJet_pt_jesTotalUp[nFatJet]/F
+    const vector<float> &FatJet_pt_nom(); // FatJet_pt_nom[nFatJet]/F
+    const vector<float> &FatJet_pt_raw(); // FatJet_pt_raw[nFatJet]/F
     const vector<float> &FatJet_rawFactor(); // 1 - Factor to get back to raw pT
     const vector<int> &FatJet_subJetIdx1(); // index of first subjet
     const vector<int> &FatJet_subJetIdx2(); // index of second subjet
@@ -16086,6 +17803,7 @@ namespace tas {
     const vector<float> &FatJet_tau4(); // Nsubjettiness (4 axis)
     const bool &Flag_BadChargedCandidateFilter(); // Trigger/flag bit (process: PAT)
     const bool &Flag_BadChargedCandidateSummer16Filter(); // Trigger/flag bit (process: PAT)
+    const bool &Flag_BadPFMuonDzFilter(); // Trigger/flag bit (process: PAT)
     const bool &Flag_BadPFMuonFilter(); // Trigger/flag bit (process: PAT)
     const bool &Flag_BadPFMuonSummer16Filter(); // Trigger/flag bit (process: PAT)
     const bool &Flag_CSCTightHalo2015Filter(); // Trigger/flag bit (process: PAT)
@@ -16106,6 +17824,7 @@ namespace tas {
     const bool &Flag_globalTightHalo2016Filter(); // Trigger/flag bit (process: PAT)
     const bool &Flag_goodVertices(); // Trigger/flag bit (process: PAT)
     const bool &Flag_hcalLaserEventFilter(); // Trigger/flag bit (process: PAT)
+    const bool &Flag_hfNoisyHitsFilter(); // Trigger/flag bit (process: PAT)
     const bool &Flag_muonBadTrackFilter(); // Trigger/flag bit (process: PAT)
     const bool &Flag_trkPOGFilters(); // Trigger/flag bit (process: PAT)
     const bool &Flag_trkPOG_logErrorTooManyClusters(); // Trigger/flag bit (process: PAT)
@@ -16162,6 +17881,10 @@ namespace tas {
     const vector<float> &GenVisTau_phi(); // phi
     const vector<float> &GenVisTau_pt(); // pt
     const vector<int> &GenVisTau_status(); // Hadronic tau decay mode. 0=OneProng0PiZero, 1=OneProng1PiZero, 2=OneProng2PiZero, 10=ThreeProng0PiZero, 11=ThreeProng1PiZero, 15=Other
+    const float &GenVtx_t0(); // gen vertex t0
+    const float &GenVtx_x(); // gen vertex x
+    const float &GenVtx_y(); // gen vertex y
+    const float &GenVtx_z(); // gen vertex z
     const float &Generator_binvar(); // MC generation binning value
     const int &Generator_id1(); // id of first parton
     const int &Generator_id2(); // id of second parton
@@ -17397,6 +19120,7 @@ namespace tas {
     const int &HTXS_stage_0(); // HTXS stage-0 category
     const int &HTXS_stage_1_pTjet25(); // HTXS stage-1 category (jet pt>25 GeV)
     const int &HTXS_stage_1_pTjet30(); // HTXS stage-1 category (jet pt>30 GeV)
+    const vector<int> &IsoTrack_charge(); // electric charge
     const vector<float> &IsoTrack_dxy(); // dxy (with sign) wrt first PV, in cm
     const vector<float> &IsoTrack_dz(); // dz (with sign) wrt first PV, in cm
     const vector<float> &IsoTrack_eta(); // eta
@@ -17418,8 +19142,13 @@ namespace tas {
     const vector<float> &Jet_btagCSVV2(); //  pfCombinedInclusiveSecondaryVertexV2 b-tag discriminator (aka CSVV2)
     const vector<float> &Jet_btagDeepB(); // DeepCSV b+bb tag discriminator
     const vector<float> &Jet_btagDeepC(); // DeepCSV charm btag discriminator
+    const vector<float> &Jet_btagDeepCvB(); // DeepCSV c vs b+bb discriminator
+    const vector<float> &Jet_btagDeepCvL(); // DeepCSV c vs udsg discriminator
     const vector<float> &Jet_btagDeepFlavB(); // DeepFlavour b+bb+lepb tag discriminator
     const vector<float> &Jet_btagDeepFlavC(); // DeepFlavour charm tag discriminator
+    const vector<float> &Jet_btagDeepFlavCvB(); // DeepJet c vs b+bb+lepb discriminator
+    const vector<float> &Jet_btagDeepFlavCvL(); // DeepJet c vs uds+g discriminator
+    const vector<float> &Jet_btagDeepFlavQG(); // DeepJet g vs uds discriminator
     const vector<float> &Jet_cRegCorr(); // pt correction for c-jet energy regression
     const vector<float> &Jet_cRegRes(); // res on pt corrected with c-jet regression
     const vector<float> &Jet_chEmEF(); // charged Electromagnetic Energy Fraction
@@ -17434,6 +19163,10 @@ namespace tas {
     const vector<float> &Jet_eta(); // eta
     const vector<int> &Jet_genJetIdx(); // index of matched gen jet
     const vector<int> &Jet_hadronFlavour(); // flavour from hadron ghost clustering
+    const vector<int> &Jet_hfadjacentEtaStripsSize(); // eta size of the strips next to the central tower strip in HF (noise discriminating variable) 
+    const vector<int> &Jet_hfcentralEtaStripSize(); // eta size of the central tower strip in HF (noise discriminating variable) 
+    const vector<float> &Jet_hfsigmaEtaEta(); // sigmaEtaEta for HF jets (noise discriminating variable)
+    const vector<float> &Jet_hfsigmaPhiPhi(); // sigmaPhiPhi for HF jets (noise discriminating variable)
     const vector<int> &Jet_jetId(); // Jet ID flags bit1 is loose (always false in 2017 since it does not exist), bit2 is tight, bit3 is tightLepVeto
     const vector<float> &Jet_mass(); // mass
     const vector<float> &Jet_muEF(); // muon Energy Fraction
@@ -17454,6 +19187,14 @@ namespace tas {
     const vector<float> &Jet_qgl(); // Quark vs Gluon likelihood discriminator
     const vector<float> &Jet_rawFactor(); // 1 - Factor to get back to raw pT
     const float &L1PreFiringWeight_Dn(); // L1 pre-firing event correction weight (1-probability), down var.
+    const float &L1PreFiringWeight_ECAL_Dn(); // ECAL L1 pre-firing event correction weight (1-probability), down var.
+    const float &L1PreFiringWeight_ECAL_Nom(); // ECAL L1 pre-firing event correction weight (1-probability)
+    const float &L1PreFiringWeight_ECAL_Up(); // ECAL L1 pre-firing event correction weight (1-probability), up var.
+    const float &L1PreFiringWeight_Muon_Nom(); // Muon L1 pre-firing event correction weight (1-probability)
+    const float &L1PreFiringWeight_Muon_StatDn(); // Muon L1 pre-firing event correction weight (1-probability), down var. stat.
+    const float &L1PreFiringWeight_Muon_StatUp(); // Muon L1 pre-firing event correction weight (1-probability), up var. stat.
+    const float &L1PreFiringWeight_Muon_SystDn(); // Muon L1 pre-firing event correction weight (1-probability), down var. syst.
+    const float &L1PreFiringWeight_Muon_SystUp(); // Muon L1 pre-firing event correction weight (1-probability), up var. syst.
     const float &L1PreFiringWeight_Nom(); // L1 pre-firing event correction weight (1-probability)
     const float &L1PreFiringWeight_Up(); // L1 pre-firing event correction weight (1-probability), up var.
     const bool &L1Reco_step(); // Trigger/flag bit (process: RECO)
@@ -17741,6 +19482,7 @@ namespace tas {
     const bool &L1_ETT1600(); // Trigger/flag bit (process: NANO)
     const bool &L1_ETT2000(); // Trigger/flag bit (process: NANO)
     const bool &L1_ETT25(); // Trigger/flag bit (process: NANO)
+    const bool &L1_ETT35_BptxAND(); // Trigger/flag bit (process: NANO)
     const bool &L1_ETT40_BptxAND(); // Trigger/flag bit (process: NANO)
     const bool &L1_ETT50_BptxAND(); // Trigger/flag bit (process: NANO)
     const bool &L1_ETT55_BptxAND(); // Trigger/flag bit (process: NANO)
@@ -18095,6 +19837,9 @@ namespace tas {
     const bool &L1_SingleJet90er2p5(); // Trigger/flag bit (process: NANO)
     const bool &L1_SingleJetC20_NotBptxOR(); // Trigger/flag bit (process: NANO)
     const bool &L1_SingleJetC20_NotBptxOR_3BX(); // Trigger/flag bit (process: NANO)
+    const bool &L1_SingleJetC32_NotBptxOR(); // Trigger/flag bit (process: NANO)
+    const bool &L1_SingleJetC32_NotBptxOR_3BX(); // Trigger/flag bit (process: NANO)
+    const bool &L1_SingleJetC36_NotBptxOR_3BX(); // Trigger/flag bit (process: NANO)
     const bool &L1_SingleJetC40_NotBptxOR_3BX(); // Trigger/flag bit (process: NANO)
     const bool &L1_SingleJetC40_NotBptxOR_5BX(); // Trigger/flag bit (process: NANO)
     const bool &L1_SingleLooseIsoEG28er1p5(); // Trigger/flag bit (process: NANO)
@@ -18208,6 +19953,7 @@ namespace tas {
     const bool &L1_TripleMu_5_5_3(); // Trigger/flag bit (process: NANO)
     const bool &L1_UnpairedBunchBptxMinus(); // Trigger/flag bit (process: NANO)
     const bool &L1_UnpairedBunchBptxPlus(); // Trigger/flag bit (process: NANO)
+    const bool &L1_UnprefireableEvent(); // Trigger/flag bit (process: NANO)
     const bool &L1_ZeroBias(); // Trigger/flag bit (process: NANO)
     const bool &L1_ZeroBias_FirstCollidingBunch(); // Trigger/flag bit (process: NANO)
     const bool &L1_ZeroBias_copy(); // Trigger/flag bit (process: NANO)
@@ -18236,6 +19982,36 @@ namespace tas {
     const UChar_t &LHE_NpNLO(); // number of partons at NLO
     const UChar_t &LHE_Nuds(); // Number of u,d,s partons at LHE step
     const float &LHE_Vpt(); // pT of the W or Z boson at LHE step
+    const vector<float> &LowPtElectron_ID(); // New ID, BDT (raw) score
+    const vector<int> &LowPtElectron_charge(); // electric charge
+    const vector<bool> &LowPtElectron_convVeto(); // pass conversion veto
+    const vector<float> &LowPtElectron_convVtxRadius(); // conversion vertex radius (cm)
+    const vector<int> &LowPtElectron_convWP(); // conversion flag bit map: 1=Veto, 2=Loose, 3=Tight
+    const vector<float> &LowPtElectron_deltaEtaSC(); // delta eta (SC,ele) with sign
+    const vector<float> &LowPtElectron_dxy(); // dxy (with sign) wrt first PV, in cm
+    const vector<float> &LowPtElectron_dxyErr(); // dxy uncertainty, in cm
+    const vector<float> &LowPtElectron_dz(); // dz (with sign) wrt first PV, in cm
+    const vector<float> &LowPtElectron_dzErr(); // dz uncertainty, in cm
+    const vector<float> &LowPtElectron_eInvMinusPInv(); // 1/E_SC - 1/p_trk
+    const vector<float> &LowPtElectron_embeddedID(); // ID, BDT (raw) score
+    const vector<float> &LowPtElectron_energyErr(); // energy error of the cluster-track combination
+    const vector<float> &LowPtElectron_eta(); // eta
+    const vector<UChar_t> &LowPtElectron_genPartFlav(); // Flavour of genParticle (DressedLeptons for electrons) for MC matching to status==1 electrons or photons: 1 = prompt electron (including gamma*->mu mu), 15 = electron from prompt tau, 22 = prompt photon (likely conversion), 5 = electron from b, 4 = electron from c, 3 = electron from light or unknown, 0 = unmatched
+    const vector<int> &LowPtElectron_genPartIdx(); // Index into genParticle list for MC matching to status==1 electrons or photons
+    const vector<float> &LowPtElectron_hoe(); // H over E
+    const vector<UChar_t> &LowPtElectron_lostHits(); // number of missing inner hits
+    const vector<float> &LowPtElectron_mass(); // mass
+    const vector<float> &LowPtElectron_miniPFRelIso_all(); // mini PF relative isolation, total (with scaled rho*EA PU corrections)
+    const vector<float> &LowPtElectron_miniPFRelIso_chg(); // mini PF relative isolation, charged component
+    const vector<LorentzVector> &LowPtElectron_p4(); // from LowPtElectron_pt,eta,phi,mass
+    const vector<int> &LowPtElectron_pdgId(); // PDG code assigned by the event reconstruction (not by MC truth)
+    const vector<float> &LowPtElectron_phi(); // phi
+    const vector<float> &LowPtElectron_pt(); // pt
+    const vector<float> &LowPtElectron_ptbiased(); // ElectronSeed, pT- and dxy- dependent BDT (raw) score
+    const vector<float> &LowPtElectron_r9(); // R9 of the SC, calculated with full 5x5 region
+    const vector<float> &LowPtElectron_scEtOverPt(); // (SC energy)/pt-1
+    const vector<float> &LowPtElectron_sieie(); // sigma_IetaIeta of the SC, calculated with full 5x5 region
+    const vector<float> &LowPtElectron_unbiased(); // ElectronSeed, pT- and dxy- agnostic BDT (raw) score
     const float &METFixEE2017_MetUnclustEnUpDeltaX(); // Delta (METx_mod-METx) Unclustered Energy Up
     const float &METFixEE2017_MetUnclustEnUpDeltaY(); // Delta (METy_mod-METy) Unclustered Energy Up
     const float &METFixEE2017_covXX(); // xx element of met covariance matrix
@@ -18258,8 +20034,47 @@ namespace tas {
     const float &MET_significance(); // MET significance
     const float &MET_sumEt(); // scalar sum of Et
     const float &MET_sumPtUnclustered(); // sumPt used for MET significance
+    const vector<float> &Muon_CutBased_HighPtID_SF(); // Muon_CutBased_HighPtID_SF[nMuon]/F
+    const vector<float> &Muon_CutBased_HighPtID_SFerr(); // Muon_CutBased_HighPtID_SFerr[nMuon]/F
+    const vector<float> &Muon_CutBased_LooseID_SF(); // Muon_CutBased_LooseID_SF[nMuon]/F
+    const vector<float> &Muon_CutBased_LooseID_SFerr(); // Muon_CutBased_LooseID_SFerr[nMuon]/F
+    const vector<float> &Muon_CutBased_MediumID_SF(); // Muon_CutBased_MediumID_SF[nMuon]/F
+    const vector<float> &Muon_CutBased_MediumID_SFerr(); // Muon_CutBased_MediumID_SFerr[nMuon]/F
+    const vector<float> &Muon_CutBased_MediumPromptID_SF(); // Muon_CutBased_MediumPromptID_SF[nMuon]/F
+    const vector<float> &Muon_CutBased_MediumPromptID_SFerr(); // Muon_CutBased_MediumPromptID_SFerr[nMuon]/F
+    const vector<float> &Muon_CutBased_SoftID_SF(); // Muon_CutBased_SoftID_SF[nMuon]/F
+    const vector<float> &Muon_CutBased_SoftID_SFerr(); // Muon_CutBased_SoftID_SFerr[nMuon]/F
+    const vector<float> &Muon_CutBased_TightID_SF(); // Muon_CutBased_TightID_SF[nMuon]/F
+    const vector<float> &Muon_CutBased_TightID_SFerr(); // Muon_CutBased_TightID_SFerr[nMuon]/F
+    const vector<float> &Muon_CutBased_TrkHighPtID_SF(); // Muon_CutBased_TrkHighPtID_SF[nMuon]/F
+    const vector<float> &Muon_CutBased_TrkHighPtID_SFerr(); // Muon_CutBased_TrkHighPtID_SFerr[nMuon]/F
+    const vector<float> &Muon_LooseRelIso_LooseID_SF(); // Muon_LooseRelIso_LooseID_SF[nMuon]/F
+    const vector<float> &Muon_LooseRelIso_LooseID_SFerr(); // Muon_LooseRelIso_LooseID_SFerr[nMuon]/F
+    const vector<float> &Muon_LooseRelIso_MediumID_SF(); // Muon_LooseRelIso_MediumID_SF[nMuon]/F
+    const vector<float> &Muon_LooseRelIso_MediumID_SFerr(); // Muon_LooseRelIso_MediumID_SFerr[nMuon]/F
+    const vector<float> &Muon_LooseRelIso_MediumPromptID_SF(); // Muon_LooseRelIso_MediumPromptID_SF[nMuon]/F
+    const vector<float> &Muon_LooseRelIso_MediumPromptID_SFerr(); // Muon_LooseRelIso_MediumPromptID_SFerr[nMuon]/F
+    const vector<float> &Muon_LooseRelIso_TightIDandIPCut_SF(); // Muon_LooseRelIso_TightIDandIPCut_SF[nMuon]/F
+    const vector<float> &Muon_LooseRelIso_TightIDandIPCut_SFerr(); // Muon_LooseRelIso_TightIDandIPCut_SFerr[nMuon]/F
+    const vector<float> &Muon_LooseRelTkIso_HighPtIDandIPCut_SF(); // Muon_LooseRelTkIso_HighPtIDandIPCut_SF[nMuon]/F
+    const vector<float> &Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr(); // Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr[nMuon]/F
+    const vector<float> &Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF(); // Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF[nMuon]/F
+    const vector<float> &Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr(); // Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr[nMuon]/F
+    const vector<float> &Muon_TightRelIso_MediumID_SF(); // Muon_TightRelIso_MediumID_SF[nMuon]/F
+    const vector<float> &Muon_TightRelIso_MediumID_SFerr(); // Muon_TightRelIso_MediumID_SFerr[nMuon]/F
+    const vector<float> &Muon_TightRelIso_MediumPromptID_SF(); // Muon_TightRelIso_MediumPromptID_SF[nMuon]/F
+    const vector<float> &Muon_TightRelIso_MediumPromptID_SFerr(); // Muon_TightRelIso_MediumPromptID_SFerr[nMuon]/F
+    const vector<float> &Muon_TightRelIso_TightIDandIPCut_SF(); // Muon_TightRelIso_TightIDandIPCut_SF[nMuon]/F
+    const vector<float> &Muon_TightRelIso_TightIDandIPCut_SFerr(); // Muon_TightRelIso_TightIDandIPCut_SFerr[nMuon]/F
+    const vector<float> &Muon_TightRelTkIso_HighPtIDandIPCut_SF(); // Muon_TightRelTkIso_HighPtIDandIPCut_SF[nMuon]/F
+    const vector<float> &Muon_TightRelTkIso_HighPtIDandIPCut_SFerr(); // Muon_TightRelTkIso_HighPtIDandIPCut_SFerr[nMuon]/F
+    const vector<float> &Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF(); // Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF[nMuon]/F
+    const vector<float> &Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr(); // Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr[nMuon]/F
     const vector<int> &Muon_charge(); // electric charge
     const vector<UChar_t> &Muon_cleanmask(); // simple cleaning mask with priority to leptons
+    const vector<float> &Muon_correctedDown_pt(); // Muon_correctedDown_pt[nMuon]/F
+    const vector<float> &Muon_correctedUp_pt(); // Muon_correctedUp_pt[nMuon]/F
+    const vector<float> &Muon_corrected_pt(); // Muon_corrected_pt[nMuon]/F
     const vector<float> &Muon_dxy(); // dxy (with sign) wrt first PV, in cm
     const vector<float> &Muon_dxyErr(); // dxy uncertainty, in cm
     const vector<float> &Muon_dxybs(); // dxy (with sign) wrt the beam spot, in cm
@@ -18275,8 +20090,10 @@ namespace tas {
     const vector<float> &Muon_ip3d(); // 3D impact parameter wrt first PV, in cm
     const vector<bool> &Muon_isGlobal(); // muon is global muon
     const vector<bool> &Muon_isPFcand(); // muon is PF candidate
+    const vector<bool> &Muon_isStandalone(); // muon is a standalone muon
     const vector<bool> &Muon_isTracker(); // muon is tracker muon
     const vector<int> &Muon_jetIdx(); // index of the associated jet (-1 if none)
+    const vector<UChar_t> &Muon_jetNDauCharged(); // number of charged daughters of the closest jet
     const vector<float> &Muon_jetPtRelv2(); // Relative momentum of the lepton with respect to the closest jet after subtracting the lepton
     const vector<float> &Muon_jetRelIso(); // Relative isolation in matched jet (1/ptRatio-1, pfRelIso04_all if no matched jet)
     const vector<bool> &Muon_looseId(); // muon is loose muon
@@ -18289,6 +20106,7 @@ namespace tas {
     const vector<UChar_t> &Muon_multiIsoId(); // MultiIsoId from miniAOD selector (1=MultiIsoLoose, 2=MultiIsoMedium)
     const vector<UChar_t> &Muon_mvaId(); // Mva ID from miniAOD selector (1=MvaLoose, 2=MvaMedium, 3=MvaTight)
     const vector<float> &Muon_mvaLowPt(); // Low pt muon ID score
+    const vector<UChar_t> &Muon_mvaLowPtId(); // Low Pt Mva ID from miniAOD selector (1=LowPtMvaLoose, 2=LowPtMvaMedium)
     const vector<float> &Muon_mvaTTH(); // TTH MVA lepton ID score
     const vector<int> &Muon_nStations(); // number of matched stations with default arbitration (segment & track)
     const vector<int> &Muon_nTrackerLayers(); // number of layers in the tracker
@@ -18301,6 +20119,7 @@ namespace tas {
     const vector<float> &Muon_phi(); // phi
     const vector<float> &Muon_pt(); // pt
     const vector<float> &Muon_ptErr(); // ptError of the muon track
+    const vector<UChar_t> &Muon_puppiIsoId(); // PuppiIsoId from miniAOD selector (1=Loose, 2=Medium, 3=Tight)
     const vector<float> &Muon_segmentComp(); // muon segment compatibility
     const vector<float> &Muon_sip3d(); // 3D impact parameter significance wrt first PV
     const vector<bool> &Muon_softId(); // soft cut-based ID
@@ -18328,6 +20147,10 @@ namespace tas {
     const vector<int> &Photon_cutBased(); // cut-based ID bitmap, Fall17V2, (0:fail, 1:loose, 2:medium, 3:tight)
     const vector<int> &Photon_cutBased_Fall17V1Bitmap(); // cut-based ID bitmap, Fall17V1, 2^(0:loose, 1:medium, 2:tight).
     const vector<int> &Photon_cutBased_Spring16V2p2(); // cut-based ID bitmap, Spring16V2p2, (0:fail, 1:loose, 2:medium, 3:tight)
+    const vector<float> &Photon_dEscaleDown(); // ecal energy scale shifted 1 sigma down (adding gain/stat/syst in quadrature)
+    const vector<float> &Photon_dEscaleUp(); // ecal energy scale shifted 1 sigma up (adding gain/stat/syst in quadrature)
+    const vector<float> &Photon_dEsigmaDown(); // ecal energy smearing value shifted 1 sigma up
+    const vector<float> &Photon_dEsigmaUp(); // ecal energy smearing value shifted 1 sigma up
     const vector<float> &Photon_eCorr(); // ratio of the calibrated energy/miniaod energy
     const vector<int> &Photon_electronIdx(); // index of the associated electron (-1 if none)
     const vector<bool> &Photon_electronVeto(); // pass electron veto
@@ -18365,12 +20188,23 @@ namespace tas {
     const float &Pileup_pudensity(); // PU vertices / mm
     const int &Pileup_sumEOOT(); // number of early out of time pileup
     const int &Pileup_sumLOOT(); // number of late out of time pileup
+    const float &PrefireWeight(); // PrefireWeight/F
+    const float &PrefireWeight_Down(); // PrefireWeight_Down/F
+    const float &PrefireWeight_Up(); // PrefireWeight_Up/F
     const float &PuppiMET_phi(); // phi
+    const float &PuppiMET_phiJERDown(); // JER down phi
     const float &PuppiMET_phiJERUp(); // JER up phi
+    const float &PuppiMET_phiJESDown(); // JES down phi
     const float &PuppiMET_phiJESUp(); // JES up phi
+    const float &PuppiMET_phiUnclusteredDown(); // Unclustered down phi
+    const float &PuppiMET_phiUnclusteredUp(); // Unclustered up phi
     const float &PuppiMET_pt(); // pt
+    const float &PuppiMET_ptJERDown(); // JER down pt
     const float &PuppiMET_ptJERUp(); // JER up pt
+    const float &PuppiMET_ptJESDown(); // JES down pt
     const float &PuppiMET_ptJESUp(); // JES up pt
+    const float &PuppiMET_ptUnclusteredDown(); // Unclustered down pt
+    const float &PuppiMET_ptUnclusteredUp(); // Unclustered up pt
     const float &PuppiMET_sumEt(); // scalar sum of Et
     const float &RawMET_phi(); // phi
     const float &RawMET_pt(); // pt
@@ -18378,6 +20212,7 @@ namespace tas {
     const float &RawPuppiMET_phi(); // phi
     const float &RawPuppiMET_pt(); // pt
     const float &RawPuppiMET_sumEt(); // scalar sum of Et
+    const vector<int> &SV_charge(); // sum of the charge of the SV tracks
     const vector<float> &SV_chi2(); // reduced chi2, i.e. chi/ndof
     const vector<float> &SV_dlen(); // decay length in cm
     const vector<float> &SV_dlenSig(); // decay length significance
@@ -18386,6 +20221,7 @@ namespace tas {
     const vector<float> &SV_eta(); // eta
     const vector<float> &SV_mass(); // mass
     const vector<float> &SV_ndof(); // number of degrees of freedom
+    const vector<UChar_t> &SV_ntracks(); // number of tracks
     const vector<LorentzVector> &SV_p4(); // from SV_pt,eta,phi,mass
     const vector<float> &SV_pAngle(); // pointing angle, i.e. acos(p_SV * (SV - PV)) 
     const vector<float> &SV_phi(); // phi
@@ -18412,6 +20248,7 @@ namespace tas {
     const vector<float> &SubJet_btagCSVV2(); //  pfCombinedInclusiveSecondaryVertexV2 b-tag discriminator (aka CSVV2)
     const vector<float> &SubJet_btagDeepB(); // DeepCSV b+bb tag discriminator
     const vector<float> &SubJet_eta(); // eta
+    const vector<int> &SubJet_hadronFlavour(); // flavour from hadron ghost clustering
     const vector<float> &SubJet_mass(); // mass
     const vector<float> &SubJet_n2b1(); // N2 with beta=1
     const vector<float> &SubJet_n3b1(); // N3 with beta=1
@@ -18436,9 +20273,11 @@ namespace tas {
     const vector<int> &Tau_genPartIdx(); // Index into genParticle list for MC matching to status==2 taus
     const vector<UChar_t> &Tau_idAntiEle(); // Anti-electron MVA discriminator V6: bitmask 1 = VLoose, 2 = Loose, 4 = Medium, 8 = Tight, 16 = VTight
     const vector<UChar_t> &Tau_idAntiEle2018(); // Anti-electron MVA discriminator V6 (2018): bitmask 1 = VLoose, 2 = Loose, 4 = Medium, 8 = Tight, 16 = VTight
+    const vector<bool> &Tau_idAntiEleDeadECal(); // Anti-electron dead-ECal discriminator
     const vector<UChar_t> &Tau_idAntiMu(); // Anti-muon discriminator V3: : bitmask 1 = Loose, 2 = Tight
     const vector<bool> &Tau_idDecayMode(); // tauID('decayModeFinding')
     const vector<bool> &Tau_idDecayModeNewDMs(); // tauID('decayModeFindingNewDMs')
+    const vector<bool> &Tau_idDecayModeOldDMs(); // tauID('decayModeFinding')
     const vector<UChar_t> &Tau_idDeepTau2017v2p1VSe(); // byDeepTau2017v2p1VSe ID working points (deepTau2017v2p1): bitmask 1 = VVVLoose, 2 = VVLoose, 4 = VLoose, 8 = Loose, 16 = Medium, 32 = Tight, 64 = VTight, 128 = VVTight
     const vector<UChar_t> &Tau_idDeepTau2017v2p1VSjet(); // byDeepTau2017v2p1VSjet ID working points (deepTau2017v2p1): bitmask 1 = VVVLoose, 2 = VVLoose, 4 = VLoose, 8 = Loose, 16 = Medium, 32 = Tight, 64 = VTight, 128 = VVTight
     const vector<UChar_t> &Tau_idDeepTau2017v2p1VSmu(); // byDeepTau2017v2p1VSmu ID working points (deepTau2017v2p1): bitmask 1 = VLoose, 2 = Loose, 4 = Medium, 8 = Tight
@@ -18485,6 +20324,35 @@ namespace tas {
     const vector<float> &TrigObj_l2pt(); // pt of associated 'L2' seed (i.e. HLT before tracking/PF)
     const vector<float> &TrigObj_phi(); // phi
     const vector<float> &TrigObj_pt(); // pt
+    const vector<int> &boostedTau_charge(); // electric charge
+    const vector<float> &boostedTau_chargedIso(); // charged isolation
+    const vector<int> &boostedTau_decayMode(); // decayMode()
+    const vector<float> &boostedTau_eta(); // eta
+    const vector<UChar_t> &boostedTau_genPartFlav(); // Flavour of genParticle for MC matching to status==2 taus: 1 = prompt electron, 2 = prompt muon, 3 = tau->e decay, 4 = tau->mu decay, 5 = hadronic tau decay, 0 = unknown or unmatched
+    const vector<int> &boostedTau_genPartIdx(); // Index into genParticle list for MC matching to status==2 taus
+    const vector<UChar_t> &boostedTau_idAntiEle2018(); // Anti-electron MVA discriminator V6 (2018): bitmask 1 = VLoose, 2 = Loose, 4 = Medium, 8 = Tight, 16 = VTight
+    const vector<UChar_t> &boostedTau_idAntiMu(); // Anti-muon discriminator V3: : bitmask 1 = Loose, 2 = Tight
+    const vector<UChar_t> &boostedTau_idMVAnewDM2017v2(); // IsolationMVArun2017v2DBnewDMwLT ID working point (2017v2): bitmask 1 = VVLoose, 2 = VLoose, 4 = Loose, 8 = Medium, 16 = Tight, 32 = VTight, 64 = VVTight
+    const vector<UChar_t> &boostedTau_idMVAoldDM2017v2(); // IsolationMVArun2017v2DBoldDMwLT ID working point (2017v2): bitmask 1 = VVLoose, 2 = VLoose, 4 = Loose, 8 = Medium, 16 = Tight, 32 = VTight, 64 = VVTight
+    const vector<UChar_t> &boostedTau_idMVAoldDMdR032017v2(); // IsolationMVArun2017v2DBoldDMdR0p3wLT ID working point (2017v2): bitmask 1 = VVLoose, 2 = VLoose, 4 = Loose, 8 = Medium, 16 = Tight, 32 = VTight, 64 = VVTight
+    const vector<int> &boostedTau_jetIdx(); // index of the associated jet (-1 if none)
+    const vector<float> &boostedTau_leadTkDeltaEta(); // eta of the leading track, minus tau eta
+    const vector<float> &boostedTau_leadTkDeltaPhi(); // phi of the leading track, minus tau phi
+    const vector<float> &boostedTau_leadTkPtOverTauPt(); // pt of the leading track divided by tau pt
+    const vector<float> &boostedTau_mass(); // mass
+    const vector<float> &boostedTau_neutralIso(); // neutral (photon) isolation
+    const vector<LorentzVector> &boostedTau_p4(); // from boostedTau_pt,eta,phi,mass
+    const vector<float> &boostedTau_phi(); // phi
+    const vector<float> &boostedTau_photonsOutsideSignalCone(); // sum of photons outside signal cone
+    const vector<float> &boostedTau_pt(); // pt
+    const vector<float> &boostedTau_puCorr(); // pileup correction
+    const vector<float> &boostedTau_rawAntiEle2018(); // Anti-electron MVA discriminator V6 raw output discriminator (2018)
+    const vector<int> &boostedTau_rawAntiEleCat2018(); // Anti-electron MVA discriminator V6 category (2018)
+    const vector<float> &boostedTau_rawIso(); // combined isolation (deltaBeta corrections)
+    const vector<float> &boostedTau_rawIsodR03(); // combined isolation (deltaBeta corrections, dR=0.3)
+    const vector<float> &boostedTau_rawMVAnewDM2017v2(); // byIsolationMVArun2017v2DBnewDMwLT raw output discriminator (2017v2)
+    const vector<float> &boostedTau_rawMVAoldDM2017v2(); // byIsolationMVArun2017v2DBoldDMwLT raw output discriminator (2017v2)
+    const vector<float> &boostedTau_rawMVAoldDMdR032017v2(); // byIsolationMVArun2017v2DBoldDMdR0p3wLT raw output discriminator (2017v2)
     const float &btagWeight_CMVA(); // b-tag event weight for CMVA
     const float &btagWeight_CSVV2(); // b-tag event weight for CSVV2
     const float &btagWeight_DeepCSVB(); // b-tag event weight for DeepCSVB
@@ -18514,6 +20382,7 @@ namespace tas {
     const UInt_t &nLHEPdfWeight(); // 
     const UInt_t &nLHEReweightingWeight(); // 
     const UInt_t &nLHEScaleWeight(); // 
+    const UInt_t &nLowPtElectron(); // slimmedLowPtElectrons after basic selection (pt > 1. && userFloat('ID') > -0.25)
     const UInt_t &nMuon(); // slimmedMuons after basic selection (pt > 3 && (passed('CutBasedIdLoose') || passed('SoftCutBasedId') || passed('SoftMvaId') || passed('CutBasedIdGlobalHighPt') || passed('CutBasedIdTrkHighPt')))
     const UInt_t &nOtherPV(); // 
     const UInt_t &nPSWeight(); // 
@@ -18524,6 +20393,10 @@ namespace tas {
     const UInt_t &nSubJet(); // slimmedJetsAK8, i.e. ak8 fat jets for boosted analysis
     const UInt_t &nTau(); // slimmedTaus after basic selection (pt > 18 && tauID('decayModeFindingNewDMs') && (tauID('byLooseCombinedIsolationDeltaBetaCorr3Hits') || tauID('byVLooseIsolationMVArun2v1DBoldDMwLT2015') || tauID('byVLooseIsolationMVArun2v1DBnewDMwLT') || tauID('byVLooseIsolationMVArun2v1DBdR03oldDMwLT') || tauID('byVVLooseIsolationMVArun2v1DBoldDMwLT') || tauID('byVVLooseIsolationMVArun2v1DBoldDMwLT2017v2') || tauID('byVVLooseIsolationMVArun2v1DBnewDMwLT2017v2') || tauID('byVVLooseIsolationMVArun2v1DBdR03oldDMwLT2017v2') || tauID('byVVVLooseDeepTau2017v2p1VSjet')))
     const UInt_t &nTrigObj(); // 
+    const UInt_t &nboostedTau(); // slimmedBoostedTaus after basic selection (pt > 40 && tauID('decayModeFindingNewDMs') && (tauID('byVVLooseIsolationMVArun2017v2DBoldDMwLT2017') || tauID('byVVLooseIsolationMVArun2017v2DBoldDMdR0p3wLT2017') || tauID('byVVLooseIsolationMVArun2017v2DBnewDMwLT2017')))
+    const float &puWeight(); // puWeight/F
+    const float &puWeightDown(); // puWeightDown/F
+    const float &puWeightUp(); // puWeightUp/F
     const UInt_t &run(); // run/i
     Bool_t isData();
     const Int_t &year();

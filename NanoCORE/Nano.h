@@ -1,5 +1,5 @@
 // -*- C++ -*-
-// Generated with args: -t Events -n tas -c Nano -o nt --profiling /hadoop/cms/store/user/hmei/nanoaod_runII/HHggtautau/HHggtautau_Era2018_private_v2_20201005/test_nanoaod_1.root,/hadoop/cms/store/user/hmei/nanoaod_runII/HHggtautau/HHggtautau_Era2017_private_v0.1_20201117/test_nanoaod_31.root,/hadoop/cms/store/user/hmei/nanoaod_runII/HHggtautau/HHggtautau_Era2016_private_v0.1_20201117/test_nanoaod_412.root,/hadoop/cms/store/user/sicheng/NanoAOD/mc2018_v7/ZGTo2NuG_PtG-130_TuneCP5_13TeV-amcatnloFXFX-pythia8__RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/28A39133-C103-D743-80ED-8274F3B44754.root,/hadoop/cms/store/user/sicheng/NanoAOD/mc2016_v7/ZGTo2NuG_PtG-130_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8__RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1/62466AA2-182A-3746-BAFA-8D875E05BA90.root,/home/users/phchang/work/vvv/VVVNanoLooper/WWW/2D39FA0B-A11E-0141-BBFC-AA943F862EB7_out.root
+// Generated with args: -t Events -n tas -c Nano -o nt --profiling /hadoop/cms/store/group/snt/nanoaod/nanoclassinputs/28A39133-C103-D743-80ED-8274F3B44754.root,/hadoop/cms/store/group/snt/nanoaod/nanoclassinputs/2D39FA0B-A11E-0141-BBFC-AA943F862EB7_out.root,/hadoop/cms/store/group/snt/nanoaod/nanoclassinputs/62466AA2-182A-3746-BAFA-8D875E05BA90.root,/hadoop/cms/store/group/snt/nanoaod/nanoclassinputs/output_WiHIWMMidC.root,/hadoop/cms/store/group/snt/nanoaod/nanoclassinputs/test_nanoaod_1.root,/hadoop/cms/store/group/snt/nanoaod/nanoclassinputs/test_nanoaod_31.root,/hadoop/cms/store/group/snt/nanoaod/nanoclassinputs/test_nanoaod_412.root
 #ifndef Nano_H
 #define Nano_H
 #include "Math/LorentzVector.h"
@@ -26,34 +26,33 @@ typedef ROOT::Math::LorentzVector<ROOT::Math::PtEtaPhiM4D<float> > LorentzVector
 
 #define NSV_MAX 24 // for SV_* collection
 #define NSOFTACTIVITYJET_MAX 21 // for SoftActivityJet_* collection
-#define NLHESCALEWEIGHT_MAX 30 // for LHEScaleWeight_* collection
+#define NLHESCALEWEIGHT_MAX 3 // for LHEScaleWeight_* collection
 #define NCORRT1METJET_MAX 102 // for CorrT1METJet_* collection
-#define NMUON_MAX 90 // for Muon_* collection
+#define NMUON_MAX 18 // for Muon_* collection
 #define NGENJET_MAX 60 // for GenJet_* collection
 #define NPSWEIGHT_MAX 15 // for PSWeight_* collection
 #define NBOOSTEDTAU_MAX 12 // for boostedTau_* collection
 #define NLHEPART_MAX 24 // for LHEPart_* collection
-#define NTAU_MAX 90 // for Tau_* collection
+#define NTAU_MAX 18 // for Tau_* collection
 #define NISOTRACK_MAX 33 // for IsoTrack_* collection
-#define NLHEPDFWEIGHT_MAX 312 // for LHEPdfWeight_* collection
+#define NLHEPDFWEIGHT_MAX 3 // for LHEPdfWeight_* collection
 #define NFSRPHOTON_MAX 9 // for FsrPhoton_* collection
 #define NLOWPTELECTRON_MAX 18 // for LowPtElectron_* collection
 #define NOTHERPV_MAX 12 // for OtherPV_* collection
-#define NTRIGOBJ_MAX 117 // for TrigObj_* collection
+#define NTRIGOBJ_MAX 108 // for TrigObj_* collection
 #define NSUBJET_MAX 33 // for SubJet_* collection
 #define NSUBGENJETAK8_MAX 42 // for SubGenJetAK8_* collection
-#define NGENVISTAU_MAX 12 // for GenVisTau_* collection
+#define NGENVISTAU_MAX 9 // for GenVisTau_* collection
 #define NGENJETAK8_MAX 24 // for GenJetAK8_* collection
-#define NELECTRON_MAX 90 // for Electron_* collection
+#define NELECTRON_MAX 24 // for Electron_* collection
 #define NFATJET_MAX 18 // for FatJet_* collection
-#define NJET_MAX 250 // for Jet_* collection
-#define NGENISOLATEDPHOTON_MAX 15 // for GenIsolatedPhoton_* collection
-#define NGENDRESSEDLEPTON_MAX 15 // for GenDressedLepton_* collection
+#define NJET_MAX 81 // for Jet_* collection
+#define NGENISOLATEDPHOTON_MAX 12 // for GenIsolatedPhoton_* collection
+#define NGENDRESSEDLEPTON_MAX 12 // for GenDressedLepton_* collection
 #define NGENPART_MAX 402 // for GenPart_* collection
-#define NPHOTON_MAX 27 // for Photon_* collection
-#define NLHEREWEIGHTINGWEIGHT_MAX 50 // for LHEReweightingWeight_* collection
-#define NLHEWEIGHT_MAX 256 // for LHEWeight_mg_reweighting collection
-
+#define NLHEREWEIGHTINGWEIGHT_MAX 3 // for LHEReweightingWeight_* collection
+#define NPHOTON_MAX 24 // for Photon_* collection
+#define NLHEWEIGHT_MAX 135 // for LHEWeight_* collection
 
 using namespace std;
 
@@ -61,10 +60,6 @@ class Nano {
 private:
 protected:
     unsigned int index;
-    float LHEWeight_mg_reweighting_[NLHEWEIGHT_MAX];
-    vector<float> v_LHEWeight_mg_reweighting_;
-    TBranch *b_LHEWeight_mg_reweighting_;
-    bool loaded_LHEWeight_mg_reweighting_;
     float CaloMET_phi_;
     TBranch *b_CaloMET_phi_;
     bool loaded_CaloMET_phi_;
@@ -12319,6 +12314,30 @@ protected:
     bool loaded_LHEScaleWeight_;
     unsigned int counter_cached_LHEScaleWeight_;
     unsigned int counter_uncached_LHEScaleWeight_;
+    float LHEWeight_Central_scale_variation_[NLHEWEIGHT_MAX];
+    vector<float> v_LHEWeight_Central_scale_variation_;
+    TBranch *b_LHEWeight_Central_scale_variation_;
+    bool loaded_LHEWeight_Central_scale_variation_;
+    unsigned int counter_cached_LHEWeight_Central_scale_variation_;
+    unsigned int counter_uncached_LHEWeight_Central_scale_variation_;
+    float LHEWeight_NNPDF31_nnlo_hessian_pdfas_[NLHEWEIGHT_MAX];
+    vector<float> v_LHEWeight_NNPDF31_nnlo_hessian_pdfas_;
+    TBranch *b_LHEWeight_NNPDF31_nnlo_hessian_pdfas_;
+    bool loaded_LHEWeight_NNPDF31_nnlo_hessian_pdfas_;
+    unsigned int counter_cached_LHEWeight_NNPDF31_nnlo_hessian_pdfas_;
+    unsigned int counter_uncached_LHEWeight_NNPDF31_nnlo_hessian_pdfas_;
+    float LHEWeight_PDF4LHC15_nnlo_30_pdfas_[NLHEWEIGHT_MAX];
+    vector<float> v_LHEWeight_PDF4LHC15_nnlo_30_pdfas_;
+    TBranch *b_LHEWeight_PDF4LHC15_nnlo_30_pdfas_;
+    bool loaded_LHEWeight_PDF4LHC15_nnlo_30_pdfas_;
+    unsigned int counter_cached_LHEWeight_PDF4LHC15_nnlo_30_pdfas_;
+    unsigned int counter_uncached_LHEWeight_PDF4LHC15_nnlo_30_pdfas_;
+    float LHEWeight_mg_reweighting_[NLHEWEIGHT_MAX];
+    vector<float> v_LHEWeight_mg_reweighting_;
+    TBranch *b_LHEWeight_mg_reweighting_;
+    bool loaded_LHEWeight_mg_reweighting_;
+    unsigned int counter_cached_LHEWeight_mg_reweighting_;
+    unsigned int counter_uncached_LHEWeight_mg_reweighting_;
     float LHEWeight_originalXWGTUP_;
     TBranch *b_LHEWeight_originalXWGTUP_;
     bool loaded_LHEWeight_originalXWGTUP_;
@@ -14672,6 +14691,26 @@ protected:
     bool loaded_nLHEScaleWeight_;
     unsigned int counter_cached_nLHEScaleWeight_;
     unsigned int counter_uncached_nLHEScaleWeight_;
+    UInt_t nLHEWeight_Central_scale_variation_;
+    TBranch *b_nLHEWeight_Central_scale_variation_;
+    bool loaded_nLHEWeight_Central_scale_variation_;
+    unsigned int counter_cached_nLHEWeight_Central_scale_variation_;
+    unsigned int counter_uncached_nLHEWeight_Central_scale_variation_;
+    UInt_t nLHEWeight_NNPDF31_nnlo_hessian_pdfas_;
+    TBranch *b_nLHEWeight_NNPDF31_nnlo_hessian_pdfas_;
+    bool loaded_nLHEWeight_NNPDF31_nnlo_hessian_pdfas_;
+    unsigned int counter_cached_nLHEWeight_NNPDF31_nnlo_hessian_pdfas_;
+    unsigned int counter_uncached_nLHEWeight_NNPDF31_nnlo_hessian_pdfas_;
+    UInt_t nLHEWeight_PDF4LHC15_nnlo_30_pdfas_;
+    TBranch *b_nLHEWeight_PDF4LHC15_nnlo_30_pdfas_;
+    bool loaded_nLHEWeight_PDF4LHC15_nnlo_30_pdfas_;
+    unsigned int counter_cached_nLHEWeight_PDF4LHC15_nnlo_30_pdfas_;
+    unsigned int counter_uncached_nLHEWeight_PDF4LHC15_nnlo_30_pdfas_;
+    UInt_t nLHEWeight_mg_reweighting_;
+    TBranch *b_nLHEWeight_mg_reweighting_;
+    bool loaded_nLHEWeight_mg_reweighting_;
+    unsigned int counter_cached_nLHEWeight_mg_reweighting_;
+    unsigned int counter_uncached_nLHEWeight_mg_reweighting_;
     UInt_t nLowPtElectron_;
     TBranch *b_nLowPtElectron_;
     bool loaded_nLowPtElectron_;
@@ -14759,7 +14798,6 @@ public:
     void ParseYear(TTree *tree);
     void PrintUsage();
     void GetEntry(unsigned int idx);
-    const vector<float> &LHEWeight_mg_reweighting();
     const float &CaloMET_phi();
     const float &CaloMET_pt();
     const float &CaloMET_sumEt();
@@ -17146,6 +17184,10 @@ public:
     const vector<float> &LHEPdfWeight();
     const vector<float> &LHEReweightingWeight();
     const vector<float> &LHEScaleWeight();
+    const vector<float> &LHEWeight_Central_scale_variation();
+    const vector<float> &LHEWeight_NNPDF31_nnlo_hessian_pdfas();
+    const vector<float> &LHEWeight_PDF4LHC15_nnlo_30_pdfas();
+    const vector<float> &LHEWeight_mg_reweighting();
     const float &LHEWeight_originalXWGTUP();
     const float &LHE_AlphaS();
     const float &LHE_HT();
@@ -17558,6 +17600,10 @@ public:
     const UInt_t &nLHEPdfWeight();
     const UInt_t &nLHEReweightingWeight();
     const UInt_t &nLHEScaleWeight();
+    const UInt_t &nLHEWeight_Central_scale_variation();
+    const UInt_t &nLHEWeight_NNPDF31_nnlo_hessian_pdfas();
+    const UInt_t &nLHEWeight_PDF4LHC15_nnlo_30_pdfas();
+    const UInt_t &nLHEWeight_mg_reweighting();
     const UInt_t &nLowPtElectron();
     const UInt_t &nMuon();
     const UInt_t &nOtherPV();
@@ -17583,7 +17629,6 @@ extern Nano nt;
 #endif
 
 namespace tas {
-    const vector<float> &LHEWeight_mg_reweighting(); // mg_reweighting
     const float &CaloMET_phi(); // phi
     const float &CaloMET_pt(); // pt
     const float &CaloMET_sumEt(); // scalar sum of Et
@@ -19967,9 +20012,19 @@ namespace tas {
     const vector<float> &LHEPart_pt(); // Pt of LHE particles
     const vector<int> &LHEPart_spin(); // Spin of LHE particles
     const vector<int> &LHEPart_status(); // LHE particle status; -1:incoming, 1:outgoing
-    const vector<float> &LHEPdfWeight(); // LHE pdf variation weights (w_var / w_nominal) for LHA IDs 306000 - 306102
+    const vector<float> &LHEPdfWeight(); // 
     const vector<float> &LHEReweightingWeight(); // 
-    const vector<float> &LHEScaleWeight(); // LHE scale variation weights (w_var / w_nominal); [0] is mur=0.5 muf=0.5 ; [1] is mur=0.5 muf=1 ; [2] is mur=0.5 muf=2 ; [3] is mur=1 muf=0.5 ; [4] is mur=1 muf=1 ; [5] is mur=1 muf=2 ; [6] is mur=2 muf=0.5 ; [7] is mur=2 muf=1 ; [8] is mur=2 muf=2 
+    const vector<float> &LHEScaleWeight(); // 
+    const vector<float> &LHEWeight_Central_scale_variation(); // Central scale variation (w_var / w_nominal);id,text;1002, dyn_scale_choice=sum pt  ;1003, dyn_scale_choice=HT  ;1004, dyn_scale_choice=HT/2  ;1005, dyn_scale_choice=sqrts  ;1006, MUR=2.0  ;1007, MUR=2.0 dyn_scale_choice=sum pt  ;1008, MUR=2.0 dyn_scale_choice=HT  ;1009, MUR=2.0 dyn_scale_choice=HT/2  ;1010, MUR=2.0 dyn_scale_choice=sqrts  ;1011, MUR=0.5  ;1012, MUR=0.5 dyn_scale_choice=sum pt  ;1013, MUR=0.5 dyn_scale_choice=HT  ;1014, MUR=0.5 dyn_scale_choice=HT/2  ;1015, MUR=0.5 dyn_scale_choice=sqrts  ;1016, MUF=2.0  ;1017, MUF=2.0 dyn_scale_choice=sum pt  ;1018, MUF=2.0 dyn_scale_choice=HT  ;1019, MUF=2.0 dyn_scale_choice=HT/2  ;1020, MUF=2.0 dyn_scale_choice=sqrts  ;1021, MUR=2.0 MUF=2.0  ;1022, MUR=2.0 MUF=2.0 dyn_scale_choice=sum pt  ;1023, MUR=2.0 MUF=2.0 dyn_scale_choice=HT  ;1024, MUR=2.0 MUF=2.0 dyn_scale_choice=HT/2  ;1025, MUR=2.0 MUF=2.0 dyn_scale_choice=sqrts  ;1026, MUR=0.5 MUF=2.0  ;1027, MUR=0.5 MUF=2.0 dyn_scale_choice=sum pt  ;1028, MUR=0.5 MUF=2.0 dyn_scale_choice=HT  ;1029, MUR=0.5 MUF=2.0 dyn_scale_choice=HT/2  ;1030, MUR=0.5 MUF=2.0 dyn_scale_choice=sqrts  ;1031, MUF=0.5  ;1032, MUF=0.5 dyn_scale_choice=sum pt  ;1033, MUF=0.5 dyn_scale_choice=HT  ;1034, MUF=0.5 dyn_scale_choice=HT/2  ;1035, MUF=0.5 dyn_scale_choice=sqrts  ;1036, MUR=2.0 MUF=0.5  ;1037, MUR=2.0 MUF=0.5 dyn_scale_choice=sum pt  ;1038, MUR=2.0 MUF=0.5 dyn_scale_choice=HT  ;1039, MUR=2.0 MUF=0.5 dyn_scale_choice=HT/2  ;1040, MUR=2.0 MUF=0.5 dyn_scale_choice=sqrts  ;1041, MUR=0.5 MUF=0.5  ;1042, MUR=0.5 MUF=0.5 dyn_scale_choice=sum pt  ;1043, MUR=0.5 MUF=0.5 dyn_scale_choice=HT  ;1044, MUR=0.5 MUF=0.5 dyn_scale_choice=HT/2  ;1045, MUR=0.5 MUF=0.5 dyn_scale_choice=sqrts  
+    const vector<float> &LHEWeight_NNPDF31_nnlo_hessian_pdfas(); // NNPDF31_nnlo_hessian_pdfas (w_var / w_nominal);id,text;1252, PDF=306000 MemberID=0 ;1253, PDF=306000 MemberID=1 ;1254, PDF=306000 MemberID=2 ;1255, PDF=306000 MemberID=3 ;1256, PDF=306000 MemberID=4 ;1257, PDF=306000 MemberID=5 ;1258, PDF=306000 MemberID=6 ;1259, PDF=306000 MemberID=7 ;1260, PDF=306000 MemberID=8 ;1261, PDF=306000 MemberID=9 ;1262, PDF=306000 MemberID=10 ;1263, PDF=306000 MemberID=11 ;1264, PDF=306000 MemberID=12 ;1265, PDF=306000 MemberID=13 ;1266, PDF=306000 MemberID=14 ;1267, PDF=306000 MemberID=15 ;1268, PDF=306000 MemberID=16 ;1269, PDF=306000 MemberID=17 ;1270, PDF=306000 MemberID=18 ;1271, PDF=306000 MemberID=19 ;1272, PDF=306000 MemberID=20 ;1273, PDF=306000 MemberID=21 ;1274, PDF=306000 MemberID=22 ;1275, PDF=306000 MemberID=23 ;1276, PDF=306000 MemberID=24 ;1277, PDF=306000 MemberID=25 ;1278, PDF=306000 MemberID=26 ;1279, PDF=306000 MemberID=27 ;1280, PDF=306000 MemberID=28 ;1281, PDF=306000 MemberID=29 ;1282, PDF=306000 MemberID=30 ;1283, PDF=306000 MemberID=31 ;1284, PDF=306000 MemberID=32 ;1285, PDF=306000 MemberID=33 ;1286, PDF=306000 MemberID=34 ;1287, PDF=306000 MemberID=35 ;1288, PDF=306000 MemberID=36 ;1289, PDF=306000 MemberID=37 ;1290, PDF=306000 MemberID=38 ;1291, PDF=306000 MemberID=39 ;1292, PDF=306000 MemberID=40 ;1293, PDF=306000 MemberID=41 ;1294, PDF=306000 MemberID=42 ;1295, PDF=306000 MemberID=43 ;1296, PDF=306000 MemberID=44 ;1297, PDF=306000 MemberID=45 ;1298, PDF=306000 MemberID=46 ;1299, PDF=306000 MemberID=47 ;1300, PDF=306000 MemberID=48 ;1301, PDF=306000 MemberID=49 ;1302, PDF=306000 MemberID=50 ;1303, PDF=306000 MemberID=51 ;1304, PDF=306000 MemberID=52 ;1305, PDF=306000 MemberID=53 ;1306, PDF=306000 MemberID=54 ;1307, PDF=306000 MemberID=55 ;1308, PDF=306000 MemberID=56 ;1309, PDF=306000 MemberID=57 ;1310, PDF=306000 MemberID=58 ;1311, PDF=306000 MemberID=59 ;1312, PDF=306000 MemberID=60 ;1313, PDF=306000 MemberID=61 ;1314, PDF=306000 MemberID=62 ;1315, PDF=306000 MemberID=63 ;1316, PDF=306000 MemberID=64 ;1317, PDF=306000 MemberID=65 ;1318, PDF=306000 MemberID=66 ;1319, PDF=306000 MemberID=67 ;1320, PDF=306000 MemberID=68 ;1321, PDF=306000 MemberID=69 ;1322, PDF=306000 MemberID=70 ;1323, PDF=306000 MemberID=71 ;1324, PDF=306000 MemberID=72 ;1325, PDF=306000 MemberID=73 ;1326, PDF=306000 MemberID=74 ;1327, PDF=306000 MemberID=75 ;1328, PDF=306000 MemberID=76 ;1329, PDF=306000 MemberID=77 ;1330, PDF=306000 MemberID=78 ;1331, PDF=306000 MemberID=79 ;1332, PDF=306000 MemberID=80 ;1333, PDF=306000 MemberID=81 ;1334, PDF=306000 MemberID=82 ;1335, PDF=306000 MemberID=83 ;1336, PDF=306000 MemberID=84 ;1337, PDF=306000 MemberID=85 ;1338, PDF=306000 MemberID=86 ;1339, PDF=306000 MemberID=87 ;1340, PDF=306000 MemberID=88 ;1341, PDF=306000 MemberID=89 ;1342, PDF=306000 MemberID=90 ;1343, PDF=306000 MemberID=91 ;1344, PDF=306000 MemberID=92 ;1345, PDF=306000 MemberID=93 ;1346, PDF=306000 MemberID=94 ;1347, PDF=306000 MemberID=95 ;1348, PDF=306000 MemberID=96 ;1349, PDF=306000 MemberID=97 ;1350, PDF=306000 MemberID=98 ;1351, PDF=306000 MemberID=99 ;1352, PDF=306000 MemberID=100 ;1353, PDF=306000 MemberID=101 ;1354, PDF=306000 MemberID=102 
+    const vector<float> &LHEWeight_PDF4LHC15_nnlo_30_pdfas(); // PDF4LHC15_nnlo_30_pdfas (w_var / w_nominal);id,text;1957, PDF=91400 MemberID=0 ;1958, PDF=91400 MemberID=1 ;1959, PDF=91400 MemberID=2 ;1960, PDF=91400 MemberID=3 ;1961, PDF=91400 MemberID=4 ;1962, PDF=91400 MemberID=5 ;1963, PDF=91400 MemberID=6 ;1964, PDF=91400 MemberID=7 ;1965, PDF=91400 MemberID=8 ;1966, PDF=91400 MemberID=9 ;1967, PDF=91400 MemberID=10 ;1968, PDF=91400 MemberID=11 ;1969, PDF=91400 MemberID=12 ;1970, PDF=91400 MemberID=13 ;1971, PDF=91400 MemberID=14 ;1972, PDF=91400 MemberID=15 ;1973, PDF=91400 MemberID=16 ;1974, PDF=91400 MemberID=17 ;1975, PDF=91400 MemberID=18 ;1976, PDF=91400 MemberID=19 ;1977, PDF=91400 MemberID=20 ;1978, PDF=91400 MemberID=21 ;1979, PDF=91400 MemberID=22 ;1980, PDF=91400 MemberID=23 ;1981, PDF=91400 MemberID=24 ;1982, PDF=91400 MemberID=25 ;1983, PDF=91400 MemberID=26 ;1984, PDF=91400 MemberID=27 ;1985, PDF=91400 MemberID=28 ;1986, PDF=91400 MemberID=29 ;1987, PDF=91400 MemberID=30 ;1988, PDF=91400 MemberID=31 ;1989, PDF=91400 MemberID=32 
+    const vector<float> &LHEWeight_mg_reweighting(); // mg_reweighting (w_var / w_nominal);id,text;EFT_SM,set param_card anoinputs 12 0.0 # orig: 5e-12
+;EFT_FT0_m10,set param_card anoinputs 12 -1e-11 # orig: 5e-12
+;EFT_FT0_m5,set param_card anoinputs 12 -5e-12 # orig: 5e-12
+;EFT_FT0_m1,set param_card anoinputs 12 -1e-12 # orig: 5e-12
+;EFT_FT0_1,set param_card anoinputs 12 1e-12 # orig: 5e-12
+;EFT_FT0_5,;EFT_FT0_10,set param_card anoinputs 12 1e-11 # orig: 5e-12
+
     const float &LHEWeight_originalXWGTUP(); // Nominal event weight in the LHE file
     const float &LHE_AlphaS(); // Per-event alphaS
     const float &LHE_HT(); // HT, scalar sum of parton pTs at LHE step
@@ -20382,6 +20437,10 @@ namespace tas {
     const UInt_t &nLHEPdfWeight(); // 
     const UInt_t &nLHEReweightingWeight(); // 
     const UInt_t &nLHEScaleWeight(); // 
+    const UInt_t &nLHEWeight_Central_scale_variation(); // 
+    const UInt_t &nLHEWeight_NNPDF31_nnlo_hessian_pdfas(); // 
+    const UInt_t &nLHEWeight_PDF4LHC15_nnlo_30_pdfas(); // 
+    const UInt_t &nLHEWeight_mg_reweighting(); // 
     const UInt_t &nLowPtElectron(); // slimmedLowPtElectrons after basic selection (pt > 1. && userFloat('ID') > -0.25)
     const UInt_t &nMuon(); // slimmedMuons after basic selection (pt > 3 && (passed('CutBasedIdLoose') || passed('SoftCutBasedId') || passed('SoftMvaId') || passed('CutBasedIdGlobalHighPt') || passed('CutBasedIdTrkHighPt')))
     const UInt_t &nOtherPV(); // 

@@ -29,17 +29,27 @@ void {classname}::SetYear(int year) {{
 }}
 
 void Nano::ParseYear(TTree* tree) {{
-    if (year_ != 0) return;
+    // if (year_ != 0) return; // disabled so that per root file that it reads it will always reset it to the correct year.
     year_ = -999;
     TString full_file_path = TString(((TFile*) tree->GetCurrentFile())->GetName());
     if (full_file_path.Contains("RunIIAutumn18NanoAOD")) year_ = 2018;
     else if (full_file_path.Contains("RunIIFall17NanoAOD")) year_ = 2017;
     else if (full_file_path.Contains("RunIISummer16NanoAOD")) year_ = 2016;
+    // Ultra-legacy
+    else if (full_file_path.Contains("RunIISummer20UL18")) year_ = 2018;
+    else if (full_file_path.Contains("RunIISummer20UL17")) year_ = 2017;
+    else if (full_file_path.Contains("RunIISummer20UL16")) year_ = 2016;
+    // Ultra-legacy
+    else if (full_file_path.Contains("RunIISummer19UL18")) year_ = 2018;
+    else if (full_file_path.Contains("RunIISummer19UL17")) year_ = 2017;
+    else if (full_file_path.Contains("RunIISummer19UL16")) year_ = 2016;
+    // Data
     else if (full_file_path.Contains("Run2018")) year_ = 2018;
     else if (full_file_path.Contains("Run2017")) year_ = 2017;
     else if (full_file_path.Contains("Run2016")) year_ = 2016;
-    else throw std::runtime_error("{classname}::parseYear():: ERROR - Failed to recognize which year this NanoAOD is !\\nPlease make sure the path has one of the following keywords:\\n  2016: 'Run2016' or 'RunIISummer16NanoAOD'\\n  2017: 'Run2017' or 'RunIIFall17NanoAOD'\\n  2018: 'Run2018' or 'RunIIAutumn18NanoAOD'\\nOR, use {classname}::SetYear(int year) before {classname}::Init()");
+    else throw std::runtime_error("Nano::parseYear():: ERROR - Failed to recognize which year this NanoAOD is !\\nPlease make sure the path has one of the following keywords:\\n  2016: 'Run2016' or 'RunIISummer16NanoAOD' or 'RunIISummer20UL16'\\n  2017: 'Run2017' or 'RunIIFall17NanoAOD' or 'RunIISummer20UL17'\\n  2018: 'Run2018' or 'RunIIAutumn18NanoAOD' or 'RunIISummer20UL18'\\nOR, use Nano::SetYear(int year) before Nano::Init()");
 }}
+
 
 const Int_t &{classname}::year() {{
     return year_;
@@ -342,7 +352,7 @@ if __name__ == "__main__":
             # DECLARING ARRAY WITH TOO LITTLE SPACE WILL SEGFAULT SO NEED TO BE REALLY CAREFUL
             # FIXME figure out better way. tripling is not a solution
             # ndata = 3*leaf.GetNdata()
-            sys.exit("DECLARING ARRAY WITH TOO LITTLE SPACE WILL SEGFAULT SO NEED TO BE REALLY CAREFUL\nIF ONE REPLACES THE NanoCORE/Nano.h/cc USING THIS OTHER USERS WORK ON THE SETTING WILL GET OVERWRITTEN\nIF YOU HAVE ANY QUESTIONS PLEASE CONTACT PHILIP CHANG <philip@ucsd.edu>\n")
+            # sys.exit("DECLARING ARRAY WITH TOO LITTLE SPACE WILL SEGFAULT SO NEED TO BE REALLY CAREFUL\nIF ONE REPLACES THE NanoCORE/Nano.h/cc USING THIS OTHER USERS WORK ON THE SETTING WILL GET OVERWRITTEN\nIF YOU HAVE ANY QUESTIONS PLEASE CONTACT PHILIP CHANG <philip@ucsd.edu>\n")
             ndata = leaf.GetNdata()
             collectionname = None
             ndatamacroname = None

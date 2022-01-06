@@ -2,8 +2,6 @@
 Nano nt;
 
 void Nano::Init(TTree *tree) {
-    b_LHEWeight_mg_reweighting_ = tree->GetBranch("LHEWeight_mg_reweighting");
-    if (b_LHEWeight_mg_reweighting_) { b_LHEWeight_mg_reweighting_->SetAddress(&LHEWeight_mg_reweighting_); }
     b_CaloMET_phi_ = tree->GetBranch("CaloMET_phi");
     if (b_CaloMET_phi_) { b_CaloMET_phi_->SetAddress(&CaloMET_phi_); }
     b_CaloMET_pt_ = tree->GetBranch("CaloMET_pt");
@@ -4756,6 +4754,14 @@ void Nano::Init(TTree *tree) {
     if (b_LHEReweightingWeight_) { b_LHEReweightingWeight_->SetAddress(&LHEReweightingWeight_); }
     b_LHEScaleWeight_ = tree->GetBranch("LHEScaleWeight");
     if (b_LHEScaleWeight_) { b_LHEScaleWeight_->SetAddress(&LHEScaleWeight_); }
+    b_LHEWeight_Central_scale_variation_ = tree->GetBranch("LHEWeight_Central_scale_variation");
+    if (b_LHEWeight_Central_scale_variation_) { b_LHEWeight_Central_scale_variation_->SetAddress(&LHEWeight_Central_scale_variation_); }
+    b_LHEWeight_NNPDF31_nnlo_hessian_pdfas_ = tree->GetBranch("LHEWeight_NNPDF31_nnlo_hessian_pdfas");
+    if (b_LHEWeight_NNPDF31_nnlo_hessian_pdfas_) { b_LHEWeight_NNPDF31_nnlo_hessian_pdfas_->SetAddress(&LHEWeight_NNPDF31_nnlo_hessian_pdfas_); }
+    b_LHEWeight_PDF4LHC15_nnlo_30_pdfas_ = tree->GetBranch("LHEWeight_PDF4LHC15_nnlo_30_pdfas");
+    if (b_LHEWeight_PDF4LHC15_nnlo_30_pdfas_) { b_LHEWeight_PDF4LHC15_nnlo_30_pdfas_->SetAddress(&LHEWeight_PDF4LHC15_nnlo_30_pdfas_); }
+    b_LHEWeight_mg_reweighting_ = tree->GetBranch("LHEWeight_mg_reweighting");
+    if (b_LHEWeight_mg_reweighting_) { b_LHEWeight_mg_reweighting_->SetAddress(&LHEWeight_mg_reweighting_); }
     b_LHEWeight_originalXWGTUP_ = tree->GetBranch("LHEWeight_originalXWGTUP");
     if (b_LHEWeight_originalXWGTUP_) { b_LHEWeight_originalXWGTUP_->SetAddress(&LHEWeight_originalXWGTUP_); }
     b_LHE_AlphaS_ = tree->GetBranch("LHE_AlphaS");
@@ -5564,6 +5570,14 @@ void Nano::Init(TTree *tree) {
     if (b_nLHEReweightingWeight_) { b_nLHEReweightingWeight_->SetAddress(&nLHEReweightingWeight_); }
     b_nLHEScaleWeight_ = tree->GetBranch("nLHEScaleWeight");
     if (b_nLHEScaleWeight_) { b_nLHEScaleWeight_->SetAddress(&nLHEScaleWeight_); }
+    b_nLHEWeight_Central_scale_variation_ = tree->GetBranch("nLHEWeight_Central_scale_variation");
+    if (b_nLHEWeight_Central_scale_variation_) { b_nLHEWeight_Central_scale_variation_->SetAddress(&nLHEWeight_Central_scale_variation_); }
+    b_nLHEWeight_NNPDF31_nnlo_hessian_pdfas_ = tree->GetBranch("nLHEWeight_NNPDF31_nnlo_hessian_pdfas");
+    if (b_nLHEWeight_NNPDF31_nnlo_hessian_pdfas_) { b_nLHEWeight_NNPDF31_nnlo_hessian_pdfas_->SetAddress(&nLHEWeight_NNPDF31_nnlo_hessian_pdfas_); }
+    b_nLHEWeight_PDF4LHC15_nnlo_30_pdfas_ = tree->GetBranch("nLHEWeight_PDF4LHC15_nnlo_30_pdfas");
+    if (b_nLHEWeight_PDF4LHC15_nnlo_30_pdfas_) { b_nLHEWeight_PDF4LHC15_nnlo_30_pdfas_->SetAddress(&nLHEWeight_PDF4LHC15_nnlo_30_pdfas_); }
+    b_nLHEWeight_mg_reweighting_ = tree->GetBranch("nLHEWeight_mg_reweighting");
+    if (b_nLHEWeight_mg_reweighting_) { b_nLHEWeight_mg_reweighting_->SetAddress(&nLHEWeight_mg_reweighting_); }
     b_nLowPtElectron_ = tree->GetBranch("nLowPtElectron");
     if (b_nLowPtElectron_) { b_nLowPtElectron_->SetAddress(&nLowPtElectron_); }
     b_nMuon_ = tree->GetBranch("nMuon");
@@ -5623,6 +5637,7 @@ void Nano::ParseYear(TTree* tree) {
     else if (full_file_path.Contains("Run2016")) year_ = 2016;
     else throw std::runtime_error("Nano::parseYear():: ERROR - Failed to recognize which year this NanoAOD is !\nPlease make sure the path has one of the following keywords:\n  2016: 'Run2016' or 'RunIISummer16NanoAOD' or 'RunIISummer20UL16'\n  2017: 'Run2017' or 'RunIIFall17NanoAOD' or 'RunIISummer20UL17'\n  2018: 'Run2018' or 'RunIIAutumn18NanoAOD' or 'RunIISummer20UL18'\nOR, use Nano::SetYear(int year) before Nano::Init()");
 }
+
 
 const Int_t &Nano::year() {
     return year_;
@@ -8021,6 +8036,10 @@ void Nano::PrintUsage() {
     std::cout << "LHEPdfWeight (uncached/cached calls): " << counter_uncached_LHEPdfWeight_ << " / " << counter_cached_LHEPdfWeight_ << std::endl;;
     std::cout << "LHEReweightingWeight (uncached/cached calls): " << counter_uncached_LHEReweightingWeight_ << " / " << counter_cached_LHEReweightingWeight_ << std::endl;;
     std::cout << "LHEScaleWeight (uncached/cached calls): " << counter_uncached_LHEScaleWeight_ << " / " << counter_cached_LHEScaleWeight_ << std::endl;;
+    std::cout << "LHEWeight_Central_scale_variation (uncached/cached calls): " << counter_uncached_LHEWeight_Central_scale_variation_ << " / " << counter_cached_LHEWeight_Central_scale_variation_ << std::endl;;
+    std::cout << "LHEWeight_NNPDF31_nnlo_hessian_pdfas (uncached/cached calls): " << counter_uncached_LHEWeight_NNPDF31_nnlo_hessian_pdfas_ << " / " << counter_cached_LHEWeight_NNPDF31_nnlo_hessian_pdfas_ << std::endl;;
+    std::cout << "LHEWeight_PDF4LHC15_nnlo_30_pdfas (uncached/cached calls): " << counter_uncached_LHEWeight_PDF4LHC15_nnlo_30_pdfas_ << " / " << counter_cached_LHEWeight_PDF4LHC15_nnlo_30_pdfas_ << std::endl;;
+    std::cout << "LHEWeight_mg_reweighting (uncached/cached calls): " << counter_uncached_LHEWeight_mg_reweighting_ << " / " << counter_cached_LHEWeight_mg_reweighting_ << std::endl;;
     std::cout << "LHEWeight_originalXWGTUP (uncached/cached calls): " << counter_uncached_LHEWeight_originalXWGTUP_ << " / " << counter_cached_LHEWeight_originalXWGTUP_ << std::endl;;
     std::cout << "LHE_AlphaS (uncached/cached calls): " << counter_uncached_LHE_AlphaS_ << " / " << counter_cached_LHE_AlphaS_ << std::endl;;
     std::cout << "LHE_HT (uncached/cached calls): " << counter_uncached_LHE_HT_ << " / " << counter_cached_LHE_HT_ << std::endl;;
@@ -8433,6 +8452,10 @@ void Nano::PrintUsage() {
     std::cout << "nLHEPdfWeight (uncached/cached calls): " << counter_uncached_nLHEPdfWeight_ << " / " << counter_cached_nLHEPdfWeight_ << std::endl;;
     std::cout << "nLHEReweightingWeight (uncached/cached calls): " << counter_uncached_nLHEReweightingWeight_ << " / " << counter_cached_nLHEReweightingWeight_ << std::endl;;
     std::cout << "nLHEScaleWeight (uncached/cached calls): " << counter_uncached_nLHEScaleWeight_ << " / " << counter_cached_nLHEScaleWeight_ << std::endl;;
+    std::cout << "nLHEWeight_Central_scale_variation (uncached/cached calls): " << counter_uncached_nLHEWeight_Central_scale_variation_ << " / " << counter_cached_nLHEWeight_Central_scale_variation_ << std::endl;;
+    std::cout << "nLHEWeight_NNPDF31_nnlo_hessian_pdfas (uncached/cached calls): " << counter_uncached_nLHEWeight_NNPDF31_nnlo_hessian_pdfas_ << " / " << counter_cached_nLHEWeight_NNPDF31_nnlo_hessian_pdfas_ << std::endl;;
+    std::cout << "nLHEWeight_PDF4LHC15_nnlo_30_pdfas (uncached/cached calls): " << counter_uncached_nLHEWeight_PDF4LHC15_nnlo_30_pdfas_ << " / " << counter_cached_nLHEWeight_PDF4LHC15_nnlo_30_pdfas_ << std::endl;;
+    std::cout << "nLHEWeight_mg_reweighting (uncached/cached calls): " << counter_uncached_nLHEWeight_mg_reweighting_ << " / " << counter_cached_nLHEWeight_mg_reweighting_ << std::endl;;
     std::cout << "nLowPtElectron (uncached/cached calls): " << counter_uncached_nLowPtElectron_ << " / " << counter_cached_nLowPtElectron_ << std::endl;;
     std::cout << "nMuon (uncached/cached calls): " << counter_uncached_nMuon_ << " / " << counter_cached_nMuon_ << std::endl;;
     std::cout << "nOtherPV (uncached/cached calls): " << counter_uncached_nOtherPV_ << " / " << counter_cached_nOtherPV_ << std::endl;;
@@ -8453,7 +8476,6 @@ void Nano::PrintUsage() {
 
 void Nano::GetEntry(unsigned int idx) {
     index = idx;
-    loaded_LHEWeight_mg_reweighting_ = false;
     loaded_CaloMET_phi_ = false;
     loaded_CaloMET_pt_ = false;
     loaded_CaloMET_sumEt_ = false;
@@ -10840,6 +10862,10 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_LHEPdfWeight_ = false;
     loaded_LHEReweightingWeight_ = false;
     loaded_LHEScaleWeight_ = false;
+    loaded_LHEWeight_Central_scale_variation_ = false;
+    loaded_LHEWeight_NNPDF31_nnlo_hessian_pdfas_ = false;
+    loaded_LHEWeight_PDF4LHC15_nnlo_30_pdfas_ = false;
+    loaded_LHEWeight_mg_reweighting_ = false;
     loaded_LHEWeight_originalXWGTUP_ = false;
     loaded_LHE_AlphaS_ = false;
     loaded_LHE_HT_ = false;
@@ -11252,6 +11278,10 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_nLHEPdfWeight_ = false;
     loaded_nLHEReweightingWeight_ = false;
     loaded_nLHEScaleWeight_ = false;
+    loaded_nLHEWeight_Central_scale_variation_ = false;
+    loaded_nLHEWeight_NNPDF31_nnlo_hessian_pdfas_ = false;
+    loaded_nLHEWeight_PDF4LHC15_nnlo_30_pdfas_ = false;
+    loaded_nLHEWeight_mg_reweighting_ = false;
     loaded_nLowPtElectron_ = false;
     loaded_nMuon_ = false;
     loaded_nOtherPV_ = false;
@@ -11268,16 +11298,6 @@ void Nano::GetEntry(unsigned int idx) {
     loaded_puWeightDown_ = false;
     loaded_puWeightUp_ = false;
     loaded_run_ = false;
-}
-
-const vector<float> &Nano::LHEWeight_mg_reweighting() {
-    if (!loaded_LHEWeight_mg_reweighting_) {
-        if (!b_LHEWeight_mg_reweighting_) throw std::runtime_error("LHEWeight_mg_reweighting branch doesn't exist");
-        int bytes = b_LHEWeight_mg_reweighting_->GetEntry(index);
-        v_LHEWeight_mg_reweighting_ = vector<float>(LHEWeight_mg_reweighting_,LHEWeight_mg_reweighting_+bytes/sizeof(LHEWeight_mg_reweighting_[0]));
-        loaded_LHEWeight_mg_reweighting_ = true;
-    }
-    return v_LHEWeight_mg_reweighting_;
 }
 
 const float &Nano::CaloMET_phi() {
@@ -35524,6 +35544,50 @@ const vector<float> &Nano::LHEScaleWeight() {
     }
     return v_LHEScaleWeight_;
 }
+const vector<float> &Nano::LHEWeight_Central_scale_variation() {
+    if (!loaded_LHEWeight_Central_scale_variation_) counter_uncached_LHEWeight_Central_scale_variation_++;
+    else counter_cached_LHEWeight_Central_scale_variation_++;
+    if (!loaded_LHEWeight_Central_scale_variation_) {
+        if (!b_LHEWeight_Central_scale_variation_) throw std::runtime_error("LHEWeight_Central_scale_variation branch doesn't exist");
+        int bytes = b_LHEWeight_Central_scale_variation_->GetEntry(index);
+        v_LHEWeight_Central_scale_variation_ = vector<float>(LHEWeight_Central_scale_variation_,LHEWeight_Central_scale_variation_+bytes/sizeof(LHEWeight_Central_scale_variation_[0]));
+        loaded_LHEWeight_Central_scale_variation_ = true;
+    }
+    return v_LHEWeight_Central_scale_variation_;
+}
+const vector<float> &Nano::LHEWeight_NNPDF31_nnlo_hessian_pdfas() {
+    if (!loaded_LHEWeight_NNPDF31_nnlo_hessian_pdfas_) counter_uncached_LHEWeight_NNPDF31_nnlo_hessian_pdfas_++;
+    else counter_cached_LHEWeight_NNPDF31_nnlo_hessian_pdfas_++;
+    if (!loaded_LHEWeight_NNPDF31_nnlo_hessian_pdfas_) {
+        if (!b_LHEWeight_NNPDF31_nnlo_hessian_pdfas_) throw std::runtime_error("LHEWeight_NNPDF31_nnlo_hessian_pdfas branch doesn't exist");
+        int bytes = b_LHEWeight_NNPDF31_nnlo_hessian_pdfas_->GetEntry(index);
+        v_LHEWeight_NNPDF31_nnlo_hessian_pdfas_ = vector<float>(LHEWeight_NNPDF31_nnlo_hessian_pdfas_,LHEWeight_NNPDF31_nnlo_hessian_pdfas_+bytes/sizeof(LHEWeight_NNPDF31_nnlo_hessian_pdfas_[0]));
+        loaded_LHEWeight_NNPDF31_nnlo_hessian_pdfas_ = true;
+    }
+    return v_LHEWeight_NNPDF31_nnlo_hessian_pdfas_;
+}
+const vector<float> &Nano::LHEWeight_PDF4LHC15_nnlo_30_pdfas() {
+    if (!loaded_LHEWeight_PDF4LHC15_nnlo_30_pdfas_) counter_uncached_LHEWeight_PDF4LHC15_nnlo_30_pdfas_++;
+    else counter_cached_LHEWeight_PDF4LHC15_nnlo_30_pdfas_++;
+    if (!loaded_LHEWeight_PDF4LHC15_nnlo_30_pdfas_) {
+        if (!b_LHEWeight_PDF4LHC15_nnlo_30_pdfas_) throw std::runtime_error("LHEWeight_PDF4LHC15_nnlo_30_pdfas branch doesn't exist");
+        int bytes = b_LHEWeight_PDF4LHC15_nnlo_30_pdfas_->GetEntry(index);
+        v_LHEWeight_PDF4LHC15_nnlo_30_pdfas_ = vector<float>(LHEWeight_PDF4LHC15_nnlo_30_pdfas_,LHEWeight_PDF4LHC15_nnlo_30_pdfas_+bytes/sizeof(LHEWeight_PDF4LHC15_nnlo_30_pdfas_[0]));
+        loaded_LHEWeight_PDF4LHC15_nnlo_30_pdfas_ = true;
+    }
+    return v_LHEWeight_PDF4LHC15_nnlo_30_pdfas_;
+}
+const vector<float> &Nano::LHEWeight_mg_reweighting() {
+    if (!loaded_LHEWeight_mg_reweighting_) counter_uncached_LHEWeight_mg_reweighting_++;
+    else counter_cached_LHEWeight_mg_reweighting_++;
+    if (!loaded_LHEWeight_mg_reweighting_) {
+        if (!b_LHEWeight_mg_reweighting_) throw std::runtime_error("LHEWeight_mg_reweighting branch doesn't exist");
+        int bytes = b_LHEWeight_mg_reweighting_->GetEntry(index);
+        v_LHEWeight_mg_reweighting_ = vector<float>(LHEWeight_mg_reweighting_,LHEWeight_mg_reweighting_+bytes/sizeof(LHEWeight_mg_reweighting_[0]));
+        loaded_LHEWeight_mg_reweighting_ = true;
+    }
+    return v_LHEWeight_mg_reweighting_;
+}
 const float &Nano::LHEWeight_originalXWGTUP() {
     if (!loaded_LHEWeight_originalXWGTUP_) counter_uncached_LHEWeight_originalXWGTUP_++;
     else counter_cached_LHEWeight_originalXWGTUP_++;
@@ -39985,6 +40049,46 @@ const UInt_t &Nano::nLHEScaleWeight() {
     }
     return nLHEScaleWeight_;
 }
+const UInt_t &Nano::nLHEWeight_Central_scale_variation() {
+    if (!loaded_nLHEWeight_Central_scale_variation_) counter_uncached_nLHEWeight_Central_scale_variation_++;
+    else counter_cached_nLHEWeight_Central_scale_variation_++;
+    if (!loaded_nLHEWeight_Central_scale_variation_) {
+        if (!b_nLHEWeight_Central_scale_variation_) throw std::runtime_error("nLHEWeight_Central_scale_variation branch doesn't exist");
+        b_nLHEWeight_Central_scale_variation_->GetEntry(index);
+        loaded_nLHEWeight_Central_scale_variation_ = true;
+    }
+    return nLHEWeight_Central_scale_variation_;
+}
+const UInt_t &Nano::nLHEWeight_NNPDF31_nnlo_hessian_pdfas() {
+    if (!loaded_nLHEWeight_NNPDF31_nnlo_hessian_pdfas_) counter_uncached_nLHEWeight_NNPDF31_nnlo_hessian_pdfas_++;
+    else counter_cached_nLHEWeight_NNPDF31_nnlo_hessian_pdfas_++;
+    if (!loaded_nLHEWeight_NNPDF31_nnlo_hessian_pdfas_) {
+        if (!b_nLHEWeight_NNPDF31_nnlo_hessian_pdfas_) throw std::runtime_error("nLHEWeight_NNPDF31_nnlo_hessian_pdfas branch doesn't exist");
+        b_nLHEWeight_NNPDF31_nnlo_hessian_pdfas_->GetEntry(index);
+        loaded_nLHEWeight_NNPDF31_nnlo_hessian_pdfas_ = true;
+    }
+    return nLHEWeight_NNPDF31_nnlo_hessian_pdfas_;
+}
+const UInt_t &Nano::nLHEWeight_PDF4LHC15_nnlo_30_pdfas() {
+    if (!loaded_nLHEWeight_PDF4LHC15_nnlo_30_pdfas_) counter_uncached_nLHEWeight_PDF4LHC15_nnlo_30_pdfas_++;
+    else counter_cached_nLHEWeight_PDF4LHC15_nnlo_30_pdfas_++;
+    if (!loaded_nLHEWeight_PDF4LHC15_nnlo_30_pdfas_) {
+        if (!b_nLHEWeight_PDF4LHC15_nnlo_30_pdfas_) throw std::runtime_error("nLHEWeight_PDF4LHC15_nnlo_30_pdfas branch doesn't exist");
+        b_nLHEWeight_PDF4LHC15_nnlo_30_pdfas_->GetEntry(index);
+        loaded_nLHEWeight_PDF4LHC15_nnlo_30_pdfas_ = true;
+    }
+    return nLHEWeight_PDF4LHC15_nnlo_30_pdfas_;
+}
+const UInt_t &Nano::nLHEWeight_mg_reweighting() {
+    if (!loaded_nLHEWeight_mg_reweighting_) counter_uncached_nLHEWeight_mg_reweighting_++;
+    else counter_cached_nLHEWeight_mg_reweighting_++;
+    if (!loaded_nLHEWeight_mg_reweighting_) {
+        if (!b_nLHEWeight_mg_reweighting_) throw std::runtime_error("nLHEWeight_mg_reweighting branch doesn't exist");
+        b_nLHEWeight_mg_reweighting_->GetEntry(index);
+        loaded_nLHEWeight_mg_reweighting_ = true;
+    }
+    return nLHEWeight_mg_reweighting_;
+}
 const UInt_t &Nano::nLowPtElectron() {
     if (!loaded_nLowPtElectron_) counter_uncached_nLowPtElectron_++;
     else counter_cached_nLowPtElectron_++;
@@ -42533,6 +42637,10 @@ namespace tas {
     const vector<float> &LHEPdfWeight() { return nt.LHEPdfWeight(); }
     const vector<float> &LHEReweightingWeight() { return nt.LHEReweightingWeight(); }
     const vector<float> &LHEScaleWeight() { return nt.LHEScaleWeight(); }
+    const vector<float> &LHEWeight_Central_scale_variation() { return nt.LHEWeight_Central_scale_variation(); }
+    const vector<float> &LHEWeight_NNPDF31_nnlo_hessian_pdfas() { return nt.LHEWeight_NNPDF31_nnlo_hessian_pdfas(); }
+    const vector<float> &LHEWeight_PDF4LHC15_nnlo_30_pdfas() { return nt.LHEWeight_PDF4LHC15_nnlo_30_pdfas(); }
+    const vector<float> &LHEWeight_mg_reweighting() { return nt.LHEWeight_mg_reweighting(); }
     const float &LHEWeight_originalXWGTUP() { return nt.LHEWeight_originalXWGTUP(); }
     const float &LHE_AlphaS() { return nt.LHE_AlphaS(); }
     const float &LHE_HT() { return nt.LHE_HT(); }
@@ -42945,6 +43053,10 @@ namespace tas {
     const UInt_t &nLHEPdfWeight() { return nt.nLHEPdfWeight(); }
     const UInt_t &nLHEReweightingWeight() { return nt.nLHEReweightingWeight(); }
     const UInt_t &nLHEScaleWeight() { return nt.nLHEScaleWeight(); }
+    const UInt_t &nLHEWeight_Central_scale_variation() { return nt.nLHEWeight_Central_scale_variation(); }
+    const UInt_t &nLHEWeight_NNPDF31_nnlo_hessian_pdfas() { return nt.nLHEWeight_NNPDF31_nnlo_hessian_pdfas(); }
+    const UInt_t &nLHEWeight_PDF4LHC15_nnlo_30_pdfas() { return nt.nLHEWeight_PDF4LHC15_nnlo_30_pdfas(); }
+    const UInt_t &nLHEWeight_mg_reweighting() { return nt.nLHEWeight_mg_reweighting(); }
     const UInt_t &nLowPtElectron() { return nt.nLowPtElectron(); }
     const UInt_t &nMuon() { return nt.nMuon(); }
     const UInt_t &nOtherPV() { return nt.nOtherPV(); }
@@ -43202,6 +43314,10 @@ namespace tas {
         else if (name == "LHEPdfWeight") return nt.LHEPdfWeight();
         else if (name == "LHEReweightingWeight") return nt.LHEReweightingWeight();
         else if (name == "LHEScaleWeight") return nt.LHEScaleWeight();
+        else if (name == "LHEWeight_Central_scale_variation") return nt.LHEWeight_Central_scale_variation();
+        else if (name == "LHEWeight_NNPDF31_nnlo_hessian_pdfas") return nt.LHEWeight_NNPDF31_nnlo_hessian_pdfas();
+        else if (name == "LHEWeight_PDF4LHC15_nnlo_30_pdfas") return nt.LHEWeight_PDF4LHC15_nnlo_30_pdfas();
+        else if (name == "LHEWeight_mg_reweighting") return nt.LHEWeight_mg_reweighting();
         else if (name == "LowPtElectron_ID") return nt.LowPtElectron_ID();
         else if (name == "LowPtElectron_convVtxRadius") return nt.LowPtElectron_convVtxRadius();
         else if (name == "LowPtElectron_deltaEtaSC") return nt.LowPtElectron_deltaEtaSC();

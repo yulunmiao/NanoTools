@@ -9,6 +9,38 @@ import fnmatch
 
 USE_DEFINES_FOR_ARRAY_SIZES = True
 
+PREDEFINED_ARRAY_SIZES = {
+        "NSV_MAX" : 24,
+        "NSOFTACTIVITYJET_MAX" : 21,
+        "NLHESCALEWEIGHT_MAX" : 30,
+        "NCORRT1METJET_MAX" : 102,
+        "NMUON_MAX" : 90,
+        "NGENJET_MAX" : 60,
+        "NPSWEIGHT_MAX" : 15,
+        "NBOOSTEDTAU_MAX" : 12,
+        "NLHEPART_MAX" : 24,
+        "NTAU_MAX" : 90,
+        "NISOTRACK_MAX" : 33,
+        "NLHEPDFWEIGHT_MAX" : 312,
+        "NFSRPHOTON_MAX" : 9,
+        "NLOWPTELECTRON_MAX" : 18,
+        "NOTHERPV_MAX" : 12,
+        "NTRIGOBJ_MAX" : 117,
+        "NSUBJET_MAX" : 33,
+        "NSUBGENJETAK8_MAX" : 42,
+        "NGENVISTAU_MAX" : 12,
+        "NGENJETAK8_MAX" : 24,
+        "NELECTRON_MAX" : 90,
+        "NFATJET_MAX" : 18,
+        "NJET_MAX" : 250,
+        "NGENISOLATEDPHOTON_MAX" : 15,
+        "NGENDRESSEDLEPTON_MAX" : 15,
+        "NGENPART_MAX" : 402,
+        "NPHOTON_MAX" : 27,
+        "NLHEREWEIGHTINGWEIGHT_MAX" : 50,
+        "NLHEWEIGHT_MAX" : 256,
+        }
+
 def get_cc_top(ginfo,binfo):
     yield "#include \"{classname}.h\"".format(**ginfo)
     yield "{classname} {objectname};".format(**ginfo)
@@ -165,6 +197,8 @@ def get_h_top(ginfo,binfo):
             if b["ndatamacroname"] in defines: continue
             multiplier = 3
             defines[b["ndatamacroname"]] = dict(ndatamacroname=b["ndatamacroname"], collectionname=b["collectionname"], ndata=int(multiplier*b["ndata"]))
+            if b["ndatamacroname"] in PREDEFINED_ARRAY_SIZES.keys():
+                defines[b["ndatamacroname"]]["ndata"] = PREDEFINED_ARRAY_SIZES[b["ndatamacroname"]]
         for v in defines.values():
             yield "#define {ndatamacroname} {ndata} // for {collectionname}_* collection".format(**v)
     yield ""
@@ -338,6 +372,9 @@ if __name__ == "__main__":
         for branch in branches:
             title = branch.GetTitle()
             name = branch.GetName()
+
+            # If title has "newline" character we replace them
+            title = title.replace("\n","  ")
 
             if name in s_brnames: continue
             s_brnames.add(name)

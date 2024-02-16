@@ -44,13 +44,15 @@ typedef ROOT::Math::LorentzVector<ROOT::Math::PtEtaPhiM4D<float> > LorentzVector
 #define NSUBGENJETAK8_MAX 42 // for SubGenJetAK8_* collection
 #define NGENVISTAU_MAX 12 // for GenVisTau_* collection
 #define NGENJETAK8_MAX 24 // for GenJetAK8_* collection
+#define NWCNAMES_MAX 42 // for WCnames_* collection
 #define NELECTRON_MAX 90 // for Electron_* collection
 #define NFATJET_MAX 18 // for FatJet_* collection
+#define NEFTFITCOEFFICIENTS_MAX 276 // for EFTfitCoefficients_* collection
 #define NJET_MAX 250 // for Jet_* collection
 #define NGENISOLATEDPHOTON_MAX 15 // for GenIsolatedPhoton_* collection
 #define NGENDRESSEDLEPTON_MAX 15 // for GenDressedLepton_* collection
 #define NGENPART_MAX 402 // for GenPart_* collection
-#define NLHEREWEIGHTINGWEIGHT_MAX 50 // for LHEReweightingWeight_* collection
+#define NLHEREWEIGHTINGWEIGHT_MAX 256 // for LHEReweightingWeight_* collection
 #define NPHOTON_MAX 27 // for Photon_* collection
 #define NLHEWEIGHT_MAX 256 // for LHEWeight_* collection
 
@@ -140,6 +142,12 @@ protected:
     bool loaded_DeepMETResponseTune_pt_;
     unsigned int counter_cached_DeepMETResponseTune_pt_;
     unsigned int counter_uncached_DeepMETResponseTune_pt_;
+    float EFTfitCoefficients_[NEFTFITCOEFFICIENTS_MAX];
+    vector<float> v_EFTfitCoefficients_;
+    TBranch *b_EFTfitCoefficients_;
+    bool loaded_EFTfitCoefficients_;
+    unsigned int counter_cached_EFTfitCoefficients_;
+    unsigned int counter_uncached_EFTfitCoefficients_;
     float Electron_CutBased_LooseID_SF_[NELECTRON_MAX];
     vector<float> v_Electron_CutBased_LooseID_SF_;
     TBranch *b_Electron_CutBased_LooseID_SF_;
@@ -973,12 +981,672 @@ protected:
     bool loaded_FatJet_mass_jerUp_;
     unsigned int counter_cached_FatJet_mass_jerUp_;
     unsigned int counter_uncached_FatJet_mass_jerUp_;
+    float FatJet_mass_jesAbsoluteFlavMapDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesAbsoluteFlavMapDown_;
+    TBranch *b_FatJet_mass_jesAbsoluteFlavMapDown_;
+    bool loaded_FatJet_mass_jesAbsoluteFlavMapDown_;
+    unsigned int counter_cached_FatJet_mass_jesAbsoluteFlavMapDown_;
+    unsigned int counter_uncached_FatJet_mass_jesAbsoluteFlavMapDown_;
+    float FatJet_mass_jesAbsoluteFlavMapUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesAbsoluteFlavMapUp_;
+    TBranch *b_FatJet_mass_jesAbsoluteFlavMapUp_;
+    bool loaded_FatJet_mass_jesAbsoluteFlavMapUp_;
+    unsigned int counter_cached_FatJet_mass_jesAbsoluteFlavMapUp_;
+    unsigned int counter_uncached_FatJet_mass_jesAbsoluteFlavMapUp_;
+    float FatJet_mass_jesAbsoluteMPFBiasDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesAbsoluteMPFBiasDown_;
+    TBranch *b_FatJet_mass_jesAbsoluteMPFBiasDown_;
+    bool loaded_FatJet_mass_jesAbsoluteMPFBiasDown_;
+    unsigned int counter_cached_FatJet_mass_jesAbsoluteMPFBiasDown_;
+    unsigned int counter_uncached_FatJet_mass_jesAbsoluteMPFBiasDown_;
+    float FatJet_mass_jesAbsoluteMPFBiasUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesAbsoluteMPFBiasUp_;
+    TBranch *b_FatJet_mass_jesAbsoluteMPFBiasUp_;
+    bool loaded_FatJet_mass_jesAbsoluteMPFBiasUp_;
+    unsigned int counter_cached_FatJet_mass_jesAbsoluteMPFBiasUp_;
+    unsigned int counter_uncached_FatJet_mass_jesAbsoluteMPFBiasUp_;
+    float FatJet_mass_jesAbsoluteSampleDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesAbsoluteSampleDown_;
+    TBranch *b_FatJet_mass_jesAbsoluteSampleDown_;
+    bool loaded_FatJet_mass_jesAbsoluteSampleDown_;
+    unsigned int counter_cached_FatJet_mass_jesAbsoluteSampleDown_;
+    unsigned int counter_uncached_FatJet_mass_jesAbsoluteSampleDown_;
+    float FatJet_mass_jesAbsoluteSampleUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesAbsoluteSampleUp_;
+    TBranch *b_FatJet_mass_jesAbsoluteSampleUp_;
+    bool loaded_FatJet_mass_jesAbsoluteSampleUp_;
+    unsigned int counter_cached_FatJet_mass_jesAbsoluteSampleUp_;
+    unsigned int counter_uncached_FatJet_mass_jesAbsoluteSampleUp_;
+    float FatJet_mass_jesAbsoluteScaleDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesAbsoluteScaleDown_;
+    TBranch *b_FatJet_mass_jesAbsoluteScaleDown_;
+    bool loaded_FatJet_mass_jesAbsoluteScaleDown_;
+    unsigned int counter_cached_FatJet_mass_jesAbsoluteScaleDown_;
+    unsigned int counter_uncached_FatJet_mass_jesAbsoluteScaleDown_;
+    float FatJet_mass_jesAbsoluteScaleUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesAbsoluteScaleUp_;
+    TBranch *b_FatJet_mass_jesAbsoluteScaleUp_;
+    bool loaded_FatJet_mass_jesAbsoluteScaleUp_;
+    unsigned int counter_cached_FatJet_mass_jesAbsoluteScaleUp_;
+    unsigned int counter_uncached_FatJet_mass_jesAbsoluteScaleUp_;
+    float FatJet_mass_jesAbsoluteStatDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesAbsoluteStatDown_;
+    TBranch *b_FatJet_mass_jesAbsoluteStatDown_;
+    bool loaded_FatJet_mass_jesAbsoluteStatDown_;
+    unsigned int counter_cached_FatJet_mass_jesAbsoluteStatDown_;
+    unsigned int counter_uncached_FatJet_mass_jesAbsoluteStatDown_;
+    float FatJet_mass_jesAbsoluteStatUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesAbsoluteStatUp_;
+    TBranch *b_FatJet_mass_jesAbsoluteStatUp_;
+    bool loaded_FatJet_mass_jesAbsoluteStatUp_;
+    unsigned int counter_cached_FatJet_mass_jesAbsoluteStatUp_;
+    unsigned int counter_uncached_FatJet_mass_jesAbsoluteStatUp_;
+    float FatJet_mass_jesCorrelationGroupFlavorDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesCorrelationGroupFlavorDown_;
+    TBranch *b_FatJet_mass_jesCorrelationGroupFlavorDown_;
+    bool loaded_FatJet_mass_jesCorrelationGroupFlavorDown_;
+    unsigned int counter_cached_FatJet_mass_jesCorrelationGroupFlavorDown_;
+    unsigned int counter_uncached_FatJet_mass_jesCorrelationGroupFlavorDown_;
+    float FatJet_mass_jesCorrelationGroupFlavorUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesCorrelationGroupFlavorUp_;
+    TBranch *b_FatJet_mass_jesCorrelationGroupFlavorUp_;
+    bool loaded_FatJet_mass_jesCorrelationGroupFlavorUp_;
+    unsigned int counter_cached_FatJet_mass_jesCorrelationGroupFlavorUp_;
+    unsigned int counter_uncached_FatJet_mass_jesCorrelationGroupFlavorUp_;
+    float FatJet_mass_jesCorrelationGroupIntercalibrationDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesCorrelationGroupIntercalibrationDown_;
+    TBranch *b_FatJet_mass_jesCorrelationGroupIntercalibrationDown_;
+    bool loaded_FatJet_mass_jesCorrelationGroupIntercalibrationDown_;
+    unsigned int counter_cached_FatJet_mass_jesCorrelationGroupIntercalibrationDown_;
+    unsigned int counter_uncached_FatJet_mass_jesCorrelationGroupIntercalibrationDown_;
+    float FatJet_mass_jesCorrelationGroupIntercalibrationUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesCorrelationGroupIntercalibrationUp_;
+    TBranch *b_FatJet_mass_jesCorrelationGroupIntercalibrationUp_;
+    bool loaded_FatJet_mass_jesCorrelationGroupIntercalibrationUp_;
+    unsigned int counter_cached_FatJet_mass_jesCorrelationGroupIntercalibrationUp_;
+    unsigned int counter_uncached_FatJet_mass_jesCorrelationGroupIntercalibrationUp_;
+    float FatJet_mass_jesCorrelationGroupMPFInSituDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesCorrelationGroupMPFInSituDown_;
+    TBranch *b_FatJet_mass_jesCorrelationGroupMPFInSituDown_;
+    bool loaded_FatJet_mass_jesCorrelationGroupMPFInSituDown_;
+    unsigned int counter_cached_FatJet_mass_jesCorrelationGroupMPFInSituDown_;
+    unsigned int counter_uncached_FatJet_mass_jesCorrelationGroupMPFInSituDown_;
+    float FatJet_mass_jesCorrelationGroupMPFInSituUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesCorrelationGroupMPFInSituUp_;
+    TBranch *b_FatJet_mass_jesCorrelationGroupMPFInSituUp_;
+    bool loaded_FatJet_mass_jesCorrelationGroupMPFInSituUp_;
+    unsigned int counter_cached_FatJet_mass_jesCorrelationGroupMPFInSituUp_;
+    unsigned int counter_uncached_FatJet_mass_jesCorrelationGroupMPFInSituUp_;
+    float FatJet_mass_jesCorrelationGroupUncorrelatedDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesCorrelationGroupUncorrelatedDown_;
+    TBranch *b_FatJet_mass_jesCorrelationGroupUncorrelatedDown_;
+    bool loaded_FatJet_mass_jesCorrelationGroupUncorrelatedDown_;
+    unsigned int counter_cached_FatJet_mass_jesCorrelationGroupUncorrelatedDown_;
+    unsigned int counter_uncached_FatJet_mass_jesCorrelationGroupUncorrelatedDown_;
+    float FatJet_mass_jesCorrelationGroupUncorrelatedUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesCorrelationGroupUncorrelatedUp_;
+    TBranch *b_FatJet_mass_jesCorrelationGroupUncorrelatedUp_;
+    bool loaded_FatJet_mass_jesCorrelationGroupUncorrelatedUp_;
+    unsigned int counter_cached_FatJet_mass_jesCorrelationGroupUncorrelatedUp_;
+    unsigned int counter_uncached_FatJet_mass_jesCorrelationGroupUncorrelatedUp_;
+    float FatJet_mass_jesCorrelationGroupbJESDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesCorrelationGroupbJESDown_;
+    TBranch *b_FatJet_mass_jesCorrelationGroupbJESDown_;
+    bool loaded_FatJet_mass_jesCorrelationGroupbJESDown_;
+    unsigned int counter_cached_FatJet_mass_jesCorrelationGroupbJESDown_;
+    unsigned int counter_uncached_FatJet_mass_jesCorrelationGroupbJESDown_;
+    float FatJet_mass_jesCorrelationGroupbJESUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesCorrelationGroupbJESUp_;
+    TBranch *b_FatJet_mass_jesCorrelationGroupbJESUp_;
+    bool loaded_FatJet_mass_jesCorrelationGroupbJESUp_;
+    unsigned int counter_cached_FatJet_mass_jesCorrelationGroupbJESUp_;
+    unsigned int counter_uncached_FatJet_mass_jesCorrelationGroupbJESUp_;
+    float FatJet_mass_jesFlavorPhotonJetDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesFlavorPhotonJetDown_;
+    TBranch *b_FatJet_mass_jesFlavorPhotonJetDown_;
+    bool loaded_FatJet_mass_jesFlavorPhotonJetDown_;
+    unsigned int counter_cached_FatJet_mass_jesFlavorPhotonJetDown_;
+    unsigned int counter_uncached_FatJet_mass_jesFlavorPhotonJetDown_;
+    float FatJet_mass_jesFlavorPhotonJetUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesFlavorPhotonJetUp_;
+    TBranch *b_FatJet_mass_jesFlavorPhotonJetUp_;
+    bool loaded_FatJet_mass_jesFlavorPhotonJetUp_;
+    unsigned int counter_cached_FatJet_mass_jesFlavorPhotonJetUp_;
+    unsigned int counter_uncached_FatJet_mass_jesFlavorPhotonJetUp_;
+    float FatJet_mass_jesFlavorPureBottomDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesFlavorPureBottomDown_;
+    TBranch *b_FatJet_mass_jesFlavorPureBottomDown_;
+    bool loaded_FatJet_mass_jesFlavorPureBottomDown_;
+    unsigned int counter_cached_FatJet_mass_jesFlavorPureBottomDown_;
+    unsigned int counter_uncached_FatJet_mass_jesFlavorPureBottomDown_;
+    float FatJet_mass_jesFlavorPureBottomUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesFlavorPureBottomUp_;
+    TBranch *b_FatJet_mass_jesFlavorPureBottomUp_;
+    bool loaded_FatJet_mass_jesFlavorPureBottomUp_;
+    unsigned int counter_cached_FatJet_mass_jesFlavorPureBottomUp_;
+    unsigned int counter_uncached_FatJet_mass_jesFlavorPureBottomUp_;
+    float FatJet_mass_jesFlavorPureCharmDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesFlavorPureCharmDown_;
+    TBranch *b_FatJet_mass_jesFlavorPureCharmDown_;
+    bool loaded_FatJet_mass_jesFlavorPureCharmDown_;
+    unsigned int counter_cached_FatJet_mass_jesFlavorPureCharmDown_;
+    unsigned int counter_uncached_FatJet_mass_jesFlavorPureCharmDown_;
+    float FatJet_mass_jesFlavorPureCharmUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesFlavorPureCharmUp_;
+    TBranch *b_FatJet_mass_jesFlavorPureCharmUp_;
+    bool loaded_FatJet_mass_jesFlavorPureCharmUp_;
+    unsigned int counter_cached_FatJet_mass_jesFlavorPureCharmUp_;
+    unsigned int counter_uncached_FatJet_mass_jesFlavorPureCharmUp_;
+    float FatJet_mass_jesFlavorPureGluonDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesFlavorPureGluonDown_;
+    TBranch *b_FatJet_mass_jesFlavorPureGluonDown_;
+    bool loaded_FatJet_mass_jesFlavorPureGluonDown_;
+    unsigned int counter_cached_FatJet_mass_jesFlavorPureGluonDown_;
+    unsigned int counter_uncached_FatJet_mass_jesFlavorPureGluonDown_;
+    float FatJet_mass_jesFlavorPureGluonUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesFlavorPureGluonUp_;
+    TBranch *b_FatJet_mass_jesFlavorPureGluonUp_;
+    bool loaded_FatJet_mass_jesFlavorPureGluonUp_;
+    unsigned int counter_cached_FatJet_mass_jesFlavorPureGluonUp_;
+    unsigned int counter_uncached_FatJet_mass_jesFlavorPureGluonUp_;
+    float FatJet_mass_jesFlavorPureQuarkDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesFlavorPureQuarkDown_;
+    TBranch *b_FatJet_mass_jesFlavorPureQuarkDown_;
+    bool loaded_FatJet_mass_jesFlavorPureQuarkDown_;
+    unsigned int counter_cached_FatJet_mass_jesFlavorPureQuarkDown_;
+    unsigned int counter_uncached_FatJet_mass_jesFlavorPureQuarkDown_;
+    float FatJet_mass_jesFlavorPureQuarkUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesFlavorPureQuarkUp_;
+    TBranch *b_FatJet_mass_jesFlavorPureQuarkUp_;
+    bool loaded_FatJet_mass_jesFlavorPureQuarkUp_;
+    unsigned int counter_cached_FatJet_mass_jesFlavorPureQuarkUp_;
+    unsigned int counter_uncached_FatJet_mass_jesFlavorPureQuarkUp_;
+    float FatJet_mass_jesFlavorQCDDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesFlavorQCDDown_;
+    TBranch *b_FatJet_mass_jesFlavorQCDDown_;
+    bool loaded_FatJet_mass_jesFlavorQCDDown_;
+    unsigned int counter_cached_FatJet_mass_jesFlavorQCDDown_;
+    unsigned int counter_uncached_FatJet_mass_jesFlavorQCDDown_;
+    float FatJet_mass_jesFlavorQCDUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesFlavorQCDUp_;
+    TBranch *b_FatJet_mass_jesFlavorQCDUp_;
+    bool loaded_FatJet_mass_jesFlavorQCDUp_;
+    unsigned int counter_cached_FatJet_mass_jesFlavorQCDUp_;
+    unsigned int counter_uncached_FatJet_mass_jesFlavorQCDUp_;
+    float FatJet_mass_jesFlavorZJetDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesFlavorZJetDown_;
+    TBranch *b_FatJet_mass_jesFlavorZJetDown_;
+    bool loaded_FatJet_mass_jesFlavorZJetDown_;
+    unsigned int counter_cached_FatJet_mass_jesFlavorZJetDown_;
+    unsigned int counter_uncached_FatJet_mass_jesFlavorZJetDown_;
+    float FatJet_mass_jesFlavorZJetUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesFlavorZJetUp_;
+    TBranch *b_FatJet_mass_jesFlavorZJetUp_;
+    bool loaded_FatJet_mass_jesFlavorZJetUp_;
+    unsigned int counter_cached_FatJet_mass_jesFlavorZJetUp_;
+    unsigned int counter_uncached_FatJet_mass_jesFlavorZJetUp_;
+    float FatJet_mass_jesFragmentationDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesFragmentationDown_;
+    TBranch *b_FatJet_mass_jesFragmentationDown_;
+    bool loaded_FatJet_mass_jesFragmentationDown_;
+    unsigned int counter_cached_FatJet_mass_jesFragmentationDown_;
+    unsigned int counter_uncached_FatJet_mass_jesFragmentationDown_;
+    float FatJet_mass_jesFragmentationUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesFragmentationUp_;
+    TBranch *b_FatJet_mass_jesFragmentationUp_;
+    bool loaded_FatJet_mass_jesFragmentationUp_;
+    unsigned int counter_cached_FatJet_mass_jesFragmentationUp_;
+    unsigned int counter_uncached_FatJet_mass_jesFragmentationUp_;
+    float FatJet_mass_jesPileUpDataMCDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesPileUpDataMCDown_;
+    TBranch *b_FatJet_mass_jesPileUpDataMCDown_;
+    bool loaded_FatJet_mass_jesPileUpDataMCDown_;
+    unsigned int counter_cached_FatJet_mass_jesPileUpDataMCDown_;
+    unsigned int counter_uncached_FatJet_mass_jesPileUpDataMCDown_;
+    float FatJet_mass_jesPileUpDataMCUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesPileUpDataMCUp_;
+    TBranch *b_FatJet_mass_jesPileUpDataMCUp_;
+    bool loaded_FatJet_mass_jesPileUpDataMCUp_;
+    unsigned int counter_cached_FatJet_mass_jesPileUpDataMCUp_;
+    unsigned int counter_uncached_FatJet_mass_jesPileUpDataMCUp_;
+    float FatJet_mass_jesPileUpEnvelopeDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesPileUpEnvelopeDown_;
+    TBranch *b_FatJet_mass_jesPileUpEnvelopeDown_;
+    bool loaded_FatJet_mass_jesPileUpEnvelopeDown_;
+    unsigned int counter_cached_FatJet_mass_jesPileUpEnvelopeDown_;
+    unsigned int counter_uncached_FatJet_mass_jesPileUpEnvelopeDown_;
+    float FatJet_mass_jesPileUpEnvelopeUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesPileUpEnvelopeUp_;
+    TBranch *b_FatJet_mass_jesPileUpEnvelopeUp_;
+    bool loaded_FatJet_mass_jesPileUpEnvelopeUp_;
+    unsigned int counter_cached_FatJet_mass_jesPileUpEnvelopeUp_;
+    unsigned int counter_uncached_FatJet_mass_jesPileUpEnvelopeUp_;
+    float FatJet_mass_jesPileUpMuZeroDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesPileUpMuZeroDown_;
+    TBranch *b_FatJet_mass_jesPileUpMuZeroDown_;
+    bool loaded_FatJet_mass_jesPileUpMuZeroDown_;
+    unsigned int counter_cached_FatJet_mass_jesPileUpMuZeroDown_;
+    unsigned int counter_uncached_FatJet_mass_jesPileUpMuZeroDown_;
+    float FatJet_mass_jesPileUpMuZeroUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesPileUpMuZeroUp_;
+    TBranch *b_FatJet_mass_jesPileUpMuZeroUp_;
+    bool loaded_FatJet_mass_jesPileUpMuZeroUp_;
+    unsigned int counter_cached_FatJet_mass_jesPileUpMuZeroUp_;
+    unsigned int counter_uncached_FatJet_mass_jesPileUpMuZeroUp_;
+    float FatJet_mass_jesPileUpPtBBDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesPileUpPtBBDown_;
+    TBranch *b_FatJet_mass_jesPileUpPtBBDown_;
+    bool loaded_FatJet_mass_jesPileUpPtBBDown_;
+    unsigned int counter_cached_FatJet_mass_jesPileUpPtBBDown_;
+    unsigned int counter_uncached_FatJet_mass_jesPileUpPtBBDown_;
+    float FatJet_mass_jesPileUpPtBBUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesPileUpPtBBUp_;
+    TBranch *b_FatJet_mass_jesPileUpPtBBUp_;
+    bool loaded_FatJet_mass_jesPileUpPtBBUp_;
+    unsigned int counter_cached_FatJet_mass_jesPileUpPtBBUp_;
+    unsigned int counter_uncached_FatJet_mass_jesPileUpPtBBUp_;
+    float FatJet_mass_jesPileUpPtEC1Down_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesPileUpPtEC1Down_;
+    TBranch *b_FatJet_mass_jesPileUpPtEC1Down_;
+    bool loaded_FatJet_mass_jesPileUpPtEC1Down_;
+    unsigned int counter_cached_FatJet_mass_jesPileUpPtEC1Down_;
+    unsigned int counter_uncached_FatJet_mass_jesPileUpPtEC1Down_;
+    float FatJet_mass_jesPileUpPtEC1Up_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesPileUpPtEC1Up_;
+    TBranch *b_FatJet_mass_jesPileUpPtEC1Up_;
+    bool loaded_FatJet_mass_jesPileUpPtEC1Up_;
+    unsigned int counter_cached_FatJet_mass_jesPileUpPtEC1Up_;
+    unsigned int counter_uncached_FatJet_mass_jesPileUpPtEC1Up_;
+    float FatJet_mass_jesPileUpPtEC2Down_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesPileUpPtEC2Down_;
+    TBranch *b_FatJet_mass_jesPileUpPtEC2Down_;
+    bool loaded_FatJet_mass_jesPileUpPtEC2Down_;
+    unsigned int counter_cached_FatJet_mass_jesPileUpPtEC2Down_;
+    unsigned int counter_uncached_FatJet_mass_jesPileUpPtEC2Down_;
+    float FatJet_mass_jesPileUpPtEC2Up_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesPileUpPtEC2Up_;
+    TBranch *b_FatJet_mass_jesPileUpPtEC2Up_;
+    bool loaded_FatJet_mass_jesPileUpPtEC2Up_;
+    unsigned int counter_cached_FatJet_mass_jesPileUpPtEC2Up_;
+    unsigned int counter_uncached_FatJet_mass_jesPileUpPtEC2Up_;
+    float FatJet_mass_jesPileUpPtHFDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesPileUpPtHFDown_;
+    TBranch *b_FatJet_mass_jesPileUpPtHFDown_;
+    bool loaded_FatJet_mass_jesPileUpPtHFDown_;
+    unsigned int counter_cached_FatJet_mass_jesPileUpPtHFDown_;
+    unsigned int counter_uncached_FatJet_mass_jesPileUpPtHFDown_;
+    float FatJet_mass_jesPileUpPtHFUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesPileUpPtHFUp_;
+    TBranch *b_FatJet_mass_jesPileUpPtHFUp_;
+    bool loaded_FatJet_mass_jesPileUpPtHFUp_;
+    unsigned int counter_cached_FatJet_mass_jesPileUpPtHFUp_;
+    unsigned int counter_uncached_FatJet_mass_jesPileUpPtHFUp_;
+    float FatJet_mass_jesPileUpPtRefDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesPileUpPtRefDown_;
+    TBranch *b_FatJet_mass_jesPileUpPtRefDown_;
+    bool loaded_FatJet_mass_jesPileUpPtRefDown_;
+    unsigned int counter_cached_FatJet_mass_jesPileUpPtRefDown_;
+    unsigned int counter_uncached_FatJet_mass_jesPileUpPtRefDown_;
+    float FatJet_mass_jesPileUpPtRefUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesPileUpPtRefUp_;
+    TBranch *b_FatJet_mass_jesPileUpPtRefUp_;
+    bool loaded_FatJet_mass_jesPileUpPtRefUp_;
+    unsigned int counter_cached_FatJet_mass_jesPileUpPtRefUp_;
+    unsigned int counter_uncached_FatJet_mass_jesPileUpPtRefUp_;
+    float FatJet_mass_jesRelativeBalDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesRelativeBalDown_;
+    TBranch *b_FatJet_mass_jesRelativeBalDown_;
+    bool loaded_FatJet_mass_jesRelativeBalDown_;
+    unsigned int counter_cached_FatJet_mass_jesRelativeBalDown_;
+    unsigned int counter_uncached_FatJet_mass_jesRelativeBalDown_;
+    float FatJet_mass_jesRelativeBalUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesRelativeBalUp_;
+    TBranch *b_FatJet_mass_jesRelativeBalUp_;
+    bool loaded_FatJet_mass_jesRelativeBalUp_;
+    unsigned int counter_cached_FatJet_mass_jesRelativeBalUp_;
+    unsigned int counter_uncached_FatJet_mass_jesRelativeBalUp_;
+    float FatJet_mass_jesRelativeFSRDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesRelativeFSRDown_;
+    TBranch *b_FatJet_mass_jesRelativeFSRDown_;
+    bool loaded_FatJet_mass_jesRelativeFSRDown_;
+    unsigned int counter_cached_FatJet_mass_jesRelativeFSRDown_;
+    unsigned int counter_uncached_FatJet_mass_jesRelativeFSRDown_;
+    float FatJet_mass_jesRelativeFSRUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesRelativeFSRUp_;
+    TBranch *b_FatJet_mass_jesRelativeFSRUp_;
+    bool loaded_FatJet_mass_jesRelativeFSRUp_;
+    unsigned int counter_cached_FatJet_mass_jesRelativeFSRUp_;
+    unsigned int counter_uncached_FatJet_mass_jesRelativeFSRUp_;
+    float FatJet_mass_jesRelativeJEREC1Down_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesRelativeJEREC1Down_;
+    TBranch *b_FatJet_mass_jesRelativeJEREC1Down_;
+    bool loaded_FatJet_mass_jesRelativeJEREC1Down_;
+    unsigned int counter_cached_FatJet_mass_jesRelativeJEREC1Down_;
+    unsigned int counter_uncached_FatJet_mass_jesRelativeJEREC1Down_;
+    float FatJet_mass_jesRelativeJEREC1Up_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesRelativeJEREC1Up_;
+    TBranch *b_FatJet_mass_jesRelativeJEREC1Up_;
+    bool loaded_FatJet_mass_jesRelativeJEREC1Up_;
+    unsigned int counter_cached_FatJet_mass_jesRelativeJEREC1Up_;
+    unsigned int counter_uncached_FatJet_mass_jesRelativeJEREC1Up_;
+    float FatJet_mass_jesRelativeJEREC2Down_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesRelativeJEREC2Down_;
+    TBranch *b_FatJet_mass_jesRelativeJEREC2Down_;
+    bool loaded_FatJet_mass_jesRelativeJEREC2Down_;
+    unsigned int counter_cached_FatJet_mass_jesRelativeJEREC2Down_;
+    unsigned int counter_uncached_FatJet_mass_jesRelativeJEREC2Down_;
+    float FatJet_mass_jesRelativeJEREC2Up_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesRelativeJEREC2Up_;
+    TBranch *b_FatJet_mass_jesRelativeJEREC2Up_;
+    bool loaded_FatJet_mass_jesRelativeJEREC2Up_;
+    unsigned int counter_cached_FatJet_mass_jesRelativeJEREC2Up_;
+    unsigned int counter_uncached_FatJet_mass_jesRelativeJEREC2Up_;
+    float FatJet_mass_jesRelativeJERHFDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesRelativeJERHFDown_;
+    TBranch *b_FatJet_mass_jesRelativeJERHFDown_;
+    bool loaded_FatJet_mass_jesRelativeJERHFDown_;
+    unsigned int counter_cached_FatJet_mass_jesRelativeJERHFDown_;
+    unsigned int counter_uncached_FatJet_mass_jesRelativeJERHFDown_;
+    float FatJet_mass_jesRelativeJERHFUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesRelativeJERHFUp_;
+    TBranch *b_FatJet_mass_jesRelativeJERHFUp_;
+    bool loaded_FatJet_mass_jesRelativeJERHFUp_;
+    unsigned int counter_cached_FatJet_mass_jesRelativeJERHFUp_;
+    unsigned int counter_uncached_FatJet_mass_jesRelativeJERHFUp_;
+    float FatJet_mass_jesRelativePtBBDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesRelativePtBBDown_;
+    TBranch *b_FatJet_mass_jesRelativePtBBDown_;
+    bool loaded_FatJet_mass_jesRelativePtBBDown_;
+    unsigned int counter_cached_FatJet_mass_jesRelativePtBBDown_;
+    unsigned int counter_uncached_FatJet_mass_jesRelativePtBBDown_;
+    float FatJet_mass_jesRelativePtBBUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesRelativePtBBUp_;
+    TBranch *b_FatJet_mass_jesRelativePtBBUp_;
+    bool loaded_FatJet_mass_jesRelativePtBBUp_;
+    unsigned int counter_cached_FatJet_mass_jesRelativePtBBUp_;
+    unsigned int counter_uncached_FatJet_mass_jesRelativePtBBUp_;
+    float FatJet_mass_jesRelativePtEC1Down_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesRelativePtEC1Down_;
+    TBranch *b_FatJet_mass_jesRelativePtEC1Down_;
+    bool loaded_FatJet_mass_jesRelativePtEC1Down_;
+    unsigned int counter_cached_FatJet_mass_jesRelativePtEC1Down_;
+    unsigned int counter_uncached_FatJet_mass_jesRelativePtEC1Down_;
+    float FatJet_mass_jesRelativePtEC1Up_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesRelativePtEC1Up_;
+    TBranch *b_FatJet_mass_jesRelativePtEC1Up_;
+    bool loaded_FatJet_mass_jesRelativePtEC1Up_;
+    unsigned int counter_cached_FatJet_mass_jesRelativePtEC1Up_;
+    unsigned int counter_uncached_FatJet_mass_jesRelativePtEC1Up_;
+    float FatJet_mass_jesRelativePtEC2Down_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesRelativePtEC2Down_;
+    TBranch *b_FatJet_mass_jesRelativePtEC2Down_;
+    bool loaded_FatJet_mass_jesRelativePtEC2Down_;
+    unsigned int counter_cached_FatJet_mass_jesRelativePtEC2Down_;
+    unsigned int counter_uncached_FatJet_mass_jesRelativePtEC2Down_;
+    float FatJet_mass_jesRelativePtEC2Up_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesRelativePtEC2Up_;
+    TBranch *b_FatJet_mass_jesRelativePtEC2Up_;
+    bool loaded_FatJet_mass_jesRelativePtEC2Up_;
+    unsigned int counter_cached_FatJet_mass_jesRelativePtEC2Up_;
+    unsigned int counter_uncached_FatJet_mass_jesRelativePtEC2Up_;
+    float FatJet_mass_jesRelativePtHFDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesRelativePtHFDown_;
+    TBranch *b_FatJet_mass_jesRelativePtHFDown_;
+    bool loaded_FatJet_mass_jesRelativePtHFDown_;
+    unsigned int counter_cached_FatJet_mass_jesRelativePtHFDown_;
+    unsigned int counter_uncached_FatJet_mass_jesRelativePtHFDown_;
+    float FatJet_mass_jesRelativePtHFUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesRelativePtHFUp_;
+    TBranch *b_FatJet_mass_jesRelativePtHFUp_;
+    bool loaded_FatJet_mass_jesRelativePtHFUp_;
+    unsigned int counter_cached_FatJet_mass_jesRelativePtHFUp_;
+    unsigned int counter_uncached_FatJet_mass_jesRelativePtHFUp_;
+    float FatJet_mass_jesRelativeSampleDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesRelativeSampleDown_;
+    TBranch *b_FatJet_mass_jesRelativeSampleDown_;
+    bool loaded_FatJet_mass_jesRelativeSampleDown_;
+    unsigned int counter_cached_FatJet_mass_jesRelativeSampleDown_;
+    unsigned int counter_uncached_FatJet_mass_jesRelativeSampleDown_;
+    float FatJet_mass_jesRelativeSampleUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesRelativeSampleUp_;
+    TBranch *b_FatJet_mass_jesRelativeSampleUp_;
+    bool loaded_FatJet_mass_jesRelativeSampleUp_;
+    unsigned int counter_cached_FatJet_mass_jesRelativeSampleUp_;
+    unsigned int counter_uncached_FatJet_mass_jesRelativeSampleUp_;
+    float FatJet_mass_jesRelativeStatECDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesRelativeStatECDown_;
+    TBranch *b_FatJet_mass_jesRelativeStatECDown_;
+    bool loaded_FatJet_mass_jesRelativeStatECDown_;
+    unsigned int counter_cached_FatJet_mass_jesRelativeStatECDown_;
+    unsigned int counter_uncached_FatJet_mass_jesRelativeStatECDown_;
+    float FatJet_mass_jesRelativeStatECUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesRelativeStatECUp_;
+    TBranch *b_FatJet_mass_jesRelativeStatECUp_;
+    bool loaded_FatJet_mass_jesRelativeStatECUp_;
+    unsigned int counter_cached_FatJet_mass_jesRelativeStatECUp_;
+    unsigned int counter_uncached_FatJet_mass_jesRelativeStatECUp_;
+    float FatJet_mass_jesRelativeStatFSRDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesRelativeStatFSRDown_;
+    TBranch *b_FatJet_mass_jesRelativeStatFSRDown_;
+    bool loaded_FatJet_mass_jesRelativeStatFSRDown_;
+    unsigned int counter_cached_FatJet_mass_jesRelativeStatFSRDown_;
+    unsigned int counter_uncached_FatJet_mass_jesRelativeStatFSRDown_;
+    float FatJet_mass_jesRelativeStatFSRUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesRelativeStatFSRUp_;
+    TBranch *b_FatJet_mass_jesRelativeStatFSRUp_;
+    bool loaded_FatJet_mass_jesRelativeStatFSRUp_;
+    unsigned int counter_cached_FatJet_mass_jesRelativeStatFSRUp_;
+    unsigned int counter_uncached_FatJet_mass_jesRelativeStatFSRUp_;
+    float FatJet_mass_jesRelativeStatHFDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesRelativeStatHFDown_;
+    TBranch *b_FatJet_mass_jesRelativeStatHFDown_;
+    bool loaded_FatJet_mass_jesRelativeStatHFDown_;
+    unsigned int counter_cached_FatJet_mass_jesRelativeStatHFDown_;
+    unsigned int counter_uncached_FatJet_mass_jesRelativeStatHFDown_;
+    float FatJet_mass_jesRelativeStatHFUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesRelativeStatHFUp_;
+    TBranch *b_FatJet_mass_jesRelativeStatHFUp_;
+    bool loaded_FatJet_mass_jesRelativeStatHFUp_;
+    unsigned int counter_cached_FatJet_mass_jesRelativeStatHFUp_;
+    unsigned int counter_uncached_FatJet_mass_jesRelativeStatHFUp_;
+    float FatJet_mass_jesSinglePionECALDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesSinglePionECALDown_;
+    TBranch *b_FatJet_mass_jesSinglePionECALDown_;
+    bool loaded_FatJet_mass_jesSinglePionECALDown_;
+    unsigned int counter_cached_FatJet_mass_jesSinglePionECALDown_;
+    unsigned int counter_uncached_FatJet_mass_jesSinglePionECALDown_;
+    float FatJet_mass_jesSinglePionECALUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesSinglePionECALUp_;
+    TBranch *b_FatJet_mass_jesSinglePionECALUp_;
+    bool loaded_FatJet_mass_jesSinglePionECALUp_;
+    unsigned int counter_cached_FatJet_mass_jesSinglePionECALUp_;
+    unsigned int counter_uncached_FatJet_mass_jesSinglePionECALUp_;
+    float FatJet_mass_jesSinglePionHCALDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesSinglePionHCALDown_;
+    TBranch *b_FatJet_mass_jesSinglePionHCALDown_;
+    bool loaded_FatJet_mass_jesSinglePionHCALDown_;
+    unsigned int counter_cached_FatJet_mass_jesSinglePionHCALDown_;
+    unsigned int counter_uncached_FatJet_mass_jesSinglePionHCALDown_;
+    float FatJet_mass_jesSinglePionHCALUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesSinglePionHCALUp_;
+    TBranch *b_FatJet_mass_jesSinglePionHCALUp_;
+    bool loaded_FatJet_mass_jesSinglePionHCALUp_;
+    unsigned int counter_cached_FatJet_mass_jesSinglePionHCALUp_;
+    unsigned int counter_uncached_FatJet_mass_jesSinglePionHCALUp_;
+    float FatJet_mass_jesSubTotalAbsoluteDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesSubTotalAbsoluteDown_;
+    TBranch *b_FatJet_mass_jesSubTotalAbsoluteDown_;
+    bool loaded_FatJet_mass_jesSubTotalAbsoluteDown_;
+    unsigned int counter_cached_FatJet_mass_jesSubTotalAbsoluteDown_;
+    unsigned int counter_uncached_FatJet_mass_jesSubTotalAbsoluteDown_;
+    float FatJet_mass_jesSubTotalAbsoluteUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesSubTotalAbsoluteUp_;
+    TBranch *b_FatJet_mass_jesSubTotalAbsoluteUp_;
+    bool loaded_FatJet_mass_jesSubTotalAbsoluteUp_;
+    unsigned int counter_cached_FatJet_mass_jesSubTotalAbsoluteUp_;
+    unsigned int counter_uncached_FatJet_mass_jesSubTotalAbsoluteUp_;
+    float FatJet_mass_jesSubTotalMCDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesSubTotalMCDown_;
+    TBranch *b_FatJet_mass_jesSubTotalMCDown_;
+    bool loaded_FatJet_mass_jesSubTotalMCDown_;
+    unsigned int counter_cached_FatJet_mass_jesSubTotalMCDown_;
+    unsigned int counter_uncached_FatJet_mass_jesSubTotalMCDown_;
+    float FatJet_mass_jesSubTotalMCUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesSubTotalMCUp_;
+    TBranch *b_FatJet_mass_jesSubTotalMCUp_;
+    bool loaded_FatJet_mass_jesSubTotalMCUp_;
+    unsigned int counter_cached_FatJet_mass_jesSubTotalMCUp_;
+    unsigned int counter_uncached_FatJet_mass_jesSubTotalMCUp_;
+    float FatJet_mass_jesSubTotalPileUpDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesSubTotalPileUpDown_;
+    TBranch *b_FatJet_mass_jesSubTotalPileUpDown_;
+    bool loaded_FatJet_mass_jesSubTotalPileUpDown_;
+    unsigned int counter_cached_FatJet_mass_jesSubTotalPileUpDown_;
+    unsigned int counter_uncached_FatJet_mass_jesSubTotalPileUpDown_;
+    float FatJet_mass_jesSubTotalPileUpUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesSubTotalPileUpUp_;
+    TBranch *b_FatJet_mass_jesSubTotalPileUpUp_;
+    bool loaded_FatJet_mass_jesSubTotalPileUpUp_;
+    unsigned int counter_cached_FatJet_mass_jesSubTotalPileUpUp_;
+    unsigned int counter_uncached_FatJet_mass_jesSubTotalPileUpUp_;
+    float FatJet_mass_jesSubTotalPtDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesSubTotalPtDown_;
+    TBranch *b_FatJet_mass_jesSubTotalPtDown_;
+    bool loaded_FatJet_mass_jesSubTotalPtDown_;
+    unsigned int counter_cached_FatJet_mass_jesSubTotalPtDown_;
+    unsigned int counter_uncached_FatJet_mass_jesSubTotalPtDown_;
+    float FatJet_mass_jesSubTotalPtUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesSubTotalPtUp_;
+    TBranch *b_FatJet_mass_jesSubTotalPtUp_;
+    bool loaded_FatJet_mass_jesSubTotalPtUp_;
+    unsigned int counter_cached_FatJet_mass_jesSubTotalPtUp_;
+    unsigned int counter_uncached_FatJet_mass_jesSubTotalPtUp_;
+    float FatJet_mass_jesSubTotalRelativeDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesSubTotalRelativeDown_;
+    TBranch *b_FatJet_mass_jesSubTotalRelativeDown_;
+    bool loaded_FatJet_mass_jesSubTotalRelativeDown_;
+    unsigned int counter_cached_FatJet_mass_jesSubTotalRelativeDown_;
+    unsigned int counter_uncached_FatJet_mass_jesSubTotalRelativeDown_;
+    float FatJet_mass_jesSubTotalRelativeUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesSubTotalRelativeUp_;
+    TBranch *b_FatJet_mass_jesSubTotalRelativeUp_;
+    bool loaded_FatJet_mass_jesSubTotalRelativeUp_;
+    unsigned int counter_cached_FatJet_mass_jesSubTotalRelativeUp_;
+    unsigned int counter_uncached_FatJet_mass_jesSubTotalRelativeUp_;
+    float FatJet_mass_jesSubTotalScaleDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesSubTotalScaleDown_;
+    TBranch *b_FatJet_mass_jesSubTotalScaleDown_;
+    bool loaded_FatJet_mass_jesSubTotalScaleDown_;
+    unsigned int counter_cached_FatJet_mass_jesSubTotalScaleDown_;
+    unsigned int counter_uncached_FatJet_mass_jesSubTotalScaleDown_;
+    float FatJet_mass_jesSubTotalScaleUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesSubTotalScaleUp_;
+    TBranch *b_FatJet_mass_jesSubTotalScaleUp_;
+    bool loaded_FatJet_mass_jesSubTotalScaleUp_;
+    unsigned int counter_cached_FatJet_mass_jesSubTotalScaleUp_;
+    unsigned int counter_uncached_FatJet_mass_jesSubTotalScaleUp_;
+    float FatJet_mass_jesTimePtEtaDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesTimePtEtaDown_;
+    TBranch *b_FatJet_mass_jesTimePtEtaDown_;
+    bool loaded_FatJet_mass_jesTimePtEtaDown_;
+    unsigned int counter_cached_FatJet_mass_jesTimePtEtaDown_;
+    unsigned int counter_uncached_FatJet_mass_jesTimePtEtaDown_;
+    float FatJet_mass_jesTimePtEtaUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesTimePtEtaUp_;
+    TBranch *b_FatJet_mass_jesTimePtEtaUp_;
+    bool loaded_FatJet_mass_jesTimePtEtaUp_;
+    unsigned int counter_cached_FatJet_mass_jesTimePtEtaUp_;
+    unsigned int counter_uncached_FatJet_mass_jesTimePtEtaUp_;
+    float FatJet_mass_jesTimeRunADown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesTimeRunADown_;
+    TBranch *b_FatJet_mass_jesTimeRunADown_;
+    bool loaded_FatJet_mass_jesTimeRunADown_;
+    unsigned int counter_cached_FatJet_mass_jesTimeRunADown_;
+    unsigned int counter_uncached_FatJet_mass_jesTimeRunADown_;
+    float FatJet_mass_jesTimeRunAUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesTimeRunAUp_;
+    TBranch *b_FatJet_mass_jesTimeRunAUp_;
+    bool loaded_FatJet_mass_jesTimeRunAUp_;
+    unsigned int counter_cached_FatJet_mass_jesTimeRunAUp_;
+    unsigned int counter_uncached_FatJet_mass_jesTimeRunAUp_;
+    float FatJet_mass_jesTimeRunBDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesTimeRunBDown_;
+    TBranch *b_FatJet_mass_jesTimeRunBDown_;
+    bool loaded_FatJet_mass_jesTimeRunBDown_;
+    unsigned int counter_cached_FatJet_mass_jesTimeRunBDown_;
+    unsigned int counter_uncached_FatJet_mass_jesTimeRunBDown_;
+    float FatJet_mass_jesTimeRunBUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesTimeRunBUp_;
+    TBranch *b_FatJet_mass_jesTimeRunBUp_;
+    bool loaded_FatJet_mass_jesTimeRunBUp_;
+    unsigned int counter_cached_FatJet_mass_jesTimeRunBUp_;
+    unsigned int counter_uncached_FatJet_mass_jesTimeRunBUp_;
+    float FatJet_mass_jesTimeRunCDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesTimeRunCDown_;
+    TBranch *b_FatJet_mass_jesTimeRunCDown_;
+    bool loaded_FatJet_mass_jesTimeRunCDown_;
+    unsigned int counter_cached_FatJet_mass_jesTimeRunCDown_;
+    unsigned int counter_uncached_FatJet_mass_jesTimeRunCDown_;
+    float FatJet_mass_jesTimeRunCUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesTimeRunCUp_;
+    TBranch *b_FatJet_mass_jesTimeRunCUp_;
+    bool loaded_FatJet_mass_jesTimeRunCUp_;
+    unsigned int counter_cached_FatJet_mass_jesTimeRunCUp_;
+    unsigned int counter_uncached_FatJet_mass_jesTimeRunCUp_;
+    float FatJet_mass_jesTimeRunDDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesTimeRunDDown_;
+    TBranch *b_FatJet_mass_jesTimeRunDDown_;
+    bool loaded_FatJet_mass_jesTimeRunDDown_;
+    unsigned int counter_cached_FatJet_mass_jesTimeRunDDown_;
+    unsigned int counter_uncached_FatJet_mass_jesTimeRunDDown_;
+    float FatJet_mass_jesTimeRunDUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesTimeRunDUp_;
+    TBranch *b_FatJet_mass_jesTimeRunDUp_;
+    bool loaded_FatJet_mass_jesTimeRunDUp_;
+    unsigned int counter_cached_FatJet_mass_jesTimeRunDUp_;
+    unsigned int counter_uncached_FatJet_mass_jesTimeRunDUp_;
     float FatJet_mass_jesTotalDown_[NFATJET_MAX];
     vector<float> v_FatJet_mass_jesTotalDown_;
     TBranch *b_FatJet_mass_jesTotalDown_;
     bool loaded_FatJet_mass_jesTotalDown_;
     unsigned int counter_cached_FatJet_mass_jesTotalDown_;
     unsigned int counter_uncached_FatJet_mass_jesTotalDown_;
+    float FatJet_mass_jesTotalNoFlavorDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesTotalNoFlavorDown_;
+    TBranch *b_FatJet_mass_jesTotalNoFlavorDown_;
+    bool loaded_FatJet_mass_jesTotalNoFlavorDown_;
+    unsigned int counter_cached_FatJet_mass_jesTotalNoFlavorDown_;
+    unsigned int counter_uncached_FatJet_mass_jesTotalNoFlavorDown_;
+    float FatJet_mass_jesTotalNoFlavorNoTimeDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesTotalNoFlavorNoTimeDown_;
+    TBranch *b_FatJet_mass_jesTotalNoFlavorNoTimeDown_;
+    bool loaded_FatJet_mass_jesTotalNoFlavorNoTimeDown_;
+    unsigned int counter_cached_FatJet_mass_jesTotalNoFlavorNoTimeDown_;
+    unsigned int counter_uncached_FatJet_mass_jesTotalNoFlavorNoTimeDown_;
+    float FatJet_mass_jesTotalNoFlavorNoTimeUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesTotalNoFlavorNoTimeUp_;
+    TBranch *b_FatJet_mass_jesTotalNoFlavorNoTimeUp_;
+    bool loaded_FatJet_mass_jesTotalNoFlavorNoTimeUp_;
+    unsigned int counter_cached_FatJet_mass_jesTotalNoFlavorNoTimeUp_;
+    unsigned int counter_uncached_FatJet_mass_jesTotalNoFlavorNoTimeUp_;
+    float FatJet_mass_jesTotalNoFlavorUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesTotalNoFlavorUp_;
+    TBranch *b_FatJet_mass_jesTotalNoFlavorUp_;
+    bool loaded_FatJet_mass_jesTotalNoFlavorUp_;
+    unsigned int counter_cached_FatJet_mass_jesTotalNoFlavorUp_;
+    unsigned int counter_uncached_FatJet_mass_jesTotalNoFlavorUp_;
+    float FatJet_mass_jesTotalNoTimeDown_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesTotalNoTimeDown_;
+    TBranch *b_FatJet_mass_jesTotalNoTimeDown_;
+    bool loaded_FatJet_mass_jesTotalNoTimeDown_;
+    unsigned int counter_cached_FatJet_mass_jesTotalNoTimeDown_;
+    unsigned int counter_uncached_FatJet_mass_jesTotalNoTimeDown_;
+    float FatJet_mass_jesTotalNoTimeUp_[NFATJET_MAX];
+    vector<float> v_FatJet_mass_jesTotalNoTimeUp_;
+    TBranch *b_FatJet_mass_jesTotalNoTimeUp_;
+    bool loaded_FatJet_mass_jesTotalNoTimeUp_;
+    unsigned int counter_cached_FatJet_mass_jesTotalNoTimeUp_;
+    unsigned int counter_uncached_FatJet_mass_jesTotalNoTimeUp_;
     float FatJet_mass_jesTotalUp_[NFATJET_MAX];
     vector<float> v_FatJet_mass_jesTotalUp_;
     TBranch *b_FatJet_mass_jesTotalUp_;
@@ -1057,12 +1725,672 @@ protected:
     bool loaded_FatJet_msoftdrop_jerUp_;
     unsigned int counter_cached_FatJet_msoftdrop_jerUp_;
     unsigned int counter_uncached_FatJet_msoftdrop_jerUp_;
+    float FatJet_msoftdrop_jesAbsoluteFlavMapDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesAbsoluteFlavMapDown_;
+    TBranch *b_FatJet_msoftdrop_jesAbsoluteFlavMapDown_;
+    bool loaded_FatJet_msoftdrop_jesAbsoluteFlavMapDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesAbsoluteFlavMapDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesAbsoluteFlavMapDown_;
+    float FatJet_msoftdrop_jesAbsoluteFlavMapUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesAbsoluteFlavMapUp_;
+    TBranch *b_FatJet_msoftdrop_jesAbsoluteFlavMapUp_;
+    bool loaded_FatJet_msoftdrop_jesAbsoluteFlavMapUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesAbsoluteFlavMapUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesAbsoluteFlavMapUp_;
+    float FatJet_msoftdrop_jesAbsoluteMPFBiasDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesAbsoluteMPFBiasDown_;
+    TBranch *b_FatJet_msoftdrop_jesAbsoluteMPFBiasDown_;
+    bool loaded_FatJet_msoftdrop_jesAbsoluteMPFBiasDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesAbsoluteMPFBiasDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesAbsoluteMPFBiasDown_;
+    float FatJet_msoftdrop_jesAbsoluteMPFBiasUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesAbsoluteMPFBiasUp_;
+    TBranch *b_FatJet_msoftdrop_jesAbsoluteMPFBiasUp_;
+    bool loaded_FatJet_msoftdrop_jesAbsoluteMPFBiasUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesAbsoluteMPFBiasUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesAbsoluteMPFBiasUp_;
+    float FatJet_msoftdrop_jesAbsoluteSampleDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesAbsoluteSampleDown_;
+    TBranch *b_FatJet_msoftdrop_jesAbsoluteSampleDown_;
+    bool loaded_FatJet_msoftdrop_jesAbsoluteSampleDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesAbsoluteSampleDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesAbsoluteSampleDown_;
+    float FatJet_msoftdrop_jesAbsoluteSampleUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesAbsoluteSampleUp_;
+    TBranch *b_FatJet_msoftdrop_jesAbsoluteSampleUp_;
+    bool loaded_FatJet_msoftdrop_jesAbsoluteSampleUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesAbsoluteSampleUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesAbsoluteSampleUp_;
+    float FatJet_msoftdrop_jesAbsoluteScaleDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesAbsoluteScaleDown_;
+    TBranch *b_FatJet_msoftdrop_jesAbsoluteScaleDown_;
+    bool loaded_FatJet_msoftdrop_jesAbsoluteScaleDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesAbsoluteScaleDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesAbsoluteScaleDown_;
+    float FatJet_msoftdrop_jesAbsoluteScaleUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesAbsoluteScaleUp_;
+    TBranch *b_FatJet_msoftdrop_jesAbsoluteScaleUp_;
+    bool loaded_FatJet_msoftdrop_jesAbsoluteScaleUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesAbsoluteScaleUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesAbsoluteScaleUp_;
+    float FatJet_msoftdrop_jesAbsoluteStatDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesAbsoluteStatDown_;
+    TBranch *b_FatJet_msoftdrop_jesAbsoluteStatDown_;
+    bool loaded_FatJet_msoftdrop_jesAbsoluteStatDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesAbsoluteStatDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesAbsoluteStatDown_;
+    float FatJet_msoftdrop_jesAbsoluteStatUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesAbsoluteStatUp_;
+    TBranch *b_FatJet_msoftdrop_jesAbsoluteStatUp_;
+    bool loaded_FatJet_msoftdrop_jesAbsoluteStatUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesAbsoluteStatUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesAbsoluteStatUp_;
+    float FatJet_msoftdrop_jesCorrelationGroupFlavorDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesCorrelationGroupFlavorDown_;
+    TBranch *b_FatJet_msoftdrop_jesCorrelationGroupFlavorDown_;
+    bool loaded_FatJet_msoftdrop_jesCorrelationGroupFlavorDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesCorrelationGroupFlavorDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesCorrelationGroupFlavorDown_;
+    float FatJet_msoftdrop_jesCorrelationGroupFlavorUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesCorrelationGroupFlavorUp_;
+    TBranch *b_FatJet_msoftdrop_jesCorrelationGroupFlavorUp_;
+    bool loaded_FatJet_msoftdrop_jesCorrelationGroupFlavorUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesCorrelationGroupFlavorUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesCorrelationGroupFlavorUp_;
+    float FatJet_msoftdrop_jesCorrelationGroupIntercalibrationDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesCorrelationGroupIntercalibrationDown_;
+    TBranch *b_FatJet_msoftdrop_jesCorrelationGroupIntercalibrationDown_;
+    bool loaded_FatJet_msoftdrop_jesCorrelationGroupIntercalibrationDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesCorrelationGroupIntercalibrationDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesCorrelationGroupIntercalibrationDown_;
+    float FatJet_msoftdrop_jesCorrelationGroupIntercalibrationUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesCorrelationGroupIntercalibrationUp_;
+    TBranch *b_FatJet_msoftdrop_jesCorrelationGroupIntercalibrationUp_;
+    bool loaded_FatJet_msoftdrop_jesCorrelationGroupIntercalibrationUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesCorrelationGroupIntercalibrationUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesCorrelationGroupIntercalibrationUp_;
+    float FatJet_msoftdrop_jesCorrelationGroupMPFInSituDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesCorrelationGroupMPFInSituDown_;
+    TBranch *b_FatJet_msoftdrop_jesCorrelationGroupMPFInSituDown_;
+    bool loaded_FatJet_msoftdrop_jesCorrelationGroupMPFInSituDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesCorrelationGroupMPFInSituDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesCorrelationGroupMPFInSituDown_;
+    float FatJet_msoftdrop_jesCorrelationGroupMPFInSituUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesCorrelationGroupMPFInSituUp_;
+    TBranch *b_FatJet_msoftdrop_jesCorrelationGroupMPFInSituUp_;
+    bool loaded_FatJet_msoftdrop_jesCorrelationGroupMPFInSituUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesCorrelationGroupMPFInSituUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesCorrelationGroupMPFInSituUp_;
+    float FatJet_msoftdrop_jesCorrelationGroupUncorrelatedDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesCorrelationGroupUncorrelatedDown_;
+    TBranch *b_FatJet_msoftdrop_jesCorrelationGroupUncorrelatedDown_;
+    bool loaded_FatJet_msoftdrop_jesCorrelationGroupUncorrelatedDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesCorrelationGroupUncorrelatedDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesCorrelationGroupUncorrelatedDown_;
+    float FatJet_msoftdrop_jesCorrelationGroupUncorrelatedUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesCorrelationGroupUncorrelatedUp_;
+    TBranch *b_FatJet_msoftdrop_jesCorrelationGroupUncorrelatedUp_;
+    bool loaded_FatJet_msoftdrop_jesCorrelationGroupUncorrelatedUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesCorrelationGroupUncorrelatedUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesCorrelationGroupUncorrelatedUp_;
+    float FatJet_msoftdrop_jesCorrelationGroupbJESDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesCorrelationGroupbJESDown_;
+    TBranch *b_FatJet_msoftdrop_jesCorrelationGroupbJESDown_;
+    bool loaded_FatJet_msoftdrop_jesCorrelationGroupbJESDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesCorrelationGroupbJESDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesCorrelationGroupbJESDown_;
+    float FatJet_msoftdrop_jesCorrelationGroupbJESUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesCorrelationGroupbJESUp_;
+    TBranch *b_FatJet_msoftdrop_jesCorrelationGroupbJESUp_;
+    bool loaded_FatJet_msoftdrop_jesCorrelationGroupbJESUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesCorrelationGroupbJESUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesCorrelationGroupbJESUp_;
+    float FatJet_msoftdrop_jesFlavorPhotonJetDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesFlavorPhotonJetDown_;
+    TBranch *b_FatJet_msoftdrop_jesFlavorPhotonJetDown_;
+    bool loaded_FatJet_msoftdrop_jesFlavorPhotonJetDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesFlavorPhotonJetDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesFlavorPhotonJetDown_;
+    float FatJet_msoftdrop_jesFlavorPhotonJetUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesFlavorPhotonJetUp_;
+    TBranch *b_FatJet_msoftdrop_jesFlavorPhotonJetUp_;
+    bool loaded_FatJet_msoftdrop_jesFlavorPhotonJetUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesFlavorPhotonJetUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesFlavorPhotonJetUp_;
+    float FatJet_msoftdrop_jesFlavorPureBottomDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesFlavorPureBottomDown_;
+    TBranch *b_FatJet_msoftdrop_jesFlavorPureBottomDown_;
+    bool loaded_FatJet_msoftdrop_jesFlavorPureBottomDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesFlavorPureBottomDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesFlavorPureBottomDown_;
+    float FatJet_msoftdrop_jesFlavorPureBottomUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesFlavorPureBottomUp_;
+    TBranch *b_FatJet_msoftdrop_jesFlavorPureBottomUp_;
+    bool loaded_FatJet_msoftdrop_jesFlavorPureBottomUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesFlavorPureBottomUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesFlavorPureBottomUp_;
+    float FatJet_msoftdrop_jesFlavorPureCharmDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesFlavorPureCharmDown_;
+    TBranch *b_FatJet_msoftdrop_jesFlavorPureCharmDown_;
+    bool loaded_FatJet_msoftdrop_jesFlavorPureCharmDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesFlavorPureCharmDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesFlavorPureCharmDown_;
+    float FatJet_msoftdrop_jesFlavorPureCharmUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesFlavorPureCharmUp_;
+    TBranch *b_FatJet_msoftdrop_jesFlavorPureCharmUp_;
+    bool loaded_FatJet_msoftdrop_jesFlavorPureCharmUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesFlavorPureCharmUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesFlavorPureCharmUp_;
+    float FatJet_msoftdrop_jesFlavorPureGluonDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesFlavorPureGluonDown_;
+    TBranch *b_FatJet_msoftdrop_jesFlavorPureGluonDown_;
+    bool loaded_FatJet_msoftdrop_jesFlavorPureGluonDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesFlavorPureGluonDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesFlavorPureGluonDown_;
+    float FatJet_msoftdrop_jesFlavorPureGluonUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesFlavorPureGluonUp_;
+    TBranch *b_FatJet_msoftdrop_jesFlavorPureGluonUp_;
+    bool loaded_FatJet_msoftdrop_jesFlavorPureGluonUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesFlavorPureGluonUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesFlavorPureGluonUp_;
+    float FatJet_msoftdrop_jesFlavorPureQuarkDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesFlavorPureQuarkDown_;
+    TBranch *b_FatJet_msoftdrop_jesFlavorPureQuarkDown_;
+    bool loaded_FatJet_msoftdrop_jesFlavorPureQuarkDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesFlavorPureQuarkDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesFlavorPureQuarkDown_;
+    float FatJet_msoftdrop_jesFlavorPureQuarkUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesFlavorPureQuarkUp_;
+    TBranch *b_FatJet_msoftdrop_jesFlavorPureQuarkUp_;
+    bool loaded_FatJet_msoftdrop_jesFlavorPureQuarkUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesFlavorPureQuarkUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesFlavorPureQuarkUp_;
+    float FatJet_msoftdrop_jesFlavorQCDDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesFlavorQCDDown_;
+    TBranch *b_FatJet_msoftdrop_jesFlavorQCDDown_;
+    bool loaded_FatJet_msoftdrop_jesFlavorQCDDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesFlavorQCDDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesFlavorQCDDown_;
+    float FatJet_msoftdrop_jesFlavorQCDUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesFlavorQCDUp_;
+    TBranch *b_FatJet_msoftdrop_jesFlavorQCDUp_;
+    bool loaded_FatJet_msoftdrop_jesFlavorQCDUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesFlavorQCDUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesFlavorQCDUp_;
+    float FatJet_msoftdrop_jesFlavorZJetDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesFlavorZJetDown_;
+    TBranch *b_FatJet_msoftdrop_jesFlavorZJetDown_;
+    bool loaded_FatJet_msoftdrop_jesFlavorZJetDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesFlavorZJetDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesFlavorZJetDown_;
+    float FatJet_msoftdrop_jesFlavorZJetUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesFlavorZJetUp_;
+    TBranch *b_FatJet_msoftdrop_jesFlavorZJetUp_;
+    bool loaded_FatJet_msoftdrop_jesFlavorZJetUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesFlavorZJetUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesFlavorZJetUp_;
+    float FatJet_msoftdrop_jesFragmentationDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesFragmentationDown_;
+    TBranch *b_FatJet_msoftdrop_jesFragmentationDown_;
+    bool loaded_FatJet_msoftdrop_jesFragmentationDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesFragmentationDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesFragmentationDown_;
+    float FatJet_msoftdrop_jesFragmentationUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesFragmentationUp_;
+    TBranch *b_FatJet_msoftdrop_jesFragmentationUp_;
+    bool loaded_FatJet_msoftdrop_jesFragmentationUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesFragmentationUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesFragmentationUp_;
+    float FatJet_msoftdrop_jesPileUpDataMCDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesPileUpDataMCDown_;
+    TBranch *b_FatJet_msoftdrop_jesPileUpDataMCDown_;
+    bool loaded_FatJet_msoftdrop_jesPileUpDataMCDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesPileUpDataMCDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesPileUpDataMCDown_;
+    float FatJet_msoftdrop_jesPileUpDataMCUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesPileUpDataMCUp_;
+    TBranch *b_FatJet_msoftdrop_jesPileUpDataMCUp_;
+    bool loaded_FatJet_msoftdrop_jesPileUpDataMCUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesPileUpDataMCUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesPileUpDataMCUp_;
+    float FatJet_msoftdrop_jesPileUpEnvelopeDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesPileUpEnvelopeDown_;
+    TBranch *b_FatJet_msoftdrop_jesPileUpEnvelopeDown_;
+    bool loaded_FatJet_msoftdrop_jesPileUpEnvelopeDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesPileUpEnvelopeDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesPileUpEnvelopeDown_;
+    float FatJet_msoftdrop_jesPileUpEnvelopeUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesPileUpEnvelopeUp_;
+    TBranch *b_FatJet_msoftdrop_jesPileUpEnvelopeUp_;
+    bool loaded_FatJet_msoftdrop_jesPileUpEnvelopeUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesPileUpEnvelopeUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesPileUpEnvelopeUp_;
+    float FatJet_msoftdrop_jesPileUpMuZeroDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesPileUpMuZeroDown_;
+    TBranch *b_FatJet_msoftdrop_jesPileUpMuZeroDown_;
+    bool loaded_FatJet_msoftdrop_jesPileUpMuZeroDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesPileUpMuZeroDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesPileUpMuZeroDown_;
+    float FatJet_msoftdrop_jesPileUpMuZeroUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesPileUpMuZeroUp_;
+    TBranch *b_FatJet_msoftdrop_jesPileUpMuZeroUp_;
+    bool loaded_FatJet_msoftdrop_jesPileUpMuZeroUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesPileUpMuZeroUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesPileUpMuZeroUp_;
+    float FatJet_msoftdrop_jesPileUpPtBBDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesPileUpPtBBDown_;
+    TBranch *b_FatJet_msoftdrop_jesPileUpPtBBDown_;
+    bool loaded_FatJet_msoftdrop_jesPileUpPtBBDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesPileUpPtBBDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesPileUpPtBBDown_;
+    float FatJet_msoftdrop_jesPileUpPtBBUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesPileUpPtBBUp_;
+    TBranch *b_FatJet_msoftdrop_jesPileUpPtBBUp_;
+    bool loaded_FatJet_msoftdrop_jesPileUpPtBBUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesPileUpPtBBUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesPileUpPtBBUp_;
+    float FatJet_msoftdrop_jesPileUpPtEC1Down_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesPileUpPtEC1Down_;
+    TBranch *b_FatJet_msoftdrop_jesPileUpPtEC1Down_;
+    bool loaded_FatJet_msoftdrop_jesPileUpPtEC1Down_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesPileUpPtEC1Down_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesPileUpPtEC1Down_;
+    float FatJet_msoftdrop_jesPileUpPtEC1Up_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesPileUpPtEC1Up_;
+    TBranch *b_FatJet_msoftdrop_jesPileUpPtEC1Up_;
+    bool loaded_FatJet_msoftdrop_jesPileUpPtEC1Up_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesPileUpPtEC1Up_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesPileUpPtEC1Up_;
+    float FatJet_msoftdrop_jesPileUpPtEC2Down_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesPileUpPtEC2Down_;
+    TBranch *b_FatJet_msoftdrop_jesPileUpPtEC2Down_;
+    bool loaded_FatJet_msoftdrop_jesPileUpPtEC2Down_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesPileUpPtEC2Down_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesPileUpPtEC2Down_;
+    float FatJet_msoftdrop_jesPileUpPtEC2Up_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesPileUpPtEC2Up_;
+    TBranch *b_FatJet_msoftdrop_jesPileUpPtEC2Up_;
+    bool loaded_FatJet_msoftdrop_jesPileUpPtEC2Up_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesPileUpPtEC2Up_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesPileUpPtEC2Up_;
+    float FatJet_msoftdrop_jesPileUpPtHFDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesPileUpPtHFDown_;
+    TBranch *b_FatJet_msoftdrop_jesPileUpPtHFDown_;
+    bool loaded_FatJet_msoftdrop_jesPileUpPtHFDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesPileUpPtHFDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesPileUpPtHFDown_;
+    float FatJet_msoftdrop_jesPileUpPtHFUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesPileUpPtHFUp_;
+    TBranch *b_FatJet_msoftdrop_jesPileUpPtHFUp_;
+    bool loaded_FatJet_msoftdrop_jesPileUpPtHFUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesPileUpPtHFUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesPileUpPtHFUp_;
+    float FatJet_msoftdrop_jesPileUpPtRefDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesPileUpPtRefDown_;
+    TBranch *b_FatJet_msoftdrop_jesPileUpPtRefDown_;
+    bool loaded_FatJet_msoftdrop_jesPileUpPtRefDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesPileUpPtRefDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesPileUpPtRefDown_;
+    float FatJet_msoftdrop_jesPileUpPtRefUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesPileUpPtRefUp_;
+    TBranch *b_FatJet_msoftdrop_jesPileUpPtRefUp_;
+    bool loaded_FatJet_msoftdrop_jesPileUpPtRefUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesPileUpPtRefUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesPileUpPtRefUp_;
+    float FatJet_msoftdrop_jesRelativeBalDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesRelativeBalDown_;
+    TBranch *b_FatJet_msoftdrop_jesRelativeBalDown_;
+    bool loaded_FatJet_msoftdrop_jesRelativeBalDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesRelativeBalDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesRelativeBalDown_;
+    float FatJet_msoftdrop_jesRelativeBalUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesRelativeBalUp_;
+    TBranch *b_FatJet_msoftdrop_jesRelativeBalUp_;
+    bool loaded_FatJet_msoftdrop_jesRelativeBalUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesRelativeBalUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesRelativeBalUp_;
+    float FatJet_msoftdrop_jesRelativeFSRDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesRelativeFSRDown_;
+    TBranch *b_FatJet_msoftdrop_jesRelativeFSRDown_;
+    bool loaded_FatJet_msoftdrop_jesRelativeFSRDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesRelativeFSRDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesRelativeFSRDown_;
+    float FatJet_msoftdrop_jesRelativeFSRUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesRelativeFSRUp_;
+    TBranch *b_FatJet_msoftdrop_jesRelativeFSRUp_;
+    bool loaded_FatJet_msoftdrop_jesRelativeFSRUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesRelativeFSRUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesRelativeFSRUp_;
+    float FatJet_msoftdrop_jesRelativeJEREC1Down_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesRelativeJEREC1Down_;
+    TBranch *b_FatJet_msoftdrop_jesRelativeJEREC1Down_;
+    bool loaded_FatJet_msoftdrop_jesRelativeJEREC1Down_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesRelativeJEREC1Down_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesRelativeJEREC1Down_;
+    float FatJet_msoftdrop_jesRelativeJEREC1Up_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesRelativeJEREC1Up_;
+    TBranch *b_FatJet_msoftdrop_jesRelativeJEREC1Up_;
+    bool loaded_FatJet_msoftdrop_jesRelativeJEREC1Up_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesRelativeJEREC1Up_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesRelativeJEREC1Up_;
+    float FatJet_msoftdrop_jesRelativeJEREC2Down_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesRelativeJEREC2Down_;
+    TBranch *b_FatJet_msoftdrop_jesRelativeJEREC2Down_;
+    bool loaded_FatJet_msoftdrop_jesRelativeJEREC2Down_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesRelativeJEREC2Down_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesRelativeJEREC2Down_;
+    float FatJet_msoftdrop_jesRelativeJEREC2Up_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesRelativeJEREC2Up_;
+    TBranch *b_FatJet_msoftdrop_jesRelativeJEREC2Up_;
+    bool loaded_FatJet_msoftdrop_jesRelativeJEREC2Up_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesRelativeJEREC2Up_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesRelativeJEREC2Up_;
+    float FatJet_msoftdrop_jesRelativeJERHFDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesRelativeJERHFDown_;
+    TBranch *b_FatJet_msoftdrop_jesRelativeJERHFDown_;
+    bool loaded_FatJet_msoftdrop_jesRelativeJERHFDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesRelativeJERHFDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesRelativeJERHFDown_;
+    float FatJet_msoftdrop_jesRelativeJERHFUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesRelativeJERHFUp_;
+    TBranch *b_FatJet_msoftdrop_jesRelativeJERHFUp_;
+    bool loaded_FatJet_msoftdrop_jesRelativeJERHFUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesRelativeJERHFUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesRelativeJERHFUp_;
+    float FatJet_msoftdrop_jesRelativePtBBDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesRelativePtBBDown_;
+    TBranch *b_FatJet_msoftdrop_jesRelativePtBBDown_;
+    bool loaded_FatJet_msoftdrop_jesRelativePtBBDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesRelativePtBBDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesRelativePtBBDown_;
+    float FatJet_msoftdrop_jesRelativePtBBUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesRelativePtBBUp_;
+    TBranch *b_FatJet_msoftdrop_jesRelativePtBBUp_;
+    bool loaded_FatJet_msoftdrop_jesRelativePtBBUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesRelativePtBBUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesRelativePtBBUp_;
+    float FatJet_msoftdrop_jesRelativePtEC1Down_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesRelativePtEC1Down_;
+    TBranch *b_FatJet_msoftdrop_jesRelativePtEC1Down_;
+    bool loaded_FatJet_msoftdrop_jesRelativePtEC1Down_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesRelativePtEC1Down_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesRelativePtEC1Down_;
+    float FatJet_msoftdrop_jesRelativePtEC1Up_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesRelativePtEC1Up_;
+    TBranch *b_FatJet_msoftdrop_jesRelativePtEC1Up_;
+    bool loaded_FatJet_msoftdrop_jesRelativePtEC1Up_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesRelativePtEC1Up_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesRelativePtEC1Up_;
+    float FatJet_msoftdrop_jesRelativePtEC2Down_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesRelativePtEC2Down_;
+    TBranch *b_FatJet_msoftdrop_jesRelativePtEC2Down_;
+    bool loaded_FatJet_msoftdrop_jesRelativePtEC2Down_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesRelativePtEC2Down_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesRelativePtEC2Down_;
+    float FatJet_msoftdrop_jesRelativePtEC2Up_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesRelativePtEC2Up_;
+    TBranch *b_FatJet_msoftdrop_jesRelativePtEC2Up_;
+    bool loaded_FatJet_msoftdrop_jesRelativePtEC2Up_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesRelativePtEC2Up_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesRelativePtEC2Up_;
+    float FatJet_msoftdrop_jesRelativePtHFDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesRelativePtHFDown_;
+    TBranch *b_FatJet_msoftdrop_jesRelativePtHFDown_;
+    bool loaded_FatJet_msoftdrop_jesRelativePtHFDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesRelativePtHFDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesRelativePtHFDown_;
+    float FatJet_msoftdrop_jesRelativePtHFUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesRelativePtHFUp_;
+    TBranch *b_FatJet_msoftdrop_jesRelativePtHFUp_;
+    bool loaded_FatJet_msoftdrop_jesRelativePtHFUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesRelativePtHFUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesRelativePtHFUp_;
+    float FatJet_msoftdrop_jesRelativeSampleDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesRelativeSampleDown_;
+    TBranch *b_FatJet_msoftdrop_jesRelativeSampleDown_;
+    bool loaded_FatJet_msoftdrop_jesRelativeSampleDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesRelativeSampleDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesRelativeSampleDown_;
+    float FatJet_msoftdrop_jesRelativeSampleUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesRelativeSampleUp_;
+    TBranch *b_FatJet_msoftdrop_jesRelativeSampleUp_;
+    bool loaded_FatJet_msoftdrop_jesRelativeSampleUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesRelativeSampleUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesRelativeSampleUp_;
+    float FatJet_msoftdrop_jesRelativeStatECDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesRelativeStatECDown_;
+    TBranch *b_FatJet_msoftdrop_jesRelativeStatECDown_;
+    bool loaded_FatJet_msoftdrop_jesRelativeStatECDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesRelativeStatECDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesRelativeStatECDown_;
+    float FatJet_msoftdrop_jesRelativeStatECUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesRelativeStatECUp_;
+    TBranch *b_FatJet_msoftdrop_jesRelativeStatECUp_;
+    bool loaded_FatJet_msoftdrop_jesRelativeStatECUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesRelativeStatECUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesRelativeStatECUp_;
+    float FatJet_msoftdrop_jesRelativeStatFSRDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesRelativeStatFSRDown_;
+    TBranch *b_FatJet_msoftdrop_jesRelativeStatFSRDown_;
+    bool loaded_FatJet_msoftdrop_jesRelativeStatFSRDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesRelativeStatFSRDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesRelativeStatFSRDown_;
+    float FatJet_msoftdrop_jesRelativeStatFSRUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesRelativeStatFSRUp_;
+    TBranch *b_FatJet_msoftdrop_jesRelativeStatFSRUp_;
+    bool loaded_FatJet_msoftdrop_jesRelativeStatFSRUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesRelativeStatFSRUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesRelativeStatFSRUp_;
+    float FatJet_msoftdrop_jesRelativeStatHFDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesRelativeStatHFDown_;
+    TBranch *b_FatJet_msoftdrop_jesRelativeStatHFDown_;
+    bool loaded_FatJet_msoftdrop_jesRelativeStatHFDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesRelativeStatHFDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesRelativeStatHFDown_;
+    float FatJet_msoftdrop_jesRelativeStatHFUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesRelativeStatHFUp_;
+    TBranch *b_FatJet_msoftdrop_jesRelativeStatHFUp_;
+    bool loaded_FatJet_msoftdrop_jesRelativeStatHFUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesRelativeStatHFUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesRelativeStatHFUp_;
+    float FatJet_msoftdrop_jesSinglePionECALDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesSinglePionECALDown_;
+    TBranch *b_FatJet_msoftdrop_jesSinglePionECALDown_;
+    bool loaded_FatJet_msoftdrop_jesSinglePionECALDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesSinglePionECALDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesSinglePionECALDown_;
+    float FatJet_msoftdrop_jesSinglePionECALUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesSinglePionECALUp_;
+    TBranch *b_FatJet_msoftdrop_jesSinglePionECALUp_;
+    bool loaded_FatJet_msoftdrop_jesSinglePionECALUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesSinglePionECALUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesSinglePionECALUp_;
+    float FatJet_msoftdrop_jesSinglePionHCALDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesSinglePionHCALDown_;
+    TBranch *b_FatJet_msoftdrop_jesSinglePionHCALDown_;
+    bool loaded_FatJet_msoftdrop_jesSinglePionHCALDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesSinglePionHCALDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesSinglePionHCALDown_;
+    float FatJet_msoftdrop_jesSinglePionHCALUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesSinglePionHCALUp_;
+    TBranch *b_FatJet_msoftdrop_jesSinglePionHCALUp_;
+    bool loaded_FatJet_msoftdrop_jesSinglePionHCALUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesSinglePionHCALUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesSinglePionHCALUp_;
+    float FatJet_msoftdrop_jesSubTotalAbsoluteDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesSubTotalAbsoluteDown_;
+    TBranch *b_FatJet_msoftdrop_jesSubTotalAbsoluteDown_;
+    bool loaded_FatJet_msoftdrop_jesSubTotalAbsoluteDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesSubTotalAbsoluteDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesSubTotalAbsoluteDown_;
+    float FatJet_msoftdrop_jesSubTotalAbsoluteUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesSubTotalAbsoluteUp_;
+    TBranch *b_FatJet_msoftdrop_jesSubTotalAbsoluteUp_;
+    bool loaded_FatJet_msoftdrop_jesSubTotalAbsoluteUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesSubTotalAbsoluteUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesSubTotalAbsoluteUp_;
+    float FatJet_msoftdrop_jesSubTotalMCDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesSubTotalMCDown_;
+    TBranch *b_FatJet_msoftdrop_jesSubTotalMCDown_;
+    bool loaded_FatJet_msoftdrop_jesSubTotalMCDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesSubTotalMCDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesSubTotalMCDown_;
+    float FatJet_msoftdrop_jesSubTotalMCUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesSubTotalMCUp_;
+    TBranch *b_FatJet_msoftdrop_jesSubTotalMCUp_;
+    bool loaded_FatJet_msoftdrop_jesSubTotalMCUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesSubTotalMCUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesSubTotalMCUp_;
+    float FatJet_msoftdrop_jesSubTotalPileUpDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesSubTotalPileUpDown_;
+    TBranch *b_FatJet_msoftdrop_jesSubTotalPileUpDown_;
+    bool loaded_FatJet_msoftdrop_jesSubTotalPileUpDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesSubTotalPileUpDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesSubTotalPileUpDown_;
+    float FatJet_msoftdrop_jesSubTotalPileUpUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesSubTotalPileUpUp_;
+    TBranch *b_FatJet_msoftdrop_jesSubTotalPileUpUp_;
+    bool loaded_FatJet_msoftdrop_jesSubTotalPileUpUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesSubTotalPileUpUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesSubTotalPileUpUp_;
+    float FatJet_msoftdrop_jesSubTotalPtDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesSubTotalPtDown_;
+    TBranch *b_FatJet_msoftdrop_jesSubTotalPtDown_;
+    bool loaded_FatJet_msoftdrop_jesSubTotalPtDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesSubTotalPtDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesSubTotalPtDown_;
+    float FatJet_msoftdrop_jesSubTotalPtUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesSubTotalPtUp_;
+    TBranch *b_FatJet_msoftdrop_jesSubTotalPtUp_;
+    bool loaded_FatJet_msoftdrop_jesSubTotalPtUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesSubTotalPtUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesSubTotalPtUp_;
+    float FatJet_msoftdrop_jesSubTotalRelativeDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesSubTotalRelativeDown_;
+    TBranch *b_FatJet_msoftdrop_jesSubTotalRelativeDown_;
+    bool loaded_FatJet_msoftdrop_jesSubTotalRelativeDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesSubTotalRelativeDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesSubTotalRelativeDown_;
+    float FatJet_msoftdrop_jesSubTotalRelativeUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesSubTotalRelativeUp_;
+    TBranch *b_FatJet_msoftdrop_jesSubTotalRelativeUp_;
+    bool loaded_FatJet_msoftdrop_jesSubTotalRelativeUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesSubTotalRelativeUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesSubTotalRelativeUp_;
+    float FatJet_msoftdrop_jesSubTotalScaleDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesSubTotalScaleDown_;
+    TBranch *b_FatJet_msoftdrop_jesSubTotalScaleDown_;
+    bool loaded_FatJet_msoftdrop_jesSubTotalScaleDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesSubTotalScaleDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesSubTotalScaleDown_;
+    float FatJet_msoftdrop_jesSubTotalScaleUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesSubTotalScaleUp_;
+    TBranch *b_FatJet_msoftdrop_jesSubTotalScaleUp_;
+    bool loaded_FatJet_msoftdrop_jesSubTotalScaleUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesSubTotalScaleUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesSubTotalScaleUp_;
+    float FatJet_msoftdrop_jesTimePtEtaDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesTimePtEtaDown_;
+    TBranch *b_FatJet_msoftdrop_jesTimePtEtaDown_;
+    bool loaded_FatJet_msoftdrop_jesTimePtEtaDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesTimePtEtaDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesTimePtEtaDown_;
+    float FatJet_msoftdrop_jesTimePtEtaUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesTimePtEtaUp_;
+    TBranch *b_FatJet_msoftdrop_jesTimePtEtaUp_;
+    bool loaded_FatJet_msoftdrop_jesTimePtEtaUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesTimePtEtaUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesTimePtEtaUp_;
+    float FatJet_msoftdrop_jesTimeRunADown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesTimeRunADown_;
+    TBranch *b_FatJet_msoftdrop_jesTimeRunADown_;
+    bool loaded_FatJet_msoftdrop_jesTimeRunADown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesTimeRunADown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesTimeRunADown_;
+    float FatJet_msoftdrop_jesTimeRunAUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesTimeRunAUp_;
+    TBranch *b_FatJet_msoftdrop_jesTimeRunAUp_;
+    bool loaded_FatJet_msoftdrop_jesTimeRunAUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesTimeRunAUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesTimeRunAUp_;
+    float FatJet_msoftdrop_jesTimeRunBDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesTimeRunBDown_;
+    TBranch *b_FatJet_msoftdrop_jesTimeRunBDown_;
+    bool loaded_FatJet_msoftdrop_jesTimeRunBDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesTimeRunBDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesTimeRunBDown_;
+    float FatJet_msoftdrop_jesTimeRunBUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesTimeRunBUp_;
+    TBranch *b_FatJet_msoftdrop_jesTimeRunBUp_;
+    bool loaded_FatJet_msoftdrop_jesTimeRunBUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesTimeRunBUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesTimeRunBUp_;
+    float FatJet_msoftdrop_jesTimeRunCDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesTimeRunCDown_;
+    TBranch *b_FatJet_msoftdrop_jesTimeRunCDown_;
+    bool loaded_FatJet_msoftdrop_jesTimeRunCDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesTimeRunCDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesTimeRunCDown_;
+    float FatJet_msoftdrop_jesTimeRunCUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesTimeRunCUp_;
+    TBranch *b_FatJet_msoftdrop_jesTimeRunCUp_;
+    bool loaded_FatJet_msoftdrop_jesTimeRunCUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesTimeRunCUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesTimeRunCUp_;
+    float FatJet_msoftdrop_jesTimeRunDDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesTimeRunDDown_;
+    TBranch *b_FatJet_msoftdrop_jesTimeRunDDown_;
+    bool loaded_FatJet_msoftdrop_jesTimeRunDDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesTimeRunDDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesTimeRunDDown_;
+    float FatJet_msoftdrop_jesTimeRunDUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesTimeRunDUp_;
+    TBranch *b_FatJet_msoftdrop_jesTimeRunDUp_;
+    bool loaded_FatJet_msoftdrop_jesTimeRunDUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesTimeRunDUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesTimeRunDUp_;
     float FatJet_msoftdrop_jesTotalDown_[NFATJET_MAX];
     vector<float> v_FatJet_msoftdrop_jesTotalDown_;
     TBranch *b_FatJet_msoftdrop_jesTotalDown_;
     bool loaded_FatJet_msoftdrop_jesTotalDown_;
     unsigned int counter_cached_FatJet_msoftdrop_jesTotalDown_;
     unsigned int counter_uncached_FatJet_msoftdrop_jesTotalDown_;
+    float FatJet_msoftdrop_jesTotalNoFlavorDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesTotalNoFlavorDown_;
+    TBranch *b_FatJet_msoftdrop_jesTotalNoFlavorDown_;
+    bool loaded_FatJet_msoftdrop_jesTotalNoFlavorDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesTotalNoFlavorDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesTotalNoFlavorDown_;
+    float FatJet_msoftdrop_jesTotalNoFlavorNoTimeDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesTotalNoFlavorNoTimeDown_;
+    TBranch *b_FatJet_msoftdrop_jesTotalNoFlavorNoTimeDown_;
+    bool loaded_FatJet_msoftdrop_jesTotalNoFlavorNoTimeDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesTotalNoFlavorNoTimeDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesTotalNoFlavorNoTimeDown_;
+    float FatJet_msoftdrop_jesTotalNoFlavorNoTimeUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesTotalNoFlavorNoTimeUp_;
+    TBranch *b_FatJet_msoftdrop_jesTotalNoFlavorNoTimeUp_;
+    bool loaded_FatJet_msoftdrop_jesTotalNoFlavorNoTimeUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesTotalNoFlavorNoTimeUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesTotalNoFlavorNoTimeUp_;
+    float FatJet_msoftdrop_jesTotalNoFlavorUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesTotalNoFlavorUp_;
+    TBranch *b_FatJet_msoftdrop_jesTotalNoFlavorUp_;
+    bool loaded_FatJet_msoftdrop_jesTotalNoFlavorUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesTotalNoFlavorUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesTotalNoFlavorUp_;
+    float FatJet_msoftdrop_jesTotalNoTimeDown_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesTotalNoTimeDown_;
+    TBranch *b_FatJet_msoftdrop_jesTotalNoTimeDown_;
+    bool loaded_FatJet_msoftdrop_jesTotalNoTimeDown_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesTotalNoTimeDown_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesTotalNoTimeDown_;
+    float FatJet_msoftdrop_jesTotalNoTimeUp_[NFATJET_MAX];
+    vector<float> v_FatJet_msoftdrop_jesTotalNoTimeUp_;
+    TBranch *b_FatJet_msoftdrop_jesTotalNoTimeUp_;
+    bool loaded_FatJet_msoftdrop_jesTotalNoTimeUp_;
+    unsigned int counter_cached_FatJet_msoftdrop_jesTotalNoTimeUp_;
+    unsigned int counter_uncached_FatJet_msoftdrop_jesTotalNoTimeUp_;
     float FatJet_msoftdrop_jesTotalUp_[NFATJET_MAX];
     vector<float> v_FatJet_msoftdrop_jesTotalUp_;
     TBranch *b_FatJet_msoftdrop_jesTotalUp_;
@@ -1284,12 +2612,672 @@ protected:
     bool loaded_FatJet_pt_jerUp_;
     unsigned int counter_cached_FatJet_pt_jerUp_;
     unsigned int counter_uncached_FatJet_pt_jerUp_;
+    float FatJet_pt_jesAbsoluteFlavMapDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesAbsoluteFlavMapDown_;
+    TBranch *b_FatJet_pt_jesAbsoluteFlavMapDown_;
+    bool loaded_FatJet_pt_jesAbsoluteFlavMapDown_;
+    unsigned int counter_cached_FatJet_pt_jesAbsoluteFlavMapDown_;
+    unsigned int counter_uncached_FatJet_pt_jesAbsoluteFlavMapDown_;
+    float FatJet_pt_jesAbsoluteFlavMapUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesAbsoluteFlavMapUp_;
+    TBranch *b_FatJet_pt_jesAbsoluteFlavMapUp_;
+    bool loaded_FatJet_pt_jesAbsoluteFlavMapUp_;
+    unsigned int counter_cached_FatJet_pt_jesAbsoluteFlavMapUp_;
+    unsigned int counter_uncached_FatJet_pt_jesAbsoluteFlavMapUp_;
+    float FatJet_pt_jesAbsoluteMPFBiasDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesAbsoluteMPFBiasDown_;
+    TBranch *b_FatJet_pt_jesAbsoluteMPFBiasDown_;
+    bool loaded_FatJet_pt_jesAbsoluteMPFBiasDown_;
+    unsigned int counter_cached_FatJet_pt_jesAbsoluteMPFBiasDown_;
+    unsigned int counter_uncached_FatJet_pt_jesAbsoluteMPFBiasDown_;
+    float FatJet_pt_jesAbsoluteMPFBiasUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesAbsoluteMPFBiasUp_;
+    TBranch *b_FatJet_pt_jesAbsoluteMPFBiasUp_;
+    bool loaded_FatJet_pt_jesAbsoluteMPFBiasUp_;
+    unsigned int counter_cached_FatJet_pt_jesAbsoluteMPFBiasUp_;
+    unsigned int counter_uncached_FatJet_pt_jesAbsoluteMPFBiasUp_;
+    float FatJet_pt_jesAbsoluteSampleDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesAbsoluteSampleDown_;
+    TBranch *b_FatJet_pt_jesAbsoluteSampleDown_;
+    bool loaded_FatJet_pt_jesAbsoluteSampleDown_;
+    unsigned int counter_cached_FatJet_pt_jesAbsoluteSampleDown_;
+    unsigned int counter_uncached_FatJet_pt_jesAbsoluteSampleDown_;
+    float FatJet_pt_jesAbsoluteSampleUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesAbsoluteSampleUp_;
+    TBranch *b_FatJet_pt_jesAbsoluteSampleUp_;
+    bool loaded_FatJet_pt_jesAbsoluteSampleUp_;
+    unsigned int counter_cached_FatJet_pt_jesAbsoluteSampleUp_;
+    unsigned int counter_uncached_FatJet_pt_jesAbsoluteSampleUp_;
+    float FatJet_pt_jesAbsoluteScaleDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesAbsoluteScaleDown_;
+    TBranch *b_FatJet_pt_jesAbsoluteScaleDown_;
+    bool loaded_FatJet_pt_jesAbsoluteScaleDown_;
+    unsigned int counter_cached_FatJet_pt_jesAbsoluteScaleDown_;
+    unsigned int counter_uncached_FatJet_pt_jesAbsoluteScaleDown_;
+    float FatJet_pt_jesAbsoluteScaleUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesAbsoluteScaleUp_;
+    TBranch *b_FatJet_pt_jesAbsoluteScaleUp_;
+    bool loaded_FatJet_pt_jesAbsoluteScaleUp_;
+    unsigned int counter_cached_FatJet_pt_jesAbsoluteScaleUp_;
+    unsigned int counter_uncached_FatJet_pt_jesAbsoluteScaleUp_;
+    float FatJet_pt_jesAbsoluteStatDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesAbsoluteStatDown_;
+    TBranch *b_FatJet_pt_jesAbsoluteStatDown_;
+    bool loaded_FatJet_pt_jesAbsoluteStatDown_;
+    unsigned int counter_cached_FatJet_pt_jesAbsoluteStatDown_;
+    unsigned int counter_uncached_FatJet_pt_jesAbsoluteStatDown_;
+    float FatJet_pt_jesAbsoluteStatUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesAbsoluteStatUp_;
+    TBranch *b_FatJet_pt_jesAbsoluteStatUp_;
+    bool loaded_FatJet_pt_jesAbsoluteStatUp_;
+    unsigned int counter_cached_FatJet_pt_jesAbsoluteStatUp_;
+    unsigned int counter_uncached_FatJet_pt_jesAbsoluteStatUp_;
+    float FatJet_pt_jesCorrelationGroupFlavorDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesCorrelationGroupFlavorDown_;
+    TBranch *b_FatJet_pt_jesCorrelationGroupFlavorDown_;
+    bool loaded_FatJet_pt_jesCorrelationGroupFlavorDown_;
+    unsigned int counter_cached_FatJet_pt_jesCorrelationGroupFlavorDown_;
+    unsigned int counter_uncached_FatJet_pt_jesCorrelationGroupFlavorDown_;
+    float FatJet_pt_jesCorrelationGroupFlavorUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesCorrelationGroupFlavorUp_;
+    TBranch *b_FatJet_pt_jesCorrelationGroupFlavorUp_;
+    bool loaded_FatJet_pt_jesCorrelationGroupFlavorUp_;
+    unsigned int counter_cached_FatJet_pt_jesCorrelationGroupFlavorUp_;
+    unsigned int counter_uncached_FatJet_pt_jesCorrelationGroupFlavorUp_;
+    float FatJet_pt_jesCorrelationGroupIntercalibrationDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesCorrelationGroupIntercalibrationDown_;
+    TBranch *b_FatJet_pt_jesCorrelationGroupIntercalibrationDown_;
+    bool loaded_FatJet_pt_jesCorrelationGroupIntercalibrationDown_;
+    unsigned int counter_cached_FatJet_pt_jesCorrelationGroupIntercalibrationDown_;
+    unsigned int counter_uncached_FatJet_pt_jesCorrelationGroupIntercalibrationDown_;
+    float FatJet_pt_jesCorrelationGroupIntercalibrationUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesCorrelationGroupIntercalibrationUp_;
+    TBranch *b_FatJet_pt_jesCorrelationGroupIntercalibrationUp_;
+    bool loaded_FatJet_pt_jesCorrelationGroupIntercalibrationUp_;
+    unsigned int counter_cached_FatJet_pt_jesCorrelationGroupIntercalibrationUp_;
+    unsigned int counter_uncached_FatJet_pt_jesCorrelationGroupIntercalibrationUp_;
+    float FatJet_pt_jesCorrelationGroupMPFInSituDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesCorrelationGroupMPFInSituDown_;
+    TBranch *b_FatJet_pt_jesCorrelationGroupMPFInSituDown_;
+    bool loaded_FatJet_pt_jesCorrelationGroupMPFInSituDown_;
+    unsigned int counter_cached_FatJet_pt_jesCorrelationGroupMPFInSituDown_;
+    unsigned int counter_uncached_FatJet_pt_jesCorrelationGroupMPFInSituDown_;
+    float FatJet_pt_jesCorrelationGroupMPFInSituUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesCorrelationGroupMPFInSituUp_;
+    TBranch *b_FatJet_pt_jesCorrelationGroupMPFInSituUp_;
+    bool loaded_FatJet_pt_jesCorrelationGroupMPFInSituUp_;
+    unsigned int counter_cached_FatJet_pt_jesCorrelationGroupMPFInSituUp_;
+    unsigned int counter_uncached_FatJet_pt_jesCorrelationGroupMPFInSituUp_;
+    float FatJet_pt_jesCorrelationGroupUncorrelatedDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesCorrelationGroupUncorrelatedDown_;
+    TBranch *b_FatJet_pt_jesCorrelationGroupUncorrelatedDown_;
+    bool loaded_FatJet_pt_jesCorrelationGroupUncorrelatedDown_;
+    unsigned int counter_cached_FatJet_pt_jesCorrelationGroupUncorrelatedDown_;
+    unsigned int counter_uncached_FatJet_pt_jesCorrelationGroupUncorrelatedDown_;
+    float FatJet_pt_jesCorrelationGroupUncorrelatedUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesCorrelationGroupUncorrelatedUp_;
+    TBranch *b_FatJet_pt_jesCorrelationGroupUncorrelatedUp_;
+    bool loaded_FatJet_pt_jesCorrelationGroupUncorrelatedUp_;
+    unsigned int counter_cached_FatJet_pt_jesCorrelationGroupUncorrelatedUp_;
+    unsigned int counter_uncached_FatJet_pt_jesCorrelationGroupUncorrelatedUp_;
+    float FatJet_pt_jesCorrelationGroupbJESDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesCorrelationGroupbJESDown_;
+    TBranch *b_FatJet_pt_jesCorrelationGroupbJESDown_;
+    bool loaded_FatJet_pt_jesCorrelationGroupbJESDown_;
+    unsigned int counter_cached_FatJet_pt_jesCorrelationGroupbJESDown_;
+    unsigned int counter_uncached_FatJet_pt_jesCorrelationGroupbJESDown_;
+    float FatJet_pt_jesCorrelationGroupbJESUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesCorrelationGroupbJESUp_;
+    TBranch *b_FatJet_pt_jesCorrelationGroupbJESUp_;
+    bool loaded_FatJet_pt_jesCorrelationGroupbJESUp_;
+    unsigned int counter_cached_FatJet_pt_jesCorrelationGroupbJESUp_;
+    unsigned int counter_uncached_FatJet_pt_jesCorrelationGroupbJESUp_;
+    float FatJet_pt_jesFlavorPhotonJetDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesFlavorPhotonJetDown_;
+    TBranch *b_FatJet_pt_jesFlavorPhotonJetDown_;
+    bool loaded_FatJet_pt_jesFlavorPhotonJetDown_;
+    unsigned int counter_cached_FatJet_pt_jesFlavorPhotonJetDown_;
+    unsigned int counter_uncached_FatJet_pt_jesFlavorPhotonJetDown_;
+    float FatJet_pt_jesFlavorPhotonJetUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesFlavorPhotonJetUp_;
+    TBranch *b_FatJet_pt_jesFlavorPhotonJetUp_;
+    bool loaded_FatJet_pt_jesFlavorPhotonJetUp_;
+    unsigned int counter_cached_FatJet_pt_jesFlavorPhotonJetUp_;
+    unsigned int counter_uncached_FatJet_pt_jesFlavorPhotonJetUp_;
+    float FatJet_pt_jesFlavorPureBottomDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesFlavorPureBottomDown_;
+    TBranch *b_FatJet_pt_jesFlavorPureBottomDown_;
+    bool loaded_FatJet_pt_jesFlavorPureBottomDown_;
+    unsigned int counter_cached_FatJet_pt_jesFlavorPureBottomDown_;
+    unsigned int counter_uncached_FatJet_pt_jesFlavorPureBottomDown_;
+    float FatJet_pt_jesFlavorPureBottomUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesFlavorPureBottomUp_;
+    TBranch *b_FatJet_pt_jesFlavorPureBottomUp_;
+    bool loaded_FatJet_pt_jesFlavorPureBottomUp_;
+    unsigned int counter_cached_FatJet_pt_jesFlavorPureBottomUp_;
+    unsigned int counter_uncached_FatJet_pt_jesFlavorPureBottomUp_;
+    float FatJet_pt_jesFlavorPureCharmDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesFlavorPureCharmDown_;
+    TBranch *b_FatJet_pt_jesFlavorPureCharmDown_;
+    bool loaded_FatJet_pt_jesFlavorPureCharmDown_;
+    unsigned int counter_cached_FatJet_pt_jesFlavorPureCharmDown_;
+    unsigned int counter_uncached_FatJet_pt_jesFlavorPureCharmDown_;
+    float FatJet_pt_jesFlavorPureCharmUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesFlavorPureCharmUp_;
+    TBranch *b_FatJet_pt_jesFlavorPureCharmUp_;
+    bool loaded_FatJet_pt_jesFlavorPureCharmUp_;
+    unsigned int counter_cached_FatJet_pt_jesFlavorPureCharmUp_;
+    unsigned int counter_uncached_FatJet_pt_jesFlavorPureCharmUp_;
+    float FatJet_pt_jesFlavorPureGluonDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesFlavorPureGluonDown_;
+    TBranch *b_FatJet_pt_jesFlavorPureGluonDown_;
+    bool loaded_FatJet_pt_jesFlavorPureGluonDown_;
+    unsigned int counter_cached_FatJet_pt_jesFlavorPureGluonDown_;
+    unsigned int counter_uncached_FatJet_pt_jesFlavorPureGluonDown_;
+    float FatJet_pt_jesFlavorPureGluonUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesFlavorPureGluonUp_;
+    TBranch *b_FatJet_pt_jesFlavorPureGluonUp_;
+    bool loaded_FatJet_pt_jesFlavorPureGluonUp_;
+    unsigned int counter_cached_FatJet_pt_jesFlavorPureGluonUp_;
+    unsigned int counter_uncached_FatJet_pt_jesFlavorPureGluonUp_;
+    float FatJet_pt_jesFlavorPureQuarkDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesFlavorPureQuarkDown_;
+    TBranch *b_FatJet_pt_jesFlavorPureQuarkDown_;
+    bool loaded_FatJet_pt_jesFlavorPureQuarkDown_;
+    unsigned int counter_cached_FatJet_pt_jesFlavorPureQuarkDown_;
+    unsigned int counter_uncached_FatJet_pt_jesFlavorPureQuarkDown_;
+    float FatJet_pt_jesFlavorPureQuarkUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesFlavorPureQuarkUp_;
+    TBranch *b_FatJet_pt_jesFlavorPureQuarkUp_;
+    bool loaded_FatJet_pt_jesFlavorPureQuarkUp_;
+    unsigned int counter_cached_FatJet_pt_jesFlavorPureQuarkUp_;
+    unsigned int counter_uncached_FatJet_pt_jesFlavorPureQuarkUp_;
+    float FatJet_pt_jesFlavorQCDDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesFlavorQCDDown_;
+    TBranch *b_FatJet_pt_jesFlavorQCDDown_;
+    bool loaded_FatJet_pt_jesFlavorQCDDown_;
+    unsigned int counter_cached_FatJet_pt_jesFlavorQCDDown_;
+    unsigned int counter_uncached_FatJet_pt_jesFlavorQCDDown_;
+    float FatJet_pt_jesFlavorQCDUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesFlavorQCDUp_;
+    TBranch *b_FatJet_pt_jesFlavorQCDUp_;
+    bool loaded_FatJet_pt_jesFlavorQCDUp_;
+    unsigned int counter_cached_FatJet_pt_jesFlavorQCDUp_;
+    unsigned int counter_uncached_FatJet_pt_jesFlavorQCDUp_;
+    float FatJet_pt_jesFlavorZJetDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesFlavorZJetDown_;
+    TBranch *b_FatJet_pt_jesFlavorZJetDown_;
+    bool loaded_FatJet_pt_jesFlavorZJetDown_;
+    unsigned int counter_cached_FatJet_pt_jesFlavorZJetDown_;
+    unsigned int counter_uncached_FatJet_pt_jesFlavorZJetDown_;
+    float FatJet_pt_jesFlavorZJetUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesFlavorZJetUp_;
+    TBranch *b_FatJet_pt_jesFlavorZJetUp_;
+    bool loaded_FatJet_pt_jesFlavorZJetUp_;
+    unsigned int counter_cached_FatJet_pt_jesFlavorZJetUp_;
+    unsigned int counter_uncached_FatJet_pt_jesFlavorZJetUp_;
+    float FatJet_pt_jesFragmentationDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesFragmentationDown_;
+    TBranch *b_FatJet_pt_jesFragmentationDown_;
+    bool loaded_FatJet_pt_jesFragmentationDown_;
+    unsigned int counter_cached_FatJet_pt_jesFragmentationDown_;
+    unsigned int counter_uncached_FatJet_pt_jesFragmentationDown_;
+    float FatJet_pt_jesFragmentationUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesFragmentationUp_;
+    TBranch *b_FatJet_pt_jesFragmentationUp_;
+    bool loaded_FatJet_pt_jesFragmentationUp_;
+    unsigned int counter_cached_FatJet_pt_jesFragmentationUp_;
+    unsigned int counter_uncached_FatJet_pt_jesFragmentationUp_;
+    float FatJet_pt_jesPileUpDataMCDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesPileUpDataMCDown_;
+    TBranch *b_FatJet_pt_jesPileUpDataMCDown_;
+    bool loaded_FatJet_pt_jesPileUpDataMCDown_;
+    unsigned int counter_cached_FatJet_pt_jesPileUpDataMCDown_;
+    unsigned int counter_uncached_FatJet_pt_jesPileUpDataMCDown_;
+    float FatJet_pt_jesPileUpDataMCUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesPileUpDataMCUp_;
+    TBranch *b_FatJet_pt_jesPileUpDataMCUp_;
+    bool loaded_FatJet_pt_jesPileUpDataMCUp_;
+    unsigned int counter_cached_FatJet_pt_jesPileUpDataMCUp_;
+    unsigned int counter_uncached_FatJet_pt_jesPileUpDataMCUp_;
+    float FatJet_pt_jesPileUpEnvelopeDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesPileUpEnvelopeDown_;
+    TBranch *b_FatJet_pt_jesPileUpEnvelopeDown_;
+    bool loaded_FatJet_pt_jesPileUpEnvelopeDown_;
+    unsigned int counter_cached_FatJet_pt_jesPileUpEnvelopeDown_;
+    unsigned int counter_uncached_FatJet_pt_jesPileUpEnvelopeDown_;
+    float FatJet_pt_jesPileUpEnvelopeUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesPileUpEnvelopeUp_;
+    TBranch *b_FatJet_pt_jesPileUpEnvelopeUp_;
+    bool loaded_FatJet_pt_jesPileUpEnvelopeUp_;
+    unsigned int counter_cached_FatJet_pt_jesPileUpEnvelopeUp_;
+    unsigned int counter_uncached_FatJet_pt_jesPileUpEnvelopeUp_;
+    float FatJet_pt_jesPileUpMuZeroDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesPileUpMuZeroDown_;
+    TBranch *b_FatJet_pt_jesPileUpMuZeroDown_;
+    bool loaded_FatJet_pt_jesPileUpMuZeroDown_;
+    unsigned int counter_cached_FatJet_pt_jesPileUpMuZeroDown_;
+    unsigned int counter_uncached_FatJet_pt_jesPileUpMuZeroDown_;
+    float FatJet_pt_jesPileUpMuZeroUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesPileUpMuZeroUp_;
+    TBranch *b_FatJet_pt_jesPileUpMuZeroUp_;
+    bool loaded_FatJet_pt_jesPileUpMuZeroUp_;
+    unsigned int counter_cached_FatJet_pt_jesPileUpMuZeroUp_;
+    unsigned int counter_uncached_FatJet_pt_jesPileUpMuZeroUp_;
+    float FatJet_pt_jesPileUpPtBBDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesPileUpPtBBDown_;
+    TBranch *b_FatJet_pt_jesPileUpPtBBDown_;
+    bool loaded_FatJet_pt_jesPileUpPtBBDown_;
+    unsigned int counter_cached_FatJet_pt_jesPileUpPtBBDown_;
+    unsigned int counter_uncached_FatJet_pt_jesPileUpPtBBDown_;
+    float FatJet_pt_jesPileUpPtBBUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesPileUpPtBBUp_;
+    TBranch *b_FatJet_pt_jesPileUpPtBBUp_;
+    bool loaded_FatJet_pt_jesPileUpPtBBUp_;
+    unsigned int counter_cached_FatJet_pt_jesPileUpPtBBUp_;
+    unsigned int counter_uncached_FatJet_pt_jesPileUpPtBBUp_;
+    float FatJet_pt_jesPileUpPtEC1Down_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesPileUpPtEC1Down_;
+    TBranch *b_FatJet_pt_jesPileUpPtEC1Down_;
+    bool loaded_FatJet_pt_jesPileUpPtEC1Down_;
+    unsigned int counter_cached_FatJet_pt_jesPileUpPtEC1Down_;
+    unsigned int counter_uncached_FatJet_pt_jesPileUpPtEC1Down_;
+    float FatJet_pt_jesPileUpPtEC1Up_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesPileUpPtEC1Up_;
+    TBranch *b_FatJet_pt_jesPileUpPtEC1Up_;
+    bool loaded_FatJet_pt_jesPileUpPtEC1Up_;
+    unsigned int counter_cached_FatJet_pt_jesPileUpPtEC1Up_;
+    unsigned int counter_uncached_FatJet_pt_jesPileUpPtEC1Up_;
+    float FatJet_pt_jesPileUpPtEC2Down_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesPileUpPtEC2Down_;
+    TBranch *b_FatJet_pt_jesPileUpPtEC2Down_;
+    bool loaded_FatJet_pt_jesPileUpPtEC2Down_;
+    unsigned int counter_cached_FatJet_pt_jesPileUpPtEC2Down_;
+    unsigned int counter_uncached_FatJet_pt_jesPileUpPtEC2Down_;
+    float FatJet_pt_jesPileUpPtEC2Up_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesPileUpPtEC2Up_;
+    TBranch *b_FatJet_pt_jesPileUpPtEC2Up_;
+    bool loaded_FatJet_pt_jesPileUpPtEC2Up_;
+    unsigned int counter_cached_FatJet_pt_jesPileUpPtEC2Up_;
+    unsigned int counter_uncached_FatJet_pt_jesPileUpPtEC2Up_;
+    float FatJet_pt_jesPileUpPtHFDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesPileUpPtHFDown_;
+    TBranch *b_FatJet_pt_jesPileUpPtHFDown_;
+    bool loaded_FatJet_pt_jesPileUpPtHFDown_;
+    unsigned int counter_cached_FatJet_pt_jesPileUpPtHFDown_;
+    unsigned int counter_uncached_FatJet_pt_jesPileUpPtHFDown_;
+    float FatJet_pt_jesPileUpPtHFUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesPileUpPtHFUp_;
+    TBranch *b_FatJet_pt_jesPileUpPtHFUp_;
+    bool loaded_FatJet_pt_jesPileUpPtHFUp_;
+    unsigned int counter_cached_FatJet_pt_jesPileUpPtHFUp_;
+    unsigned int counter_uncached_FatJet_pt_jesPileUpPtHFUp_;
+    float FatJet_pt_jesPileUpPtRefDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesPileUpPtRefDown_;
+    TBranch *b_FatJet_pt_jesPileUpPtRefDown_;
+    bool loaded_FatJet_pt_jesPileUpPtRefDown_;
+    unsigned int counter_cached_FatJet_pt_jesPileUpPtRefDown_;
+    unsigned int counter_uncached_FatJet_pt_jesPileUpPtRefDown_;
+    float FatJet_pt_jesPileUpPtRefUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesPileUpPtRefUp_;
+    TBranch *b_FatJet_pt_jesPileUpPtRefUp_;
+    bool loaded_FatJet_pt_jesPileUpPtRefUp_;
+    unsigned int counter_cached_FatJet_pt_jesPileUpPtRefUp_;
+    unsigned int counter_uncached_FatJet_pt_jesPileUpPtRefUp_;
+    float FatJet_pt_jesRelativeBalDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesRelativeBalDown_;
+    TBranch *b_FatJet_pt_jesRelativeBalDown_;
+    bool loaded_FatJet_pt_jesRelativeBalDown_;
+    unsigned int counter_cached_FatJet_pt_jesRelativeBalDown_;
+    unsigned int counter_uncached_FatJet_pt_jesRelativeBalDown_;
+    float FatJet_pt_jesRelativeBalUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesRelativeBalUp_;
+    TBranch *b_FatJet_pt_jesRelativeBalUp_;
+    bool loaded_FatJet_pt_jesRelativeBalUp_;
+    unsigned int counter_cached_FatJet_pt_jesRelativeBalUp_;
+    unsigned int counter_uncached_FatJet_pt_jesRelativeBalUp_;
+    float FatJet_pt_jesRelativeFSRDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesRelativeFSRDown_;
+    TBranch *b_FatJet_pt_jesRelativeFSRDown_;
+    bool loaded_FatJet_pt_jesRelativeFSRDown_;
+    unsigned int counter_cached_FatJet_pt_jesRelativeFSRDown_;
+    unsigned int counter_uncached_FatJet_pt_jesRelativeFSRDown_;
+    float FatJet_pt_jesRelativeFSRUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesRelativeFSRUp_;
+    TBranch *b_FatJet_pt_jesRelativeFSRUp_;
+    bool loaded_FatJet_pt_jesRelativeFSRUp_;
+    unsigned int counter_cached_FatJet_pt_jesRelativeFSRUp_;
+    unsigned int counter_uncached_FatJet_pt_jesRelativeFSRUp_;
+    float FatJet_pt_jesRelativeJEREC1Down_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesRelativeJEREC1Down_;
+    TBranch *b_FatJet_pt_jesRelativeJEREC1Down_;
+    bool loaded_FatJet_pt_jesRelativeJEREC1Down_;
+    unsigned int counter_cached_FatJet_pt_jesRelativeJEREC1Down_;
+    unsigned int counter_uncached_FatJet_pt_jesRelativeJEREC1Down_;
+    float FatJet_pt_jesRelativeJEREC1Up_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesRelativeJEREC1Up_;
+    TBranch *b_FatJet_pt_jesRelativeJEREC1Up_;
+    bool loaded_FatJet_pt_jesRelativeJEREC1Up_;
+    unsigned int counter_cached_FatJet_pt_jesRelativeJEREC1Up_;
+    unsigned int counter_uncached_FatJet_pt_jesRelativeJEREC1Up_;
+    float FatJet_pt_jesRelativeJEREC2Down_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesRelativeJEREC2Down_;
+    TBranch *b_FatJet_pt_jesRelativeJEREC2Down_;
+    bool loaded_FatJet_pt_jesRelativeJEREC2Down_;
+    unsigned int counter_cached_FatJet_pt_jesRelativeJEREC2Down_;
+    unsigned int counter_uncached_FatJet_pt_jesRelativeJEREC2Down_;
+    float FatJet_pt_jesRelativeJEREC2Up_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesRelativeJEREC2Up_;
+    TBranch *b_FatJet_pt_jesRelativeJEREC2Up_;
+    bool loaded_FatJet_pt_jesRelativeJEREC2Up_;
+    unsigned int counter_cached_FatJet_pt_jesRelativeJEREC2Up_;
+    unsigned int counter_uncached_FatJet_pt_jesRelativeJEREC2Up_;
+    float FatJet_pt_jesRelativeJERHFDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesRelativeJERHFDown_;
+    TBranch *b_FatJet_pt_jesRelativeJERHFDown_;
+    bool loaded_FatJet_pt_jesRelativeJERHFDown_;
+    unsigned int counter_cached_FatJet_pt_jesRelativeJERHFDown_;
+    unsigned int counter_uncached_FatJet_pt_jesRelativeJERHFDown_;
+    float FatJet_pt_jesRelativeJERHFUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesRelativeJERHFUp_;
+    TBranch *b_FatJet_pt_jesRelativeJERHFUp_;
+    bool loaded_FatJet_pt_jesRelativeJERHFUp_;
+    unsigned int counter_cached_FatJet_pt_jesRelativeJERHFUp_;
+    unsigned int counter_uncached_FatJet_pt_jesRelativeJERHFUp_;
+    float FatJet_pt_jesRelativePtBBDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesRelativePtBBDown_;
+    TBranch *b_FatJet_pt_jesRelativePtBBDown_;
+    bool loaded_FatJet_pt_jesRelativePtBBDown_;
+    unsigned int counter_cached_FatJet_pt_jesRelativePtBBDown_;
+    unsigned int counter_uncached_FatJet_pt_jesRelativePtBBDown_;
+    float FatJet_pt_jesRelativePtBBUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesRelativePtBBUp_;
+    TBranch *b_FatJet_pt_jesRelativePtBBUp_;
+    bool loaded_FatJet_pt_jesRelativePtBBUp_;
+    unsigned int counter_cached_FatJet_pt_jesRelativePtBBUp_;
+    unsigned int counter_uncached_FatJet_pt_jesRelativePtBBUp_;
+    float FatJet_pt_jesRelativePtEC1Down_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesRelativePtEC1Down_;
+    TBranch *b_FatJet_pt_jesRelativePtEC1Down_;
+    bool loaded_FatJet_pt_jesRelativePtEC1Down_;
+    unsigned int counter_cached_FatJet_pt_jesRelativePtEC1Down_;
+    unsigned int counter_uncached_FatJet_pt_jesRelativePtEC1Down_;
+    float FatJet_pt_jesRelativePtEC1Up_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesRelativePtEC1Up_;
+    TBranch *b_FatJet_pt_jesRelativePtEC1Up_;
+    bool loaded_FatJet_pt_jesRelativePtEC1Up_;
+    unsigned int counter_cached_FatJet_pt_jesRelativePtEC1Up_;
+    unsigned int counter_uncached_FatJet_pt_jesRelativePtEC1Up_;
+    float FatJet_pt_jesRelativePtEC2Down_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesRelativePtEC2Down_;
+    TBranch *b_FatJet_pt_jesRelativePtEC2Down_;
+    bool loaded_FatJet_pt_jesRelativePtEC2Down_;
+    unsigned int counter_cached_FatJet_pt_jesRelativePtEC2Down_;
+    unsigned int counter_uncached_FatJet_pt_jesRelativePtEC2Down_;
+    float FatJet_pt_jesRelativePtEC2Up_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesRelativePtEC2Up_;
+    TBranch *b_FatJet_pt_jesRelativePtEC2Up_;
+    bool loaded_FatJet_pt_jesRelativePtEC2Up_;
+    unsigned int counter_cached_FatJet_pt_jesRelativePtEC2Up_;
+    unsigned int counter_uncached_FatJet_pt_jesRelativePtEC2Up_;
+    float FatJet_pt_jesRelativePtHFDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesRelativePtHFDown_;
+    TBranch *b_FatJet_pt_jesRelativePtHFDown_;
+    bool loaded_FatJet_pt_jesRelativePtHFDown_;
+    unsigned int counter_cached_FatJet_pt_jesRelativePtHFDown_;
+    unsigned int counter_uncached_FatJet_pt_jesRelativePtHFDown_;
+    float FatJet_pt_jesRelativePtHFUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesRelativePtHFUp_;
+    TBranch *b_FatJet_pt_jesRelativePtHFUp_;
+    bool loaded_FatJet_pt_jesRelativePtHFUp_;
+    unsigned int counter_cached_FatJet_pt_jesRelativePtHFUp_;
+    unsigned int counter_uncached_FatJet_pt_jesRelativePtHFUp_;
+    float FatJet_pt_jesRelativeSampleDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesRelativeSampleDown_;
+    TBranch *b_FatJet_pt_jesRelativeSampleDown_;
+    bool loaded_FatJet_pt_jesRelativeSampleDown_;
+    unsigned int counter_cached_FatJet_pt_jesRelativeSampleDown_;
+    unsigned int counter_uncached_FatJet_pt_jesRelativeSampleDown_;
+    float FatJet_pt_jesRelativeSampleUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesRelativeSampleUp_;
+    TBranch *b_FatJet_pt_jesRelativeSampleUp_;
+    bool loaded_FatJet_pt_jesRelativeSampleUp_;
+    unsigned int counter_cached_FatJet_pt_jesRelativeSampleUp_;
+    unsigned int counter_uncached_FatJet_pt_jesRelativeSampleUp_;
+    float FatJet_pt_jesRelativeStatECDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesRelativeStatECDown_;
+    TBranch *b_FatJet_pt_jesRelativeStatECDown_;
+    bool loaded_FatJet_pt_jesRelativeStatECDown_;
+    unsigned int counter_cached_FatJet_pt_jesRelativeStatECDown_;
+    unsigned int counter_uncached_FatJet_pt_jesRelativeStatECDown_;
+    float FatJet_pt_jesRelativeStatECUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesRelativeStatECUp_;
+    TBranch *b_FatJet_pt_jesRelativeStatECUp_;
+    bool loaded_FatJet_pt_jesRelativeStatECUp_;
+    unsigned int counter_cached_FatJet_pt_jesRelativeStatECUp_;
+    unsigned int counter_uncached_FatJet_pt_jesRelativeStatECUp_;
+    float FatJet_pt_jesRelativeStatFSRDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesRelativeStatFSRDown_;
+    TBranch *b_FatJet_pt_jesRelativeStatFSRDown_;
+    bool loaded_FatJet_pt_jesRelativeStatFSRDown_;
+    unsigned int counter_cached_FatJet_pt_jesRelativeStatFSRDown_;
+    unsigned int counter_uncached_FatJet_pt_jesRelativeStatFSRDown_;
+    float FatJet_pt_jesRelativeStatFSRUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesRelativeStatFSRUp_;
+    TBranch *b_FatJet_pt_jesRelativeStatFSRUp_;
+    bool loaded_FatJet_pt_jesRelativeStatFSRUp_;
+    unsigned int counter_cached_FatJet_pt_jesRelativeStatFSRUp_;
+    unsigned int counter_uncached_FatJet_pt_jesRelativeStatFSRUp_;
+    float FatJet_pt_jesRelativeStatHFDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesRelativeStatHFDown_;
+    TBranch *b_FatJet_pt_jesRelativeStatHFDown_;
+    bool loaded_FatJet_pt_jesRelativeStatHFDown_;
+    unsigned int counter_cached_FatJet_pt_jesRelativeStatHFDown_;
+    unsigned int counter_uncached_FatJet_pt_jesRelativeStatHFDown_;
+    float FatJet_pt_jesRelativeStatHFUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesRelativeStatHFUp_;
+    TBranch *b_FatJet_pt_jesRelativeStatHFUp_;
+    bool loaded_FatJet_pt_jesRelativeStatHFUp_;
+    unsigned int counter_cached_FatJet_pt_jesRelativeStatHFUp_;
+    unsigned int counter_uncached_FatJet_pt_jesRelativeStatHFUp_;
+    float FatJet_pt_jesSinglePionECALDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesSinglePionECALDown_;
+    TBranch *b_FatJet_pt_jesSinglePionECALDown_;
+    bool loaded_FatJet_pt_jesSinglePionECALDown_;
+    unsigned int counter_cached_FatJet_pt_jesSinglePionECALDown_;
+    unsigned int counter_uncached_FatJet_pt_jesSinglePionECALDown_;
+    float FatJet_pt_jesSinglePionECALUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesSinglePionECALUp_;
+    TBranch *b_FatJet_pt_jesSinglePionECALUp_;
+    bool loaded_FatJet_pt_jesSinglePionECALUp_;
+    unsigned int counter_cached_FatJet_pt_jesSinglePionECALUp_;
+    unsigned int counter_uncached_FatJet_pt_jesSinglePionECALUp_;
+    float FatJet_pt_jesSinglePionHCALDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesSinglePionHCALDown_;
+    TBranch *b_FatJet_pt_jesSinglePionHCALDown_;
+    bool loaded_FatJet_pt_jesSinglePionHCALDown_;
+    unsigned int counter_cached_FatJet_pt_jesSinglePionHCALDown_;
+    unsigned int counter_uncached_FatJet_pt_jesSinglePionHCALDown_;
+    float FatJet_pt_jesSinglePionHCALUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesSinglePionHCALUp_;
+    TBranch *b_FatJet_pt_jesSinglePionHCALUp_;
+    bool loaded_FatJet_pt_jesSinglePionHCALUp_;
+    unsigned int counter_cached_FatJet_pt_jesSinglePionHCALUp_;
+    unsigned int counter_uncached_FatJet_pt_jesSinglePionHCALUp_;
+    float FatJet_pt_jesSubTotalAbsoluteDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesSubTotalAbsoluteDown_;
+    TBranch *b_FatJet_pt_jesSubTotalAbsoluteDown_;
+    bool loaded_FatJet_pt_jesSubTotalAbsoluteDown_;
+    unsigned int counter_cached_FatJet_pt_jesSubTotalAbsoluteDown_;
+    unsigned int counter_uncached_FatJet_pt_jesSubTotalAbsoluteDown_;
+    float FatJet_pt_jesSubTotalAbsoluteUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesSubTotalAbsoluteUp_;
+    TBranch *b_FatJet_pt_jesSubTotalAbsoluteUp_;
+    bool loaded_FatJet_pt_jesSubTotalAbsoluteUp_;
+    unsigned int counter_cached_FatJet_pt_jesSubTotalAbsoluteUp_;
+    unsigned int counter_uncached_FatJet_pt_jesSubTotalAbsoluteUp_;
+    float FatJet_pt_jesSubTotalMCDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesSubTotalMCDown_;
+    TBranch *b_FatJet_pt_jesSubTotalMCDown_;
+    bool loaded_FatJet_pt_jesSubTotalMCDown_;
+    unsigned int counter_cached_FatJet_pt_jesSubTotalMCDown_;
+    unsigned int counter_uncached_FatJet_pt_jesSubTotalMCDown_;
+    float FatJet_pt_jesSubTotalMCUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesSubTotalMCUp_;
+    TBranch *b_FatJet_pt_jesSubTotalMCUp_;
+    bool loaded_FatJet_pt_jesSubTotalMCUp_;
+    unsigned int counter_cached_FatJet_pt_jesSubTotalMCUp_;
+    unsigned int counter_uncached_FatJet_pt_jesSubTotalMCUp_;
+    float FatJet_pt_jesSubTotalPileUpDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesSubTotalPileUpDown_;
+    TBranch *b_FatJet_pt_jesSubTotalPileUpDown_;
+    bool loaded_FatJet_pt_jesSubTotalPileUpDown_;
+    unsigned int counter_cached_FatJet_pt_jesSubTotalPileUpDown_;
+    unsigned int counter_uncached_FatJet_pt_jesSubTotalPileUpDown_;
+    float FatJet_pt_jesSubTotalPileUpUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesSubTotalPileUpUp_;
+    TBranch *b_FatJet_pt_jesSubTotalPileUpUp_;
+    bool loaded_FatJet_pt_jesSubTotalPileUpUp_;
+    unsigned int counter_cached_FatJet_pt_jesSubTotalPileUpUp_;
+    unsigned int counter_uncached_FatJet_pt_jesSubTotalPileUpUp_;
+    float FatJet_pt_jesSubTotalPtDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesSubTotalPtDown_;
+    TBranch *b_FatJet_pt_jesSubTotalPtDown_;
+    bool loaded_FatJet_pt_jesSubTotalPtDown_;
+    unsigned int counter_cached_FatJet_pt_jesSubTotalPtDown_;
+    unsigned int counter_uncached_FatJet_pt_jesSubTotalPtDown_;
+    float FatJet_pt_jesSubTotalPtUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesSubTotalPtUp_;
+    TBranch *b_FatJet_pt_jesSubTotalPtUp_;
+    bool loaded_FatJet_pt_jesSubTotalPtUp_;
+    unsigned int counter_cached_FatJet_pt_jesSubTotalPtUp_;
+    unsigned int counter_uncached_FatJet_pt_jesSubTotalPtUp_;
+    float FatJet_pt_jesSubTotalRelativeDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesSubTotalRelativeDown_;
+    TBranch *b_FatJet_pt_jesSubTotalRelativeDown_;
+    bool loaded_FatJet_pt_jesSubTotalRelativeDown_;
+    unsigned int counter_cached_FatJet_pt_jesSubTotalRelativeDown_;
+    unsigned int counter_uncached_FatJet_pt_jesSubTotalRelativeDown_;
+    float FatJet_pt_jesSubTotalRelativeUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesSubTotalRelativeUp_;
+    TBranch *b_FatJet_pt_jesSubTotalRelativeUp_;
+    bool loaded_FatJet_pt_jesSubTotalRelativeUp_;
+    unsigned int counter_cached_FatJet_pt_jesSubTotalRelativeUp_;
+    unsigned int counter_uncached_FatJet_pt_jesSubTotalRelativeUp_;
+    float FatJet_pt_jesSubTotalScaleDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesSubTotalScaleDown_;
+    TBranch *b_FatJet_pt_jesSubTotalScaleDown_;
+    bool loaded_FatJet_pt_jesSubTotalScaleDown_;
+    unsigned int counter_cached_FatJet_pt_jesSubTotalScaleDown_;
+    unsigned int counter_uncached_FatJet_pt_jesSubTotalScaleDown_;
+    float FatJet_pt_jesSubTotalScaleUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesSubTotalScaleUp_;
+    TBranch *b_FatJet_pt_jesSubTotalScaleUp_;
+    bool loaded_FatJet_pt_jesSubTotalScaleUp_;
+    unsigned int counter_cached_FatJet_pt_jesSubTotalScaleUp_;
+    unsigned int counter_uncached_FatJet_pt_jesSubTotalScaleUp_;
+    float FatJet_pt_jesTimePtEtaDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesTimePtEtaDown_;
+    TBranch *b_FatJet_pt_jesTimePtEtaDown_;
+    bool loaded_FatJet_pt_jesTimePtEtaDown_;
+    unsigned int counter_cached_FatJet_pt_jesTimePtEtaDown_;
+    unsigned int counter_uncached_FatJet_pt_jesTimePtEtaDown_;
+    float FatJet_pt_jesTimePtEtaUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesTimePtEtaUp_;
+    TBranch *b_FatJet_pt_jesTimePtEtaUp_;
+    bool loaded_FatJet_pt_jesTimePtEtaUp_;
+    unsigned int counter_cached_FatJet_pt_jesTimePtEtaUp_;
+    unsigned int counter_uncached_FatJet_pt_jesTimePtEtaUp_;
+    float FatJet_pt_jesTimeRunADown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesTimeRunADown_;
+    TBranch *b_FatJet_pt_jesTimeRunADown_;
+    bool loaded_FatJet_pt_jesTimeRunADown_;
+    unsigned int counter_cached_FatJet_pt_jesTimeRunADown_;
+    unsigned int counter_uncached_FatJet_pt_jesTimeRunADown_;
+    float FatJet_pt_jesTimeRunAUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesTimeRunAUp_;
+    TBranch *b_FatJet_pt_jesTimeRunAUp_;
+    bool loaded_FatJet_pt_jesTimeRunAUp_;
+    unsigned int counter_cached_FatJet_pt_jesTimeRunAUp_;
+    unsigned int counter_uncached_FatJet_pt_jesTimeRunAUp_;
+    float FatJet_pt_jesTimeRunBDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesTimeRunBDown_;
+    TBranch *b_FatJet_pt_jesTimeRunBDown_;
+    bool loaded_FatJet_pt_jesTimeRunBDown_;
+    unsigned int counter_cached_FatJet_pt_jesTimeRunBDown_;
+    unsigned int counter_uncached_FatJet_pt_jesTimeRunBDown_;
+    float FatJet_pt_jesTimeRunBUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesTimeRunBUp_;
+    TBranch *b_FatJet_pt_jesTimeRunBUp_;
+    bool loaded_FatJet_pt_jesTimeRunBUp_;
+    unsigned int counter_cached_FatJet_pt_jesTimeRunBUp_;
+    unsigned int counter_uncached_FatJet_pt_jesTimeRunBUp_;
+    float FatJet_pt_jesTimeRunCDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesTimeRunCDown_;
+    TBranch *b_FatJet_pt_jesTimeRunCDown_;
+    bool loaded_FatJet_pt_jesTimeRunCDown_;
+    unsigned int counter_cached_FatJet_pt_jesTimeRunCDown_;
+    unsigned int counter_uncached_FatJet_pt_jesTimeRunCDown_;
+    float FatJet_pt_jesTimeRunCUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesTimeRunCUp_;
+    TBranch *b_FatJet_pt_jesTimeRunCUp_;
+    bool loaded_FatJet_pt_jesTimeRunCUp_;
+    unsigned int counter_cached_FatJet_pt_jesTimeRunCUp_;
+    unsigned int counter_uncached_FatJet_pt_jesTimeRunCUp_;
+    float FatJet_pt_jesTimeRunDDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesTimeRunDDown_;
+    TBranch *b_FatJet_pt_jesTimeRunDDown_;
+    bool loaded_FatJet_pt_jesTimeRunDDown_;
+    unsigned int counter_cached_FatJet_pt_jesTimeRunDDown_;
+    unsigned int counter_uncached_FatJet_pt_jesTimeRunDDown_;
+    float FatJet_pt_jesTimeRunDUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesTimeRunDUp_;
+    TBranch *b_FatJet_pt_jesTimeRunDUp_;
+    bool loaded_FatJet_pt_jesTimeRunDUp_;
+    unsigned int counter_cached_FatJet_pt_jesTimeRunDUp_;
+    unsigned int counter_uncached_FatJet_pt_jesTimeRunDUp_;
     float FatJet_pt_jesTotalDown_[NFATJET_MAX];
     vector<float> v_FatJet_pt_jesTotalDown_;
     TBranch *b_FatJet_pt_jesTotalDown_;
     bool loaded_FatJet_pt_jesTotalDown_;
     unsigned int counter_cached_FatJet_pt_jesTotalDown_;
     unsigned int counter_uncached_FatJet_pt_jesTotalDown_;
+    float FatJet_pt_jesTotalNoFlavorDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesTotalNoFlavorDown_;
+    TBranch *b_FatJet_pt_jesTotalNoFlavorDown_;
+    bool loaded_FatJet_pt_jesTotalNoFlavorDown_;
+    unsigned int counter_cached_FatJet_pt_jesTotalNoFlavorDown_;
+    unsigned int counter_uncached_FatJet_pt_jesTotalNoFlavorDown_;
+    float FatJet_pt_jesTotalNoFlavorNoTimeDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesTotalNoFlavorNoTimeDown_;
+    TBranch *b_FatJet_pt_jesTotalNoFlavorNoTimeDown_;
+    bool loaded_FatJet_pt_jesTotalNoFlavorNoTimeDown_;
+    unsigned int counter_cached_FatJet_pt_jesTotalNoFlavorNoTimeDown_;
+    unsigned int counter_uncached_FatJet_pt_jesTotalNoFlavorNoTimeDown_;
+    float FatJet_pt_jesTotalNoFlavorNoTimeUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesTotalNoFlavorNoTimeUp_;
+    TBranch *b_FatJet_pt_jesTotalNoFlavorNoTimeUp_;
+    bool loaded_FatJet_pt_jesTotalNoFlavorNoTimeUp_;
+    unsigned int counter_cached_FatJet_pt_jesTotalNoFlavorNoTimeUp_;
+    unsigned int counter_uncached_FatJet_pt_jesTotalNoFlavorNoTimeUp_;
+    float FatJet_pt_jesTotalNoFlavorUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesTotalNoFlavorUp_;
+    TBranch *b_FatJet_pt_jesTotalNoFlavorUp_;
+    bool loaded_FatJet_pt_jesTotalNoFlavorUp_;
+    unsigned int counter_cached_FatJet_pt_jesTotalNoFlavorUp_;
+    unsigned int counter_uncached_FatJet_pt_jesTotalNoFlavorUp_;
+    float FatJet_pt_jesTotalNoTimeDown_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesTotalNoTimeDown_;
+    TBranch *b_FatJet_pt_jesTotalNoTimeDown_;
+    bool loaded_FatJet_pt_jesTotalNoTimeDown_;
+    unsigned int counter_cached_FatJet_pt_jesTotalNoTimeDown_;
+    unsigned int counter_uncached_FatJet_pt_jesTotalNoTimeDown_;
+    float FatJet_pt_jesTotalNoTimeUp_[NFATJET_MAX];
+    vector<float> v_FatJet_pt_jesTotalNoTimeUp_;
+    TBranch *b_FatJet_pt_jesTotalNoTimeUp_;
+    bool loaded_FatJet_pt_jesTotalNoTimeUp_;
+    unsigned int counter_cached_FatJet_pt_jesTotalNoTimeUp_;
+    unsigned int counter_uncached_FatJet_pt_jesTotalNoTimeUp_;
     float FatJet_pt_jesTotalUp_[NFATJET_MAX];
     vector<float> v_FatJet_pt_jesTotalUp_;
     TBranch *b_FatJet_pt_jesTotalUp_;
@@ -8306,6 +10294,222 @@ protected:
     bool loaded_Jet_mass_jerUp_;
     unsigned int counter_cached_Jet_mass_jerUp_;
     unsigned int counter_uncached_Jet_mass_jerUp_;
+    float Jet_mass_jesAbsoluteFlavMapDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesAbsoluteFlavMapDown_;
+    TBranch *b_Jet_mass_jesAbsoluteFlavMapDown_;
+    bool loaded_Jet_mass_jesAbsoluteFlavMapDown_;
+    unsigned int counter_cached_Jet_mass_jesAbsoluteFlavMapDown_;
+    unsigned int counter_uncached_Jet_mass_jesAbsoluteFlavMapDown_;
+    float Jet_mass_jesAbsoluteFlavMapUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesAbsoluteFlavMapUp_;
+    TBranch *b_Jet_mass_jesAbsoluteFlavMapUp_;
+    bool loaded_Jet_mass_jesAbsoluteFlavMapUp_;
+    unsigned int counter_cached_Jet_mass_jesAbsoluteFlavMapUp_;
+    unsigned int counter_uncached_Jet_mass_jesAbsoluteFlavMapUp_;
+    float Jet_mass_jesAbsoluteMPFBiasDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesAbsoluteMPFBiasDown_;
+    TBranch *b_Jet_mass_jesAbsoluteMPFBiasDown_;
+    bool loaded_Jet_mass_jesAbsoluteMPFBiasDown_;
+    unsigned int counter_cached_Jet_mass_jesAbsoluteMPFBiasDown_;
+    unsigned int counter_uncached_Jet_mass_jesAbsoluteMPFBiasDown_;
+    float Jet_mass_jesAbsoluteMPFBiasUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesAbsoluteMPFBiasUp_;
+    TBranch *b_Jet_mass_jesAbsoluteMPFBiasUp_;
+    bool loaded_Jet_mass_jesAbsoluteMPFBiasUp_;
+    unsigned int counter_cached_Jet_mass_jesAbsoluteMPFBiasUp_;
+    unsigned int counter_uncached_Jet_mass_jesAbsoluteMPFBiasUp_;
+    float Jet_mass_jesAbsoluteSampleDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesAbsoluteSampleDown_;
+    TBranch *b_Jet_mass_jesAbsoluteSampleDown_;
+    bool loaded_Jet_mass_jesAbsoluteSampleDown_;
+    unsigned int counter_cached_Jet_mass_jesAbsoluteSampleDown_;
+    unsigned int counter_uncached_Jet_mass_jesAbsoluteSampleDown_;
+    float Jet_mass_jesAbsoluteSampleUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesAbsoluteSampleUp_;
+    TBranch *b_Jet_mass_jesAbsoluteSampleUp_;
+    bool loaded_Jet_mass_jesAbsoluteSampleUp_;
+    unsigned int counter_cached_Jet_mass_jesAbsoluteSampleUp_;
+    unsigned int counter_uncached_Jet_mass_jesAbsoluteSampleUp_;
+    float Jet_mass_jesAbsoluteScaleDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesAbsoluteScaleDown_;
+    TBranch *b_Jet_mass_jesAbsoluteScaleDown_;
+    bool loaded_Jet_mass_jesAbsoluteScaleDown_;
+    unsigned int counter_cached_Jet_mass_jesAbsoluteScaleDown_;
+    unsigned int counter_uncached_Jet_mass_jesAbsoluteScaleDown_;
+    float Jet_mass_jesAbsoluteScaleUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesAbsoluteScaleUp_;
+    TBranch *b_Jet_mass_jesAbsoluteScaleUp_;
+    bool loaded_Jet_mass_jesAbsoluteScaleUp_;
+    unsigned int counter_cached_Jet_mass_jesAbsoluteScaleUp_;
+    unsigned int counter_uncached_Jet_mass_jesAbsoluteScaleUp_;
+    float Jet_mass_jesAbsoluteStatDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesAbsoluteStatDown_;
+    TBranch *b_Jet_mass_jesAbsoluteStatDown_;
+    bool loaded_Jet_mass_jesAbsoluteStatDown_;
+    unsigned int counter_cached_Jet_mass_jesAbsoluteStatDown_;
+    unsigned int counter_uncached_Jet_mass_jesAbsoluteStatDown_;
+    float Jet_mass_jesAbsoluteStatUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesAbsoluteStatUp_;
+    TBranch *b_Jet_mass_jesAbsoluteStatUp_;
+    bool loaded_Jet_mass_jesAbsoluteStatUp_;
+    unsigned int counter_cached_Jet_mass_jesAbsoluteStatUp_;
+    unsigned int counter_uncached_Jet_mass_jesAbsoluteStatUp_;
+    float Jet_mass_jesCorrelationGroupFlavorDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesCorrelationGroupFlavorDown_;
+    TBranch *b_Jet_mass_jesCorrelationGroupFlavorDown_;
+    bool loaded_Jet_mass_jesCorrelationGroupFlavorDown_;
+    unsigned int counter_cached_Jet_mass_jesCorrelationGroupFlavorDown_;
+    unsigned int counter_uncached_Jet_mass_jesCorrelationGroupFlavorDown_;
+    float Jet_mass_jesCorrelationGroupFlavorUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesCorrelationGroupFlavorUp_;
+    TBranch *b_Jet_mass_jesCorrelationGroupFlavorUp_;
+    bool loaded_Jet_mass_jesCorrelationGroupFlavorUp_;
+    unsigned int counter_cached_Jet_mass_jesCorrelationGroupFlavorUp_;
+    unsigned int counter_uncached_Jet_mass_jesCorrelationGroupFlavorUp_;
+    float Jet_mass_jesCorrelationGroupIntercalibrationDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesCorrelationGroupIntercalibrationDown_;
+    TBranch *b_Jet_mass_jesCorrelationGroupIntercalibrationDown_;
+    bool loaded_Jet_mass_jesCorrelationGroupIntercalibrationDown_;
+    unsigned int counter_cached_Jet_mass_jesCorrelationGroupIntercalibrationDown_;
+    unsigned int counter_uncached_Jet_mass_jesCorrelationGroupIntercalibrationDown_;
+    float Jet_mass_jesCorrelationGroupIntercalibrationUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesCorrelationGroupIntercalibrationUp_;
+    TBranch *b_Jet_mass_jesCorrelationGroupIntercalibrationUp_;
+    bool loaded_Jet_mass_jesCorrelationGroupIntercalibrationUp_;
+    unsigned int counter_cached_Jet_mass_jesCorrelationGroupIntercalibrationUp_;
+    unsigned int counter_uncached_Jet_mass_jesCorrelationGroupIntercalibrationUp_;
+    float Jet_mass_jesCorrelationGroupMPFInSituDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesCorrelationGroupMPFInSituDown_;
+    TBranch *b_Jet_mass_jesCorrelationGroupMPFInSituDown_;
+    bool loaded_Jet_mass_jesCorrelationGroupMPFInSituDown_;
+    unsigned int counter_cached_Jet_mass_jesCorrelationGroupMPFInSituDown_;
+    unsigned int counter_uncached_Jet_mass_jesCorrelationGroupMPFInSituDown_;
+    float Jet_mass_jesCorrelationGroupMPFInSituUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesCorrelationGroupMPFInSituUp_;
+    TBranch *b_Jet_mass_jesCorrelationGroupMPFInSituUp_;
+    bool loaded_Jet_mass_jesCorrelationGroupMPFInSituUp_;
+    unsigned int counter_cached_Jet_mass_jesCorrelationGroupMPFInSituUp_;
+    unsigned int counter_uncached_Jet_mass_jesCorrelationGroupMPFInSituUp_;
+    float Jet_mass_jesCorrelationGroupUncorrelatedDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesCorrelationGroupUncorrelatedDown_;
+    TBranch *b_Jet_mass_jesCorrelationGroupUncorrelatedDown_;
+    bool loaded_Jet_mass_jesCorrelationGroupUncorrelatedDown_;
+    unsigned int counter_cached_Jet_mass_jesCorrelationGroupUncorrelatedDown_;
+    unsigned int counter_uncached_Jet_mass_jesCorrelationGroupUncorrelatedDown_;
+    float Jet_mass_jesCorrelationGroupUncorrelatedUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesCorrelationGroupUncorrelatedUp_;
+    TBranch *b_Jet_mass_jesCorrelationGroupUncorrelatedUp_;
+    bool loaded_Jet_mass_jesCorrelationGroupUncorrelatedUp_;
+    unsigned int counter_cached_Jet_mass_jesCorrelationGroupUncorrelatedUp_;
+    unsigned int counter_uncached_Jet_mass_jesCorrelationGroupUncorrelatedUp_;
+    float Jet_mass_jesCorrelationGroupbJESDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesCorrelationGroupbJESDown_;
+    TBranch *b_Jet_mass_jesCorrelationGroupbJESDown_;
+    bool loaded_Jet_mass_jesCorrelationGroupbJESDown_;
+    unsigned int counter_cached_Jet_mass_jesCorrelationGroupbJESDown_;
+    unsigned int counter_uncached_Jet_mass_jesCorrelationGroupbJESDown_;
+    float Jet_mass_jesCorrelationGroupbJESUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesCorrelationGroupbJESUp_;
+    TBranch *b_Jet_mass_jesCorrelationGroupbJESUp_;
+    bool loaded_Jet_mass_jesCorrelationGroupbJESUp_;
+    unsigned int counter_cached_Jet_mass_jesCorrelationGroupbJESUp_;
+    unsigned int counter_uncached_Jet_mass_jesCorrelationGroupbJESUp_;
+    float Jet_mass_jesFlavorPhotonJetDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesFlavorPhotonJetDown_;
+    TBranch *b_Jet_mass_jesFlavorPhotonJetDown_;
+    bool loaded_Jet_mass_jesFlavorPhotonJetDown_;
+    unsigned int counter_cached_Jet_mass_jesFlavorPhotonJetDown_;
+    unsigned int counter_uncached_Jet_mass_jesFlavorPhotonJetDown_;
+    float Jet_mass_jesFlavorPhotonJetUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesFlavorPhotonJetUp_;
+    TBranch *b_Jet_mass_jesFlavorPhotonJetUp_;
+    bool loaded_Jet_mass_jesFlavorPhotonJetUp_;
+    unsigned int counter_cached_Jet_mass_jesFlavorPhotonJetUp_;
+    unsigned int counter_uncached_Jet_mass_jesFlavorPhotonJetUp_;
+    float Jet_mass_jesFlavorPureBottomDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesFlavorPureBottomDown_;
+    TBranch *b_Jet_mass_jesFlavorPureBottomDown_;
+    bool loaded_Jet_mass_jesFlavorPureBottomDown_;
+    unsigned int counter_cached_Jet_mass_jesFlavorPureBottomDown_;
+    unsigned int counter_uncached_Jet_mass_jesFlavorPureBottomDown_;
+    float Jet_mass_jesFlavorPureBottomUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesFlavorPureBottomUp_;
+    TBranch *b_Jet_mass_jesFlavorPureBottomUp_;
+    bool loaded_Jet_mass_jesFlavorPureBottomUp_;
+    unsigned int counter_cached_Jet_mass_jesFlavorPureBottomUp_;
+    unsigned int counter_uncached_Jet_mass_jesFlavorPureBottomUp_;
+    float Jet_mass_jesFlavorPureCharmDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesFlavorPureCharmDown_;
+    TBranch *b_Jet_mass_jesFlavorPureCharmDown_;
+    bool loaded_Jet_mass_jesFlavorPureCharmDown_;
+    unsigned int counter_cached_Jet_mass_jesFlavorPureCharmDown_;
+    unsigned int counter_uncached_Jet_mass_jesFlavorPureCharmDown_;
+    float Jet_mass_jesFlavorPureCharmUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesFlavorPureCharmUp_;
+    TBranch *b_Jet_mass_jesFlavorPureCharmUp_;
+    bool loaded_Jet_mass_jesFlavorPureCharmUp_;
+    unsigned int counter_cached_Jet_mass_jesFlavorPureCharmUp_;
+    unsigned int counter_uncached_Jet_mass_jesFlavorPureCharmUp_;
+    float Jet_mass_jesFlavorPureGluonDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesFlavorPureGluonDown_;
+    TBranch *b_Jet_mass_jesFlavorPureGluonDown_;
+    bool loaded_Jet_mass_jesFlavorPureGluonDown_;
+    unsigned int counter_cached_Jet_mass_jesFlavorPureGluonDown_;
+    unsigned int counter_uncached_Jet_mass_jesFlavorPureGluonDown_;
+    float Jet_mass_jesFlavorPureGluonUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesFlavorPureGluonUp_;
+    TBranch *b_Jet_mass_jesFlavorPureGluonUp_;
+    bool loaded_Jet_mass_jesFlavorPureGluonUp_;
+    unsigned int counter_cached_Jet_mass_jesFlavorPureGluonUp_;
+    unsigned int counter_uncached_Jet_mass_jesFlavorPureGluonUp_;
+    float Jet_mass_jesFlavorPureQuarkDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesFlavorPureQuarkDown_;
+    TBranch *b_Jet_mass_jesFlavorPureQuarkDown_;
+    bool loaded_Jet_mass_jesFlavorPureQuarkDown_;
+    unsigned int counter_cached_Jet_mass_jesFlavorPureQuarkDown_;
+    unsigned int counter_uncached_Jet_mass_jesFlavorPureQuarkDown_;
+    float Jet_mass_jesFlavorPureQuarkUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesFlavorPureQuarkUp_;
+    TBranch *b_Jet_mass_jesFlavorPureQuarkUp_;
+    bool loaded_Jet_mass_jesFlavorPureQuarkUp_;
+    unsigned int counter_cached_Jet_mass_jesFlavorPureQuarkUp_;
+    unsigned int counter_uncached_Jet_mass_jesFlavorPureQuarkUp_;
+    float Jet_mass_jesFlavorQCDDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesFlavorQCDDown_;
+    TBranch *b_Jet_mass_jesFlavorQCDDown_;
+    bool loaded_Jet_mass_jesFlavorQCDDown_;
+    unsigned int counter_cached_Jet_mass_jesFlavorQCDDown_;
+    unsigned int counter_uncached_Jet_mass_jesFlavorQCDDown_;
+    float Jet_mass_jesFlavorQCDUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesFlavorQCDUp_;
+    TBranch *b_Jet_mass_jesFlavorQCDUp_;
+    bool loaded_Jet_mass_jesFlavorQCDUp_;
+    unsigned int counter_cached_Jet_mass_jesFlavorQCDUp_;
+    unsigned int counter_uncached_Jet_mass_jesFlavorQCDUp_;
+    float Jet_mass_jesFlavorZJetDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesFlavorZJetDown_;
+    TBranch *b_Jet_mass_jesFlavorZJetDown_;
+    bool loaded_Jet_mass_jesFlavorZJetDown_;
+    unsigned int counter_cached_Jet_mass_jesFlavorZJetDown_;
+    unsigned int counter_uncached_Jet_mass_jesFlavorZJetDown_;
+    float Jet_mass_jesFlavorZJetUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesFlavorZJetUp_;
+    TBranch *b_Jet_mass_jesFlavorZJetUp_;
+    bool loaded_Jet_mass_jesFlavorZJetUp_;
+    unsigned int counter_cached_Jet_mass_jesFlavorZJetUp_;
+    unsigned int counter_uncached_Jet_mass_jesFlavorZJetUp_;
+    float Jet_mass_jesFragmentationDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesFragmentationDown_;
+    TBranch *b_Jet_mass_jesFragmentationDown_;
+    bool loaded_Jet_mass_jesFragmentationDown_;
+    unsigned int counter_cached_Jet_mass_jesFragmentationDown_;
+    unsigned int counter_uncached_Jet_mass_jesFragmentationDown_;
+    float Jet_mass_jesFragmentationUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesFragmentationUp_;
+    TBranch *b_Jet_mass_jesFragmentationUp_;
+    bool loaded_Jet_mass_jesFragmentationUp_;
+    unsigned int counter_cached_Jet_mass_jesFragmentationUp_;
+    unsigned int counter_uncached_Jet_mass_jesFragmentationUp_;
     float Jet_mass_jesHEMIssueDown_[NJET_MAX];
     vector<float> v_Jet_mass_jesHEMIssueDown_;
     TBranch *b_Jet_mass_jesHEMIssueDown_;
@@ -8318,12 +10522,456 @@ protected:
     bool loaded_Jet_mass_jesHEMIssueUp_;
     unsigned int counter_cached_Jet_mass_jesHEMIssueUp_;
     unsigned int counter_uncached_Jet_mass_jesHEMIssueUp_;
+    float Jet_mass_jesPileUpDataMCDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesPileUpDataMCDown_;
+    TBranch *b_Jet_mass_jesPileUpDataMCDown_;
+    bool loaded_Jet_mass_jesPileUpDataMCDown_;
+    unsigned int counter_cached_Jet_mass_jesPileUpDataMCDown_;
+    unsigned int counter_uncached_Jet_mass_jesPileUpDataMCDown_;
+    float Jet_mass_jesPileUpDataMCUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesPileUpDataMCUp_;
+    TBranch *b_Jet_mass_jesPileUpDataMCUp_;
+    bool loaded_Jet_mass_jesPileUpDataMCUp_;
+    unsigned int counter_cached_Jet_mass_jesPileUpDataMCUp_;
+    unsigned int counter_uncached_Jet_mass_jesPileUpDataMCUp_;
+    float Jet_mass_jesPileUpEnvelopeDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesPileUpEnvelopeDown_;
+    TBranch *b_Jet_mass_jesPileUpEnvelopeDown_;
+    bool loaded_Jet_mass_jesPileUpEnvelopeDown_;
+    unsigned int counter_cached_Jet_mass_jesPileUpEnvelopeDown_;
+    unsigned int counter_uncached_Jet_mass_jesPileUpEnvelopeDown_;
+    float Jet_mass_jesPileUpEnvelopeUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesPileUpEnvelopeUp_;
+    TBranch *b_Jet_mass_jesPileUpEnvelopeUp_;
+    bool loaded_Jet_mass_jesPileUpEnvelopeUp_;
+    unsigned int counter_cached_Jet_mass_jesPileUpEnvelopeUp_;
+    unsigned int counter_uncached_Jet_mass_jesPileUpEnvelopeUp_;
+    float Jet_mass_jesPileUpMuZeroDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesPileUpMuZeroDown_;
+    TBranch *b_Jet_mass_jesPileUpMuZeroDown_;
+    bool loaded_Jet_mass_jesPileUpMuZeroDown_;
+    unsigned int counter_cached_Jet_mass_jesPileUpMuZeroDown_;
+    unsigned int counter_uncached_Jet_mass_jesPileUpMuZeroDown_;
+    float Jet_mass_jesPileUpMuZeroUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesPileUpMuZeroUp_;
+    TBranch *b_Jet_mass_jesPileUpMuZeroUp_;
+    bool loaded_Jet_mass_jesPileUpMuZeroUp_;
+    unsigned int counter_cached_Jet_mass_jesPileUpMuZeroUp_;
+    unsigned int counter_uncached_Jet_mass_jesPileUpMuZeroUp_;
+    float Jet_mass_jesPileUpPtBBDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesPileUpPtBBDown_;
+    TBranch *b_Jet_mass_jesPileUpPtBBDown_;
+    bool loaded_Jet_mass_jesPileUpPtBBDown_;
+    unsigned int counter_cached_Jet_mass_jesPileUpPtBBDown_;
+    unsigned int counter_uncached_Jet_mass_jesPileUpPtBBDown_;
+    float Jet_mass_jesPileUpPtBBUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesPileUpPtBBUp_;
+    TBranch *b_Jet_mass_jesPileUpPtBBUp_;
+    bool loaded_Jet_mass_jesPileUpPtBBUp_;
+    unsigned int counter_cached_Jet_mass_jesPileUpPtBBUp_;
+    unsigned int counter_uncached_Jet_mass_jesPileUpPtBBUp_;
+    float Jet_mass_jesPileUpPtEC1Down_[NJET_MAX];
+    vector<float> v_Jet_mass_jesPileUpPtEC1Down_;
+    TBranch *b_Jet_mass_jesPileUpPtEC1Down_;
+    bool loaded_Jet_mass_jesPileUpPtEC1Down_;
+    unsigned int counter_cached_Jet_mass_jesPileUpPtEC1Down_;
+    unsigned int counter_uncached_Jet_mass_jesPileUpPtEC1Down_;
+    float Jet_mass_jesPileUpPtEC1Up_[NJET_MAX];
+    vector<float> v_Jet_mass_jesPileUpPtEC1Up_;
+    TBranch *b_Jet_mass_jesPileUpPtEC1Up_;
+    bool loaded_Jet_mass_jesPileUpPtEC1Up_;
+    unsigned int counter_cached_Jet_mass_jesPileUpPtEC1Up_;
+    unsigned int counter_uncached_Jet_mass_jesPileUpPtEC1Up_;
+    float Jet_mass_jesPileUpPtEC2Down_[NJET_MAX];
+    vector<float> v_Jet_mass_jesPileUpPtEC2Down_;
+    TBranch *b_Jet_mass_jesPileUpPtEC2Down_;
+    bool loaded_Jet_mass_jesPileUpPtEC2Down_;
+    unsigned int counter_cached_Jet_mass_jesPileUpPtEC2Down_;
+    unsigned int counter_uncached_Jet_mass_jesPileUpPtEC2Down_;
+    float Jet_mass_jesPileUpPtEC2Up_[NJET_MAX];
+    vector<float> v_Jet_mass_jesPileUpPtEC2Up_;
+    TBranch *b_Jet_mass_jesPileUpPtEC2Up_;
+    bool loaded_Jet_mass_jesPileUpPtEC2Up_;
+    unsigned int counter_cached_Jet_mass_jesPileUpPtEC2Up_;
+    unsigned int counter_uncached_Jet_mass_jesPileUpPtEC2Up_;
+    float Jet_mass_jesPileUpPtHFDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesPileUpPtHFDown_;
+    TBranch *b_Jet_mass_jesPileUpPtHFDown_;
+    bool loaded_Jet_mass_jesPileUpPtHFDown_;
+    unsigned int counter_cached_Jet_mass_jesPileUpPtHFDown_;
+    unsigned int counter_uncached_Jet_mass_jesPileUpPtHFDown_;
+    float Jet_mass_jesPileUpPtHFUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesPileUpPtHFUp_;
+    TBranch *b_Jet_mass_jesPileUpPtHFUp_;
+    bool loaded_Jet_mass_jesPileUpPtHFUp_;
+    unsigned int counter_cached_Jet_mass_jesPileUpPtHFUp_;
+    unsigned int counter_uncached_Jet_mass_jesPileUpPtHFUp_;
+    float Jet_mass_jesPileUpPtRefDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesPileUpPtRefDown_;
+    TBranch *b_Jet_mass_jesPileUpPtRefDown_;
+    bool loaded_Jet_mass_jesPileUpPtRefDown_;
+    unsigned int counter_cached_Jet_mass_jesPileUpPtRefDown_;
+    unsigned int counter_uncached_Jet_mass_jesPileUpPtRefDown_;
+    float Jet_mass_jesPileUpPtRefUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesPileUpPtRefUp_;
+    TBranch *b_Jet_mass_jesPileUpPtRefUp_;
+    bool loaded_Jet_mass_jesPileUpPtRefUp_;
+    unsigned int counter_cached_Jet_mass_jesPileUpPtRefUp_;
+    unsigned int counter_uncached_Jet_mass_jesPileUpPtRefUp_;
+    float Jet_mass_jesRelativeBalDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesRelativeBalDown_;
+    TBranch *b_Jet_mass_jesRelativeBalDown_;
+    bool loaded_Jet_mass_jesRelativeBalDown_;
+    unsigned int counter_cached_Jet_mass_jesRelativeBalDown_;
+    unsigned int counter_uncached_Jet_mass_jesRelativeBalDown_;
+    float Jet_mass_jesRelativeBalUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesRelativeBalUp_;
+    TBranch *b_Jet_mass_jesRelativeBalUp_;
+    bool loaded_Jet_mass_jesRelativeBalUp_;
+    unsigned int counter_cached_Jet_mass_jesRelativeBalUp_;
+    unsigned int counter_uncached_Jet_mass_jesRelativeBalUp_;
+    float Jet_mass_jesRelativeFSRDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesRelativeFSRDown_;
+    TBranch *b_Jet_mass_jesRelativeFSRDown_;
+    bool loaded_Jet_mass_jesRelativeFSRDown_;
+    unsigned int counter_cached_Jet_mass_jesRelativeFSRDown_;
+    unsigned int counter_uncached_Jet_mass_jesRelativeFSRDown_;
+    float Jet_mass_jesRelativeFSRUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesRelativeFSRUp_;
+    TBranch *b_Jet_mass_jesRelativeFSRUp_;
+    bool loaded_Jet_mass_jesRelativeFSRUp_;
+    unsigned int counter_cached_Jet_mass_jesRelativeFSRUp_;
+    unsigned int counter_uncached_Jet_mass_jesRelativeFSRUp_;
+    float Jet_mass_jesRelativeJEREC1Down_[NJET_MAX];
+    vector<float> v_Jet_mass_jesRelativeJEREC1Down_;
+    TBranch *b_Jet_mass_jesRelativeJEREC1Down_;
+    bool loaded_Jet_mass_jesRelativeJEREC1Down_;
+    unsigned int counter_cached_Jet_mass_jesRelativeJEREC1Down_;
+    unsigned int counter_uncached_Jet_mass_jesRelativeJEREC1Down_;
+    float Jet_mass_jesRelativeJEREC1Up_[NJET_MAX];
+    vector<float> v_Jet_mass_jesRelativeJEREC1Up_;
+    TBranch *b_Jet_mass_jesRelativeJEREC1Up_;
+    bool loaded_Jet_mass_jesRelativeJEREC1Up_;
+    unsigned int counter_cached_Jet_mass_jesRelativeJEREC1Up_;
+    unsigned int counter_uncached_Jet_mass_jesRelativeJEREC1Up_;
+    float Jet_mass_jesRelativeJEREC2Down_[NJET_MAX];
+    vector<float> v_Jet_mass_jesRelativeJEREC2Down_;
+    TBranch *b_Jet_mass_jesRelativeJEREC2Down_;
+    bool loaded_Jet_mass_jesRelativeJEREC2Down_;
+    unsigned int counter_cached_Jet_mass_jesRelativeJEREC2Down_;
+    unsigned int counter_uncached_Jet_mass_jesRelativeJEREC2Down_;
+    float Jet_mass_jesRelativeJEREC2Up_[NJET_MAX];
+    vector<float> v_Jet_mass_jesRelativeJEREC2Up_;
+    TBranch *b_Jet_mass_jesRelativeJEREC2Up_;
+    bool loaded_Jet_mass_jesRelativeJEREC2Up_;
+    unsigned int counter_cached_Jet_mass_jesRelativeJEREC2Up_;
+    unsigned int counter_uncached_Jet_mass_jesRelativeJEREC2Up_;
+    float Jet_mass_jesRelativeJERHFDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesRelativeJERHFDown_;
+    TBranch *b_Jet_mass_jesRelativeJERHFDown_;
+    bool loaded_Jet_mass_jesRelativeJERHFDown_;
+    unsigned int counter_cached_Jet_mass_jesRelativeJERHFDown_;
+    unsigned int counter_uncached_Jet_mass_jesRelativeJERHFDown_;
+    float Jet_mass_jesRelativeJERHFUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesRelativeJERHFUp_;
+    TBranch *b_Jet_mass_jesRelativeJERHFUp_;
+    bool loaded_Jet_mass_jesRelativeJERHFUp_;
+    unsigned int counter_cached_Jet_mass_jesRelativeJERHFUp_;
+    unsigned int counter_uncached_Jet_mass_jesRelativeJERHFUp_;
+    float Jet_mass_jesRelativePtBBDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesRelativePtBBDown_;
+    TBranch *b_Jet_mass_jesRelativePtBBDown_;
+    bool loaded_Jet_mass_jesRelativePtBBDown_;
+    unsigned int counter_cached_Jet_mass_jesRelativePtBBDown_;
+    unsigned int counter_uncached_Jet_mass_jesRelativePtBBDown_;
+    float Jet_mass_jesRelativePtBBUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesRelativePtBBUp_;
+    TBranch *b_Jet_mass_jesRelativePtBBUp_;
+    bool loaded_Jet_mass_jesRelativePtBBUp_;
+    unsigned int counter_cached_Jet_mass_jesRelativePtBBUp_;
+    unsigned int counter_uncached_Jet_mass_jesRelativePtBBUp_;
+    float Jet_mass_jesRelativePtEC1Down_[NJET_MAX];
+    vector<float> v_Jet_mass_jesRelativePtEC1Down_;
+    TBranch *b_Jet_mass_jesRelativePtEC1Down_;
+    bool loaded_Jet_mass_jesRelativePtEC1Down_;
+    unsigned int counter_cached_Jet_mass_jesRelativePtEC1Down_;
+    unsigned int counter_uncached_Jet_mass_jesRelativePtEC1Down_;
+    float Jet_mass_jesRelativePtEC1Up_[NJET_MAX];
+    vector<float> v_Jet_mass_jesRelativePtEC1Up_;
+    TBranch *b_Jet_mass_jesRelativePtEC1Up_;
+    bool loaded_Jet_mass_jesRelativePtEC1Up_;
+    unsigned int counter_cached_Jet_mass_jesRelativePtEC1Up_;
+    unsigned int counter_uncached_Jet_mass_jesRelativePtEC1Up_;
+    float Jet_mass_jesRelativePtEC2Down_[NJET_MAX];
+    vector<float> v_Jet_mass_jesRelativePtEC2Down_;
+    TBranch *b_Jet_mass_jesRelativePtEC2Down_;
+    bool loaded_Jet_mass_jesRelativePtEC2Down_;
+    unsigned int counter_cached_Jet_mass_jesRelativePtEC2Down_;
+    unsigned int counter_uncached_Jet_mass_jesRelativePtEC2Down_;
+    float Jet_mass_jesRelativePtEC2Up_[NJET_MAX];
+    vector<float> v_Jet_mass_jesRelativePtEC2Up_;
+    TBranch *b_Jet_mass_jesRelativePtEC2Up_;
+    bool loaded_Jet_mass_jesRelativePtEC2Up_;
+    unsigned int counter_cached_Jet_mass_jesRelativePtEC2Up_;
+    unsigned int counter_uncached_Jet_mass_jesRelativePtEC2Up_;
+    float Jet_mass_jesRelativePtHFDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesRelativePtHFDown_;
+    TBranch *b_Jet_mass_jesRelativePtHFDown_;
+    bool loaded_Jet_mass_jesRelativePtHFDown_;
+    unsigned int counter_cached_Jet_mass_jesRelativePtHFDown_;
+    unsigned int counter_uncached_Jet_mass_jesRelativePtHFDown_;
+    float Jet_mass_jesRelativePtHFUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesRelativePtHFUp_;
+    TBranch *b_Jet_mass_jesRelativePtHFUp_;
+    bool loaded_Jet_mass_jesRelativePtHFUp_;
+    unsigned int counter_cached_Jet_mass_jesRelativePtHFUp_;
+    unsigned int counter_uncached_Jet_mass_jesRelativePtHFUp_;
+    float Jet_mass_jesRelativeSampleDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesRelativeSampleDown_;
+    TBranch *b_Jet_mass_jesRelativeSampleDown_;
+    bool loaded_Jet_mass_jesRelativeSampleDown_;
+    unsigned int counter_cached_Jet_mass_jesRelativeSampleDown_;
+    unsigned int counter_uncached_Jet_mass_jesRelativeSampleDown_;
+    float Jet_mass_jesRelativeSampleUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesRelativeSampleUp_;
+    TBranch *b_Jet_mass_jesRelativeSampleUp_;
+    bool loaded_Jet_mass_jesRelativeSampleUp_;
+    unsigned int counter_cached_Jet_mass_jesRelativeSampleUp_;
+    unsigned int counter_uncached_Jet_mass_jesRelativeSampleUp_;
+    float Jet_mass_jesRelativeStatECDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesRelativeStatECDown_;
+    TBranch *b_Jet_mass_jesRelativeStatECDown_;
+    bool loaded_Jet_mass_jesRelativeStatECDown_;
+    unsigned int counter_cached_Jet_mass_jesRelativeStatECDown_;
+    unsigned int counter_uncached_Jet_mass_jesRelativeStatECDown_;
+    float Jet_mass_jesRelativeStatECUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesRelativeStatECUp_;
+    TBranch *b_Jet_mass_jesRelativeStatECUp_;
+    bool loaded_Jet_mass_jesRelativeStatECUp_;
+    unsigned int counter_cached_Jet_mass_jesRelativeStatECUp_;
+    unsigned int counter_uncached_Jet_mass_jesRelativeStatECUp_;
+    float Jet_mass_jesRelativeStatFSRDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesRelativeStatFSRDown_;
+    TBranch *b_Jet_mass_jesRelativeStatFSRDown_;
+    bool loaded_Jet_mass_jesRelativeStatFSRDown_;
+    unsigned int counter_cached_Jet_mass_jesRelativeStatFSRDown_;
+    unsigned int counter_uncached_Jet_mass_jesRelativeStatFSRDown_;
+    float Jet_mass_jesRelativeStatFSRUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesRelativeStatFSRUp_;
+    TBranch *b_Jet_mass_jesRelativeStatFSRUp_;
+    bool loaded_Jet_mass_jesRelativeStatFSRUp_;
+    unsigned int counter_cached_Jet_mass_jesRelativeStatFSRUp_;
+    unsigned int counter_uncached_Jet_mass_jesRelativeStatFSRUp_;
+    float Jet_mass_jesRelativeStatHFDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesRelativeStatHFDown_;
+    TBranch *b_Jet_mass_jesRelativeStatHFDown_;
+    bool loaded_Jet_mass_jesRelativeStatHFDown_;
+    unsigned int counter_cached_Jet_mass_jesRelativeStatHFDown_;
+    unsigned int counter_uncached_Jet_mass_jesRelativeStatHFDown_;
+    float Jet_mass_jesRelativeStatHFUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesRelativeStatHFUp_;
+    TBranch *b_Jet_mass_jesRelativeStatHFUp_;
+    bool loaded_Jet_mass_jesRelativeStatHFUp_;
+    unsigned int counter_cached_Jet_mass_jesRelativeStatHFUp_;
+    unsigned int counter_uncached_Jet_mass_jesRelativeStatHFUp_;
+    float Jet_mass_jesSinglePionECALDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesSinglePionECALDown_;
+    TBranch *b_Jet_mass_jesSinglePionECALDown_;
+    bool loaded_Jet_mass_jesSinglePionECALDown_;
+    unsigned int counter_cached_Jet_mass_jesSinglePionECALDown_;
+    unsigned int counter_uncached_Jet_mass_jesSinglePionECALDown_;
+    float Jet_mass_jesSinglePionECALUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesSinglePionECALUp_;
+    TBranch *b_Jet_mass_jesSinglePionECALUp_;
+    bool loaded_Jet_mass_jesSinglePionECALUp_;
+    unsigned int counter_cached_Jet_mass_jesSinglePionECALUp_;
+    unsigned int counter_uncached_Jet_mass_jesSinglePionECALUp_;
+    float Jet_mass_jesSinglePionHCALDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesSinglePionHCALDown_;
+    TBranch *b_Jet_mass_jesSinglePionHCALDown_;
+    bool loaded_Jet_mass_jesSinglePionHCALDown_;
+    unsigned int counter_cached_Jet_mass_jesSinglePionHCALDown_;
+    unsigned int counter_uncached_Jet_mass_jesSinglePionHCALDown_;
+    float Jet_mass_jesSinglePionHCALUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesSinglePionHCALUp_;
+    TBranch *b_Jet_mass_jesSinglePionHCALUp_;
+    bool loaded_Jet_mass_jesSinglePionHCALUp_;
+    unsigned int counter_cached_Jet_mass_jesSinglePionHCALUp_;
+    unsigned int counter_uncached_Jet_mass_jesSinglePionHCALUp_;
+    float Jet_mass_jesSubTotalAbsoluteDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesSubTotalAbsoluteDown_;
+    TBranch *b_Jet_mass_jesSubTotalAbsoluteDown_;
+    bool loaded_Jet_mass_jesSubTotalAbsoluteDown_;
+    unsigned int counter_cached_Jet_mass_jesSubTotalAbsoluteDown_;
+    unsigned int counter_uncached_Jet_mass_jesSubTotalAbsoluteDown_;
+    float Jet_mass_jesSubTotalAbsoluteUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesSubTotalAbsoluteUp_;
+    TBranch *b_Jet_mass_jesSubTotalAbsoluteUp_;
+    bool loaded_Jet_mass_jesSubTotalAbsoluteUp_;
+    unsigned int counter_cached_Jet_mass_jesSubTotalAbsoluteUp_;
+    unsigned int counter_uncached_Jet_mass_jesSubTotalAbsoluteUp_;
+    float Jet_mass_jesSubTotalMCDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesSubTotalMCDown_;
+    TBranch *b_Jet_mass_jesSubTotalMCDown_;
+    bool loaded_Jet_mass_jesSubTotalMCDown_;
+    unsigned int counter_cached_Jet_mass_jesSubTotalMCDown_;
+    unsigned int counter_uncached_Jet_mass_jesSubTotalMCDown_;
+    float Jet_mass_jesSubTotalMCUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesSubTotalMCUp_;
+    TBranch *b_Jet_mass_jesSubTotalMCUp_;
+    bool loaded_Jet_mass_jesSubTotalMCUp_;
+    unsigned int counter_cached_Jet_mass_jesSubTotalMCUp_;
+    unsigned int counter_uncached_Jet_mass_jesSubTotalMCUp_;
+    float Jet_mass_jesSubTotalPileUpDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesSubTotalPileUpDown_;
+    TBranch *b_Jet_mass_jesSubTotalPileUpDown_;
+    bool loaded_Jet_mass_jesSubTotalPileUpDown_;
+    unsigned int counter_cached_Jet_mass_jesSubTotalPileUpDown_;
+    unsigned int counter_uncached_Jet_mass_jesSubTotalPileUpDown_;
+    float Jet_mass_jesSubTotalPileUpUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesSubTotalPileUpUp_;
+    TBranch *b_Jet_mass_jesSubTotalPileUpUp_;
+    bool loaded_Jet_mass_jesSubTotalPileUpUp_;
+    unsigned int counter_cached_Jet_mass_jesSubTotalPileUpUp_;
+    unsigned int counter_uncached_Jet_mass_jesSubTotalPileUpUp_;
+    float Jet_mass_jesSubTotalPtDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesSubTotalPtDown_;
+    TBranch *b_Jet_mass_jesSubTotalPtDown_;
+    bool loaded_Jet_mass_jesSubTotalPtDown_;
+    unsigned int counter_cached_Jet_mass_jesSubTotalPtDown_;
+    unsigned int counter_uncached_Jet_mass_jesSubTotalPtDown_;
+    float Jet_mass_jesSubTotalPtUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesSubTotalPtUp_;
+    TBranch *b_Jet_mass_jesSubTotalPtUp_;
+    bool loaded_Jet_mass_jesSubTotalPtUp_;
+    unsigned int counter_cached_Jet_mass_jesSubTotalPtUp_;
+    unsigned int counter_uncached_Jet_mass_jesSubTotalPtUp_;
+    float Jet_mass_jesSubTotalRelativeDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesSubTotalRelativeDown_;
+    TBranch *b_Jet_mass_jesSubTotalRelativeDown_;
+    bool loaded_Jet_mass_jesSubTotalRelativeDown_;
+    unsigned int counter_cached_Jet_mass_jesSubTotalRelativeDown_;
+    unsigned int counter_uncached_Jet_mass_jesSubTotalRelativeDown_;
+    float Jet_mass_jesSubTotalRelativeUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesSubTotalRelativeUp_;
+    TBranch *b_Jet_mass_jesSubTotalRelativeUp_;
+    bool loaded_Jet_mass_jesSubTotalRelativeUp_;
+    unsigned int counter_cached_Jet_mass_jesSubTotalRelativeUp_;
+    unsigned int counter_uncached_Jet_mass_jesSubTotalRelativeUp_;
+    float Jet_mass_jesSubTotalScaleDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesSubTotalScaleDown_;
+    TBranch *b_Jet_mass_jesSubTotalScaleDown_;
+    bool loaded_Jet_mass_jesSubTotalScaleDown_;
+    unsigned int counter_cached_Jet_mass_jesSubTotalScaleDown_;
+    unsigned int counter_uncached_Jet_mass_jesSubTotalScaleDown_;
+    float Jet_mass_jesSubTotalScaleUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesSubTotalScaleUp_;
+    TBranch *b_Jet_mass_jesSubTotalScaleUp_;
+    bool loaded_Jet_mass_jesSubTotalScaleUp_;
+    unsigned int counter_cached_Jet_mass_jesSubTotalScaleUp_;
+    unsigned int counter_uncached_Jet_mass_jesSubTotalScaleUp_;
+    float Jet_mass_jesTimePtEtaDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesTimePtEtaDown_;
+    TBranch *b_Jet_mass_jesTimePtEtaDown_;
+    bool loaded_Jet_mass_jesTimePtEtaDown_;
+    unsigned int counter_cached_Jet_mass_jesTimePtEtaDown_;
+    unsigned int counter_uncached_Jet_mass_jesTimePtEtaDown_;
+    float Jet_mass_jesTimePtEtaUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesTimePtEtaUp_;
+    TBranch *b_Jet_mass_jesTimePtEtaUp_;
+    bool loaded_Jet_mass_jesTimePtEtaUp_;
+    unsigned int counter_cached_Jet_mass_jesTimePtEtaUp_;
+    unsigned int counter_uncached_Jet_mass_jesTimePtEtaUp_;
+    float Jet_mass_jesTimeRunADown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesTimeRunADown_;
+    TBranch *b_Jet_mass_jesTimeRunADown_;
+    bool loaded_Jet_mass_jesTimeRunADown_;
+    unsigned int counter_cached_Jet_mass_jesTimeRunADown_;
+    unsigned int counter_uncached_Jet_mass_jesTimeRunADown_;
+    float Jet_mass_jesTimeRunAUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesTimeRunAUp_;
+    TBranch *b_Jet_mass_jesTimeRunAUp_;
+    bool loaded_Jet_mass_jesTimeRunAUp_;
+    unsigned int counter_cached_Jet_mass_jesTimeRunAUp_;
+    unsigned int counter_uncached_Jet_mass_jesTimeRunAUp_;
+    float Jet_mass_jesTimeRunBDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesTimeRunBDown_;
+    TBranch *b_Jet_mass_jesTimeRunBDown_;
+    bool loaded_Jet_mass_jesTimeRunBDown_;
+    unsigned int counter_cached_Jet_mass_jesTimeRunBDown_;
+    unsigned int counter_uncached_Jet_mass_jesTimeRunBDown_;
+    float Jet_mass_jesTimeRunBUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesTimeRunBUp_;
+    TBranch *b_Jet_mass_jesTimeRunBUp_;
+    bool loaded_Jet_mass_jesTimeRunBUp_;
+    unsigned int counter_cached_Jet_mass_jesTimeRunBUp_;
+    unsigned int counter_uncached_Jet_mass_jesTimeRunBUp_;
+    float Jet_mass_jesTimeRunCDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesTimeRunCDown_;
+    TBranch *b_Jet_mass_jesTimeRunCDown_;
+    bool loaded_Jet_mass_jesTimeRunCDown_;
+    unsigned int counter_cached_Jet_mass_jesTimeRunCDown_;
+    unsigned int counter_uncached_Jet_mass_jesTimeRunCDown_;
+    float Jet_mass_jesTimeRunCUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesTimeRunCUp_;
+    TBranch *b_Jet_mass_jesTimeRunCUp_;
+    bool loaded_Jet_mass_jesTimeRunCUp_;
+    unsigned int counter_cached_Jet_mass_jesTimeRunCUp_;
+    unsigned int counter_uncached_Jet_mass_jesTimeRunCUp_;
+    float Jet_mass_jesTimeRunDDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesTimeRunDDown_;
+    TBranch *b_Jet_mass_jesTimeRunDDown_;
+    bool loaded_Jet_mass_jesTimeRunDDown_;
+    unsigned int counter_cached_Jet_mass_jesTimeRunDDown_;
+    unsigned int counter_uncached_Jet_mass_jesTimeRunDDown_;
+    float Jet_mass_jesTimeRunDUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesTimeRunDUp_;
+    TBranch *b_Jet_mass_jesTimeRunDUp_;
+    bool loaded_Jet_mass_jesTimeRunDUp_;
+    unsigned int counter_cached_Jet_mass_jesTimeRunDUp_;
+    unsigned int counter_uncached_Jet_mass_jesTimeRunDUp_;
     float Jet_mass_jesTotalDown_[NJET_MAX];
     vector<float> v_Jet_mass_jesTotalDown_;
     TBranch *b_Jet_mass_jesTotalDown_;
     bool loaded_Jet_mass_jesTotalDown_;
     unsigned int counter_cached_Jet_mass_jesTotalDown_;
     unsigned int counter_uncached_Jet_mass_jesTotalDown_;
+    float Jet_mass_jesTotalNoFlavorDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesTotalNoFlavorDown_;
+    TBranch *b_Jet_mass_jesTotalNoFlavorDown_;
+    bool loaded_Jet_mass_jesTotalNoFlavorDown_;
+    unsigned int counter_cached_Jet_mass_jesTotalNoFlavorDown_;
+    unsigned int counter_uncached_Jet_mass_jesTotalNoFlavorDown_;
+    float Jet_mass_jesTotalNoFlavorNoTimeDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesTotalNoFlavorNoTimeDown_;
+    TBranch *b_Jet_mass_jesTotalNoFlavorNoTimeDown_;
+    bool loaded_Jet_mass_jesTotalNoFlavorNoTimeDown_;
+    unsigned int counter_cached_Jet_mass_jesTotalNoFlavorNoTimeDown_;
+    unsigned int counter_uncached_Jet_mass_jesTotalNoFlavorNoTimeDown_;
+    float Jet_mass_jesTotalNoFlavorNoTimeUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesTotalNoFlavorNoTimeUp_;
+    TBranch *b_Jet_mass_jesTotalNoFlavorNoTimeUp_;
+    bool loaded_Jet_mass_jesTotalNoFlavorNoTimeUp_;
+    unsigned int counter_cached_Jet_mass_jesTotalNoFlavorNoTimeUp_;
+    unsigned int counter_uncached_Jet_mass_jesTotalNoFlavorNoTimeUp_;
+    float Jet_mass_jesTotalNoFlavorUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesTotalNoFlavorUp_;
+    TBranch *b_Jet_mass_jesTotalNoFlavorUp_;
+    bool loaded_Jet_mass_jesTotalNoFlavorUp_;
+    unsigned int counter_cached_Jet_mass_jesTotalNoFlavorUp_;
+    unsigned int counter_uncached_Jet_mass_jesTotalNoFlavorUp_;
+    float Jet_mass_jesTotalNoTimeDown_[NJET_MAX];
+    vector<float> v_Jet_mass_jesTotalNoTimeDown_;
+    TBranch *b_Jet_mass_jesTotalNoTimeDown_;
+    bool loaded_Jet_mass_jesTotalNoTimeDown_;
+    unsigned int counter_cached_Jet_mass_jesTotalNoTimeDown_;
+    unsigned int counter_uncached_Jet_mass_jesTotalNoTimeDown_;
+    float Jet_mass_jesTotalNoTimeUp_[NJET_MAX];
+    vector<float> v_Jet_mass_jesTotalNoTimeUp_;
+    TBranch *b_Jet_mass_jesTotalNoTimeUp_;
+    bool loaded_Jet_mass_jesTotalNoTimeUp_;
+    unsigned int counter_cached_Jet_mass_jesTotalNoTimeUp_;
+    unsigned int counter_uncached_Jet_mass_jesTotalNoTimeUp_;
     float Jet_mass_jesTotalUp_[NJET_MAX];
     vector<float> v_Jet_mass_jesTotalUp_;
     TBranch *b_Jet_mass_jesTotalUp_;
@@ -8431,6 +11079,222 @@ protected:
     bool loaded_Jet_pt_jerUp_;
     unsigned int counter_cached_Jet_pt_jerUp_;
     unsigned int counter_uncached_Jet_pt_jerUp_;
+    float Jet_pt_jesAbsoluteFlavMapDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesAbsoluteFlavMapDown_;
+    TBranch *b_Jet_pt_jesAbsoluteFlavMapDown_;
+    bool loaded_Jet_pt_jesAbsoluteFlavMapDown_;
+    unsigned int counter_cached_Jet_pt_jesAbsoluteFlavMapDown_;
+    unsigned int counter_uncached_Jet_pt_jesAbsoluteFlavMapDown_;
+    float Jet_pt_jesAbsoluteFlavMapUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesAbsoluteFlavMapUp_;
+    TBranch *b_Jet_pt_jesAbsoluteFlavMapUp_;
+    bool loaded_Jet_pt_jesAbsoluteFlavMapUp_;
+    unsigned int counter_cached_Jet_pt_jesAbsoluteFlavMapUp_;
+    unsigned int counter_uncached_Jet_pt_jesAbsoluteFlavMapUp_;
+    float Jet_pt_jesAbsoluteMPFBiasDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesAbsoluteMPFBiasDown_;
+    TBranch *b_Jet_pt_jesAbsoluteMPFBiasDown_;
+    bool loaded_Jet_pt_jesAbsoluteMPFBiasDown_;
+    unsigned int counter_cached_Jet_pt_jesAbsoluteMPFBiasDown_;
+    unsigned int counter_uncached_Jet_pt_jesAbsoluteMPFBiasDown_;
+    float Jet_pt_jesAbsoluteMPFBiasUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesAbsoluteMPFBiasUp_;
+    TBranch *b_Jet_pt_jesAbsoluteMPFBiasUp_;
+    bool loaded_Jet_pt_jesAbsoluteMPFBiasUp_;
+    unsigned int counter_cached_Jet_pt_jesAbsoluteMPFBiasUp_;
+    unsigned int counter_uncached_Jet_pt_jesAbsoluteMPFBiasUp_;
+    float Jet_pt_jesAbsoluteSampleDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesAbsoluteSampleDown_;
+    TBranch *b_Jet_pt_jesAbsoluteSampleDown_;
+    bool loaded_Jet_pt_jesAbsoluteSampleDown_;
+    unsigned int counter_cached_Jet_pt_jesAbsoluteSampleDown_;
+    unsigned int counter_uncached_Jet_pt_jesAbsoluteSampleDown_;
+    float Jet_pt_jesAbsoluteSampleUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesAbsoluteSampleUp_;
+    TBranch *b_Jet_pt_jesAbsoluteSampleUp_;
+    bool loaded_Jet_pt_jesAbsoluteSampleUp_;
+    unsigned int counter_cached_Jet_pt_jesAbsoluteSampleUp_;
+    unsigned int counter_uncached_Jet_pt_jesAbsoluteSampleUp_;
+    float Jet_pt_jesAbsoluteScaleDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesAbsoluteScaleDown_;
+    TBranch *b_Jet_pt_jesAbsoluteScaleDown_;
+    bool loaded_Jet_pt_jesAbsoluteScaleDown_;
+    unsigned int counter_cached_Jet_pt_jesAbsoluteScaleDown_;
+    unsigned int counter_uncached_Jet_pt_jesAbsoluteScaleDown_;
+    float Jet_pt_jesAbsoluteScaleUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesAbsoluteScaleUp_;
+    TBranch *b_Jet_pt_jesAbsoluteScaleUp_;
+    bool loaded_Jet_pt_jesAbsoluteScaleUp_;
+    unsigned int counter_cached_Jet_pt_jesAbsoluteScaleUp_;
+    unsigned int counter_uncached_Jet_pt_jesAbsoluteScaleUp_;
+    float Jet_pt_jesAbsoluteStatDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesAbsoluteStatDown_;
+    TBranch *b_Jet_pt_jesAbsoluteStatDown_;
+    bool loaded_Jet_pt_jesAbsoluteStatDown_;
+    unsigned int counter_cached_Jet_pt_jesAbsoluteStatDown_;
+    unsigned int counter_uncached_Jet_pt_jesAbsoluteStatDown_;
+    float Jet_pt_jesAbsoluteStatUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesAbsoluteStatUp_;
+    TBranch *b_Jet_pt_jesAbsoluteStatUp_;
+    bool loaded_Jet_pt_jesAbsoluteStatUp_;
+    unsigned int counter_cached_Jet_pt_jesAbsoluteStatUp_;
+    unsigned int counter_uncached_Jet_pt_jesAbsoluteStatUp_;
+    float Jet_pt_jesCorrelationGroupFlavorDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesCorrelationGroupFlavorDown_;
+    TBranch *b_Jet_pt_jesCorrelationGroupFlavorDown_;
+    bool loaded_Jet_pt_jesCorrelationGroupFlavorDown_;
+    unsigned int counter_cached_Jet_pt_jesCorrelationGroupFlavorDown_;
+    unsigned int counter_uncached_Jet_pt_jesCorrelationGroupFlavorDown_;
+    float Jet_pt_jesCorrelationGroupFlavorUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesCorrelationGroupFlavorUp_;
+    TBranch *b_Jet_pt_jesCorrelationGroupFlavorUp_;
+    bool loaded_Jet_pt_jesCorrelationGroupFlavorUp_;
+    unsigned int counter_cached_Jet_pt_jesCorrelationGroupFlavorUp_;
+    unsigned int counter_uncached_Jet_pt_jesCorrelationGroupFlavorUp_;
+    float Jet_pt_jesCorrelationGroupIntercalibrationDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesCorrelationGroupIntercalibrationDown_;
+    TBranch *b_Jet_pt_jesCorrelationGroupIntercalibrationDown_;
+    bool loaded_Jet_pt_jesCorrelationGroupIntercalibrationDown_;
+    unsigned int counter_cached_Jet_pt_jesCorrelationGroupIntercalibrationDown_;
+    unsigned int counter_uncached_Jet_pt_jesCorrelationGroupIntercalibrationDown_;
+    float Jet_pt_jesCorrelationGroupIntercalibrationUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesCorrelationGroupIntercalibrationUp_;
+    TBranch *b_Jet_pt_jesCorrelationGroupIntercalibrationUp_;
+    bool loaded_Jet_pt_jesCorrelationGroupIntercalibrationUp_;
+    unsigned int counter_cached_Jet_pt_jesCorrelationGroupIntercalibrationUp_;
+    unsigned int counter_uncached_Jet_pt_jesCorrelationGroupIntercalibrationUp_;
+    float Jet_pt_jesCorrelationGroupMPFInSituDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesCorrelationGroupMPFInSituDown_;
+    TBranch *b_Jet_pt_jesCorrelationGroupMPFInSituDown_;
+    bool loaded_Jet_pt_jesCorrelationGroupMPFInSituDown_;
+    unsigned int counter_cached_Jet_pt_jesCorrelationGroupMPFInSituDown_;
+    unsigned int counter_uncached_Jet_pt_jesCorrelationGroupMPFInSituDown_;
+    float Jet_pt_jesCorrelationGroupMPFInSituUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesCorrelationGroupMPFInSituUp_;
+    TBranch *b_Jet_pt_jesCorrelationGroupMPFInSituUp_;
+    bool loaded_Jet_pt_jesCorrelationGroupMPFInSituUp_;
+    unsigned int counter_cached_Jet_pt_jesCorrelationGroupMPFInSituUp_;
+    unsigned int counter_uncached_Jet_pt_jesCorrelationGroupMPFInSituUp_;
+    float Jet_pt_jesCorrelationGroupUncorrelatedDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesCorrelationGroupUncorrelatedDown_;
+    TBranch *b_Jet_pt_jesCorrelationGroupUncorrelatedDown_;
+    bool loaded_Jet_pt_jesCorrelationGroupUncorrelatedDown_;
+    unsigned int counter_cached_Jet_pt_jesCorrelationGroupUncorrelatedDown_;
+    unsigned int counter_uncached_Jet_pt_jesCorrelationGroupUncorrelatedDown_;
+    float Jet_pt_jesCorrelationGroupUncorrelatedUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesCorrelationGroupUncorrelatedUp_;
+    TBranch *b_Jet_pt_jesCorrelationGroupUncorrelatedUp_;
+    bool loaded_Jet_pt_jesCorrelationGroupUncorrelatedUp_;
+    unsigned int counter_cached_Jet_pt_jesCorrelationGroupUncorrelatedUp_;
+    unsigned int counter_uncached_Jet_pt_jesCorrelationGroupUncorrelatedUp_;
+    float Jet_pt_jesCorrelationGroupbJESDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesCorrelationGroupbJESDown_;
+    TBranch *b_Jet_pt_jesCorrelationGroupbJESDown_;
+    bool loaded_Jet_pt_jesCorrelationGroupbJESDown_;
+    unsigned int counter_cached_Jet_pt_jesCorrelationGroupbJESDown_;
+    unsigned int counter_uncached_Jet_pt_jesCorrelationGroupbJESDown_;
+    float Jet_pt_jesCorrelationGroupbJESUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesCorrelationGroupbJESUp_;
+    TBranch *b_Jet_pt_jesCorrelationGroupbJESUp_;
+    bool loaded_Jet_pt_jesCorrelationGroupbJESUp_;
+    unsigned int counter_cached_Jet_pt_jesCorrelationGroupbJESUp_;
+    unsigned int counter_uncached_Jet_pt_jesCorrelationGroupbJESUp_;
+    float Jet_pt_jesFlavorPhotonJetDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesFlavorPhotonJetDown_;
+    TBranch *b_Jet_pt_jesFlavorPhotonJetDown_;
+    bool loaded_Jet_pt_jesFlavorPhotonJetDown_;
+    unsigned int counter_cached_Jet_pt_jesFlavorPhotonJetDown_;
+    unsigned int counter_uncached_Jet_pt_jesFlavorPhotonJetDown_;
+    float Jet_pt_jesFlavorPhotonJetUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesFlavorPhotonJetUp_;
+    TBranch *b_Jet_pt_jesFlavorPhotonJetUp_;
+    bool loaded_Jet_pt_jesFlavorPhotonJetUp_;
+    unsigned int counter_cached_Jet_pt_jesFlavorPhotonJetUp_;
+    unsigned int counter_uncached_Jet_pt_jesFlavorPhotonJetUp_;
+    float Jet_pt_jesFlavorPureBottomDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesFlavorPureBottomDown_;
+    TBranch *b_Jet_pt_jesFlavorPureBottomDown_;
+    bool loaded_Jet_pt_jesFlavorPureBottomDown_;
+    unsigned int counter_cached_Jet_pt_jesFlavorPureBottomDown_;
+    unsigned int counter_uncached_Jet_pt_jesFlavorPureBottomDown_;
+    float Jet_pt_jesFlavorPureBottomUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesFlavorPureBottomUp_;
+    TBranch *b_Jet_pt_jesFlavorPureBottomUp_;
+    bool loaded_Jet_pt_jesFlavorPureBottomUp_;
+    unsigned int counter_cached_Jet_pt_jesFlavorPureBottomUp_;
+    unsigned int counter_uncached_Jet_pt_jesFlavorPureBottomUp_;
+    float Jet_pt_jesFlavorPureCharmDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesFlavorPureCharmDown_;
+    TBranch *b_Jet_pt_jesFlavorPureCharmDown_;
+    bool loaded_Jet_pt_jesFlavorPureCharmDown_;
+    unsigned int counter_cached_Jet_pt_jesFlavorPureCharmDown_;
+    unsigned int counter_uncached_Jet_pt_jesFlavorPureCharmDown_;
+    float Jet_pt_jesFlavorPureCharmUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesFlavorPureCharmUp_;
+    TBranch *b_Jet_pt_jesFlavorPureCharmUp_;
+    bool loaded_Jet_pt_jesFlavorPureCharmUp_;
+    unsigned int counter_cached_Jet_pt_jesFlavorPureCharmUp_;
+    unsigned int counter_uncached_Jet_pt_jesFlavorPureCharmUp_;
+    float Jet_pt_jesFlavorPureGluonDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesFlavorPureGluonDown_;
+    TBranch *b_Jet_pt_jesFlavorPureGluonDown_;
+    bool loaded_Jet_pt_jesFlavorPureGluonDown_;
+    unsigned int counter_cached_Jet_pt_jesFlavorPureGluonDown_;
+    unsigned int counter_uncached_Jet_pt_jesFlavorPureGluonDown_;
+    float Jet_pt_jesFlavorPureGluonUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesFlavorPureGluonUp_;
+    TBranch *b_Jet_pt_jesFlavorPureGluonUp_;
+    bool loaded_Jet_pt_jesFlavorPureGluonUp_;
+    unsigned int counter_cached_Jet_pt_jesFlavorPureGluonUp_;
+    unsigned int counter_uncached_Jet_pt_jesFlavorPureGluonUp_;
+    float Jet_pt_jesFlavorPureQuarkDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesFlavorPureQuarkDown_;
+    TBranch *b_Jet_pt_jesFlavorPureQuarkDown_;
+    bool loaded_Jet_pt_jesFlavorPureQuarkDown_;
+    unsigned int counter_cached_Jet_pt_jesFlavorPureQuarkDown_;
+    unsigned int counter_uncached_Jet_pt_jesFlavorPureQuarkDown_;
+    float Jet_pt_jesFlavorPureQuarkUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesFlavorPureQuarkUp_;
+    TBranch *b_Jet_pt_jesFlavorPureQuarkUp_;
+    bool loaded_Jet_pt_jesFlavorPureQuarkUp_;
+    unsigned int counter_cached_Jet_pt_jesFlavorPureQuarkUp_;
+    unsigned int counter_uncached_Jet_pt_jesFlavorPureQuarkUp_;
+    float Jet_pt_jesFlavorQCDDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesFlavorQCDDown_;
+    TBranch *b_Jet_pt_jesFlavorQCDDown_;
+    bool loaded_Jet_pt_jesFlavorQCDDown_;
+    unsigned int counter_cached_Jet_pt_jesFlavorQCDDown_;
+    unsigned int counter_uncached_Jet_pt_jesFlavorQCDDown_;
+    float Jet_pt_jesFlavorQCDUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesFlavorQCDUp_;
+    TBranch *b_Jet_pt_jesFlavorQCDUp_;
+    bool loaded_Jet_pt_jesFlavorQCDUp_;
+    unsigned int counter_cached_Jet_pt_jesFlavorQCDUp_;
+    unsigned int counter_uncached_Jet_pt_jesFlavorQCDUp_;
+    float Jet_pt_jesFlavorZJetDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesFlavorZJetDown_;
+    TBranch *b_Jet_pt_jesFlavorZJetDown_;
+    bool loaded_Jet_pt_jesFlavorZJetDown_;
+    unsigned int counter_cached_Jet_pt_jesFlavorZJetDown_;
+    unsigned int counter_uncached_Jet_pt_jesFlavorZJetDown_;
+    float Jet_pt_jesFlavorZJetUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesFlavorZJetUp_;
+    TBranch *b_Jet_pt_jesFlavorZJetUp_;
+    bool loaded_Jet_pt_jesFlavorZJetUp_;
+    unsigned int counter_cached_Jet_pt_jesFlavorZJetUp_;
+    unsigned int counter_uncached_Jet_pt_jesFlavorZJetUp_;
+    float Jet_pt_jesFragmentationDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesFragmentationDown_;
+    TBranch *b_Jet_pt_jesFragmentationDown_;
+    bool loaded_Jet_pt_jesFragmentationDown_;
+    unsigned int counter_cached_Jet_pt_jesFragmentationDown_;
+    unsigned int counter_uncached_Jet_pt_jesFragmentationDown_;
+    float Jet_pt_jesFragmentationUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesFragmentationUp_;
+    TBranch *b_Jet_pt_jesFragmentationUp_;
+    bool loaded_Jet_pt_jesFragmentationUp_;
+    unsigned int counter_cached_Jet_pt_jesFragmentationUp_;
+    unsigned int counter_uncached_Jet_pt_jesFragmentationUp_;
     float Jet_pt_jesHEMIssueDown_[NJET_MAX];
     vector<float> v_Jet_pt_jesHEMIssueDown_;
     TBranch *b_Jet_pt_jesHEMIssueDown_;
@@ -8443,12 +11307,456 @@ protected:
     bool loaded_Jet_pt_jesHEMIssueUp_;
     unsigned int counter_cached_Jet_pt_jesHEMIssueUp_;
     unsigned int counter_uncached_Jet_pt_jesHEMIssueUp_;
+    float Jet_pt_jesPileUpDataMCDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesPileUpDataMCDown_;
+    TBranch *b_Jet_pt_jesPileUpDataMCDown_;
+    bool loaded_Jet_pt_jesPileUpDataMCDown_;
+    unsigned int counter_cached_Jet_pt_jesPileUpDataMCDown_;
+    unsigned int counter_uncached_Jet_pt_jesPileUpDataMCDown_;
+    float Jet_pt_jesPileUpDataMCUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesPileUpDataMCUp_;
+    TBranch *b_Jet_pt_jesPileUpDataMCUp_;
+    bool loaded_Jet_pt_jesPileUpDataMCUp_;
+    unsigned int counter_cached_Jet_pt_jesPileUpDataMCUp_;
+    unsigned int counter_uncached_Jet_pt_jesPileUpDataMCUp_;
+    float Jet_pt_jesPileUpEnvelopeDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesPileUpEnvelopeDown_;
+    TBranch *b_Jet_pt_jesPileUpEnvelopeDown_;
+    bool loaded_Jet_pt_jesPileUpEnvelopeDown_;
+    unsigned int counter_cached_Jet_pt_jesPileUpEnvelopeDown_;
+    unsigned int counter_uncached_Jet_pt_jesPileUpEnvelopeDown_;
+    float Jet_pt_jesPileUpEnvelopeUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesPileUpEnvelopeUp_;
+    TBranch *b_Jet_pt_jesPileUpEnvelopeUp_;
+    bool loaded_Jet_pt_jesPileUpEnvelopeUp_;
+    unsigned int counter_cached_Jet_pt_jesPileUpEnvelopeUp_;
+    unsigned int counter_uncached_Jet_pt_jesPileUpEnvelopeUp_;
+    float Jet_pt_jesPileUpMuZeroDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesPileUpMuZeroDown_;
+    TBranch *b_Jet_pt_jesPileUpMuZeroDown_;
+    bool loaded_Jet_pt_jesPileUpMuZeroDown_;
+    unsigned int counter_cached_Jet_pt_jesPileUpMuZeroDown_;
+    unsigned int counter_uncached_Jet_pt_jesPileUpMuZeroDown_;
+    float Jet_pt_jesPileUpMuZeroUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesPileUpMuZeroUp_;
+    TBranch *b_Jet_pt_jesPileUpMuZeroUp_;
+    bool loaded_Jet_pt_jesPileUpMuZeroUp_;
+    unsigned int counter_cached_Jet_pt_jesPileUpMuZeroUp_;
+    unsigned int counter_uncached_Jet_pt_jesPileUpMuZeroUp_;
+    float Jet_pt_jesPileUpPtBBDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesPileUpPtBBDown_;
+    TBranch *b_Jet_pt_jesPileUpPtBBDown_;
+    bool loaded_Jet_pt_jesPileUpPtBBDown_;
+    unsigned int counter_cached_Jet_pt_jesPileUpPtBBDown_;
+    unsigned int counter_uncached_Jet_pt_jesPileUpPtBBDown_;
+    float Jet_pt_jesPileUpPtBBUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesPileUpPtBBUp_;
+    TBranch *b_Jet_pt_jesPileUpPtBBUp_;
+    bool loaded_Jet_pt_jesPileUpPtBBUp_;
+    unsigned int counter_cached_Jet_pt_jesPileUpPtBBUp_;
+    unsigned int counter_uncached_Jet_pt_jesPileUpPtBBUp_;
+    float Jet_pt_jesPileUpPtEC1Down_[NJET_MAX];
+    vector<float> v_Jet_pt_jesPileUpPtEC1Down_;
+    TBranch *b_Jet_pt_jesPileUpPtEC1Down_;
+    bool loaded_Jet_pt_jesPileUpPtEC1Down_;
+    unsigned int counter_cached_Jet_pt_jesPileUpPtEC1Down_;
+    unsigned int counter_uncached_Jet_pt_jesPileUpPtEC1Down_;
+    float Jet_pt_jesPileUpPtEC1Up_[NJET_MAX];
+    vector<float> v_Jet_pt_jesPileUpPtEC1Up_;
+    TBranch *b_Jet_pt_jesPileUpPtEC1Up_;
+    bool loaded_Jet_pt_jesPileUpPtEC1Up_;
+    unsigned int counter_cached_Jet_pt_jesPileUpPtEC1Up_;
+    unsigned int counter_uncached_Jet_pt_jesPileUpPtEC1Up_;
+    float Jet_pt_jesPileUpPtEC2Down_[NJET_MAX];
+    vector<float> v_Jet_pt_jesPileUpPtEC2Down_;
+    TBranch *b_Jet_pt_jesPileUpPtEC2Down_;
+    bool loaded_Jet_pt_jesPileUpPtEC2Down_;
+    unsigned int counter_cached_Jet_pt_jesPileUpPtEC2Down_;
+    unsigned int counter_uncached_Jet_pt_jesPileUpPtEC2Down_;
+    float Jet_pt_jesPileUpPtEC2Up_[NJET_MAX];
+    vector<float> v_Jet_pt_jesPileUpPtEC2Up_;
+    TBranch *b_Jet_pt_jesPileUpPtEC2Up_;
+    bool loaded_Jet_pt_jesPileUpPtEC2Up_;
+    unsigned int counter_cached_Jet_pt_jesPileUpPtEC2Up_;
+    unsigned int counter_uncached_Jet_pt_jesPileUpPtEC2Up_;
+    float Jet_pt_jesPileUpPtHFDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesPileUpPtHFDown_;
+    TBranch *b_Jet_pt_jesPileUpPtHFDown_;
+    bool loaded_Jet_pt_jesPileUpPtHFDown_;
+    unsigned int counter_cached_Jet_pt_jesPileUpPtHFDown_;
+    unsigned int counter_uncached_Jet_pt_jesPileUpPtHFDown_;
+    float Jet_pt_jesPileUpPtHFUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesPileUpPtHFUp_;
+    TBranch *b_Jet_pt_jesPileUpPtHFUp_;
+    bool loaded_Jet_pt_jesPileUpPtHFUp_;
+    unsigned int counter_cached_Jet_pt_jesPileUpPtHFUp_;
+    unsigned int counter_uncached_Jet_pt_jesPileUpPtHFUp_;
+    float Jet_pt_jesPileUpPtRefDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesPileUpPtRefDown_;
+    TBranch *b_Jet_pt_jesPileUpPtRefDown_;
+    bool loaded_Jet_pt_jesPileUpPtRefDown_;
+    unsigned int counter_cached_Jet_pt_jesPileUpPtRefDown_;
+    unsigned int counter_uncached_Jet_pt_jesPileUpPtRefDown_;
+    float Jet_pt_jesPileUpPtRefUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesPileUpPtRefUp_;
+    TBranch *b_Jet_pt_jesPileUpPtRefUp_;
+    bool loaded_Jet_pt_jesPileUpPtRefUp_;
+    unsigned int counter_cached_Jet_pt_jesPileUpPtRefUp_;
+    unsigned int counter_uncached_Jet_pt_jesPileUpPtRefUp_;
+    float Jet_pt_jesRelativeBalDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesRelativeBalDown_;
+    TBranch *b_Jet_pt_jesRelativeBalDown_;
+    bool loaded_Jet_pt_jesRelativeBalDown_;
+    unsigned int counter_cached_Jet_pt_jesRelativeBalDown_;
+    unsigned int counter_uncached_Jet_pt_jesRelativeBalDown_;
+    float Jet_pt_jesRelativeBalUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesRelativeBalUp_;
+    TBranch *b_Jet_pt_jesRelativeBalUp_;
+    bool loaded_Jet_pt_jesRelativeBalUp_;
+    unsigned int counter_cached_Jet_pt_jesRelativeBalUp_;
+    unsigned int counter_uncached_Jet_pt_jesRelativeBalUp_;
+    float Jet_pt_jesRelativeFSRDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesRelativeFSRDown_;
+    TBranch *b_Jet_pt_jesRelativeFSRDown_;
+    bool loaded_Jet_pt_jesRelativeFSRDown_;
+    unsigned int counter_cached_Jet_pt_jesRelativeFSRDown_;
+    unsigned int counter_uncached_Jet_pt_jesRelativeFSRDown_;
+    float Jet_pt_jesRelativeFSRUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesRelativeFSRUp_;
+    TBranch *b_Jet_pt_jesRelativeFSRUp_;
+    bool loaded_Jet_pt_jesRelativeFSRUp_;
+    unsigned int counter_cached_Jet_pt_jesRelativeFSRUp_;
+    unsigned int counter_uncached_Jet_pt_jesRelativeFSRUp_;
+    float Jet_pt_jesRelativeJEREC1Down_[NJET_MAX];
+    vector<float> v_Jet_pt_jesRelativeJEREC1Down_;
+    TBranch *b_Jet_pt_jesRelativeJEREC1Down_;
+    bool loaded_Jet_pt_jesRelativeJEREC1Down_;
+    unsigned int counter_cached_Jet_pt_jesRelativeJEREC1Down_;
+    unsigned int counter_uncached_Jet_pt_jesRelativeJEREC1Down_;
+    float Jet_pt_jesRelativeJEREC1Up_[NJET_MAX];
+    vector<float> v_Jet_pt_jesRelativeJEREC1Up_;
+    TBranch *b_Jet_pt_jesRelativeJEREC1Up_;
+    bool loaded_Jet_pt_jesRelativeJEREC1Up_;
+    unsigned int counter_cached_Jet_pt_jesRelativeJEREC1Up_;
+    unsigned int counter_uncached_Jet_pt_jesRelativeJEREC1Up_;
+    float Jet_pt_jesRelativeJEREC2Down_[NJET_MAX];
+    vector<float> v_Jet_pt_jesRelativeJEREC2Down_;
+    TBranch *b_Jet_pt_jesRelativeJEREC2Down_;
+    bool loaded_Jet_pt_jesRelativeJEREC2Down_;
+    unsigned int counter_cached_Jet_pt_jesRelativeJEREC2Down_;
+    unsigned int counter_uncached_Jet_pt_jesRelativeJEREC2Down_;
+    float Jet_pt_jesRelativeJEREC2Up_[NJET_MAX];
+    vector<float> v_Jet_pt_jesRelativeJEREC2Up_;
+    TBranch *b_Jet_pt_jesRelativeJEREC2Up_;
+    bool loaded_Jet_pt_jesRelativeJEREC2Up_;
+    unsigned int counter_cached_Jet_pt_jesRelativeJEREC2Up_;
+    unsigned int counter_uncached_Jet_pt_jesRelativeJEREC2Up_;
+    float Jet_pt_jesRelativeJERHFDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesRelativeJERHFDown_;
+    TBranch *b_Jet_pt_jesRelativeJERHFDown_;
+    bool loaded_Jet_pt_jesRelativeJERHFDown_;
+    unsigned int counter_cached_Jet_pt_jesRelativeJERHFDown_;
+    unsigned int counter_uncached_Jet_pt_jesRelativeJERHFDown_;
+    float Jet_pt_jesRelativeJERHFUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesRelativeJERHFUp_;
+    TBranch *b_Jet_pt_jesRelativeJERHFUp_;
+    bool loaded_Jet_pt_jesRelativeJERHFUp_;
+    unsigned int counter_cached_Jet_pt_jesRelativeJERHFUp_;
+    unsigned int counter_uncached_Jet_pt_jesRelativeJERHFUp_;
+    float Jet_pt_jesRelativePtBBDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesRelativePtBBDown_;
+    TBranch *b_Jet_pt_jesRelativePtBBDown_;
+    bool loaded_Jet_pt_jesRelativePtBBDown_;
+    unsigned int counter_cached_Jet_pt_jesRelativePtBBDown_;
+    unsigned int counter_uncached_Jet_pt_jesRelativePtBBDown_;
+    float Jet_pt_jesRelativePtBBUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesRelativePtBBUp_;
+    TBranch *b_Jet_pt_jesRelativePtBBUp_;
+    bool loaded_Jet_pt_jesRelativePtBBUp_;
+    unsigned int counter_cached_Jet_pt_jesRelativePtBBUp_;
+    unsigned int counter_uncached_Jet_pt_jesRelativePtBBUp_;
+    float Jet_pt_jesRelativePtEC1Down_[NJET_MAX];
+    vector<float> v_Jet_pt_jesRelativePtEC1Down_;
+    TBranch *b_Jet_pt_jesRelativePtEC1Down_;
+    bool loaded_Jet_pt_jesRelativePtEC1Down_;
+    unsigned int counter_cached_Jet_pt_jesRelativePtEC1Down_;
+    unsigned int counter_uncached_Jet_pt_jesRelativePtEC1Down_;
+    float Jet_pt_jesRelativePtEC1Up_[NJET_MAX];
+    vector<float> v_Jet_pt_jesRelativePtEC1Up_;
+    TBranch *b_Jet_pt_jesRelativePtEC1Up_;
+    bool loaded_Jet_pt_jesRelativePtEC1Up_;
+    unsigned int counter_cached_Jet_pt_jesRelativePtEC1Up_;
+    unsigned int counter_uncached_Jet_pt_jesRelativePtEC1Up_;
+    float Jet_pt_jesRelativePtEC2Down_[NJET_MAX];
+    vector<float> v_Jet_pt_jesRelativePtEC2Down_;
+    TBranch *b_Jet_pt_jesRelativePtEC2Down_;
+    bool loaded_Jet_pt_jesRelativePtEC2Down_;
+    unsigned int counter_cached_Jet_pt_jesRelativePtEC2Down_;
+    unsigned int counter_uncached_Jet_pt_jesRelativePtEC2Down_;
+    float Jet_pt_jesRelativePtEC2Up_[NJET_MAX];
+    vector<float> v_Jet_pt_jesRelativePtEC2Up_;
+    TBranch *b_Jet_pt_jesRelativePtEC2Up_;
+    bool loaded_Jet_pt_jesRelativePtEC2Up_;
+    unsigned int counter_cached_Jet_pt_jesRelativePtEC2Up_;
+    unsigned int counter_uncached_Jet_pt_jesRelativePtEC2Up_;
+    float Jet_pt_jesRelativePtHFDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesRelativePtHFDown_;
+    TBranch *b_Jet_pt_jesRelativePtHFDown_;
+    bool loaded_Jet_pt_jesRelativePtHFDown_;
+    unsigned int counter_cached_Jet_pt_jesRelativePtHFDown_;
+    unsigned int counter_uncached_Jet_pt_jesRelativePtHFDown_;
+    float Jet_pt_jesRelativePtHFUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesRelativePtHFUp_;
+    TBranch *b_Jet_pt_jesRelativePtHFUp_;
+    bool loaded_Jet_pt_jesRelativePtHFUp_;
+    unsigned int counter_cached_Jet_pt_jesRelativePtHFUp_;
+    unsigned int counter_uncached_Jet_pt_jesRelativePtHFUp_;
+    float Jet_pt_jesRelativeSampleDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesRelativeSampleDown_;
+    TBranch *b_Jet_pt_jesRelativeSampleDown_;
+    bool loaded_Jet_pt_jesRelativeSampleDown_;
+    unsigned int counter_cached_Jet_pt_jesRelativeSampleDown_;
+    unsigned int counter_uncached_Jet_pt_jesRelativeSampleDown_;
+    float Jet_pt_jesRelativeSampleUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesRelativeSampleUp_;
+    TBranch *b_Jet_pt_jesRelativeSampleUp_;
+    bool loaded_Jet_pt_jesRelativeSampleUp_;
+    unsigned int counter_cached_Jet_pt_jesRelativeSampleUp_;
+    unsigned int counter_uncached_Jet_pt_jesRelativeSampleUp_;
+    float Jet_pt_jesRelativeStatECDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesRelativeStatECDown_;
+    TBranch *b_Jet_pt_jesRelativeStatECDown_;
+    bool loaded_Jet_pt_jesRelativeStatECDown_;
+    unsigned int counter_cached_Jet_pt_jesRelativeStatECDown_;
+    unsigned int counter_uncached_Jet_pt_jesRelativeStatECDown_;
+    float Jet_pt_jesRelativeStatECUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesRelativeStatECUp_;
+    TBranch *b_Jet_pt_jesRelativeStatECUp_;
+    bool loaded_Jet_pt_jesRelativeStatECUp_;
+    unsigned int counter_cached_Jet_pt_jesRelativeStatECUp_;
+    unsigned int counter_uncached_Jet_pt_jesRelativeStatECUp_;
+    float Jet_pt_jesRelativeStatFSRDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesRelativeStatFSRDown_;
+    TBranch *b_Jet_pt_jesRelativeStatFSRDown_;
+    bool loaded_Jet_pt_jesRelativeStatFSRDown_;
+    unsigned int counter_cached_Jet_pt_jesRelativeStatFSRDown_;
+    unsigned int counter_uncached_Jet_pt_jesRelativeStatFSRDown_;
+    float Jet_pt_jesRelativeStatFSRUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesRelativeStatFSRUp_;
+    TBranch *b_Jet_pt_jesRelativeStatFSRUp_;
+    bool loaded_Jet_pt_jesRelativeStatFSRUp_;
+    unsigned int counter_cached_Jet_pt_jesRelativeStatFSRUp_;
+    unsigned int counter_uncached_Jet_pt_jesRelativeStatFSRUp_;
+    float Jet_pt_jesRelativeStatHFDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesRelativeStatHFDown_;
+    TBranch *b_Jet_pt_jesRelativeStatHFDown_;
+    bool loaded_Jet_pt_jesRelativeStatHFDown_;
+    unsigned int counter_cached_Jet_pt_jesRelativeStatHFDown_;
+    unsigned int counter_uncached_Jet_pt_jesRelativeStatHFDown_;
+    float Jet_pt_jesRelativeStatHFUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesRelativeStatHFUp_;
+    TBranch *b_Jet_pt_jesRelativeStatHFUp_;
+    bool loaded_Jet_pt_jesRelativeStatHFUp_;
+    unsigned int counter_cached_Jet_pt_jesRelativeStatHFUp_;
+    unsigned int counter_uncached_Jet_pt_jesRelativeStatHFUp_;
+    float Jet_pt_jesSinglePionECALDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesSinglePionECALDown_;
+    TBranch *b_Jet_pt_jesSinglePionECALDown_;
+    bool loaded_Jet_pt_jesSinglePionECALDown_;
+    unsigned int counter_cached_Jet_pt_jesSinglePionECALDown_;
+    unsigned int counter_uncached_Jet_pt_jesSinglePionECALDown_;
+    float Jet_pt_jesSinglePionECALUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesSinglePionECALUp_;
+    TBranch *b_Jet_pt_jesSinglePionECALUp_;
+    bool loaded_Jet_pt_jesSinglePionECALUp_;
+    unsigned int counter_cached_Jet_pt_jesSinglePionECALUp_;
+    unsigned int counter_uncached_Jet_pt_jesSinglePionECALUp_;
+    float Jet_pt_jesSinglePionHCALDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesSinglePionHCALDown_;
+    TBranch *b_Jet_pt_jesSinglePionHCALDown_;
+    bool loaded_Jet_pt_jesSinglePionHCALDown_;
+    unsigned int counter_cached_Jet_pt_jesSinglePionHCALDown_;
+    unsigned int counter_uncached_Jet_pt_jesSinglePionHCALDown_;
+    float Jet_pt_jesSinglePionHCALUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesSinglePionHCALUp_;
+    TBranch *b_Jet_pt_jesSinglePionHCALUp_;
+    bool loaded_Jet_pt_jesSinglePionHCALUp_;
+    unsigned int counter_cached_Jet_pt_jesSinglePionHCALUp_;
+    unsigned int counter_uncached_Jet_pt_jesSinglePionHCALUp_;
+    float Jet_pt_jesSubTotalAbsoluteDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesSubTotalAbsoluteDown_;
+    TBranch *b_Jet_pt_jesSubTotalAbsoluteDown_;
+    bool loaded_Jet_pt_jesSubTotalAbsoluteDown_;
+    unsigned int counter_cached_Jet_pt_jesSubTotalAbsoluteDown_;
+    unsigned int counter_uncached_Jet_pt_jesSubTotalAbsoluteDown_;
+    float Jet_pt_jesSubTotalAbsoluteUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesSubTotalAbsoluteUp_;
+    TBranch *b_Jet_pt_jesSubTotalAbsoluteUp_;
+    bool loaded_Jet_pt_jesSubTotalAbsoluteUp_;
+    unsigned int counter_cached_Jet_pt_jesSubTotalAbsoluteUp_;
+    unsigned int counter_uncached_Jet_pt_jesSubTotalAbsoluteUp_;
+    float Jet_pt_jesSubTotalMCDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesSubTotalMCDown_;
+    TBranch *b_Jet_pt_jesSubTotalMCDown_;
+    bool loaded_Jet_pt_jesSubTotalMCDown_;
+    unsigned int counter_cached_Jet_pt_jesSubTotalMCDown_;
+    unsigned int counter_uncached_Jet_pt_jesSubTotalMCDown_;
+    float Jet_pt_jesSubTotalMCUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesSubTotalMCUp_;
+    TBranch *b_Jet_pt_jesSubTotalMCUp_;
+    bool loaded_Jet_pt_jesSubTotalMCUp_;
+    unsigned int counter_cached_Jet_pt_jesSubTotalMCUp_;
+    unsigned int counter_uncached_Jet_pt_jesSubTotalMCUp_;
+    float Jet_pt_jesSubTotalPileUpDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesSubTotalPileUpDown_;
+    TBranch *b_Jet_pt_jesSubTotalPileUpDown_;
+    bool loaded_Jet_pt_jesSubTotalPileUpDown_;
+    unsigned int counter_cached_Jet_pt_jesSubTotalPileUpDown_;
+    unsigned int counter_uncached_Jet_pt_jesSubTotalPileUpDown_;
+    float Jet_pt_jesSubTotalPileUpUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesSubTotalPileUpUp_;
+    TBranch *b_Jet_pt_jesSubTotalPileUpUp_;
+    bool loaded_Jet_pt_jesSubTotalPileUpUp_;
+    unsigned int counter_cached_Jet_pt_jesSubTotalPileUpUp_;
+    unsigned int counter_uncached_Jet_pt_jesSubTotalPileUpUp_;
+    float Jet_pt_jesSubTotalPtDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesSubTotalPtDown_;
+    TBranch *b_Jet_pt_jesSubTotalPtDown_;
+    bool loaded_Jet_pt_jesSubTotalPtDown_;
+    unsigned int counter_cached_Jet_pt_jesSubTotalPtDown_;
+    unsigned int counter_uncached_Jet_pt_jesSubTotalPtDown_;
+    float Jet_pt_jesSubTotalPtUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesSubTotalPtUp_;
+    TBranch *b_Jet_pt_jesSubTotalPtUp_;
+    bool loaded_Jet_pt_jesSubTotalPtUp_;
+    unsigned int counter_cached_Jet_pt_jesSubTotalPtUp_;
+    unsigned int counter_uncached_Jet_pt_jesSubTotalPtUp_;
+    float Jet_pt_jesSubTotalRelativeDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesSubTotalRelativeDown_;
+    TBranch *b_Jet_pt_jesSubTotalRelativeDown_;
+    bool loaded_Jet_pt_jesSubTotalRelativeDown_;
+    unsigned int counter_cached_Jet_pt_jesSubTotalRelativeDown_;
+    unsigned int counter_uncached_Jet_pt_jesSubTotalRelativeDown_;
+    float Jet_pt_jesSubTotalRelativeUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesSubTotalRelativeUp_;
+    TBranch *b_Jet_pt_jesSubTotalRelativeUp_;
+    bool loaded_Jet_pt_jesSubTotalRelativeUp_;
+    unsigned int counter_cached_Jet_pt_jesSubTotalRelativeUp_;
+    unsigned int counter_uncached_Jet_pt_jesSubTotalRelativeUp_;
+    float Jet_pt_jesSubTotalScaleDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesSubTotalScaleDown_;
+    TBranch *b_Jet_pt_jesSubTotalScaleDown_;
+    bool loaded_Jet_pt_jesSubTotalScaleDown_;
+    unsigned int counter_cached_Jet_pt_jesSubTotalScaleDown_;
+    unsigned int counter_uncached_Jet_pt_jesSubTotalScaleDown_;
+    float Jet_pt_jesSubTotalScaleUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesSubTotalScaleUp_;
+    TBranch *b_Jet_pt_jesSubTotalScaleUp_;
+    bool loaded_Jet_pt_jesSubTotalScaleUp_;
+    unsigned int counter_cached_Jet_pt_jesSubTotalScaleUp_;
+    unsigned int counter_uncached_Jet_pt_jesSubTotalScaleUp_;
+    float Jet_pt_jesTimePtEtaDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesTimePtEtaDown_;
+    TBranch *b_Jet_pt_jesTimePtEtaDown_;
+    bool loaded_Jet_pt_jesTimePtEtaDown_;
+    unsigned int counter_cached_Jet_pt_jesTimePtEtaDown_;
+    unsigned int counter_uncached_Jet_pt_jesTimePtEtaDown_;
+    float Jet_pt_jesTimePtEtaUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesTimePtEtaUp_;
+    TBranch *b_Jet_pt_jesTimePtEtaUp_;
+    bool loaded_Jet_pt_jesTimePtEtaUp_;
+    unsigned int counter_cached_Jet_pt_jesTimePtEtaUp_;
+    unsigned int counter_uncached_Jet_pt_jesTimePtEtaUp_;
+    float Jet_pt_jesTimeRunADown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesTimeRunADown_;
+    TBranch *b_Jet_pt_jesTimeRunADown_;
+    bool loaded_Jet_pt_jesTimeRunADown_;
+    unsigned int counter_cached_Jet_pt_jesTimeRunADown_;
+    unsigned int counter_uncached_Jet_pt_jesTimeRunADown_;
+    float Jet_pt_jesTimeRunAUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesTimeRunAUp_;
+    TBranch *b_Jet_pt_jesTimeRunAUp_;
+    bool loaded_Jet_pt_jesTimeRunAUp_;
+    unsigned int counter_cached_Jet_pt_jesTimeRunAUp_;
+    unsigned int counter_uncached_Jet_pt_jesTimeRunAUp_;
+    float Jet_pt_jesTimeRunBDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesTimeRunBDown_;
+    TBranch *b_Jet_pt_jesTimeRunBDown_;
+    bool loaded_Jet_pt_jesTimeRunBDown_;
+    unsigned int counter_cached_Jet_pt_jesTimeRunBDown_;
+    unsigned int counter_uncached_Jet_pt_jesTimeRunBDown_;
+    float Jet_pt_jesTimeRunBUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesTimeRunBUp_;
+    TBranch *b_Jet_pt_jesTimeRunBUp_;
+    bool loaded_Jet_pt_jesTimeRunBUp_;
+    unsigned int counter_cached_Jet_pt_jesTimeRunBUp_;
+    unsigned int counter_uncached_Jet_pt_jesTimeRunBUp_;
+    float Jet_pt_jesTimeRunCDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesTimeRunCDown_;
+    TBranch *b_Jet_pt_jesTimeRunCDown_;
+    bool loaded_Jet_pt_jesTimeRunCDown_;
+    unsigned int counter_cached_Jet_pt_jesTimeRunCDown_;
+    unsigned int counter_uncached_Jet_pt_jesTimeRunCDown_;
+    float Jet_pt_jesTimeRunCUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesTimeRunCUp_;
+    TBranch *b_Jet_pt_jesTimeRunCUp_;
+    bool loaded_Jet_pt_jesTimeRunCUp_;
+    unsigned int counter_cached_Jet_pt_jesTimeRunCUp_;
+    unsigned int counter_uncached_Jet_pt_jesTimeRunCUp_;
+    float Jet_pt_jesTimeRunDDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesTimeRunDDown_;
+    TBranch *b_Jet_pt_jesTimeRunDDown_;
+    bool loaded_Jet_pt_jesTimeRunDDown_;
+    unsigned int counter_cached_Jet_pt_jesTimeRunDDown_;
+    unsigned int counter_uncached_Jet_pt_jesTimeRunDDown_;
+    float Jet_pt_jesTimeRunDUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesTimeRunDUp_;
+    TBranch *b_Jet_pt_jesTimeRunDUp_;
+    bool loaded_Jet_pt_jesTimeRunDUp_;
+    unsigned int counter_cached_Jet_pt_jesTimeRunDUp_;
+    unsigned int counter_uncached_Jet_pt_jesTimeRunDUp_;
     float Jet_pt_jesTotalDown_[NJET_MAX];
     vector<float> v_Jet_pt_jesTotalDown_;
     TBranch *b_Jet_pt_jesTotalDown_;
     bool loaded_Jet_pt_jesTotalDown_;
     unsigned int counter_cached_Jet_pt_jesTotalDown_;
     unsigned int counter_uncached_Jet_pt_jesTotalDown_;
+    float Jet_pt_jesTotalNoFlavorDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesTotalNoFlavorDown_;
+    TBranch *b_Jet_pt_jesTotalNoFlavorDown_;
+    bool loaded_Jet_pt_jesTotalNoFlavorDown_;
+    unsigned int counter_cached_Jet_pt_jesTotalNoFlavorDown_;
+    unsigned int counter_uncached_Jet_pt_jesTotalNoFlavorDown_;
+    float Jet_pt_jesTotalNoFlavorNoTimeDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesTotalNoFlavorNoTimeDown_;
+    TBranch *b_Jet_pt_jesTotalNoFlavorNoTimeDown_;
+    bool loaded_Jet_pt_jesTotalNoFlavorNoTimeDown_;
+    unsigned int counter_cached_Jet_pt_jesTotalNoFlavorNoTimeDown_;
+    unsigned int counter_uncached_Jet_pt_jesTotalNoFlavorNoTimeDown_;
+    float Jet_pt_jesTotalNoFlavorNoTimeUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesTotalNoFlavorNoTimeUp_;
+    TBranch *b_Jet_pt_jesTotalNoFlavorNoTimeUp_;
+    bool loaded_Jet_pt_jesTotalNoFlavorNoTimeUp_;
+    unsigned int counter_cached_Jet_pt_jesTotalNoFlavorNoTimeUp_;
+    unsigned int counter_uncached_Jet_pt_jesTotalNoFlavorNoTimeUp_;
+    float Jet_pt_jesTotalNoFlavorUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesTotalNoFlavorUp_;
+    TBranch *b_Jet_pt_jesTotalNoFlavorUp_;
+    bool loaded_Jet_pt_jesTotalNoFlavorUp_;
+    unsigned int counter_cached_Jet_pt_jesTotalNoFlavorUp_;
+    unsigned int counter_uncached_Jet_pt_jesTotalNoFlavorUp_;
+    float Jet_pt_jesTotalNoTimeDown_[NJET_MAX];
+    vector<float> v_Jet_pt_jesTotalNoTimeDown_;
+    TBranch *b_Jet_pt_jesTotalNoTimeDown_;
+    bool loaded_Jet_pt_jesTotalNoTimeDown_;
+    unsigned int counter_cached_Jet_pt_jesTotalNoTimeDown_;
+    unsigned int counter_uncached_Jet_pt_jesTotalNoTimeDown_;
+    float Jet_pt_jesTotalNoTimeUp_[NJET_MAX];
+    vector<float> v_Jet_pt_jesTotalNoTimeUp_;
+    TBranch *b_Jet_pt_jesTotalNoTimeUp_;
+    bool loaded_Jet_pt_jesTotalNoTimeUp_;
+    unsigned int counter_cached_Jet_pt_jesTotalNoTimeUp_;
+    unsigned int counter_uncached_Jet_pt_jesTotalNoTimeUp_;
     float Jet_pt_jesTotalUp_[NJET_MAX];
     vector<float> v_Jet_pt_jesTotalUp_;
     TBranch *b_Jet_pt_jesTotalUp_;
@@ -12760,6 +16068,186 @@ protected:
     bool loaded_MET_T1Smear_phi_jerUp_;
     unsigned int counter_cached_MET_T1Smear_phi_jerUp_;
     unsigned int counter_uncached_MET_T1Smear_phi_jerUp_;
+    float MET_T1Smear_phi_jesAbsoluteFlavMapDown_;
+    TBranch *b_MET_T1Smear_phi_jesAbsoluteFlavMapDown_;
+    bool loaded_MET_T1Smear_phi_jesAbsoluteFlavMapDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesAbsoluteFlavMapDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesAbsoluteFlavMapDown_;
+    float MET_T1Smear_phi_jesAbsoluteFlavMapUp_;
+    TBranch *b_MET_T1Smear_phi_jesAbsoluteFlavMapUp_;
+    bool loaded_MET_T1Smear_phi_jesAbsoluteFlavMapUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesAbsoluteFlavMapUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesAbsoluteFlavMapUp_;
+    float MET_T1Smear_phi_jesAbsoluteMPFBiasDown_;
+    TBranch *b_MET_T1Smear_phi_jesAbsoluteMPFBiasDown_;
+    bool loaded_MET_T1Smear_phi_jesAbsoluteMPFBiasDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesAbsoluteMPFBiasDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesAbsoluteMPFBiasDown_;
+    float MET_T1Smear_phi_jesAbsoluteMPFBiasUp_;
+    TBranch *b_MET_T1Smear_phi_jesAbsoluteMPFBiasUp_;
+    bool loaded_MET_T1Smear_phi_jesAbsoluteMPFBiasUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesAbsoluteMPFBiasUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesAbsoluteMPFBiasUp_;
+    float MET_T1Smear_phi_jesAbsoluteSampleDown_;
+    TBranch *b_MET_T1Smear_phi_jesAbsoluteSampleDown_;
+    bool loaded_MET_T1Smear_phi_jesAbsoluteSampleDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesAbsoluteSampleDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesAbsoluteSampleDown_;
+    float MET_T1Smear_phi_jesAbsoluteSampleUp_;
+    TBranch *b_MET_T1Smear_phi_jesAbsoluteSampleUp_;
+    bool loaded_MET_T1Smear_phi_jesAbsoluteSampleUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesAbsoluteSampleUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesAbsoluteSampleUp_;
+    float MET_T1Smear_phi_jesAbsoluteScaleDown_;
+    TBranch *b_MET_T1Smear_phi_jesAbsoluteScaleDown_;
+    bool loaded_MET_T1Smear_phi_jesAbsoluteScaleDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesAbsoluteScaleDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesAbsoluteScaleDown_;
+    float MET_T1Smear_phi_jesAbsoluteScaleUp_;
+    TBranch *b_MET_T1Smear_phi_jesAbsoluteScaleUp_;
+    bool loaded_MET_T1Smear_phi_jesAbsoluteScaleUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesAbsoluteScaleUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesAbsoluteScaleUp_;
+    float MET_T1Smear_phi_jesAbsoluteStatDown_;
+    TBranch *b_MET_T1Smear_phi_jesAbsoluteStatDown_;
+    bool loaded_MET_T1Smear_phi_jesAbsoluteStatDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesAbsoluteStatDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesAbsoluteStatDown_;
+    float MET_T1Smear_phi_jesAbsoluteStatUp_;
+    TBranch *b_MET_T1Smear_phi_jesAbsoluteStatUp_;
+    bool loaded_MET_T1Smear_phi_jesAbsoluteStatUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesAbsoluteStatUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesAbsoluteStatUp_;
+    float MET_T1Smear_phi_jesCorrelationGroupFlavorDown_;
+    TBranch *b_MET_T1Smear_phi_jesCorrelationGroupFlavorDown_;
+    bool loaded_MET_T1Smear_phi_jesCorrelationGroupFlavorDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesCorrelationGroupFlavorDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesCorrelationGroupFlavorDown_;
+    float MET_T1Smear_phi_jesCorrelationGroupFlavorUp_;
+    TBranch *b_MET_T1Smear_phi_jesCorrelationGroupFlavorUp_;
+    bool loaded_MET_T1Smear_phi_jesCorrelationGroupFlavorUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesCorrelationGroupFlavorUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesCorrelationGroupFlavorUp_;
+    float MET_T1Smear_phi_jesCorrelationGroupIntercalibrationDown_;
+    TBranch *b_MET_T1Smear_phi_jesCorrelationGroupIntercalibrationDown_;
+    bool loaded_MET_T1Smear_phi_jesCorrelationGroupIntercalibrationDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesCorrelationGroupIntercalibrationDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesCorrelationGroupIntercalibrationDown_;
+    float MET_T1Smear_phi_jesCorrelationGroupIntercalibrationUp_;
+    TBranch *b_MET_T1Smear_phi_jesCorrelationGroupIntercalibrationUp_;
+    bool loaded_MET_T1Smear_phi_jesCorrelationGroupIntercalibrationUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesCorrelationGroupIntercalibrationUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesCorrelationGroupIntercalibrationUp_;
+    float MET_T1Smear_phi_jesCorrelationGroupMPFInSituDown_;
+    TBranch *b_MET_T1Smear_phi_jesCorrelationGroupMPFInSituDown_;
+    bool loaded_MET_T1Smear_phi_jesCorrelationGroupMPFInSituDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesCorrelationGroupMPFInSituDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesCorrelationGroupMPFInSituDown_;
+    float MET_T1Smear_phi_jesCorrelationGroupMPFInSituUp_;
+    TBranch *b_MET_T1Smear_phi_jesCorrelationGroupMPFInSituUp_;
+    bool loaded_MET_T1Smear_phi_jesCorrelationGroupMPFInSituUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesCorrelationGroupMPFInSituUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesCorrelationGroupMPFInSituUp_;
+    float MET_T1Smear_phi_jesCorrelationGroupUncorrelatedDown_;
+    TBranch *b_MET_T1Smear_phi_jesCorrelationGroupUncorrelatedDown_;
+    bool loaded_MET_T1Smear_phi_jesCorrelationGroupUncorrelatedDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesCorrelationGroupUncorrelatedDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesCorrelationGroupUncorrelatedDown_;
+    float MET_T1Smear_phi_jesCorrelationGroupUncorrelatedUp_;
+    TBranch *b_MET_T1Smear_phi_jesCorrelationGroupUncorrelatedUp_;
+    bool loaded_MET_T1Smear_phi_jesCorrelationGroupUncorrelatedUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesCorrelationGroupUncorrelatedUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesCorrelationGroupUncorrelatedUp_;
+    float MET_T1Smear_phi_jesCorrelationGroupbJESDown_;
+    TBranch *b_MET_T1Smear_phi_jesCorrelationGroupbJESDown_;
+    bool loaded_MET_T1Smear_phi_jesCorrelationGroupbJESDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesCorrelationGroupbJESDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesCorrelationGroupbJESDown_;
+    float MET_T1Smear_phi_jesCorrelationGroupbJESUp_;
+    TBranch *b_MET_T1Smear_phi_jesCorrelationGroupbJESUp_;
+    bool loaded_MET_T1Smear_phi_jesCorrelationGroupbJESUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesCorrelationGroupbJESUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesCorrelationGroupbJESUp_;
+    float MET_T1Smear_phi_jesFlavorPhotonJetDown_;
+    TBranch *b_MET_T1Smear_phi_jesFlavorPhotonJetDown_;
+    bool loaded_MET_T1Smear_phi_jesFlavorPhotonJetDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesFlavorPhotonJetDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesFlavorPhotonJetDown_;
+    float MET_T1Smear_phi_jesFlavorPhotonJetUp_;
+    TBranch *b_MET_T1Smear_phi_jesFlavorPhotonJetUp_;
+    bool loaded_MET_T1Smear_phi_jesFlavorPhotonJetUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesFlavorPhotonJetUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesFlavorPhotonJetUp_;
+    float MET_T1Smear_phi_jesFlavorPureBottomDown_;
+    TBranch *b_MET_T1Smear_phi_jesFlavorPureBottomDown_;
+    bool loaded_MET_T1Smear_phi_jesFlavorPureBottomDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesFlavorPureBottomDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesFlavorPureBottomDown_;
+    float MET_T1Smear_phi_jesFlavorPureBottomUp_;
+    TBranch *b_MET_T1Smear_phi_jesFlavorPureBottomUp_;
+    bool loaded_MET_T1Smear_phi_jesFlavorPureBottomUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesFlavorPureBottomUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesFlavorPureBottomUp_;
+    float MET_T1Smear_phi_jesFlavorPureCharmDown_;
+    TBranch *b_MET_T1Smear_phi_jesFlavorPureCharmDown_;
+    bool loaded_MET_T1Smear_phi_jesFlavorPureCharmDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesFlavorPureCharmDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesFlavorPureCharmDown_;
+    float MET_T1Smear_phi_jesFlavorPureCharmUp_;
+    TBranch *b_MET_T1Smear_phi_jesFlavorPureCharmUp_;
+    bool loaded_MET_T1Smear_phi_jesFlavorPureCharmUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesFlavorPureCharmUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesFlavorPureCharmUp_;
+    float MET_T1Smear_phi_jesFlavorPureGluonDown_;
+    TBranch *b_MET_T1Smear_phi_jesFlavorPureGluonDown_;
+    bool loaded_MET_T1Smear_phi_jesFlavorPureGluonDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesFlavorPureGluonDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesFlavorPureGluonDown_;
+    float MET_T1Smear_phi_jesFlavorPureGluonUp_;
+    TBranch *b_MET_T1Smear_phi_jesFlavorPureGluonUp_;
+    bool loaded_MET_T1Smear_phi_jesFlavorPureGluonUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesFlavorPureGluonUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesFlavorPureGluonUp_;
+    float MET_T1Smear_phi_jesFlavorPureQuarkDown_;
+    TBranch *b_MET_T1Smear_phi_jesFlavorPureQuarkDown_;
+    bool loaded_MET_T1Smear_phi_jesFlavorPureQuarkDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesFlavorPureQuarkDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesFlavorPureQuarkDown_;
+    float MET_T1Smear_phi_jesFlavorPureQuarkUp_;
+    TBranch *b_MET_T1Smear_phi_jesFlavorPureQuarkUp_;
+    bool loaded_MET_T1Smear_phi_jesFlavorPureQuarkUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesFlavorPureQuarkUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesFlavorPureQuarkUp_;
+    float MET_T1Smear_phi_jesFlavorQCDDown_;
+    TBranch *b_MET_T1Smear_phi_jesFlavorQCDDown_;
+    bool loaded_MET_T1Smear_phi_jesFlavorQCDDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesFlavorQCDDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesFlavorQCDDown_;
+    float MET_T1Smear_phi_jesFlavorQCDUp_;
+    TBranch *b_MET_T1Smear_phi_jesFlavorQCDUp_;
+    bool loaded_MET_T1Smear_phi_jesFlavorQCDUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesFlavorQCDUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesFlavorQCDUp_;
+    float MET_T1Smear_phi_jesFlavorZJetDown_;
+    TBranch *b_MET_T1Smear_phi_jesFlavorZJetDown_;
+    bool loaded_MET_T1Smear_phi_jesFlavorZJetDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesFlavorZJetDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesFlavorZJetDown_;
+    float MET_T1Smear_phi_jesFlavorZJetUp_;
+    TBranch *b_MET_T1Smear_phi_jesFlavorZJetUp_;
+    bool loaded_MET_T1Smear_phi_jesFlavorZJetUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesFlavorZJetUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesFlavorZJetUp_;
+    float MET_T1Smear_phi_jesFragmentationDown_;
+    TBranch *b_MET_T1Smear_phi_jesFragmentationDown_;
+    bool loaded_MET_T1Smear_phi_jesFragmentationDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesFragmentationDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesFragmentationDown_;
+    float MET_T1Smear_phi_jesFragmentationUp_;
+    TBranch *b_MET_T1Smear_phi_jesFragmentationUp_;
+    bool loaded_MET_T1Smear_phi_jesFragmentationUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesFragmentationUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesFragmentationUp_;
     float MET_T1Smear_phi_jesHEMIssueDown_;
     TBranch *b_MET_T1Smear_phi_jesHEMIssueDown_;
     bool loaded_MET_T1Smear_phi_jesHEMIssueDown_;
@@ -12770,11 +16258,381 @@ protected:
     bool loaded_MET_T1Smear_phi_jesHEMIssueUp_;
     unsigned int counter_cached_MET_T1Smear_phi_jesHEMIssueUp_;
     unsigned int counter_uncached_MET_T1Smear_phi_jesHEMIssueUp_;
+    float MET_T1Smear_phi_jesPileUpDataMCDown_;
+    TBranch *b_MET_T1Smear_phi_jesPileUpDataMCDown_;
+    bool loaded_MET_T1Smear_phi_jesPileUpDataMCDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesPileUpDataMCDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesPileUpDataMCDown_;
+    float MET_T1Smear_phi_jesPileUpDataMCUp_;
+    TBranch *b_MET_T1Smear_phi_jesPileUpDataMCUp_;
+    bool loaded_MET_T1Smear_phi_jesPileUpDataMCUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesPileUpDataMCUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesPileUpDataMCUp_;
+    float MET_T1Smear_phi_jesPileUpEnvelopeDown_;
+    TBranch *b_MET_T1Smear_phi_jesPileUpEnvelopeDown_;
+    bool loaded_MET_T1Smear_phi_jesPileUpEnvelopeDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesPileUpEnvelopeDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesPileUpEnvelopeDown_;
+    float MET_T1Smear_phi_jesPileUpEnvelopeUp_;
+    TBranch *b_MET_T1Smear_phi_jesPileUpEnvelopeUp_;
+    bool loaded_MET_T1Smear_phi_jesPileUpEnvelopeUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesPileUpEnvelopeUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesPileUpEnvelopeUp_;
+    float MET_T1Smear_phi_jesPileUpMuZeroDown_;
+    TBranch *b_MET_T1Smear_phi_jesPileUpMuZeroDown_;
+    bool loaded_MET_T1Smear_phi_jesPileUpMuZeroDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesPileUpMuZeroDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesPileUpMuZeroDown_;
+    float MET_T1Smear_phi_jesPileUpMuZeroUp_;
+    TBranch *b_MET_T1Smear_phi_jesPileUpMuZeroUp_;
+    bool loaded_MET_T1Smear_phi_jesPileUpMuZeroUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesPileUpMuZeroUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesPileUpMuZeroUp_;
+    float MET_T1Smear_phi_jesPileUpPtBBDown_;
+    TBranch *b_MET_T1Smear_phi_jesPileUpPtBBDown_;
+    bool loaded_MET_T1Smear_phi_jesPileUpPtBBDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesPileUpPtBBDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesPileUpPtBBDown_;
+    float MET_T1Smear_phi_jesPileUpPtBBUp_;
+    TBranch *b_MET_T1Smear_phi_jesPileUpPtBBUp_;
+    bool loaded_MET_T1Smear_phi_jesPileUpPtBBUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesPileUpPtBBUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesPileUpPtBBUp_;
+    float MET_T1Smear_phi_jesPileUpPtEC1Down_;
+    TBranch *b_MET_T1Smear_phi_jesPileUpPtEC1Down_;
+    bool loaded_MET_T1Smear_phi_jesPileUpPtEC1Down_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesPileUpPtEC1Down_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesPileUpPtEC1Down_;
+    float MET_T1Smear_phi_jesPileUpPtEC1Up_;
+    TBranch *b_MET_T1Smear_phi_jesPileUpPtEC1Up_;
+    bool loaded_MET_T1Smear_phi_jesPileUpPtEC1Up_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesPileUpPtEC1Up_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesPileUpPtEC1Up_;
+    float MET_T1Smear_phi_jesPileUpPtEC2Down_;
+    TBranch *b_MET_T1Smear_phi_jesPileUpPtEC2Down_;
+    bool loaded_MET_T1Smear_phi_jesPileUpPtEC2Down_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesPileUpPtEC2Down_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesPileUpPtEC2Down_;
+    float MET_T1Smear_phi_jesPileUpPtEC2Up_;
+    TBranch *b_MET_T1Smear_phi_jesPileUpPtEC2Up_;
+    bool loaded_MET_T1Smear_phi_jesPileUpPtEC2Up_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesPileUpPtEC2Up_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesPileUpPtEC2Up_;
+    float MET_T1Smear_phi_jesPileUpPtHFDown_;
+    TBranch *b_MET_T1Smear_phi_jesPileUpPtHFDown_;
+    bool loaded_MET_T1Smear_phi_jesPileUpPtHFDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesPileUpPtHFDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesPileUpPtHFDown_;
+    float MET_T1Smear_phi_jesPileUpPtHFUp_;
+    TBranch *b_MET_T1Smear_phi_jesPileUpPtHFUp_;
+    bool loaded_MET_T1Smear_phi_jesPileUpPtHFUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesPileUpPtHFUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesPileUpPtHFUp_;
+    float MET_T1Smear_phi_jesPileUpPtRefDown_;
+    TBranch *b_MET_T1Smear_phi_jesPileUpPtRefDown_;
+    bool loaded_MET_T1Smear_phi_jesPileUpPtRefDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesPileUpPtRefDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesPileUpPtRefDown_;
+    float MET_T1Smear_phi_jesPileUpPtRefUp_;
+    TBranch *b_MET_T1Smear_phi_jesPileUpPtRefUp_;
+    bool loaded_MET_T1Smear_phi_jesPileUpPtRefUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesPileUpPtRefUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesPileUpPtRefUp_;
+    float MET_T1Smear_phi_jesRelativeBalDown_;
+    TBranch *b_MET_T1Smear_phi_jesRelativeBalDown_;
+    bool loaded_MET_T1Smear_phi_jesRelativeBalDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesRelativeBalDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesRelativeBalDown_;
+    float MET_T1Smear_phi_jesRelativeBalUp_;
+    TBranch *b_MET_T1Smear_phi_jesRelativeBalUp_;
+    bool loaded_MET_T1Smear_phi_jesRelativeBalUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesRelativeBalUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesRelativeBalUp_;
+    float MET_T1Smear_phi_jesRelativeFSRDown_;
+    TBranch *b_MET_T1Smear_phi_jesRelativeFSRDown_;
+    bool loaded_MET_T1Smear_phi_jesRelativeFSRDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesRelativeFSRDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesRelativeFSRDown_;
+    float MET_T1Smear_phi_jesRelativeFSRUp_;
+    TBranch *b_MET_T1Smear_phi_jesRelativeFSRUp_;
+    bool loaded_MET_T1Smear_phi_jesRelativeFSRUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesRelativeFSRUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesRelativeFSRUp_;
+    float MET_T1Smear_phi_jesRelativeJEREC1Down_;
+    TBranch *b_MET_T1Smear_phi_jesRelativeJEREC1Down_;
+    bool loaded_MET_T1Smear_phi_jesRelativeJEREC1Down_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesRelativeJEREC1Down_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesRelativeJEREC1Down_;
+    float MET_T1Smear_phi_jesRelativeJEREC1Up_;
+    TBranch *b_MET_T1Smear_phi_jesRelativeJEREC1Up_;
+    bool loaded_MET_T1Smear_phi_jesRelativeJEREC1Up_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesRelativeJEREC1Up_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesRelativeJEREC1Up_;
+    float MET_T1Smear_phi_jesRelativeJEREC2Down_;
+    TBranch *b_MET_T1Smear_phi_jesRelativeJEREC2Down_;
+    bool loaded_MET_T1Smear_phi_jesRelativeJEREC2Down_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesRelativeJEREC2Down_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesRelativeJEREC2Down_;
+    float MET_T1Smear_phi_jesRelativeJEREC2Up_;
+    TBranch *b_MET_T1Smear_phi_jesRelativeJEREC2Up_;
+    bool loaded_MET_T1Smear_phi_jesRelativeJEREC2Up_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesRelativeJEREC2Up_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesRelativeJEREC2Up_;
+    float MET_T1Smear_phi_jesRelativeJERHFDown_;
+    TBranch *b_MET_T1Smear_phi_jesRelativeJERHFDown_;
+    bool loaded_MET_T1Smear_phi_jesRelativeJERHFDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesRelativeJERHFDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesRelativeJERHFDown_;
+    float MET_T1Smear_phi_jesRelativeJERHFUp_;
+    TBranch *b_MET_T1Smear_phi_jesRelativeJERHFUp_;
+    bool loaded_MET_T1Smear_phi_jesRelativeJERHFUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesRelativeJERHFUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesRelativeJERHFUp_;
+    float MET_T1Smear_phi_jesRelativePtBBDown_;
+    TBranch *b_MET_T1Smear_phi_jesRelativePtBBDown_;
+    bool loaded_MET_T1Smear_phi_jesRelativePtBBDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesRelativePtBBDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesRelativePtBBDown_;
+    float MET_T1Smear_phi_jesRelativePtBBUp_;
+    TBranch *b_MET_T1Smear_phi_jesRelativePtBBUp_;
+    bool loaded_MET_T1Smear_phi_jesRelativePtBBUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesRelativePtBBUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesRelativePtBBUp_;
+    float MET_T1Smear_phi_jesRelativePtEC1Down_;
+    TBranch *b_MET_T1Smear_phi_jesRelativePtEC1Down_;
+    bool loaded_MET_T1Smear_phi_jesRelativePtEC1Down_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesRelativePtEC1Down_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesRelativePtEC1Down_;
+    float MET_T1Smear_phi_jesRelativePtEC1Up_;
+    TBranch *b_MET_T1Smear_phi_jesRelativePtEC1Up_;
+    bool loaded_MET_T1Smear_phi_jesRelativePtEC1Up_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesRelativePtEC1Up_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesRelativePtEC1Up_;
+    float MET_T1Smear_phi_jesRelativePtEC2Down_;
+    TBranch *b_MET_T1Smear_phi_jesRelativePtEC2Down_;
+    bool loaded_MET_T1Smear_phi_jesRelativePtEC2Down_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesRelativePtEC2Down_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesRelativePtEC2Down_;
+    float MET_T1Smear_phi_jesRelativePtEC2Up_;
+    TBranch *b_MET_T1Smear_phi_jesRelativePtEC2Up_;
+    bool loaded_MET_T1Smear_phi_jesRelativePtEC2Up_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesRelativePtEC2Up_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesRelativePtEC2Up_;
+    float MET_T1Smear_phi_jesRelativePtHFDown_;
+    TBranch *b_MET_T1Smear_phi_jesRelativePtHFDown_;
+    bool loaded_MET_T1Smear_phi_jesRelativePtHFDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesRelativePtHFDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesRelativePtHFDown_;
+    float MET_T1Smear_phi_jesRelativePtHFUp_;
+    TBranch *b_MET_T1Smear_phi_jesRelativePtHFUp_;
+    bool loaded_MET_T1Smear_phi_jesRelativePtHFUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesRelativePtHFUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesRelativePtHFUp_;
+    float MET_T1Smear_phi_jesRelativeSampleDown_;
+    TBranch *b_MET_T1Smear_phi_jesRelativeSampleDown_;
+    bool loaded_MET_T1Smear_phi_jesRelativeSampleDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesRelativeSampleDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesRelativeSampleDown_;
+    float MET_T1Smear_phi_jesRelativeSampleUp_;
+    TBranch *b_MET_T1Smear_phi_jesRelativeSampleUp_;
+    bool loaded_MET_T1Smear_phi_jesRelativeSampleUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesRelativeSampleUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesRelativeSampleUp_;
+    float MET_T1Smear_phi_jesRelativeStatECDown_;
+    TBranch *b_MET_T1Smear_phi_jesRelativeStatECDown_;
+    bool loaded_MET_T1Smear_phi_jesRelativeStatECDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesRelativeStatECDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesRelativeStatECDown_;
+    float MET_T1Smear_phi_jesRelativeStatECUp_;
+    TBranch *b_MET_T1Smear_phi_jesRelativeStatECUp_;
+    bool loaded_MET_T1Smear_phi_jesRelativeStatECUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesRelativeStatECUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesRelativeStatECUp_;
+    float MET_T1Smear_phi_jesRelativeStatFSRDown_;
+    TBranch *b_MET_T1Smear_phi_jesRelativeStatFSRDown_;
+    bool loaded_MET_T1Smear_phi_jesRelativeStatFSRDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesRelativeStatFSRDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesRelativeStatFSRDown_;
+    float MET_T1Smear_phi_jesRelativeStatFSRUp_;
+    TBranch *b_MET_T1Smear_phi_jesRelativeStatFSRUp_;
+    bool loaded_MET_T1Smear_phi_jesRelativeStatFSRUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesRelativeStatFSRUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesRelativeStatFSRUp_;
+    float MET_T1Smear_phi_jesRelativeStatHFDown_;
+    TBranch *b_MET_T1Smear_phi_jesRelativeStatHFDown_;
+    bool loaded_MET_T1Smear_phi_jesRelativeStatHFDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesRelativeStatHFDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesRelativeStatHFDown_;
+    float MET_T1Smear_phi_jesRelativeStatHFUp_;
+    TBranch *b_MET_T1Smear_phi_jesRelativeStatHFUp_;
+    bool loaded_MET_T1Smear_phi_jesRelativeStatHFUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesRelativeStatHFUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesRelativeStatHFUp_;
+    float MET_T1Smear_phi_jesSinglePionECALDown_;
+    TBranch *b_MET_T1Smear_phi_jesSinglePionECALDown_;
+    bool loaded_MET_T1Smear_phi_jesSinglePionECALDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesSinglePionECALDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesSinglePionECALDown_;
+    float MET_T1Smear_phi_jesSinglePionECALUp_;
+    TBranch *b_MET_T1Smear_phi_jesSinglePionECALUp_;
+    bool loaded_MET_T1Smear_phi_jesSinglePionECALUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesSinglePionECALUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesSinglePionECALUp_;
+    float MET_T1Smear_phi_jesSinglePionHCALDown_;
+    TBranch *b_MET_T1Smear_phi_jesSinglePionHCALDown_;
+    bool loaded_MET_T1Smear_phi_jesSinglePionHCALDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesSinglePionHCALDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesSinglePionHCALDown_;
+    float MET_T1Smear_phi_jesSinglePionHCALUp_;
+    TBranch *b_MET_T1Smear_phi_jesSinglePionHCALUp_;
+    bool loaded_MET_T1Smear_phi_jesSinglePionHCALUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesSinglePionHCALUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesSinglePionHCALUp_;
+    float MET_T1Smear_phi_jesSubTotalAbsoluteDown_;
+    TBranch *b_MET_T1Smear_phi_jesSubTotalAbsoluteDown_;
+    bool loaded_MET_T1Smear_phi_jesSubTotalAbsoluteDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesSubTotalAbsoluteDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesSubTotalAbsoluteDown_;
+    float MET_T1Smear_phi_jesSubTotalAbsoluteUp_;
+    TBranch *b_MET_T1Smear_phi_jesSubTotalAbsoluteUp_;
+    bool loaded_MET_T1Smear_phi_jesSubTotalAbsoluteUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesSubTotalAbsoluteUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesSubTotalAbsoluteUp_;
+    float MET_T1Smear_phi_jesSubTotalMCDown_;
+    TBranch *b_MET_T1Smear_phi_jesSubTotalMCDown_;
+    bool loaded_MET_T1Smear_phi_jesSubTotalMCDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesSubTotalMCDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesSubTotalMCDown_;
+    float MET_T1Smear_phi_jesSubTotalMCUp_;
+    TBranch *b_MET_T1Smear_phi_jesSubTotalMCUp_;
+    bool loaded_MET_T1Smear_phi_jesSubTotalMCUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesSubTotalMCUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesSubTotalMCUp_;
+    float MET_T1Smear_phi_jesSubTotalPileUpDown_;
+    TBranch *b_MET_T1Smear_phi_jesSubTotalPileUpDown_;
+    bool loaded_MET_T1Smear_phi_jesSubTotalPileUpDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesSubTotalPileUpDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesSubTotalPileUpDown_;
+    float MET_T1Smear_phi_jesSubTotalPileUpUp_;
+    TBranch *b_MET_T1Smear_phi_jesSubTotalPileUpUp_;
+    bool loaded_MET_T1Smear_phi_jesSubTotalPileUpUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesSubTotalPileUpUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesSubTotalPileUpUp_;
+    float MET_T1Smear_phi_jesSubTotalPtDown_;
+    TBranch *b_MET_T1Smear_phi_jesSubTotalPtDown_;
+    bool loaded_MET_T1Smear_phi_jesSubTotalPtDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesSubTotalPtDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesSubTotalPtDown_;
+    float MET_T1Smear_phi_jesSubTotalPtUp_;
+    TBranch *b_MET_T1Smear_phi_jesSubTotalPtUp_;
+    bool loaded_MET_T1Smear_phi_jesSubTotalPtUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesSubTotalPtUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesSubTotalPtUp_;
+    float MET_T1Smear_phi_jesSubTotalRelativeDown_;
+    TBranch *b_MET_T1Smear_phi_jesSubTotalRelativeDown_;
+    bool loaded_MET_T1Smear_phi_jesSubTotalRelativeDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesSubTotalRelativeDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesSubTotalRelativeDown_;
+    float MET_T1Smear_phi_jesSubTotalRelativeUp_;
+    TBranch *b_MET_T1Smear_phi_jesSubTotalRelativeUp_;
+    bool loaded_MET_T1Smear_phi_jesSubTotalRelativeUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesSubTotalRelativeUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesSubTotalRelativeUp_;
+    float MET_T1Smear_phi_jesSubTotalScaleDown_;
+    TBranch *b_MET_T1Smear_phi_jesSubTotalScaleDown_;
+    bool loaded_MET_T1Smear_phi_jesSubTotalScaleDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesSubTotalScaleDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesSubTotalScaleDown_;
+    float MET_T1Smear_phi_jesSubTotalScaleUp_;
+    TBranch *b_MET_T1Smear_phi_jesSubTotalScaleUp_;
+    bool loaded_MET_T1Smear_phi_jesSubTotalScaleUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesSubTotalScaleUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesSubTotalScaleUp_;
+    float MET_T1Smear_phi_jesTimePtEtaDown_;
+    TBranch *b_MET_T1Smear_phi_jesTimePtEtaDown_;
+    bool loaded_MET_T1Smear_phi_jesTimePtEtaDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesTimePtEtaDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesTimePtEtaDown_;
+    float MET_T1Smear_phi_jesTimePtEtaUp_;
+    TBranch *b_MET_T1Smear_phi_jesTimePtEtaUp_;
+    bool loaded_MET_T1Smear_phi_jesTimePtEtaUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesTimePtEtaUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesTimePtEtaUp_;
+    float MET_T1Smear_phi_jesTimeRunADown_;
+    TBranch *b_MET_T1Smear_phi_jesTimeRunADown_;
+    bool loaded_MET_T1Smear_phi_jesTimeRunADown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesTimeRunADown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesTimeRunADown_;
+    float MET_T1Smear_phi_jesTimeRunAUp_;
+    TBranch *b_MET_T1Smear_phi_jesTimeRunAUp_;
+    bool loaded_MET_T1Smear_phi_jesTimeRunAUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesTimeRunAUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesTimeRunAUp_;
+    float MET_T1Smear_phi_jesTimeRunBDown_;
+    TBranch *b_MET_T1Smear_phi_jesTimeRunBDown_;
+    bool loaded_MET_T1Smear_phi_jesTimeRunBDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesTimeRunBDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesTimeRunBDown_;
+    float MET_T1Smear_phi_jesTimeRunBUp_;
+    TBranch *b_MET_T1Smear_phi_jesTimeRunBUp_;
+    bool loaded_MET_T1Smear_phi_jesTimeRunBUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesTimeRunBUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesTimeRunBUp_;
+    float MET_T1Smear_phi_jesTimeRunCDown_;
+    TBranch *b_MET_T1Smear_phi_jesTimeRunCDown_;
+    bool loaded_MET_T1Smear_phi_jesTimeRunCDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesTimeRunCDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesTimeRunCDown_;
+    float MET_T1Smear_phi_jesTimeRunCUp_;
+    TBranch *b_MET_T1Smear_phi_jesTimeRunCUp_;
+    bool loaded_MET_T1Smear_phi_jesTimeRunCUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesTimeRunCUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesTimeRunCUp_;
+    float MET_T1Smear_phi_jesTimeRunDDown_;
+    TBranch *b_MET_T1Smear_phi_jesTimeRunDDown_;
+    bool loaded_MET_T1Smear_phi_jesTimeRunDDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesTimeRunDDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesTimeRunDDown_;
+    float MET_T1Smear_phi_jesTimeRunDUp_;
+    TBranch *b_MET_T1Smear_phi_jesTimeRunDUp_;
+    bool loaded_MET_T1Smear_phi_jesTimeRunDUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesTimeRunDUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesTimeRunDUp_;
     float MET_T1Smear_phi_jesTotalDown_;
     TBranch *b_MET_T1Smear_phi_jesTotalDown_;
     bool loaded_MET_T1Smear_phi_jesTotalDown_;
     unsigned int counter_cached_MET_T1Smear_phi_jesTotalDown_;
     unsigned int counter_uncached_MET_T1Smear_phi_jesTotalDown_;
+    float MET_T1Smear_phi_jesTotalNoFlavorDown_;
+    TBranch *b_MET_T1Smear_phi_jesTotalNoFlavorDown_;
+    bool loaded_MET_T1Smear_phi_jesTotalNoFlavorDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesTotalNoFlavorDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesTotalNoFlavorDown_;
+    float MET_T1Smear_phi_jesTotalNoFlavorNoTimeDown_;
+    TBranch *b_MET_T1Smear_phi_jesTotalNoFlavorNoTimeDown_;
+    bool loaded_MET_T1Smear_phi_jesTotalNoFlavorNoTimeDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesTotalNoFlavorNoTimeDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesTotalNoFlavorNoTimeDown_;
+    float MET_T1Smear_phi_jesTotalNoFlavorNoTimeUp_;
+    TBranch *b_MET_T1Smear_phi_jesTotalNoFlavorNoTimeUp_;
+    bool loaded_MET_T1Smear_phi_jesTotalNoFlavorNoTimeUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesTotalNoFlavorNoTimeUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesTotalNoFlavorNoTimeUp_;
+    float MET_T1Smear_phi_jesTotalNoFlavorUp_;
+    TBranch *b_MET_T1Smear_phi_jesTotalNoFlavorUp_;
+    bool loaded_MET_T1Smear_phi_jesTotalNoFlavorUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesTotalNoFlavorUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesTotalNoFlavorUp_;
+    float MET_T1Smear_phi_jesTotalNoTimeDown_;
+    TBranch *b_MET_T1Smear_phi_jesTotalNoTimeDown_;
+    bool loaded_MET_T1Smear_phi_jesTotalNoTimeDown_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesTotalNoTimeDown_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesTotalNoTimeDown_;
+    float MET_T1Smear_phi_jesTotalNoTimeUp_;
+    TBranch *b_MET_T1Smear_phi_jesTotalNoTimeUp_;
+    bool loaded_MET_T1Smear_phi_jesTotalNoTimeUp_;
+    unsigned int counter_cached_MET_T1Smear_phi_jesTotalNoTimeUp_;
+    unsigned int counter_uncached_MET_T1Smear_phi_jesTotalNoTimeUp_;   
     float MET_T1Smear_phi_jesTotalUp_;
     TBranch *b_MET_T1Smear_phi_jesTotalUp_;
     bool loaded_MET_T1Smear_phi_jesTotalUp_;
@@ -12805,6 +16663,186 @@ protected:
     bool loaded_MET_T1Smear_pt_jerUp_;
     unsigned int counter_cached_MET_T1Smear_pt_jerUp_;
     unsigned int counter_uncached_MET_T1Smear_pt_jerUp_;
+    float MET_T1Smear_pt_jesAbsoluteFlavMapDown_;
+    TBranch *b_MET_T1Smear_pt_jesAbsoluteFlavMapDown_;
+    bool loaded_MET_T1Smear_pt_jesAbsoluteFlavMapDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesAbsoluteFlavMapDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesAbsoluteFlavMapDown_;
+    float MET_T1Smear_pt_jesAbsoluteFlavMapUp_;
+    TBranch *b_MET_T1Smear_pt_jesAbsoluteFlavMapUp_;
+    bool loaded_MET_T1Smear_pt_jesAbsoluteFlavMapUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesAbsoluteFlavMapUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesAbsoluteFlavMapUp_;
+    float MET_T1Smear_pt_jesAbsoluteMPFBiasDown_;
+    TBranch *b_MET_T1Smear_pt_jesAbsoluteMPFBiasDown_;
+    bool loaded_MET_T1Smear_pt_jesAbsoluteMPFBiasDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesAbsoluteMPFBiasDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesAbsoluteMPFBiasDown_;
+    float MET_T1Smear_pt_jesAbsoluteMPFBiasUp_;
+    TBranch *b_MET_T1Smear_pt_jesAbsoluteMPFBiasUp_;
+    bool loaded_MET_T1Smear_pt_jesAbsoluteMPFBiasUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesAbsoluteMPFBiasUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesAbsoluteMPFBiasUp_;
+    float MET_T1Smear_pt_jesAbsoluteSampleDown_;
+    TBranch *b_MET_T1Smear_pt_jesAbsoluteSampleDown_;
+    bool loaded_MET_T1Smear_pt_jesAbsoluteSampleDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesAbsoluteSampleDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesAbsoluteSampleDown_;
+    float MET_T1Smear_pt_jesAbsoluteSampleUp_;
+    TBranch *b_MET_T1Smear_pt_jesAbsoluteSampleUp_;
+    bool loaded_MET_T1Smear_pt_jesAbsoluteSampleUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesAbsoluteSampleUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesAbsoluteSampleUp_;
+    float MET_T1Smear_pt_jesAbsoluteScaleDown_;
+    TBranch *b_MET_T1Smear_pt_jesAbsoluteScaleDown_;
+    bool loaded_MET_T1Smear_pt_jesAbsoluteScaleDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesAbsoluteScaleDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesAbsoluteScaleDown_;
+    float MET_T1Smear_pt_jesAbsoluteScaleUp_;
+    TBranch *b_MET_T1Smear_pt_jesAbsoluteScaleUp_;
+    bool loaded_MET_T1Smear_pt_jesAbsoluteScaleUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesAbsoluteScaleUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesAbsoluteScaleUp_;
+    float MET_T1Smear_pt_jesAbsoluteStatDown_;
+    TBranch *b_MET_T1Smear_pt_jesAbsoluteStatDown_;
+    bool loaded_MET_T1Smear_pt_jesAbsoluteStatDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesAbsoluteStatDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesAbsoluteStatDown_;
+    float MET_T1Smear_pt_jesAbsoluteStatUp_;
+    TBranch *b_MET_T1Smear_pt_jesAbsoluteStatUp_;
+    bool loaded_MET_T1Smear_pt_jesAbsoluteStatUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesAbsoluteStatUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesAbsoluteStatUp_;
+    float MET_T1Smear_pt_jesCorrelationGroupFlavorDown_;
+    TBranch *b_MET_T1Smear_pt_jesCorrelationGroupFlavorDown_;
+    bool loaded_MET_T1Smear_pt_jesCorrelationGroupFlavorDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesCorrelationGroupFlavorDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesCorrelationGroupFlavorDown_;
+    float MET_T1Smear_pt_jesCorrelationGroupFlavorUp_;
+    TBranch *b_MET_T1Smear_pt_jesCorrelationGroupFlavorUp_;
+    bool loaded_MET_T1Smear_pt_jesCorrelationGroupFlavorUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesCorrelationGroupFlavorUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesCorrelationGroupFlavorUp_;
+    float MET_T1Smear_pt_jesCorrelationGroupIntercalibrationDown_;
+    TBranch *b_MET_T1Smear_pt_jesCorrelationGroupIntercalibrationDown_;
+    bool loaded_MET_T1Smear_pt_jesCorrelationGroupIntercalibrationDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesCorrelationGroupIntercalibrationDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesCorrelationGroupIntercalibrationDown_;
+    float MET_T1Smear_pt_jesCorrelationGroupIntercalibrationUp_;
+    TBranch *b_MET_T1Smear_pt_jesCorrelationGroupIntercalibrationUp_;
+    bool loaded_MET_T1Smear_pt_jesCorrelationGroupIntercalibrationUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesCorrelationGroupIntercalibrationUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesCorrelationGroupIntercalibrationUp_;
+    float MET_T1Smear_pt_jesCorrelationGroupMPFInSituDown_;
+    TBranch *b_MET_T1Smear_pt_jesCorrelationGroupMPFInSituDown_;
+    bool loaded_MET_T1Smear_pt_jesCorrelationGroupMPFInSituDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesCorrelationGroupMPFInSituDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesCorrelationGroupMPFInSituDown_;
+    float MET_T1Smear_pt_jesCorrelationGroupMPFInSituUp_;
+    TBranch *b_MET_T1Smear_pt_jesCorrelationGroupMPFInSituUp_;
+    bool loaded_MET_T1Smear_pt_jesCorrelationGroupMPFInSituUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesCorrelationGroupMPFInSituUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesCorrelationGroupMPFInSituUp_;
+    float MET_T1Smear_pt_jesCorrelationGroupUncorrelatedDown_;
+    TBranch *b_MET_T1Smear_pt_jesCorrelationGroupUncorrelatedDown_;
+    bool loaded_MET_T1Smear_pt_jesCorrelationGroupUncorrelatedDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesCorrelationGroupUncorrelatedDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesCorrelationGroupUncorrelatedDown_;
+    float MET_T1Smear_pt_jesCorrelationGroupUncorrelatedUp_;
+    TBranch *b_MET_T1Smear_pt_jesCorrelationGroupUncorrelatedUp_;
+    bool loaded_MET_T1Smear_pt_jesCorrelationGroupUncorrelatedUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesCorrelationGroupUncorrelatedUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesCorrelationGroupUncorrelatedUp_;
+    float MET_T1Smear_pt_jesCorrelationGroupbJESDown_;
+    TBranch *b_MET_T1Smear_pt_jesCorrelationGroupbJESDown_;
+    bool loaded_MET_T1Smear_pt_jesCorrelationGroupbJESDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesCorrelationGroupbJESDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesCorrelationGroupbJESDown_;
+    float MET_T1Smear_pt_jesCorrelationGroupbJESUp_;
+    TBranch *b_MET_T1Smear_pt_jesCorrelationGroupbJESUp_;
+    bool loaded_MET_T1Smear_pt_jesCorrelationGroupbJESUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesCorrelationGroupbJESUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesCorrelationGroupbJESUp_;
+    float MET_T1Smear_pt_jesFlavorPhotonJetDown_;
+    TBranch *b_MET_T1Smear_pt_jesFlavorPhotonJetDown_;
+    bool loaded_MET_T1Smear_pt_jesFlavorPhotonJetDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesFlavorPhotonJetDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesFlavorPhotonJetDown_;
+    float MET_T1Smear_pt_jesFlavorPhotonJetUp_;
+    TBranch *b_MET_T1Smear_pt_jesFlavorPhotonJetUp_;
+    bool loaded_MET_T1Smear_pt_jesFlavorPhotonJetUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesFlavorPhotonJetUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesFlavorPhotonJetUp_;
+    float MET_T1Smear_pt_jesFlavorPureBottomDown_;
+    TBranch *b_MET_T1Smear_pt_jesFlavorPureBottomDown_;
+    bool loaded_MET_T1Smear_pt_jesFlavorPureBottomDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesFlavorPureBottomDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesFlavorPureBottomDown_;
+    float MET_T1Smear_pt_jesFlavorPureBottomUp_;
+    TBranch *b_MET_T1Smear_pt_jesFlavorPureBottomUp_;
+    bool loaded_MET_T1Smear_pt_jesFlavorPureBottomUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesFlavorPureBottomUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesFlavorPureBottomUp_;
+    float MET_T1Smear_pt_jesFlavorPureCharmDown_;
+    TBranch *b_MET_T1Smear_pt_jesFlavorPureCharmDown_;
+    bool loaded_MET_T1Smear_pt_jesFlavorPureCharmDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesFlavorPureCharmDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesFlavorPureCharmDown_;
+    float MET_T1Smear_pt_jesFlavorPureCharmUp_;
+    TBranch *b_MET_T1Smear_pt_jesFlavorPureCharmUp_;
+    bool loaded_MET_T1Smear_pt_jesFlavorPureCharmUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesFlavorPureCharmUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesFlavorPureCharmUp_;
+    float MET_T1Smear_pt_jesFlavorPureGluonDown_;
+    TBranch *b_MET_T1Smear_pt_jesFlavorPureGluonDown_;
+    bool loaded_MET_T1Smear_pt_jesFlavorPureGluonDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesFlavorPureGluonDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesFlavorPureGluonDown_;
+    float MET_T1Smear_pt_jesFlavorPureGluonUp_;
+    TBranch *b_MET_T1Smear_pt_jesFlavorPureGluonUp_;
+    bool loaded_MET_T1Smear_pt_jesFlavorPureGluonUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesFlavorPureGluonUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesFlavorPureGluonUp_;
+    float MET_T1Smear_pt_jesFlavorPureQuarkDown_;
+    TBranch *b_MET_T1Smear_pt_jesFlavorPureQuarkDown_;
+    bool loaded_MET_T1Smear_pt_jesFlavorPureQuarkDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesFlavorPureQuarkDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesFlavorPureQuarkDown_;
+    float MET_T1Smear_pt_jesFlavorPureQuarkUp_;
+    TBranch *b_MET_T1Smear_pt_jesFlavorPureQuarkUp_;
+    bool loaded_MET_T1Smear_pt_jesFlavorPureQuarkUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesFlavorPureQuarkUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesFlavorPureQuarkUp_;
+    float MET_T1Smear_pt_jesFlavorQCDDown_;
+    TBranch *b_MET_T1Smear_pt_jesFlavorQCDDown_;
+    bool loaded_MET_T1Smear_pt_jesFlavorQCDDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesFlavorQCDDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesFlavorQCDDown_;
+    float MET_T1Smear_pt_jesFlavorQCDUp_;
+    TBranch *b_MET_T1Smear_pt_jesFlavorQCDUp_;
+    bool loaded_MET_T1Smear_pt_jesFlavorQCDUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesFlavorQCDUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesFlavorQCDUp_;
+    float MET_T1Smear_pt_jesFlavorZJetDown_;
+    TBranch *b_MET_T1Smear_pt_jesFlavorZJetDown_;
+    bool loaded_MET_T1Smear_pt_jesFlavorZJetDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesFlavorZJetDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesFlavorZJetDown_;
+    float MET_T1Smear_pt_jesFlavorZJetUp_;
+    TBranch *b_MET_T1Smear_pt_jesFlavorZJetUp_;
+    bool loaded_MET_T1Smear_pt_jesFlavorZJetUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesFlavorZJetUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesFlavorZJetUp_;
+    float MET_T1Smear_pt_jesFragmentationDown_;
+    TBranch *b_MET_T1Smear_pt_jesFragmentationDown_;
+    bool loaded_MET_T1Smear_pt_jesFragmentationDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesFragmentationDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesFragmentationDown_;
+    float MET_T1Smear_pt_jesFragmentationUp_;
+    TBranch *b_MET_T1Smear_pt_jesFragmentationUp_;
+    bool loaded_MET_T1Smear_pt_jesFragmentationUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesFragmentationUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesFragmentationUp_;    
     float MET_T1Smear_pt_jesHEMIssueDown_;
     TBranch *b_MET_T1Smear_pt_jesHEMIssueDown_;
     bool loaded_MET_T1Smear_pt_jesHEMIssueDown_;
@@ -12815,11 +16853,381 @@ protected:
     bool loaded_MET_T1Smear_pt_jesHEMIssueUp_;
     unsigned int counter_cached_MET_T1Smear_pt_jesHEMIssueUp_;
     unsigned int counter_uncached_MET_T1Smear_pt_jesHEMIssueUp_;
+    float MET_T1Smear_pt_jesPileUpDataMCDown_;
+    TBranch *b_MET_T1Smear_pt_jesPileUpDataMCDown_;
+    bool loaded_MET_T1Smear_pt_jesPileUpDataMCDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesPileUpDataMCDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesPileUpDataMCDown_;
+    float MET_T1Smear_pt_jesPileUpDataMCUp_;
+    TBranch *b_MET_T1Smear_pt_jesPileUpDataMCUp_;
+    bool loaded_MET_T1Smear_pt_jesPileUpDataMCUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesPileUpDataMCUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesPileUpDataMCUp_;
+    float MET_T1Smear_pt_jesPileUpEnvelopeDown_;
+    TBranch *b_MET_T1Smear_pt_jesPileUpEnvelopeDown_;
+    bool loaded_MET_T1Smear_pt_jesPileUpEnvelopeDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesPileUpEnvelopeDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesPileUpEnvelopeDown_;
+    float MET_T1Smear_pt_jesPileUpEnvelopeUp_;
+    TBranch *b_MET_T1Smear_pt_jesPileUpEnvelopeUp_;
+    bool loaded_MET_T1Smear_pt_jesPileUpEnvelopeUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesPileUpEnvelopeUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesPileUpEnvelopeUp_;
+    float MET_T1Smear_pt_jesPileUpMuZeroDown_;
+    TBranch *b_MET_T1Smear_pt_jesPileUpMuZeroDown_;
+    bool loaded_MET_T1Smear_pt_jesPileUpMuZeroDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesPileUpMuZeroDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesPileUpMuZeroDown_;
+    float MET_T1Smear_pt_jesPileUpMuZeroUp_;
+    TBranch *b_MET_T1Smear_pt_jesPileUpMuZeroUp_;
+    bool loaded_MET_T1Smear_pt_jesPileUpMuZeroUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesPileUpMuZeroUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesPileUpMuZeroUp_;
+    float MET_T1Smear_pt_jesPileUpPtBBDown_;
+    TBranch *b_MET_T1Smear_pt_jesPileUpPtBBDown_;
+    bool loaded_MET_T1Smear_pt_jesPileUpPtBBDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesPileUpPtBBDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesPileUpPtBBDown_;
+    float MET_T1Smear_pt_jesPileUpPtBBUp_;
+    TBranch *b_MET_T1Smear_pt_jesPileUpPtBBUp_;
+    bool loaded_MET_T1Smear_pt_jesPileUpPtBBUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesPileUpPtBBUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesPileUpPtBBUp_;
+    float MET_T1Smear_pt_jesPileUpPtEC1Down_;
+    TBranch *b_MET_T1Smear_pt_jesPileUpPtEC1Down_;
+    bool loaded_MET_T1Smear_pt_jesPileUpPtEC1Down_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesPileUpPtEC1Down_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesPileUpPtEC1Down_;
+    float MET_T1Smear_pt_jesPileUpPtEC1Up_;
+    TBranch *b_MET_T1Smear_pt_jesPileUpPtEC1Up_;
+    bool loaded_MET_T1Smear_pt_jesPileUpPtEC1Up_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesPileUpPtEC1Up_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesPileUpPtEC1Up_;
+    float MET_T1Smear_pt_jesPileUpPtEC2Down_;
+    TBranch *b_MET_T1Smear_pt_jesPileUpPtEC2Down_;
+    bool loaded_MET_T1Smear_pt_jesPileUpPtEC2Down_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesPileUpPtEC2Down_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesPileUpPtEC2Down_;
+    float MET_T1Smear_pt_jesPileUpPtEC2Up_;
+    TBranch *b_MET_T1Smear_pt_jesPileUpPtEC2Up_;
+    bool loaded_MET_T1Smear_pt_jesPileUpPtEC2Up_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesPileUpPtEC2Up_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesPileUpPtEC2Up_;
+    float MET_T1Smear_pt_jesPileUpPtHFDown_;
+    TBranch *b_MET_T1Smear_pt_jesPileUpPtHFDown_;
+    bool loaded_MET_T1Smear_pt_jesPileUpPtHFDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesPileUpPtHFDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesPileUpPtHFDown_;
+    float MET_T1Smear_pt_jesPileUpPtHFUp_;
+    TBranch *b_MET_T1Smear_pt_jesPileUpPtHFUp_;
+    bool loaded_MET_T1Smear_pt_jesPileUpPtHFUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesPileUpPtHFUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesPileUpPtHFUp_;
+    float MET_T1Smear_pt_jesPileUpPtRefDown_;
+    TBranch *b_MET_T1Smear_pt_jesPileUpPtRefDown_;
+    bool loaded_MET_T1Smear_pt_jesPileUpPtRefDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesPileUpPtRefDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesPileUpPtRefDown_;
+    float MET_T1Smear_pt_jesPileUpPtRefUp_;
+    TBranch *b_MET_T1Smear_pt_jesPileUpPtRefUp_;
+    bool loaded_MET_T1Smear_pt_jesPileUpPtRefUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesPileUpPtRefUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesPileUpPtRefUp_;
+    float MET_T1Smear_pt_jesRelativeBalDown_;
+    TBranch *b_MET_T1Smear_pt_jesRelativeBalDown_;
+    bool loaded_MET_T1Smear_pt_jesRelativeBalDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesRelativeBalDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesRelativeBalDown_;
+    float MET_T1Smear_pt_jesRelativeBalUp_;
+    TBranch *b_MET_T1Smear_pt_jesRelativeBalUp_;
+    bool loaded_MET_T1Smear_pt_jesRelativeBalUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesRelativeBalUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesRelativeBalUp_;
+    float MET_T1Smear_pt_jesRelativeFSRDown_;
+    TBranch *b_MET_T1Smear_pt_jesRelativeFSRDown_;
+    bool loaded_MET_T1Smear_pt_jesRelativeFSRDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesRelativeFSRDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesRelativeFSRDown_;
+    float MET_T1Smear_pt_jesRelativeFSRUp_;
+    TBranch *b_MET_T1Smear_pt_jesRelativeFSRUp_;
+    bool loaded_MET_T1Smear_pt_jesRelativeFSRUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesRelativeFSRUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesRelativeFSRUp_;
+    float MET_T1Smear_pt_jesRelativeJEREC1Down_;
+    TBranch *b_MET_T1Smear_pt_jesRelativeJEREC1Down_;
+    bool loaded_MET_T1Smear_pt_jesRelativeJEREC1Down_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesRelativeJEREC1Down_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesRelativeJEREC1Down_;
+    float MET_T1Smear_pt_jesRelativeJEREC1Up_;
+    TBranch *b_MET_T1Smear_pt_jesRelativeJEREC1Up_;
+    bool loaded_MET_T1Smear_pt_jesRelativeJEREC1Up_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesRelativeJEREC1Up_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesRelativeJEREC1Up_;
+    float MET_T1Smear_pt_jesRelativeJEREC2Down_;
+    TBranch *b_MET_T1Smear_pt_jesRelativeJEREC2Down_;
+    bool loaded_MET_T1Smear_pt_jesRelativeJEREC2Down_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesRelativeJEREC2Down_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesRelativeJEREC2Down_;
+    float MET_T1Smear_pt_jesRelativeJEREC2Up_;
+    TBranch *b_MET_T1Smear_pt_jesRelativeJEREC2Up_;
+    bool loaded_MET_T1Smear_pt_jesRelativeJEREC2Up_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesRelativeJEREC2Up_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesRelativeJEREC2Up_;
+    float MET_T1Smear_pt_jesRelativeJERHFDown_;
+    TBranch *b_MET_T1Smear_pt_jesRelativeJERHFDown_;
+    bool loaded_MET_T1Smear_pt_jesRelativeJERHFDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesRelativeJERHFDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesRelativeJERHFDown_;
+    float MET_T1Smear_pt_jesRelativeJERHFUp_;
+    TBranch *b_MET_T1Smear_pt_jesRelativeJERHFUp_;
+    bool loaded_MET_T1Smear_pt_jesRelativeJERHFUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesRelativeJERHFUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesRelativeJERHFUp_;
+    float MET_T1Smear_pt_jesRelativePtBBDown_;
+    TBranch *b_MET_T1Smear_pt_jesRelativePtBBDown_;
+    bool loaded_MET_T1Smear_pt_jesRelativePtBBDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesRelativePtBBDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesRelativePtBBDown_;
+    float MET_T1Smear_pt_jesRelativePtBBUp_;
+    TBranch *b_MET_T1Smear_pt_jesRelativePtBBUp_;
+    bool loaded_MET_T1Smear_pt_jesRelativePtBBUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesRelativePtBBUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesRelativePtBBUp_;
+    float MET_T1Smear_pt_jesRelativePtEC1Down_;
+    TBranch *b_MET_T1Smear_pt_jesRelativePtEC1Down_;
+    bool loaded_MET_T1Smear_pt_jesRelativePtEC1Down_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesRelativePtEC1Down_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesRelativePtEC1Down_;
+    float MET_T1Smear_pt_jesRelativePtEC1Up_;
+    TBranch *b_MET_T1Smear_pt_jesRelativePtEC1Up_;
+    bool loaded_MET_T1Smear_pt_jesRelativePtEC1Up_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesRelativePtEC1Up_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesRelativePtEC1Up_;
+    float MET_T1Smear_pt_jesRelativePtEC2Down_;
+    TBranch *b_MET_T1Smear_pt_jesRelativePtEC2Down_;
+    bool loaded_MET_T1Smear_pt_jesRelativePtEC2Down_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesRelativePtEC2Down_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesRelativePtEC2Down_;
+    float MET_T1Smear_pt_jesRelativePtEC2Up_;
+    TBranch *b_MET_T1Smear_pt_jesRelativePtEC2Up_;
+    bool loaded_MET_T1Smear_pt_jesRelativePtEC2Up_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesRelativePtEC2Up_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesRelativePtEC2Up_;
+    float MET_T1Smear_pt_jesRelativePtHFDown_;
+    TBranch *b_MET_T1Smear_pt_jesRelativePtHFDown_;
+    bool loaded_MET_T1Smear_pt_jesRelativePtHFDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesRelativePtHFDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesRelativePtHFDown_;
+    float MET_T1Smear_pt_jesRelativePtHFUp_;
+    TBranch *b_MET_T1Smear_pt_jesRelativePtHFUp_;
+    bool loaded_MET_T1Smear_pt_jesRelativePtHFUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesRelativePtHFUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesRelativePtHFUp_;
+    float MET_T1Smear_pt_jesRelativeSampleDown_;
+    TBranch *b_MET_T1Smear_pt_jesRelativeSampleDown_;
+    bool loaded_MET_T1Smear_pt_jesRelativeSampleDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesRelativeSampleDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesRelativeSampleDown_;
+    float MET_T1Smear_pt_jesRelativeSampleUp_;
+    TBranch *b_MET_T1Smear_pt_jesRelativeSampleUp_;
+    bool loaded_MET_T1Smear_pt_jesRelativeSampleUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesRelativeSampleUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesRelativeSampleUp_;
+    float MET_T1Smear_pt_jesRelativeStatECDown_;
+    TBranch *b_MET_T1Smear_pt_jesRelativeStatECDown_;
+    bool loaded_MET_T1Smear_pt_jesRelativeStatECDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesRelativeStatECDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesRelativeStatECDown_;
+    float MET_T1Smear_pt_jesRelativeStatECUp_;
+    TBranch *b_MET_T1Smear_pt_jesRelativeStatECUp_;
+    bool loaded_MET_T1Smear_pt_jesRelativeStatECUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesRelativeStatECUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesRelativeStatECUp_;
+    float MET_T1Smear_pt_jesRelativeStatFSRDown_;
+    TBranch *b_MET_T1Smear_pt_jesRelativeStatFSRDown_;
+    bool loaded_MET_T1Smear_pt_jesRelativeStatFSRDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesRelativeStatFSRDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesRelativeStatFSRDown_;
+    float MET_T1Smear_pt_jesRelativeStatFSRUp_;
+    TBranch *b_MET_T1Smear_pt_jesRelativeStatFSRUp_;
+    bool loaded_MET_T1Smear_pt_jesRelativeStatFSRUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesRelativeStatFSRUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesRelativeStatFSRUp_;
+    float MET_T1Smear_pt_jesRelativeStatHFDown_;
+    TBranch *b_MET_T1Smear_pt_jesRelativeStatHFDown_;
+    bool loaded_MET_T1Smear_pt_jesRelativeStatHFDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesRelativeStatHFDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesRelativeStatHFDown_;
+    float MET_T1Smear_pt_jesRelativeStatHFUp_;
+    TBranch *b_MET_T1Smear_pt_jesRelativeStatHFUp_;
+    bool loaded_MET_T1Smear_pt_jesRelativeStatHFUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesRelativeStatHFUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesRelativeStatHFUp_;
+    float MET_T1Smear_pt_jesSinglePionECALDown_;
+    TBranch *b_MET_T1Smear_pt_jesSinglePionECALDown_;
+    bool loaded_MET_T1Smear_pt_jesSinglePionECALDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesSinglePionECALDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesSinglePionECALDown_;
+    float MET_T1Smear_pt_jesSinglePionECALUp_;
+    TBranch *b_MET_T1Smear_pt_jesSinglePionECALUp_;
+    bool loaded_MET_T1Smear_pt_jesSinglePionECALUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesSinglePionECALUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesSinglePionECALUp_;
+    float MET_T1Smear_pt_jesSinglePionHCALDown_;
+    TBranch *b_MET_T1Smear_pt_jesSinglePionHCALDown_;
+    bool loaded_MET_T1Smear_pt_jesSinglePionHCALDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesSinglePionHCALDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesSinglePionHCALDown_;
+    float MET_T1Smear_pt_jesSinglePionHCALUp_;
+    TBranch *b_MET_T1Smear_pt_jesSinglePionHCALUp_;
+    bool loaded_MET_T1Smear_pt_jesSinglePionHCALUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesSinglePionHCALUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesSinglePionHCALUp_;
+    float MET_T1Smear_pt_jesSubTotalAbsoluteDown_;
+    TBranch *b_MET_T1Smear_pt_jesSubTotalAbsoluteDown_;
+    bool loaded_MET_T1Smear_pt_jesSubTotalAbsoluteDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesSubTotalAbsoluteDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesSubTotalAbsoluteDown_;
+    float MET_T1Smear_pt_jesSubTotalAbsoluteUp_;
+    TBranch *b_MET_T1Smear_pt_jesSubTotalAbsoluteUp_;
+    bool loaded_MET_T1Smear_pt_jesSubTotalAbsoluteUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesSubTotalAbsoluteUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesSubTotalAbsoluteUp_;
+    float MET_T1Smear_pt_jesSubTotalMCDown_;
+    TBranch *b_MET_T1Smear_pt_jesSubTotalMCDown_;
+    bool loaded_MET_T1Smear_pt_jesSubTotalMCDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesSubTotalMCDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesSubTotalMCDown_;
+    float MET_T1Smear_pt_jesSubTotalMCUp_;
+    TBranch *b_MET_T1Smear_pt_jesSubTotalMCUp_;
+    bool loaded_MET_T1Smear_pt_jesSubTotalMCUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesSubTotalMCUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesSubTotalMCUp_;
+    float MET_T1Smear_pt_jesSubTotalPileUpDown_;
+    TBranch *b_MET_T1Smear_pt_jesSubTotalPileUpDown_;
+    bool loaded_MET_T1Smear_pt_jesSubTotalPileUpDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesSubTotalPileUpDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesSubTotalPileUpDown_;
+    float MET_T1Smear_pt_jesSubTotalPileUpUp_;
+    TBranch *b_MET_T1Smear_pt_jesSubTotalPileUpUp_;
+    bool loaded_MET_T1Smear_pt_jesSubTotalPileUpUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesSubTotalPileUpUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesSubTotalPileUpUp_;
+    float MET_T1Smear_pt_jesSubTotalPtDown_;
+    TBranch *b_MET_T1Smear_pt_jesSubTotalPtDown_;
+    bool loaded_MET_T1Smear_pt_jesSubTotalPtDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesSubTotalPtDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesSubTotalPtDown_;
+    float MET_T1Smear_pt_jesSubTotalPtUp_;
+    TBranch *b_MET_T1Smear_pt_jesSubTotalPtUp_;
+    bool loaded_MET_T1Smear_pt_jesSubTotalPtUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesSubTotalPtUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesSubTotalPtUp_;
+    float MET_T1Smear_pt_jesSubTotalRelativeDown_;
+    TBranch *b_MET_T1Smear_pt_jesSubTotalRelativeDown_;
+    bool loaded_MET_T1Smear_pt_jesSubTotalRelativeDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesSubTotalRelativeDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesSubTotalRelativeDown_;
+    float MET_T1Smear_pt_jesSubTotalRelativeUp_;
+    TBranch *b_MET_T1Smear_pt_jesSubTotalRelativeUp_;
+    bool loaded_MET_T1Smear_pt_jesSubTotalRelativeUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesSubTotalRelativeUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesSubTotalRelativeUp_;
+    float MET_T1Smear_pt_jesSubTotalScaleDown_;
+    TBranch *b_MET_T1Smear_pt_jesSubTotalScaleDown_;
+    bool loaded_MET_T1Smear_pt_jesSubTotalScaleDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesSubTotalScaleDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesSubTotalScaleDown_;
+    float MET_T1Smear_pt_jesSubTotalScaleUp_;
+    TBranch *b_MET_T1Smear_pt_jesSubTotalScaleUp_;
+    bool loaded_MET_T1Smear_pt_jesSubTotalScaleUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesSubTotalScaleUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesSubTotalScaleUp_;
+    float MET_T1Smear_pt_jesTimePtEtaDown_;
+    TBranch *b_MET_T1Smear_pt_jesTimePtEtaDown_;
+    bool loaded_MET_T1Smear_pt_jesTimePtEtaDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesTimePtEtaDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesTimePtEtaDown_;
+    float MET_T1Smear_pt_jesTimePtEtaUp_;
+    TBranch *b_MET_T1Smear_pt_jesTimePtEtaUp_;
+    bool loaded_MET_T1Smear_pt_jesTimePtEtaUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesTimePtEtaUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesTimePtEtaUp_;
+    float MET_T1Smear_pt_jesTimeRunADown_;
+    TBranch *b_MET_T1Smear_pt_jesTimeRunADown_;
+    bool loaded_MET_T1Smear_pt_jesTimeRunADown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesTimeRunADown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesTimeRunADown_;
+    float MET_T1Smear_pt_jesTimeRunAUp_;
+    TBranch *b_MET_T1Smear_pt_jesTimeRunAUp_;
+    bool loaded_MET_T1Smear_pt_jesTimeRunAUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesTimeRunAUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesTimeRunAUp_;
+    float MET_T1Smear_pt_jesTimeRunBDown_;
+    TBranch *b_MET_T1Smear_pt_jesTimeRunBDown_;
+    bool loaded_MET_T1Smear_pt_jesTimeRunBDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesTimeRunBDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesTimeRunBDown_;
+    float MET_T1Smear_pt_jesTimeRunBUp_;
+    TBranch *b_MET_T1Smear_pt_jesTimeRunBUp_;
+    bool loaded_MET_T1Smear_pt_jesTimeRunBUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesTimeRunBUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesTimeRunBUp_;
+    float MET_T1Smear_pt_jesTimeRunCDown_;
+    TBranch *b_MET_T1Smear_pt_jesTimeRunCDown_;
+    bool loaded_MET_T1Smear_pt_jesTimeRunCDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesTimeRunCDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesTimeRunCDown_;
+    float MET_T1Smear_pt_jesTimeRunCUp_;
+    TBranch *b_MET_T1Smear_pt_jesTimeRunCUp_;
+    bool loaded_MET_T1Smear_pt_jesTimeRunCUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesTimeRunCUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesTimeRunCUp_;
+    float MET_T1Smear_pt_jesTimeRunDDown_;
+    TBranch *b_MET_T1Smear_pt_jesTimeRunDDown_;
+    bool loaded_MET_T1Smear_pt_jesTimeRunDDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesTimeRunDDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesTimeRunDDown_;
+    float MET_T1Smear_pt_jesTimeRunDUp_;
+    TBranch *b_MET_T1Smear_pt_jesTimeRunDUp_;
+    bool loaded_MET_T1Smear_pt_jesTimeRunDUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesTimeRunDUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesTimeRunDUp_;    
     float MET_T1Smear_pt_jesTotalDown_;
     TBranch *b_MET_T1Smear_pt_jesTotalDown_;
     bool loaded_MET_T1Smear_pt_jesTotalDown_;
     unsigned int counter_cached_MET_T1Smear_pt_jesTotalDown_;
     unsigned int counter_uncached_MET_T1Smear_pt_jesTotalDown_;
+    float MET_T1Smear_pt_jesTotalNoFlavorDown_;
+    TBranch *b_MET_T1Smear_pt_jesTotalNoFlavorDown_;
+    bool loaded_MET_T1Smear_pt_jesTotalNoFlavorDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesTotalNoFlavorDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesTotalNoFlavorDown_;
+    float MET_T1Smear_pt_jesTotalNoFlavorNoTimeDown_;
+    TBranch *b_MET_T1Smear_pt_jesTotalNoFlavorNoTimeDown_;
+    bool loaded_MET_T1Smear_pt_jesTotalNoFlavorNoTimeDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesTotalNoFlavorNoTimeDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesTotalNoFlavorNoTimeDown_;
+    float MET_T1Smear_pt_jesTotalNoFlavorNoTimeUp_;
+    TBranch *b_MET_T1Smear_pt_jesTotalNoFlavorNoTimeUp_;
+    bool loaded_MET_T1Smear_pt_jesTotalNoFlavorNoTimeUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesTotalNoFlavorNoTimeUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesTotalNoFlavorNoTimeUp_;
+    float MET_T1Smear_pt_jesTotalNoFlavorUp_;
+    TBranch *b_MET_T1Smear_pt_jesTotalNoFlavorUp_;
+    bool loaded_MET_T1Smear_pt_jesTotalNoFlavorUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesTotalNoFlavorUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesTotalNoFlavorUp_;
+    float MET_T1Smear_pt_jesTotalNoTimeDown_;
+    TBranch *b_MET_T1Smear_pt_jesTotalNoTimeDown_;
+    bool loaded_MET_T1Smear_pt_jesTotalNoTimeDown_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesTotalNoTimeDown_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesTotalNoTimeDown_;
+    float MET_T1Smear_pt_jesTotalNoTimeUp_;
+    TBranch *b_MET_T1Smear_pt_jesTotalNoTimeUp_;
+    bool loaded_MET_T1Smear_pt_jesTotalNoTimeUp_;
+    unsigned int counter_cached_MET_T1Smear_pt_jesTotalNoTimeUp_;
+    unsigned int counter_uncached_MET_T1Smear_pt_jesTotalNoTimeUp_;
     float MET_T1Smear_pt_jesTotalUp_;
     TBranch *b_MET_T1Smear_pt_jesTotalUp_;
     bool loaded_MET_T1Smear_pt_jesTotalUp_;
@@ -12850,6 +17258,186 @@ protected:
     bool loaded_MET_T1_phi_jerUp_;
     unsigned int counter_cached_MET_T1_phi_jerUp_;
     unsigned int counter_uncached_MET_T1_phi_jerUp_;
+    float MET_T1_phi_jesAbsoluteFlavMapDown_;
+    TBranch *b_MET_T1_phi_jesAbsoluteFlavMapDown_;
+    bool loaded_MET_T1_phi_jesAbsoluteFlavMapDown_;
+    unsigned int counter_cached_MET_T1_phi_jesAbsoluteFlavMapDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesAbsoluteFlavMapDown_;
+    float MET_T1_phi_jesAbsoluteFlavMapUp_;
+    TBranch *b_MET_T1_phi_jesAbsoluteFlavMapUp_;
+    bool loaded_MET_T1_phi_jesAbsoluteFlavMapUp_;
+    unsigned int counter_cached_MET_T1_phi_jesAbsoluteFlavMapUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesAbsoluteFlavMapUp_;
+    float MET_T1_phi_jesAbsoluteMPFBiasDown_;
+    TBranch *b_MET_T1_phi_jesAbsoluteMPFBiasDown_;
+    bool loaded_MET_T1_phi_jesAbsoluteMPFBiasDown_;
+    unsigned int counter_cached_MET_T1_phi_jesAbsoluteMPFBiasDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesAbsoluteMPFBiasDown_;
+    float MET_T1_phi_jesAbsoluteMPFBiasUp_;
+    TBranch *b_MET_T1_phi_jesAbsoluteMPFBiasUp_;
+    bool loaded_MET_T1_phi_jesAbsoluteMPFBiasUp_;
+    unsigned int counter_cached_MET_T1_phi_jesAbsoluteMPFBiasUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesAbsoluteMPFBiasUp_;
+    float MET_T1_phi_jesAbsoluteSampleDown_;
+    TBranch *b_MET_T1_phi_jesAbsoluteSampleDown_;
+    bool loaded_MET_T1_phi_jesAbsoluteSampleDown_;
+    unsigned int counter_cached_MET_T1_phi_jesAbsoluteSampleDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesAbsoluteSampleDown_;
+    float MET_T1_phi_jesAbsoluteSampleUp_;
+    TBranch *b_MET_T1_phi_jesAbsoluteSampleUp_;
+    bool loaded_MET_T1_phi_jesAbsoluteSampleUp_;
+    unsigned int counter_cached_MET_T1_phi_jesAbsoluteSampleUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesAbsoluteSampleUp_;
+    float MET_T1_phi_jesAbsoluteScaleDown_;
+    TBranch *b_MET_T1_phi_jesAbsoluteScaleDown_;
+    bool loaded_MET_T1_phi_jesAbsoluteScaleDown_;
+    unsigned int counter_cached_MET_T1_phi_jesAbsoluteScaleDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesAbsoluteScaleDown_;
+    float MET_T1_phi_jesAbsoluteScaleUp_;
+    TBranch *b_MET_T1_phi_jesAbsoluteScaleUp_;
+    bool loaded_MET_T1_phi_jesAbsoluteScaleUp_;
+    unsigned int counter_cached_MET_T1_phi_jesAbsoluteScaleUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesAbsoluteScaleUp_;
+    float MET_T1_phi_jesAbsoluteStatDown_;
+    TBranch *b_MET_T1_phi_jesAbsoluteStatDown_;
+    bool loaded_MET_T1_phi_jesAbsoluteStatDown_;
+    unsigned int counter_cached_MET_T1_phi_jesAbsoluteStatDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesAbsoluteStatDown_;
+    float MET_T1_phi_jesAbsoluteStatUp_;
+    TBranch *b_MET_T1_phi_jesAbsoluteStatUp_;
+    bool loaded_MET_T1_phi_jesAbsoluteStatUp_;
+    unsigned int counter_cached_MET_T1_phi_jesAbsoluteStatUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesAbsoluteStatUp_;
+    float MET_T1_phi_jesCorrelationGroupFlavorDown_;
+    TBranch *b_MET_T1_phi_jesCorrelationGroupFlavorDown_;
+    bool loaded_MET_T1_phi_jesCorrelationGroupFlavorDown_;
+    unsigned int counter_cached_MET_T1_phi_jesCorrelationGroupFlavorDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesCorrelationGroupFlavorDown_;
+    float MET_T1_phi_jesCorrelationGroupFlavorUp_;
+    TBranch *b_MET_T1_phi_jesCorrelationGroupFlavorUp_;
+    bool loaded_MET_T1_phi_jesCorrelationGroupFlavorUp_;
+    unsigned int counter_cached_MET_T1_phi_jesCorrelationGroupFlavorUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesCorrelationGroupFlavorUp_;
+    float MET_T1_phi_jesCorrelationGroupIntercalibrationDown_;
+    TBranch *b_MET_T1_phi_jesCorrelationGroupIntercalibrationDown_;
+    bool loaded_MET_T1_phi_jesCorrelationGroupIntercalibrationDown_;
+    unsigned int counter_cached_MET_T1_phi_jesCorrelationGroupIntercalibrationDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesCorrelationGroupIntercalibrationDown_;
+    float MET_T1_phi_jesCorrelationGroupIntercalibrationUp_;
+    TBranch *b_MET_T1_phi_jesCorrelationGroupIntercalibrationUp_;
+    bool loaded_MET_T1_phi_jesCorrelationGroupIntercalibrationUp_;
+    unsigned int counter_cached_MET_T1_phi_jesCorrelationGroupIntercalibrationUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesCorrelationGroupIntercalibrationUp_;
+    float MET_T1_phi_jesCorrelationGroupMPFInSituDown_;
+    TBranch *b_MET_T1_phi_jesCorrelationGroupMPFInSituDown_;
+    bool loaded_MET_T1_phi_jesCorrelationGroupMPFInSituDown_;
+    unsigned int counter_cached_MET_T1_phi_jesCorrelationGroupMPFInSituDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesCorrelationGroupMPFInSituDown_;
+    float MET_T1_phi_jesCorrelationGroupMPFInSituUp_;
+    TBranch *b_MET_T1_phi_jesCorrelationGroupMPFInSituUp_;
+    bool loaded_MET_T1_phi_jesCorrelationGroupMPFInSituUp_;
+    unsigned int counter_cached_MET_T1_phi_jesCorrelationGroupMPFInSituUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesCorrelationGroupMPFInSituUp_;
+    float MET_T1_phi_jesCorrelationGroupUncorrelatedDown_;
+    TBranch *b_MET_T1_phi_jesCorrelationGroupUncorrelatedDown_;
+    bool loaded_MET_T1_phi_jesCorrelationGroupUncorrelatedDown_;
+    unsigned int counter_cached_MET_T1_phi_jesCorrelationGroupUncorrelatedDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesCorrelationGroupUncorrelatedDown_;
+    float MET_T1_phi_jesCorrelationGroupUncorrelatedUp_;
+    TBranch *b_MET_T1_phi_jesCorrelationGroupUncorrelatedUp_;
+    bool loaded_MET_T1_phi_jesCorrelationGroupUncorrelatedUp_;
+    unsigned int counter_cached_MET_T1_phi_jesCorrelationGroupUncorrelatedUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesCorrelationGroupUncorrelatedUp_;
+    float MET_T1_phi_jesCorrelationGroupbJESDown_;
+    TBranch *b_MET_T1_phi_jesCorrelationGroupbJESDown_;
+    bool loaded_MET_T1_phi_jesCorrelationGroupbJESDown_;
+    unsigned int counter_cached_MET_T1_phi_jesCorrelationGroupbJESDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesCorrelationGroupbJESDown_;
+    float MET_T1_phi_jesCorrelationGroupbJESUp_;
+    TBranch *b_MET_T1_phi_jesCorrelationGroupbJESUp_;
+    bool loaded_MET_T1_phi_jesCorrelationGroupbJESUp_;
+    unsigned int counter_cached_MET_T1_phi_jesCorrelationGroupbJESUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesCorrelationGroupbJESUp_;
+    float MET_T1_phi_jesFlavorPhotonJetDown_;
+    TBranch *b_MET_T1_phi_jesFlavorPhotonJetDown_;
+    bool loaded_MET_T1_phi_jesFlavorPhotonJetDown_;
+    unsigned int counter_cached_MET_T1_phi_jesFlavorPhotonJetDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesFlavorPhotonJetDown_;
+    float MET_T1_phi_jesFlavorPhotonJetUp_;
+    TBranch *b_MET_T1_phi_jesFlavorPhotonJetUp_;
+    bool loaded_MET_T1_phi_jesFlavorPhotonJetUp_;
+    unsigned int counter_cached_MET_T1_phi_jesFlavorPhotonJetUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesFlavorPhotonJetUp_;
+    float MET_T1_phi_jesFlavorPureBottomDown_;
+    TBranch *b_MET_T1_phi_jesFlavorPureBottomDown_;
+    bool loaded_MET_T1_phi_jesFlavorPureBottomDown_;
+    unsigned int counter_cached_MET_T1_phi_jesFlavorPureBottomDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesFlavorPureBottomDown_;
+    float MET_T1_phi_jesFlavorPureBottomUp_;
+    TBranch *b_MET_T1_phi_jesFlavorPureBottomUp_;
+    bool loaded_MET_T1_phi_jesFlavorPureBottomUp_;
+    unsigned int counter_cached_MET_T1_phi_jesFlavorPureBottomUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesFlavorPureBottomUp_;
+    float MET_T1_phi_jesFlavorPureCharmDown_;
+    TBranch *b_MET_T1_phi_jesFlavorPureCharmDown_;
+    bool loaded_MET_T1_phi_jesFlavorPureCharmDown_;
+    unsigned int counter_cached_MET_T1_phi_jesFlavorPureCharmDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesFlavorPureCharmDown_;
+    float MET_T1_phi_jesFlavorPureCharmUp_;
+    TBranch *b_MET_T1_phi_jesFlavorPureCharmUp_;
+    bool loaded_MET_T1_phi_jesFlavorPureCharmUp_;
+    unsigned int counter_cached_MET_T1_phi_jesFlavorPureCharmUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesFlavorPureCharmUp_;
+    float MET_T1_phi_jesFlavorPureGluonDown_;
+    TBranch *b_MET_T1_phi_jesFlavorPureGluonDown_;
+    bool loaded_MET_T1_phi_jesFlavorPureGluonDown_;
+    unsigned int counter_cached_MET_T1_phi_jesFlavorPureGluonDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesFlavorPureGluonDown_;
+    float MET_T1_phi_jesFlavorPureGluonUp_;
+    TBranch *b_MET_T1_phi_jesFlavorPureGluonUp_;
+    bool loaded_MET_T1_phi_jesFlavorPureGluonUp_;
+    unsigned int counter_cached_MET_T1_phi_jesFlavorPureGluonUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesFlavorPureGluonUp_;
+    float MET_T1_phi_jesFlavorPureQuarkDown_;
+    TBranch *b_MET_T1_phi_jesFlavorPureQuarkDown_;
+    bool loaded_MET_T1_phi_jesFlavorPureQuarkDown_;
+    unsigned int counter_cached_MET_T1_phi_jesFlavorPureQuarkDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesFlavorPureQuarkDown_;
+    float MET_T1_phi_jesFlavorPureQuarkUp_;
+    TBranch *b_MET_T1_phi_jesFlavorPureQuarkUp_;
+    bool loaded_MET_T1_phi_jesFlavorPureQuarkUp_;
+    unsigned int counter_cached_MET_T1_phi_jesFlavorPureQuarkUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesFlavorPureQuarkUp_;
+    float MET_T1_phi_jesFlavorQCDDown_;
+    TBranch *b_MET_T1_phi_jesFlavorQCDDown_;
+    bool loaded_MET_T1_phi_jesFlavorQCDDown_;
+    unsigned int counter_cached_MET_T1_phi_jesFlavorQCDDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesFlavorQCDDown_;
+    float MET_T1_phi_jesFlavorQCDUp_;
+    TBranch *b_MET_T1_phi_jesFlavorQCDUp_;
+    bool loaded_MET_T1_phi_jesFlavorQCDUp_;
+    unsigned int counter_cached_MET_T1_phi_jesFlavorQCDUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesFlavorQCDUp_;
+    float MET_T1_phi_jesFlavorZJetDown_;
+    TBranch *b_MET_T1_phi_jesFlavorZJetDown_;
+    bool loaded_MET_T1_phi_jesFlavorZJetDown_;
+    unsigned int counter_cached_MET_T1_phi_jesFlavorZJetDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesFlavorZJetDown_;
+    float MET_T1_phi_jesFlavorZJetUp_;
+    TBranch *b_MET_T1_phi_jesFlavorZJetUp_;
+    bool loaded_MET_T1_phi_jesFlavorZJetUp_;
+    unsigned int counter_cached_MET_T1_phi_jesFlavorZJetUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesFlavorZJetUp_;
+    float MET_T1_phi_jesFragmentationDown_;
+    TBranch *b_MET_T1_phi_jesFragmentationDown_;
+    bool loaded_MET_T1_phi_jesFragmentationDown_;
+    unsigned int counter_cached_MET_T1_phi_jesFragmentationDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesFragmentationDown_;
+    float MET_T1_phi_jesFragmentationUp_;
+    TBranch *b_MET_T1_phi_jesFragmentationUp_;
+    bool loaded_MET_T1_phi_jesFragmentationUp_;
+    unsigned int counter_cached_MET_T1_phi_jesFragmentationUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesFragmentationUp_;
     float MET_T1_phi_jesHEMIssueDown_;
     TBranch *b_MET_T1_phi_jesHEMIssueDown_;
     bool loaded_MET_T1_phi_jesHEMIssueDown_;
@@ -12860,11 +17448,381 @@ protected:
     bool loaded_MET_T1_phi_jesHEMIssueUp_;
     unsigned int counter_cached_MET_T1_phi_jesHEMIssueUp_;
     unsigned int counter_uncached_MET_T1_phi_jesHEMIssueUp_;
+    float MET_T1_phi_jesPileUpDataMCDown_;
+    TBranch *b_MET_T1_phi_jesPileUpDataMCDown_;
+    bool loaded_MET_T1_phi_jesPileUpDataMCDown_;
+    unsigned int counter_cached_MET_T1_phi_jesPileUpDataMCDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesPileUpDataMCDown_;
+    float MET_T1_phi_jesPileUpDataMCUp_;
+    TBranch *b_MET_T1_phi_jesPileUpDataMCUp_;
+    bool loaded_MET_T1_phi_jesPileUpDataMCUp_;
+    unsigned int counter_cached_MET_T1_phi_jesPileUpDataMCUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesPileUpDataMCUp_;
+    float MET_T1_phi_jesPileUpEnvelopeDown_;
+    TBranch *b_MET_T1_phi_jesPileUpEnvelopeDown_;
+    bool loaded_MET_T1_phi_jesPileUpEnvelopeDown_;
+    unsigned int counter_cached_MET_T1_phi_jesPileUpEnvelopeDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesPileUpEnvelopeDown_;
+    float MET_T1_phi_jesPileUpEnvelopeUp_;
+    TBranch *b_MET_T1_phi_jesPileUpEnvelopeUp_;
+    bool loaded_MET_T1_phi_jesPileUpEnvelopeUp_;
+    unsigned int counter_cached_MET_T1_phi_jesPileUpEnvelopeUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesPileUpEnvelopeUp_;
+    float MET_T1_phi_jesPileUpMuZeroDown_;
+    TBranch *b_MET_T1_phi_jesPileUpMuZeroDown_;
+    bool loaded_MET_T1_phi_jesPileUpMuZeroDown_;
+    unsigned int counter_cached_MET_T1_phi_jesPileUpMuZeroDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesPileUpMuZeroDown_;
+    float MET_T1_phi_jesPileUpMuZeroUp_;
+    TBranch *b_MET_T1_phi_jesPileUpMuZeroUp_;
+    bool loaded_MET_T1_phi_jesPileUpMuZeroUp_;
+    unsigned int counter_cached_MET_T1_phi_jesPileUpMuZeroUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesPileUpMuZeroUp_;
+    float MET_T1_phi_jesPileUpPtBBDown_;
+    TBranch *b_MET_T1_phi_jesPileUpPtBBDown_;
+    bool loaded_MET_T1_phi_jesPileUpPtBBDown_;
+    unsigned int counter_cached_MET_T1_phi_jesPileUpPtBBDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesPileUpPtBBDown_;
+    float MET_T1_phi_jesPileUpPtBBUp_;
+    TBranch *b_MET_T1_phi_jesPileUpPtBBUp_;
+    bool loaded_MET_T1_phi_jesPileUpPtBBUp_;
+    unsigned int counter_cached_MET_T1_phi_jesPileUpPtBBUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesPileUpPtBBUp_;
+    float MET_T1_phi_jesPileUpPtEC1Down_;
+    TBranch *b_MET_T1_phi_jesPileUpPtEC1Down_;
+    bool loaded_MET_T1_phi_jesPileUpPtEC1Down_;
+    unsigned int counter_cached_MET_T1_phi_jesPileUpPtEC1Down_;
+    unsigned int counter_uncached_MET_T1_phi_jesPileUpPtEC1Down_;
+    float MET_T1_phi_jesPileUpPtEC1Up_;
+    TBranch *b_MET_T1_phi_jesPileUpPtEC1Up_;
+    bool loaded_MET_T1_phi_jesPileUpPtEC1Up_;
+    unsigned int counter_cached_MET_T1_phi_jesPileUpPtEC1Up_;
+    unsigned int counter_uncached_MET_T1_phi_jesPileUpPtEC1Up_;
+    float MET_T1_phi_jesPileUpPtEC2Down_;
+    TBranch *b_MET_T1_phi_jesPileUpPtEC2Down_;
+    bool loaded_MET_T1_phi_jesPileUpPtEC2Down_;
+    unsigned int counter_cached_MET_T1_phi_jesPileUpPtEC2Down_;
+    unsigned int counter_uncached_MET_T1_phi_jesPileUpPtEC2Down_;
+    float MET_T1_phi_jesPileUpPtEC2Up_;
+    TBranch *b_MET_T1_phi_jesPileUpPtEC2Up_;
+    bool loaded_MET_T1_phi_jesPileUpPtEC2Up_;
+    unsigned int counter_cached_MET_T1_phi_jesPileUpPtEC2Up_;
+    unsigned int counter_uncached_MET_T1_phi_jesPileUpPtEC2Up_;
+    float MET_T1_phi_jesPileUpPtHFDown_;
+    TBranch *b_MET_T1_phi_jesPileUpPtHFDown_;
+    bool loaded_MET_T1_phi_jesPileUpPtHFDown_;
+    unsigned int counter_cached_MET_T1_phi_jesPileUpPtHFDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesPileUpPtHFDown_;
+    float MET_T1_phi_jesPileUpPtHFUp_;
+    TBranch *b_MET_T1_phi_jesPileUpPtHFUp_;
+    bool loaded_MET_T1_phi_jesPileUpPtHFUp_;
+    unsigned int counter_cached_MET_T1_phi_jesPileUpPtHFUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesPileUpPtHFUp_;
+    float MET_T1_phi_jesPileUpPtRefDown_;
+    TBranch *b_MET_T1_phi_jesPileUpPtRefDown_;
+    bool loaded_MET_T1_phi_jesPileUpPtRefDown_;
+    unsigned int counter_cached_MET_T1_phi_jesPileUpPtRefDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesPileUpPtRefDown_;
+    float MET_T1_phi_jesPileUpPtRefUp_;
+    TBranch *b_MET_T1_phi_jesPileUpPtRefUp_;
+    bool loaded_MET_T1_phi_jesPileUpPtRefUp_;
+    unsigned int counter_cached_MET_T1_phi_jesPileUpPtRefUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesPileUpPtRefUp_;
+    float MET_T1_phi_jesRelativeBalDown_;
+    TBranch *b_MET_T1_phi_jesRelativeBalDown_;
+    bool loaded_MET_T1_phi_jesRelativeBalDown_;
+    unsigned int counter_cached_MET_T1_phi_jesRelativeBalDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesRelativeBalDown_;
+    float MET_T1_phi_jesRelativeBalUp_;
+    TBranch *b_MET_T1_phi_jesRelativeBalUp_;
+    bool loaded_MET_T1_phi_jesRelativeBalUp_;
+    unsigned int counter_cached_MET_T1_phi_jesRelativeBalUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesRelativeBalUp_;
+    float MET_T1_phi_jesRelativeFSRDown_;
+    TBranch *b_MET_T1_phi_jesRelativeFSRDown_;
+    bool loaded_MET_T1_phi_jesRelativeFSRDown_;
+    unsigned int counter_cached_MET_T1_phi_jesRelativeFSRDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesRelativeFSRDown_;
+    float MET_T1_phi_jesRelativeFSRUp_;
+    TBranch *b_MET_T1_phi_jesRelativeFSRUp_;
+    bool loaded_MET_T1_phi_jesRelativeFSRUp_;
+    unsigned int counter_cached_MET_T1_phi_jesRelativeFSRUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesRelativeFSRUp_;
+    float MET_T1_phi_jesRelativeJEREC1Down_;
+    TBranch *b_MET_T1_phi_jesRelativeJEREC1Down_;
+    bool loaded_MET_T1_phi_jesRelativeJEREC1Down_;
+    unsigned int counter_cached_MET_T1_phi_jesRelativeJEREC1Down_;
+    unsigned int counter_uncached_MET_T1_phi_jesRelativeJEREC1Down_;
+    float MET_T1_phi_jesRelativeJEREC1Up_;
+    TBranch *b_MET_T1_phi_jesRelativeJEREC1Up_;
+    bool loaded_MET_T1_phi_jesRelativeJEREC1Up_;
+    unsigned int counter_cached_MET_T1_phi_jesRelativeJEREC1Up_;
+    unsigned int counter_uncached_MET_T1_phi_jesRelativeJEREC1Up_;
+    float MET_T1_phi_jesRelativeJEREC2Down_;
+    TBranch *b_MET_T1_phi_jesRelativeJEREC2Down_;
+    bool loaded_MET_T1_phi_jesRelativeJEREC2Down_;
+    unsigned int counter_cached_MET_T1_phi_jesRelativeJEREC2Down_;
+    unsigned int counter_uncached_MET_T1_phi_jesRelativeJEREC2Down_;
+    float MET_T1_phi_jesRelativeJEREC2Up_;
+    TBranch *b_MET_T1_phi_jesRelativeJEREC2Up_;
+    bool loaded_MET_T1_phi_jesRelativeJEREC2Up_;
+    unsigned int counter_cached_MET_T1_phi_jesRelativeJEREC2Up_;
+    unsigned int counter_uncached_MET_T1_phi_jesRelativeJEREC2Up_;
+    float MET_T1_phi_jesRelativeJERHFDown_;
+    TBranch *b_MET_T1_phi_jesRelativeJERHFDown_;
+    bool loaded_MET_T1_phi_jesRelativeJERHFDown_;
+    unsigned int counter_cached_MET_T1_phi_jesRelativeJERHFDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesRelativeJERHFDown_;
+    float MET_T1_phi_jesRelativeJERHFUp_;
+    TBranch *b_MET_T1_phi_jesRelativeJERHFUp_;
+    bool loaded_MET_T1_phi_jesRelativeJERHFUp_;
+    unsigned int counter_cached_MET_T1_phi_jesRelativeJERHFUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesRelativeJERHFUp_;
+    float MET_T1_phi_jesRelativePtBBDown_;
+    TBranch *b_MET_T1_phi_jesRelativePtBBDown_;
+    bool loaded_MET_T1_phi_jesRelativePtBBDown_;
+    unsigned int counter_cached_MET_T1_phi_jesRelativePtBBDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesRelativePtBBDown_;
+    float MET_T1_phi_jesRelativePtBBUp_;
+    TBranch *b_MET_T1_phi_jesRelativePtBBUp_;
+    bool loaded_MET_T1_phi_jesRelativePtBBUp_;
+    unsigned int counter_cached_MET_T1_phi_jesRelativePtBBUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesRelativePtBBUp_;
+    float MET_T1_phi_jesRelativePtEC1Down_;
+    TBranch *b_MET_T1_phi_jesRelativePtEC1Down_;
+    bool loaded_MET_T1_phi_jesRelativePtEC1Down_;
+    unsigned int counter_cached_MET_T1_phi_jesRelativePtEC1Down_;
+    unsigned int counter_uncached_MET_T1_phi_jesRelativePtEC1Down_;
+    float MET_T1_phi_jesRelativePtEC1Up_;
+    TBranch *b_MET_T1_phi_jesRelativePtEC1Up_;
+    bool loaded_MET_T1_phi_jesRelativePtEC1Up_;
+    unsigned int counter_cached_MET_T1_phi_jesRelativePtEC1Up_;
+    unsigned int counter_uncached_MET_T1_phi_jesRelativePtEC1Up_;
+    float MET_T1_phi_jesRelativePtEC2Down_;
+    TBranch *b_MET_T1_phi_jesRelativePtEC2Down_;
+    bool loaded_MET_T1_phi_jesRelativePtEC2Down_;
+    unsigned int counter_cached_MET_T1_phi_jesRelativePtEC2Down_;
+    unsigned int counter_uncached_MET_T1_phi_jesRelativePtEC2Down_;
+    float MET_T1_phi_jesRelativePtEC2Up_;
+    TBranch *b_MET_T1_phi_jesRelativePtEC2Up_;
+    bool loaded_MET_T1_phi_jesRelativePtEC2Up_;
+    unsigned int counter_cached_MET_T1_phi_jesRelativePtEC2Up_;
+    unsigned int counter_uncached_MET_T1_phi_jesRelativePtEC2Up_;
+    float MET_T1_phi_jesRelativePtHFDown_;
+    TBranch *b_MET_T1_phi_jesRelativePtHFDown_;
+    bool loaded_MET_T1_phi_jesRelativePtHFDown_;
+    unsigned int counter_cached_MET_T1_phi_jesRelativePtHFDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesRelativePtHFDown_;
+    float MET_T1_phi_jesRelativePtHFUp_;
+    TBranch *b_MET_T1_phi_jesRelativePtHFUp_;
+    bool loaded_MET_T1_phi_jesRelativePtHFUp_;
+    unsigned int counter_cached_MET_T1_phi_jesRelativePtHFUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesRelativePtHFUp_;
+    float MET_T1_phi_jesRelativeSampleDown_;
+    TBranch *b_MET_T1_phi_jesRelativeSampleDown_;
+    bool loaded_MET_T1_phi_jesRelativeSampleDown_;
+    unsigned int counter_cached_MET_T1_phi_jesRelativeSampleDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesRelativeSampleDown_;
+    float MET_T1_phi_jesRelativeSampleUp_;
+    TBranch *b_MET_T1_phi_jesRelativeSampleUp_;
+    bool loaded_MET_T1_phi_jesRelativeSampleUp_;
+    unsigned int counter_cached_MET_T1_phi_jesRelativeSampleUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesRelativeSampleUp_;
+    float MET_T1_phi_jesRelativeStatECDown_;
+    TBranch *b_MET_T1_phi_jesRelativeStatECDown_;
+    bool loaded_MET_T1_phi_jesRelativeStatECDown_;
+    unsigned int counter_cached_MET_T1_phi_jesRelativeStatECDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesRelativeStatECDown_;
+    float MET_T1_phi_jesRelativeStatECUp_;
+    TBranch *b_MET_T1_phi_jesRelativeStatECUp_;
+    bool loaded_MET_T1_phi_jesRelativeStatECUp_;
+    unsigned int counter_cached_MET_T1_phi_jesRelativeStatECUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesRelativeStatECUp_;
+    float MET_T1_phi_jesRelativeStatFSRDown_;
+    TBranch *b_MET_T1_phi_jesRelativeStatFSRDown_;
+    bool loaded_MET_T1_phi_jesRelativeStatFSRDown_;
+    unsigned int counter_cached_MET_T1_phi_jesRelativeStatFSRDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesRelativeStatFSRDown_;
+    float MET_T1_phi_jesRelativeStatFSRUp_;
+    TBranch *b_MET_T1_phi_jesRelativeStatFSRUp_;
+    bool loaded_MET_T1_phi_jesRelativeStatFSRUp_;
+    unsigned int counter_cached_MET_T1_phi_jesRelativeStatFSRUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesRelativeStatFSRUp_;
+    float MET_T1_phi_jesRelativeStatHFDown_;
+    TBranch *b_MET_T1_phi_jesRelativeStatHFDown_;
+    bool loaded_MET_T1_phi_jesRelativeStatHFDown_;
+    unsigned int counter_cached_MET_T1_phi_jesRelativeStatHFDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesRelativeStatHFDown_;
+    float MET_T1_phi_jesRelativeStatHFUp_;
+    TBranch *b_MET_T1_phi_jesRelativeStatHFUp_;
+    bool loaded_MET_T1_phi_jesRelativeStatHFUp_;
+    unsigned int counter_cached_MET_T1_phi_jesRelativeStatHFUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesRelativeStatHFUp_;
+    float MET_T1_phi_jesSinglePionECALDown_;
+    TBranch *b_MET_T1_phi_jesSinglePionECALDown_;
+    bool loaded_MET_T1_phi_jesSinglePionECALDown_;
+    unsigned int counter_cached_MET_T1_phi_jesSinglePionECALDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesSinglePionECALDown_;
+    float MET_T1_phi_jesSinglePionECALUp_;
+    TBranch *b_MET_T1_phi_jesSinglePionECALUp_;
+    bool loaded_MET_T1_phi_jesSinglePionECALUp_;
+    unsigned int counter_cached_MET_T1_phi_jesSinglePionECALUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesSinglePionECALUp_;
+    float MET_T1_phi_jesSinglePionHCALDown_;
+    TBranch *b_MET_T1_phi_jesSinglePionHCALDown_;
+    bool loaded_MET_T1_phi_jesSinglePionHCALDown_;
+    unsigned int counter_cached_MET_T1_phi_jesSinglePionHCALDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesSinglePionHCALDown_;
+    float MET_T1_phi_jesSinglePionHCALUp_;
+    TBranch *b_MET_T1_phi_jesSinglePionHCALUp_;
+    bool loaded_MET_T1_phi_jesSinglePionHCALUp_;
+    unsigned int counter_cached_MET_T1_phi_jesSinglePionHCALUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesSinglePionHCALUp_;
+    float MET_T1_phi_jesSubTotalAbsoluteDown_;
+    TBranch *b_MET_T1_phi_jesSubTotalAbsoluteDown_;
+    bool loaded_MET_T1_phi_jesSubTotalAbsoluteDown_;
+    unsigned int counter_cached_MET_T1_phi_jesSubTotalAbsoluteDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesSubTotalAbsoluteDown_;
+    float MET_T1_phi_jesSubTotalAbsoluteUp_;
+    TBranch *b_MET_T1_phi_jesSubTotalAbsoluteUp_;
+    bool loaded_MET_T1_phi_jesSubTotalAbsoluteUp_;
+    unsigned int counter_cached_MET_T1_phi_jesSubTotalAbsoluteUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesSubTotalAbsoluteUp_;
+    float MET_T1_phi_jesSubTotalMCDown_;
+    TBranch *b_MET_T1_phi_jesSubTotalMCDown_;
+    bool loaded_MET_T1_phi_jesSubTotalMCDown_;
+    unsigned int counter_cached_MET_T1_phi_jesSubTotalMCDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesSubTotalMCDown_;
+    float MET_T1_phi_jesSubTotalMCUp_;
+    TBranch *b_MET_T1_phi_jesSubTotalMCUp_;
+    bool loaded_MET_T1_phi_jesSubTotalMCUp_;
+    unsigned int counter_cached_MET_T1_phi_jesSubTotalMCUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesSubTotalMCUp_;
+    float MET_T1_phi_jesSubTotalPileUpDown_;
+    TBranch *b_MET_T1_phi_jesSubTotalPileUpDown_;
+    bool loaded_MET_T1_phi_jesSubTotalPileUpDown_;
+    unsigned int counter_cached_MET_T1_phi_jesSubTotalPileUpDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesSubTotalPileUpDown_;
+    float MET_T1_phi_jesSubTotalPileUpUp_;
+    TBranch *b_MET_T1_phi_jesSubTotalPileUpUp_;
+    bool loaded_MET_T1_phi_jesSubTotalPileUpUp_;
+    unsigned int counter_cached_MET_T1_phi_jesSubTotalPileUpUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesSubTotalPileUpUp_;
+    float MET_T1_phi_jesSubTotalPtDown_;
+    TBranch *b_MET_T1_phi_jesSubTotalPtDown_;
+    bool loaded_MET_T1_phi_jesSubTotalPtDown_;
+    unsigned int counter_cached_MET_T1_phi_jesSubTotalPtDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesSubTotalPtDown_;
+    float MET_T1_phi_jesSubTotalPtUp_;
+    TBranch *b_MET_T1_phi_jesSubTotalPtUp_;
+    bool loaded_MET_T1_phi_jesSubTotalPtUp_;
+    unsigned int counter_cached_MET_T1_phi_jesSubTotalPtUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesSubTotalPtUp_;
+    float MET_T1_phi_jesSubTotalRelativeDown_;
+    TBranch *b_MET_T1_phi_jesSubTotalRelativeDown_;
+    bool loaded_MET_T1_phi_jesSubTotalRelativeDown_;
+    unsigned int counter_cached_MET_T1_phi_jesSubTotalRelativeDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesSubTotalRelativeDown_;
+    float MET_T1_phi_jesSubTotalRelativeUp_;
+    TBranch *b_MET_T1_phi_jesSubTotalRelativeUp_;
+    bool loaded_MET_T1_phi_jesSubTotalRelativeUp_;
+    unsigned int counter_cached_MET_T1_phi_jesSubTotalRelativeUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesSubTotalRelativeUp_;
+    float MET_T1_phi_jesSubTotalScaleDown_;
+    TBranch *b_MET_T1_phi_jesSubTotalScaleDown_;
+    bool loaded_MET_T1_phi_jesSubTotalScaleDown_;
+    unsigned int counter_cached_MET_T1_phi_jesSubTotalScaleDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesSubTotalScaleDown_;
+    float MET_T1_phi_jesSubTotalScaleUp_;
+    TBranch *b_MET_T1_phi_jesSubTotalScaleUp_;
+    bool loaded_MET_T1_phi_jesSubTotalScaleUp_;
+    unsigned int counter_cached_MET_T1_phi_jesSubTotalScaleUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesSubTotalScaleUp_;
+    float MET_T1_phi_jesTimePtEtaDown_;
+    TBranch *b_MET_T1_phi_jesTimePtEtaDown_;
+    bool loaded_MET_T1_phi_jesTimePtEtaDown_;
+    unsigned int counter_cached_MET_T1_phi_jesTimePtEtaDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesTimePtEtaDown_;
+    float MET_T1_phi_jesTimePtEtaUp_;
+    TBranch *b_MET_T1_phi_jesTimePtEtaUp_;
+    bool loaded_MET_T1_phi_jesTimePtEtaUp_;
+    unsigned int counter_cached_MET_T1_phi_jesTimePtEtaUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesTimePtEtaUp_;
+    float MET_T1_phi_jesTimeRunADown_;
+    TBranch *b_MET_T1_phi_jesTimeRunADown_;
+    bool loaded_MET_T1_phi_jesTimeRunADown_;
+    unsigned int counter_cached_MET_T1_phi_jesTimeRunADown_;
+    unsigned int counter_uncached_MET_T1_phi_jesTimeRunADown_;
+    float MET_T1_phi_jesTimeRunAUp_;
+    TBranch *b_MET_T1_phi_jesTimeRunAUp_;
+    bool loaded_MET_T1_phi_jesTimeRunAUp_;
+    unsigned int counter_cached_MET_T1_phi_jesTimeRunAUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesTimeRunAUp_;
+    float MET_T1_phi_jesTimeRunBDown_;
+    TBranch *b_MET_T1_phi_jesTimeRunBDown_;
+    bool loaded_MET_T1_phi_jesTimeRunBDown_;
+    unsigned int counter_cached_MET_T1_phi_jesTimeRunBDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesTimeRunBDown_;
+    float MET_T1_phi_jesTimeRunBUp_;
+    TBranch *b_MET_T1_phi_jesTimeRunBUp_;
+    bool loaded_MET_T1_phi_jesTimeRunBUp_;
+    unsigned int counter_cached_MET_T1_phi_jesTimeRunBUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesTimeRunBUp_;
+    float MET_T1_phi_jesTimeRunCDown_;
+    TBranch *b_MET_T1_phi_jesTimeRunCDown_;
+    bool loaded_MET_T1_phi_jesTimeRunCDown_;
+    unsigned int counter_cached_MET_T1_phi_jesTimeRunCDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesTimeRunCDown_;
+    float MET_T1_phi_jesTimeRunCUp_;
+    TBranch *b_MET_T1_phi_jesTimeRunCUp_;
+    bool loaded_MET_T1_phi_jesTimeRunCUp_;
+    unsigned int counter_cached_MET_T1_phi_jesTimeRunCUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesTimeRunCUp_;
+    float MET_T1_phi_jesTimeRunDDown_;
+    TBranch *b_MET_T1_phi_jesTimeRunDDown_;
+    bool loaded_MET_T1_phi_jesTimeRunDDown_;
+    unsigned int counter_cached_MET_T1_phi_jesTimeRunDDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesTimeRunDDown_;
+    float MET_T1_phi_jesTimeRunDUp_;
+    TBranch *b_MET_T1_phi_jesTimeRunDUp_;
+    bool loaded_MET_T1_phi_jesTimeRunDUp_;
+    unsigned int counter_cached_MET_T1_phi_jesTimeRunDUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesTimeRunDUp_;
     float MET_T1_phi_jesTotalDown_;
     TBranch *b_MET_T1_phi_jesTotalDown_;
     bool loaded_MET_T1_phi_jesTotalDown_;
     unsigned int counter_cached_MET_T1_phi_jesTotalDown_;
     unsigned int counter_uncached_MET_T1_phi_jesTotalDown_;
+    float MET_T1_phi_jesTotalNoFlavorDown_;
+    TBranch *b_MET_T1_phi_jesTotalNoFlavorDown_;
+    bool loaded_MET_T1_phi_jesTotalNoFlavorDown_;
+    unsigned int counter_cached_MET_T1_phi_jesTotalNoFlavorDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesTotalNoFlavorDown_;
+    float MET_T1_phi_jesTotalNoFlavorNoTimeDown_;
+    TBranch *b_MET_T1_phi_jesTotalNoFlavorNoTimeDown_;
+    bool loaded_MET_T1_phi_jesTotalNoFlavorNoTimeDown_;
+    unsigned int counter_cached_MET_T1_phi_jesTotalNoFlavorNoTimeDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesTotalNoFlavorNoTimeDown_;
+    float MET_T1_phi_jesTotalNoFlavorNoTimeUp_;
+    TBranch *b_MET_T1_phi_jesTotalNoFlavorNoTimeUp_;
+    bool loaded_MET_T1_phi_jesTotalNoFlavorNoTimeUp_;
+    unsigned int counter_cached_MET_T1_phi_jesTotalNoFlavorNoTimeUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesTotalNoFlavorNoTimeUp_;
+    float MET_T1_phi_jesTotalNoFlavorUp_;
+    TBranch *b_MET_T1_phi_jesTotalNoFlavorUp_;
+    bool loaded_MET_T1_phi_jesTotalNoFlavorUp_;
+    unsigned int counter_cached_MET_T1_phi_jesTotalNoFlavorUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesTotalNoFlavorUp_;
+    float MET_T1_phi_jesTotalNoTimeDown_;
+    TBranch *b_MET_T1_phi_jesTotalNoTimeDown_;
+    bool loaded_MET_T1_phi_jesTotalNoTimeDown_;
+    unsigned int counter_cached_MET_T1_phi_jesTotalNoTimeDown_;
+    unsigned int counter_uncached_MET_T1_phi_jesTotalNoTimeDown_;
+    float MET_T1_phi_jesTotalNoTimeUp_;
+    TBranch *b_MET_T1_phi_jesTotalNoTimeUp_;
+    bool loaded_MET_T1_phi_jesTotalNoTimeUp_;
+    unsigned int counter_cached_MET_T1_phi_jesTotalNoTimeUp_;
+    unsigned int counter_uncached_MET_T1_phi_jesTotalNoTimeUp_;
     float MET_T1_phi_jesTotalUp_;
     TBranch *b_MET_T1_phi_jesTotalUp_;
     bool loaded_MET_T1_phi_jesTotalUp_;
@@ -12895,6 +17853,186 @@ protected:
     bool loaded_MET_T1_pt_jerUp_;
     unsigned int counter_cached_MET_T1_pt_jerUp_;
     unsigned int counter_uncached_MET_T1_pt_jerUp_;
+        float MET_T1_pt_jesAbsoluteFlavMapDown_;
+    TBranch *b_MET_T1_pt_jesAbsoluteFlavMapDown_;
+    bool loaded_MET_T1_pt_jesAbsoluteFlavMapDown_;
+    unsigned int counter_cached_MET_T1_pt_jesAbsoluteFlavMapDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesAbsoluteFlavMapDown_;
+    float MET_T1_pt_jesAbsoluteFlavMapUp_;
+    TBranch *b_MET_T1_pt_jesAbsoluteFlavMapUp_;
+    bool loaded_MET_T1_pt_jesAbsoluteFlavMapUp_;
+    unsigned int counter_cached_MET_T1_pt_jesAbsoluteFlavMapUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesAbsoluteFlavMapUp_;
+    float MET_T1_pt_jesAbsoluteMPFBiasDown_;
+    TBranch *b_MET_T1_pt_jesAbsoluteMPFBiasDown_;
+    bool loaded_MET_T1_pt_jesAbsoluteMPFBiasDown_;
+    unsigned int counter_cached_MET_T1_pt_jesAbsoluteMPFBiasDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesAbsoluteMPFBiasDown_;
+    float MET_T1_pt_jesAbsoluteMPFBiasUp_;
+    TBranch *b_MET_T1_pt_jesAbsoluteMPFBiasUp_;
+    bool loaded_MET_T1_pt_jesAbsoluteMPFBiasUp_;
+    unsigned int counter_cached_MET_T1_pt_jesAbsoluteMPFBiasUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesAbsoluteMPFBiasUp_;
+    float MET_T1_pt_jesAbsoluteSampleDown_;
+    TBranch *b_MET_T1_pt_jesAbsoluteSampleDown_;
+    bool loaded_MET_T1_pt_jesAbsoluteSampleDown_;
+    unsigned int counter_cached_MET_T1_pt_jesAbsoluteSampleDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesAbsoluteSampleDown_;
+    float MET_T1_pt_jesAbsoluteSampleUp_;
+    TBranch *b_MET_T1_pt_jesAbsoluteSampleUp_;
+    bool loaded_MET_T1_pt_jesAbsoluteSampleUp_;
+    unsigned int counter_cached_MET_T1_pt_jesAbsoluteSampleUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesAbsoluteSampleUp_;
+    float MET_T1_pt_jesAbsoluteScaleDown_;
+    TBranch *b_MET_T1_pt_jesAbsoluteScaleDown_;
+    bool loaded_MET_T1_pt_jesAbsoluteScaleDown_;
+    unsigned int counter_cached_MET_T1_pt_jesAbsoluteScaleDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesAbsoluteScaleDown_;
+    float MET_T1_pt_jesAbsoluteScaleUp_;
+    TBranch *b_MET_T1_pt_jesAbsoluteScaleUp_;
+    bool loaded_MET_T1_pt_jesAbsoluteScaleUp_;
+    unsigned int counter_cached_MET_T1_pt_jesAbsoluteScaleUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesAbsoluteScaleUp_;
+    float MET_T1_pt_jesAbsoluteStatDown_;
+    TBranch *b_MET_T1_pt_jesAbsoluteStatDown_;
+    bool loaded_MET_T1_pt_jesAbsoluteStatDown_;
+    unsigned int counter_cached_MET_T1_pt_jesAbsoluteStatDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesAbsoluteStatDown_;
+    float MET_T1_pt_jesAbsoluteStatUp_;
+    TBranch *b_MET_T1_pt_jesAbsoluteStatUp_;
+    bool loaded_MET_T1_pt_jesAbsoluteStatUp_;
+    unsigned int counter_cached_MET_T1_pt_jesAbsoluteStatUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesAbsoluteStatUp_;
+    float MET_T1_pt_jesCorrelationGroupFlavorDown_;
+    TBranch *b_MET_T1_pt_jesCorrelationGroupFlavorDown_;
+    bool loaded_MET_T1_pt_jesCorrelationGroupFlavorDown_;
+    unsigned int counter_cached_MET_T1_pt_jesCorrelationGroupFlavorDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesCorrelationGroupFlavorDown_;
+    float MET_T1_pt_jesCorrelationGroupFlavorUp_;
+    TBranch *b_MET_T1_pt_jesCorrelationGroupFlavorUp_;
+    bool loaded_MET_T1_pt_jesCorrelationGroupFlavorUp_;
+    unsigned int counter_cached_MET_T1_pt_jesCorrelationGroupFlavorUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesCorrelationGroupFlavorUp_;
+    float MET_T1_pt_jesCorrelationGroupIntercalibrationDown_;
+    TBranch *b_MET_T1_pt_jesCorrelationGroupIntercalibrationDown_;
+    bool loaded_MET_T1_pt_jesCorrelationGroupIntercalibrationDown_;
+    unsigned int counter_cached_MET_T1_pt_jesCorrelationGroupIntercalibrationDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesCorrelationGroupIntercalibrationDown_;
+    float MET_T1_pt_jesCorrelationGroupIntercalibrationUp_;
+    TBranch *b_MET_T1_pt_jesCorrelationGroupIntercalibrationUp_;
+    bool loaded_MET_T1_pt_jesCorrelationGroupIntercalibrationUp_;
+    unsigned int counter_cached_MET_T1_pt_jesCorrelationGroupIntercalibrationUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesCorrelationGroupIntercalibrationUp_;
+    float MET_T1_pt_jesCorrelationGroupMPFInSituDown_;
+    TBranch *b_MET_T1_pt_jesCorrelationGroupMPFInSituDown_;
+    bool loaded_MET_T1_pt_jesCorrelationGroupMPFInSituDown_;
+    unsigned int counter_cached_MET_T1_pt_jesCorrelationGroupMPFInSituDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesCorrelationGroupMPFInSituDown_;
+    float MET_T1_pt_jesCorrelationGroupMPFInSituUp_;
+    TBranch *b_MET_T1_pt_jesCorrelationGroupMPFInSituUp_;
+    bool loaded_MET_T1_pt_jesCorrelationGroupMPFInSituUp_;
+    unsigned int counter_cached_MET_T1_pt_jesCorrelationGroupMPFInSituUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesCorrelationGroupMPFInSituUp_;
+    float MET_T1_pt_jesCorrelationGroupUncorrelatedDown_;
+    TBranch *b_MET_T1_pt_jesCorrelationGroupUncorrelatedDown_;
+    bool loaded_MET_T1_pt_jesCorrelationGroupUncorrelatedDown_;
+    unsigned int counter_cached_MET_T1_pt_jesCorrelationGroupUncorrelatedDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesCorrelationGroupUncorrelatedDown_;
+    float MET_T1_pt_jesCorrelationGroupUncorrelatedUp_;
+    TBranch *b_MET_T1_pt_jesCorrelationGroupUncorrelatedUp_;
+    bool loaded_MET_T1_pt_jesCorrelationGroupUncorrelatedUp_;
+    unsigned int counter_cached_MET_T1_pt_jesCorrelationGroupUncorrelatedUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesCorrelationGroupUncorrelatedUp_;
+    float MET_T1_pt_jesCorrelationGroupbJESDown_;
+    TBranch *b_MET_T1_pt_jesCorrelationGroupbJESDown_;
+    bool loaded_MET_T1_pt_jesCorrelationGroupbJESDown_;
+    unsigned int counter_cached_MET_T1_pt_jesCorrelationGroupbJESDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesCorrelationGroupbJESDown_;
+    float MET_T1_pt_jesCorrelationGroupbJESUp_;
+    TBranch *b_MET_T1_pt_jesCorrelationGroupbJESUp_;
+    bool loaded_MET_T1_pt_jesCorrelationGroupbJESUp_;
+    unsigned int counter_cached_MET_T1_pt_jesCorrelationGroupbJESUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesCorrelationGroupbJESUp_;
+    float MET_T1_pt_jesFlavorPhotonJetDown_;
+    TBranch *b_MET_T1_pt_jesFlavorPhotonJetDown_;
+    bool loaded_MET_T1_pt_jesFlavorPhotonJetDown_;
+    unsigned int counter_cached_MET_T1_pt_jesFlavorPhotonJetDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesFlavorPhotonJetDown_;
+    float MET_T1_pt_jesFlavorPhotonJetUp_;
+    TBranch *b_MET_T1_pt_jesFlavorPhotonJetUp_;
+    bool loaded_MET_T1_pt_jesFlavorPhotonJetUp_;
+    unsigned int counter_cached_MET_T1_pt_jesFlavorPhotonJetUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesFlavorPhotonJetUp_;
+    float MET_T1_pt_jesFlavorPureBottomDown_;
+    TBranch *b_MET_T1_pt_jesFlavorPureBottomDown_;
+    bool loaded_MET_T1_pt_jesFlavorPureBottomDown_;
+    unsigned int counter_cached_MET_T1_pt_jesFlavorPureBottomDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesFlavorPureBottomDown_;
+    float MET_T1_pt_jesFlavorPureBottomUp_;
+    TBranch *b_MET_T1_pt_jesFlavorPureBottomUp_;
+    bool loaded_MET_T1_pt_jesFlavorPureBottomUp_;
+    unsigned int counter_cached_MET_T1_pt_jesFlavorPureBottomUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesFlavorPureBottomUp_;
+    float MET_T1_pt_jesFlavorPureCharmDown_;
+    TBranch *b_MET_T1_pt_jesFlavorPureCharmDown_;
+    bool loaded_MET_T1_pt_jesFlavorPureCharmDown_;
+    unsigned int counter_cached_MET_T1_pt_jesFlavorPureCharmDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesFlavorPureCharmDown_;
+    float MET_T1_pt_jesFlavorPureCharmUp_;
+    TBranch *b_MET_T1_pt_jesFlavorPureCharmUp_;
+    bool loaded_MET_T1_pt_jesFlavorPureCharmUp_;
+    unsigned int counter_cached_MET_T1_pt_jesFlavorPureCharmUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesFlavorPureCharmUp_;
+    float MET_T1_pt_jesFlavorPureGluonDown_;
+    TBranch *b_MET_T1_pt_jesFlavorPureGluonDown_;
+    bool loaded_MET_T1_pt_jesFlavorPureGluonDown_;
+    unsigned int counter_cached_MET_T1_pt_jesFlavorPureGluonDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesFlavorPureGluonDown_;
+    float MET_T1_pt_jesFlavorPureGluonUp_;
+    TBranch *b_MET_T1_pt_jesFlavorPureGluonUp_;
+    bool loaded_MET_T1_pt_jesFlavorPureGluonUp_;
+    unsigned int counter_cached_MET_T1_pt_jesFlavorPureGluonUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesFlavorPureGluonUp_;
+    float MET_T1_pt_jesFlavorPureQuarkDown_;
+    TBranch *b_MET_T1_pt_jesFlavorPureQuarkDown_;
+    bool loaded_MET_T1_pt_jesFlavorPureQuarkDown_;
+    unsigned int counter_cached_MET_T1_pt_jesFlavorPureQuarkDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesFlavorPureQuarkDown_;
+    float MET_T1_pt_jesFlavorPureQuarkUp_;
+    TBranch *b_MET_T1_pt_jesFlavorPureQuarkUp_;
+    bool loaded_MET_T1_pt_jesFlavorPureQuarkUp_;
+    unsigned int counter_cached_MET_T1_pt_jesFlavorPureQuarkUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesFlavorPureQuarkUp_;
+    float MET_T1_pt_jesFlavorQCDDown_;
+    TBranch *b_MET_T1_pt_jesFlavorQCDDown_;
+    bool loaded_MET_T1_pt_jesFlavorQCDDown_;
+    unsigned int counter_cached_MET_T1_pt_jesFlavorQCDDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesFlavorQCDDown_;
+    float MET_T1_pt_jesFlavorQCDUp_;
+    TBranch *b_MET_T1_pt_jesFlavorQCDUp_;
+    bool loaded_MET_T1_pt_jesFlavorQCDUp_;
+    unsigned int counter_cached_MET_T1_pt_jesFlavorQCDUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesFlavorQCDUp_;
+    float MET_T1_pt_jesFlavorZJetDown_;
+    TBranch *b_MET_T1_pt_jesFlavorZJetDown_;
+    bool loaded_MET_T1_pt_jesFlavorZJetDown_;
+    unsigned int counter_cached_MET_T1_pt_jesFlavorZJetDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesFlavorZJetDown_;
+    float MET_T1_pt_jesFlavorZJetUp_;
+    TBranch *b_MET_T1_pt_jesFlavorZJetUp_;
+    bool loaded_MET_T1_pt_jesFlavorZJetUp_;
+    unsigned int counter_cached_MET_T1_pt_jesFlavorZJetUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesFlavorZJetUp_;
+    float MET_T1_pt_jesFragmentationDown_;
+    TBranch *b_MET_T1_pt_jesFragmentationDown_;
+    bool loaded_MET_T1_pt_jesFragmentationDown_;
+    unsigned int counter_cached_MET_T1_pt_jesFragmentationDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesFragmentationDown_;
+    float MET_T1_pt_jesFragmentationUp_;
+    TBranch *b_MET_T1_pt_jesFragmentationUp_;
+    bool loaded_MET_T1_pt_jesFragmentationUp_;
+    unsigned int counter_cached_MET_T1_pt_jesFragmentationUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesFragmentationUp_;
     float MET_T1_pt_jesHEMIssueDown_;
     TBranch *b_MET_T1_pt_jesHEMIssueDown_;
     bool loaded_MET_T1_pt_jesHEMIssueDown_;
@@ -12905,11 +18043,381 @@ protected:
     bool loaded_MET_T1_pt_jesHEMIssueUp_;
     unsigned int counter_cached_MET_T1_pt_jesHEMIssueUp_;
     unsigned int counter_uncached_MET_T1_pt_jesHEMIssueUp_;
+    float MET_T1_pt_jesPileUpDataMCDown_;
+    TBranch *b_MET_T1_pt_jesPileUpDataMCDown_;
+    bool loaded_MET_T1_pt_jesPileUpDataMCDown_;
+    unsigned int counter_cached_MET_T1_pt_jesPileUpDataMCDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesPileUpDataMCDown_;
+    float MET_T1_pt_jesPileUpDataMCUp_;
+    TBranch *b_MET_T1_pt_jesPileUpDataMCUp_;
+    bool loaded_MET_T1_pt_jesPileUpDataMCUp_;
+    unsigned int counter_cached_MET_T1_pt_jesPileUpDataMCUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesPileUpDataMCUp_;
+    float MET_T1_pt_jesPileUpEnvelopeDown_;
+    TBranch *b_MET_T1_pt_jesPileUpEnvelopeDown_;
+    bool loaded_MET_T1_pt_jesPileUpEnvelopeDown_;
+    unsigned int counter_cached_MET_T1_pt_jesPileUpEnvelopeDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesPileUpEnvelopeDown_;
+    float MET_T1_pt_jesPileUpEnvelopeUp_;
+    TBranch *b_MET_T1_pt_jesPileUpEnvelopeUp_;
+    bool loaded_MET_T1_pt_jesPileUpEnvelopeUp_;
+    unsigned int counter_cached_MET_T1_pt_jesPileUpEnvelopeUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesPileUpEnvelopeUp_;
+    float MET_T1_pt_jesPileUpMuZeroDown_;
+    TBranch *b_MET_T1_pt_jesPileUpMuZeroDown_;
+    bool loaded_MET_T1_pt_jesPileUpMuZeroDown_;
+    unsigned int counter_cached_MET_T1_pt_jesPileUpMuZeroDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesPileUpMuZeroDown_;
+    float MET_T1_pt_jesPileUpMuZeroUp_;
+    TBranch *b_MET_T1_pt_jesPileUpMuZeroUp_;
+    bool loaded_MET_T1_pt_jesPileUpMuZeroUp_;
+    unsigned int counter_cached_MET_T1_pt_jesPileUpMuZeroUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesPileUpMuZeroUp_;
+    float MET_T1_pt_jesPileUpPtBBDown_;
+    TBranch *b_MET_T1_pt_jesPileUpPtBBDown_;
+    bool loaded_MET_T1_pt_jesPileUpPtBBDown_;
+    unsigned int counter_cached_MET_T1_pt_jesPileUpPtBBDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesPileUpPtBBDown_;
+    float MET_T1_pt_jesPileUpPtBBUp_;
+    TBranch *b_MET_T1_pt_jesPileUpPtBBUp_;
+    bool loaded_MET_T1_pt_jesPileUpPtBBUp_;
+    unsigned int counter_cached_MET_T1_pt_jesPileUpPtBBUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesPileUpPtBBUp_;
+    float MET_T1_pt_jesPileUpPtEC1Down_;
+    TBranch *b_MET_T1_pt_jesPileUpPtEC1Down_;
+    bool loaded_MET_T1_pt_jesPileUpPtEC1Down_;
+    unsigned int counter_cached_MET_T1_pt_jesPileUpPtEC1Down_;
+    unsigned int counter_uncached_MET_T1_pt_jesPileUpPtEC1Down_;
+    float MET_T1_pt_jesPileUpPtEC1Up_;
+    TBranch *b_MET_T1_pt_jesPileUpPtEC1Up_;
+    bool loaded_MET_T1_pt_jesPileUpPtEC1Up_;
+    unsigned int counter_cached_MET_T1_pt_jesPileUpPtEC1Up_;
+    unsigned int counter_uncached_MET_T1_pt_jesPileUpPtEC1Up_;
+    float MET_T1_pt_jesPileUpPtEC2Down_;
+    TBranch *b_MET_T1_pt_jesPileUpPtEC2Down_;
+    bool loaded_MET_T1_pt_jesPileUpPtEC2Down_;
+    unsigned int counter_cached_MET_T1_pt_jesPileUpPtEC2Down_;
+    unsigned int counter_uncached_MET_T1_pt_jesPileUpPtEC2Down_;
+    float MET_T1_pt_jesPileUpPtEC2Up_;
+    TBranch *b_MET_T1_pt_jesPileUpPtEC2Up_;
+    bool loaded_MET_T1_pt_jesPileUpPtEC2Up_;
+    unsigned int counter_cached_MET_T1_pt_jesPileUpPtEC2Up_;
+    unsigned int counter_uncached_MET_T1_pt_jesPileUpPtEC2Up_;
+    float MET_T1_pt_jesPileUpPtHFDown_;
+    TBranch *b_MET_T1_pt_jesPileUpPtHFDown_;
+    bool loaded_MET_T1_pt_jesPileUpPtHFDown_;
+    unsigned int counter_cached_MET_T1_pt_jesPileUpPtHFDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesPileUpPtHFDown_;
+    float MET_T1_pt_jesPileUpPtHFUp_;
+    TBranch *b_MET_T1_pt_jesPileUpPtHFUp_;
+    bool loaded_MET_T1_pt_jesPileUpPtHFUp_;
+    unsigned int counter_cached_MET_T1_pt_jesPileUpPtHFUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesPileUpPtHFUp_;
+    float MET_T1_pt_jesPileUpPtRefDown_;
+    TBranch *b_MET_T1_pt_jesPileUpPtRefDown_;
+    bool loaded_MET_T1_pt_jesPileUpPtRefDown_;
+    unsigned int counter_cached_MET_T1_pt_jesPileUpPtRefDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesPileUpPtRefDown_;
+    float MET_T1_pt_jesPileUpPtRefUp_;
+    TBranch *b_MET_T1_pt_jesPileUpPtRefUp_;
+    bool loaded_MET_T1_pt_jesPileUpPtRefUp_;
+    unsigned int counter_cached_MET_T1_pt_jesPileUpPtRefUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesPileUpPtRefUp_;
+    float MET_T1_pt_jesRelativeBalDown_;
+    TBranch *b_MET_T1_pt_jesRelativeBalDown_;
+    bool loaded_MET_T1_pt_jesRelativeBalDown_;
+    unsigned int counter_cached_MET_T1_pt_jesRelativeBalDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesRelativeBalDown_;
+    float MET_T1_pt_jesRelativeBalUp_;
+    TBranch *b_MET_T1_pt_jesRelativeBalUp_;
+    bool loaded_MET_T1_pt_jesRelativeBalUp_;
+    unsigned int counter_cached_MET_T1_pt_jesRelativeBalUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesRelativeBalUp_;
+    float MET_T1_pt_jesRelativeFSRDown_;
+    TBranch *b_MET_T1_pt_jesRelativeFSRDown_;
+    bool loaded_MET_T1_pt_jesRelativeFSRDown_;
+    unsigned int counter_cached_MET_T1_pt_jesRelativeFSRDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesRelativeFSRDown_;
+    float MET_T1_pt_jesRelativeFSRUp_;
+    TBranch *b_MET_T1_pt_jesRelativeFSRUp_;
+    bool loaded_MET_T1_pt_jesRelativeFSRUp_;
+    unsigned int counter_cached_MET_T1_pt_jesRelativeFSRUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesRelativeFSRUp_;
+    float MET_T1_pt_jesRelativeJEREC1Down_;
+    TBranch *b_MET_T1_pt_jesRelativeJEREC1Down_;
+    bool loaded_MET_T1_pt_jesRelativeJEREC1Down_;
+    unsigned int counter_cached_MET_T1_pt_jesRelativeJEREC1Down_;
+    unsigned int counter_uncached_MET_T1_pt_jesRelativeJEREC1Down_;
+    float MET_T1_pt_jesRelativeJEREC1Up_;
+    TBranch *b_MET_T1_pt_jesRelativeJEREC1Up_;
+    bool loaded_MET_T1_pt_jesRelativeJEREC1Up_;
+    unsigned int counter_cached_MET_T1_pt_jesRelativeJEREC1Up_;
+    unsigned int counter_uncached_MET_T1_pt_jesRelativeJEREC1Up_;
+    float MET_T1_pt_jesRelativeJEREC2Down_;
+    TBranch *b_MET_T1_pt_jesRelativeJEREC2Down_;
+    bool loaded_MET_T1_pt_jesRelativeJEREC2Down_;
+    unsigned int counter_cached_MET_T1_pt_jesRelativeJEREC2Down_;
+    unsigned int counter_uncached_MET_T1_pt_jesRelativeJEREC2Down_;
+    float MET_T1_pt_jesRelativeJEREC2Up_;
+    TBranch *b_MET_T1_pt_jesRelativeJEREC2Up_;
+    bool loaded_MET_T1_pt_jesRelativeJEREC2Up_;
+    unsigned int counter_cached_MET_T1_pt_jesRelativeJEREC2Up_;
+    unsigned int counter_uncached_MET_T1_pt_jesRelativeJEREC2Up_;
+    float MET_T1_pt_jesRelativeJERHFDown_;
+    TBranch *b_MET_T1_pt_jesRelativeJERHFDown_;
+    bool loaded_MET_T1_pt_jesRelativeJERHFDown_;
+    unsigned int counter_cached_MET_T1_pt_jesRelativeJERHFDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesRelativeJERHFDown_;
+    float MET_T1_pt_jesRelativeJERHFUp_;
+    TBranch *b_MET_T1_pt_jesRelativeJERHFUp_;
+    bool loaded_MET_T1_pt_jesRelativeJERHFUp_;
+    unsigned int counter_cached_MET_T1_pt_jesRelativeJERHFUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesRelativeJERHFUp_;
+    float MET_T1_pt_jesRelativePtBBDown_;
+    TBranch *b_MET_T1_pt_jesRelativePtBBDown_;
+    bool loaded_MET_T1_pt_jesRelativePtBBDown_;
+    unsigned int counter_cached_MET_T1_pt_jesRelativePtBBDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesRelativePtBBDown_;
+    float MET_T1_pt_jesRelativePtBBUp_;
+    TBranch *b_MET_T1_pt_jesRelativePtBBUp_;
+    bool loaded_MET_T1_pt_jesRelativePtBBUp_;
+    unsigned int counter_cached_MET_T1_pt_jesRelativePtBBUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesRelativePtBBUp_;
+    float MET_T1_pt_jesRelativePtEC1Down_;
+    TBranch *b_MET_T1_pt_jesRelativePtEC1Down_;
+    bool loaded_MET_T1_pt_jesRelativePtEC1Down_;
+    unsigned int counter_cached_MET_T1_pt_jesRelativePtEC1Down_;
+    unsigned int counter_uncached_MET_T1_pt_jesRelativePtEC1Down_;
+    float MET_T1_pt_jesRelativePtEC1Up_;
+    TBranch *b_MET_T1_pt_jesRelativePtEC1Up_;
+    bool loaded_MET_T1_pt_jesRelativePtEC1Up_;
+    unsigned int counter_cached_MET_T1_pt_jesRelativePtEC1Up_;
+    unsigned int counter_uncached_MET_T1_pt_jesRelativePtEC1Up_;
+    float MET_T1_pt_jesRelativePtEC2Down_;
+    TBranch *b_MET_T1_pt_jesRelativePtEC2Down_;
+    bool loaded_MET_T1_pt_jesRelativePtEC2Down_;
+    unsigned int counter_cached_MET_T1_pt_jesRelativePtEC2Down_;
+    unsigned int counter_uncached_MET_T1_pt_jesRelativePtEC2Down_;
+    float MET_T1_pt_jesRelativePtEC2Up_;
+    TBranch *b_MET_T1_pt_jesRelativePtEC2Up_;
+    bool loaded_MET_T1_pt_jesRelativePtEC2Up_;
+    unsigned int counter_cached_MET_T1_pt_jesRelativePtEC2Up_;
+    unsigned int counter_uncached_MET_T1_pt_jesRelativePtEC2Up_;
+    float MET_T1_pt_jesRelativePtHFDown_;
+    TBranch *b_MET_T1_pt_jesRelativePtHFDown_;
+    bool loaded_MET_T1_pt_jesRelativePtHFDown_;
+    unsigned int counter_cached_MET_T1_pt_jesRelativePtHFDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesRelativePtHFDown_;
+    float MET_T1_pt_jesRelativePtHFUp_;
+    TBranch *b_MET_T1_pt_jesRelativePtHFUp_;
+    bool loaded_MET_T1_pt_jesRelativePtHFUp_;
+    unsigned int counter_cached_MET_T1_pt_jesRelativePtHFUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesRelativePtHFUp_;
+    float MET_T1_pt_jesRelativeSampleDown_;
+    TBranch *b_MET_T1_pt_jesRelativeSampleDown_;
+    bool loaded_MET_T1_pt_jesRelativeSampleDown_;
+    unsigned int counter_cached_MET_T1_pt_jesRelativeSampleDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesRelativeSampleDown_;
+    float MET_T1_pt_jesRelativeSampleUp_;
+    TBranch *b_MET_T1_pt_jesRelativeSampleUp_;
+    bool loaded_MET_T1_pt_jesRelativeSampleUp_;
+    unsigned int counter_cached_MET_T1_pt_jesRelativeSampleUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesRelativeSampleUp_;
+    float MET_T1_pt_jesRelativeStatECDown_;
+    TBranch *b_MET_T1_pt_jesRelativeStatECDown_;
+    bool loaded_MET_T1_pt_jesRelativeStatECDown_;
+    unsigned int counter_cached_MET_T1_pt_jesRelativeStatECDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesRelativeStatECDown_;
+    float MET_T1_pt_jesRelativeStatECUp_;
+    TBranch *b_MET_T1_pt_jesRelativeStatECUp_;
+    bool loaded_MET_T1_pt_jesRelativeStatECUp_;
+    unsigned int counter_cached_MET_T1_pt_jesRelativeStatECUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesRelativeStatECUp_;
+    float MET_T1_pt_jesRelativeStatFSRDown_;
+    TBranch *b_MET_T1_pt_jesRelativeStatFSRDown_;
+    bool loaded_MET_T1_pt_jesRelativeStatFSRDown_;
+    unsigned int counter_cached_MET_T1_pt_jesRelativeStatFSRDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesRelativeStatFSRDown_;
+    float MET_T1_pt_jesRelativeStatFSRUp_;
+    TBranch *b_MET_T1_pt_jesRelativeStatFSRUp_;
+    bool loaded_MET_T1_pt_jesRelativeStatFSRUp_;
+    unsigned int counter_cached_MET_T1_pt_jesRelativeStatFSRUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesRelativeStatFSRUp_;
+    float MET_T1_pt_jesRelativeStatHFDown_;
+    TBranch *b_MET_T1_pt_jesRelativeStatHFDown_;
+    bool loaded_MET_T1_pt_jesRelativeStatHFDown_;
+    unsigned int counter_cached_MET_T1_pt_jesRelativeStatHFDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesRelativeStatHFDown_;
+    float MET_T1_pt_jesRelativeStatHFUp_;
+    TBranch *b_MET_T1_pt_jesRelativeStatHFUp_;
+    bool loaded_MET_T1_pt_jesRelativeStatHFUp_;
+    unsigned int counter_cached_MET_T1_pt_jesRelativeStatHFUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesRelativeStatHFUp_;
+    float MET_T1_pt_jesSinglePionECALDown_;
+    TBranch *b_MET_T1_pt_jesSinglePionECALDown_;
+    bool loaded_MET_T1_pt_jesSinglePionECALDown_;
+    unsigned int counter_cached_MET_T1_pt_jesSinglePionECALDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesSinglePionECALDown_;
+    float MET_T1_pt_jesSinglePionECALUp_;
+    TBranch *b_MET_T1_pt_jesSinglePionECALUp_;
+    bool loaded_MET_T1_pt_jesSinglePionECALUp_;
+    unsigned int counter_cached_MET_T1_pt_jesSinglePionECALUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesSinglePionECALUp_;
+    float MET_T1_pt_jesSinglePionHCALDown_;
+    TBranch *b_MET_T1_pt_jesSinglePionHCALDown_;
+    bool loaded_MET_T1_pt_jesSinglePionHCALDown_;
+    unsigned int counter_cached_MET_T1_pt_jesSinglePionHCALDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesSinglePionHCALDown_;
+    float MET_T1_pt_jesSinglePionHCALUp_;
+    TBranch *b_MET_T1_pt_jesSinglePionHCALUp_;
+    bool loaded_MET_T1_pt_jesSinglePionHCALUp_;
+    unsigned int counter_cached_MET_T1_pt_jesSinglePionHCALUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesSinglePionHCALUp_;
+    float MET_T1_pt_jesSubTotalAbsoluteDown_;
+    TBranch *b_MET_T1_pt_jesSubTotalAbsoluteDown_;
+    bool loaded_MET_T1_pt_jesSubTotalAbsoluteDown_;
+    unsigned int counter_cached_MET_T1_pt_jesSubTotalAbsoluteDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesSubTotalAbsoluteDown_;
+    float MET_T1_pt_jesSubTotalAbsoluteUp_;
+    TBranch *b_MET_T1_pt_jesSubTotalAbsoluteUp_;
+    bool loaded_MET_T1_pt_jesSubTotalAbsoluteUp_;
+    unsigned int counter_cached_MET_T1_pt_jesSubTotalAbsoluteUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesSubTotalAbsoluteUp_;
+    float MET_T1_pt_jesSubTotalMCDown_;
+    TBranch *b_MET_T1_pt_jesSubTotalMCDown_;
+    bool loaded_MET_T1_pt_jesSubTotalMCDown_;
+    unsigned int counter_cached_MET_T1_pt_jesSubTotalMCDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesSubTotalMCDown_;
+    float MET_T1_pt_jesSubTotalMCUp_;
+    TBranch *b_MET_T1_pt_jesSubTotalMCUp_;
+    bool loaded_MET_T1_pt_jesSubTotalMCUp_;
+    unsigned int counter_cached_MET_T1_pt_jesSubTotalMCUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesSubTotalMCUp_;
+    float MET_T1_pt_jesSubTotalPileUpDown_;
+    TBranch *b_MET_T1_pt_jesSubTotalPileUpDown_;
+    bool loaded_MET_T1_pt_jesSubTotalPileUpDown_;
+    unsigned int counter_cached_MET_T1_pt_jesSubTotalPileUpDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesSubTotalPileUpDown_;
+    float MET_T1_pt_jesSubTotalPileUpUp_;
+    TBranch *b_MET_T1_pt_jesSubTotalPileUpUp_;
+    bool loaded_MET_T1_pt_jesSubTotalPileUpUp_;
+    unsigned int counter_cached_MET_T1_pt_jesSubTotalPileUpUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesSubTotalPileUpUp_;
+    float MET_T1_pt_jesSubTotalPtDown_;
+    TBranch *b_MET_T1_pt_jesSubTotalPtDown_;
+    bool loaded_MET_T1_pt_jesSubTotalPtDown_;
+    unsigned int counter_cached_MET_T1_pt_jesSubTotalPtDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesSubTotalPtDown_;
+    float MET_T1_pt_jesSubTotalPtUp_;
+    TBranch *b_MET_T1_pt_jesSubTotalPtUp_;
+    bool loaded_MET_T1_pt_jesSubTotalPtUp_;
+    unsigned int counter_cached_MET_T1_pt_jesSubTotalPtUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesSubTotalPtUp_;
+    float MET_T1_pt_jesSubTotalRelativeDown_;
+    TBranch *b_MET_T1_pt_jesSubTotalRelativeDown_;
+    bool loaded_MET_T1_pt_jesSubTotalRelativeDown_;
+    unsigned int counter_cached_MET_T1_pt_jesSubTotalRelativeDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesSubTotalRelativeDown_;
+    float MET_T1_pt_jesSubTotalRelativeUp_;
+    TBranch *b_MET_T1_pt_jesSubTotalRelativeUp_;
+    bool loaded_MET_T1_pt_jesSubTotalRelativeUp_;
+    unsigned int counter_cached_MET_T1_pt_jesSubTotalRelativeUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesSubTotalRelativeUp_;
+    float MET_T1_pt_jesSubTotalScaleDown_;
+    TBranch *b_MET_T1_pt_jesSubTotalScaleDown_;
+    bool loaded_MET_T1_pt_jesSubTotalScaleDown_;
+    unsigned int counter_cached_MET_T1_pt_jesSubTotalScaleDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesSubTotalScaleDown_;
+    float MET_T1_pt_jesSubTotalScaleUp_;
+    TBranch *b_MET_T1_pt_jesSubTotalScaleUp_;
+    bool loaded_MET_T1_pt_jesSubTotalScaleUp_;
+    unsigned int counter_cached_MET_T1_pt_jesSubTotalScaleUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesSubTotalScaleUp_;
+    float MET_T1_pt_jesTimePtEtaDown_;
+    TBranch *b_MET_T1_pt_jesTimePtEtaDown_;
+    bool loaded_MET_T1_pt_jesTimePtEtaDown_;
+    unsigned int counter_cached_MET_T1_pt_jesTimePtEtaDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesTimePtEtaDown_;
+    float MET_T1_pt_jesTimePtEtaUp_;
+    TBranch *b_MET_T1_pt_jesTimePtEtaUp_;
+    bool loaded_MET_T1_pt_jesTimePtEtaUp_;
+    unsigned int counter_cached_MET_T1_pt_jesTimePtEtaUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesTimePtEtaUp_;
+    float MET_T1_pt_jesTimeRunADown_;
+    TBranch *b_MET_T1_pt_jesTimeRunADown_;
+    bool loaded_MET_T1_pt_jesTimeRunADown_;
+    unsigned int counter_cached_MET_T1_pt_jesTimeRunADown_;
+    unsigned int counter_uncached_MET_T1_pt_jesTimeRunADown_;
+    float MET_T1_pt_jesTimeRunAUp_;
+    TBranch *b_MET_T1_pt_jesTimeRunAUp_;
+    bool loaded_MET_T1_pt_jesTimeRunAUp_;
+    unsigned int counter_cached_MET_T1_pt_jesTimeRunAUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesTimeRunAUp_;
+    float MET_T1_pt_jesTimeRunBDown_;
+    TBranch *b_MET_T1_pt_jesTimeRunBDown_;
+    bool loaded_MET_T1_pt_jesTimeRunBDown_;
+    unsigned int counter_cached_MET_T1_pt_jesTimeRunBDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesTimeRunBDown_;
+    float MET_T1_pt_jesTimeRunBUp_;
+    TBranch *b_MET_T1_pt_jesTimeRunBUp_;
+    bool loaded_MET_T1_pt_jesTimeRunBUp_;
+    unsigned int counter_cached_MET_T1_pt_jesTimeRunBUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesTimeRunBUp_;
+    float MET_T1_pt_jesTimeRunCDown_;
+    TBranch *b_MET_T1_pt_jesTimeRunCDown_;
+    bool loaded_MET_T1_pt_jesTimeRunCDown_;
+    unsigned int counter_cached_MET_T1_pt_jesTimeRunCDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesTimeRunCDown_;
+    float MET_T1_pt_jesTimeRunCUp_;
+    TBranch *b_MET_T1_pt_jesTimeRunCUp_;
+    bool loaded_MET_T1_pt_jesTimeRunCUp_;
+    unsigned int counter_cached_MET_T1_pt_jesTimeRunCUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesTimeRunCUp_;
+    float MET_T1_pt_jesTimeRunDDown_;
+    TBranch *b_MET_T1_pt_jesTimeRunDDown_;
+    bool loaded_MET_T1_pt_jesTimeRunDDown_;
+    unsigned int counter_cached_MET_T1_pt_jesTimeRunDDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesTimeRunDDown_;
+    float MET_T1_pt_jesTimeRunDUp_;
+    TBranch *b_MET_T1_pt_jesTimeRunDUp_;
+    bool loaded_MET_T1_pt_jesTimeRunDUp_;
+    unsigned int counter_cached_MET_T1_pt_jesTimeRunDUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesTimeRunDUp_;
     float MET_T1_pt_jesTotalDown_;
     TBranch *b_MET_T1_pt_jesTotalDown_;
     bool loaded_MET_T1_pt_jesTotalDown_;
     unsigned int counter_cached_MET_T1_pt_jesTotalDown_;
     unsigned int counter_uncached_MET_T1_pt_jesTotalDown_;
+    float MET_T1_pt_jesTotalNoFlavorDown_;
+    TBranch *b_MET_T1_pt_jesTotalNoFlavorDown_;
+    bool loaded_MET_T1_pt_jesTotalNoFlavorDown_;
+    unsigned int counter_cached_MET_T1_pt_jesTotalNoFlavorDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesTotalNoFlavorDown_;
+    float MET_T1_pt_jesTotalNoFlavorNoTimeDown_;
+    TBranch *b_MET_T1_pt_jesTotalNoFlavorNoTimeDown_;
+    bool loaded_MET_T1_pt_jesTotalNoFlavorNoTimeDown_;
+    unsigned int counter_cached_MET_T1_pt_jesTotalNoFlavorNoTimeDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesTotalNoFlavorNoTimeDown_;
+    float MET_T1_pt_jesTotalNoFlavorNoTimeUp_;
+    TBranch *b_MET_T1_pt_jesTotalNoFlavorNoTimeUp_;
+    bool loaded_MET_T1_pt_jesTotalNoFlavorNoTimeUp_;
+    unsigned int counter_cached_MET_T1_pt_jesTotalNoFlavorNoTimeUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesTotalNoFlavorNoTimeUp_;
+    float MET_T1_pt_jesTotalNoFlavorUp_;
+    TBranch *b_MET_T1_pt_jesTotalNoFlavorUp_;
+    bool loaded_MET_T1_pt_jesTotalNoFlavorUp_;
+    unsigned int counter_cached_MET_T1_pt_jesTotalNoFlavorUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesTotalNoFlavorUp_;
+    float MET_T1_pt_jesTotalNoTimeDown_;
+    TBranch *b_MET_T1_pt_jesTotalNoTimeDown_;
+    bool loaded_MET_T1_pt_jesTotalNoTimeDown_;
+    unsigned int counter_cached_MET_T1_pt_jesTotalNoTimeDown_;
+    unsigned int counter_uncached_MET_T1_pt_jesTotalNoTimeDown_;
+    float MET_T1_pt_jesTotalNoTimeUp_;
+    TBranch *b_MET_T1_pt_jesTotalNoTimeUp_;
+    bool loaded_MET_T1_pt_jesTotalNoTimeUp_;
+    unsigned int counter_cached_MET_T1_pt_jesTotalNoTimeUp_;
+    unsigned int counter_uncached_MET_T1_pt_jesTotalNoTimeUp_;
     float MET_T1_pt_jesTotalUp_;
     TBranch *b_MET_T1_pt_jesTotalUp_;
     bool loaded_MET_T1_pt_jesTotalUp_;
@@ -14661,6 +20169,12 @@ protected:
     bool loaded_TrigObj_pt_;
     unsigned int counter_cached_TrigObj_pt_;
     unsigned int counter_uncached_TrigObj_pt_;
+    int WCnames_[NWCNAMES_MAX];
+    vector<int> v_WCnames_;
+    TBranch *b_WCnames_;
+    bool loaded_WCnames_;
+    unsigned int counter_cached_WCnames_;
+    unsigned int counter_uncached_WCnames_;
     int boostedTau_charge_[NBOOSTEDTAU_MAX];
     vector<int> v_boostedTau_charge_;
     TBranch *b_boostedTau_charge_;
@@ -14904,6 +20418,11 @@ protected:
     bool loaded_nCorrT1METJet_;
     unsigned int counter_cached_nCorrT1METJet_;
     unsigned int counter_uncached_nCorrT1METJet_;
+    UInt_t nEFTfitCoefficients_;
+    TBranch *b_nEFTfitCoefficients_;
+    bool loaded_nEFTfitCoefficients_;
+    unsigned int counter_cached_nEFTfitCoefficients_;
+    unsigned int counter_uncached_nEFTfitCoefficients_;
     UInt_t nElectron_;
     TBranch *b_nElectron_;
     bool loaded_nElectron_;
@@ -15054,6 +20573,11 @@ protected:
     bool loaded_nTrigObj_;
     unsigned int counter_cached_nTrigObj_;
     unsigned int counter_uncached_nTrigObj_;
+    UInt_t nWCnames_;
+    TBranch *b_nWCnames_;
+    bool loaded_nWCnames_;
+    unsigned int counter_cached_nWCnames_;
+    unsigned int counter_uncached_nWCnames_;    
     UInt_t nboostedTau_;
     TBranch *b_nboostedTau_;
     bool loaded_nboostedTau_;
@@ -15101,6 +20625,7 @@ public:
     const float &DeepMETResolutionTune_pt();
     const float &DeepMETResponseTune_phi();
     const float &DeepMETResponseTune_pt();
+    const vector<float> &EFTfitCoefficients();    
     const vector<float> &Electron_CutBased_LooseID_SF();
     const vector<float> &Electron_CutBased_LooseID_SFerr();
     const vector<float> &Electron_CutBased_MediumID_SF();
@@ -15240,7 +20765,117 @@ public:
     const vector<float> &FatJet_mass();
     const vector<float> &FatJet_mass_jerDown();
     const vector<float> &FatJet_mass_jerUp();
+    const vector<float> &FatJet_mass_jesAbsoluteFlavMapDown();
+    const vector<float> &FatJet_mass_jesAbsoluteFlavMapUp();
+    const vector<float> &FatJet_mass_jesAbsoluteMPFBiasDown();
+    const vector<float> &FatJet_mass_jesAbsoluteMPFBiasUp();
+    const vector<float> &FatJet_mass_jesAbsoluteSampleDown();
+    const vector<float> &FatJet_mass_jesAbsoluteSampleUp();
+    const vector<float> &FatJet_mass_jesAbsoluteScaleDown();
+    const vector<float> &FatJet_mass_jesAbsoluteScaleUp();
+    const vector<float> &FatJet_mass_jesAbsoluteStatDown();
+    const vector<float> &FatJet_mass_jesAbsoluteStatUp();
+    const vector<float> &FatJet_mass_jesCorrelationGroupFlavorDown();
+    const vector<float> &FatJet_mass_jesCorrelationGroupFlavorUp();
+    const vector<float> &FatJet_mass_jesCorrelationGroupIntercalibrationDown();
+    const vector<float> &FatJet_mass_jesCorrelationGroupIntercalibrationUp();
+    const vector<float> &FatJet_mass_jesCorrelationGroupMPFInSituDown();
+    const vector<float> &FatJet_mass_jesCorrelationGroupMPFInSituUp();
+    const vector<float> &FatJet_mass_jesCorrelationGroupUncorrelatedDown();
+    const vector<float> &FatJet_mass_jesCorrelationGroupUncorrelatedUp();
+    const vector<float> &FatJet_mass_jesCorrelationGroupbJESDown();
+    const vector<float> &FatJet_mass_jesCorrelationGroupbJESUp();
+    const vector<float> &FatJet_mass_jesFlavorPhotonJetDown();
+    const vector<float> &FatJet_mass_jesFlavorPhotonJetUp();
+    const vector<float> &FatJet_mass_jesFlavorPureBottomDown();
+    const vector<float> &FatJet_mass_jesFlavorPureBottomUp();
+    const vector<float> &FatJet_mass_jesFlavorPureCharmDown();
+    const vector<float> &FatJet_mass_jesFlavorPureCharmUp();
+    const vector<float> &FatJet_mass_jesFlavorPureGluonDown();
+    const vector<float> &FatJet_mass_jesFlavorPureGluonUp();
+    const vector<float> &FatJet_mass_jesFlavorPureQuarkDown();
+    const vector<float> &FatJet_mass_jesFlavorPureQuarkUp();
+    const vector<float> &FatJet_mass_jesFlavorQCDDown();
+    const vector<float> &FatJet_mass_jesFlavorQCDUp();
+    const vector<float> &FatJet_mass_jesFlavorZJetDown();
+    const vector<float> &FatJet_mass_jesFlavorZJetUp();
+    const vector<float> &FatJet_mass_jesFragmentationDown();
+    const vector<float> &FatJet_mass_jesFragmentationUp();
+    const vector<float> &FatJet_mass_jesPileUpDataMCDown();
+    const vector<float> &FatJet_mass_jesPileUpDataMCUp();
+    const vector<float> &FatJet_mass_jesPileUpEnvelopeDown();
+    const vector<float> &FatJet_mass_jesPileUpEnvelopeUp();
+    const vector<float> &FatJet_mass_jesPileUpMuZeroDown();
+    const vector<float> &FatJet_mass_jesPileUpMuZeroUp();
+    const vector<float> &FatJet_mass_jesPileUpPtBBDown();
+    const vector<float> &FatJet_mass_jesPileUpPtBBUp();
+    const vector<float> &FatJet_mass_jesPileUpPtEC1Down();
+    const vector<float> &FatJet_mass_jesPileUpPtEC1Up();
+    const vector<float> &FatJet_mass_jesPileUpPtEC2Down();
+    const vector<float> &FatJet_mass_jesPileUpPtEC2Up();
+    const vector<float> &FatJet_mass_jesPileUpPtHFDown();
+    const vector<float> &FatJet_mass_jesPileUpPtHFUp();
+    const vector<float> &FatJet_mass_jesPileUpPtRefDown();
+    const vector<float> &FatJet_mass_jesPileUpPtRefUp();
+    const vector<float> &FatJet_mass_jesRelativeBalDown();
+    const vector<float> &FatJet_mass_jesRelativeBalUp();
+    const vector<float> &FatJet_mass_jesRelativeFSRDown();
+    const vector<float> &FatJet_mass_jesRelativeFSRUp();
+    const vector<float> &FatJet_mass_jesRelativeJEREC1Down();
+    const vector<float> &FatJet_mass_jesRelativeJEREC1Up();
+    const vector<float> &FatJet_mass_jesRelativeJEREC2Down();
+    const vector<float> &FatJet_mass_jesRelativeJEREC2Up();
+    const vector<float> &FatJet_mass_jesRelativeJERHFDown();
+    const vector<float> &FatJet_mass_jesRelativeJERHFUp();
+    const vector<float> &FatJet_mass_jesRelativePtBBDown();
+    const vector<float> &FatJet_mass_jesRelativePtBBUp();
+    const vector<float> &FatJet_mass_jesRelativePtEC1Down();
+    const vector<float> &FatJet_mass_jesRelativePtEC1Up();
+    const vector<float> &FatJet_mass_jesRelativePtEC2Down();
+    const vector<float> &FatJet_mass_jesRelativePtEC2Up();
+    const vector<float> &FatJet_mass_jesRelativePtHFDown();
+    const vector<float> &FatJet_mass_jesRelativePtHFUp();
+    const vector<float> &FatJet_mass_jesRelativeSampleDown();
+    const vector<float> &FatJet_mass_jesRelativeSampleUp();
+    const vector<float> &FatJet_mass_jesRelativeStatECDown();
+    const vector<float> &FatJet_mass_jesRelativeStatECUp();
+    const vector<float> &FatJet_mass_jesRelativeStatFSRDown();
+    const vector<float> &FatJet_mass_jesRelativeStatFSRUp();
+    const vector<float> &FatJet_mass_jesRelativeStatHFDown();
+    const vector<float> &FatJet_mass_jesRelativeStatHFUp();
+    const vector<float> &FatJet_mass_jesSinglePionECALDown();
+    const vector<float> &FatJet_mass_jesSinglePionECALUp();
+    const vector<float> &FatJet_mass_jesSinglePionHCALDown();
+    const vector<float> &FatJet_mass_jesSinglePionHCALUp();
+    const vector<float> &FatJet_mass_jesSubTotalAbsoluteDown();
+    const vector<float> &FatJet_mass_jesSubTotalAbsoluteUp();
+    const vector<float> &FatJet_mass_jesSubTotalMCDown();
+    const vector<float> &FatJet_mass_jesSubTotalMCUp();
+    const vector<float> &FatJet_mass_jesSubTotalPileUpDown();
+    const vector<float> &FatJet_mass_jesSubTotalPileUpUp();
+    const vector<float> &FatJet_mass_jesSubTotalPtDown();
+    const vector<float> &FatJet_mass_jesSubTotalPtUp();
+    const vector<float> &FatJet_mass_jesSubTotalRelativeDown();
+    const vector<float> &FatJet_mass_jesSubTotalRelativeUp();
+    const vector<float> &FatJet_mass_jesSubTotalScaleDown();
+    const vector<float> &FatJet_mass_jesSubTotalScaleUp();
+    const vector<float> &FatJet_mass_jesTimePtEtaDown();
+    const vector<float> &FatJet_mass_jesTimePtEtaUp();
+    const vector<float> &FatJet_mass_jesTimeRunADown();
+    const vector<float> &FatJet_mass_jesTimeRunAUp();
+    const vector<float> &FatJet_mass_jesTimeRunBDown();
+    const vector<float> &FatJet_mass_jesTimeRunBUp();
+    const vector<float> &FatJet_mass_jesTimeRunCDown();
+    const vector<float> &FatJet_mass_jesTimeRunCUp();
+    const vector<float> &FatJet_mass_jesTimeRunDDown();
+    const vector<float> &FatJet_mass_jesTimeRunDUp();
     const vector<float> &FatJet_mass_jesTotalDown();
+    const vector<float> &FatJet_mass_jesTotalNoFlavorDown();
+    const vector<float> &FatJet_mass_jesTotalNoFlavorNoTimeDown();
+    const vector<float> &FatJet_mass_jesTotalNoFlavorNoTimeUp();
+    const vector<float> &FatJet_mass_jesTotalNoFlavorUp();
+    const vector<float> &FatJet_mass_jesTotalNoTimeDown();
+    const vector<float> &FatJet_mass_jesTotalNoTimeUp();
     const vector<float> &FatJet_mass_jesTotalUp();
     const vector<float> &FatJet_mass_jmrDown();
     const vector<float> &FatJet_mass_jmrUp();
@@ -15254,7 +20889,117 @@ public:
     const vector<float> &FatJet_msoftdrop_corr_PUPPI();
     const vector<float> &FatJet_msoftdrop_jerDown();
     const vector<float> &FatJet_msoftdrop_jerUp();
+    const vector<float> &FatJet_msoftdrop_jesAbsoluteFlavMapDown();
+    const vector<float> &FatJet_msoftdrop_jesAbsoluteFlavMapUp();
+    const vector<float> &FatJet_msoftdrop_jesAbsoluteMPFBiasDown();
+    const vector<float> &FatJet_msoftdrop_jesAbsoluteMPFBiasUp();
+    const vector<float> &FatJet_msoftdrop_jesAbsoluteSampleDown();
+    const vector<float> &FatJet_msoftdrop_jesAbsoluteSampleUp();
+    const vector<float> &FatJet_msoftdrop_jesAbsoluteScaleDown();
+    const vector<float> &FatJet_msoftdrop_jesAbsoluteScaleUp();
+    const vector<float> &FatJet_msoftdrop_jesAbsoluteStatDown();
+    const vector<float> &FatJet_msoftdrop_jesAbsoluteStatUp();
+    const vector<float> &FatJet_msoftdrop_jesCorrelationGroupFlavorDown();
+    const vector<float> &FatJet_msoftdrop_jesCorrelationGroupFlavorUp();
+    const vector<float> &FatJet_msoftdrop_jesCorrelationGroupIntercalibrationDown();
+    const vector<float> &FatJet_msoftdrop_jesCorrelationGroupIntercalibrationUp();
+    const vector<float> &FatJet_msoftdrop_jesCorrelationGroupMPFInSituDown();
+    const vector<float> &FatJet_msoftdrop_jesCorrelationGroupMPFInSituUp();
+    const vector<float> &FatJet_msoftdrop_jesCorrelationGroupUncorrelatedDown();
+    const vector<float> &FatJet_msoftdrop_jesCorrelationGroupUncorrelatedUp();
+    const vector<float> &FatJet_msoftdrop_jesCorrelationGroupbJESDown();
+    const vector<float> &FatJet_msoftdrop_jesCorrelationGroupbJESUp();
+    const vector<float> &FatJet_msoftdrop_jesFlavorPhotonJetDown();
+    const vector<float> &FatJet_msoftdrop_jesFlavorPhotonJetUp();
+    const vector<float> &FatJet_msoftdrop_jesFlavorPureBottomDown();
+    const vector<float> &FatJet_msoftdrop_jesFlavorPureBottomUp();
+    const vector<float> &FatJet_msoftdrop_jesFlavorPureCharmDown();
+    const vector<float> &FatJet_msoftdrop_jesFlavorPureCharmUp();
+    const vector<float> &FatJet_msoftdrop_jesFlavorPureGluonDown();
+    const vector<float> &FatJet_msoftdrop_jesFlavorPureGluonUp();
+    const vector<float> &FatJet_msoftdrop_jesFlavorPureQuarkDown();
+    const vector<float> &FatJet_msoftdrop_jesFlavorPureQuarkUp();
+    const vector<float> &FatJet_msoftdrop_jesFlavorQCDDown();
+    const vector<float> &FatJet_msoftdrop_jesFlavorQCDUp();
+    const vector<float> &FatJet_msoftdrop_jesFlavorZJetDown();
+    const vector<float> &FatJet_msoftdrop_jesFlavorZJetUp();
+    const vector<float> &FatJet_msoftdrop_jesFragmentationDown();
+    const vector<float> &FatJet_msoftdrop_jesFragmentationUp();
+    const vector<float> &FatJet_msoftdrop_jesPileUpDataMCDown();
+    const vector<float> &FatJet_msoftdrop_jesPileUpDataMCUp();
+    const vector<float> &FatJet_msoftdrop_jesPileUpEnvelopeDown();
+    const vector<float> &FatJet_msoftdrop_jesPileUpEnvelopeUp();
+    const vector<float> &FatJet_msoftdrop_jesPileUpMuZeroDown();
+    const vector<float> &FatJet_msoftdrop_jesPileUpMuZeroUp();
+    const vector<float> &FatJet_msoftdrop_jesPileUpPtBBDown();
+    const vector<float> &FatJet_msoftdrop_jesPileUpPtBBUp();
+    const vector<float> &FatJet_msoftdrop_jesPileUpPtEC1Down();
+    const vector<float> &FatJet_msoftdrop_jesPileUpPtEC1Up();
+    const vector<float> &FatJet_msoftdrop_jesPileUpPtEC2Down();
+    const vector<float> &FatJet_msoftdrop_jesPileUpPtEC2Up();
+    const vector<float> &FatJet_msoftdrop_jesPileUpPtHFDown();
+    const vector<float> &FatJet_msoftdrop_jesPileUpPtHFUp();
+    const vector<float> &FatJet_msoftdrop_jesPileUpPtRefDown();
+    const vector<float> &FatJet_msoftdrop_jesPileUpPtRefUp();
+    const vector<float> &FatJet_msoftdrop_jesRelativeBalDown();
+    const vector<float> &FatJet_msoftdrop_jesRelativeBalUp();
+    const vector<float> &FatJet_msoftdrop_jesRelativeFSRDown();
+    const vector<float> &FatJet_msoftdrop_jesRelativeFSRUp();
+    const vector<float> &FatJet_msoftdrop_jesRelativeJEREC1Down();
+    const vector<float> &FatJet_msoftdrop_jesRelativeJEREC1Up();
+    const vector<float> &FatJet_msoftdrop_jesRelativeJEREC2Down();
+    const vector<float> &FatJet_msoftdrop_jesRelativeJEREC2Up();
+    const vector<float> &FatJet_msoftdrop_jesRelativeJERHFDown();
+    const vector<float> &FatJet_msoftdrop_jesRelativeJERHFUp();
+    const vector<float> &FatJet_msoftdrop_jesRelativePtBBDown();
+    const vector<float> &FatJet_msoftdrop_jesRelativePtBBUp();
+    const vector<float> &FatJet_msoftdrop_jesRelativePtEC1Down();
+    const vector<float> &FatJet_msoftdrop_jesRelativePtEC1Up();
+    const vector<float> &FatJet_msoftdrop_jesRelativePtEC2Down();
+    const vector<float> &FatJet_msoftdrop_jesRelativePtEC2Up();
+    const vector<float> &FatJet_msoftdrop_jesRelativePtHFDown();
+    const vector<float> &FatJet_msoftdrop_jesRelativePtHFUp();
+    const vector<float> &FatJet_msoftdrop_jesRelativeSampleDown();
+    const vector<float> &FatJet_msoftdrop_jesRelativeSampleUp();
+    const vector<float> &FatJet_msoftdrop_jesRelativeStatECDown();
+    const vector<float> &FatJet_msoftdrop_jesRelativeStatECUp();
+    const vector<float> &FatJet_msoftdrop_jesRelativeStatFSRDown();
+    const vector<float> &FatJet_msoftdrop_jesRelativeStatFSRUp();
+    const vector<float> &FatJet_msoftdrop_jesRelativeStatHFDown();
+    const vector<float> &FatJet_msoftdrop_jesRelativeStatHFUp();
+    const vector<float> &FatJet_msoftdrop_jesSinglePionECALDown();
+    const vector<float> &FatJet_msoftdrop_jesSinglePionECALUp();
+    const vector<float> &FatJet_msoftdrop_jesSinglePionHCALDown();
+    const vector<float> &FatJet_msoftdrop_jesSinglePionHCALUp();
+    const vector<float> &FatJet_msoftdrop_jesSubTotalAbsoluteDown();
+    const vector<float> &FatJet_msoftdrop_jesSubTotalAbsoluteUp();
+    const vector<float> &FatJet_msoftdrop_jesSubTotalMCDown();
+    const vector<float> &FatJet_msoftdrop_jesSubTotalMCUp();
+    const vector<float> &FatJet_msoftdrop_jesSubTotalPileUpDown();
+    const vector<float> &FatJet_msoftdrop_jesSubTotalPileUpUp();
+    const vector<float> &FatJet_msoftdrop_jesSubTotalPtDown();
+    const vector<float> &FatJet_msoftdrop_jesSubTotalPtUp();
+    const vector<float> &FatJet_msoftdrop_jesSubTotalRelativeDown();
+    const vector<float> &FatJet_msoftdrop_jesSubTotalRelativeUp();
+    const vector<float> &FatJet_msoftdrop_jesSubTotalScaleDown();
+    const vector<float> &FatJet_msoftdrop_jesSubTotalScaleUp();
+    const vector<float> &FatJet_msoftdrop_jesTimePtEtaDown();
+    const vector<float> &FatJet_msoftdrop_jesTimePtEtaUp();
+    const vector<float> &FatJet_msoftdrop_jesTimeRunADown();
+    const vector<float> &FatJet_msoftdrop_jesTimeRunAUp();
+    const vector<float> &FatJet_msoftdrop_jesTimeRunBDown();
+    const vector<float> &FatJet_msoftdrop_jesTimeRunBUp();
+    const vector<float> &FatJet_msoftdrop_jesTimeRunCDown();
+    const vector<float> &FatJet_msoftdrop_jesTimeRunCUp();
+    const vector<float> &FatJet_msoftdrop_jesTimeRunDDown();
+    const vector<float> &FatJet_msoftdrop_jesTimeRunDUp();
     const vector<float> &FatJet_msoftdrop_jesTotalDown();
+    const vector<float> &FatJet_msoftdrop_jesTotalNoFlavorDown();
+    const vector<float> &FatJet_msoftdrop_jesTotalNoFlavorNoTimeDown();
+    const vector<float> &FatJet_msoftdrop_jesTotalNoFlavorNoTimeUp();
+    const vector<float> &FatJet_msoftdrop_jesTotalNoFlavorUp();
+    const vector<float> &FatJet_msoftdrop_jesTotalNoTimeDown();
+    const vector<float> &FatJet_msoftdrop_jesTotalNoTimeUp();
     const vector<float> &FatJet_msoftdrop_jesTotalUp();
     const vector<float> &FatJet_msoftdrop_jmrDown();
     const vector<float> &FatJet_msoftdrop_jmrUp();
@@ -15292,7 +21037,117 @@ public:
     const vector<float> &FatJet_pt();
     const vector<float> &FatJet_pt_jerDown();
     const vector<float> &FatJet_pt_jerUp();
+    const vector<float> &FatJet_pt_jesAbsoluteFlavMapDown();
+    const vector<float> &FatJet_pt_jesAbsoluteFlavMapUp();
+    const vector<float> &FatJet_pt_jesAbsoluteMPFBiasDown();
+    const vector<float> &FatJet_pt_jesAbsoluteMPFBiasUp();
+    const vector<float> &FatJet_pt_jesAbsoluteSampleDown();
+    const vector<float> &FatJet_pt_jesAbsoluteSampleUp();
+    const vector<float> &FatJet_pt_jesAbsoluteScaleDown();
+    const vector<float> &FatJet_pt_jesAbsoluteScaleUp();
+    const vector<float> &FatJet_pt_jesAbsoluteStatDown();
+    const vector<float> &FatJet_pt_jesAbsoluteStatUp();
+    const vector<float> &FatJet_pt_jesCorrelationGroupFlavorDown();
+    const vector<float> &FatJet_pt_jesCorrelationGroupFlavorUp();
+    const vector<float> &FatJet_pt_jesCorrelationGroupIntercalibrationDown();
+    const vector<float> &FatJet_pt_jesCorrelationGroupIntercalibrationUp();
+    const vector<float> &FatJet_pt_jesCorrelationGroupMPFInSituDown();
+    const vector<float> &FatJet_pt_jesCorrelationGroupMPFInSituUp();
+    const vector<float> &FatJet_pt_jesCorrelationGroupUncorrelatedDown();
+    const vector<float> &FatJet_pt_jesCorrelationGroupUncorrelatedUp();
+    const vector<float> &FatJet_pt_jesCorrelationGroupbJESDown();
+    const vector<float> &FatJet_pt_jesCorrelationGroupbJESUp();
+    const vector<float> &FatJet_pt_jesFlavorPhotonJetDown();
+    const vector<float> &FatJet_pt_jesFlavorPhotonJetUp();
+    const vector<float> &FatJet_pt_jesFlavorPureBottomDown();
+    const vector<float> &FatJet_pt_jesFlavorPureBottomUp();
+    const vector<float> &FatJet_pt_jesFlavorPureCharmDown();
+    const vector<float> &FatJet_pt_jesFlavorPureCharmUp();
+    const vector<float> &FatJet_pt_jesFlavorPureGluonDown();
+    const vector<float> &FatJet_pt_jesFlavorPureGluonUp();
+    const vector<float> &FatJet_pt_jesFlavorPureQuarkDown();
+    const vector<float> &FatJet_pt_jesFlavorPureQuarkUp();
+    const vector<float> &FatJet_pt_jesFlavorQCDDown();
+    const vector<float> &FatJet_pt_jesFlavorQCDUp();
+    const vector<float> &FatJet_pt_jesFlavorZJetDown();
+    const vector<float> &FatJet_pt_jesFlavorZJetUp();
+    const vector<float> &FatJet_pt_jesFragmentationDown();
+    const vector<float> &FatJet_pt_jesFragmentationUp();
+    const vector<float> &FatJet_pt_jesPileUpDataMCDown();
+    const vector<float> &FatJet_pt_jesPileUpDataMCUp();
+    const vector<float> &FatJet_pt_jesPileUpEnvelopeDown();
+    const vector<float> &FatJet_pt_jesPileUpEnvelopeUp();
+    const vector<float> &FatJet_pt_jesPileUpMuZeroDown();
+    const vector<float> &FatJet_pt_jesPileUpMuZeroUp();
+    const vector<float> &FatJet_pt_jesPileUpPtBBDown();
+    const vector<float> &FatJet_pt_jesPileUpPtBBUp();
+    const vector<float> &FatJet_pt_jesPileUpPtEC1Down();
+    const vector<float> &FatJet_pt_jesPileUpPtEC1Up();
+    const vector<float> &FatJet_pt_jesPileUpPtEC2Down();
+    const vector<float> &FatJet_pt_jesPileUpPtEC2Up();
+    const vector<float> &FatJet_pt_jesPileUpPtHFDown();
+    const vector<float> &FatJet_pt_jesPileUpPtHFUp();
+    const vector<float> &FatJet_pt_jesPileUpPtRefDown();
+    const vector<float> &FatJet_pt_jesPileUpPtRefUp();
+    const vector<float> &FatJet_pt_jesRelativeBalDown();
+    const vector<float> &FatJet_pt_jesRelativeBalUp();
+    const vector<float> &FatJet_pt_jesRelativeFSRDown();
+    const vector<float> &FatJet_pt_jesRelativeFSRUp();
+    const vector<float> &FatJet_pt_jesRelativeJEREC1Down();
+    const vector<float> &FatJet_pt_jesRelativeJEREC1Up();
+    const vector<float> &FatJet_pt_jesRelativeJEREC2Down();
+    const vector<float> &FatJet_pt_jesRelativeJEREC2Up();
+    const vector<float> &FatJet_pt_jesRelativeJERHFDown();
+    const vector<float> &FatJet_pt_jesRelativeJERHFUp();
+    const vector<float> &FatJet_pt_jesRelativePtBBDown();
+    const vector<float> &FatJet_pt_jesRelativePtBBUp();
+    const vector<float> &FatJet_pt_jesRelativePtEC1Down();
+    const vector<float> &FatJet_pt_jesRelativePtEC1Up();
+    const vector<float> &FatJet_pt_jesRelativePtEC2Down();
+    const vector<float> &FatJet_pt_jesRelativePtEC2Up();
+    const vector<float> &FatJet_pt_jesRelativePtHFDown();
+    const vector<float> &FatJet_pt_jesRelativePtHFUp();
+    const vector<float> &FatJet_pt_jesRelativeSampleDown();
+    const vector<float> &FatJet_pt_jesRelativeSampleUp();
+    const vector<float> &FatJet_pt_jesRelativeStatECDown();
+    const vector<float> &FatJet_pt_jesRelativeStatECUp();
+    const vector<float> &FatJet_pt_jesRelativeStatFSRDown();
+    const vector<float> &FatJet_pt_jesRelativeStatFSRUp();
+    const vector<float> &FatJet_pt_jesRelativeStatHFDown();
+    const vector<float> &FatJet_pt_jesRelativeStatHFUp();
+    const vector<float> &FatJet_pt_jesSinglePionECALDown();
+    const vector<float> &FatJet_pt_jesSinglePionECALUp();
+    const vector<float> &FatJet_pt_jesSinglePionHCALDown();
+    const vector<float> &FatJet_pt_jesSinglePionHCALUp();
+    const vector<float> &FatJet_pt_jesSubTotalAbsoluteDown();
+    const vector<float> &FatJet_pt_jesSubTotalAbsoluteUp();
+    const vector<float> &FatJet_pt_jesSubTotalMCDown();
+    const vector<float> &FatJet_pt_jesSubTotalMCUp();
+    const vector<float> &FatJet_pt_jesSubTotalPileUpDown();
+    const vector<float> &FatJet_pt_jesSubTotalPileUpUp();
+    const vector<float> &FatJet_pt_jesSubTotalPtDown();
+    const vector<float> &FatJet_pt_jesSubTotalPtUp();
+    const vector<float> &FatJet_pt_jesSubTotalRelativeDown();
+    const vector<float> &FatJet_pt_jesSubTotalRelativeUp();
+    const vector<float> &FatJet_pt_jesSubTotalScaleDown();
+    const vector<float> &FatJet_pt_jesSubTotalScaleUp();
+    const vector<float> &FatJet_pt_jesTimePtEtaDown();
+    const vector<float> &FatJet_pt_jesTimePtEtaUp();
+    const vector<float> &FatJet_pt_jesTimeRunADown();
+    const vector<float> &FatJet_pt_jesTimeRunAUp();
+    const vector<float> &FatJet_pt_jesTimeRunBDown();
+    const vector<float> &FatJet_pt_jesTimeRunBUp();
+    const vector<float> &FatJet_pt_jesTimeRunCDown();
+    const vector<float> &FatJet_pt_jesTimeRunCUp();
+    const vector<float> &FatJet_pt_jesTimeRunDDown();
+    const vector<float> &FatJet_pt_jesTimeRunDUp();    
     const vector<float> &FatJet_pt_jesTotalDown();
+    const vector<float> &FatJet_pt_jesTotalNoFlavorDown();
+    const vector<float> &FatJet_pt_jesTotalNoFlavorNoTimeDown();
+    const vector<float> &FatJet_pt_jesTotalNoFlavorNoTimeUp();
+    const vector<float> &FatJet_pt_jesTotalNoFlavorUp();
+    const vector<float> &FatJet_pt_jesTotalNoTimeDown();
+    const vector<float> &FatJet_pt_jesTotalNoTimeUp();    
     const vector<float> &FatJet_pt_jesTotalUp();
     const vector<float> &FatJet_pt_nom();
     const vector<float> &FatJet_pt_raw();
@@ -16675,9 +22530,119 @@ public:
     const vector<float> &Jet_mass();
     const vector<float> &Jet_mass_jerDown();
     const vector<float> &Jet_mass_jerUp();
+    const vector<float> &Jet_mass_jesAbsoluteFlavMapDown();
+    const vector<float> &Jet_mass_jesAbsoluteFlavMapUp();
+    const vector<float> &Jet_mass_jesAbsoluteMPFBiasDown();
+    const vector<float> &Jet_mass_jesAbsoluteMPFBiasUp();
+    const vector<float> &Jet_mass_jesAbsoluteSampleDown();
+    const vector<float> &Jet_mass_jesAbsoluteSampleUp();
+    const vector<float> &Jet_mass_jesAbsoluteScaleDown();
+    const vector<float> &Jet_mass_jesAbsoluteScaleUp();
+    const vector<float> &Jet_mass_jesAbsoluteStatDown();
+    const vector<float> &Jet_mass_jesAbsoluteStatUp();
+    const vector<float> &Jet_mass_jesCorrelationGroupFlavorDown();
+    const vector<float> &Jet_mass_jesCorrelationGroupFlavorUp();
+    const vector<float> &Jet_mass_jesCorrelationGroupIntercalibrationDown();
+    const vector<float> &Jet_mass_jesCorrelationGroupIntercalibrationUp();
+    const vector<float> &Jet_mass_jesCorrelationGroupMPFInSituDown();
+    const vector<float> &Jet_mass_jesCorrelationGroupMPFInSituUp();
+    const vector<float> &Jet_mass_jesCorrelationGroupUncorrelatedDown();
+    const vector<float> &Jet_mass_jesCorrelationGroupUncorrelatedUp();
+    const vector<float> &Jet_mass_jesCorrelationGroupbJESDown();
+    const vector<float> &Jet_mass_jesCorrelationGroupbJESUp();
+    const vector<float> &Jet_mass_jesFlavorPhotonJetDown();
+    const vector<float> &Jet_mass_jesFlavorPhotonJetUp();
+    const vector<float> &Jet_mass_jesFlavorPureBottomDown();
+    const vector<float> &Jet_mass_jesFlavorPureBottomUp();
+    const vector<float> &Jet_mass_jesFlavorPureCharmDown();
+    const vector<float> &Jet_mass_jesFlavorPureCharmUp();
+    const vector<float> &Jet_mass_jesFlavorPureGluonDown();
+    const vector<float> &Jet_mass_jesFlavorPureGluonUp();
+    const vector<float> &Jet_mass_jesFlavorPureQuarkDown();
+    const vector<float> &Jet_mass_jesFlavorPureQuarkUp();
+    const vector<float> &Jet_mass_jesFlavorQCDDown();
+    const vector<float> &Jet_mass_jesFlavorQCDUp();
+    const vector<float> &Jet_mass_jesFlavorZJetDown();
+    const vector<float> &Jet_mass_jesFlavorZJetUp();
+    const vector<float> &Jet_mass_jesFragmentationDown();
+    const vector<float> &Jet_mass_jesFragmentationUp();
     const vector<float> &Jet_mass_jesHEMIssueDown();
     const vector<float> &Jet_mass_jesHEMIssueUp();
+    const vector<float> &Jet_mass_jesPileUpDataMCDown();
+    const vector<float> &Jet_mass_jesPileUpDataMCUp();
+    const vector<float> &Jet_mass_jesPileUpEnvelopeDown();
+    const vector<float> &Jet_mass_jesPileUpEnvelopeUp();
+    const vector<float> &Jet_mass_jesPileUpMuZeroDown();
+    const vector<float> &Jet_mass_jesPileUpMuZeroUp();
+    const vector<float> &Jet_mass_jesPileUpPtBBDown();
+    const vector<float> &Jet_mass_jesPileUpPtBBUp();
+    const vector<float> &Jet_mass_jesPileUpPtEC1Down();
+    const vector<float> &Jet_mass_jesPileUpPtEC1Up();
+    const vector<float> &Jet_mass_jesPileUpPtEC2Down();
+    const vector<float> &Jet_mass_jesPileUpPtEC2Up();
+    const vector<float> &Jet_mass_jesPileUpPtHFDown();
+    const vector<float> &Jet_mass_jesPileUpPtHFUp();
+    const vector<float> &Jet_mass_jesPileUpPtRefDown();
+    const vector<float> &Jet_mass_jesPileUpPtRefUp();
+    const vector<float> &Jet_mass_jesRelativeBalDown();
+    const vector<float> &Jet_mass_jesRelativeBalUp();
+    const vector<float> &Jet_mass_jesRelativeFSRDown();
+    const vector<float> &Jet_mass_jesRelativeFSRUp();
+    const vector<float> &Jet_mass_jesRelativeJEREC1Down();
+    const vector<float> &Jet_mass_jesRelativeJEREC1Up();
+    const vector<float> &Jet_mass_jesRelativeJEREC2Down();
+    const vector<float> &Jet_mass_jesRelativeJEREC2Up();
+    const vector<float> &Jet_mass_jesRelativeJERHFDown();
+    const vector<float> &Jet_mass_jesRelativeJERHFUp();
+    const vector<float> &Jet_mass_jesRelativePtBBDown();
+    const vector<float> &Jet_mass_jesRelativePtBBUp();
+    const vector<float> &Jet_mass_jesRelativePtEC1Down();
+    const vector<float> &Jet_mass_jesRelativePtEC1Up();
+    const vector<float> &Jet_mass_jesRelativePtEC2Down();
+    const vector<float> &Jet_mass_jesRelativePtEC2Up();
+    const vector<float> &Jet_mass_jesRelativePtHFDown();
+    const vector<float> &Jet_mass_jesRelativePtHFUp();
+    const vector<float> &Jet_mass_jesRelativeSampleDown();
+    const vector<float> &Jet_mass_jesRelativeSampleUp();
+    const vector<float> &Jet_mass_jesRelativeStatECDown();
+    const vector<float> &Jet_mass_jesRelativeStatECUp();
+    const vector<float> &Jet_mass_jesRelativeStatFSRDown();
+    const vector<float> &Jet_mass_jesRelativeStatFSRUp();
+    const vector<float> &Jet_mass_jesRelativeStatHFDown();
+    const vector<float> &Jet_mass_jesRelativeStatHFUp();
+    const vector<float> &Jet_mass_jesSinglePionECALDown();
+    const vector<float> &Jet_mass_jesSinglePionECALUp();
+    const vector<float> &Jet_mass_jesSinglePionHCALDown();
+    const vector<float> &Jet_mass_jesSinglePionHCALUp();
+    const vector<float> &Jet_mass_jesSubTotalAbsoluteDown();
+    const vector<float> &Jet_mass_jesSubTotalAbsoluteUp();
+    const vector<float> &Jet_mass_jesSubTotalMCDown();
+    const vector<float> &Jet_mass_jesSubTotalMCUp();
+    const vector<float> &Jet_mass_jesSubTotalPileUpDown();
+    const vector<float> &Jet_mass_jesSubTotalPileUpUp();
+    const vector<float> &Jet_mass_jesSubTotalPtDown();
+    const vector<float> &Jet_mass_jesSubTotalPtUp();
+    const vector<float> &Jet_mass_jesSubTotalRelativeDown();
+    const vector<float> &Jet_mass_jesSubTotalRelativeUp();
+    const vector<float> &Jet_mass_jesSubTotalScaleDown();
+    const vector<float> &Jet_mass_jesSubTotalScaleUp();
+    const vector<float> &Jet_mass_jesTimePtEtaDown();
+    const vector<float> &Jet_mass_jesTimePtEtaUp();
+    const vector<float> &Jet_mass_jesTimeRunADown();
+    const vector<float> &Jet_mass_jesTimeRunAUp();
+    const vector<float> &Jet_mass_jesTimeRunBDown();
+    const vector<float> &Jet_mass_jesTimeRunBUp();
+    const vector<float> &Jet_mass_jesTimeRunCDown();
+    const vector<float> &Jet_mass_jesTimeRunCUp();
+    const vector<float> &Jet_mass_jesTimeRunDDown();
+    const vector<float> &Jet_mass_jesTimeRunDUp();
     const vector<float> &Jet_mass_jesTotalDown();
+    const vector<float> &Jet_mass_jesTotalNoFlavorDown();
+    const vector<float> &Jet_mass_jesTotalNoFlavorNoTimeDown();
+    const vector<float> &Jet_mass_jesTotalNoFlavorNoTimeUp();
+    const vector<float> &Jet_mass_jesTotalNoFlavorUp();
+    const vector<float> &Jet_mass_jesTotalNoTimeDown();
+    const vector<float> &Jet_mass_jesTotalNoTimeUp();
     const vector<float> &Jet_mass_jesTotalUp();
     const vector<float> &Jet_mass_nom();
     const vector<float> &Jet_mass_raw();
@@ -16695,10 +22660,120 @@ public:
     const vector<float> &Jet_phi();
     const vector<float> &Jet_pt();
     const vector<float> &Jet_pt_jerDown();
-    const vector<float> &Jet_pt_jerUp();
+    const vector<float> &Jet_pt_jerUp();    
+    const vector<float> &Jet_pt_jesAbsoluteFlavMapDown();
+    const vector<float> &Jet_pt_jesAbsoluteFlavMapUp();
+    const vector<float> &Jet_pt_jesAbsoluteMPFBiasDown();
+    const vector<float> &Jet_pt_jesAbsoluteMPFBiasUp();
+    const vector<float> &Jet_pt_jesAbsoluteSampleDown();
+    const vector<float> &Jet_pt_jesAbsoluteSampleUp();
+    const vector<float> &Jet_pt_jesAbsoluteScaleDown();
+    const vector<float> &Jet_pt_jesAbsoluteScaleUp();
+    const vector<float> &Jet_pt_jesAbsoluteStatDown();
+    const vector<float> &Jet_pt_jesAbsoluteStatUp();
+    const vector<float> &Jet_pt_jesCorrelationGroupFlavorDown();
+    const vector<float> &Jet_pt_jesCorrelationGroupFlavorUp();
+    const vector<float> &Jet_pt_jesCorrelationGroupIntercalibrationDown();
+    const vector<float> &Jet_pt_jesCorrelationGroupIntercalibrationUp();
+    const vector<float> &Jet_pt_jesCorrelationGroupMPFInSituDown();
+    const vector<float> &Jet_pt_jesCorrelationGroupMPFInSituUp();
+    const vector<float> &Jet_pt_jesCorrelationGroupUncorrelatedDown();
+    const vector<float> &Jet_pt_jesCorrelationGroupUncorrelatedUp();
+    const vector<float> &Jet_pt_jesCorrelationGroupbJESDown();
+    const vector<float> &Jet_pt_jesCorrelationGroupbJESUp();
+    const vector<float> &Jet_pt_jesFlavorPhotonJetDown();
+    const vector<float> &Jet_pt_jesFlavorPhotonJetUp();
+    const vector<float> &Jet_pt_jesFlavorPureBottomDown();
+    const vector<float> &Jet_pt_jesFlavorPureBottomUp();
+    const vector<float> &Jet_pt_jesFlavorPureCharmDown();
+    const vector<float> &Jet_pt_jesFlavorPureCharmUp();
+    const vector<float> &Jet_pt_jesFlavorPureGluonDown();
+    const vector<float> &Jet_pt_jesFlavorPureGluonUp();
+    const vector<float> &Jet_pt_jesFlavorPureQuarkDown();
+    const vector<float> &Jet_pt_jesFlavorPureQuarkUp();
+    const vector<float> &Jet_pt_jesFlavorQCDDown();
+    const vector<float> &Jet_pt_jesFlavorQCDUp();
+    const vector<float> &Jet_pt_jesFlavorZJetDown();
+    const vector<float> &Jet_pt_jesFlavorZJetUp();
+    const vector<float> &Jet_pt_jesFragmentationDown();
+    const vector<float> &Jet_pt_jesFragmentationUp();
     const vector<float> &Jet_pt_jesHEMIssueDown();
     const vector<float> &Jet_pt_jesHEMIssueUp();
+    const vector<float> &Jet_pt_jesPileUpDataMCDown();
+    const vector<float> &Jet_pt_jesPileUpDataMCUp();
+    const vector<float> &Jet_pt_jesPileUpEnvelopeDown();
+    const vector<float> &Jet_pt_jesPileUpEnvelopeUp();
+    const vector<float> &Jet_pt_jesPileUpMuZeroDown();
+    const vector<float> &Jet_pt_jesPileUpMuZeroUp();
+    const vector<float> &Jet_pt_jesPileUpPtBBDown();
+    const vector<float> &Jet_pt_jesPileUpPtBBUp();
+    const vector<float> &Jet_pt_jesPileUpPtEC1Down();
+    const vector<float> &Jet_pt_jesPileUpPtEC1Up();
+    const vector<float> &Jet_pt_jesPileUpPtEC2Down();
+    const vector<float> &Jet_pt_jesPileUpPtEC2Up();
+    const vector<float> &Jet_pt_jesPileUpPtHFDown();
+    const vector<float> &Jet_pt_jesPileUpPtHFUp();
+    const vector<float> &Jet_pt_jesPileUpPtRefDown();
+    const vector<float> &Jet_pt_jesPileUpPtRefUp();
+    const vector<float> &Jet_pt_jesRelativeBalDown();
+    const vector<float> &Jet_pt_jesRelativeBalUp();
+    const vector<float> &Jet_pt_jesRelativeFSRDown();
+    const vector<float> &Jet_pt_jesRelativeFSRUp();
+    const vector<float> &Jet_pt_jesRelativeJEREC1Down();
+    const vector<float> &Jet_pt_jesRelativeJEREC1Up();
+    const vector<float> &Jet_pt_jesRelativeJEREC2Down();
+    const vector<float> &Jet_pt_jesRelativeJEREC2Up();
+    const vector<float> &Jet_pt_jesRelativeJERHFDown();
+    const vector<float> &Jet_pt_jesRelativeJERHFUp();
+    const vector<float> &Jet_pt_jesRelativePtBBDown();
+    const vector<float> &Jet_pt_jesRelativePtBBUp();
+    const vector<float> &Jet_pt_jesRelativePtEC1Down();
+    const vector<float> &Jet_pt_jesRelativePtEC1Up();
+    const vector<float> &Jet_pt_jesRelativePtEC2Down();
+    const vector<float> &Jet_pt_jesRelativePtEC2Up();
+    const vector<float> &Jet_pt_jesRelativePtHFDown();
+    const vector<float> &Jet_pt_jesRelativePtHFUp();
+    const vector<float> &Jet_pt_jesRelativeSampleDown();
+    const vector<float> &Jet_pt_jesRelativeSampleUp();
+    const vector<float> &Jet_pt_jesRelativeStatECDown();
+    const vector<float> &Jet_pt_jesRelativeStatECUp();
+    const vector<float> &Jet_pt_jesRelativeStatFSRDown();
+    const vector<float> &Jet_pt_jesRelativeStatFSRUp();
+    const vector<float> &Jet_pt_jesRelativeStatHFDown();
+    const vector<float> &Jet_pt_jesRelativeStatHFUp();
+    const vector<float> &Jet_pt_jesSinglePionECALDown();
+    const vector<float> &Jet_pt_jesSinglePionECALUp();
+    const vector<float> &Jet_pt_jesSinglePionHCALDown();
+    const vector<float> &Jet_pt_jesSinglePionHCALUp();
+    const vector<float> &Jet_pt_jesSubTotalAbsoluteDown();
+    const vector<float> &Jet_pt_jesSubTotalAbsoluteUp();
+    const vector<float> &Jet_pt_jesSubTotalMCDown();
+    const vector<float> &Jet_pt_jesSubTotalMCUp();
+    const vector<float> &Jet_pt_jesSubTotalPileUpDown();
+    const vector<float> &Jet_pt_jesSubTotalPileUpUp();
+    const vector<float> &Jet_pt_jesSubTotalPtDown();
+    const vector<float> &Jet_pt_jesSubTotalPtUp();
+    const vector<float> &Jet_pt_jesSubTotalRelativeDown();
+    const vector<float> &Jet_pt_jesSubTotalRelativeUp();
+    const vector<float> &Jet_pt_jesSubTotalScaleDown();
+    const vector<float> &Jet_pt_jesSubTotalScaleUp();
+    const vector<float> &Jet_pt_jesTimePtEtaDown();
+    const vector<float> &Jet_pt_jesTimePtEtaUp();
+    const vector<float> &Jet_pt_jesTimeRunADown();
+    const vector<float> &Jet_pt_jesTimeRunAUp();
+    const vector<float> &Jet_pt_jesTimeRunBDown();
+    const vector<float> &Jet_pt_jesTimeRunBUp();
+    const vector<float> &Jet_pt_jesTimeRunCDown();
+    const vector<float> &Jet_pt_jesTimeRunCUp();
+    const vector<float> &Jet_pt_jesTimeRunDDown();
+    const vector<float> &Jet_pt_jesTimeRunDUp();
     const vector<float> &Jet_pt_jesTotalDown();
+    const vector<float> &Jet_pt_jesTotalNoFlavorDown();
+    const vector<float> &Jet_pt_jesTotalNoFlavorNoTimeDown();
+    const vector<float> &Jet_pt_jesTotalNoFlavorNoTimeUp();
+    const vector<float> &Jet_pt_jesTotalNoFlavorUp();
+    const vector<float> &Jet_pt_jesTotalNoTimeDown();
+    const vector<float> &Jet_pt_jesTotalNoTimeUp();
     const vector<float> &Jet_pt_jesTotalUp();
     const vector<float> &Jet_pt_nom();
     const vector<float> &Jet_pt_raw();
@@ -17550,37 +23625,477 @@ public:
     const float &MET_MetUnclustEnUpDeltaY();
     const float &MET_T1Smear_phi();
     const float &MET_T1Smear_phi_jerDown();
-    const float &MET_T1Smear_phi_jerUp();
+    const float &MET_T1Smear_phi_jerUp();    
+    const float &MET_T1Smear_phi_jesAbsoluteFlavMapDown();
+    const float &MET_T1Smear_phi_jesAbsoluteFlavMapUp();
+    const float &MET_T1Smear_phi_jesAbsoluteMPFBiasDown();
+    const float &MET_T1Smear_phi_jesAbsoluteMPFBiasUp();
+    const float &MET_T1Smear_phi_jesAbsoluteSampleDown();
+    const float &MET_T1Smear_phi_jesAbsoluteSampleUp();
+    const float &MET_T1Smear_phi_jesAbsoluteScaleDown();
+    const float &MET_T1Smear_phi_jesAbsoluteScaleUp();
+    const float &MET_T1Smear_phi_jesAbsoluteStatDown();
+    const float &MET_T1Smear_phi_jesAbsoluteStatUp();
+    const float &MET_T1Smear_phi_jesCorrelationGroupFlavorDown();
+    const float &MET_T1Smear_phi_jesCorrelationGroupFlavorUp();
+    const float &MET_T1Smear_phi_jesCorrelationGroupIntercalibrationDown();
+    const float &MET_T1Smear_phi_jesCorrelationGroupIntercalibrationUp();
+    const float &MET_T1Smear_phi_jesCorrelationGroupMPFInSituDown();
+    const float &MET_T1Smear_phi_jesCorrelationGroupMPFInSituUp();
+    const float &MET_T1Smear_phi_jesCorrelationGroupUncorrelatedDown();
+    const float &MET_T1Smear_phi_jesCorrelationGroupUncorrelatedUp();
+    const float &MET_T1Smear_phi_jesCorrelationGroupbJESDown();
+    const float &MET_T1Smear_phi_jesCorrelationGroupbJESUp();
+    const float &MET_T1Smear_phi_jesFlavorPhotonJetDown();
+    const float &MET_T1Smear_phi_jesFlavorPhotonJetUp();
+    const float &MET_T1Smear_phi_jesFlavorPureBottomDown();
+    const float &MET_T1Smear_phi_jesFlavorPureBottomUp();
+    const float &MET_T1Smear_phi_jesFlavorPureCharmDown();
+    const float &MET_T1Smear_phi_jesFlavorPureCharmUp();
+    const float &MET_T1Smear_phi_jesFlavorPureGluonDown();
+    const float &MET_T1Smear_phi_jesFlavorPureGluonUp();
+    const float &MET_T1Smear_phi_jesFlavorPureQuarkDown();
+    const float &MET_T1Smear_phi_jesFlavorPureQuarkUp();
+    const float &MET_T1Smear_phi_jesFlavorQCDDown();
+    const float &MET_T1Smear_phi_jesFlavorQCDUp();
+    const float &MET_T1Smear_phi_jesFlavorZJetDown();
+    const float &MET_T1Smear_phi_jesFlavorZJetUp();
+    const float &MET_T1Smear_phi_jesFragmentationDown();
+    const float &MET_T1Smear_phi_jesFragmentationUp();
     const float &MET_T1Smear_phi_jesHEMIssueDown();
     const float &MET_T1Smear_phi_jesHEMIssueUp();
+    const float &MET_T1Smear_phi_jesPileUpDataMCDown();
+    const float &MET_T1Smear_phi_jesPileUpDataMCUp();
+    const float &MET_T1Smear_phi_jesPileUpEnvelopeDown();
+    const float &MET_T1Smear_phi_jesPileUpEnvelopeUp();
+    const float &MET_T1Smear_phi_jesPileUpMuZeroDown();
+    const float &MET_T1Smear_phi_jesPileUpMuZeroUp();
+    const float &MET_T1Smear_phi_jesPileUpPtBBDown();
+    const float &MET_T1Smear_phi_jesPileUpPtBBUp();
+    const float &MET_T1Smear_phi_jesPileUpPtEC1Down();
+    const float &MET_T1Smear_phi_jesPileUpPtEC1Up();
+    const float &MET_T1Smear_phi_jesPileUpPtEC2Down();
+    const float &MET_T1Smear_phi_jesPileUpPtEC2Up();
+    const float &MET_T1Smear_phi_jesPileUpPtHFDown();
+    const float &MET_T1Smear_phi_jesPileUpPtHFUp();
+    const float &MET_T1Smear_phi_jesPileUpPtRefDown();
+    const float &MET_T1Smear_phi_jesPileUpPtRefUp();
+    const float &MET_T1Smear_phi_jesRelativeBalDown();
+    const float &MET_T1Smear_phi_jesRelativeBalUp();
+    const float &MET_T1Smear_phi_jesRelativeFSRDown();
+    const float &MET_T1Smear_phi_jesRelativeFSRUp();
+    const float &MET_T1Smear_phi_jesRelativeJEREC1Down();
+    const float &MET_T1Smear_phi_jesRelativeJEREC1Up();
+    const float &MET_T1Smear_phi_jesRelativeJEREC2Down();
+    const float &MET_T1Smear_phi_jesRelativeJEREC2Up();
+    const float &MET_T1Smear_phi_jesRelativeJERHFDown();
+    const float &MET_T1Smear_phi_jesRelativeJERHFUp();
+    const float &MET_T1Smear_phi_jesRelativePtBBDown();
+    const float &MET_T1Smear_phi_jesRelativePtBBUp();
+    const float &MET_T1Smear_phi_jesRelativePtEC1Down();
+    const float &MET_T1Smear_phi_jesRelativePtEC1Up();
+    const float &MET_T1Smear_phi_jesRelativePtEC2Down();
+    const float &MET_T1Smear_phi_jesRelativePtEC2Up();
+    const float &MET_T1Smear_phi_jesRelativePtHFDown();
+    const float &MET_T1Smear_phi_jesRelativePtHFUp();
+    const float &MET_T1Smear_phi_jesRelativeSampleDown();
+    const float &MET_T1Smear_phi_jesRelativeSampleUp();
+    const float &MET_T1Smear_phi_jesRelativeStatECDown();
+    const float &MET_T1Smear_phi_jesRelativeStatECUp();
+    const float &MET_T1Smear_phi_jesRelativeStatFSRDown();
+    const float &MET_T1Smear_phi_jesRelativeStatFSRUp();
+    const float &MET_T1Smear_phi_jesRelativeStatHFDown();
+    const float &MET_T1Smear_phi_jesRelativeStatHFUp();
+    const float &MET_T1Smear_phi_jesSinglePionECALDown();
+    const float &MET_T1Smear_phi_jesSinglePionECALUp();
+    const float &MET_T1Smear_phi_jesSinglePionHCALDown();
+    const float &MET_T1Smear_phi_jesSinglePionHCALUp();
+    const float &MET_T1Smear_phi_jesSubTotalAbsoluteDown();
+    const float &MET_T1Smear_phi_jesSubTotalAbsoluteUp();
+    const float &MET_T1Smear_phi_jesSubTotalMCDown();
+    const float &MET_T1Smear_phi_jesSubTotalMCUp();
+    const float &MET_T1Smear_phi_jesSubTotalPileUpDown();
+    const float &MET_T1Smear_phi_jesSubTotalPileUpUp();
+    const float &MET_T1Smear_phi_jesSubTotalPtDown();
+    const float &MET_T1Smear_phi_jesSubTotalPtUp();
+    const float &MET_T1Smear_phi_jesSubTotalRelativeDown();
+    const float &MET_T1Smear_phi_jesSubTotalRelativeUp();
+    const float &MET_T1Smear_phi_jesSubTotalScaleDown();
+    const float &MET_T1Smear_phi_jesSubTotalScaleUp();
+    const float &MET_T1Smear_phi_jesTimePtEtaDown();
+    const float &MET_T1Smear_phi_jesTimePtEtaUp();
+    const float &MET_T1Smear_phi_jesTimeRunADown();
+    const float &MET_T1Smear_phi_jesTimeRunAUp();
+    const float &MET_T1Smear_phi_jesTimeRunBDown();
+    const float &MET_T1Smear_phi_jesTimeRunBUp();
+    const float &MET_T1Smear_phi_jesTimeRunCDown();
+    const float &MET_T1Smear_phi_jesTimeRunCUp();
+    const float &MET_T1Smear_phi_jesTimeRunDDown();
+    const float &MET_T1Smear_phi_jesTimeRunDUp();
     const float &MET_T1Smear_phi_jesTotalDown();
+    const float &MET_T1Smear_phi_jesTotalNoFlavorDown();
+    const float &MET_T1Smear_phi_jesTotalNoFlavorNoTimeDown();
+    const float &MET_T1Smear_phi_jesTotalNoFlavorNoTimeUp();
+    const float &MET_T1Smear_phi_jesTotalNoFlavorUp();
+    const float &MET_T1Smear_phi_jesTotalNoTimeDown();
+    const float &MET_T1Smear_phi_jesTotalNoTimeUp();
     const float &MET_T1Smear_phi_jesTotalUp();
     const float &MET_T1Smear_phi_unclustEnDown();
     const float &MET_T1Smear_phi_unclustEnUp();
     const float &MET_T1Smear_pt();
     const float &MET_T1Smear_pt_jerDown();
     const float &MET_T1Smear_pt_jerUp();
+    const float &MET_T1Smear_pt_jesAbsoluteFlavMapDown();
+    const float &MET_T1Smear_pt_jesAbsoluteFlavMapUp();
+    const float &MET_T1Smear_pt_jesAbsoluteMPFBiasDown();
+    const float &MET_T1Smear_pt_jesAbsoluteMPFBiasUp();
+    const float &MET_T1Smear_pt_jesAbsoluteSampleDown();
+    const float &MET_T1Smear_pt_jesAbsoluteSampleUp();
+    const float &MET_T1Smear_pt_jesAbsoluteScaleDown();
+    const float &MET_T1Smear_pt_jesAbsoluteScaleUp();
+    const float &MET_T1Smear_pt_jesAbsoluteStatDown();
+    const float &MET_T1Smear_pt_jesAbsoluteStatUp();
+    const float &MET_T1Smear_pt_jesCorrelationGroupFlavorDown();
+    const float &MET_T1Smear_pt_jesCorrelationGroupFlavorUp();
+    const float &MET_T1Smear_pt_jesCorrelationGroupIntercalibrationDown();
+    const float &MET_T1Smear_pt_jesCorrelationGroupIntercalibrationUp();
+    const float &MET_T1Smear_pt_jesCorrelationGroupMPFInSituDown();
+    const float &MET_T1Smear_pt_jesCorrelationGroupMPFInSituUp();
+    const float &MET_T1Smear_pt_jesCorrelationGroupUncorrelatedDown();
+    const float &MET_T1Smear_pt_jesCorrelationGroupUncorrelatedUp();
+    const float &MET_T1Smear_pt_jesCorrelationGroupbJESDown();
+    const float &MET_T1Smear_pt_jesCorrelationGroupbJESUp();
+    const float &MET_T1Smear_pt_jesFlavorPhotonJetDown();
+    const float &MET_T1Smear_pt_jesFlavorPhotonJetUp();
+    const float &MET_T1Smear_pt_jesFlavorPureBottomDown();
+    const float &MET_T1Smear_pt_jesFlavorPureBottomUp();
+    const float &MET_T1Smear_pt_jesFlavorPureCharmDown();
+    const float &MET_T1Smear_pt_jesFlavorPureCharmUp();
+    const float &MET_T1Smear_pt_jesFlavorPureGluonDown();
+    const float &MET_T1Smear_pt_jesFlavorPureGluonUp();
+    const float &MET_T1Smear_pt_jesFlavorPureQuarkDown();
+    const float &MET_T1Smear_pt_jesFlavorPureQuarkUp();
+    const float &MET_T1Smear_pt_jesFlavorQCDDown();
+    const float &MET_T1Smear_pt_jesFlavorQCDUp();
+    const float &MET_T1Smear_pt_jesFlavorZJetDown();
+    const float &MET_T1Smear_pt_jesFlavorZJetUp();
+    const float &MET_T1Smear_pt_jesFragmentationDown();
+    const float &MET_T1Smear_pt_jesFragmentationUp();
     const float &MET_T1Smear_pt_jesHEMIssueDown();
     const float &MET_T1Smear_pt_jesHEMIssueUp();
+    const float &MET_T1Smear_pt_jesPileUpDataMCDown();
+    const float &MET_T1Smear_pt_jesPileUpDataMCUp();
+    const float &MET_T1Smear_pt_jesPileUpEnvelopeDown();
+    const float &MET_T1Smear_pt_jesPileUpEnvelopeUp();
+    const float &MET_T1Smear_pt_jesPileUpMuZeroDown();
+    const float &MET_T1Smear_pt_jesPileUpMuZeroUp();
+    const float &MET_T1Smear_pt_jesPileUpPtBBDown();
+    const float &MET_T1Smear_pt_jesPileUpPtBBUp();
+    const float &MET_T1Smear_pt_jesPileUpPtEC1Down();
+    const float &MET_T1Smear_pt_jesPileUpPtEC1Up();
+    const float &MET_T1Smear_pt_jesPileUpPtEC2Down();
+    const float &MET_T1Smear_pt_jesPileUpPtEC2Up();
+    const float &MET_T1Smear_pt_jesPileUpPtHFDown();
+    const float &MET_T1Smear_pt_jesPileUpPtHFUp();
+    const float &MET_T1Smear_pt_jesPileUpPtRefDown();
+    const float &MET_T1Smear_pt_jesPileUpPtRefUp();
+    const float &MET_T1Smear_pt_jesRelativeBalDown();
+    const float &MET_T1Smear_pt_jesRelativeBalUp();
+    const float &MET_T1Smear_pt_jesRelativeFSRDown();
+    const float &MET_T1Smear_pt_jesRelativeFSRUp();
+    const float &MET_T1Smear_pt_jesRelativeJEREC1Down();
+    const float &MET_T1Smear_pt_jesRelativeJEREC1Up();
+    const float &MET_T1Smear_pt_jesRelativeJEREC2Down();
+    const float &MET_T1Smear_pt_jesRelativeJEREC2Up();
+    const float &MET_T1Smear_pt_jesRelativeJERHFDown();
+    const float &MET_T1Smear_pt_jesRelativeJERHFUp();
+    const float &MET_T1Smear_pt_jesRelativePtBBDown();
+    const float &MET_T1Smear_pt_jesRelativePtBBUp();
+    const float &MET_T1Smear_pt_jesRelativePtEC1Down();
+    const float &MET_T1Smear_pt_jesRelativePtEC1Up();
+    const float &MET_T1Smear_pt_jesRelativePtEC2Down();
+    const float &MET_T1Smear_pt_jesRelativePtEC2Up();
+    const float &MET_T1Smear_pt_jesRelativePtHFDown();
+    const float &MET_T1Smear_pt_jesRelativePtHFUp();
+    const float &MET_T1Smear_pt_jesRelativeSampleDown();
+    const float &MET_T1Smear_pt_jesRelativeSampleUp();
+    const float &MET_T1Smear_pt_jesRelativeStatECDown();
+    const float &MET_T1Smear_pt_jesRelativeStatECUp();
+    const float &MET_T1Smear_pt_jesRelativeStatFSRDown();
+    const float &MET_T1Smear_pt_jesRelativeStatFSRUp();
+    const float &MET_T1Smear_pt_jesRelativeStatHFDown();
+    const float &MET_T1Smear_pt_jesRelativeStatHFUp();
+    const float &MET_T1Smear_pt_jesSinglePionECALDown();
+    const float &MET_T1Smear_pt_jesSinglePionECALUp();
+    const float &MET_T1Smear_pt_jesSinglePionHCALDown();
+    const float &MET_T1Smear_pt_jesSinglePionHCALUp();
+    const float &MET_T1Smear_pt_jesSubTotalAbsoluteDown();
+    const float &MET_T1Smear_pt_jesSubTotalAbsoluteUp();
+    const float &MET_T1Smear_pt_jesSubTotalMCDown();
+    const float &MET_T1Smear_pt_jesSubTotalMCUp();
+    const float &MET_T1Smear_pt_jesSubTotalPileUpDown();
+    const float &MET_T1Smear_pt_jesSubTotalPileUpUp();
+    const float &MET_T1Smear_pt_jesSubTotalPtDown();
+    const float &MET_T1Smear_pt_jesSubTotalPtUp();
+    const float &MET_T1Smear_pt_jesSubTotalRelativeDown();
+    const float &MET_T1Smear_pt_jesSubTotalRelativeUp();
+    const float &MET_T1Smear_pt_jesSubTotalScaleDown();
+    const float &MET_T1Smear_pt_jesSubTotalScaleUp();
+    const float &MET_T1Smear_pt_jesTimePtEtaDown();
+    const float &MET_T1Smear_pt_jesTimePtEtaUp();
+    const float &MET_T1Smear_pt_jesTimeRunADown();
+    const float &MET_T1Smear_pt_jesTimeRunAUp();
+    const float &MET_T1Smear_pt_jesTimeRunBDown();
+    const float &MET_T1Smear_pt_jesTimeRunBUp();
+    const float &MET_T1Smear_pt_jesTimeRunCDown();
+    const float &MET_T1Smear_pt_jesTimeRunCUp();
+    const float &MET_T1Smear_pt_jesTimeRunDDown();
+    const float &MET_T1Smear_pt_jesTimeRunDUp();
     const float &MET_T1Smear_pt_jesTotalDown();
+    const float &MET_T1Smear_pt_jesTotalNoFlavorDown();
+    const float &MET_T1Smear_pt_jesTotalNoFlavorNoTimeDown();
+    const float &MET_T1Smear_pt_jesTotalNoFlavorNoTimeUp();
+    const float &MET_T1Smear_pt_jesTotalNoFlavorUp();
+    const float &MET_T1Smear_pt_jesTotalNoTimeDown();
+    const float &MET_T1Smear_pt_jesTotalNoTimeUp();
     const float &MET_T1Smear_pt_jesTotalUp();
     const float &MET_T1Smear_pt_unclustEnDown();
     const float &MET_T1Smear_pt_unclustEnUp();
     const float &MET_T1_phi();
     const float &MET_T1_phi_jerDown();
     const float &MET_T1_phi_jerUp();
+    const float &MET_T1_phi_jesAbsoluteFlavMapDown();
+    const float &MET_T1_phi_jesAbsoluteFlavMapUp();
+    const float &MET_T1_phi_jesAbsoluteMPFBiasDown();
+    const float &MET_T1_phi_jesAbsoluteMPFBiasUp();
+    const float &MET_T1_phi_jesAbsoluteSampleDown();
+    const float &MET_T1_phi_jesAbsoluteSampleUp();
+    const float &MET_T1_phi_jesAbsoluteScaleDown();
+    const float &MET_T1_phi_jesAbsoluteScaleUp();
+    const float &MET_T1_phi_jesAbsoluteStatDown();
+    const float &MET_T1_phi_jesAbsoluteStatUp();
+    const float &MET_T1_phi_jesCorrelationGroupFlavorDown();
+    const float &MET_T1_phi_jesCorrelationGroupFlavorUp();
+    const float &MET_T1_phi_jesCorrelationGroupIntercalibrationDown();
+    const float &MET_T1_phi_jesCorrelationGroupIntercalibrationUp();
+    const float &MET_T1_phi_jesCorrelationGroupMPFInSituDown();
+    const float &MET_T1_phi_jesCorrelationGroupMPFInSituUp();
+    const float &MET_T1_phi_jesCorrelationGroupUncorrelatedDown();
+    const float &MET_T1_phi_jesCorrelationGroupUncorrelatedUp();
+    const float &MET_T1_phi_jesCorrelationGroupbJESDown();
+    const float &MET_T1_phi_jesCorrelationGroupbJESUp();
+    const float &MET_T1_phi_jesFlavorPhotonJetDown();
+    const float &MET_T1_phi_jesFlavorPhotonJetUp();
+    const float &MET_T1_phi_jesFlavorPureBottomDown();
+    const float &MET_T1_phi_jesFlavorPureBottomUp();
+    const float &MET_T1_phi_jesFlavorPureCharmDown();
+    const float &MET_T1_phi_jesFlavorPureCharmUp();
+    const float &MET_T1_phi_jesFlavorPureGluonDown();
+    const float &MET_T1_phi_jesFlavorPureGluonUp();
+    const float &MET_T1_phi_jesFlavorPureQuarkDown();
+    const float &MET_T1_phi_jesFlavorPureQuarkUp();
+    const float &MET_T1_phi_jesFlavorQCDDown();
+    const float &MET_T1_phi_jesFlavorQCDUp();
+    const float &MET_T1_phi_jesFlavorZJetDown();
+    const float &MET_T1_phi_jesFlavorZJetUp();
+    const float &MET_T1_phi_jesFragmentationDown();
+    const float &MET_T1_phi_jesFragmentationUp();
     const float &MET_T1_phi_jesHEMIssueDown();
     const float &MET_T1_phi_jesHEMIssueUp();
+    const float &MET_T1_phi_jesPileUpDataMCDown();
+    const float &MET_T1_phi_jesPileUpDataMCUp();
+    const float &MET_T1_phi_jesPileUpEnvelopeDown();
+    const float &MET_T1_phi_jesPileUpEnvelopeUp();
+    const float &MET_T1_phi_jesPileUpMuZeroDown();
+    const float &MET_T1_phi_jesPileUpMuZeroUp();
+    const float &MET_T1_phi_jesPileUpPtBBDown();
+    const float &MET_T1_phi_jesPileUpPtBBUp();
+    const float &MET_T1_phi_jesPileUpPtEC1Down();
+    const float &MET_T1_phi_jesPileUpPtEC1Up();
+    const float &MET_T1_phi_jesPileUpPtEC2Down();
+    const float &MET_T1_phi_jesPileUpPtEC2Up();
+    const float &MET_T1_phi_jesPileUpPtHFDown();
+    const float &MET_T1_phi_jesPileUpPtHFUp();
+    const float &MET_T1_phi_jesPileUpPtRefDown();
+    const float &MET_T1_phi_jesPileUpPtRefUp();
+    const float &MET_T1_phi_jesRelativeBalDown();
+    const float &MET_T1_phi_jesRelativeBalUp();
+    const float &MET_T1_phi_jesRelativeFSRDown();
+    const float &MET_T1_phi_jesRelativeFSRUp();
+    const float &MET_T1_phi_jesRelativeJEREC1Down();
+    const float &MET_T1_phi_jesRelativeJEREC1Up();
+    const float &MET_T1_phi_jesRelativeJEREC2Down();
+    const float &MET_T1_phi_jesRelativeJEREC2Up();
+    const float &MET_T1_phi_jesRelativeJERHFDown();
+    const float &MET_T1_phi_jesRelativeJERHFUp();
+    const float &MET_T1_phi_jesRelativePtBBDown();
+    const float &MET_T1_phi_jesRelativePtBBUp();
+    const float &MET_T1_phi_jesRelativePtEC1Down();
+    const float &MET_T1_phi_jesRelativePtEC1Up();
+    const float &MET_T1_phi_jesRelativePtEC2Down();
+    const float &MET_T1_phi_jesRelativePtEC2Up();
+    const float &MET_T1_phi_jesRelativePtHFDown();
+    const float &MET_T1_phi_jesRelativePtHFUp();
+    const float &MET_T1_phi_jesRelativeSampleDown();
+    const float &MET_T1_phi_jesRelativeSampleUp();
+    const float &MET_T1_phi_jesRelativeStatECDown();
+    const float &MET_T1_phi_jesRelativeStatECUp();
+    const float &MET_T1_phi_jesRelativeStatFSRDown();
+    const float &MET_T1_phi_jesRelativeStatFSRUp();
+    const float &MET_T1_phi_jesRelativeStatHFDown();
+    const float &MET_T1_phi_jesRelativeStatHFUp();
+    const float &MET_T1_phi_jesSinglePionECALDown();
+    const float &MET_T1_phi_jesSinglePionECALUp();
+    const float &MET_T1_phi_jesSinglePionHCALDown();
+    const float &MET_T1_phi_jesSinglePionHCALUp();
+    const float &MET_T1_phi_jesSubTotalAbsoluteDown();
+    const float &MET_T1_phi_jesSubTotalAbsoluteUp();
+    const float &MET_T1_phi_jesSubTotalMCDown();
+    const float &MET_T1_phi_jesSubTotalMCUp();
+    const float &MET_T1_phi_jesSubTotalPileUpDown();
+    const float &MET_T1_phi_jesSubTotalPileUpUp();
+    const float &MET_T1_phi_jesSubTotalPtDown();
+    const float &MET_T1_phi_jesSubTotalPtUp();
+    const float &MET_T1_phi_jesSubTotalRelativeDown();
+    const float &MET_T1_phi_jesSubTotalRelativeUp();
+    const float &MET_T1_phi_jesSubTotalScaleDown();
+    const float &MET_T1_phi_jesSubTotalScaleUp();
+    const float &MET_T1_phi_jesTimePtEtaDown();
+    const float &MET_T1_phi_jesTimePtEtaUp();
+    const float &MET_T1_phi_jesTimeRunADown();
+    const float &MET_T1_phi_jesTimeRunAUp();
+    const float &MET_T1_phi_jesTimeRunBDown();
+    const float &MET_T1_phi_jesTimeRunBUp();
+    const float &MET_T1_phi_jesTimeRunCDown();
+    const float &MET_T1_phi_jesTimeRunCUp();
+    const float &MET_T1_phi_jesTimeRunDDown();
+    const float &MET_T1_phi_jesTimeRunDUp();
     const float &MET_T1_phi_jesTotalDown();
+    const float &MET_T1_phi_jesTotalNoFlavorDown();
+    const float &MET_T1_phi_jesTotalNoFlavorNoTimeDown();
+    const float &MET_T1_phi_jesTotalNoFlavorNoTimeUp();
+    const float &MET_T1_phi_jesTotalNoFlavorUp();
+    const float &MET_T1_phi_jesTotalNoTimeDown();
+    const float &MET_T1_phi_jesTotalNoTimeUp();
     const float &MET_T1_phi_jesTotalUp();
     const float &MET_T1_phi_unclustEnDown();
     const float &MET_T1_phi_unclustEnUp();
     const float &MET_T1_pt();
     const float &MET_T1_pt_jerDown();
     const float &MET_T1_pt_jerUp();
+    const float &MET_T1_pt_jesAbsoluteFlavMapDown();
+    const float &MET_T1_pt_jesAbsoluteFlavMapUp();
+    const float &MET_T1_pt_jesAbsoluteMPFBiasDown();
+    const float &MET_T1_pt_jesAbsoluteMPFBiasUp();
+    const float &MET_T1_pt_jesAbsoluteSampleDown();
+    const float &MET_T1_pt_jesAbsoluteSampleUp();
+    const float &MET_T1_pt_jesAbsoluteScaleDown();
+    const float &MET_T1_pt_jesAbsoluteScaleUp();
+    const float &MET_T1_pt_jesAbsoluteStatDown();
+    const float &MET_T1_pt_jesAbsoluteStatUp();
+    const float &MET_T1_pt_jesCorrelationGroupFlavorDown();
+    const float &MET_T1_pt_jesCorrelationGroupFlavorUp();
+    const float &MET_T1_pt_jesCorrelationGroupIntercalibrationDown();
+    const float &MET_T1_pt_jesCorrelationGroupIntercalibrationUp();
+    const float &MET_T1_pt_jesCorrelationGroupMPFInSituDown();
+    const float &MET_T1_pt_jesCorrelationGroupMPFInSituUp();
+    const float &MET_T1_pt_jesCorrelationGroupUncorrelatedDown();
+    const float &MET_T1_pt_jesCorrelationGroupUncorrelatedUp();
+    const float &MET_T1_pt_jesCorrelationGroupbJESDown();
+    const float &MET_T1_pt_jesCorrelationGroupbJESUp();
+    const float &MET_T1_pt_jesFlavorPhotonJetDown();
+    const float &MET_T1_pt_jesFlavorPhotonJetUp();
+    const float &MET_T1_pt_jesFlavorPureBottomDown();
+    const float &MET_T1_pt_jesFlavorPureBottomUp();
+    const float &MET_T1_pt_jesFlavorPureCharmDown();
+    const float &MET_T1_pt_jesFlavorPureCharmUp();
+    const float &MET_T1_pt_jesFlavorPureGluonDown();
+    const float &MET_T1_pt_jesFlavorPureGluonUp();
+    const float &MET_T1_pt_jesFlavorPureQuarkDown();
+    const float &MET_T1_pt_jesFlavorPureQuarkUp();
+    const float &MET_T1_pt_jesFlavorQCDDown();
+    const float &MET_T1_pt_jesFlavorQCDUp();
+    const float &MET_T1_pt_jesFlavorZJetDown();
+    const float &MET_T1_pt_jesFlavorZJetUp();
+    const float &MET_T1_pt_jesFragmentationDown();
+    const float &MET_T1_pt_jesFragmentationUp();
     const float &MET_T1_pt_jesHEMIssueDown();
     const float &MET_T1_pt_jesHEMIssueUp();
+    const float &MET_T1_pt_jesPileUpDataMCDown();
+    const float &MET_T1_pt_jesPileUpDataMCUp();
+    const float &MET_T1_pt_jesPileUpEnvelopeDown();
+    const float &MET_T1_pt_jesPileUpEnvelopeUp();
+    const float &MET_T1_pt_jesPileUpMuZeroDown();
+    const float &MET_T1_pt_jesPileUpMuZeroUp();
+    const float &MET_T1_pt_jesPileUpPtBBDown();
+    const float &MET_T1_pt_jesPileUpPtBBUp();
+    const float &MET_T1_pt_jesPileUpPtEC1Down();
+    const float &MET_T1_pt_jesPileUpPtEC1Up();
+    const float &MET_T1_pt_jesPileUpPtEC2Down();
+    const float &MET_T1_pt_jesPileUpPtEC2Up();
+    const float &MET_T1_pt_jesPileUpPtHFDown();
+    const float &MET_T1_pt_jesPileUpPtHFUp();
+    const float &MET_T1_pt_jesPileUpPtRefDown();
+    const float &MET_T1_pt_jesPileUpPtRefUp();
+    const float &MET_T1_pt_jesRelativeBalDown();
+    const float &MET_T1_pt_jesRelativeBalUp();
+    const float &MET_T1_pt_jesRelativeFSRDown();
+    const float &MET_T1_pt_jesRelativeFSRUp();
+    const float &MET_T1_pt_jesRelativeJEREC1Down();
+    const float &MET_T1_pt_jesRelativeJEREC1Up();
+    const float &MET_T1_pt_jesRelativeJEREC2Down();
+    const float &MET_T1_pt_jesRelativeJEREC2Up();
+    const float &MET_T1_pt_jesRelativeJERHFDown();
+    const float &MET_T1_pt_jesRelativeJERHFUp();
+    const float &MET_T1_pt_jesRelativePtBBDown();
+    const float &MET_T1_pt_jesRelativePtBBUp();
+    const float &MET_T1_pt_jesRelativePtEC1Down();
+    const float &MET_T1_pt_jesRelativePtEC1Up();
+    const float &MET_T1_pt_jesRelativePtEC2Down();
+    const float &MET_T1_pt_jesRelativePtEC2Up();
+    const float &MET_T1_pt_jesRelativePtHFDown();
+    const float &MET_T1_pt_jesRelativePtHFUp();
+    const float &MET_T1_pt_jesRelativeSampleDown();
+    const float &MET_T1_pt_jesRelativeSampleUp();
+    const float &MET_T1_pt_jesRelativeStatECDown();
+    const float &MET_T1_pt_jesRelativeStatECUp();
+    const float &MET_T1_pt_jesRelativeStatFSRDown();
+    const float &MET_T1_pt_jesRelativeStatFSRUp();
+    const float &MET_T1_pt_jesRelativeStatHFDown();
+    const float &MET_T1_pt_jesRelativeStatHFUp();
+    const float &MET_T1_pt_jesSinglePionECALDown();
+    const float &MET_T1_pt_jesSinglePionECALUp();
+    const float &MET_T1_pt_jesSinglePionHCALDown();
+    const float &MET_T1_pt_jesSinglePionHCALUp();
+    const float &MET_T1_pt_jesSubTotalAbsoluteDown();
+    const float &MET_T1_pt_jesSubTotalAbsoluteUp();
+    const float &MET_T1_pt_jesSubTotalMCDown();
+    const float &MET_T1_pt_jesSubTotalMCUp();
+    const float &MET_T1_pt_jesSubTotalPileUpDown();
+    const float &MET_T1_pt_jesSubTotalPileUpUp();
+    const float &MET_T1_pt_jesSubTotalPtDown();
+    const float &MET_T1_pt_jesSubTotalPtUp();
+    const float &MET_T1_pt_jesSubTotalRelativeDown();
+    const float &MET_T1_pt_jesSubTotalRelativeUp();
+    const float &MET_T1_pt_jesSubTotalScaleDown();
+    const float &MET_T1_pt_jesSubTotalScaleUp();
+    const float &MET_T1_pt_jesTimePtEtaDown();
+    const float &MET_T1_pt_jesTimePtEtaUp();
+    const float &MET_T1_pt_jesTimeRunADown();
+    const float &MET_T1_pt_jesTimeRunAUp();
+    const float &MET_T1_pt_jesTimeRunBDown();
+    const float &MET_T1_pt_jesTimeRunBUp();
+    const float &MET_T1_pt_jesTimeRunCDown();
+    const float &MET_T1_pt_jesTimeRunCUp();
+    const float &MET_T1_pt_jesTimeRunDDown();
+    const float &MET_T1_pt_jesTimeRunDUp();
     const float &MET_T1_pt_jesTotalDown();
+    const float &MET_T1_pt_jesTotalNoFlavorDown();
+    const float &MET_T1_pt_jesTotalNoFlavorNoTimeDown();
+    const float &MET_T1_pt_jesTotalNoFlavorNoTimeUp();
+    const float &MET_T1_pt_jesTotalNoFlavorUp();
+    const float &MET_T1_pt_jesTotalNoTimeDown();
+    const float &MET_T1_pt_jesTotalNoTimeUp();
     const float &MET_T1_pt_jesTotalUp();
     const float &MET_T1_pt_unclustEnDown();
     const float &MET_T1_pt_unclustEnUp();
@@ -17884,6 +24399,7 @@ public:
     const vector<float> &TrigObj_l2pt();
     const vector<float> &TrigObj_phi();
     const vector<float> &TrigObj_pt();
+    const vector<int> &WCnames();
     const vector<int> &boostedTau_charge();
     const vector<float> &boostedTau_chargedIso();
     const vector<int> &boostedTau_decayMode();
@@ -17927,6 +24443,7 @@ public:
     const float &genWeight();
     const UInt_t &luminosityBlock();
     const UInt_t &nCorrT1METJet();
+    const UInt_t &nEFTfitCoefficients();
     const UInt_t &nElectron();
     const UInt_t &nFatJet();
     const UInt_t &nFsrPhoton();
@@ -17957,6 +24474,7 @@ public:
     const UInt_t &nSubJet();
     const UInt_t &nTau();
     const UInt_t &nTrigObj();
+    const UInt_t &nWCnames();
     const UInt_t &nboostedTau();
     const float &puWeight();
     const float &puWeightDown();
@@ -17986,6 +24504,7 @@ namespace tas {
     const float &DeepMETResolutionTune_pt(); // DeepMET ResolutionTune pt
     const float &DeepMETResponseTune_phi(); // DeepMET ResponseTune phi
     const float &DeepMETResponseTune_pt(); // DeepMET ResponseTune pt
+    const vector<float> &EFTfitCoefficients(); // EFT fit coefficients
     const vector<float> &Electron_CutBased_LooseID_SF(); // Electron_CutBased_LooseID_SF[nElectron]/F
     const vector<float> &Electron_CutBased_LooseID_SFerr(); // Electron_CutBased_LooseID_SFerr[nElectron]/F
     const vector<float> &Electron_CutBased_MediumID_SF(); // Electron_CutBased_MediumID_SF[nElectron]/F
@@ -18125,7 +24644,117 @@ namespace tas {
     const vector<float> &FatJet_mass(); // mass
     const vector<float> &FatJet_mass_jerDown(); // FatJet_mass_jerDown[nFatJet]/F
     const vector<float> &FatJet_mass_jerUp(); // FatJet_mass_jerUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesAbsoluteFlavMapDown(); // FatJet_mass_jesAbsoluteFlavMapDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesAbsoluteFlavMapUp(); // FatJet_mass_jesAbsoluteFlavMapUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesAbsoluteMPFBiasDown(); // FatJet_mass_jesAbsoluteMPFBiasDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesAbsoluteMPFBiasUp(); // FatJet_mass_jesAbsoluteMPFBiasUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesAbsoluteSampleDown(); // FatJet_mass_jesAbsoluteSampleDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesAbsoluteSampleUp(); // FatJet_mass_jesAbsoluteSampleUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesAbsoluteScaleDown(); // FatJet_mass_jesAbsoluteScaleDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesAbsoluteScaleUp(); // FatJet_mass_jesAbsoluteScaleUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesAbsoluteStatDown(); // FatJet_mass_jesAbsoluteStatDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesAbsoluteStatUp(); // FatJet_mass_jesAbsoluteStatUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesCorrelationGroupFlavorDown(); // FatJet_mass_jesCorrelationGroupFlavorDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesCorrelationGroupFlavorUp(); // FatJet_mass_jesCorrelationGroupFlavorUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesCorrelationGroupIntercalibrationDown(); // FatJet_mass_jesCorrelationGroupIntercalibrationDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesCorrelationGroupIntercalibrationUp(); // FatJet_mass_jesCorrelationGroupIntercalibrationUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesCorrelationGroupMPFInSituDown(); // FatJet_mass_jesCorrelationGroupMPFInSituDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesCorrelationGroupMPFInSituUp(); // FatJet_mass_jesCorrelationGroupMPFInSituUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesCorrelationGroupUncorrelatedDown(); // FatJet_mass_jesCorrelationGroupUncorrelatedDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesCorrelationGroupUncorrelatedUp(); // FatJet_mass_jesCorrelationGroupUncorrelatedUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesCorrelationGroupbJESDown(); // FatJet_mass_jesCorrelationGroupbJESDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesCorrelationGroupbJESUp(); // FatJet_mass_jesCorrelationGroupbJESUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesFlavorPhotonJetDown(); // FatJet_mass_jesFlavorPhotonJetDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesFlavorPhotonJetUp(); // FatJet_mass_jesFlavorPhotonJetUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesFlavorPureBottomDown(); // FatJet_mass_jesFlavorPureBottomDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesFlavorPureBottomUp(); // FatJet_mass_jesFlavorPureBottomUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesFlavorPureCharmDown(); // FatJet_mass_jesFlavorPureCharmDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesFlavorPureCharmUp(); // FatJet_mass_jesFlavorPureCharmUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesFlavorPureGluonDown(); // FatJet_mass_jesFlavorPureGluonDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesFlavorPureGluonUp(); // FatJet_mass_jesFlavorPureGluonUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesFlavorPureQuarkDown(); // FatJet_mass_jesFlavorPureQuarkDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesFlavorPureQuarkUp(); // FatJet_mass_jesFlavorPureQuarkUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesFlavorQCDDown(); // FatJet_mass_jesFlavorQCDDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesFlavorQCDUp(); // FatJet_mass_jesFlavorQCDUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesFlavorZJetDown(); // FatJet_mass_jesFlavorZJetDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesFlavorZJetUp(); // FatJet_mass_jesFlavorZJetUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesFragmentationDown(); // FatJet_mass_jesFragmentationDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesFragmentationUp(); // FatJet_mass_jesFragmentationUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesPileUpDataMCDown(); // FatJet_mass_jesPileUpDataMCDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesPileUpDataMCUp(); // FatJet_mass_jesPileUpDataMCUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesPileUpEnvelopeDown(); // FatJet_mass_jesPileUpEnvelopeDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesPileUpEnvelopeUp(); // FatJet_mass_jesPileUpEnvelopeUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesPileUpMuZeroDown(); // FatJet_mass_jesPileUpMuZeroDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesPileUpMuZeroUp(); // FatJet_mass_jesPileUpMuZeroUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesPileUpPtBBDown(); // FatJet_mass_jesPileUpPtBBDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesPileUpPtBBUp(); // FatJet_mass_jesPileUpPtBBUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesPileUpPtEC1Down(); // FatJet_mass_jesPileUpPtEC1Down[nFatJet]/F
+    const vector<float> &FatJet_mass_jesPileUpPtEC1Up(); // FatJet_mass_jesPileUpPtEC1Up[nFatJet]/F
+    const vector<float> &FatJet_mass_jesPileUpPtEC2Down(); // FatJet_mass_jesPileUpPtEC2Down[nFatJet]/F
+    const vector<float> &FatJet_mass_jesPileUpPtEC2Up(); // FatJet_mass_jesPileUpPtEC2Up[nFatJet]/F
+    const vector<float> &FatJet_mass_jesPileUpPtHFDown(); // FatJet_mass_jesPileUpPtHFDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesPileUpPtHFUp(); // FatJet_mass_jesPileUpPtHFUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesPileUpPtRefDown(); // FatJet_mass_jesPileUpPtRefDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesPileUpPtRefUp(); // FatJet_mass_jesPileUpPtRefUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesRelativeBalDown(); // FatJet_mass_jesRelativeBalDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesRelativeBalUp(); // FatJet_mass_jesRelativeBalUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesRelativeFSRDown(); // FatJet_mass_jesRelativeFSRDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesRelativeFSRUp(); // FatJet_mass_jesRelativeFSRUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesRelativeJEREC1Down(); // FatJet_mass_jesRelativeJEREC1Down[nFatJet]/F
+    const vector<float> &FatJet_mass_jesRelativeJEREC1Up(); // FatJet_mass_jesRelativeJEREC1Up[nFatJet]/F
+    const vector<float> &FatJet_mass_jesRelativeJEREC2Down(); // FatJet_mass_jesRelativeJEREC2Down[nFatJet]/F
+    const vector<float> &FatJet_mass_jesRelativeJEREC2Up(); // FatJet_mass_jesRelativeJEREC2Up[nFatJet]/F
+    const vector<float> &FatJet_mass_jesRelativeJERHFDown(); // FatJet_mass_jesRelativeJERHFDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesRelativeJERHFUp(); // FatJet_mass_jesRelativeJERHFUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesRelativePtBBDown(); // FatJet_mass_jesRelativePtBBDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesRelativePtBBUp(); // FatJet_mass_jesRelativePtBBUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesRelativePtEC1Down(); // FatJet_mass_jesRelativePtEC1Down[nFatJet]/F
+    const vector<float> &FatJet_mass_jesRelativePtEC1Up(); // FatJet_mass_jesRelativePtEC1Up[nFatJet]/F
+    const vector<float> &FatJet_mass_jesRelativePtEC2Down(); // FatJet_mass_jesRelativePtEC2Down[nFatJet]/F
+    const vector<float> &FatJet_mass_jesRelativePtEC2Up(); // FatJet_mass_jesRelativePtEC2Up[nFatJet]/F
+    const vector<float> &FatJet_mass_jesRelativePtHFDown(); // FatJet_mass_jesRelativePtHFDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesRelativePtHFUp(); // FatJet_mass_jesRelativePtHFUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesRelativeSampleDown(); // FatJet_mass_jesRelativeSampleDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesRelativeSampleUp(); // FatJet_mass_jesRelativeSampleUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesRelativeStatECDown(); // FatJet_mass_jesRelativeStatECDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesRelativeStatECUp(); // FatJet_mass_jesRelativeStatECUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesRelativeStatFSRDown(); // FatJet_mass_jesRelativeStatFSRDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesRelativeStatFSRUp(); // FatJet_mass_jesRelativeStatFSRUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesRelativeStatHFDown(); // FatJet_mass_jesRelativeStatHFDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesRelativeStatHFUp(); // FatJet_mass_jesRelativeStatHFUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesSinglePionECALDown(); // FatJet_mass_jesSinglePionECALDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesSinglePionECALUp(); // FatJet_mass_jesSinglePionECALUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesSinglePionHCALDown(); // FatJet_mass_jesSinglePionHCALDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesSinglePionHCALUp(); // FatJet_mass_jesSinglePionHCALUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesSubTotalAbsoluteDown(); // FatJet_mass_jesSubTotalAbsoluteDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesSubTotalAbsoluteUp(); // FatJet_mass_jesSubTotalAbsoluteUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesSubTotalMCDown(); // FatJet_mass_jesSubTotalMCDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesSubTotalMCUp(); // FatJet_mass_jesSubTotalMCUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesSubTotalPileUpDown(); // FatJet_mass_jesSubTotalPileUpDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesSubTotalPileUpUp(); // FatJet_mass_jesSubTotalPileUpUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesSubTotalPtDown(); // FatJet_mass_jesSubTotalPtDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesSubTotalPtUp(); // FatJet_mass_jesSubTotalPtUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesSubTotalRelativeDown(); // FatJet_mass_jesSubTotalRelativeDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesSubTotalRelativeUp(); // FatJet_mass_jesSubTotalRelativeUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesSubTotalScaleDown(); // FatJet_mass_jesSubTotalScaleDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesSubTotalScaleUp(); // FatJet_mass_jesSubTotalScaleUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesTimePtEtaDown(); // FatJet_mass_jesTimePtEtaDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesTimePtEtaUp(); // FatJet_mass_jesTimePtEtaUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesTimeRunADown(); // FatJet_mass_jesTimeRunADown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesTimeRunAUp(); // FatJet_mass_jesTimeRunAUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesTimeRunBDown(); // FatJet_mass_jesTimeRunBDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesTimeRunBUp(); // FatJet_mass_jesTimeRunBUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesTimeRunCDown(); // FatJet_mass_jesTimeRunCDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesTimeRunCUp(); // FatJet_mass_jesTimeRunCUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesTimeRunDDown(); // FatJet_mass_jesTimeRunDDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesTimeRunDUp(); // FatJet_mass_jesTimeRunDUp[nFatJet]/F
     const vector<float> &FatJet_mass_jesTotalDown(); // FatJet_mass_jesTotalDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesTotalNoFlavorDown(); // FatJet_mass_jesTotalNoFlavorDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesTotalNoFlavorNoTimeDown(); // FatJet_mass_jesTotalNoFlavorNoTimeDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesTotalNoFlavorNoTimeUp(); // FatJet_mass_jesTotalNoFlavorNoTimeUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesTotalNoFlavorUp(); // FatJet_mass_jesTotalNoFlavorUp[nFatJet]/F
+    const vector<float> &FatJet_mass_jesTotalNoTimeDown(); // FatJet_mass_jesTotalNoTimeDown[nFatJet]/F
+    const vector<float> &FatJet_mass_jesTotalNoTimeUp(); // FatJet_mass_jesTotalNoTimeUp[nFatJet]/F
     const vector<float> &FatJet_mass_jesTotalUp(); // FatJet_mass_jesTotalUp[nFatJet]/F
     const vector<float> &FatJet_mass_jmrDown(); // FatJet_mass_jmrDown[nFatJet]/F
     const vector<float> &FatJet_mass_jmrUp(); // FatJet_mass_jmrUp[nFatJet]/F
@@ -18139,7 +24768,117 @@ namespace tas {
     const vector<float> &FatJet_msoftdrop_corr_PUPPI(); // FatJet_msoftdrop_corr_PUPPI[nFatJet]/F
     const vector<float> &FatJet_msoftdrop_jerDown(); // FatJet_msoftdrop_jerDown[nFatJet]/F
     const vector<float> &FatJet_msoftdrop_jerUp(); // FatJet_msoftdrop_jerUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesAbsoluteFlavMapDown(); // FatJet_msoftdrop_jesAbsoluteFlavMapDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesAbsoluteFlavMapUp(); // FatJet_msoftdrop_jesAbsoluteFlavMapUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesAbsoluteMPFBiasDown(); // FatJet_msoftdrop_jesAbsoluteMPFBiasDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesAbsoluteMPFBiasUp(); // FatJet_msoftdrop_jesAbsoluteMPFBiasUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesAbsoluteSampleDown(); // FatJet_msoftdrop_jesAbsoluteSampleDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesAbsoluteSampleUp(); // FatJet_msoftdrop_jesAbsoluteSampleUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesAbsoluteScaleDown(); // FatJet_msoftdrop_jesAbsoluteScaleDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesAbsoluteScaleUp(); // FatJet_msoftdrop_jesAbsoluteScaleUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesAbsoluteStatDown(); // FatJet_msoftdrop_jesAbsoluteStatDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesAbsoluteStatUp(); // FatJet_msoftdrop_jesAbsoluteStatUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesCorrelationGroupFlavorDown(); // FatJet_msoftdrop_jesCorrelationGroupFlavorDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesCorrelationGroupFlavorUp(); // FatJet_msoftdrop_jesCorrelationGroupFlavorUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesCorrelationGroupIntercalibrationDown(); // FatJet_msoftdrop_jesCorrelationGroupIntercalibrationDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesCorrelationGroupIntercalibrationUp(); // FatJet_msoftdrop_jesCorrelationGroupIntercalibrationUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesCorrelationGroupMPFInSituDown(); // FatJet_msoftdrop_jesCorrelationGroupMPFInSituDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesCorrelationGroupMPFInSituUp(); // FatJet_msoftdrop_jesCorrelationGroupMPFInSituUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesCorrelationGroupUncorrelatedDown(); // FatJet_msoftdrop_jesCorrelationGroupUncorrelatedDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesCorrelationGroupUncorrelatedUp(); // FatJet_msoftdrop_jesCorrelationGroupUncorrelatedUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesCorrelationGroupbJESDown(); // FatJet_msoftdrop_jesCorrelationGroupbJESDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesCorrelationGroupbJESUp(); // FatJet_msoftdrop_jesCorrelationGroupbJESUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesFlavorPhotonJetDown(); // FatJet_msoftdrop_jesFlavorPhotonJetDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesFlavorPhotonJetUp(); // FatJet_msoftdrop_jesFlavorPhotonJetUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesFlavorPureBottomDown(); // FatJet_msoftdrop_jesFlavorPureBottomDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesFlavorPureBottomUp(); // FatJet_msoftdrop_jesFlavorPureBottomUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesFlavorPureCharmDown(); // FatJet_msoftdrop_jesFlavorPureCharmDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesFlavorPureCharmUp(); // FatJet_msoftdrop_jesFlavorPureCharmUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesFlavorPureGluonDown(); // FatJet_msoftdrop_jesFlavorPureGluonDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesFlavorPureGluonUp(); // FatJet_msoftdrop_jesFlavorPureGluonUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesFlavorPureQuarkDown(); // FatJet_msoftdrop_jesFlavorPureQuarkDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesFlavorPureQuarkUp(); // FatJet_msoftdrop_jesFlavorPureQuarkUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesFlavorQCDDown(); // FatJet_msoftdrop_jesFlavorQCDDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesFlavorQCDUp(); // FatJet_msoftdrop_jesFlavorQCDUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesFlavorZJetDown(); // FatJet_msoftdrop_jesFlavorZJetDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesFlavorZJetUp(); // FatJet_msoftdrop_jesFlavorZJetUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesFragmentationDown(); // FatJet_msoftdrop_jesFragmentationDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesFragmentationUp(); // FatJet_msoftdrop_jesFragmentationUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesPileUpDataMCDown(); // FatJet_msoftdrop_jesPileUpDataMCDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesPileUpDataMCUp(); // FatJet_msoftdrop_jesPileUpDataMCUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesPileUpEnvelopeDown(); // FatJet_msoftdrop_jesPileUpEnvelopeDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesPileUpEnvelopeUp(); // FatJet_msoftdrop_jesPileUpEnvelopeUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesPileUpMuZeroDown(); // FatJet_msoftdrop_jesPileUpMuZeroDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesPileUpMuZeroUp(); // FatJet_msoftdrop_jesPileUpMuZeroUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesPileUpPtBBDown(); // FatJet_msoftdrop_jesPileUpPtBBDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesPileUpPtBBUp(); // FatJet_msoftdrop_jesPileUpPtBBUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesPileUpPtEC1Down(); // FatJet_msoftdrop_jesPileUpPtEC1Down[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesPileUpPtEC1Up(); // FatJet_msoftdrop_jesPileUpPtEC1Up[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesPileUpPtEC2Down(); // FatJet_msoftdrop_jesPileUpPtEC2Down[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesPileUpPtEC2Up(); // FatJet_msoftdrop_jesPileUpPtEC2Up[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesPileUpPtHFDown(); // FatJet_msoftdrop_jesPileUpPtHFDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesPileUpPtHFUp(); // FatJet_msoftdrop_jesPileUpPtHFUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesPileUpPtRefDown(); // FatJet_msoftdrop_jesPileUpPtRefDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesPileUpPtRefUp(); // FatJet_msoftdrop_jesPileUpPtRefUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesRelativeBalDown(); // FatJet_msoftdrop_jesRelativeBalDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesRelativeBalUp(); // FatJet_msoftdrop_jesRelativeBalUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesRelativeFSRDown(); // FatJet_msoftdrop_jesRelativeFSRDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesRelativeFSRUp(); // FatJet_msoftdrop_jesRelativeFSRUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesRelativeJEREC1Down(); // FatJet_msoftdrop_jesRelativeJEREC1Down[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesRelativeJEREC1Up(); // FatJet_msoftdrop_jesRelativeJEREC1Up[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesRelativeJEREC2Down(); // FatJet_msoftdrop_jesRelativeJEREC2Down[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesRelativeJEREC2Up(); // FatJet_msoftdrop_jesRelativeJEREC2Up[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesRelativeJERHFDown(); // FatJet_msoftdrop_jesRelativeJERHFDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesRelativeJERHFUp(); // FatJet_msoftdrop_jesRelativeJERHFUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesRelativePtBBDown(); // FatJet_msoftdrop_jesRelativePtBBDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesRelativePtBBUp(); // FatJet_msoftdrop_jesRelativePtBBUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesRelativePtEC1Down(); // FatJet_msoftdrop_jesRelativePtEC1Down[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesRelativePtEC1Up(); // FatJet_msoftdrop_jesRelativePtEC1Up[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesRelativePtEC2Down(); // FatJet_msoftdrop_jesRelativePtEC2Down[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesRelativePtEC2Up(); // FatJet_msoftdrop_jesRelativePtEC2Up[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesRelativePtHFDown(); // FatJet_msoftdrop_jesRelativePtHFDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesRelativePtHFUp(); // FatJet_msoftdrop_jesRelativePtHFUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesRelativeSampleDown(); // FatJet_msoftdrop_jesRelativeSampleDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesRelativeSampleUp(); // FatJet_msoftdrop_jesRelativeSampleUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesRelativeStatECDown(); // FatJet_msoftdrop_jesRelativeStatECDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesRelativeStatECUp(); // FatJet_msoftdrop_jesRelativeStatECUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesRelativeStatFSRDown(); // FatJet_msoftdrop_jesRelativeStatFSRDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesRelativeStatFSRUp(); // FatJet_msoftdrop_jesRelativeStatFSRUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesRelativeStatHFDown(); // FatJet_msoftdrop_jesRelativeStatHFDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesRelativeStatHFUp(); // FatJet_msoftdrop_jesRelativeStatHFUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesSinglePionECALDown(); // FatJet_msoftdrop_jesSinglePionECALDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesSinglePionECALUp(); // FatJet_msoftdrop_jesSinglePionECALUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesSinglePionHCALDown(); // FatJet_msoftdrop_jesSinglePionHCALDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesSinglePionHCALUp(); // FatJet_msoftdrop_jesSinglePionHCALUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesSubTotalAbsoluteDown(); // FatJet_msoftdrop_jesSubTotalAbsoluteDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesSubTotalAbsoluteUp(); // FatJet_msoftdrop_jesSubTotalAbsoluteUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesSubTotalMCDown(); // FatJet_msoftdrop_jesSubTotalMCDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesSubTotalMCUp(); // FatJet_msoftdrop_jesSubTotalMCUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesSubTotalPileUpDown(); // FatJet_msoftdrop_jesSubTotalPileUpDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesSubTotalPileUpUp(); // FatJet_msoftdrop_jesSubTotalPileUpUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesSubTotalPtDown(); // FatJet_msoftdrop_jesSubTotalPtDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesSubTotalPtUp(); // FatJet_msoftdrop_jesSubTotalPtUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesSubTotalRelativeDown(); // FatJet_msoftdrop_jesSubTotalRelativeDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesSubTotalRelativeUp(); // FatJet_msoftdrop_jesSubTotalRelativeUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesSubTotalScaleDown(); // FatJet_msoftdrop_jesSubTotalScaleDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesSubTotalScaleUp(); // FatJet_msoftdrop_jesSubTotalScaleUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesTimePtEtaDown(); // FatJet_msoftdrop_jesTimePtEtaDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesTimePtEtaUp(); // FatJet_msoftdrop_jesTimePtEtaUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesTimeRunADown(); // FatJet_msoftdrop_jesTimeRunADown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesTimeRunAUp(); // FatJet_msoftdrop_jesTimeRunAUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesTimeRunBDown(); // FatJet_msoftdrop_jesTimeRunBDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesTimeRunBUp(); // FatJet_msoftdrop_jesTimeRunBUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesTimeRunCDown(); // FatJet_msoftdrop_jesTimeRunCDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesTimeRunCUp(); // FatJet_msoftdrop_jesTimeRunCUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesTimeRunDDown(); // FatJet_msoftdrop_jesTimeRunDDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesTimeRunDUp(); // FatJet_msoftdrop_jesTimeRunDUp[nFatJet]/F    
     const vector<float> &FatJet_msoftdrop_jesTotalDown(); // FatJet_msoftdrop_jesTotalDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesTotalNoFlavorDown(); // FatJet_msoftdrop_jesTotalNoFlavorDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesTotalNoFlavorNoTimeDown(); // FatJet_msoftdrop_jesTotalNoFlavorNoTimeDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesTotalNoFlavorNoTimeUp(); // FatJet_msoftdrop_jesTotalNoFlavorNoTimeUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesTotalNoFlavorUp(); // FatJet_msoftdrop_jesTotalNoFlavorUp[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesTotalNoTimeDown(); // FatJet_msoftdrop_jesTotalNoTimeDown[nFatJet]/F
+    const vector<float> &FatJet_msoftdrop_jesTotalNoTimeUp(); // FatJet_msoftdrop_jesTotalNoTimeUp[nFatJet]/F    
     const vector<float> &FatJet_msoftdrop_jesTotalUp(); // FatJet_msoftdrop_jesTotalUp[nFatJet]/F
     const vector<float> &FatJet_msoftdrop_jmrDown(); // FatJet_msoftdrop_jmrDown[nFatJet]/F
     const vector<float> &FatJet_msoftdrop_jmrUp(); // FatJet_msoftdrop_jmrUp[nFatJet]/F
@@ -18177,7 +24916,117 @@ namespace tas {
     const vector<float> &FatJet_pt(); // pt
     const vector<float> &FatJet_pt_jerDown(); // FatJet_pt_jerDown[nFatJet]/F
     const vector<float> &FatJet_pt_jerUp(); // FatJet_pt_jerUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesAbsoluteFlavMapDown(); // FatJet_pt_jesAbsoluteFlavMapDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesAbsoluteFlavMapUp(); // FatJet_pt_jesAbsoluteFlavMapUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesAbsoluteMPFBiasDown(); // FatJet_pt_jesAbsoluteMPFBiasDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesAbsoluteMPFBiasUp(); // FatJet_pt_jesAbsoluteMPFBiasUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesAbsoluteSampleDown(); // FatJet_pt_jesAbsoluteSampleDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesAbsoluteSampleUp(); // FatJet_pt_jesAbsoluteSampleUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesAbsoluteScaleDown(); // FatJet_pt_jesAbsoluteScaleDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesAbsoluteScaleUp(); // FatJet_pt_jesAbsoluteScaleUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesAbsoluteStatDown(); // FatJet_pt_jesAbsoluteStatDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesAbsoluteStatUp(); // FatJet_pt_jesAbsoluteStatUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesCorrelationGroupFlavorDown(); // FatJet_pt_jesCorrelationGroupFlavorDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesCorrelationGroupFlavorUp(); // FatJet_pt_jesCorrelationGroupFlavorUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesCorrelationGroupIntercalibrationDown(); // FatJet_pt_jesCorrelationGroupIntercalibrationDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesCorrelationGroupIntercalibrationUp(); // FatJet_pt_jesCorrelationGroupIntercalibrationUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesCorrelationGroupMPFInSituDown(); // FatJet_pt_jesCorrelationGroupMPFInSituDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesCorrelationGroupMPFInSituUp(); // FatJet_pt_jesCorrelationGroupMPFInSituUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesCorrelationGroupUncorrelatedDown(); // FatJet_pt_jesCorrelationGroupUncorrelatedDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesCorrelationGroupUncorrelatedUp(); // FatJet_pt_jesCorrelationGroupUncorrelatedUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesCorrelationGroupbJESDown(); // FatJet_pt_jesCorrelationGroupbJESDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesCorrelationGroupbJESUp(); // FatJet_pt_jesCorrelationGroupbJESUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesFlavorPhotonJetDown(); // FatJet_pt_jesFlavorPhotonJetDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesFlavorPhotonJetUp(); // FatJet_pt_jesFlavorPhotonJetUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesFlavorPureBottomDown(); // FatJet_pt_jesFlavorPureBottomDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesFlavorPureBottomUp(); // FatJet_pt_jesFlavorPureBottomUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesFlavorPureCharmDown(); // FatJet_pt_jesFlavorPureCharmDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesFlavorPureCharmUp(); // FatJet_pt_jesFlavorPureCharmUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesFlavorPureGluonDown(); // FatJet_pt_jesFlavorPureGluonDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesFlavorPureGluonUp(); // FatJet_pt_jesFlavorPureGluonUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesFlavorPureQuarkDown(); // FatJet_pt_jesFlavorPureQuarkDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesFlavorPureQuarkUp(); // FatJet_pt_jesFlavorPureQuarkUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesFlavorQCDDown(); // FatJet_pt_jesFlavorQCDDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesFlavorQCDUp(); // FatJet_pt_jesFlavorQCDUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesFlavorZJetDown(); // FatJet_pt_jesFlavorZJetDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesFlavorZJetUp(); // FatJet_pt_jesFlavorZJetUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesFragmentationDown(); // FatJet_pt_jesFragmentationDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesFragmentationUp(); // FatJet_pt_jesFragmentationUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesPileUpDataMCDown(); // FatJet_pt_jesPileUpDataMCDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesPileUpDataMCUp(); // FatJet_pt_jesPileUpDataMCUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesPileUpEnvelopeDown(); // FatJet_pt_jesPileUpEnvelopeDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesPileUpEnvelopeUp(); // FatJet_pt_jesPileUpEnvelopeUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesPileUpMuZeroDown(); // FatJet_pt_jesPileUpMuZeroDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesPileUpMuZeroUp(); // FatJet_pt_jesPileUpMuZeroUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesPileUpPtBBDown(); // FatJet_pt_jesPileUpPtBBDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesPileUpPtBBUp(); // FatJet_pt_jesPileUpPtBBUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesPileUpPtEC1Down(); // FatJet_pt_jesPileUpPtEC1Down[nFatJet]/F
+    const vector<float> &FatJet_pt_jesPileUpPtEC1Up(); // FatJet_pt_jesPileUpPtEC1Up[nFatJet]/F
+    const vector<float> &FatJet_pt_jesPileUpPtEC2Down(); // FatJet_pt_jesPileUpPtEC2Down[nFatJet]/F
+    const vector<float> &FatJet_pt_jesPileUpPtEC2Up(); // FatJet_pt_jesPileUpPtEC2Up[nFatJet]/F
+    const vector<float> &FatJet_pt_jesPileUpPtHFDown(); // FatJet_pt_jesPileUpPtHFDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesPileUpPtHFUp(); // FatJet_pt_jesPileUpPtHFUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesPileUpPtRefDown(); // FatJet_pt_jesPileUpPtRefDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesPileUpPtRefUp(); // FatJet_pt_jesPileUpPtRefUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesRelativeBalDown(); // FatJet_pt_jesRelativeBalDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesRelativeBalUp(); // FatJet_pt_jesRelativeBalUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesRelativeFSRDown(); // FatJet_pt_jesRelativeFSRDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesRelativeFSRUp(); // FatJet_pt_jesRelativeFSRUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesRelativeJEREC1Down(); // FatJet_pt_jesRelativeJEREC1Down[nFatJet]/F
+    const vector<float> &FatJet_pt_jesRelativeJEREC1Up(); // FatJet_pt_jesRelativeJEREC1Up[nFatJet]/F
+    const vector<float> &FatJet_pt_jesRelativeJEREC2Down(); // FatJet_pt_jesRelativeJEREC2Down[nFatJet]/F
+    const vector<float> &FatJet_pt_jesRelativeJEREC2Up(); // FatJet_pt_jesRelativeJEREC2Up[nFatJet]/F
+    const vector<float> &FatJet_pt_jesRelativeJERHFDown(); // FatJet_pt_jesRelativeJERHFDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesRelativeJERHFUp(); // FatJet_pt_jesRelativeJERHFUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesRelativePtBBDown(); // FatJet_pt_jesRelativePtBBDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesRelativePtBBUp(); // FatJet_pt_jesRelativePtBBUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesRelativePtEC1Down(); // FatJet_pt_jesRelativePtEC1Down[nFatJet]/F
+    const vector<float> &FatJet_pt_jesRelativePtEC1Up(); // FatJet_pt_jesRelativePtEC1Up[nFatJet]/F
+    const vector<float> &FatJet_pt_jesRelativePtEC2Down(); // FatJet_pt_jesRelativePtEC2Down[nFatJet]/F
+    const vector<float> &FatJet_pt_jesRelativePtEC2Up(); // FatJet_pt_jesRelativePtEC2Up[nFatJet]/F
+    const vector<float> &FatJet_pt_jesRelativePtHFDown(); // FatJet_pt_jesRelativePtHFDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesRelativePtHFUp(); // FatJet_pt_jesRelativePtHFUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesRelativeSampleDown(); // FatJet_pt_jesRelativeSampleDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesRelativeSampleUp(); // FatJet_pt_jesRelativeSampleUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesRelativeStatECDown(); // FatJet_pt_jesRelativeStatECDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesRelativeStatECUp(); // FatJet_pt_jesRelativeStatECUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesRelativeStatFSRDown(); // FatJet_pt_jesRelativeStatFSRDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesRelativeStatFSRUp(); // FatJet_pt_jesRelativeStatFSRUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesRelativeStatHFDown(); // FatJet_pt_jesRelativeStatHFDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesRelativeStatHFUp(); // FatJet_pt_jesRelativeStatHFUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesSinglePionECALDown(); // FatJet_pt_jesSinglePionECALDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesSinglePionECALUp(); // FatJet_pt_jesSinglePionECALUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesSinglePionHCALDown(); // FatJet_pt_jesSinglePionHCALDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesSinglePionHCALUp(); // FatJet_pt_jesSinglePionHCALUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesSubTotalAbsoluteDown(); // FatJet_pt_jesSubTotalAbsoluteDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesSubTotalAbsoluteUp(); // FatJet_pt_jesSubTotalAbsoluteUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesSubTotalMCDown(); // FatJet_pt_jesSubTotalMCDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesSubTotalMCUp(); // FatJet_pt_jesSubTotalMCUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesSubTotalPileUpDown(); // FatJet_pt_jesSubTotalPileUpDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesSubTotalPileUpUp(); // FatJet_pt_jesSubTotalPileUpUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesSubTotalPtDown(); // FatJet_pt_jesSubTotalPtDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesSubTotalPtUp(); // FatJet_pt_jesSubTotalPtUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesSubTotalRelativeDown(); // FatJet_pt_jesSubTotalRelativeDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesSubTotalRelativeUp(); // FatJet_pt_jesSubTotalRelativeUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesSubTotalScaleDown(); // FatJet_pt_jesSubTotalScaleDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesSubTotalScaleUp(); // FatJet_pt_jesSubTotalScaleUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesTimePtEtaDown(); // FatJet_pt_jesTimePtEtaDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesTimePtEtaUp(); // FatJet_pt_jesTimePtEtaUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesTimeRunADown(); // FatJet_pt_jesTimeRunADown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesTimeRunAUp(); // FatJet_pt_jesTimeRunAUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesTimeRunBDown(); // FatJet_pt_jesTimeRunBDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesTimeRunBUp(); // FatJet_pt_jesTimeRunBUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesTimeRunCDown(); // FatJet_pt_jesTimeRunCDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesTimeRunCUp(); // FatJet_pt_jesTimeRunCUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesTimeRunDDown(); // FatJet_pt_jesTimeRunDDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesTimeRunDUp(); // FatJet_pt_jesTimeRunDUp[nFatJet]/F
     const vector<float> &FatJet_pt_jesTotalDown(); // FatJet_pt_jesTotalDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesTotalNoFlavorDown(); // FatJet_pt_jesTotalNoFlavorDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesTotalNoFlavorNoTimeDown(); // FatJet_pt_jesTotalNoFlavorNoTimeDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesTotalNoFlavorNoTimeUp(); // FatJet_pt_jesTotalNoFlavorNoTimeUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesTotalNoFlavorUp(); // FatJet_pt_jesTotalNoFlavorUp[nFatJet]/F
+    const vector<float> &FatJet_pt_jesTotalNoTimeDown(); // FatJet_pt_jesTotalNoTimeDown[nFatJet]/F
+    const vector<float> &FatJet_pt_jesTotalNoTimeUp(); // FatJet_pt_jesTotalNoTimeUp[nFatJet]/F    
     const vector<float> &FatJet_pt_jesTotalUp(); // FatJet_pt_jesTotalUp[nFatJet]/F
     const vector<float> &FatJet_pt_nom(); // FatJet_pt_nom[nFatJet]/F
     const vector<float> &FatJet_pt_raw(); // FatJet_pt_raw[nFatJet]/F
@@ -19560,9 +26409,119 @@ namespace tas {
     const vector<float> &Jet_mass(); // mass
     const vector<float> &Jet_mass_jerDown(); // Jet_mass_jerDown[nJet]/F
     const vector<float> &Jet_mass_jerUp(); // Jet_mass_jerUp[nJet]/F
+    const vector<float> &Jet_mass_jesAbsoluteFlavMapDown(); // Jet_mass_jesAbsoluteFlavMapDown[nJet]/F
+    const vector<float> &Jet_mass_jesAbsoluteFlavMapUp(); // Jet_mass_jesAbsoluteFlavMapUp[nJet]/F
+    const vector<float> &Jet_mass_jesAbsoluteMPFBiasDown(); // Jet_mass_jesAbsoluteMPFBiasDown[nJet]/F
+    const vector<float> &Jet_mass_jesAbsoluteMPFBiasUp(); // Jet_mass_jesAbsoluteMPFBiasUp[nJet]/F
+    const vector<float> &Jet_mass_jesAbsoluteSampleDown(); // Jet_mass_jesAbsoluteSampleDown[nJet]/F
+    const vector<float> &Jet_mass_jesAbsoluteSampleUp(); // Jet_mass_jesAbsoluteSampleUp[nJet]/F
+    const vector<float> &Jet_mass_jesAbsoluteScaleDown(); // Jet_mass_jesAbsoluteScaleDown[nJet]/F
+    const vector<float> &Jet_mass_jesAbsoluteScaleUp(); // Jet_mass_jesAbsoluteScaleUp[nJet]/F
+    const vector<float> &Jet_mass_jesAbsoluteStatDown(); // Jet_mass_jesAbsoluteStatDown[nJet]/F
+    const vector<float> &Jet_mass_jesAbsoluteStatUp(); // Jet_mass_jesAbsoluteStatUp[nJet]/F
+    const vector<float> &Jet_mass_jesCorrelationGroupFlavorDown(); // Jet_mass_jesCorrelationGroupFlavorDown[nJet]/F
+    const vector<float> &Jet_mass_jesCorrelationGroupFlavorUp(); // Jet_mass_jesCorrelationGroupFlavorUp[nJet]/F
+    const vector<float> &Jet_mass_jesCorrelationGroupIntercalibrationDown(); // Jet_mass_jesCorrelationGroupIntercalibrationDown[nJet]/F
+    const vector<float> &Jet_mass_jesCorrelationGroupIntercalibrationUp(); // Jet_mass_jesCorrelationGroupIntercalibrationUp[nJet]/F
+    const vector<float> &Jet_mass_jesCorrelationGroupMPFInSituDown(); // Jet_mass_jesCorrelationGroupMPFInSituDown[nJet]/F
+    const vector<float> &Jet_mass_jesCorrelationGroupMPFInSituUp(); // Jet_mass_jesCorrelationGroupMPFInSituUp[nJet]/F
+    const vector<float> &Jet_mass_jesCorrelationGroupUncorrelatedDown(); // Jet_mass_jesCorrelationGroupUncorrelatedDown[nJet]/F
+    const vector<float> &Jet_mass_jesCorrelationGroupUncorrelatedUp(); // Jet_mass_jesCorrelationGroupUncorrelatedUp[nJet]/F
+    const vector<float> &Jet_mass_jesCorrelationGroupbJESDown(); // Jet_mass_jesCorrelationGroupbJESDown[nJet]/F
+    const vector<float> &Jet_mass_jesCorrelationGroupbJESUp(); // Jet_mass_jesCorrelationGroupbJESUp[nJet]/F
+    const vector<float> &Jet_mass_jesFlavorPhotonJetDown(); // Jet_mass_jesFlavorPhotonJetDown[nJet]/F
+    const vector<float> &Jet_mass_jesFlavorPhotonJetUp(); // Jet_mass_jesFlavorPhotonJetUp[nJet]/F
+    const vector<float> &Jet_mass_jesFlavorPureBottomDown(); // Jet_mass_jesFlavorPureBottomDown[nJet]/F
+    const vector<float> &Jet_mass_jesFlavorPureBottomUp(); // Jet_mass_jesFlavorPureBottomUp[nJet]/F
+    const vector<float> &Jet_mass_jesFlavorPureCharmDown(); // Jet_mass_jesFlavorPureCharmDown[nJet]/F
+    const vector<float> &Jet_mass_jesFlavorPureCharmUp(); // Jet_mass_jesFlavorPureCharmUp[nJet]/F
+    const vector<float> &Jet_mass_jesFlavorPureGluonDown(); // Jet_mass_jesFlavorPureGluonDown[nJet]/F
+    const vector<float> &Jet_mass_jesFlavorPureGluonUp(); // Jet_mass_jesFlavorPureGluonUp[nJet]/F
+    const vector<float> &Jet_mass_jesFlavorPureQuarkDown(); // Jet_mass_jesFlavorPureQuarkDown[nJet]/F
+    const vector<float> &Jet_mass_jesFlavorPureQuarkUp(); // Jet_mass_jesFlavorPureQuarkUp[nJet]/F
+    const vector<float> &Jet_mass_jesFlavorQCDDown(); // Jet_mass_jesFlavorQCDDown[nJet]/F
+    const vector<float> &Jet_mass_jesFlavorQCDUp(); // Jet_mass_jesFlavorQCDUp[nJet]/F
+    const vector<float> &Jet_mass_jesFlavorZJetDown(); // Jet_mass_jesFlavorZJetDown[nJet]/F
+    const vector<float> &Jet_mass_jesFlavorZJetUp(); // Jet_mass_jesFlavorZJetUp[nJet]/F
+    const vector<float> &Jet_mass_jesFragmentationDown(); // Jet_mass_jesFragmentationDown[nJet]/F
+    const vector<float> &Jet_mass_jesFragmentationUp(); // Jet_mass_jesFragmentationUp[nJet]/F
     const vector<float> &Jet_mass_jesHEMIssueDown(); // Jet_mass_jesHEMIssueDown[nJet]/F
     const vector<float> &Jet_mass_jesHEMIssueUp(); // Jet_mass_jesHEMIssueUp[nJet]/F
+    const vector<float> &Jet_mass_jesPileUpDataMCDown(); // Jet_mass_jesPileUpDataMCDown[nJet]/F
+    const vector<float> &Jet_mass_jesPileUpDataMCUp(); // Jet_mass_jesPileUpDataMCUp[nJet]/F
+    const vector<float> &Jet_mass_jesPileUpEnvelopeDown(); // Jet_mass_jesPileUpEnvelopeDown[nJet]/F
+    const vector<float> &Jet_mass_jesPileUpEnvelopeUp(); // Jet_mass_jesPileUpEnvelopeUp[nJet]/F
+    const vector<float> &Jet_mass_jesPileUpMuZeroDown(); // Jet_mass_jesPileUpMuZeroDown[nJet]/F
+    const vector<float> &Jet_mass_jesPileUpMuZeroUp(); // Jet_mass_jesPileUpMuZeroUp[nJet]/F
+    const vector<float> &Jet_mass_jesPileUpPtBBDown(); // Jet_mass_jesPileUpPtBBDown[nJet]/F
+    const vector<float> &Jet_mass_jesPileUpPtBBUp(); // Jet_mass_jesPileUpPtBBUp[nJet]/F
+    const vector<float> &Jet_mass_jesPileUpPtEC1Down(); // Jet_mass_jesPileUpPtEC1Down[nJet]/F
+    const vector<float> &Jet_mass_jesPileUpPtEC1Up(); // Jet_mass_jesPileUpPtEC1Up[nJet]/F
+    const vector<float> &Jet_mass_jesPileUpPtEC2Down(); // Jet_mass_jesPileUpPtEC2Down[nJet]/F
+    const vector<float> &Jet_mass_jesPileUpPtEC2Up(); // Jet_mass_jesPileUpPtEC2Up[nJet]/F
+    const vector<float> &Jet_mass_jesPileUpPtHFDown(); // Jet_mass_jesPileUpPtHFDown[nJet]/F
+    const vector<float> &Jet_mass_jesPileUpPtHFUp(); // Jet_mass_jesPileUpPtHFUp[nJet]/F
+    const vector<float> &Jet_mass_jesPileUpPtRefDown(); // Jet_mass_jesPileUpPtRefDown[nJet]/F
+    const vector<float> &Jet_mass_jesPileUpPtRefUp(); // Jet_mass_jesPileUpPtRefUp[nJet]/F
+    const vector<float> &Jet_mass_jesRelativeBalDown(); // Jet_mass_jesRelativeBalDown[nJet]/F
+    const vector<float> &Jet_mass_jesRelativeBalUp(); // Jet_mass_jesRelativeBalUp[nJet]/F
+    const vector<float> &Jet_mass_jesRelativeFSRDown(); // Jet_mass_jesRelativeFSRDown[nJet]/F
+    const vector<float> &Jet_mass_jesRelativeFSRUp(); // Jet_mass_jesRelativeFSRUp[nJet]/F
+    const vector<float> &Jet_mass_jesRelativeJEREC1Down(); // Jet_mass_jesRelativeJEREC1Down[nJet]/F
+    const vector<float> &Jet_mass_jesRelativeJEREC1Up(); // Jet_mass_jesRelativeJEREC1Up[nJet]/F
+    const vector<float> &Jet_mass_jesRelativeJEREC2Down(); // Jet_mass_jesRelativeJEREC2Down[nJet]/F
+    const vector<float> &Jet_mass_jesRelativeJEREC2Up(); // Jet_mass_jesRelativeJEREC2Up[nJet]/F
+    const vector<float> &Jet_mass_jesRelativeJERHFDown(); // Jet_mass_jesRelativeJERHFDown[nJet]/F
+    const vector<float> &Jet_mass_jesRelativeJERHFUp(); // Jet_mass_jesRelativeJERHFUp[nJet]/F
+    const vector<float> &Jet_mass_jesRelativePtBBDown(); // Jet_mass_jesRelativePtBBDown[nJet]/F
+    const vector<float> &Jet_mass_jesRelativePtBBUp(); // Jet_mass_jesRelativePtBBUp[nJet]/F
+    const vector<float> &Jet_mass_jesRelativePtEC1Down(); // Jet_mass_jesRelativePtEC1Down[nJet]/F
+    const vector<float> &Jet_mass_jesRelativePtEC1Up(); // Jet_mass_jesRelativePtEC1Up[nJet]/F
+    const vector<float> &Jet_mass_jesRelativePtEC2Down(); // Jet_mass_jesRelativePtEC2Down[nJet]/F
+    const vector<float> &Jet_mass_jesRelativePtEC2Up(); // Jet_mass_jesRelativePtEC2Up[nJet]/F
+    const vector<float> &Jet_mass_jesRelativePtHFDown(); // Jet_mass_jesRelativePtHFDown[nJet]/F
+    const vector<float> &Jet_mass_jesRelativePtHFUp(); // Jet_mass_jesRelativePtHFUp[nJet]/F
+    const vector<float> &Jet_mass_jesRelativeSampleDown(); // Jet_mass_jesRelativeSampleDown[nJet]/F
+    const vector<float> &Jet_mass_jesRelativeSampleUp(); // Jet_mass_jesRelativeSampleUp[nJet]/F
+    const vector<float> &Jet_mass_jesRelativeStatECDown(); // Jet_mass_jesRelativeStatECDown[nJet]/F
+    const vector<float> &Jet_mass_jesRelativeStatECUp(); // Jet_mass_jesRelativeStatECUp[nJet]/F
+    const vector<float> &Jet_mass_jesRelativeStatFSRDown(); // Jet_mass_jesRelativeStatFSRDown[nJet]/F
+    const vector<float> &Jet_mass_jesRelativeStatFSRUp(); // Jet_mass_jesRelativeStatFSRUp[nJet]/F
+    const vector<float> &Jet_mass_jesRelativeStatHFDown(); // Jet_mass_jesRelativeStatHFDown[nJet]/F
+    const vector<float> &Jet_mass_jesRelativeStatHFUp(); // Jet_mass_jesRelativeStatHFUp[nJet]/F
+    const vector<float> &Jet_mass_jesSinglePionECALDown(); // Jet_mass_jesSinglePionECALDown[nJet]/F
+    const vector<float> &Jet_mass_jesSinglePionECALUp(); // Jet_mass_jesSinglePionECALUp[nJet]/F
+    const vector<float> &Jet_mass_jesSinglePionHCALDown(); // Jet_mass_jesSinglePionHCALDown[nJet]/F
+    const vector<float> &Jet_mass_jesSinglePionHCALUp(); // Jet_mass_jesSinglePionHCALUp[nJet]/F
+    const vector<float> &Jet_mass_jesSubTotalAbsoluteDown(); // Jet_mass_jesSubTotalAbsoluteDown[nJet]/F
+    const vector<float> &Jet_mass_jesSubTotalAbsoluteUp(); // Jet_mass_jesSubTotalAbsoluteUp[nJet]/F
+    const vector<float> &Jet_mass_jesSubTotalMCDown(); // Jet_mass_jesSubTotalMCDown[nJet]/F
+    const vector<float> &Jet_mass_jesSubTotalMCUp(); // Jet_mass_jesSubTotalMCUp[nJet]/F
+    const vector<float> &Jet_mass_jesSubTotalPileUpDown(); // Jet_mass_jesSubTotalPileUpDown[nJet]/F
+    const vector<float> &Jet_mass_jesSubTotalPileUpUp(); // Jet_mass_jesSubTotalPileUpUp[nJet]/F
+    const vector<float> &Jet_mass_jesSubTotalPtDown(); // Jet_mass_jesSubTotalPtDown[nJet]/F
+    const vector<float> &Jet_mass_jesSubTotalPtUp(); // Jet_mass_jesSubTotalPtUp[nJet]/F
+    const vector<float> &Jet_mass_jesSubTotalRelativeDown(); // Jet_mass_jesSubTotalRelativeDown[nJet]/F
+    const vector<float> &Jet_mass_jesSubTotalRelativeUp(); // Jet_mass_jesSubTotalRelativeUp[nJet]/F
+    const vector<float> &Jet_mass_jesSubTotalScaleDown(); // Jet_mass_jesSubTotalScaleDown[nJet]/F
+    const vector<float> &Jet_mass_jesSubTotalScaleUp(); // Jet_mass_jesSubTotalScaleUp[nJet]/F
+    const vector<float> &Jet_mass_jesTimePtEtaDown(); // Jet_mass_jesTimePtEtaDown[nJet]/F
+    const vector<float> &Jet_mass_jesTimePtEtaUp(); // Jet_mass_jesTimePtEtaUp[nJet]/F
+    const vector<float> &Jet_mass_jesTimeRunADown(); // Jet_mass_jesTimeRunADown[nJet]/F
+    const vector<float> &Jet_mass_jesTimeRunAUp(); // Jet_mass_jesTimeRunAUp[nJet]/F
+    const vector<float> &Jet_mass_jesTimeRunBDown(); // Jet_mass_jesTimeRunBDown[nJet]/F
+    const vector<float> &Jet_mass_jesTimeRunBUp(); // Jet_mass_jesTimeRunBUp[nJet]/F
+    const vector<float> &Jet_mass_jesTimeRunCDown(); // Jet_mass_jesTimeRunCDown[nJet]/F
+    const vector<float> &Jet_mass_jesTimeRunCUp(); // Jet_mass_jesTimeRunCUp[nJet]/F
+    const vector<float> &Jet_mass_jesTimeRunDDown(); // Jet_mass_jesTimeRunDDown[nJet]/F
+    const vector<float> &Jet_mass_jesTimeRunDUp(); // Jet_mass_jesTimeRunDUp[nJet]/F
     const vector<float> &Jet_mass_jesTotalDown(); // Jet_mass_jesTotalDown[nJet]/F
+    const vector<float> &Jet_mass_jesTotalNoFlavorDown(); // Jet_mass_jesTotalNoFlavorDown[nJet]/F
+    const vector<float> &Jet_mass_jesTotalNoFlavorNoTimeDown(); // Jet_mass_jesTotalNoFlavorNoTimeDown[nJet]/F
+    const vector<float> &Jet_mass_jesTotalNoFlavorNoTimeUp(); // Jet_mass_jesTotalNoFlavorNoTimeUp[nJet]/F
+    const vector<float> &Jet_mass_jesTotalNoFlavorUp(); // Jet_mass_jesTotalNoFlavorUp[nJet]/F
+    const vector<float> &Jet_mass_jesTotalNoTimeDown(); // Jet_mass_jesTotalNoTimeDown[nJet]/F
+    const vector<float> &Jet_mass_jesTotalNoTimeUp(); // Jet_mass_jesTotalNoTimeUp[nJet]/F    
     const vector<float> &Jet_mass_jesTotalUp(); // Jet_mass_jesTotalUp[nJet]/F
     const vector<float> &Jet_mass_nom(); // Jet_mass_nom[nJet]/F
     const vector<float> &Jet_mass_raw(); // Jet_mass_raw[nJet]/F
@@ -19581,9 +26540,119 @@ namespace tas {
     const vector<float> &Jet_pt(); // pt
     const vector<float> &Jet_pt_jerDown(); // Jet_pt_jerDown[nJet]/F
     const vector<float> &Jet_pt_jerUp(); // Jet_pt_jerUp[nJet]/F
+    const vector<float> &Jet_pt_jesAbsoluteFlavMapDown(); // Jet_pt_jesAbsoluteFlavMapDown[nJet]/F
+    const vector<float> &Jet_pt_jesAbsoluteFlavMapUp(); // Jet_pt_jesAbsoluteFlavMapUp[nJet]/F
+    const vector<float> &Jet_pt_jesAbsoluteMPFBiasDown(); // Jet_pt_jesAbsoluteMPFBiasDown[nJet]/F
+    const vector<float> &Jet_pt_jesAbsoluteMPFBiasUp(); // Jet_pt_jesAbsoluteMPFBiasUp[nJet]/F
+    const vector<float> &Jet_pt_jesAbsoluteSampleDown(); // Jet_pt_jesAbsoluteSampleDown[nJet]/F
+    const vector<float> &Jet_pt_jesAbsoluteSampleUp(); // Jet_pt_jesAbsoluteSampleUp[nJet]/F
+    const vector<float> &Jet_pt_jesAbsoluteScaleDown(); // Jet_pt_jesAbsoluteScaleDown[nJet]/F
+    const vector<float> &Jet_pt_jesAbsoluteScaleUp(); // Jet_pt_jesAbsoluteScaleUp[nJet]/F
+    const vector<float> &Jet_pt_jesAbsoluteStatDown(); // Jet_pt_jesAbsoluteStatDown[nJet]/F
+    const vector<float> &Jet_pt_jesAbsoluteStatUp(); // Jet_pt_jesAbsoluteStatUp[nJet]/F
+    const vector<float> &Jet_pt_jesCorrelationGroupFlavorDown(); // Jet_pt_jesCorrelationGroupFlavorDown[nJet]/F
+    const vector<float> &Jet_pt_jesCorrelationGroupFlavorUp(); // Jet_pt_jesCorrelationGroupFlavorUp[nJet]/F
+    const vector<float> &Jet_pt_jesCorrelationGroupIntercalibrationDown(); // Jet_pt_jesCorrelationGroupIntercalibrationDown[nJet]/F
+    const vector<float> &Jet_pt_jesCorrelationGroupIntercalibrationUp(); // Jet_pt_jesCorrelationGroupIntercalibrationUp[nJet]/F
+    const vector<float> &Jet_pt_jesCorrelationGroupMPFInSituDown(); // Jet_pt_jesCorrelationGroupMPFInSituDown[nJet]/F
+    const vector<float> &Jet_pt_jesCorrelationGroupMPFInSituUp(); // Jet_pt_jesCorrelationGroupMPFInSituUp[nJet]/F
+    const vector<float> &Jet_pt_jesCorrelationGroupUncorrelatedDown(); // Jet_pt_jesCorrelationGroupUncorrelatedDown[nJet]/F
+    const vector<float> &Jet_pt_jesCorrelationGroupUncorrelatedUp(); // Jet_pt_jesCorrelationGroupUncorrelatedUp[nJet]/F
+    const vector<float> &Jet_pt_jesCorrelationGroupbJESDown(); // Jet_pt_jesCorrelationGroupbJESDown[nJet]/F
+    const vector<float> &Jet_pt_jesCorrelationGroupbJESUp(); // Jet_pt_jesCorrelationGroupbJESUp[nJet]/F
+    const vector<float> &Jet_pt_jesFlavorPhotonJetDown(); // Jet_pt_jesFlavorPhotonJetDown[nJet]/F
+    const vector<float> &Jet_pt_jesFlavorPhotonJetUp(); // Jet_pt_jesFlavorPhotonJetUp[nJet]/F
+    const vector<float> &Jet_pt_jesFlavorPureBottomDown(); // Jet_pt_jesFlavorPureBottomDown[nJet]/F
+    const vector<float> &Jet_pt_jesFlavorPureBottomUp(); // Jet_pt_jesFlavorPureBottomUp[nJet]/F
+    const vector<float> &Jet_pt_jesFlavorPureCharmDown(); // Jet_pt_jesFlavorPureCharmDown[nJet]/F
+    const vector<float> &Jet_pt_jesFlavorPureCharmUp(); // Jet_pt_jesFlavorPureCharmUp[nJet]/F
+    const vector<float> &Jet_pt_jesFlavorPureGluonDown(); // Jet_pt_jesFlavorPureGluonDown[nJet]/F
+    const vector<float> &Jet_pt_jesFlavorPureGluonUp(); // Jet_pt_jesFlavorPureGluonUp[nJet]/F
+    const vector<float> &Jet_pt_jesFlavorPureQuarkDown(); // Jet_pt_jesFlavorPureQuarkDown[nJet]/F
+    const vector<float> &Jet_pt_jesFlavorPureQuarkUp(); // Jet_pt_jesFlavorPureQuarkUp[nJet]/F
+    const vector<float> &Jet_pt_jesFlavorQCDDown(); // Jet_pt_jesFlavorQCDDown[nJet]/F
+    const vector<float> &Jet_pt_jesFlavorQCDUp(); // Jet_pt_jesFlavorQCDUp[nJet]/F
+    const vector<float> &Jet_pt_jesFlavorZJetDown(); // Jet_pt_jesFlavorZJetDown[nJet]/F
+    const vector<float> &Jet_pt_jesFlavorZJetUp(); // Jet_pt_jesFlavorZJetUp[nJet]/F
+    const vector<float> &Jet_pt_jesFragmentationDown(); // Jet_pt_jesFragmentationDown[nJet]/F
+    const vector<float> &Jet_pt_jesFragmentationUp(); // Jet_pt_jesFragmentationUp[nJet]/F
     const vector<float> &Jet_pt_jesHEMIssueDown(); // Jet_pt_jesHEMIssueDown[nJet]/F
     const vector<float> &Jet_pt_jesHEMIssueUp(); // Jet_pt_jesHEMIssueUp[nJet]/F
+    const vector<float> &Jet_pt_jesPileUpDataMCDown(); // Jet_pt_jesPileUpDataMCDown[nJet]/F
+    const vector<float> &Jet_pt_jesPileUpDataMCUp(); // Jet_pt_jesPileUpDataMCUp[nJet]/F
+    const vector<float> &Jet_pt_jesPileUpEnvelopeDown(); // Jet_pt_jesPileUpEnvelopeDown[nJet]/F
+    const vector<float> &Jet_pt_jesPileUpEnvelopeUp(); // Jet_pt_jesPileUpEnvelopeUp[nJet]/F
+    const vector<float> &Jet_pt_jesPileUpMuZeroDown(); // Jet_pt_jesPileUpMuZeroDown[nJet]/F
+    const vector<float> &Jet_pt_jesPileUpMuZeroUp(); // Jet_pt_jesPileUpMuZeroUp[nJet]/F
+    const vector<float> &Jet_pt_jesPileUpPtBBDown(); // Jet_pt_jesPileUpPtBBDown[nJet]/F
+    const vector<float> &Jet_pt_jesPileUpPtBBUp(); // Jet_pt_jesPileUpPtBBUp[nJet]/F
+    const vector<float> &Jet_pt_jesPileUpPtEC1Down(); // Jet_pt_jesPileUpPtEC1Down[nJet]/F
+    const vector<float> &Jet_pt_jesPileUpPtEC1Up(); // Jet_pt_jesPileUpPtEC1Up[nJet]/F
+    const vector<float> &Jet_pt_jesPileUpPtEC2Down(); // Jet_pt_jesPileUpPtEC2Down[nJet]/F
+    const vector<float> &Jet_pt_jesPileUpPtEC2Up(); // Jet_pt_jesPileUpPtEC2Up[nJet]/F
+    const vector<float> &Jet_pt_jesPileUpPtHFDown(); // Jet_pt_jesPileUpPtHFDown[nJet]/F
+    const vector<float> &Jet_pt_jesPileUpPtHFUp(); // Jet_pt_jesPileUpPtHFUp[nJet]/F
+    const vector<float> &Jet_pt_jesPileUpPtRefDown(); // Jet_pt_jesPileUpPtRefDown[nJet]/F
+    const vector<float> &Jet_pt_jesPileUpPtRefUp(); // Jet_pt_jesPileUpPtRefUp[nJet]/F
+    const vector<float> &Jet_pt_jesRelativeBalDown(); // Jet_pt_jesRelativeBalDown[nJet]/F
+    const vector<float> &Jet_pt_jesRelativeBalUp(); // Jet_pt_jesRelativeBalUp[nJet]/F
+    const vector<float> &Jet_pt_jesRelativeFSRDown(); // Jet_pt_jesRelativeFSRDown[nJet]/F
+    const vector<float> &Jet_pt_jesRelativeFSRUp(); // Jet_pt_jesRelativeFSRUp[nJet]/F
+    const vector<float> &Jet_pt_jesRelativeJEREC1Down(); // Jet_pt_jesRelativeJEREC1Down[nJet]/F
+    const vector<float> &Jet_pt_jesRelativeJEREC1Up(); // Jet_pt_jesRelativeJEREC1Up[nJet]/F
+    const vector<float> &Jet_pt_jesRelativeJEREC2Down(); // Jet_pt_jesRelativeJEREC2Down[nJet]/F
+    const vector<float> &Jet_pt_jesRelativeJEREC2Up(); // Jet_pt_jesRelativeJEREC2Up[nJet]/F
+    const vector<float> &Jet_pt_jesRelativeJERHFDown(); // Jet_pt_jesRelativeJERHFDown[nJet]/F
+    const vector<float> &Jet_pt_jesRelativeJERHFUp(); // Jet_pt_jesRelativeJERHFUp[nJet]/F
+    const vector<float> &Jet_pt_jesRelativePtBBDown(); // Jet_pt_jesRelativePtBBDown[nJet]/F
+    const vector<float> &Jet_pt_jesRelativePtBBUp(); // Jet_pt_jesRelativePtBBUp[nJet]/F
+    const vector<float> &Jet_pt_jesRelativePtEC1Down(); // Jet_pt_jesRelativePtEC1Down[nJet]/F
+    const vector<float> &Jet_pt_jesRelativePtEC1Up(); // Jet_pt_jesRelativePtEC1Up[nJet]/F
+    const vector<float> &Jet_pt_jesRelativePtEC2Down(); // Jet_pt_jesRelativePtEC2Down[nJet]/F
+    const vector<float> &Jet_pt_jesRelativePtEC2Up(); // Jet_pt_jesRelativePtEC2Up[nJet]/F
+    const vector<float> &Jet_pt_jesRelativePtHFDown(); // Jet_pt_jesRelativePtHFDown[nJet]/F
+    const vector<float> &Jet_pt_jesRelativePtHFUp(); // Jet_pt_jesRelativePtHFUp[nJet]/F
+    const vector<float> &Jet_pt_jesRelativeSampleDown(); // Jet_pt_jesRelativeSampleDown[nJet]/F
+    const vector<float> &Jet_pt_jesRelativeSampleUp(); // Jet_pt_jesRelativeSampleUp[nJet]/F
+    const vector<float> &Jet_pt_jesRelativeStatECDown(); // Jet_pt_jesRelativeStatECDown[nJet]/F
+    const vector<float> &Jet_pt_jesRelativeStatECUp(); // Jet_pt_jesRelativeStatECUp[nJet]/F
+    const vector<float> &Jet_pt_jesRelativeStatFSRDown(); // Jet_pt_jesRelativeStatFSRDown[nJet]/F
+    const vector<float> &Jet_pt_jesRelativeStatFSRUp(); // Jet_pt_jesRelativeStatFSRUp[nJet]/F
+    const vector<float> &Jet_pt_jesRelativeStatHFDown(); // Jet_pt_jesRelativeStatHFDown[nJet]/F
+    const vector<float> &Jet_pt_jesRelativeStatHFUp(); // Jet_pt_jesRelativeStatHFUp[nJet]/F
+    const vector<float> &Jet_pt_jesSinglePionECALDown(); // Jet_pt_jesSinglePionECALDown[nJet]/F
+    const vector<float> &Jet_pt_jesSinglePionECALUp(); // Jet_pt_jesSinglePionECALUp[nJet]/F
+    const vector<float> &Jet_pt_jesSinglePionHCALDown(); // Jet_pt_jesSinglePionHCALDown[nJet]/F
+    const vector<float> &Jet_pt_jesSinglePionHCALUp(); // Jet_pt_jesSinglePionHCALUp[nJet]/F
+    const vector<float> &Jet_pt_jesSubTotalAbsoluteDown(); // Jet_pt_jesSubTotalAbsoluteDown[nJet]/F
+    const vector<float> &Jet_pt_jesSubTotalAbsoluteUp(); // Jet_pt_jesSubTotalAbsoluteUp[nJet]/F
+    const vector<float> &Jet_pt_jesSubTotalMCDown(); // Jet_pt_jesSubTotalMCDown[nJet]/F
+    const vector<float> &Jet_pt_jesSubTotalMCUp(); // Jet_pt_jesSubTotalMCUp[nJet]/F
+    const vector<float> &Jet_pt_jesSubTotalPileUpDown(); // Jet_pt_jesSubTotalPileUpDown[nJet]/F
+    const vector<float> &Jet_pt_jesSubTotalPileUpUp(); // Jet_pt_jesSubTotalPileUpUp[nJet]/F
+    const vector<float> &Jet_pt_jesSubTotalPtDown(); // Jet_pt_jesSubTotalPtDown[nJet]/F
+    const vector<float> &Jet_pt_jesSubTotalPtUp(); // Jet_pt_jesSubTotalPtUp[nJet]/F
+    const vector<float> &Jet_pt_jesSubTotalRelativeDown(); // Jet_pt_jesSubTotalRelativeDown[nJet]/F
+    const vector<float> &Jet_pt_jesSubTotalRelativeUp(); // Jet_pt_jesSubTotalRelativeUp[nJet]/F
+    const vector<float> &Jet_pt_jesSubTotalScaleDown(); // Jet_pt_jesSubTotalScaleDown[nJet]/F
+    const vector<float> &Jet_pt_jesSubTotalScaleUp(); // Jet_pt_jesSubTotalScaleUp[nJet]/F
+    const vector<float> &Jet_pt_jesTimePtEtaDown(); // Jet_pt_jesTimePtEtaDown[nJet]/F
+    const vector<float> &Jet_pt_jesTimePtEtaUp(); // Jet_pt_jesTimePtEtaUp[nJet]/F
+    const vector<float> &Jet_pt_jesTimeRunADown(); // Jet_pt_jesTimeRunADown[nJet]/F
+    const vector<float> &Jet_pt_jesTimeRunAUp(); // Jet_pt_jesTimeRunAUp[nJet]/F
+    const vector<float> &Jet_pt_jesTimeRunBDown(); // Jet_pt_jesTimeRunBDown[nJet]/F
+    const vector<float> &Jet_pt_jesTimeRunBUp(); // Jet_pt_jesTimeRunBUp[nJet]/F
+    const vector<float> &Jet_pt_jesTimeRunCDown(); // Jet_pt_jesTimeRunCDown[nJet]/F
+    const vector<float> &Jet_pt_jesTimeRunCUp(); // Jet_pt_jesTimeRunCUp[nJet]/F
+    const vector<float> &Jet_pt_jesTimeRunDDown(); // Jet_pt_jesTimeRunDDown[nJet]/F
+    const vector<float> &Jet_pt_jesTimeRunDUp(); // Jet_pt_jesTimeRunDUp[nJet]/F    
     const vector<float> &Jet_pt_jesTotalDown(); // Jet_pt_jesTotalDown[nJet]/F
+    const vector<float> &Jet_pt_jesTotalNoFlavorDown(); // Jet_pt_jesTotalNoFlavorDown[nJet]/F
+    const vector<float> &Jet_pt_jesTotalNoFlavorNoTimeDown(); // Jet_pt_jesTotalNoFlavorNoTimeDown[nJet]/F
+    const vector<float> &Jet_pt_jesTotalNoFlavorNoTimeUp(); // Jet_pt_jesTotalNoFlavorNoTimeUp[nJet]/F
+    const vector<float> &Jet_pt_jesTotalNoFlavorUp(); // Jet_pt_jesTotalNoFlavorUp[nJet]/F
+    const vector<float> &Jet_pt_jesTotalNoTimeDown(); // Jet_pt_jesTotalNoTimeDown[nJet]/F
+    const vector<float> &Jet_pt_jesTotalNoTimeUp(); // Jet_pt_jesTotalNoTimeUp[nJet]/F
     const vector<float> &Jet_pt_jesTotalUp(); // Jet_pt_jesTotalUp[nJet]/F
     const vector<float> &Jet_pt_nom(); // Jet_pt_nom[nJet]/F
     const vector<float> &Jet_pt_raw(); // Jet_pt_raw[nJet]/F
@@ -20436,36 +27505,476 @@ namespace tas {
     const float &MET_T1Smear_phi(); // MET_T1Smear_phi/F
     const float &MET_T1Smear_phi_jerDown(); // MET_T1Smear_phi_jerDown/F
     const float &MET_T1Smear_phi_jerUp(); // MET_T1Smear_phi_jerUp/F
+    const float &MET_T1Smear_phi_jesAbsoluteFlavMapDown(); // MET_T1Smear_phi_jesAbsoluteFlavMapDown/F
+    const float &MET_T1Smear_phi_jesAbsoluteFlavMapUp(); // MET_T1Smear_phi_jesAbsoluteFlavMapUp/F
+    const float &MET_T1Smear_phi_jesAbsoluteMPFBiasDown(); // MET_T1Smear_phi_jesAbsoluteMPFBiasDown/F
+    const float &MET_T1Smear_phi_jesAbsoluteMPFBiasUp(); // MET_T1Smear_phi_jesAbsoluteMPFBiasUp/F
+    const float &MET_T1Smear_phi_jesAbsoluteSampleDown(); // MET_T1Smear_phi_jesAbsoluteSampleDown/F
+    const float &MET_T1Smear_phi_jesAbsoluteSampleUp(); // MET_T1Smear_phi_jesAbsoluteSampleUp/F
+    const float &MET_T1Smear_phi_jesAbsoluteScaleDown(); // MET_T1Smear_phi_jesAbsoluteScaleDown/F
+    const float &MET_T1Smear_phi_jesAbsoluteScaleUp(); // MET_T1Smear_phi_jesAbsoluteScaleUp/F
+    const float &MET_T1Smear_phi_jesAbsoluteStatDown(); // MET_T1Smear_phi_jesAbsoluteStatDown/F
+    const float &MET_T1Smear_phi_jesAbsoluteStatUp(); // MET_T1Smear_phi_jesAbsoluteStatUp/F
+    const float &MET_T1Smear_phi_jesCorrelationGroupFlavorDown(); // MET_T1Smear_phi_jesCorrelationGroupFlavorDown/F
+    const float &MET_T1Smear_phi_jesCorrelationGroupFlavorUp(); // MET_T1Smear_phi_jesCorrelationGroupFlavorUp/F
+    const float &MET_T1Smear_phi_jesCorrelationGroupIntercalibrationDown(); // MET_T1Smear_phi_jesCorrelationGroupIntercalibrationDown/F
+    const float &MET_T1Smear_phi_jesCorrelationGroupIntercalibrationUp(); // MET_T1Smear_phi_jesCorrelationGroupIntercalibrationUp/F
+    const float &MET_T1Smear_phi_jesCorrelationGroupMPFInSituDown(); // MET_T1Smear_phi_jesCorrelationGroupMPFInSituDown/F
+    const float &MET_T1Smear_phi_jesCorrelationGroupMPFInSituUp(); // MET_T1Smear_phi_jesCorrelationGroupMPFInSituUp/F
+    const float &MET_T1Smear_phi_jesCorrelationGroupUncorrelatedDown(); // MET_T1Smear_phi_jesCorrelationGroupUncorrelatedDown/F
+    const float &MET_T1Smear_phi_jesCorrelationGroupUncorrelatedUp(); // MET_T1Smear_phi_jesCorrelationGroupUncorrelatedUp/F
+    const float &MET_T1Smear_phi_jesCorrelationGroupbJESDown(); // MET_T1Smear_phi_jesCorrelationGroupbJESDown/F
+    const float &MET_T1Smear_phi_jesCorrelationGroupbJESUp(); // MET_T1Smear_phi_jesCorrelationGroupbJESUp/F
+    const float &MET_T1Smear_phi_jesFlavorPhotonJetDown(); // MET_T1Smear_phi_jesFlavorPhotonJetDown/F
+    const float &MET_T1Smear_phi_jesFlavorPhotonJetUp(); // MET_T1Smear_phi_jesFlavorPhotonJetUp/F
+    const float &MET_T1Smear_phi_jesFlavorPureBottomDown(); // MET_T1Smear_phi_jesFlavorPureBottomDown/F
+    const float &MET_T1Smear_phi_jesFlavorPureBottomUp(); // MET_T1Smear_phi_jesFlavorPureBottomUp/F
+    const float &MET_T1Smear_phi_jesFlavorPureCharmDown(); // MET_T1Smear_phi_jesFlavorPureCharmDown/F
+    const float &MET_T1Smear_phi_jesFlavorPureCharmUp(); // MET_T1Smear_phi_jesFlavorPureCharmUp/F
+    const float &MET_T1Smear_phi_jesFlavorPureGluonDown(); // MET_T1Smear_phi_jesFlavorPureGluonDown/F
+    const float &MET_T1Smear_phi_jesFlavorPureGluonUp(); // MET_T1Smear_phi_jesFlavorPureGluonUp/F
+    const float &MET_T1Smear_phi_jesFlavorPureQuarkDown(); // MET_T1Smear_phi_jesFlavorPureQuarkDown/F
+    const float &MET_T1Smear_phi_jesFlavorPureQuarkUp(); // MET_T1Smear_phi_jesFlavorPureQuarkUp/F
+    const float &MET_T1Smear_phi_jesFlavorQCDDown(); // MET_T1Smear_phi_jesFlavorQCDDown/F
+    const float &MET_T1Smear_phi_jesFlavorQCDUp(); // MET_T1Smear_phi_jesFlavorQCDUp/F
+    const float &MET_T1Smear_phi_jesFlavorZJetDown(); // MET_T1Smear_phi_jesFlavorZJetDown/F
+    const float &MET_T1Smear_phi_jesFlavorZJetUp(); // MET_T1Smear_phi_jesFlavorZJetUp/F
+    const float &MET_T1Smear_phi_jesFragmentationDown(); // MET_T1Smear_phi_jesFragmentationDown/F
+    const float &MET_T1Smear_phi_jesFragmentationUp(); // MET_T1Smear_phi_jesFragmentationUp/F    
     const float &MET_T1Smear_phi_jesHEMIssueDown(); // MET_T1Smear_phi_jesHEMIssueDown/F
     const float &MET_T1Smear_phi_jesHEMIssueUp(); // MET_T1Smear_phi_jesHEMIssueUp/F
+    const float &MET_T1Smear_phi_jesPileUpDataMCDown(); // MET_T1Smear_phi_jesPileUpDataMCDown/F
+    const float &MET_T1Smear_phi_jesPileUpDataMCUp(); // MET_T1Smear_phi_jesPileUpDataMCUp/F
+    const float &MET_T1Smear_phi_jesPileUpEnvelopeDown(); // MET_T1Smear_phi_jesPileUpEnvelopeDown/F
+    const float &MET_T1Smear_phi_jesPileUpEnvelopeUp(); // MET_T1Smear_phi_jesPileUpEnvelopeUp/F
+    const float &MET_T1Smear_phi_jesPileUpMuZeroDown(); // MET_T1Smear_phi_jesPileUpMuZeroDown/F
+    const float &MET_T1Smear_phi_jesPileUpMuZeroUp(); // MET_T1Smear_phi_jesPileUpMuZeroUp/F
+    const float &MET_T1Smear_phi_jesPileUpPtBBDown(); // MET_T1Smear_phi_jesPileUpPtBBDown/F
+    const float &MET_T1Smear_phi_jesPileUpPtBBUp(); // MET_T1Smear_phi_jesPileUpPtBBUp/F
+    const float &MET_T1Smear_phi_jesPileUpPtEC1Down(); // MET_T1Smear_phi_jesPileUpPtEC1Down/F
+    const float &MET_T1Smear_phi_jesPileUpPtEC1Up(); // MET_T1Smear_phi_jesPileUpPtEC1Up/F
+    const float &MET_T1Smear_phi_jesPileUpPtEC2Down(); // MET_T1Smear_phi_jesPileUpPtEC2Down/F
+    const float &MET_T1Smear_phi_jesPileUpPtEC2Up(); // MET_T1Smear_phi_jesPileUpPtEC2Up/F
+    const float &MET_T1Smear_phi_jesPileUpPtHFDown(); // MET_T1Smear_phi_jesPileUpPtHFDown/F
+    const float &MET_T1Smear_phi_jesPileUpPtHFUp(); // MET_T1Smear_phi_jesPileUpPtHFUp/F
+    const float &MET_T1Smear_phi_jesPileUpPtRefDown(); // MET_T1Smear_phi_jesPileUpPtRefDown/F
+    const float &MET_T1Smear_phi_jesPileUpPtRefUp(); // MET_T1Smear_phi_jesPileUpPtRefUp/F
+    const float &MET_T1Smear_phi_jesRelativeBalDown(); // MET_T1Smear_phi_jesRelativeBalDown/F
+    const float &MET_T1Smear_phi_jesRelativeBalUp(); // MET_T1Smear_phi_jesRelativeBalUp/F
+    const float &MET_T1Smear_phi_jesRelativeFSRDown(); // MET_T1Smear_phi_jesRelativeFSRDown/F
+    const float &MET_T1Smear_phi_jesRelativeFSRUp(); // MET_T1Smear_phi_jesRelativeFSRUp/F
+    const float &MET_T1Smear_phi_jesRelativeJEREC1Down(); // MET_T1Smear_phi_jesRelativeJEREC1Down/F
+    const float &MET_T1Smear_phi_jesRelativeJEREC1Up(); // MET_T1Smear_phi_jesRelativeJEREC1Up/F
+    const float &MET_T1Smear_phi_jesRelativeJEREC2Down(); // MET_T1Smear_phi_jesRelativeJEREC2Down/F
+    const float &MET_T1Smear_phi_jesRelativeJEREC2Up(); // MET_T1Smear_phi_jesRelativeJEREC2Up/F
+    const float &MET_T1Smear_phi_jesRelativeJERHFDown(); // MET_T1Smear_phi_jesRelativeJERHFDown/F
+    const float &MET_T1Smear_phi_jesRelativeJERHFUp(); // MET_T1Smear_phi_jesRelativeJERHFUp/F
+    const float &MET_T1Smear_phi_jesRelativePtBBDown(); // MET_T1Smear_phi_jesRelativePtBBDown/F
+    const float &MET_T1Smear_phi_jesRelativePtBBUp(); // MET_T1Smear_phi_jesRelativePtBBUp/F
+    const float &MET_T1Smear_phi_jesRelativePtEC1Down(); // MET_T1Smear_phi_jesRelativePtEC1Down/F
+    const float &MET_T1Smear_phi_jesRelativePtEC1Up(); // MET_T1Smear_phi_jesRelativePtEC1Up/F
+    const float &MET_T1Smear_phi_jesRelativePtEC2Down(); // MET_T1Smear_phi_jesRelativePtEC2Down/F
+    const float &MET_T1Smear_phi_jesRelativePtEC2Up(); // MET_T1Smear_phi_jesRelativePtEC2Up/F
+    const float &MET_T1Smear_phi_jesRelativePtHFDown(); // MET_T1Smear_phi_jesRelativePtHFDown/F
+    const float &MET_T1Smear_phi_jesRelativePtHFUp(); // MET_T1Smear_phi_jesRelativePtHFUp/F
+    const float &MET_T1Smear_phi_jesRelativeSampleDown(); // MET_T1Smear_phi_jesRelativeSampleDown/F
+    const float &MET_T1Smear_phi_jesRelativeSampleUp(); // MET_T1Smear_phi_jesRelativeSampleUp/F
+    const float &MET_T1Smear_phi_jesRelativeStatECDown(); // MET_T1Smear_phi_jesRelativeStatECDown/F
+    const float &MET_T1Smear_phi_jesRelativeStatECUp(); // MET_T1Smear_phi_jesRelativeStatECUp/F
+    const float &MET_T1Smear_phi_jesRelativeStatFSRDown(); // MET_T1Smear_phi_jesRelativeStatFSRDown/F
+    const float &MET_T1Smear_phi_jesRelativeStatFSRUp(); // MET_T1Smear_phi_jesRelativeStatFSRUp/F
+    const float &MET_T1Smear_phi_jesRelativeStatHFDown(); // MET_T1Smear_phi_jesRelativeStatHFDown/F
+    const float &MET_T1Smear_phi_jesRelativeStatHFUp(); // MET_T1Smear_phi_jesRelativeStatHFUp/F
+    const float &MET_T1Smear_phi_jesSinglePionECALDown(); // MET_T1Smear_phi_jesSinglePionECALDown/F
+    const float &MET_T1Smear_phi_jesSinglePionECALUp(); // MET_T1Smear_phi_jesSinglePionECALUp/F
+    const float &MET_T1Smear_phi_jesSinglePionHCALDown(); // MET_T1Smear_phi_jesSinglePionHCALDown/F
+    const float &MET_T1Smear_phi_jesSinglePionHCALUp(); // MET_T1Smear_phi_jesSinglePionHCALUp/F
+    const float &MET_T1Smear_phi_jesSubTotalAbsoluteDown(); // MET_T1Smear_phi_jesSubTotalAbsoluteDown/F
+    const float &MET_T1Smear_phi_jesSubTotalAbsoluteUp(); // MET_T1Smear_phi_jesSubTotalAbsoluteUp/F
+    const float &MET_T1Smear_phi_jesSubTotalMCDown(); // MET_T1Smear_phi_jesSubTotalMCDown/F
+    const float &MET_T1Smear_phi_jesSubTotalMCUp(); // MET_T1Smear_phi_jesSubTotalMCUp/F
+    const float &MET_T1Smear_phi_jesSubTotalPileUpDown(); // MET_T1Smear_phi_jesSubTotalPileUpDown/F
+    const float &MET_T1Smear_phi_jesSubTotalPileUpUp(); // MET_T1Smear_phi_jesSubTotalPileUpUp/F
+    const float &MET_T1Smear_phi_jesSubTotalPtDown(); // MET_T1Smear_phi_jesSubTotalPtDown/F
+    const float &MET_T1Smear_phi_jesSubTotalPtUp(); // MET_T1Smear_phi_jesSubTotalPtUp/F
+    const float &MET_T1Smear_phi_jesSubTotalRelativeDown(); // MET_T1Smear_phi_jesSubTotalRelativeDown/F
+    const float &MET_T1Smear_phi_jesSubTotalRelativeUp(); // MET_T1Smear_phi_jesSubTotalRelativeUp/F
+    const float &MET_T1Smear_phi_jesSubTotalScaleDown(); // MET_T1Smear_phi_jesSubTotalScaleDown/F
+    const float &MET_T1Smear_phi_jesSubTotalScaleUp(); // MET_T1Smear_phi_jesSubTotalScaleUp/F
+    const float &MET_T1Smear_phi_jesTimePtEtaDown(); // MET_T1Smear_phi_jesTimePtEtaDown/F
+    const float &MET_T1Smear_phi_jesTimePtEtaUp(); // MET_T1Smear_phi_jesTimePtEtaUp/F
+    const float &MET_T1Smear_phi_jesTimeRunADown(); // MET_T1Smear_phi_jesTimeRunADown/F
+    const float &MET_T1Smear_phi_jesTimeRunAUp(); // MET_T1Smear_phi_jesTimeRunAUp/F
+    const float &MET_T1Smear_phi_jesTimeRunBDown(); // MET_T1Smear_phi_jesTimeRunBDown/F
+    const float &MET_T1Smear_phi_jesTimeRunBUp(); // MET_T1Smear_phi_jesTimeRunBUp/F
+    const float &MET_T1Smear_phi_jesTimeRunCDown(); // MET_T1Smear_phi_jesTimeRunCDown/F
+    const float &MET_T1Smear_phi_jesTimeRunCUp(); // MET_T1Smear_phi_jesTimeRunCUp/F
+    const float &MET_T1Smear_phi_jesTimeRunDDown(); // MET_T1Smear_phi_jesTimeRunDDown/F
+    const float &MET_T1Smear_phi_jesTimeRunDUp(); // MET_T1Smear_phi_jesTimeRunDUp/F    
     const float &MET_T1Smear_phi_jesTotalDown(); // MET_T1Smear_phi_jesTotalDown/F
+    const float &MET_T1Smear_phi_jesTotalNoFlavorDown(); // MET_T1Smear_phi_jesTotalNoFlavorDown/F
+    const float &MET_T1Smear_phi_jesTotalNoFlavorNoTimeDown(); // MET_T1Smear_phi_jesTotalNoFlavorNoTimeDown/F
+    const float &MET_T1Smear_phi_jesTotalNoFlavorNoTimeUp(); // MET_T1Smear_phi_jesTotalNoFlavorNoTimeUp/F
+    const float &MET_T1Smear_phi_jesTotalNoFlavorUp(); // MET_T1Smear_phi_jesTotalNoFlavorUp/F
+    const float &MET_T1Smear_phi_jesTotalNoTimeDown(); // MET_T1Smear_phi_jesTotalNoTimeDown/F
+    const float &MET_T1Smear_phi_jesTotalNoTimeUp(); // MET_T1Smear_phi_jesTotalNoTimeUp/F
     const float &MET_T1Smear_phi_jesTotalUp(); // MET_T1Smear_phi_jesTotalUp/F
     const float &MET_T1Smear_phi_unclustEnDown(); // MET_T1Smear_phi_unclustEnDown/F
     const float &MET_T1Smear_phi_unclustEnUp(); // MET_T1Smear_phi_unclustEnUp/F
     const float &MET_T1Smear_pt(); // MET_T1Smear_pt/F
     const float &MET_T1Smear_pt_jerDown(); // MET_T1Smear_pt_jerDown/F
     const float &MET_T1Smear_pt_jerUp(); // MET_T1Smear_pt_jerUp/F
+    const float &MET_T1Smear_pt_jesAbsoluteFlavMapDown(); // MET_T1Smear_pt_jesAbsoluteFlavMapDown/F
+    const float &MET_T1Smear_pt_jesAbsoluteFlavMapUp(); // MET_T1Smear_pt_jesAbsoluteFlavMapUp/F
+    const float &MET_T1Smear_pt_jesAbsoluteMPFBiasDown(); // MET_T1Smear_pt_jesAbsoluteMPFBiasDown/F
+    const float &MET_T1Smear_pt_jesAbsoluteMPFBiasUp(); // MET_T1Smear_pt_jesAbsoluteMPFBiasUp/F
+    const float &MET_T1Smear_pt_jesAbsoluteSampleDown(); // MET_T1Smear_pt_jesAbsoluteSampleDown/F
+    const float &MET_T1Smear_pt_jesAbsoluteSampleUp(); // MET_T1Smear_pt_jesAbsoluteSampleUp/F
+    const float &MET_T1Smear_pt_jesAbsoluteScaleDown(); // MET_T1Smear_pt_jesAbsoluteScaleDown/F
+    const float &MET_T1Smear_pt_jesAbsoluteScaleUp(); // MET_T1Smear_pt_jesAbsoluteScaleUp/F
+    const float &MET_T1Smear_pt_jesAbsoluteStatDown(); // MET_T1Smear_pt_jesAbsoluteStatDown/F
+    const float &MET_T1Smear_pt_jesAbsoluteStatUp(); // MET_T1Smear_pt_jesAbsoluteStatUp/F
+    const float &MET_T1Smear_pt_jesCorrelationGroupFlavorDown(); // MET_T1Smear_pt_jesCorrelationGroupFlavorDown/F
+    const float &MET_T1Smear_pt_jesCorrelationGroupFlavorUp(); // MET_T1Smear_pt_jesCorrelationGroupFlavorUp/F
+    const float &MET_T1Smear_pt_jesCorrelationGroupIntercalibrationDown(); // MET_T1Smear_pt_jesCorrelationGroupIntercalibrationDown/F
+    const float &MET_T1Smear_pt_jesCorrelationGroupIntercalibrationUp(); // MET_T1Smear_pt_jesCorrelationGroupIntercalibrationUp/F
+    const float &MET_T1Smear_pt_jesCorrelationGroupMPFInSituDown(); // MET_T1Smear_pt_jesCorrelationGroupMPFInSituDown/F
+    const float &MET_T1Smear_pt_jesCorrelationGroupMPFInSituUp(); // MET_T1Smear_pt_jesCorrelationGroupMPFInSituUp/F
+    const float &MET_T1Smear_pt_jesCorrelationGroupUncorrelatedDown(); // MET_T1Smear_pt_jesCorrelationGroupUncorrelatedDown/F
+    const float &MET_T1Smear_pt_jesCorrelationGroupUncorrelatedUp(); // MET_T1Smear_pt_jesCorrelationGroupUncorrelatedUp/F
+    const float &MET_T1Smear_pt_jesCorrelationGroupbJESDown(); // MET_T1Smear_pt_jesCorrelationGroupbJESDown/F
+    const float &MET_T1Smear_pt_jesCorrelationGroupbJESUp(); // MET_T1Smear_pt_jesCorrelationGroupbJESUp/F
+    const float &MET_T1Smear_pt_jesFlavorPhotonJetDown(); // MET_T1Smear_pt_jesFlavorPhotonJetDown/F
+    const float &MET_T1Smear_pt_jesFlavorPhotonJetUp(); // MET_T1Smear_pt_jesFlavorPhotonJetUp/F
+    const float &MET_T1Smear_pt_jesFlavorPureBottomDown(); // MET_T1Smear_pt_jesFlavorPureBottomDown/F
+    const float &MET_T1Smear_pt_jesFlavorPureBottomUp(); // MET_T1Smear_pt_jesFlavorPureBottomUp/F
+    const float &MET_T1Smear_pt_jesFlavorPureCharmDown(); // MET_T1Smear_pt_jesFlavorPureCharmDown/F
+    const float &MET_T1Smear_pt_jesFlavorPureCharmUp(); // MET_T1Smear_pt_jesFlavorPureCharmUp/F
+    const float &MET_T1Smear_pt_jesFlavorPureGluonDown(); // MET_T1Smear_pt_jesFlavorPureGluonDown/F
+    const float &MET_T1Smear_pt_jesFlavorPureGluonUp(); // MET_T1Smear_pt_jesFlavorPureGluonUp/F
+    const float &MET_T1Smear_pt_jesFlavorPureQuarkDown(); // MET_T1Smear_pt_jesFlavorPureQuarkDown/F
+    const float &MET_T1Smear_pt_jesFlavorPureQuarkUp(); // MET_T1Smear_pt_jesFlavorPureQuarkUp/F
+    const float &MET_T1Smear_pt_jesFlavorQCDDown(); // MET_T1Smear_pt_jesFlavorQCDDown/F
+    const float &MET_T1Smear_pt_jesFlavorQCDUp(); // MET_T1Smear_pt_jesFlavorQCDUp/F
+    const float &MET_T1Smear_pt_jesFlavorZJetDown(); // MET_T1Smear_pt_jesFlavorZJetDown/F
+    const float &MET_T1Smear_pt_jesFlavorZJetUp(); // MET_T1Smear_pt_jesFlavorZJetUp/F
+    const float &MET_T1Smear_pt_jesFragmentationDown(); // MET_T1Smear_pt_jesFragmentationDown/F
+    const float &MET_T1Smear_pt_jesFragmentationUp(); // MET_T1Smear_pt_jesFragmentationUp/F
     const float &MET_T1Smear_pt_jesHEMIssueDown(); // MET_T1Smear_pt_jesHEMIssueDown/F
     const float &MET_T1Smear_pt_jesHEMIssueUp(); // MET_T1Smear_pt_jesHEMIssueUp/F
+    const float &MET_T1Smear_pt_jesPileUpDataMCDown(); // MET_T1Smear_pt_jesPileUpDataMCDown/F
+    const float &MET_T1Smear_pt_jesPileUpDataMCUp(); // MET_T1Smear_pt_jesPileUpDataMCUp/F
+    const float &MET_T1Smear_pt_jesPileUpEnvelopeDown(); // MET_T1Smear_pt_jesPileUpEnvelopeDown/F
+    const float &MET_T1Smear_pt_jesPileUpEnvelopeUp(); // MET_T1Smear_pt_jesPileUpEnvelopeUp/F
+    const float &MET_T1Smear_pt_jesPileUpMuZeroDown(); // MET_T1Smear_pt_jesPileUpMuZeroDown/F
+    const float &MET_T1Smear_pt_jesPileUpMuZeroUp(); // MET_T1Smear_pt_jesPileUpMuZeroUp/F
+    const float &MET_T1Smear_pt_jesPileUpPtBBDown(); // MET_T1Smear_pt_jesPileUpPtBBDown/F
+    const float &MET_T1Smear_pt_jesPileUpPtBBUp(); // MET_T1Smear_pt_jesPileUpPtBBUp/F
+    const float &MET_T1Smear_pt_jesPileUpPtEC1Down(); // MET_T1Smear_pt_jesPileUpPtEC1Down/F
+    const float &MET_T1Smear_pt_jesPileUpPtEC1Up(); // MET_T1Smear_pt_jesPileUpPtEC1Up/F
+    const float &MET_T1Smear_pt_jesPileUpPtEC2Down(); // MET_T1Smear_pt_jesPileUpPtEC2Down/F
+    const float &MET_T1Smear_pt_jesPileUpPtEC2Up(); // MET_T1Smear_pt_jesPileUpPtEC2Up/F
+    const float &MET_T1Smear_pt_jesPileUpPtHFDown(); // MET_T1Smear_pt_jesPileUpPtHFDown/F
+    const float &MET_T1Smear_pt_jesPileUpPtHFUp(); // MET_T1Smear_pt_jesPileUpPtHFUp/F
+    const float &MET_T1Smear_pt_jesPileUpPtRefDown(); // MET_T1Smear_pt_jesPileUpPtRefDown/F
+    const float &MET_T1Smear_pt_jesPileUpPtRefUp(); // MET_T1Smear_pt_jesPileUpPtRefUp/F
+    const float &MET_T1Smear_pt_jesRelativeBalDown(); // MET_T1Smear_pt_jesRelativeBalDown/F
+    const float &MET_T1Smear_pt_jesRelativeBalUp(); // MET_T1Smear_pt_jesRelativeBalUp/F
+    const float &MET_T1Smear_pt_jesRelativeFSRDown(); // MET_T1Smear_pt_jesRelativeFSRDown/F
+    const float &MET_T1Smear_pt_jesRelativeFSRUp(); // MET_T1Smear_pt_jesRelativeFSRUp/F
+    const float &MET_T1Smear_pt_jesRelativeJEREC1Down(); // MET_T1Smear_pt_jesRelativeJEREC1Down/F
+    const float &MET_T1Smear_pt_jesRelativeJEREC1Up(); // MET_T1Smear_pt_jesRelativeJEREC1Up/F
+    const float &MET_T1Smear_pt_jesRelativeJEREC2Down(); // MET_T1Smear_pt_jesRelativeJEREC2Down/F
+    const float &MET_T1Smear_pt_jesRelativeJEREC2Up(); // MET_T1Smear_pt_jesRelativeJEREC2Up/F
+    const float &MET_T1Smear_pt_jesRelativeJERHFDown(); // MET_T1Smear_pt_jesRelativeJERHFDown/F
+    const float &MET_T1Smear_pt_jesRelativeJERHFUp(); // MET_T1Smear_pt_jesRelativeJERHFUp/F
+    const float &MET_T1Smear_pt_jesRelativePtBBDown(); // MET_T1Smear_pt_jesRelativePtBBDown/F
+    const float &MET_T1Smear_pt_jesRelativePtBBUp(); // MET_T1Smear_pt_jesRelativePtBBUp/F
+    const float &MET_T1Smear_pt_jesRelativePtEC1Down(); // MET_T1Smear_pt_jesRelativePtEC1Down/F
+    const float &MET_T1Smear_pt_jesRelativePtEC1Up(); // MET_T1Smear_pt_jesRelativePtEC1Up/F
+    const float &MET_T1Smear_pt_jesRelativePtEC2Down(); // MET_T1Smear_pt_jesRelativePtEC2Down/F
+    const float &MET_T1Smear_pt_jesRelativePtEC2Up(); // MET_T1Smear_pt_jesRelativePtEC2Up/F
+    const float &MET_T1Smear_pt_jesRelativePtHFDown(); // MET_T1Smear_pt_jesRelativePtHFDown/F
+    const float &MET_T1Smear_pt_jesRelativePtHFUp(); // MET_T1Smear_pt_jesRelativePtHFUp/F
+    const float &MET_T1Smear_pt_jesRelativeSampleDown(); // MET_T1Smear_pt_jesRelativeSampleDown/F
+    const float &MET_T1Smear_pt_jesRelativeSampleUp(); // MET_T1Smear_pt_jesRelativeSampleUp/F
+    const float &MET_T1Smear_pt_jesRelativeStatECDown(); // MET_T1Smear_pt_jesRelativeStatECDown/F
+    const float &MET_T1Smear_pt_jesRelativeStatECUp(); // MET_T1Smear_pt_jesRelativeStatECUp/F
+    const float &MET_T1Smear_pt_jesRelativeStatFSRDown(); // MET_T1Smear_pt_jesRelativeStatFSRDown/F
+    const float &MET_T1Smear_pt_jesRelativeStatFSRUp(); // MET_T1Smear_pt_jesRelativeStatFSRUp/F
+    const float &MET_T1Smear_pt_jesRelativeStatHFDown(); // MET_T1Smear_pt_jesRelativeStatHFDown/F
+    const float &MET_T1Smear_pt_jesRelativeStatHFUp(); // MET_T1Smear_pt_jesRelativeStatHFUp/F
+    const float &MET_T1Smear_pt_jesSinglePionECALDown(); // MET_T1Smear_pt_jesSinglePionECALDown/F
+    const float &MET_T1Smear_pt_jesSinglePionECALUp(); // MET_T1Smear_pt_jesSinglePionECALUp/F
+    const float &MET_T1Smear_pt_jesSinglePionHCALDown(); // MET_T1Smear_pt_jesSinglePionHCALDown/F
+    const float &MET_T1Smear_pt_jesSinglePionHCALUp(); // MET_T1Smear_pt_jesSinglePionHCALUp/F
+    const float &MET_T1Smear_pt_jesSubTotalAbsoluteDown(); // MET_T1Smear_pt_jesSubTotalAbsoluteDown/F
+    const float &MET_T1Smear_pt_jesSubTotalAbsoluteUp(); // MET_T1Smear_pt_jesSubTotalAbsoluteUp/F
+    const float &MET_T1Smear_pt_jesSubTotalMCDown(); // MET_T1Smear_pt_jesSubTotalMCDown/F
+    const float &MET_T1Smear_pt_jesSubTotalMCUp(); // MET_T1Smear_pt_jesSubTotalMCUp/F
+    const float &MET_T1Smear_pt_jesSubTotalPileUpDown(); // MET_T1Smear_pt_jesSubTotalPileUpDown/F
+    const float &MET_T1Smear_pt_jesSubTotalPileUpUp(); // MET_T1Smear_pt_jesSubTotalPileUpUp/F
+    const float &MET_T1Smear_pt_jesSubTotalPtDown(); // MET_T1Smear_pt_jesSubTotalPtDown/F
+    const float &MET_T1Smear_pt_jesSubTotalPtUp(); // MET_T1Smear_pt_jesSubTotalPtUp/F
+    const float &MET_T1Smear_pt_jesSubTotalRelativeDown(); // MET_T1Smear_pt_jesSubTotalRelativeDown/F
+    const float &MET_T1Smear_pt_jesSubTotalRelativeUp(); // MET_T1Smear_pt_jesSubTotalRelativeUp/F
+    const float &MET_T1Smear_pt_jesSubTotalScaleDown(); // MET_T1Smear_pt_jesSubTotalScaleDown/F
+    const float &MET_T1Smear_pt_jesSubTotalScaleUp(); // MET_T1Smear_pt_jesSubTotalScaleUp/F
+    const float &MET_T1Smear_pt_jesTimePtEtaDown(); // MET_T1Smear_pt_jesTimePtEtaDown/F
+    const float &MET_T1Smear_pt_jesTimePtEtaUp(); // MET_T1Smear_pt_jesTimePtEtaUp/F
+    const float &MET_T1Smear_pt_jesTimeRunADown(); // MET_T1Smear_pt_jesTimeRunADown/F
+    const float &MET_T1Smear_pt_jesTimeRunAUp(); // MET_T1Smear_pt_jesTimeRunAUp/F
+    const float &MET_T1Smear_pt_jesTimeRunBDown(); // MET_T1Smear_pt_jesTimeRunBDown/F
+    const float &MET_T1Smear_pt_jesTimeRunBUp(); // MET_T1Smear_pt_jesTimeRunBUp/F
+    const float &MET_T1Smear_pt_jesTimeRunCDown(); // MET_T1Smear_pt_jesTimeRunCDown/F
+    const float &MET_T1Smear_pt_jesTimeRunCUp(); // MET_T1Smear_pt_jesTimeRunCUp/F
+    const float &MET_T1Smear_pt_jesTimeRunDDown(); // MET_T1Smear_pt_jesTimeRunDDown/F
+    const float &MET_T1Smear_pt_jesTimeRunDUp(); // MET_T1Smear_pt_jesTimeRunDUp/F
     const float &MET_T1Smear_pt_jesTotalDown(); // MET_T1Smear_pt_jesTotalDown/F
+    const float &MET_T1Smear_pt_jesTotalNoFlavorDown(); // MET_T1Smear_pt_jesTotalNoFlavorDown/F
+    const float &MET_T1Smear_pt_jesTotalNoFlavorNoTimeDown(); // MET_T1Smear_pt_jesTotalNoFlavorNoTimeDown/F
+    const float &MET_T1Smear_pt_jesTotalNoFlavorNoTimeUp(); // MET_T1Smear_pt_jesTotalNoFlavorNoTimeUp/F
+    const float &MET_T1Smear_pt_jesTotalNoFlavorUp(); // MET_T1Smear_pt_jesTotalNoFlavorUp/F
+    const float &MET_T1Smear_pt_jesTotalNoTimeDown(); // MET_T1Smear_pt_jesTotalNoTimeDown/F
+    const float &MET_T1Smear_pt_jesTotalNoTimeUp(); // MET_T1Smear_pt_jesTotalNoTimeUp/F
     const float &MET_T1Smear_pt_jesTotalUp(); // MET_T1Smear_pt_jesTotalUp/F
     const float &MET_T1Smear_pt_unclustEnDown(); // MET_T1Smear_pt_unclustEnDown/F
     const float &MET_T1Smear_pt_unclustEnUp(); // MET_T1Smear_pt_unclustEnUp/F
     const float &MET_T1_phi(); // MET_T1_phi/F
     const float &MET_T1_phi_jerDown(); // MET_T1_phi_jerDown/F
     const float &MET_T1_phi_jerUp(); // MET_T1_phi_jerUp/F
+    const float &MET_T1_phi_jesAbsoluteFlavMapDown(); // MET_T1_phi_jesAbsoluteFlavMapDown/F
+    const float &MET_T1_phi_jesAbsoluteFlavMapUp(); // MET_T1_phi_jesAbsoluteFlavMapUp/F
+    const float &MET_T1_phi_jesAbsoluteMPFBiasDown(); // MET_T1_phi_jesAbsoluteMPFBiasDown/F
+    const float &MET_T1_phi_jesAbsoluteMPFBiasUp(); // MET_T1_phi_jesAbsoluteMPFBiasUp/F
+    const float &MET_T1_phi_jesAbsoluteSampleDown(); // MET_T1_phi_jesAbsoluteSampleDown/F
+    const float &MET_T1_phi_jesAbsoluteSampleUp(); // MET_T1_phi_jesAbsoluteSampleUp/F
+    const float &MET_T1_phi_jesAbsoluteScaleDown(); // MET_T1_phi_jesAbsoluteScaleDown/F
+    const float &MET_T1_phi_jesAbsoluteScaleUp(); // MET_T1_phi_jesAbsoluteScaleUp/F
+    const float &MET_T1_phi_jesAbsoluteStatDown(); // MET_T1_phi_jesAbsoluteStatDown/F
+    const float &MET_T1_phi_jesAbsoluteStatUp(); // MET_T1_phi_jesAbsoluteStatUp/F
+    const float &MET_T1_phi_jesCorrelationGroupFlavorDown(); // MET_T1_phi_jesCorrelationGroupFlavorDown/F
+    const float &MET_T1_phi_jesCorrelationGroupFlavorUp(); // MET_T1_phi_jesCorrelationGroupFlavorUp/F
+    const float &MET_T1_phi_jesCorrelationGroupIntercalibrationDown(); // MET_T1_phi_jesCorrelationGroupIntercalibrationDown/F
+    const float &MET_T1_phi_jesCorrelationGroupIntercalibrationUp(); // MET_T1_phi_jesCorrelationGroupIntercalibrationUp/F
+    const float &MET_T1_phi_jesCorrelationGroupMPFInSituDown(); // MET_T1_phi_jesCorrelationGroupMPFInSituDown/F
+    const float &MET_T1_phi_jesCorrelationGroupMPFInSituUp(); // MET_T1_phi_jesCorrelationGroupMPFInSituUp/F
+    const float &MET_T1_phi_jesCorrelationGroupUncorrelatedDown(); // MET_T1_phi_jesCorrelationGroupUncorrelatedDown/F
+    const float &MET_T1_phi_jesCorrelationGroupUncorrelatedUp(); // MET_T1_phi_jesCorrelationGroupUncorrelatedUp/F
+    const float &MET_T1_phi_jesCorrelationGroupbJESDown(); // MET_T1_phi_jesCorrelationGroupbJESDown/F
+    const float &MET_T1_phi_jesCorrelationGroupbJESUp(); // MET_T1_phi_jesCorrelationGroupbJESUp/F
+    const float &MET_T1_phi_jesFlavorPhotonJetDown(); // MET_T1_phi_jesFlavorPhotonJetDown/F
+    const float &MET_T1_phi_jesFlavorPhotonJetUp(); // MET_T1_phi_jesFlavorPhotonJetUp/F
+    const float &MET_T1_phi_jesFlavorPureBottomDown(); // MET_T1_phi_jesFlavorPureBottomDown/F
+    const float &MET_T1_phi_jesFlavorPureBottomUp(); // MET_T1_phi_jesFlavorPureBottomUp/F
+    const float &MET_T1_phi_jesFlavorPureCharmDown(); // MET_T1_phi_jesFlavorPureCharmDown/F
+    const float &MET_T1_phi_jesFlavorPureCharmUp(); // MET_T1_phi_jesFlavorPureCharmUp/F
+    const float &MET_T1_phi_jesFlavorPureGluonDown(); // MET_T1_phi_jesFlavorPureGluonDown/F
+    const float &MET_T1_phi_jesFlavorPureGluonUp(); // MET_T1_phi_jesFlavorPureGluonUp/F
+    const float &MET_T1_phi_jesFlavorPureQuarkDown(); // MET_T1_phi_jesFlavorPureQuarkDown/F
+    const float &MET_T1_phi_jesFlavorPureQuarkUp(); // MET_T1_phi_jesFlavorPureQuarkUp/F
+    const float &MET_T1_phi_jesFlavorQCDDown(); // MET_T1_phi_jesFlavorQCDDown/F
+    const float &MET_T1_phi_jesFlavorQCDUp(); // MET_T1_phi_jesFlavorQCDUp/F
+    const float &MET_T1_phi_jesFlavorZJetDown(); // MET_T1_phi_jesFlavorZJetDown/F
+    const float &MET_T1_phi_jesFlavorZJetUp(); // MET_T1_phi_jesFlavorZJetUp/F
+    const float &MET_T1_phi_jesFragmentationDown(); // MET_T1_phi_jesFragmentationDown/F
+    const float &MET_T1_phi_jesFragmentationUp(); // MET_T1_phi_jesFragmentationUp/F
     const float &MET_T1_phi_jesHEMIssueDown(); // MET_T1_phi_jesHEMIssueDown/F
     const float &MET_T1_phi_jesHEMIssueUp(); // MET_T1_phi_jesHEMIssueUp/F
+    const float &MET_T1_phi_jesPileUpDataMCDown(); // MET_T1_phi_jesPileUpDataMCDown/F
+    const float &MET_T1_phi_jesPileUpDataMCUp(); // MET_T1_phi_jesPileUpDataMCUp/F
+    const float &MET_T1_phi_jesPileUpEnvelopeDown(); // MET_T1_phi_jesPileUpEnvelopeDown/F
+    const float &MET_T1_phi_jesPileUpEnvelopeUp(); // MET_T1_phi_jesPileUpEnvelopeUp/F
+    const float &MET_T1_phi_jesPileUpMuZeroDown(); // MET_T1_phi_jesPileUpMuZeroDown/F
+    const float &MET_T1_phi_jesPileUpMuZeroUp(); // MET_T1_phi_jesPileUpMuZeroUp/F
+    const float &MET_T1_phi_jesPileUpPtBBDown(); // MET_T1_phi_jesPileUpPtBBDown/F
+    const float &MET_T1_phi_jesPileUpPtBBUp(); // MET_T1_phi_jesPileUpPtBBUp/F
+    const float &MET_T1_phi_jesPileUpPtEC1Down(); // MET_T1_phi_jesPileUpPtEC1Down/F
+    const float &MET_T1_phi_jesPileUpPtEC1Up(); // MET_T1_phi_jesPileUpPtEC1Up/F
+    const float &MET_T1_phi_jesPileUpPtEC2Down(); // MET_T1_phi_jesPileUpPtEC2Down/F
+    const float &MET_T1_phi_jesPileUpPtEC2Up(); // MET_T1_phi_jesPileUpPtEC2Up/F
+    const float &MET_T1_phi_jesPileUpPtHFDown(); // MET_T1_phi_jesPileUpPtHFDown/F
+    const float &MET_T1_phi_jesPileUpPtHFUp(); // MET_T1_phi_jesPileUpPtHFUp/F
+    const float &MET_T1_phi_jesPileUpPtRefDown(); // MET_T1_phi_jesPileUpPtRefDown/F
+    const float &MET_T1_phi_jesPileUpPtRefUp(); // MET_T1_phi_jesPileUpPtRefUp/F
+    const float &MET_T1_phi_jesRelativeBalDown(); // MET_T1_phi_jesRelativeBalDown/F
+    const float &MET_T1_phi_jesRelativeBalUp(); // MET_T1_phi_jesRelativeBalUp/F
+    const float &MET_T1_phi_jesRelativeFSRDown(); // MET_T1_phi_jesRelativeFSRDown/F
+    const float &MET_T1_phi_jesRelativeFSRUp(); // MET_T1_phi_jesRelativeFSRUp/F
+    const float &MET_T1_phi_jesRelativeJEREC1Down(); // MET_T1_phi_jesRelativeJEREC1Down/F
+    const float &MET_T1_phi_jesRelativeJEREC1Up(); // MET_T1_phi_jesRelativeJEREC1Up/F
+    const float &MET_T1_phi_jesRelativeJEREC2Down(); // MET_T1_phi_jesRelativeJEREC2Down/F
+    const float &MET_T1_phi_jesRelativeJEREC2Up(); // MET_T1_phi_jesRelativeJEREC2Up/F
+    const float &MET_T1_phi_jesRelativeJERHFDown(); // MET_T1_phi_jesRelativeJERHFDown/F
+    const float &MET_T1_phi_jesRelativeJERHFUp(); // MET_T1_phi_jesRelativeJERHFUp/F
+    const float &MET_T1_phi_jesRelativePtBBDown(); // MET_T1_phi_jesRelativePtBBDown/F
+    const float &MET_T1_phi_jesRelativePtBBUp(); // MET_T1_phi_jesRelativePtBBUp/F
+    const float &MET_T1_phi_jesRelativePtEC1Down(); // MET_T1_phi_jesRelativePtEC1Down/F
+    const float &MET_T1_phi_jesRelativePtEC1Up(); // MET_T1_phi_jesRelativePtEC1Up/F
+    const float &MET_T1_phi_jesRelativePtEC2Down(); // MET_T1_phi_jesRelativePtEC2Down/F
+    const float &MET_T1_phi_jesRelativePtEC2Up(); // MET_T1_phi_jesRelativePtEC2Up/F
+    const float &MET_T1_phi_jesRelativePtHFDown(); // MET_T1_phi_jesRelativePtHFDown/F
+    const float &MET_T1_phi_jesRelativePtHFUp(); // MET_T1_phi_jesRelativePtHFUp/F
+    const float &MET_T1_phi_jesRelativeSampleDown(); // MET_T1_phi_jesRelativeSampleDown/F
+    const float &MET_T1_phi_jesRelativeSampleUp(); // MET_T1_phi_jesRelativeSampleUp/F
+    const float &MET_T1_phi_jesRelativeStatECDown(); // MET_T1_phi_jesRelativeStatECDown/F
+    const float &MET_T1_phi_jesRelativeStatECUp(); // MET_T1_phi_jesRelativeStatECUp/F
+    const float &MET_T1_phi_jesRelativeStatFSRDown(); // MET_T1_phi_jesRelativeStatFSRDown/F
+    const float &MET_T1_phi_jesRelativeStatFSRUp(); // MET_T1_phi_jesRelativeStatFSRUp/F
+    const float &MET_T1_phi_jesRelativeStatHFDown(); // MET_T1_phi_jesRelativeStatHFDown/F
+    const float &MET_T1_phi_jesRelativeStatHFUp(); // MET_T1_phi_jesRelativeStatHFUp/F
+    const float &MET_T1_phi_jesSinglePionECALDown(); // MET_T1_phi_jesSinglePionECALDown/F
+    const float &MET_T1_phi_jesSinglePionECALUp(); // MET_T1_phi_jesSinglePionECALUp/F
+    const float &MET_T1_phi_jesSinglePionHCALDown(); // MET_T1_phi_jesSinglePionHCALDown/F
+    const float &MET_T1_phi_jesSinglePionHCALUp(); // MET_T1_phi_jesSinglePionHCALUp/F
+    const float &MET_T1_phi_jesSubTotalAbsoluteDown(); // MET_T1_phi_jesSubTotalAbsoluteDown/F
+    const float &MET_T1_phi_jesSubTotalAbsoluteUp(); // MET_T1_phi_jesSubTotalAbsoluteUp/F
+    const float &MET_T1_phi_jesSubTotalMCDown(); // MET_T1_phi_jesSubTotalMCDown/F
+    const float &MET_T1_phi_jesSubTotalMCUp(); // MET_T1_phi_jesSubTotalMCUp/F
+    const float &MET_T1_phi_jesSubTotalPileUpDown(); // MET_T1_phi_jesSubTotalPileUpDown/F
+    const float &MET_T1_phi_jesSubTotalPileUpUp(); // MET_T1_phi_jesSubTotalPileUpUp/F
+    const float &MET_T1_phi_jesSubTotalPtDown(); // MET_T1_phi_jesSubTotalPtDown/F
+    const float &MET_T1_phi_jesSubTotalPtUp(); // MET_T1_phi_jesSubTotalPtUp/F
+    const float &MET_T1_phi_jesSubTotalRelativeDown(); // MET_T1_phi_jesSubTotalRelativeDown/F
+    const float &MET_T1_phi_jesSubTotalRelativeUp(); // MET_T1_phi_jesSubTotalRelativeUp/F
+    const float &MET_T1_phi_jesSubTotalScaleDown(); // MET_T1_phi_jesSubTotalScaleDown/F
+    const float &MET_T1_phi_jesSubTotalScaleUp(); // MET_T1_phi_jesSubTotalScaleUp/F
+    const float &MET_T1_phi_jesTimePtEtaDown(); // MET_T1_phi_jesTimePtEtaDown/F
+    const float &MET_T1_phi_jesTimePtEtaUp(); // MET_T1_phi_jesTimePtEtaUp/F
+    const float &MET_T1_phi_jesTimeRunADown(); // MET_T1_phi_jesTimeRunADown/F
+    const float &MET_T1_phi_jesTimeRunAUp(); // MET_T1_phi_jesTimeRunAUp/F
+    const float &MET_T1_phi_jesTimeRunBDown(); // MET_T1_phi_jesTimeRunBDown/F
+    const float &MET_T1_phi_jesTimeRunBUp(); // MET_T1_phi_jesTimeRunBUp/F
+    const float &MET_T1_phi_jesTimeRunCDown(); // MET_T1_phi_jesTimeRunCDown/F
+    const float &MET_T1_phi_jesTimeRunCUp(); // MET_T1_phi_jesTimeRunCUp/F
+    const float &MET_T1_phi_jesTimeRunDDown(); // MET_T1_phi_jesTimeRunDDown/F
+    const float &MET_T1_phi_jesTimeRunDUp(); // MET_T1_phi_jesTimeRunDUp/F
     const float &MET_T1_phi_jesTotalDown(); // MET_T1_phi_jesTotalDown/F
+    const float &MET_T1_phi_jesTotalNoFlavorDown(); // MET_T1_phi_jesTotalNoFlavorDown/F
+    const float &MET_T1_phi_jesTotalNoFlavorNoTimeDown(); // MET_T1_phi_jesTotalNoFlavorNoTimeDown/F
+    const float &MET_T1_phi_jesTotalNoFlavorNoTimeUp(); // MET_T1_phi_jesTotalNoFlavorNoTimeUp/F
+    const float &MET_T1_phi_jesTotalNoFlavorUp(); // MET_T1_phi_jesTotalNoFlavorUp/F
+    const float &MET_T1_phi_jesTotalNoTimeDown(); // MET_T1_phi_jesTotalNoTimeDown/F
+    const float &MET_T1_phi_jesTotalNoTimeUp(); // MET_T1_phi_jesTotalNoTimeUp/F
     const float &MET_T1_phi_jesTotalUp(); // MET_T1_phi_jesTotalUp/F
     const float &MET_T1_phi_unclustEnDown(); // MET_T1_phi_unclustEnDown/F
     const float &MET_T1_phi_unclustEnUp(); // MET_T1_phi_unclustEnUp/F
     const float &MET_T1_pt(); // MET_T1_pt/F
     const float &MET_T1_pt_jerDown(); // MET_T1_pt_jerDown/F
     const float &MET_T1_pt_jerUp(); // MET_T1_pt_jerUp/F
+    const float &MET_T1_pt_jesAbsoluteFlavMapDown(); // MET_T1_pt_jesAbsoluteFlavMapDown/F
+    const float &MET_T1_pt_jesAbsoluteFlavMapUp(); // MET_T1_pt_jesAbsoluteFlavMapUp/F
+    const float &MET_T1_pt_jesAbsoluteMPFBiasDown(); // MET_T1_pt_jesAbsoluteMPFBiasDown/F
+    const float &MET_T1_pt_jesAbsoluteMPFBiasUp(); // MET_T1_pt_jesAbsoluteMPFBiasUp/F
+    const float &MET_T1_pt_jesAbsoluteSampleDown(); // MET_T1_pt_jesAbsoluteSampleDown/F
+    const float &MET_T1_pt_jesAbsoluteSampleUp(); // MET_T1_pt_jesAbsoluteSampleUp/F
+    const float &MET_T1_pt_jesAbsoluteScaleDown(); // MET_T1_pt_jesAbsoluteScaleDown/F
+    const float &MET_T1_pt_jesAbsoluteScaleUp(); // MET_T1_pt_jesAbsoluteScaleUp/F
+    const float &MET_T1_pt_jesAbsoluteStatDown(); // MET_T1_pt_jesAbsoluteStatDown/F
+    const float &MET_T1_pt_jesAbsoluteStatUp(); // MET_T1_pt_jesAbsoluteStatUp/F
+    const float &MET_T1_pt_jesCorrelationGroupFlavorDown(); // MET_T1_pt_jesCorrelationGroupFlavorDown/F
+    const float &MET_T1_pt_jesCorrelationGroupFlavorUp(); // MET_T1_pt_jesCorrelationGroupFlavorUp/F
+    const float &MET_T1_pt_jesCorrelationGroupIntercalibrationDown(); // MET_T1_pt_jesCorrelationGroupIntercalibrationDown/F
+    const float &MET_T1_pt_jesCorrelationGroupIntercalibrationUp(); // MET_T1_pt_jesCorrelationGroupIntercalibrationUp/F
+    const float &MET_T1_pt_jesCorrelationGroupMPFInSituDown(); // MET_T1_pt_jesCorrelationGroupMPFInSituDown/F
+    const float &MET_T1_pt_jesCorrelationGroupMPFInSituUp(); // MET_T1_pt_jesCorrelationGroupMPFInSituUp/F
+    const float &MET_T1_pt_jesCorrelationGroupUncorrelatedDown(); // MET_T1_pt_jesCorrelationGroupUncorrelatedDown/F
+    const float &MET_T1_pt_jesCorrelationGroupUncorrelatedUp(); // MET_T1_pt_jesCorrelationGroupUncorrelatedUp/F
+    const float &MET_T1_pt_jesCorrelationGroupbJESDown(); // MET_T1_pt_jesCorrelationGroupbJESDown/F
+    const float &MET_T1_pt_jesCorrelationGroupbJESUp(); // MET_T1_pt_jesCorrelationGroupbJESUp/F
+    const float &MET_T1_pt_jesFlavorPhotonJetDown(); // MET_T1_pt_jesFlavorPhotonJetDown/F
+    const float &MET_T1_pt_jesFlavorPhotonJetUp(); // MET_T1_pt_jesFlavorPhotonJetUp/F
+    const float &MET_T1_pt_jesFlavorPureBottomDown(); // MET_T1_pt_jesFlavorPureBottomDown/F
+    const float &MET_T1_pt_jesFlavorPureBottomUp(); // MET_T1_pt_jesFlavorPureBottomUp/F
+    const float &MET_T1_pt_jesFlavorPureCharmDown(); // MET_T1_pt_jesFlavorPureCharmDown/F
+    const float &MET_T1_pt_jesFlavorPureCharmUp(); // MET_T1_pt_jesFlavorPureCharmUp/F
+    const float &MET_T1_pt_jesFlavorPureGluonDown(); // MET_T1_pt_jesFlavorPureGluonDown/F
+    const float &MET_T1_pt_jesFlavorPureGluonUp(); // MET_T1_pt_jesFlavorPureGluonUp/F
+    const float &MET_T1_pt_jesFlavorPureQuarkDown(); // MET_T1_pt_jesFlavorPureQuarkDown/F
+    const float &MET_T1_pt_jesFlavorPureQuarkUp(); // MET_T1_pt_jesFlavorPureQuarkUp/F
+    const float &MET_T1_pt_jesFlavorQCDDown(); // MET_T1_pt_jesFlavorQCDDown/F
+    const float &MET_T1_pt_jesFlavorQCDUp(); // MET_T1_pt_jesFlavorQCDUp/F
+    const float &MET_T1_pt_jesFlavorZJetDown(); // MET_T1_pt_jesFlavorZJetDown/F
+    const float &MET_T1_pt_jesFlavorZJetUp(); // MET_T1_pt_jesFlavorZJetUp/F
+    const float &MET_T1_pt_jesFragmentationDown(); // MET_T1_pt_jesFragmentationDown/F
+    const float &MET_T1_pt_jesFragmentationUp(); // MET_T1_pt_jesFragmentationUp/F
     const float &MET_T1_pt_jesHEMIssueDown(); // MET_T1_pt_jesHEMIssueDown/F
     const float &MET_T1_pt_jesHEMIssueUp(); // MET_T1_pt_jesHEMIssueUp/F
+    const float &MET_T1_pt_jesPileUpDataMCDown(); // MET_T1_pt_jesPileUpDataMCDown/F
+    const float &MET_T1_pt_jesPileUpDataMCUp(); // MET_T1_pt_jesPileUpDataMCUp/F
+    const float &MET_T1_pt_jesPileUpEnvelopeDown(); // MET_T1_pt_jesPileUpEnvelopeDown/F
+    const float &MET_T1_pt_jesPileUpEnvelopeUp(); // MET_T1_pt_jesPileUpEnvelopeUp/F
+    const float &MET_T1_pt_jesPileUpMuZeroDown(); // MET_T1_pt_jesPileUpMuZeroDown/F
+    const float &MET_T1_pt_jesPileUpMuZeroUp(); // MET_T1_pt_jesPileUpMuZeroUp/F
+    const float &MET_T1_pt_jesPileUpPtBBDown(); // MET_T1_pt_jesPileUpPtBBDown/F
+    const float &MET_T1_pt_jesPileUpPtBBUp(); // MET_T1_pt_jesPileUpPtBBUp/F
+    const float &MET_T1_pt_jesPileUpPtEC1Down(); // MET_T1_pt_jesPileUpPtEC1Down/F
+    const float &MET_T1_pt_jesPileUpPtEC1Up(); // MET_T1_pt_jesPileUpPtEC1Up/F
+    const float &MET_T1_pt_jesPileUpPtEC2Down(); // MET_T1_pt_jesPileUpPtEC2Down/F
+    const float &MET_T1_pt_jesPileUpPtEC2Up(); // MET_T1_pt_jesPileUpPtEC2Up/F
+    const float &MET_T1_pt_jesPileUpPtHFDown(); // MET_T1_pt_jesPileUpPtHFDown/F
+    const float &MET_T1_pt_jesPileUpPtHFUp(); // MET_T1_pt_jesPileUpPtHFUp/F
+    const float &MET_T1_pt_jesPileUpPtRefDown(); // MET_T1_pt_jesPileUpPtRefDown/F
+    const float &MET_T1_pt_jesPileUpPtRefUp(); // MET_T1_pt_jesPileUpPtRefUp/F
+    const float &MET_T1_pt_jesRelativeBalDown(); // MET_T1_pt_jesRelativeBalDown/F
+    const float &MET_T1_pt_jesRelativeBalUp(); // MET_T1_pt_jesRelativeBalUp/F
+    const float &MET_T1_pt_jesRelativeFSRDown(); // MET_T1_pt_jesRelativeFSRDown/F
+    const float &MET_T1_pt_jesRelativeFSRUp(); // MET_T1_pt_jesRelativeFSRUp/F
+    const float &MET_T1_pt_jesRelativeJEREC1Down(); // MET_T1_pt_jesRelativeJEREC1Down/F
+    const float &MET_T1_pt_jesRelativeJEREC1Up(); // MET_T1_pt_jesRelativeJEREC1Up/F
+    const float &MET_T1_pt_jesRelativeJEREC2Down(); // MET_T1_pt_jesRelativeJEREC2Down/F
+    const float &MET_T1_pt_jesRelativeJEREC2Up(); // MET_T1_pt_jesRelativeJEREC2Up/F
+    const float &MET_T1_pt_jesRelativeJERHFDown(); // MET_T1_pt_jesRelativeJERHFDown/F
+    const float &MET_T1_pt_jesRelativeJERHFUp(); // MET_T1_pt_jesRelativeJERHFUp/F
+    const float &MET_T1_pt_jesRelativePtBBDown(); // MET_T1_pt_jesRelativePtBBDown/F
+    const float &MET_T1_pt_jesRelativePtBBUp(); // MET_T1_pt_jesRelativePtBBUp/F
+    const float &MET_T1_pt_jesRelativePtEC1Down(); // MET_T1_pt_jesRelativePtEC1Down/F
+    const float &MET_T1_pt_jesRelativePtEC1Up(); // MET_T1_pt_jesRelativePtEC1Up/F
+    const float &MET_T1_pt_jesRelativePtEC2Down(); // MET_T1_pt_jesRelativePtEC2Down/F
+    const float &MET_T1_pt_jesRelativePtEC2Up(); // MET_T1_pt_jesRelativePtEC2Up/F
+    const float &MET_T1_pt_jesRelativePtHFDown(); // MET_T1_pt_jesRelativePtHFDown/F
+    const float &MET_T1_pt_jesRelativePtHFUp(); // MET_T1_pt_jesRelativePtHFUp/F
+    const float &MET_T1_pt_jesRelativeSampleDown(); // MET_T1_pt_jesRelativeSampleDown/F
+    const float &MET_T1_pt_jesRelativeSampleUp(); // MET_T1_pt_jesRelativeSampleUp/F
+    const float &MET_T1_pt_jesRelativeStatECDown(); // MET_T1_pt_jesRelativeStatECDown/F
+    const float &MET_T1_pt_jesRelativeStatECUp(); // MET_T1_pt_jesRelativeStatECUp/F
+    const float &MET_T1_pt_jesRelativeStatFSRDown(); // MET_T1_pt_jesRelativeStatFSRDown/F
+    const float &MET_T1_pt_jesRelativeStatFSRUp(); // MET_T1_pt_jesRelativeStatFSRUp/F
+    const float &MET_T1_pt_jesRelativeStatHFDown(); // MET_T1_pt_jesRelativeStatHFDown/F
+    const float &MET_T1_pt_jesRelativeStatHFUp(); // MET_T1_pt_jesRelativeStatHFUp/F
+    const float &MET_T1_pt_jesSinglePionECALDown(); // MET_T1_pt_jesSinglePionECALDown/F
+    const float &MET_T1_pt_jesSinglePionECALUp(); // MET_T1_pt_jesSinglePionECALUp/F
+    const float &MET_T1_pt_jesSinglePionHCALDown(); // MET_T1_pt_jesSinglePionHCALDown/F
+    const float &MET_T1_pt_jesSinglePionHCALUp(); // MET_T1_pt_jesSinglePionHCALUp/F
+    const float &MET_T1_pt_jesSubTotalAbsoluteDown(); // MET_T1_pt_jesSubTotalAbsoluteDown/F
+    const float &MET_T1_pt_jesSubTotalAbsoluteUp(); // MET_T1_pt_jesSubTotalAbsoluteUp/F
+    const float &MET_T1_pt_jesSubTotalMCDown(); // MET_T1_pt_jesSubTotalMCDown/F
+    const float &MET_T1_pt_jesSubTotalMCUp(); // MET_T1_pt_jesSubTotalMCUp/F
+    const float &MET_T1_pt_jesSubTotalPileUpDown(); // MET_T1_pt_jesSubTotalPileUpDown/F
+    const float &MET_T1_pt_jesSubTotalPileUpUp(); // MET_T1_pt_jesSubTotalPileUpUp/F
+    const float &MET_T1_pt_jesSubTotalPtDown(); // MET_T1_pt_jesSubTotalPtDown/F
+    const float &MET_T1_pt_jesSubTotalPtUp(); // MET_T1_pt_jesSubTotalPtUp/F
+    const float &MET_T1_pt_jesSubTotalRelativeDown(); // MET_T1_pt_jesSubTotalRelativeDown/F
+    const float &MET_T1_pt_jesSubTotalRelativeUp(); // MET_T1_pt_jesSubTotalRelativeUp/F
+    const float &MET_T1_pt_jesSubTotalScaleDown(); // MET_T1_pt_jesSubTotalScaleDown/F
+    const float &MET_T1_pt_jesSubTotalScaleUp(); // MET_T1_pt_jesSubTotalScaleUp/F
+    const float &MET_T1_pt_jesTimePtEtaDown(); // MET_T1_pt_jesTimePtEtaDown/F
+    const float &MET_T1_pt_jesTimePtEtaUp(); // MET_T1_pt_jesTimePtEtaUp/F
+    const float &MET_T1_pt_jesTimeRunADown(); // MET_T1_pt_jesTimeRunADown/F
+    const float &MET_T1_pt_jesTimeRunAUp(); // MET_T1_pt_jesTimeRunAUp/F
+    const float &MET_T1_pt_jesTimeRunBDown(); // MET_T1_pt_jesTimeRunBDown/F
+    const float &MET_T1_pt_jesTimeRunBUp(); // MET_T1_pt_jesTimeRunBUp/F
+    const float &MET_T1_pt_jesTimeRunCDown(); // MET_T1_pt_jesTimeRunCDown/F
+    const float &MET_T1_pt_jesTimeRunCUp(); // MET_T1_pt_jesTimeRunCUp/F
+    const float &MET_T1_pt_jesTimeRunDDown(); // MET_T1_pt_jesTimeRunDDown/F
+    const float &MET_T1_pt_jesTimeRunDUp(); // MET_T1_pt_jesTimeRunDUp/F
     const float &MET_T1_pt_jesTotalDown(); // MET_T1_pt_jesTotalDown/F
+    const float &MET_T1_pt_jesTotalNoFlavorDown(); // MET_T1_pt_jesTotalNoFlavorDown/F
+    const float &MET_T1_pt_jesTotalNoFlavorNoTimeDown(); // MET_T1_pt_jesTotalNoFlavorNoTimeDown/F
+    const float &MET_T1_pt_jesTotalNoFlavorNoTimeUp(); // MET_T1_pt_jesTotalNoFlavorNoTimeUp/F
+    const float &MET_T1_pt_jesTotalNoFlavorUp(); // MET_T1_pt_jesTotalNoFlavorUp/F
+    const float &MET_T1_pt_jesTotalNoTimeDown(); // MET_T1_pt_jesTotalNoTimeDown/F
+    const float &MET_T1_pt_jesTotalNoTimeUp(); // MET_T1_pt_jesTotalNoTimeUp/F    
     const float &MET_T1_pt_jesTotalUp(); // MET_T1_pt_jesTotalUp/F
     const float &MET_T1_pt_unclustEnDown(); // MET_T1_pt_unclustEnDown/F
     const float &MET_T1_pt_unclustEnUp(); // MET_T1_pt_unclustEnUp/F
@@ -20769,6 +28278,7 @@ namespace tas {
     const vector<float> &TrigObj_l2pt(); // pt of associated 'L2' seed (i.e. HLT before tracking/PF)
     const vector<float> &TrigObj_phi(); // phi
     const vector<float> &TrigObj_pt(); // pt
+    const vector<int> &WCnames(); // EFT WC names
     const vector<int> &boostedTau_charge(); // electric charge
     const vector<float> &boostedTau_chargedIso(); // charged isolation
     const vector<int> &boostedTau_decayMode(); // decayMode()
@@ -20812,6 +28322,7 @@ namespace tas {
     const float &genWeight(); // generator weight
     const UInt_t &luminosityBlock(); // luminosityBlock/i
     const UInt_t &nCorrT1METJet(); // Additional low-pt jets for Type-1 MET re-correction
+    const UInt_t &nEFTfitCoefficients(); // 
     const UInt_t &nElectron(); // slimmedElectrons after basic selection (pt > 5 )
     const UInt_t &nFatJet(); // slimmedJetsAK8, i.e. ak8 fat jets for boosted analysis
     const UInt_t &nFsrPhoton(); // Final state radiation photons emitted by muons
@@ -20842,6 +28353,7 @@ namespace tas {
     const UInt_t &nSubJet(); // slimmedJetsAK8, i.e. ak8 fat jets for boosted analysis
     const UInt_t &nTau(); // slimmedTaus after basic selection (pt > 18 && tauID('decayModeFindingNewDMs') && (tauID('byLooseCombinedIsolationDeltaBetaCorr3Hits') || tauID('byVLooseIsolationMVArun2v1DBoldDMwLT2015') || tauID('byVLooseIsolationMVArun2v1DBnewDMwLT') || tauID('byVLooseIsolationMVArun2v1DBdR03oldDMwLT') || tauID('byVVLooseIsolationMVArun2v1DBoldDMwLT') || tauID('byVVLooseIsolationMVArun2v1DBoldDMwLT2017v2') || tauID('byVVLooseIsolationMVArun2v1DBnewDMwLT2017v2') || tauID('byVVLooseIsolationMVArun2v1DBdR03oldDMwLT2017v2') || tauID('byVVVLooseDeepTau2017v2p1VSjet')))
     const UInt_t &nTrigObj(); // 
+    const UInt_t &nWCnames(); // 
     const UInt_t &nboostedTau(); // slimmedBoostedTaus after basic selection (pt > 40 && tauID('decayModeFindingNewDMs') && (tauID('byVVLooseIsolationMVArun2017v2DBoldDMwLT2017') || tauID('byVVLooseIsolationMVArun2017v2DBoldDMdR0p3wLT2017') || tauID('byVVLooseIsolationMVArun2017v2DBnewDMwLT2017')))
     const float &puWeight(); // puWeight/F
     const float &puWeightDown(); // puWeightDown/F
